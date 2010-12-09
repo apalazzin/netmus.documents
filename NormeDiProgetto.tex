@@ -1,5 +1,5 @@
 \newcommand{\nomedoc}{Norme di progetto}
-\newcommand{\versione}{0.2}
+\newcommand{\versione}{0.3}
 \newcommand{\nomefile}{NormeDiProgetto\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
 \newcommand{\datamodifica}{9 Dicembre 2010}
@@ -23,6 +23,32 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+\bo{Data:} 09/12/2010 &
+\bo{Versione:} 0.3 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{FIX: modifica della sezione 2.1 in seguito alla
+ridefinizione della convenzione utilizzata, nomefile-$<$versione$>$.pdf invece
+di nomefile$<$versione$>$.pdf.}\\
+\multicolumn{3}{p{470px}}{ADD: aggiunta nella sezione 2.3 la norma riguardante
+la citazione di nomi di file relativi ad altri documenti.}\\
+\\
+
+\bo{Data:} 09/12/2010 &
+\bo{Versione:} 0.2 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{FIX: modifica alla sezione 4.3 e correzione
+accenti.}\\
+\\
+
+\bo{Data:} 07/12/2010 &
+\bo{Versione:} 0.1 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{NEW: Prima stesura del documento Norme Di
+Progetto.}\\
+\\
 
 % TEMPLATE PER REVISIONE
 
@@ -90,8 +116,9 @@ accordi presi.
 
 \section{Nomenclatura}
 Tutti i nomi dei file cominceranno con la lettera maiuscola, ed indicheranno in
-maniera univoca il loro contenuto. Il nome sar\`a seguito da due cifre separate da
-un punto, che indicheranno la versione del documento (guardare il capitolo in proposito).
+maniera univoca il loro contenuto. Il nome sar\`a seguito da un trattino (-)
+e due cifre separate da un punto, che indicheranno la versione del documento
+(guardare il capitolo in proposito).
 
 \section{Contenuto}
 Tutti i documenti conterranno, nell'ordine: una pagina iniziale contenente logo,
@@ -103,6 +130,9 @@ delle tabelle ed uno delle illustrazioni.
 \section{Norme tipografiche}
 Il font utilizzato sar\`a Knuth's Computer Modern (default \underline{Latex}) e
 dimensione del testo 12pt. La codifica utilizzata per i caratteri sar\`a UTF-8.
+Si utilizzer\`a la \underline{sottolineatura} per marcare i termini presenti nel
+glossario (solo alla prima ricorrenza) e l'\emph{italic} per evidenziare i nomi di file
+che fanno riferimento ad altri documenti.
 
 \section{Norme di stile}
 Ogni capitolo e sottocapitolo sar\`a identificato da due numeri separati da un
@@ -125,11 +155,11 @@ di progetto.
 Le seguenti parole chiave verranno utilizzate per definire ci\`o di cui si occupa
 la modifica apportata.
 \begin{itemize}
-\item add: \`e stato aggiunto qualcosa di nuovo ad un file che gi\`a esisteva.
-\item new: \`e stato creato qualcosa di nuovo, quindi un nuovo file. 
-\item fix: \`e stato modificato un contenuto presente in un file che gi\`a
+\item ADD: \`e stato aggiunto qualcosa di nuovo ad un file che gi\`a esisteva.
+\item NEW: \`e stato creato qualcosa di nuovo, quindi un nuovo file. 
+\item FIX: \`e stato modificato un contenuto presente in un file che gi\`a
 esisteva. 
-\item del: \`e stato totalmente eliminato qualcosa.
+\item DEL: \`e stato totalmente eliminato qualcosa.
 \end{itemize}
 
 
@@ -200,11 +230,11 @@ gestisce in maniera efficiente i vari conflitti che potrebbero esserci in PUSH
 simultanei nello stesso branch.
 Convenzione per i COMMIT:
 \begin{itemize}
-\item add: \`e stato aggiunto qualcosa di nuovo ad un file che gi\`a esisteva.
-\item new: \`e stato creato qualcosa di nuovo, quindi un nuovo file. 
-\item fix: \`e stato modificato un contenuto presente in un file che gi\`a
+\item ADD: \`e stato aggiunto qualcosa di nuovo ad un file che gi\`a esisteva.
+\item NEW: \`e stato creato qualcosa di nuovo, quindi un nuovo file. 
+\item FIX: \`e stato modificato un contenuto presente in un file che gi\`a
 esisteva. 
-\item del: \`e stato totalmente eliminato qualcosa.
+\item DEL: \`e stato totalmente eliminato qualcosa.
 \end{itemize}
 
 \section{Registro delle modifiche}
