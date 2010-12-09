@@ -1,0 +1,248 @@
+\newcommand{\nomedoc}{Norme di progetto}
+\newcommand{\versione}{0.1}
+\newcommand{\nomefile}{NormeDiProgetto\versione.pdf}
+\newcommand{\datacreazione}{7 Dicembre 2010}
+\newcommand{\datamodifica}{8 Dicembre 2010}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{interno}
+\newcommand{\redazione}{Baron Federico}
+\newcommand{\verifica}{Caputo Cosimo}
+\newcommand{\approvazione}{}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+\begin{tabular}{lll}
+% REVISIONI DEL DOCUMENTO
+% DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+% TEMPLATE PER REVISIONE
+
+\end{tabular}
+
+% INDICE
+\tableofcontents
+\thispagestyle{fancy} % per lo stile di header e footer
+
+
+\chapter*{Sommario}
+Questo documento contiene un elenco di norme le quali sono state approvate da
+tutti i membri del gruppo VT.G e di conseguenza saranno applicate in tutti i
+loro punto durante l'intero progetto in questione.
+Le norme stabilite riguardano in particolare le convenzioni di comunicazione tra
+i membri del gruppo e tra questi e l'esterno, dalle riunioni alla
+documentazione.
+Vengono definiti inoltre alcuni aspetti dell'amministrazione di progetto
+particolarmente importanti che necessitano fin da subito della conoscenza e
+dell'approvazione di tutti i membri di VT.G, come le tecnologie utilizzate
+riguardo ad attività fondamentali per il progetto.
+
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+\addcontentsline{toc}{chapter}{Sommario}
+
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+
+\section{Scopo del documento}
+Il presente documento viene redatto al fine di descrivere le norme che il gruppo
+si propone per regolare le attivit\`a, di vario genere, che da esso
+verranno svolte.
+Tutti i documenti redatti da VT.G. seguiranno le norme qui riportate.
+\input{parte_comune.tex}
+
+\chapter{Comunicazioni}
+\thispagestyle{fancy}
+Le comunicazioni tra i componenti del gruppo, e tra questi ed i committenti e
+proponenti del capitolato, verranno gestite nei modi seguenti.
+
+\section{Interne}
+Le comunicazioni interne al gruppo si svolgeranno attraverso gli strumenti
+offerti da \underline{Google Groups} (documenti condivisi \underline{Google
+Docs}, discussioni su forum, discussioni tramite eMail personali) e saranno
+visibili soltanto ai membri del gruppo. Tutti i messaggi ed i documenti
+condivisi saranno salvati in modo da essere facilmente reperibili all'interno
+delle sezioni ``Discussioni'' e ``Pagine'' del profilo Walter Texas Group in
+Google Groups.
+
+\section{Esterne}
+Le comunicazioni esterne saranno gestite con una mail di gruppo
+valtertexasgroup@googlegroups.com,  fornita da Google Groups i cui messaggi
+ricevuti saranno inoltrati alle email personali dei componenti del gruppo.
+Queste comunicazioni saranno sempre documentate tramite la redazione di un
+verbale da sottoporre ai committenti/proponenti in modo da formalizzare gli
+accordi presi.
+
+
+
+\chapter{Norme per la stesura dei documenti}
+\thispagestyle{fancy}
+
+\section{Nomenclatura}
+Tutti i nomi dei file cominceranno con la lettera maiuscola, ed indicheranno in
+maniera univoca il loro contenuto. Il nome sar\`a seguito da due cifre separate da
+un punto, che indicheranno la versione del documento (guardare il capitolo in proposito).
+
+\section{Contenuto}
+Tutti i documenti conterranno, nell'ordine: una pagina iniziale contenente logo,
+nome del documento, versione e contatti; un diario delle modifiche; un indice
+del documento; un sommario contenente un breve riassunto del documento. Al
+termine di ciascun documento saranno presenti inoltre, se necessari, un indice
+delle tabelle ed uno delle illustrazioni.
+
+\section{Norme tipografiche}
+Il font utilizzato sar\`a Knuth's Computer Modern (default \underline{Latex}) e
+dimensione del testo 12pt. La codifica utilizzata per i caratteri sar\`a UTF-8.
+
+\section{Norme di stile}
+Ogni capitolo e sottocapitolo sar\`a identificato da due numeri separati da un
+punto: il primo indicher\`a il capitolo, il secondo il sottocapitolo. Tra un
+capitolo, o un sottocapitolo, e l'altro, verr\`a utilizzato un interlinea come
+separatore.
+
+\section{Grafici ed illustrazioni}
+Ciascuna immagine e grafico saranno accompagnati da un numero progressivo
+all'interno del documento, preceduto da dei numeri che ne identificheranno il
+capitolo e il sottocapitolo in cui si trova (per esempio, immagine 1.3.1:
+immagine 1 all'interno del sottocapitolo 3 del primo capitolo).
+
+\section{Acronimi ed abbreviazioni}
+Le diverse revisioni verranno indicate con RR, RPP, RPD, RQ, RA. Verr\`a
+utilizzato l'acronimo VT.G (Valter Texas Group) per riferimenti al nostro gruppo
+di progetto.
+
+\section{Descrizione delle modifiche}
+Le seguenti parole chiave verranno utilizzate per definire ci\`o di cui si occupa
+la modifica apportata.
+\begin{itemize}
+\item add: \`e stato aggiunto qualcosa di nuovo ad un file che gi\`a esisteva.
+\item new: \`e stato creato qualcosa di nuovo, quindi un nuovo file. 
+\item fix: \`e stato modificato un contenuto presente in un file che gi\`a
+esisteva. 
+\item del: \`e stato totalmente eliminato qualcosa.
+\end{itemize}
+
+
+\chapter{Strumenti e tecnologie da utilizzare}
+\thispagestyle{fancy}
+Tutti i membri di VT.G nello svolgere attività qui elencate saranno tenuti ad
+utilizzare gli stessi strumenti e configurazioni.
+
+\section{IDE}
+Eclipse for Java Developers (versione $\geq$ Helios 3.6).
+ 
+\section{Repository}
+\underline{Google Code} Project Hosting.
+All'interno del progetto saranno utilizzati due \underline{repository}: ``default''
+per il progetto e ``documents'' per i documenti.
+
+\section{Sistema di versionamento}
+\underline{Mercurial}  (versione $\geq$ 1.7.2).
+
+\section{Plugin Mercurial per Eclipse}
+MercurialEclipse (versione $\geq$ 1.7).
+
+% \section{SDK per AppEngine}
+% ???
+% 
+% \section{Plugin per AppEngine}
+% ???
+
+\section{Latex}
+Sono stati individuati due possibili prodotti:
+\begin{itemize}
+  \item TeX Live (TexLive 2010)
+  \item MiKTeX (versione $\geq$ 2.9)
+\end{itemize}
+
+\section{Plugin Latex per Ecplise}
+TeXlipse (versione $\geq$ 1.4.0).
+
+\section{UML}
+ArgoUML (versione $\geq$ 0.30.2) configurato per \underline{UML} 2.x.
+
+\section{Gantt}
+GanttProject (versione $\geq$ 2.0.10).
+
+
+
+\chapter{Repository e Versionamento}
+\thispagestyle{fancy}
+Come servizio di hosting per mantenere online i nostri repository
+verr\`a utilizzato Google Code Project Hosting
+(http://code.google.com/hosting/), che oltre ad offrire un buon servizio di
+\underline{ticketing}, \`e dotato di una comoda e completa interfaccia web per
+la visualizzazione e gestione dei dati caricati. Dentro a tale spazio di hosting
+verranno creati due repository: uno per i documenti e uno per il codice
+sorgente. Come sistema di \underline{versionamento} per tali repository verr\`a
+utilizzato Mercurial 1.6 (http://mercurial.selenic.com/), strumento che dovr\`a essere
+installato nel sistema da ognuno dei componenti del gruppo. Poich\'e durante
+l'intero sviluppo verr\`a principalmente utilizzato l'ambiente Eclipse,
+utilizzeremo il comodo plugin Mercurial Eclipse che ci consentir\`a di accedere
+graficamente a tutte le funzionalit\`a di Mercurial. Per scaricare localmente un
+repository con le ultime versioni dei file si far\`a un PULL dentro il progetto
+selezionato. Poi una volta effettuate delle modifiche, aggiunte o rimozioni
+viene fatto un relativo COMMIT per descrivere l'avanzamento di versione e poi
+viene fatto il PUSH per caricare tale versione nel repository. Mercurial
+gestisce in maniera efficiente i vari conflitti che potrebbero esserci in PUSH
+simultanei nello stesso branch.
+Convenzione per i COMMIT:
+\begin{itemize}
+\item add: \`e stato aggiunto qualcosa di nuovo ad un file che gi\`a esisteva.
+\item new: \`e stato creato qualcosa di nuovo, quindi un nuovo file. 
+\item fix: \`e stato modificato un contenuto presente in un file che gi\`a
+esisteva. 
+\item del: \`e stato totalmente eliminato qualcosa.
+\end{itemize}
+
+\section{Registro delle modifiche}
+Per agevolare la comprensione delle modifiche effettuate, all'interno di
+ciascun documento sar\`a sempre presente un registro delle modifiche dettagliato (a
+partire da pagina II prima dell'indice), che permetter\`a di evidenziare la data
+d' introduzione della modifica, il numero di versione raggiunto e l'autore di
+tale modifica.
+
+
+
+
+\chapter{Ticketing e time-tracking}
+\thispagestyle{fancy}
+Il tracciamento delle ore di lavoro per ogni componente verr\`a eseguito tramite
+un progetto di GanttProject appositamente condiviso ed accessibile da ognuno
+(non concorrentemente). Questo permetter\`a anche un comodo confronto con la
+gestione delle risorse pianificata nel PQ.
+
+Il tiketing sar\`a utilizzato tramite gli appositi strumenti forniti da Google Code.
+
+
+
+\chapter{Riunioni ed incontri}
+\thispagestyle{fancy}
+Tutte le riunioni ufficiali vengono svolte nelle seguenti sedi e date :
+\begin{itemize}
+\item SEDI:
+\begin{itemize}
+\item Residenza Messori(via Manin, 31 - Padova) - abbreviazione RS,
+\item Laboratorio di Informatica(via Paolotti - Padova) - abbreviazione LI.
+\end{itemize}
+\end{itemize}
+
+\chapter{Consegna}
+\thispagestyle{fancy}
+Per ciascuna revisione, il gruppo VT.G si impegna a consegnare i documenti
+tramite l'eMail del gruppo in un unico file compresso .zip: all'interno i file
+saranno suddivisi in base all'uso (interno o esterno).
+
+	
+
+\end{document}
