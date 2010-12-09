@@ -1,0 +1,204 @@
+
+\newcommand{\nomedoc}{Piano di qualifica}
+\newcommand{\versione}{0.1}
+\newcommand{\nomefile}{PianoQualifica\versione.pdf}
+\newcommand{\datacreazione}{9 Dicembre 2010}
+\newcommand{\datamodifica}{9 Dicembre 2010}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{interno}
+\newcommand{\redazione}{Giovanni Trezzi}
+\newcommand{\verifica}{Cosimo Caputo}
+\newcommand{\approvazione}{Valter}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+\begin{tabular}{lll}
+% REVISIONI DEL DOCUMENTO
+% DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+% TEMPLATE PER REVISIONE
+\bo{Data:} 03/12/2010 &
+\bo{Versione:} 0.1 &
+\bo{Autore:} Giovanni Trezzi\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Stesura prima versione di modello.}\\ \\
+
+\end{tabular}
+
+% INDICE
+\tableofcontents
+\thispagestyle{fancy} % per lo stile di header e footer
+
+
+\chapter*{Sommario}
+
+
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+\addcontentsline{toc}{chapter}{Sommario}
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+
+\section{Scopo del documento}
+
+
+\input{parte_comune.tex}
+
+% INIZIO CAPITOLO 2
+
+\chapter{Visione generale della strategia di verifica}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+
+\section{Organizzazione, pianificazione strategica e temporale, responsabilit\`a}
+
+Al fine di garantire un'elevata qualit\`a del prodotto finale l'impegni che ci si
+assume \`e quello di pianificare ed effettuare una costante attivit\`a di
+verifica in tutte le fasi del progetto. Ognis ingola modifica o l'insieme di
+pi\`u modifiche comporteranno una conseguente attivit\`a di verifica. Al fine di
+ottimizzare tempo e risorse, le attivit\`a verranno effettuate solamente quando
+una singola o pi\`u modifiche avranno comportato differenze di tipo rilevante
+all'interno di ogni fase del progetto. Le attivit\`a di verifica saranno
+tracciate per mezzo di strumenti specifici. Sar\`a dovere di chi effettua le
+modifiche segnalare i cambiamenti ai verificatori i quali provvederanno ad
+un'ulteriore attivit\`a di verifica. Sar\`a dovere del responsabile di qualifica
+accertarsi che tutte le attivit\`a si svolgano nelle modalit\`a descritte nel presente documento.
+
+\subsection{Verifica della documentazione}
+
+Per ogni documento dovranno essere verificati i seguenti aspetti:
+\begin{itemize}
+\item Sintassi e grammatica.
+\item Chiarezza espositiva.
+\item Correttezza e completezza dei concetti espressi.
+\item Formattazione del documento secondo quando specificato dall'amministratore
+nelle Norme di Progetto.
+\end{itemize}
+
+Nel caso sia necessario intervenire per correggere uno o pi\`u di questi aspetti
+sar\`a dovere del verificatore contattare il redattore del documento affinch\`e
+questo gestisca le relative attivit\`a di modifica. Una volta modificato, il
+documento dovr\`a essere nuovamente sottoposto all'attenzione del verificatore
+per una nuova attivit\`a di verifica.
+
+\subsubsection*{VERIFICA DELLA FASE PROGETTUALE}
+
+La fase di progettazione dovr\`a essere verificata secondo i seguenti aspetti:
+Soddisfacimento di tutti i requisiti individuati nel documento Analisi dei Requisiti
+Individuazione di elementi progettuali superflui, non aderenti a nessun requisito richiesto.
+Corretta corrispondeza e tracciabilit\`a tra i requisiti e le relative parti del progetto.
+Correttezza progettuale nel soddisfacimento dei requisiti.
+Correttezza rispetto a quanto stabilito nel documento Norme di Progetto
+Possibilit\`a di manutenere ed estendere i vari elementi cos\`i come previsti nella progettazione del prodotto.
+
+
+Nel caso si necessario intervenire in maniera correttiva rispetto ad uno o pi\`u di questi aspetti sar\`a dovere del verificatore contattare il progettista responsabile affinch\`e provveda alle relative modifiche riguardanti la progettazione.
+
+\subsubsection*{VERIFICA DELLA FASE DI REALIZZAZIONE/PROGRAMMAZIONE}
+
+La fase di realizzazione/programmazione dovr\`a essere verificata secondo i seguenti aspetti:
+\begin{itemize}
+\item Analisi statica del codice.
+\item Analisi dinamica del codice.
+\item Corretto funzionamento dell'applicazione, o delle sue parti, rispetto a
+quanto previsto nella fase di progettazione.
+\item Affidabilit\`a
+\item Efficenza
+\item Portabilit\`a
+\item Manutenibilit\`a
+\end{itemize}
+
+Nel caso sia necessario intervenire sul codice in base ad uno di questi aspetti
+sar\`a dovere del verificatore contattare il programmatore responsabile della
+relativa porzione di codice.
+
+Inoltre, per favorire l'attivit\`a di verifica, ogni programmatore sar\`a tenuto
+ad eseguire attivit\`a di debugging sul codice per cercare di diminuire il pi\`u
+possibile le possibilit\`a d'errore.
+
+\subsubsection*{VALIDAZIONE}
+
+L'impegno che ci si assume \`e quello di fornire un prodotto completamente e
+correttamente funzionante secondo i requisiti concordati. Qualora venissero
+riscontrati difetti o non conformit\`a, durante la verifica in fase di collaudo,
+ci si impegna ad effettuare ogni modifica o intervento che risultasse necessario
+al fine di risolvere ogni eventuale problema.
+
+\section{Risorse necessarie e disponibili}
+
+Per il processo di qualifica sono necessarie risorse di tipo umano le quali
+effettueranno attivit\`a di verifica e validazione cos\`i come definito nel
+presente documento. Sono necessarie inoltre risorse di tipo logistico quali
+programmi per le attivit\`a di tracciamento tra i requisiti e i moduli software,
+un framework per i test specifici di unit\`a del codice, un applicativo software
+per la gestione e la risoluzione delle anomalie, un'ambiente di sviluppo
+adeguato con possibilit\`a di effettuare debugging da parte dei programmatori.
+	
+\section{Strumenti tecniche e metodi}
+
+Per le attivit\`a di verifica ci avvarremo dei seguenti strumenti:
+(provvisori, da discutere tutti assieme)
+
+\begin{itemize}
+
+\item Junit: verr\`a utilizzato come unit test framework per il linguaggio di
+programmazione Java.
+
+\item Emma: verr\`a utilizzato per il calcolo della copertura del codice.
+
+\item Eclipse + GWT: useremo le funzionalit\`a di debug di eclipse su codice java
+mentre l'applicazione da testare verr\`a eseguita in hosted mode tramite GWT.
+
+\item Google Project Hosting: verr\`a utilizzata la funzionalit\`a issue tracker per
+la gestione e creazione di ticket cosi come descritto in x.x
+
+\item FindBugs: verr\`a utilizzato per effettuare analisi statiche del codice
+sorgente Java al fine di trovare errori comuni.
+
+\item Metrics: verr\`a utilizzato per calcolare la misura di varie metriche del
+codice sorgente durante la fase di compilazione in modo da tenere continuamente
+sotto controllo lo stato del codice stesso.
+
+\item Cobertura: verr\`a utilizzato per misurare la carenza di test di unit\`a
+all'interno di un progetto: misurare la percentuale di linee di codice che
+vengono controllate dai test di unit\`a , la percentuale di diramazioni del
+codice che vengono controllate dai test di unit\`a, la complessit\`a ciclomatica
+di ogni classe e il numero di volte che una linea di codice \`e stata eseguita
+dai testi di unit\`a.
+
+\item CheckStyle: verr\`a utilizzato come aiuto per garantire che il codice Java
+aderisca alle pi\`u diffuse norme di codifica.
+\end{itemize}
+
+
+% INIZIO CAPITOLO 3
+
+\chapter{Gestione amministrativa della revisione}
+\thispagestyle{fancy} % per lo stile di header e footer
+
+\section{Comunicazione e risoluzione di anomalie}
+
+Possiamo prevedere che la maggioranza delle anomalie verr\`a individuata in fase
+di verifica. Ci\`o nonostante non possiamo escludere che vengano riscontrate
+anche durante una qualsiasi fase di ciclo di vita, quindi non vogliamo limitare
+il compito della comunicazione ai soli verificatori ma intendiamo estendere il
+caso a tutti i membri del gruppo di lavoro.
+
+\subsection{Comunicazione}
+
+Per notificare anomalie dovr\`a essere usato lo strumento issues-tracker messo a
+disposizione nella pagina http://code.google.com/p/netmus/ . Per ogni anomalia
+individuata si dovr\`a creare un ticket. Per la creazione e la struttura dei
+singoli ticket fare riferimento al documento Norme di Progetto paragrafo omonimo.
+
+\end{document}
