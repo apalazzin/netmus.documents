@@ -60,11 +60,13 @@ e sviluppo di ogni capitolato d'appalto rispetto alle tecnologie e alle tempisti
 % INIZIO CAPITOLO 2
 
 \chapter{Capitolato C1 MindSlide}
+\thispagestyle{fancy}
 Il capitolato C1 MindSlide (Software di presentazione basato su mind mapping)
 proposto dall'azienda Zucchetti richiede l'utilizzo della tecnologia HTML5. Dopo
 un'attenta lettura della specifica, si ritiene che non sia abbastanza stimolante.
 
 \chapter{Capitolato C2 Netmus}
+\thispagestyle{fancy}
 Il capitolato C2 NetMus (Libreria musicale personale, virtuale e distribuita)
 proposto dal prof Riccardo Cardin richiede l'utilizzo delle tecnologie Google
 App Engine, Google Web Toolkit e JavaFX. Dopo un'accurata lettura e un'intensa
@@ -88,11 +90,39 @@ capacit\`a per utilizzare i linguaggi JAVA e UML, e lo strumento Gantt. Invece
 per le nuove tecnologie Google App Engine e Google Web Toolkit si pu\`o utilizzare
 il corso di preparazione messo a disposizione dall'azienda Miriade S.p.A.
 committente del capitolato C3. Riguardo la piattaforma JavaFx per la realizzazione delle RIA, non dovrebbe essere un problema recuperare le informazioni per l'applicazione . Infine dopo aver analizzato la conoscenza interna del gruppo, capacit\`a di apprendimento e impegni vari si dovrebbe riuscire a sviluppare il prodotto e rispettare le date di consegna per le varie revisioni.
+
+\section{Componenti del Progetto e Dettagli sulle Tecnologie}
+Il problema che viene posto nel capitolato 02 presenta due principali componenti
+da considerare per lo studio della fattibilit\`a. Una componente che gestisce il
+recupero delle informazioni dei brani musicali dal dispositivo di riproduzione personale dell'utente.
+L'altra componente gestisce la memorizzazzione e visualizzazione della libreria virtuale personale 
+dell'utente.
+
+\subsection{Componente di estrazione delle informazioni}
+Per sviluppare la prima componente si pensava di ricorrere alla creazione di una 
+Rich Internet Application, ossia un'applicazione web che possiede le caratteristiche 
+e le funzionalità delle applicazioni desktop, senza però necessitare dell'installazione 
+sul disco fisso. Questa scelta \`e stata dettata dal fatto che le RIA si
+caratterizzano per la dimensione interattiva, la multimedialità e la velocità d'esecuzione.
+La parte dell'applicazione che elabora i dati \`e trasferita a livello client e
+fornisce una pronta risposta all'interfaccia utente, mentre la gran parte dei dati e dell'applicazione 
+rimane sul server remoto, con notevole alleggerimento per il computer utente. 
+Queste caratteristiche rendono l'applicazione il meno invasiva possibile per
+l'utente.
+
+\subsection{Componente di memorizzazione e gestione della libreria virtuale}
+La seconda componente dovrà poter essere accessibile all'utente come
+applicazione web. Il sistema consigliato per lo sviluppo, ossia Google App Engine, 
+\`e una tecnologia cloud computing che permette l'utilizzo di risorse hardware o
+ software distribuite in remoto. Utilizzerà inoltre il database distribuito Google DataStore. 
+Questo Database utilizza una sintassi di linguaggio simile all'SQL chiamato GQL.
+
 \section{Rischi}
 L'impegno nell'analisi della fattibilit\`a dovrebbe aver minimizzato le variabili di rischio.
 Tuttavia la mancanza di esperienza o imprevisti inattesi come la mancanza di apporto di risorse umane potrebbero provocare ritardi o addiritttura la non riuscita nel completamento del lavoro.
 
 \chapter{Capitolato C3 RescueMe}
+\thispagestyle{fancy}
 Il capitolato C3 RescueMe (Sistema globale per gestione catastrofi naturali)
 proposto dall'azienda Miriade S.p.A. richiede l'utilizzo delle tecnologie
 Google App Engine, Google Web Toolkit e Spring MVC. Dopo una profonda analisi,
@@ -100,6 +130,7 @@ si ritiene che gli strumenti da utilizzare siano di interesse comune al gruppo.
 Per\`o si pensa che l'implementazione del progetto richieda tempi molto lunghi, col rischio di non rispettare i tempi di consegna prefissati.
 
 \chapter{Capitolato C4 QWAD}
+\thispagestyle{fancy}
 Il capitolato C4 QWAD (Quick Web Apps Designer) proposto dalla Onlus Informatici
 Senza Frontiere presuppone la continuazione di un lavoro gi\`a svolto da altri
 team di sviluppo. Questo fa ermergere la difficolt\`a di studio e preparazione degli strumenti richiesti. Pur considerando la gratuit\`a sociale di tale progetto, si \`e comunque deciso di non accettarlo.
