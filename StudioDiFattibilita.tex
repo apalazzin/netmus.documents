@@ -27,7 +27,15 @@ VT.G \\
 
 % TEMPLATE PER REVISIONE
 
-\bo{Data:} 07/12/2010 &
+\bo{Data:} 09/12/2010 &
+\bo{Versione:} 0.4 &
+\bo{Autore:} Palazzin Alberto\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Aggiunta Sommario e sistemazione delle sottolineature
+per il Glossario.}\\
+\\
+
+\bo{Data:} 09/12/2010 &
 \bo{Versione:} 0.3 &
 \bo{Autore:} Lovato Daniele\\
 \hline\\
@@ -53,9 +61,13 @@ VT.G \\
 
 
 \chapter*{Sommario}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca headere footer
+Dopo aver letto, discusso e analizzato i vari capitolati d'appalto, è
+stato stilato il documento dello studio di fattibilità per riassumere e
+documentare le scelte fatte. In sintesi è stato scelto il capitolato C2 NetMus
+come futuro progetto da implementare e le motivazioni sono riportate dal
+Capitolo 2 in poi.
 
-
-\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
 \pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
 \rfoot{\thepage\ di \pageref{TotPages}}
 \addcontentsline{toc}{chapter}{Sommario}
@@ -90,26 +102,26 @@ questi ambiti:
 \begin{itemize}
   \item \underline{internet} e \underline{cloud computing}
   \item gestione remota, concorrenza e distribuzione
-  \item programmazione \underline{JAVA} e utilizzo tecnologie \underline{Google App
-  Engine}, \underline{Google Web Toolkit} e \underline{RIA}
+  \item programmazione \underline{JAVA} e utilizzo tecnologie Google App
+  Engine, Google Web Toolkit e \underline{RIA}
   \item progettazione con \underline{UML} e \underline{Gantt}
-  \item sistemi operativi vari \underline{Windows}, \underline{Linux},
-  \underline{MacOsx})
+  \item \underline{sistemi operativi} vari \underline{Windows},
+  \underline{Linux}, \underline{MacOsx})
 \end{itemize}
 
 \section{Fattibilit\`a Tecnologica e Tempistica}
 Considerando la preparazione ricevuta ai corsi universitari di Programmazione
 Concorrente e Distribuita ed Ingegneria del Software si dovrebbe avere la
-capacit\`a per utilizzare i linguaggi \underline{JAVA} e \underline{UML}, e lo
-strumento \underline{Gantt}. Invece per le nuove tecnologie \underline{Google
-App Engine} e \underline{Google Web Toolkit} si pu\`o utilizzare il corso di
+capacit\`a per utilizzare i linguaggi JAVA e UML, e lo
+strumento Gantt. Invece per le nuove tecnologie Google
+App Engine e Google Web Toolkit si pu\`o utilizzare il corso di
 preparazione messo a disposizione dall'azienda Miriade S.p.A. committente del
-capitolato C3. Riguardo la piattaforma \underline{JavaFx} per la realizzazione
-delle \underline{RIA}, non dovrebbe essere un problema recuperare le
+capitolato C3. Riguardo la piattaforma JavaFx per la realizzazione
+delle RIA, non dovrebbe essere un problema recuperare le
 informazioni per l'applicazione . Infine dopo aver analizzato la conoscenza interna del gruppo, capacit\`a di apprendimento e impegni vari si dovrebbe riuscire a sviluppare il prodotto e rispettare le date di consegna per le varie revisioni.
 
 \section{Componenti del Progetto e Dettagli sulle Tecnologie}
-Il problema che viene posto nel capitolato 02 presenta due principali componenti
+Il problema che viene posto nel capitolato C2 presenta due principali componenti
 da considerare per lo studio della fattibilit\`a. Una componente che gestisce il
 recupero delle informazioni dei brani musicali dal dispositivo di riproduzione personale dell'utente.
 L'altra componente gestisce la memorizzazzione e visualizzazione della libreria virtuale personale 
@@ -117,10 +129,10 @@ dell'utente.
 
 \subsection{Componente di estrazione delle informazioni}
 Per sviluppare la prima componente si pensava di ricorrere alla creazione di una 
-Rich Internet Application, ossia un'applicazione web che possiede le caratteristiche 
-e le funzionalità delle applicazioni desktop, senza però necessitare dell'installazione 
-sul disco fisso. Questa scelta \`e stata dettata dal fatto che le RIA si
-caratterizzano per la dimensione interattiva, la multimedialità e la velocità d'esecuzione.
+Rich Internet Application, ossia un'\underline{applicazione web} che possiede le
+caratteristiche e le funzionalità delle \underline{applicazioni desktop}, senza
+però necessitare dell'installazione sul \underline{disco fisso}. Questa scelta
+\`e stata dettata dal fatto che le RIA si caratterizzano per la dimensione interattiva, la multimedialità e la velocità d'esecuzione.
 La parte dell'applicazione che elabora i dati \`e trasferita a livello client e
 fornisce una pronta risposta all'interfaccia utente, mentre la gran parte dei dati e dell'applicazione 
 rimane sul server remoto, con notevole alleggerimento per il computer utente. 
@@ -131,8 +143,9 @@ l'utente.
 La seconda componente dovrà poter essere accessibile all'utente come
 applicazione web. Il sistema consigliato per lo sviluppo, ossia Google App Engine, 
 \`e una tecnologia cloud computing che permette l'utilizzo di risorse hardware o
- software distribuite in remoto. Utilizzerà inoltre il database distribuito Google DataStore. 
-Questo Database utilizza una sintassi di linguaggio simile all'SQL chiamato GQL.
+ software distribuite in remoto. Utilizzerà inoltre il database distribuito
+ \underline{Google DataStore}. Questo Database utilizza una sintassi di
+ linguaggio simile all'\underline{SQL} chiamato \underline{GQL}.
 
 \section{Rischi}
 L'impegno nell'analisi della fattibilit\`a dovrebbe aver minimizzato le variabili di rischio.
