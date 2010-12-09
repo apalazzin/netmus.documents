@@ -1,0 +1,68 @@
+
+\newcommand{\nomedoc}{Modello}
+\newcommand{\versione}{0.3}
+\newcommand{\nomefile}{modello\versione.pdf}
+\newcommand{\datacreazione}{2 Dicembre 2010}
+\newcommand{\datamodifica}{3 Dicembre 2010}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{interno}
+\newcommand{\redazione}{Mandolo Andrea}
+\newcommand{\verifica}{Baffo}
+\newcommand{\approvazione}{Valter}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+\begin{tabular}{lll}
+% REVISIONI DEL DOCUMENTO
+% DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+% TEMPLATE PER REVISIONE
+\bo{Data:} 03/12/2010 &
+\bo{Versione:} 0.2 &
+\bo{Autore:} Mandolo Andrea\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Rinominato file, dimensione caratteri 12pt,
+aggiunti alcuni contenuti comuni.}\\
+\\
+
+\bo{Data:} 03/12/2010 &
+\bo{Versione:} 0.1 &
+\bo{Autore:} Mandolo Andrea\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Stesura prima versione di modello.}\\ \\
+
+\end{tabular}
+
+% INDICE
+\tableofcontents
+\thispagestyle{fancy} % per lo stile di header e footer
+
+
+\chapter*{Sommario}
+
+
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+\addcontentsline{toc}{chapter}{Sommario}
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+
+\section{Scopo del documento}
+
+
+\input{parte_comune.tex}
+
+% INIZIO CAPITOLO 2
+
+\end{document}
