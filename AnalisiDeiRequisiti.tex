@@ -1,0 +1,172 @@
+
+\newcommand{\nomedoc}{Analisi dei requisiti}
+\newcommand{\versione}{0.2}
+\newcommand{\versioneglossario}{0.1}
+\newcommand{\versionenormeprogetto}{0.3}
+\newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
+\newcommand{\datacreazione}{2 Dicembre 2010}
+\newcommand{\datamodifica}{9 Dicembre 2010}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{interno}
+\newcommand{\redazione}{Mandolo Andrea}
+\newcommand{\verifica}{Baffo}
+\newcommand{\approvazione}{Valter}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+\begin{tabular}{lll}
+% REVISIONI DEL DOCUMENTO
+% DALLA PIU' NUOVA ALLA PIU' VECCHIA
+\bo{Data:} 09/12/2010 &
+\bo{Versione:} 0.2 &
+\bo{Autore:} Daminato Simone\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Redazione del capitolo 2.}\\
+\\
+
+\bo{Data:} 07/12/2010 &
+\bo{Versione:} 0.1 &
+\bo{Autore:} Lovato Daniele\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Redazione del capitolo 1.}\\
+\\
+
+\end{tabular}
+
+% INDICE
+\tableofcontents
+\thispagestyle{fancy} % per lo stile di header e footer
+
+
+\chapter*{Sommario}
+
+
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+\addcontentsline{toc}{chapter}{Sommario}
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+
+\section{Scopo del documento}
+Il presente documento ha lo scopo di presentare al committente l'Analisi dei
+Requisiti e le potenzialit\`a software del nostro prodotto per soddisfare le
+richieste del capitolato d'appalto 02 NetMus.
+
+\input{parte_comune.tex}
+
+% INIZIO CAPITOLO 2
+\chapter{Descrizione generale}
+\thispagestyle{fancy}
+\section{Contesto d'uso del prodotto}
+Il progetto Netmus che abbiamo intenzione di sviluppare \`e un software
+destinato ad una vasta gamma d'utenza, di et\`a variabile, stimata a 12 anni o
+superiore, in particolare adolescenti e adulti dai 15 ai 35 anni.
+\subsection{Piattaforma d'esecuzione e interfacciamento con l'ambiente di
+installazione e uso}
+Il prodotto finale utilizzer\`a diverse teconologie (in particolare: Java, GAE e
+GWT) che renderanno possibile l'utilizzo del sistema su pi\`u piattaforme
+d'esecuzione con sistemi operativi diversi, i cui unici due requisiti
+fondamentali saranno di possedere una connessione ad internet e di aver
+installata la Java Runtime Machine. In particolare, il prodotto finale sar\`a
+testato sui principali sistemi operativi: Windows (xp e 7), Linux (principali e
+pi\`u diffuse distribuzioni), Mac OS X (Snow Leopard).
+\section{Funzioni del prodotto}
+Il prodotto finale sar\`a composto da due componenti. Una componente di
+persistenza e visualizzazione della libreria virtuale dell'utente. Un'altra
+componente di recupero delle informazioni dei brani musicali contenuti nei
+sistemi di riproduzione personale dell'utente. La prima componente avr\`a il
+compito di gestire la memorizzazione delle informazioni dei brani nel database,
+e la sua visualizzazione e gestione con un'interfaccia semplice e facilmente
+utilizzabile. La seconda componente svolger\`a il ruolo di estrazione delle
+informazioni dai brani musicali, e le invier\`a al server senza interferire con
+l'utente che intanto potr\`a continuare a svolgere il proprio lavoro indisturbato.
+L'estrazione avverr\`a non appena verr\`a rilevato un nuovo dispositivo di
+archiviazione di massa (storage USB o lettore mp3) che non cripta i propri file,
+e in modo del tutto autonomo verranno ricavate le informazioni, memorizzate in
+locale in caso di assenza di connessione, e poi successivamente inviate al server.
+\section{Caratteristiche degli utenti}
+L'utente tipo che utilizza il sistema non \`e in possesso di particolari
+conoscenze informatiche, ma \`e in grado di navigare sul web e di eseguire alcune
+semplici operazioni correlate (come per esempio effettuare un login).
+\section{Vincoli generali}
+Il software nel suo funzionamento e sviluppo:
+\begin{itemize}
+  \item sar\`a completo della documentazione necessaria e del manuale d'uso,
+  \item sar\`a portabile (verr\`a testato e garantito il suo funzionamento sui
+  principali sistemi operativi),
+  \item sar\`a sicuro per gli utenti: garantir\`a il controllo del proprio account e
+  dei propri dati, e della propria privacy,
+  \item per la raccolta dei dati dei brani localmente non sar\`a necessario
+  l'accesso ad internet,
+  \item per l'aggiornamento e la visualizzazione dei propri dati online sar\`a
+  necessaria la connessione ad internet,
+  \item il manuale utente sar\`a fornito sia in italiano che in inglese.
+\end{itemize}
+\section{Assunzioni e dipendenze}
+Si assume che sui personal computer utilizzati dagli utenti sia gi\`a installata
+una JVM.
+\section{Glossario}
+Esister\`a un unico glossario comune a tutti i documenti, contenente la
+spiegazione di tutti i termini e gli acronimi che verranno utilizzati
+all'interno della documentazione. Questo documento sar\`a organizzato in ordine
+alfabetico in modo da permettere una rapida ricerca dei termini e sar\`a suddiviso
+due categorie: termini e acronimi.
+
+\chapter{Lista dei requisiti}
+\thispagestyle{fancy}
+\section{Componente di persistenza e visualizzazione (Componente 1)}
+\subsection{Requisiti obbligatori}
+\begin{itemize}
+  \item Deve utilizzare il cloud computing.
+  \item Deve essere portabile.
+  \item Deve essere scalabile.
+  \item Deve utilizzare le teconologie GAE e GWT.
+  \item Deve utilizzare il datastore Google.
+  \item Dovrebbe assomigliare graficamente ad iTunes.
+  \item Deve permettere all'utente il controllo totale della propria playlist
+  virtuale.
+  \item Deve essere semplice da utilizzare.
+  \item Deve permettere all'utente di cancellare il proprio account.
+  \item Deve permettere all'utente di inserire manualmente dei nuovi brani.
+  \item Dovrebbe permettere all'utente di scegliere se pubblicare il suo profilo
+  o se mantenerlo privato.
+\end{itemize}
+\section{Componente di recupero delle informazioni (Componente 2)}
+\begin{itemize}
+  \item Dovrebbe raccogliere i dati anche se non è disponibile una connessione.
+  \item Deve richiedere l'autorizzazione dell'utente per la raccolta delle
+  informazioni.
+  \item Deve arrecare meno disturbo possibile all'utente.
+  \item Dovrebbe essere portabile.
+  \item Potrebbe permettere all'utente di aggiornare e/o completare le
+  informazioni relative alle proprie canzoni attingendo alle informazioni della
+  componente persistente.
+  \item Deve essere semplice da utilizzare.
+  \item Deve reperire automaticamente tutte le informazioni delle canzoni
+  all'inserimento di un dispositivo.
+  \item Dovrebbe permettere di reperire le informazioni anche dalle cartelle
+  dell'hard disk indicate dell'utente.
+  \item Deve permettere di effettuare anche una scansione manuale.
+  \item Potrebbe essere tradotto in più lingue (preferibilmente italiano e
+  inglese).
+  \item Deve impedire che vengano caricati brani di cui non si riescono a
+  reperire le informazioni.
+  \item Dovrebbe avvisare l'utente di eventuali brani i cui dati non vengono
+  caricati.
+  \item Deve evitare di usare troppa memoria per memorizzare temporaneamente le
+  informazioni.
+  \item Deve evitare comunicazioni inutili col server.
+\end{itemize}
+\end{document}
