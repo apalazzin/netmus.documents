@@ -32,7 +32,8 @@
 
 \setlength{\headheight}{1.2cm} % NON TOCCARE
 \setlength{\voffset}{-1.5cm} % NON TOCCARE
-\setlength{\textheight}{700pt} % NON TOCCARE
+\setlength{\textheight}{666pt} % NON TOCCARE
+\setlength{\footskip}{60pt}
 \setlength{\parindent}{0pt} % INDENTAZIONE
 
 \lhead{\nomedoc\  (ver. \versione)}
@@ -41,6 +42,10 @@
 \lfoot{\includegraphics[height=0.8cm]{img/logo.png}}
 \cfoot{}
 \rfoot{\thepage}
+
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\huge\bfseries}
+{\thechapter}{20pt}{\Huge}
 
 % \usepackage{listings}   per codice sorgente
 
