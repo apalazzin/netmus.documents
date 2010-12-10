@@ -1,5 +1,5 @@
 \newcommand{\nomedoc}{Norme di progetto}
-\newcommand{\versione}{0.3}
+\newcommand{\versione}{0.5}
 \newcommand{\versioneglossario}{0.1}
 \newcommand{\versionenormeprogetto}{0.3}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
@@ -8,7 +8,7 @@
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Baron Federico, Palazzin Alberto}
-\newcommand{\verifica}{Caputo Cosimo}
+\newcommand{\verifica}{}
 \newcommand{\approvazione}{}
 \newcommand{\distribuzione}{
 VT.G \\
@@ -26,6 +26,13 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+\bo{Data:} 10/12/2010 &
+\bo{Versione:} 0.5 &
+\bo{Autore:} Palazzin Alberto\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Sistemazione del Capitolo 3.}\\
+\\
 
 \bo{Data:} 10/12/2010 &
 \bo{Versione:} 0.4 &
@@ -117,51 +124,55 @@ sezione ``Discussioni'' del forum interno.
 
 \section{Nomenclatura}
 Tutti i nomi dei file devono cominciare con la lettera maiuscola ed
-indicare in maniera univoca il loro contenuto. Il nome sar\`a seguito da un
-trattino (-) e due cifre separate da un punto, che indicheranno la versione del documento
-(guardare il capitolo in proposito).
+indicare in maniera univoca il loro contenuto. Il nome deve essere seguito da un
+trattino (-) e due cifre separate da un punto che indicano la versione del
+documento.
 
 \section{Contenuto}
-Tutti i documenti conterranno, nell'ordine: una pagina iniziale contenente logo,
-nome del documento, versione e contatti; un diario delle modifiche; un indice
-del documento; un sommario contenente un breve riassunto del documento. Al
-termine di ciascun documento saranno presenti inoltre, se necessari, un indice
-delle tabelle ed uno delle illustrazioni.
+Tutti i documenti devono contenere: 
+\begin{itemize}
+\item {una pagina iniziale con il logo e il nome del gruppo;}
+\item {il contatto del gruppo;}
+\item {il nome del documento;}
+\item {la versione del documento;}
+\item {la data di creazione;}
+\item {la data di ultima modifica;}
+\item {lo stato del documento (formale o informale);}
+\item {l'uso del documento (esterno o interno);}
+\item {la redazione;}
+\item {la verifica;}
+\item {l'approvazione;}
+\item {la distribuzione;}
+\item {un registro delle modifiche;}
+\item {un indice del documento;}
+\item {un sommario contenente un breve riassunto del documento;}
+\item {l'indice delle tabelle (se presenta almeno una tabella nel documento);}
+\item {l'indice delle figure (se presente almeno una figura nel documento).}
+\end{itemize} 
 
 \section{Norme tipografiche}
-Il font utilizzato sar\`a Knuth's Computer Modern (default \underline{Latex}) e
-dimensione del testo 12pt. La codifica utilizzata per i caratteri sar\`a UTF-8.
-Si utilizzer\`a la \underline{sottolineatura} per marcare i termini presenti nel
-glossario (solo alla prima ricorrenza) e l'\emph{italic} per evidenziare i nomi di file
-che fanno riferimento ad altri documenti.
+Il font da utilizzato \`e Knuth's Computer Modern (di default in
+\underline{Latex}), la dimensione del capitolo e del sottocapitolo sono di
+default in Latex, la dimensione del testo \`e 12pt e la codifica per i caratteri
+\`e ISO-8859-1. In ogni documento si deve utilizzare la \underline{sottolineatura} per marcare i termini presenti nel glossario (solo
+alla prima ricorrenza) e l'\emph{italic} per evidenziare i nomi di file che fanno riferimento ad altri documenti.
 
 \section{Norme di stile}
-Ogni capitolo e sottocapitolo sar\`a identificato da due numeri separati da un
-punto: il primo indicher\`a il capitolo, il secondo il sottocapitolo. Tra un
-capitolo, o un sottocapitolo, e l'altro, verr\`a utilizzato un interlinea come
-separatore.
+Ogni capitolo deve essere identificato da un numero, mentre ogni sottocapitolo
+deve essere identificato da due numeri separati da un punto (il primo indica il
+capitolo e il secondo il sottocapitolo). Tra un capitolo/sottocapitolo e
+l'altro, si deve utilizzare un'interlinea come separatore.
 
 \section{Grafici ed illustrazioni}
-Ciascuna immagine e grafico saranno accompagnati da un numero progressivo
-all'interno del documento, preceduto da dei numeri che ne identificheranno il
-capitolo e il sottocapitolo in cui si trova (per esempio, immagine 1.3.1:
-immagine 1 all'interno del sottocapitolo 3 del primo capitolo).
+Qualsiasi immagine e grafico devono essere accompagnati da un numero progressivo
+all'interno del documento, preceduto da dei numeri che ne identificano il
+capitolo e il sottocapitolo in cui si trova (esempio: immagine 1.3.1 \`e
+l'immagine 1 all'interno del sottocapitolo 3 del primo capitolo).
 
 \section{Acronimi ed abbreviazioni}
-Le diverse revisioni verranno indicate con RR, RPP, RPD, RQ, RA. Verr\`a
-utilizzato l'acronimo VT.G (Valter Texas Group) per riferimenti al nostro gruppo
+Le diverse revisioni sono indicate con RR, RPP, RPD, RQ, RA. Si utilizza
+l'acronimo VT.G (Valter Texas Group) per qualsiasi riferimento al nostro gruppo
 di progetto.
-
-\section{Descrizione delle modifiche}
-Le seguenti parole chiave verranno utilizzate per definire ci\`o di cui si occupa
-la modifica apportata.
-\begin{itemize}
-\item ADD: \`e stato aggiunto qualcosa di nuovo ad un file che gi\`a esisteva.
-\item NEW: \`e stato creato qualcosa di nuovo, quindi un nuovo file. 
-\item FIX: \`e stato modificato un contenuto presente in un file che gi\`a
-esisteva. 
-\item DEL: \`e stato totalmente eliminato qualcosa.
-\end{itemize}
 
 
 \chapter{Strumenti e tecnologie da utilizzare}
