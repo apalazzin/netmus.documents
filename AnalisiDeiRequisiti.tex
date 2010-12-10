@@ -126,23 +126,132 @@ due categorie: termini e acronimi.
 
 \chapter{Lista dei requisiti}
 \thispagestyle{fancy}
+(C1/C2)(F/Q/I/V)(N/D/O)-n1.n2.n3...nn
+C1 = componente 1 (Componente di persistenza e visualizzazione)
+C2 = componente 2 (Componente di recupero delle informazioni dei brani musicali
+contunuti nei sistemi di riproduzione personale dell'utente) F = funzionale
+Q = qualità
+I = interfacciamento
+V = vincolo
+N = obbligatorio (necessario)
+D = desiderabile
+O = opzionale
+nx = gerarchia dei requisiti.
+
 \section{Componente di persistenza e visualizzazione (Componente 1)}
-\subsection{Requisiti obbligatori}
-\begin{itemize}
-  \item Deve utilizzare il cloud computing.
-  \item Deve essere portabile.
-  \item Deve essere scalabile.
-  \item Deve utilizzare le teconologie GAE e GWT.
-  \item Deve utilizzare il datastore Google.
-  \item Dovrebbe assomigliare graficamente ad iTunes.
-  \item Deve permettere all'utente il controllo totale della propria playlist
-  virtuale.
-  \item Deve essere semplice da utilizzare.
-  \item Deve permettere all'utente di cancellare il proprio account.
-  \item Deve permettere all'utente di inserire manualmente dei nuovi brani.
-  \item Dovrebbe permettere all'utente di scegliere se pubblicare il suo profilo
-  o se mantenerlo privato.
-\end{itemize}
+\subsection{Requisiti funzionali}
+C1FN-1-WEB Application NetMus (capitolato)
+
+C1FN-1.1-Grafica simile ad iTunes (capitolato)
+
+C1FN-1.1.1-Elenco brani raggruppati opportunamente
+
+C1FN-1.1.2-Menu laterali
+
+C1FN-1.1.3-Visualizzare informazioni dettagliate di un brano
+
+C1FD-1.1.4-Visualizza player YouTube
+
+C1FO-1.1.5-Visualizzazione copertina disco
+
+C1FN-1.2-Creazione profilo utente tramite registrazione (capitolato)
+
+C1FO-1.2.1-Pagina di login indipendente da google login
+
+C1FD-1.3-Personalizzazione del proprio catalogo (interna)
+
+C1FD-1.3.1-Cancellazione brano
+
+C1FD-1.3.2-Modifica info brano
+
+C1FO-1.3.3-Creazione playlist
+
+C1FO-1.3.4-Ranking brani
+
+C1FN-1.4-Gestione profilo personale (interna)
+
+C1FN-1.4.1-Modifica informazioni personali
+
+C1FN-1.4.2-Cambio password
+
+C1FN-1.4.3-Cancellazione del proprio account
+
+C1FD-1.4.4-Aggiungi infromazioni personali
+
+C1FD-1.4.5-Pubblicazione profilo
+
+C1FD-1.5-Riproduzione tracce in streaming (capitolato)
+
+C1FD-1.7-Interazione con altri utenti (interna)
+
+C1FD-1.7.1-Visualizzazione altri profili
+
+C1FO-1.7.2-Lasciare commenti su altri profili
+
+C1FD-1.8-Elaborazione dati utente (statistiche, brani in comune ecc ecc)
+
+C1FN-1.9-Ricezione ed elaborazione brani
+
+C1FN-1.9.1-Controllo di validità dei dati
+
+C1FN-1.9.2-Completamento info da database interno
+
+C1FN-1.9.4-Identificazione dati ridondanti
+
+C1FN-1.9.5-Inserimento nel database
+
+C1FO-1.9.3-Completamento info da servizio esterno
+
+C1FD-1.10-Invio nuove informazioni a componente 2
+
+C1FN-1.13-Gestione database
+
+\subsection{Requisiti di qualit\`a}
+C1QD-1.5.1-Ottimizzazione della ricerca su YoutTube
+
+C1QN-1.6-Scalabilità (capitolato)
+
+C1QN-1.6.1-Scalabilità interfaccia grafica
+
+C1QN-1.6.2-Scalabilità massa di utenza
+
+C1QN-1.11-Deve utilizzare il cloud computing
+
+C1QN-3-Utilizzo
+
+C1QN-3.1-Accessibilità
+
+C1QN-3.3-Portabilità
+
+C1QD-3.4-Supporto multi-lingua
+
+C1QN-3.5-Semplicità di utilizzo
+
+C1QN-3.6-Manutenibilità
+
+C1QN-3.7-Gestione delle eccezioni
+
+C1QN-4.1-Manuale utente
+
+\subsection{Requisiti di vincolo}
+
+\subsubsection{Interfacciamento con gli ambienti di installazione e d'uso }
+C1VN-1.12-Deve utilizzare le tecnologie GAE e GWT
+
+C1VN-1.13.1-Deve utilizzare Google DataStore
+
+
+\subsubsection{Norme vigenti nel dominio applicativo}
+C1VD-1.5.2-Quote YouTube
+
+C1VD-1.5.3-YouTube Terms of Service
+
+C1VN-3.2-Open source
+
+
+\subsubsection{Caratteristiche dell'utente}
+
+
 \section{Componente di recupero delle informazioni (Componente 2)}
 \begin{itemize}
   \item Dovrebbe raccogliere i dati anche se non è disponibile una connessione.
