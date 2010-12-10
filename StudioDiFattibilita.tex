@@ -1,13 +1,13 @@
 
 \newcommand{\nomedoc}{StudioDiFattibilita}
-\newcommand{\versione}{0.1}
+\newcommand{\versione}{0.5}
 \newcommand{\nomefile}{StudioDiFattibilita\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
-\newcommand{\datamodifica}{7 Dicembre 2010}
+\newcommand{\datamodifica}{10 Dicembre 2010}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
-\newcommand{\redazione}{Palazzin Alberto}
-\newcommand{\verifica}{Lovato Daniele}
+\newcommand{\redazione}{Lovato Daniele, Palazzin Alberto}
+\newcommand{\verifica}{}
 \newcommand{\approvazione}{Valter}
 \newcommand{\distribuzione}{
 VT.G \\
@@ -26,6 +26,13 @@ VT.G \\
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
 
 % TEMPLATE PER REVISIONE
+
+\bo{Data:} 10/12/2010 &
+\bo{Versione:} 0.5 &
+\bo{Autore:} Palazzin Alberto\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Correzione errori grammaticali.}\\
+\\
 
 \bo{Data:} 09/12/2010 &
 \bo{Versione:} 0.4 &
@@ -62,9 +69,9 @@ per il Glossario.}\\
 
 \chapter*{Sommario}
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca headere footer
-Dopo aver letto, discusso e analizzato i vari capitolati d'appalto, è
-stato stilato il documento dello studio di fattibilità per riassumere e
-documentare le scelte effettuate. In sintesi è stato selezionato il capitolato
+Dopo aver letto, discusso e analizzato i vari capitolati d'appalto, \`e
+stato stilato il documento dello studio di fattibilit\`a per riassumere e
+documentare le scelte effettuate. In sintesi \`e stato selezionato il capitolato
 C2 NetMus come futuro progetto da implementare, le motivazioni sono riportate dal
 Capitolo 2 in poi.
 
@@ -102,7 +109,7 @@ questi ambiti:
 \begin{itemize}
   \item \underline{internet} e \underline{cloud computing}
   \item gestione remota, concorrenza e distribuzione
-  \item programmazione \underline{JAVA} e utilizzo tecnologie Google App
+  \item programmazione \underline{Java} e utilizzo tecnologie Google App
   Engine, Google Web Toolkit e \underline{RIA}
   \item progettazione con \underline{UML} e \underline{Gantt}
   \item \underline{sistemi operativi} vari \underline{Windows},
@@ -112,7 +119,7 @@ questi ambiti:
 \section{Fattibilit\`a Tecnologica e Tempistica}
 Considerando la preparazione ricevuta ai corsi universitari di Programmazione
 Concorrente e Distribuita ed Ingegneria del Software si dovrebbe avere la
-capacit\`a per utilizzare i linguaggi JAVA e UML, e lo
+capacit\`a per utilizzare i linguaggi Java e UML, e lo
 strumento Gantt. Invece per le nuove tecnologie Google
 App Engine e Google Web Toolkit si pu\`o utilizzare il corso di
 preparazione messo a disposizione dall'azienda Miriade S.p.A. committente del
@@ -128,11 +135,11 @@ L'altra componente gestisce la memorizzazzione e visualizzazione della libreria 
 dell'utente.
 
 \subsection{Componente di estrazione delle informazioni}
-Per sviluppare la prima componente si è pensato di ricorrere alla creazione di
+Per sviluppare la prima componente si \`e pensato di ricorrere alla creazione di
 una Rich Internet Application, ossia un'\underline{applicazione web} che possiede le
-caratteristiche e le funzionalità delle \underline{applicazioni desktop}, senza
-però necessitare dell'installazione sul \underline{disco fisso}. Questa scelta
-\`e stata dettata dal fatto che le RIA si caratterizzano per la dimensione interattiva, la multimedialità e la velocità d'esecuzione.
+caratteristiche e le funzionalit\`a delle \underline{applicazioni desktop}, senza
+per\`o necessitare dell'installazione sul \underline{disco fisso}. Questa scelta
+\`e stata dettata dal fatto che le RIA si caratterizzano per la dimensione interattiva, la multimedialit\`a e la velocit\`a d'esecuzione.
 La parte dell'applicazione che elabora i dati \`e trasferita a livello client e
 fornisce una pronta risposta all'interfaccia utente, mentre la gran parte dei dati e dell'applicazione 
 rimane sul server remoto, con notevole alleggerimento per il computer utente. 
@@ -140,10 +147,10 @@ Queste caratteristiche rendono l'applicazione il meno invasiva possibile per
 l'utente.
 
 \subsection{Componente di memorizzazione e gestione della libreria virtuale}
-La seconda componente dovrà poter essere accessibile all'utente come
+La seconda componente dovr\`a poter essere accessibile all'utente come
 applicazione web. Il sistema consigliato per lo sviluppo, ossia Google App Engine, 
 \`e una tecnologia cloud computing che permette l'utilizzo di risorse hardware o
- software distribuite in remoto. Userà inoltre il database distribuito
+ software distribuite in remoto. User\`a inoltre il database distribuito
  \underline{Google DataStore}. Questo Database utiliza una sintassi di
  linguaggio simile all'\underline{SQL} chiamato \underline{GQL}.
 
