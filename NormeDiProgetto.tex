@@ -263,54 +263,62 @@ GanttProject (versione $\geq$ 2.0.10). Scarica e installa dal link
 \chapter{Repository e Versionamento}
 \thispagestyle{fancy}
 Come servizio di hosting per mantenere online i nostri repository
-verr\`a utilizzato Google Code Project Hosting
-(http://code.google.com/hosting/), che oltre ad offrire un buon servizio di
-\underline{ticketing}, \`e dotato di una comoda e completa interfaccia web per
-la visualizzazione e gestione dei dati caricati. Dentro a tale spazio di hosting
-verranno creati due repository: uno per i documenti e uno per il codice
-sorgente. Come sistema di \underline{versionamento} per tali repository verr\`a
-utilizzato Mercurial 1.6 (http://mercurial.selenic.com/), strumento che dovr\`a essere
-installato nel sistema da ognuno dei componenti del gruppo. Poich\'e durante
-l'intero sviluppo verr\`a principalmente utilizzato l'ambiente Eclipse,
-utilizzeremo il comodo plugin Mercurial Eclipse che ci consentir\`a di accedere
-graficamente a tutte le funzionalit\`a di Mercurial. Per scaricare localmente un
-repository con le ultime versioni dei file si far\`a un PULL dentro il progetto
-selezionato. Poi una volta effettuate delle modifiche, aggiunte o rimozioni
-viene fatto un relativo COMMIT per descrivere l'avanzamento di versione e poi
-viene fatto il PUSH per caricare tale versione nel repository. Mercurial
-gestisce in maniera efficiente i vari conflitti che potrebbero esserci in PUSH
-simultanei nello stesso branch.
-Convenzione per i COMMIT:
+viene utilizzato Google Code Project Hosting
+(\url{http://code.google.com/hosting/}). Questo offre un buon
+servizio di \underline{ticketing} e una comoda e completa interfaccia web per
+la visualizzazione e gestione dei dati caricati. Dentro a tale spazio sono
+stati creati due repository: uno per i documenti e uno per il codice sorgente
+(per maggiori dettagli vedi sezione 4.2). Come sistema di
+\underline{versionamento} per tali repository viene utilizzato Mercurial
+(versione $\geq$ 1.7.2), strumento che deve essere installato nel sistema di
+ogni componente del gruppo (per maggiori dettagli vedi sezione 4.3). Poich\'e
+durante l'intero sviluppo verr\`a usato principalmente l'ambiente Eclipse, si
+utilizzer\`a il comodo plugin Mercurial Eclipse che consente di accedere
+graficamente a tutte le funzionalit\`a di Mercurial (per maggiori dettagli vedi
+sezione 4.4). Per scaricare localmente un repository con le ultime versioni dei
+file si deve fare un ``\underline{Pull}'' dentro il progetto selezionato. Una
+volta effettuate delle modifiche, aggiunte o rimozioni viene fatto un relativo
+``\underline{Commit}'' per descrivere l'avanzamento di versione e poi viene fatto
+il ``\underline{Push}'' per caricare tale versione nel repository. Mercurial con
+i ``\underline{Merge}'' riesce a gestire in maniera efficiente i vari conflitti
+che potrebbero esserci in ``Push'' simultanei nello stesso branch. 
+In ogni ``Commit'' viene adottata tale convenzione: ``Operazione NomeDelFile
+Descrizione''
 \begin{itemize}
-\item ADD: \`e stato aggiunto qualcosa di nuovo ad un file che gi\`a esisteva.
-\item NEW: \`e stato creato qualcosa di nuovo, quindi un nuovo file. 
-\item FIX: \`e stato modificato un contenuto presente in un file che gi\`a
-esisteva. 
-\item DEL: \`e stato totalmente eliminato qualcosa.
+\item {Operazione: \`e l'operazione fatta su un determinato file (ADD, NEW, FIX,
+DEL) e nello specifico}
+\begin {itemize}
+\item {ADD: \`e stato aggiunto qualcosa di nuovo ad un file gi\`a esistente.}
+\item {NEW: \`e stato creato qualcosa di nuovo, quindi un nuovo file.} 
+\item {FIX: \`e stato modificato un contenuto presente in un file gi\`a
+esistente.} 
+\item {DEL: \`e stato totalmente eliminato qualcosa.}
+\end {itemize}
+\item {NomeDelFile: \`e il nome del file in questione.}
+\item {Descrione: \`e una breve descrizione dell'operazione eseguita.}
 \end{itemize}
 
 \chapter{Registro delle modifiche}
 \thispagestyle{fancy}
-Per agevolare la comprensione delle modifiche effettuate, all'interno di
-ciascun documento sar\`a sempre presente un registro delle modifiche dettagliato (a
-partire da pagina II prima dell'indice), che permetter\`a di evidenziare la data
-d' introduzione della modifica, il numero di versione raggiunto e l'autore di
-tale modifica.
+Per agevolare la comprensione e tracciare uno storico delle modifiche
+effettuate, all'interno di ciascun documento deve essere sempre
+presente un registro dettagliato delle modifiche (a partire da
+pagina II prima dell'indice). Questo permette di evidenziare la data
+d'introduzione della modifica, il numero di versione raggiunto e l'autore di tale modifica.
 
 \chapter{Tracciamento dei requisiti}
 \thispagestyle{fancy}
-Per identificare in modo univoco e significativo ognuno dei requisiti software,
-estratti dall'analisi fatta dai VT.G, gli verrà assegnato un codice. 
-La lista dei requisiti sarà presente solamente nel documento
-\emph{AnalisiDeiRequisiti-n.0.pdf} mentre in tutti gli
+Per identificare in modo univoco e significativo ognuno dei requisiti software
+estratti dall'analisi fatta dai VT.G, gli viene assegnato un codice. La lista
+dei requisiti sar\`a presente solamente nel documento \emph{AnalisiDeiRequisiti-n.0.pdf} mentre in tutti gli
 altri verranno riferiti tramite il codice suddetto.
 \\
 \\
 (C1/C2)(F/Q/I/V)(N/D/O)-n1.n2.n3...nx\\
-C1 = componente 1 (Componente di persistenza e visualizzazione)\\
-C2 = componente 2 (Componente di recupero delle informazioni dei brani
-musicali contunuti nei sistemi di riproduzione personale dell'utente)\\
-F =funzionale\\
+C1 = componente 1 (componente di persistenza e visualizzazione)\\
+C2 = componente 2 (componente di recupero delle informazioni dei brani
+musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
+F = funzionale\\
 Q = qualità\\
 I = interfacciamento\\
 V = vincolo\\
