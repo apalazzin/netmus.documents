@@ -1,7 +1,7 @@
 \newcommand{\nomedoc}{Norme di progetto}
-\newcommand{\versione}{0.6}
+\newcommand{\versione}{0.8}
 \newcommand{\versioneglossario}{0.1}
-\newcommand{\versionenormeprogetto}{0.6}
+\newcommand{\versionenormeprogetto}{0.8}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
 \newcommand{\datamodifica}{10 Dicembre 2010}
@@ -26,6 +26,20 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+\bo{Data:} 10/12/2010 &
+\bo{Versione:} 0.8 &
+\bo{Autore:} Palazzin Alberto\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Sistemazione dei Capitoli 5, 6, 7 e 8.}\\
+\\
+
+\bo{Data:} 10/12/2010 &
+\bo{Versione:} 0.7 &
+\bo{Autore:} Palazzin Alberto\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Sistemazione dei Capitoli 4, 9 e 10.}\\
+\\
 
 \bo{Data:} 10/12/2010 &
 \bo{Versione:} 0.6 &
@@ -82,8 +96,8 @@ requisiti''.}\\
 \chapter*{Sommario}
 \thispagestyle{fancy}
 Questo documento contiene un elenco di norme, approvate da
-tutti i membri del gruppo VT.G e applicate su tutto il progetto. In particolare
-le norme stabilite riguardano le convenzioni di comunicazione interne ed esterne, riunioni tra i componenti del team e
+tutti i membri del gruppo VT.G e applicate su l'intero progetto; riguardano in
+particolare le convenzioni di comunicazione interne ed esterne, riunioni tra i componenti del team e
 documentazioni del progetto. 
 Inoltre sono definiti alcuni aspetti dell'amministrazione di progetto
 particolarmente importanti per poter lavorare con strumenti e tecnologie
@@ -107,7 +121,7 @@ deve seguire per regolare le proprie attivit\`a di lavoro.
 \chapter{Comunicazioni}
 \thispagestyle{fancy}
 Le comunicazioni si dividono tra interne ed esterne al gruppo, e vengono gestite
-nei modi riportati qui sotto.
+nei modi di seguito riportati.
 
 \section{Interne}
 Le comunicazioni interne tra i membri del team si svolgono attraverso gli
@@ -132,12 +146,13 @@ sezione ``Discussioni'' del forum interno.
 Tutti i nomi dei file devono cominciare con la lettera maiuscola ed
 indicare in maniera univoca il loro contenuto. Il nome deve essere seguito da un
 trattino (-) e due cifre separate da un punto che indicano la versione del
-documento.
+documento (esempio: NormeDiProgetto-1.0.pdf).
 
 \section{Contenuto}
 Tutti i documenti devono contenere: 
 \begin{itemize}
 \item {una pagina iniziale con il logo e il nome del gruppo;}
+\item {la sede principale del gruppo;}
 \item {il contatto del gruppo;}
 \item {il nome del documento;}
 \item {la versione del documento;}
@@ -164,21 +179,29 @@ default in Latex, la dimensione del testo \`e 12pt e la codifica per i caratteri
 alla prima ricorrenza) e l'\emph{italic} per evidenziare i nomi di file che fanno riferimento ad altri documenti.
 
 \section{Norme di stile}
-Ogni capitolo deve essere identificato da un numero, mentre ogni sottocapitolo
+Ogni capitolo deve essere identificato da un numero mentre ogni sottocapitolo
 deve essere identificato da due numeri separati da un punto (il primo indica il
 capitolo e il secondo il sottocapitolo). Tra un capitolo/sottocapitolo e
 l'altro, si deve utilizzare un'interlinea come separatore.
 
 \section{Grafici ed illustrazioni}
 Qualsiasi immagine e grafico devono essere accompagnati da un numero progressivo
-all'interno del documento, preceduto da dei numeri che ne identificano il
+all'interno del documento, preceduto da numeri che ne identificano il
 capitolo e il sottocapitolo in cui si trova (esempio: immagine 1.3.1 \`e
-l'immagine 1 all'interno del sottocapitolo 3 del primo capitolo).
+l'immagine 1 all'interno del sottocapitolo 3 del primo capitolo) e da una
+didascalia che ne dia una breve spiegazione.
 
 \section{Acronimi ed abbreviazioni}
-Le diverse revisioni sono indicate con RR, RPP, RPD, RQ, RA. Si utilizza
-l'acronimo VT.G (Valter Texas Group) per qualsiasi riferimento al nostro gruppo
-di progetto.
+Le diverse revisioni sono indicate con:
+\begin{itemize}
+\item {RR: Revisione dei Requisiti;}
+\item {RPS: Revisione di Progettazione con Specifica Tecnica; }
+\item {RPD: Revisione di Progettazione con Defizione del Prodotto;}
+\item {RQ: Revisione di Qualifica;}
+\item {RA: Revisione di Accettazione.}
+\end{itemize}
+Si utilizza l'acronimo VT.G (Valter Texas Group) per qualsiasi riferimento al
+nostro gruppo di progetto.
 
 
 \chapter{Strumenti e tecnologie da utilizzare}
@@ -189,36 +212,43 @@ riportata una lista.
 
 \section{IDE}
 Eclipse for Java Developers (versione $\geq$ Helios 3.6).
+\\
 Scarica e installa dal link
 \url{http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/heliossr1}
  
 \section{Repository}
 \underline{Google Code} Project Hosting.
+\\
 All'interno del progetto (\url{http://code.google.com/p/netmus/}) vengono
 utilizzati due \underline{repository}: ``default'' per il progetto
 (\url{https://netmus.googlecode.com/hg/}) e ``documents'' per i documenti
 (\url{https://documents.netmus.googlecode.com/hg}). Per facilitare il lavoro
 simultaneo tra i membri, nel repository documents  sono stati aperti tanti
-\underline{branch} quanti sono i documenti da redarre, ed in prossimit\`a delle
+\underline{branch} quanti sono i documenti da redarre che in prossimit\`a delle
 revisioni vengono fatti convergerge.
 
 \section{Sistema di versionamento}
-\underline{Mercurial}  (versione $\geq$ 1.7.2). Scarica e installa dal link
-\url{http://mercurial.selenic.com/} oppure da repository UBUNTU.
+\underline{Mercurial}  (versione $\geq$ 1.7.2). 
+\\
+Scarica e installa dal link
+\url{http://mercurial.selenic.com/}.
 
 \section{Plugin Mercurial per Eclipse}
-MercurialEclipse (versione $\geq$ 1.7). Per installarlo segui queste
+MercurialEclipse (versione $\geq$ 1.7). 
+\\
+Per installare seguire queste
 operazioni: 
 \begin{itemize}
-\item {apri il programma Eclipse;} 
-\item {nel men\`u in alto seleziona ``Help'';}
-\item {seleziona ``Install new Software'';}
-\item {in ``Work with'' inserisci \url{http://cbes.javaforge.com/update};}
-\item {seleziona ``Mercurial Eclipse'' dalla lista comparsa e deseleziona
-``Windows Binaries for Mercurial'' se non usi un ambiente Windows (se richiede
-una login e una password, vai al link \url{http://www.javaforge.com/createUser.spr}, registrati al sito e poi utilizza
-queste credenziali per continuare l'istallazione del plugin);}
-\item {installa.}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://cbes.javaforge.com/update};}
+\item {selezionare ``Mercurial Eclipse'' dalla lista comparsa e deselezionare
+``Windows Binaries for Mercurial'' se non si usa un ambiente Windows (se
+richiede una login e una password, andare al link
+\url{http://www.javaforge.com/createUser.spr}, registrarsi al sito e poi
+utilizzare queste credenziali per continuare l'istallazione del plugin);}
+\item {installare.}
 \end{itemize}
 
 % \section{SDK per AppEngine}
@@ -229,74 +259,96 @@ queste credenziali per continuare l'istallazione del plugin);}
 
 \section{Latex}
 \begin{itemize}
-\item {Per Linux: TeX Live (versione 2010). Scarica e installa dal link
+\item {Per Linux: TeX Live (versione 2010). 
+\\
+Scarica e installa dal link
 \url{http://www.tug.org/texlive/}.}
-\item {Per Mac OS X: MacTex (versione 2010). Scarica e installa dal link
+\item {Per Mac OS X: MacTex (versione 2010). 
+\\
+Scarica e installa dal link
 \url{http://www.tug.org/mactex/}.}
-\item {Per Windows: proTeXt (versione 2010). Scarica e installa dal link
+\item {Per Windows: proTeXt (versione 2010). 
+\\
+Scarica e installa dal link
 \url{http://www.tug.org/protext/}.}
 \end{itemize}
 
 \section{Plugin Latex per Ecplise}
-TeXlipse (versione $\geq$ 1.4.0). Per installarlo segui queste
+TeXlipse (versione $\geq$ 1.4.0). 
+\\
+Per installare seguire queste
 operazioni: 
 \begin{itemize}
-\item {apri il programma Eclipse;} 
-\item {nel men\`u in alto seleziona ``Help'';}
-\item {seleziona ``Install new Software'';}
-\item {in ``Work with'' inserisci \url{http://texlipse.sourceforge.net};}
-\item {seleziona l'unico file dalla lista comparsa;}
-\item {installa.}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://texlipse.sourceforge.net};}
+\item {selezionare l'unico file dalla lista comparsa;}
+\item {installare.}
 \end{itemize} 
 
 \section{UML}
-ArgoUML (versione $\geq$ 0.30.2) configurato per \underline{UML} 2.x. Scarica e
-installa dal link \url{http://argouml-downloads.tigris.org/argouml-0.30.2/}.
-Per eseguirlo utilizza ``argouml2.sh'' (o ``.exe''), file presente dentro la
+ArgoUML (versione $\geq$ 0.30.2) configurato per \underline{UML} 2.x. 
+\\
+Scarica e installa dal link
+\url{http://argouml-downloads.tigris.org/argouml-0.30.2/}. Per eseguirlo utilizzare ``argouml2.sh'' (o ``.exe''), file presente dentro la
 directory del programma.
 
 \section{Gantt}
-GanttProject (versione $\geq$ 2.0.10). Scarica e installa dal link
+GanttProject (versione $\geq$ 2.0.10). 
+\\
+Scarica e installa dal link
 \url{http://www.ganttproject.biz/download}.
 
 
 \chapter{Repository e Versionamento}
 \thispagestyle{fancy}
-Come servizio di hosting per mantenere online i nostri repository
+Come servizio di hosting per mantenere online i repository
 viene utilizzato Google Code Project Hosting
 (\url{http://code.google.com/hosting/}). Questo offre un buon
 servizio di \underline{ticketing} e una comoda e completa interfaccia web per
-la visualizzazione e gestione dei dati caricati. Dentro a tale spazio sono
+la visualizzazione e gestione dei dati caricati. In tale spazio sono
 stati creati due repository: uno per i documenti e uno per il codice sorgente
-(per maggiori dettagli vedi sezione 4.2). Come sistema di
+(per maggiori dettagli vedi sezione 4.2). 
+\\
+Come sistema di
 \underline{versionamento} per tali repository viene utilizzato Mercurial
 (versione $\geq$ 1.7.2), strumento che deve essere installato nel sistema di
-ogni componente del gruppo (per maggiori dettagli vedi sezione 4.3). Poich\'e
-durante l'intero sviluppo verr\`a usato principalmente l'ambiente Eclipse, si
-utilizzer\`a il comodo plugin Mercurial Eclipse che consente di accedere
+ogni componente del gruppo (per maggiori dettagli vedi sezione 4.3). 
+\\
+Poich\'e durante l'intero sviluppo verr\`a usato principalmente l'ambiente
+Eclipse, si utilizzer\`a il comodo plugin Mercurial Eclipse che consente di accedere
 graficamente a tutte le funzionalit\`a di Mercurial (per maggiori dettagli vedi
-sezione 4.4). Per scaricare localmente un repository con le ultime versioni dei
-file si deve fare un ``\underline{Pull}'' dentro il progetto selezionato. Una
-volta effettuate delle modifiche, aggiunte o rimozioni viene fatto un relativo
-``\underline{Commit}'' per descrivere l'avanzamento di versione e poi viene fatto
-il ``\underline{Push}'' per caricare tale versione nel repository. Mercurial con
-i ``\underline{Merge}'' riesce a gestire in maniera efficiente i vari conflitti
+sezione 4.4). 
+\\
+Per scaricare localmente un repository con le ultime versioni dei
+file si deve eseguire un ``\underline{Pull}'' all'interno del progetto
+selezionato. Una volta effettuate delle modifiche, aggiunte o rimozioni viene
+utilizzato il relativo ``\underline{Commit}'' per descrivere l'avanzamento di
+versione e poi viene ultimato il ``\underline{Push}'' per caricare tale versione
+nel repository. Mercurial con i ``\underline{Merge}'' riesce a gestire in maniera efficiente i vari conflitti
 che potrebbero esserci in ``Push'' simultanei nello stesso branch. 
-In ogni ``Commit'' viene adottata tale convenzione: ``Operazione NomeDelFile
-Descrizione''
+\\
+In ogni ``Commit'' viene adottata tale convenzione: 
+``Operazione NomeDelFile Descrizione''
 \begin{itemize}
 \item {Operazione: \`e l'operazione fatta su un determinato file (ADD, NEW, FIX,
 DEL) e nello specifico}
 \begin {itemize}
-\item {ADD: \`e stato aggiunto qualcosa di nuovo ad un file gi\`a esistente.}
-\item {NEW: \`e stato creato qualcosa di nuovo, quindi un nuovo file.} 
+\item {ADD: \`e stato aggiunto qualcosa di nuovo ad un file gi\`a esistente;}
+\item {NEW: \`e stato creato qualcosa di nuovo, quindi un nuovo file;} 
 \item {FIX: \`e stato modificato un contenuto presente in un file gi\`a
-esistente.} 
-\item {DEL: \`e stato totalmente eliminato qualcosa.}
+esistente;} 
+\item {DEL: \`e stato totalmente eliminato qualcosa;}
 \end {itemize}
-\item {NomeDelFile: \`e il nome del file in questione.}
+\item {NomeDelFile: \`e il nome del file in questione;}
 \item {Descrione: \`e una breve descrizione dell'operazione eseguita.}
 \end{itemize}
+Riguardo al versionamento di un documento, ogni modifica apportata a questo
+determina un incremento dell'indice minore (esempio: da 0.1 a 0.2) mentre ogni
+rilascio pubblico determina un incremento dell'indice maggiore (esempio in
+previsione della RR: da 0.19 a 1.0).
+
 
 \chapter{Registro delle modifiche}
 \thispagestyle{fancy}
@@ -310,8 +362,8 @@ d'introduzione della modifica, il numero di versione raggiunto e l'autore di tal
 \thispagestyle{fancy}
 Per identificare in modo univoco e significativo ognuno dei requisiti software
 estratti dall'analisi fatta dai VT.G, gli viene assegnato un codice. La lista
-dei requisiti sar\`a presente solamente nel documento \emph{AnalisiDeiRequisiti-n.0.pdf} mentre in tutti gli
-altri verranno riferiti tramite il codice suddetto.
+dei requisiti sar\`a presente solamente nel documento
+\emph{AnalisiDeiRequisiti-1.0.pdf} mentre in tutti gli altri verranno riferiti tramite il codice suddetto.
 \\
 \\
 (C1/C2)(F/Q/I/V)(N/D/O)-n1.n2.n3...nx\\
@@ -335,7 +387,6 @@ Il tracciamento delle ore di lavoro per ogni componente verr\`a eseguito tramite
 un progetto di GanttProject appositamente condiviso ed accessibile da ognuno
 (non concorrentemente). Questo permetter\`a anche un comodo confronto con la
 gestione delle risorse pianificata nel PQ.
-
 Il tiketing sar\`a utilizzato tramite gli appositi strumenti forniti da Google Code.
 
 
@@ -345,7 +396,7 @@ Il tiketing sar\`a utilizzato tramite gli appositi strumenti forniti da Google C
 Tutte le riunioni e gli incontri ufficiali vengono svolti nelle seguenti sedi:
 
 \begin{itemize}
-\item Residenza Messori, in via Manin 31 a Padova;
+\item Residenza Messori, in via Manin 31 a Padova (sede principale);
 \item Laboratorio di Informatica, in via Paolotti a Padova;
 \end{itemize}
 
