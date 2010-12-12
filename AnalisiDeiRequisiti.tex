@@ -247,32 +247,51 @@ C1VN-3.2-Open source
 
 \section{Componente di recupero delle informazioni (Componente 2)}
 \subsection{Requisiti funzionali}
-c2FN-1-Componente per il recupero automatico delle informazioni (capitolato).
+C2FN-1-Componente per il recupero automatico delle informazioni (capitolato).
 
-C2FN-1.1-
-\begin{itemize}
-  \item Dovrebbe raccogliere i dati anche se non è disponibile una connessione.
-  \item Deve richiedere l'autorizzazione dell'utente per la raccolta delle
-  informazioni.
-  \item Deve arrecare meno disturbo possibile all'utente.
-  \item Dovrebbe essere portabile.
-  \item Potrebbe permettere all'utente di aggiornare e/o completare le
-  informazioni relative alle proprie canzoni attingendo alle informazioni della
-  componente persistente.
-  \item Deve essere semplice da utilizzare.
-  \item Deve reperire automaticamente tutte le informazioni delle canzoni
-  all'inserimento di un dispositivo.
-  \item Dovrebbe permettere di reperire le informazioni anche dalle cartelle
-  dell'hard disk indicate dell'utente.
-  \item Deve permettere di effettuare anche una scansione manuale.
-  \item Potrebbe essere tradotto in più lingue (preferibilmente italiano e
-  inglese).
-  \item Deve impedire che vengano caricati brani di cui non si riescono a
-  reperire le informazioni.
-  \item Dovrebbe avvisare l'utente di eventuali brani i cui dati non vengono
-  caricati.
-  \item Deve evitare di usare troppa memoria per memorizzare temporaneamente le
-  informazioni.
-  \item Deve evitare comunicazioni inutili col server.
-\end{itemize}
+C2FN-1.1-Recupero delle informazioni dei file musicali.
+
+C2FN-1.1.1-Recupero automatico all'inserimento di un nuovo dispositivo.
+
+C2FN-1.1.2-Recupero manuale (a comando dell'utente).
+
+C2FN-1.1.3-Raccolta delle informazioni anche con connessione non disponibile.
+
+C2FN-1.1.4-Raccolta delle informazioni anche dall'hard disk (cartelle indicate
+dall'utente).
+
+C2FN-1.1.5-Vanno ignorati i file musicali con assenza di informazioni.
+
+C2FO-1.1.5.1-I file ignorati vengono indicati all'utente.
+
+C2FD-1.2-Aggiornamento e completamento delle informazioni dei file musicali
+dell'utente.
+
+C2FD-1.2.1-Sotto esplicita richiesta dell'utente, aggiornamento e completamento
+delle informazioni dei file musicali con recupero dei dati da C1.
+
+C2FN-1.3-Comunicazione con C1.
+
+C2FN-1.3.1-Invio delle informazioni dei brani a C1.
+
+\subsection{Requisiti di qualit\`a}
+C2FN-1.1.3.1-Utilizzo di poco spazio per la memorizzazione temporanea
+delle informazioni.
+
+C2FN-1.3.2-Comunicazioni solo quando strettamente necessarie.
+
+C2QN-1.4-Utilizzo.
+
+C2QD-1.4.1-Portabilit\`a.
+
+C2QN-1.4.2-Semplicit\`a di utilizzo.
+
+C2QD-1.4.3-Supporto multi-lingua.
+
+\subsection{Requisiti di vincolo}
+\subsubsection{Interfacciamento con l'utente}
+C2QN-1.4.4-Arreca meno disturbo possibile all'utente.
+
+C2QN-1.4.5-Richiede l'autorizzazione per la raccolta delle informazioni.
+
 \end{document}
