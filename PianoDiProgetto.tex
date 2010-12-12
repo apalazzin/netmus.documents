@@ -1,0 +1,188 @@
+
+\newcommand{\nomedoc}{Piano di Progetto}
+\newcommand{\versione}{0.1}
+\newcommand{\versioneglossario}{0.2}
+\newcommand{\versionenormeprogetto}{0.6}
+\newcommand{\nomefile}{PianoDiProgetto-\versione.pdf}
+\newcommand{\datacreazione}{11 Dicembre 2010}
+\newcommand{\datamodifica}{11 Dicembre 2010}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{esterno}
+\newcommand{\redazione}{Mandolo Andrea\\&Lovato Daniele}
+\newcommand{\verifica}{---}
+\newcommand{\approvazione}{---}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+\begin{tabular}{lll}
+% REVISIONI DEL DOCUMENTO
+% DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+\bo{Data:} 11/12/2010 &
+\bo{Versione:} 0.1 &
+\bo{Autore:} Mandolo Andrea\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Stesura prima versione del Piano di Progetto.}\\ \\
+
+\end{tabular}
+
+% INDICE
+\tableofcontents
+\thispagestyle{fancy} % per lo stile di header e footer
+
+
+\chapter*{Sommario}
+Il presente documento illustra l'organigramma dettagliato del gruppo VT.G, le
+assegnazioni previste, la rotazione dei ruoli di progetto, l'impegno previsto
+per ogni ruolo e per ogni membro ed il conto economico preventivo.
+
+
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+\addcontentsline{toc}{chapter}{Sommario}
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+
+\section{Scopo del documento}
+Il piano di progetto fissa le risorse disponili nel gruppo, la suddivisione
+delle attivit\`a di progetto, il calendario delle attivit\`a ed un prospetto
+economico preventivo. Deve descrivere l'organizzazione delle attivit\`a di
+progetto al fine di produrre risultati utili al responsabile per valutare in
+maniera appropriata il progresso del lavoro.
+
+\input{parte_comune.tex}
+
+
+\chapter{Organizzazione del gruppo}
+\thispagestyle{fancy}
+
+\section{Membri del gruppo}
+Il gruppo VT.G - Valter Texas Group si compone in data 26/11/2010 in previsione
+del progetto didattico di Ingegneria del Software 2010/2011 e, dopo aver
+valutato e studiato i capitolati d'appalto presentati a lezione il 30/11/2010,
+accetta di sviluppare in data 03/12/2010 il progetto presentato nel capitolato
+C02 - NetMus proposto dal Prof. Cardin Riccardo.\\
+
+Il gruppo \`e composto da 7 membri:
+
+\begin{center}
+\begin{tabular}{lcl}
+\hline
+\bo{Nominativo} & \bo{Matricola} & \bo{E-mail} \\
+\hline
+Baron Federico & 599799 & fede.baron.89@gmail.com \\
+Caputo Cosimo & 524037 & caputo.cosimo85@gmail.com \\
+Daminato Simone & 574545 & skyled@alice.it \\
+Lovato Daniele & 578396 & danyleleorti@hotmail.com \\
+Mandolo Andrea & 563175 & andrea.mandolo@gmail.com \\
+Palazzin Alberto & 522095 & alberto.palazzin@gmail.com \\
+Trezzi Giovanni & 487539 & giovytr@trezzi.net \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Ruoli di progetto}
+Durante lo sviluppo del progetto saranno presenti nel gruppo i seguenti ruoli:
+\begin{itemize}
+  \item Responsabile
+  \item Amministratore
+  \item Analista
+  \item Progettista
+  \item Programmatore
+  \item Verificatore
+\end{itemize}
+
+Tali ruoli verranno assegnati a rotazione tra i membri del gruppo, dando
+cos\`\i\ la possibilit\`a a tutti di provare ogni tipo di lavoro.
+
+\section{Attribuzione dei ruoli}
+Nel capitolo 4 di Pianificazione verra dettagliata la distribuzione dei ruoli
+all'interno del gruppo, nei periodi compresi tra le varie revisioni.
+In un certo periodo, garantendo assenza di conflitto d'interessi, un membro
+coprir\`a pi\`u ruoli, ma sempre assicurando un'adeguata ripartizione delle ore
+di lavoro individuale.\\
+
+Per il periodo della stesura iniziale dei documenti, ciascun
+componente ricopre il ruolo di analista, in modo da poter garantire una pi\`u
+accurata definizione e studio dei requisiti iniziali.
+
+\chapter{Ciclo di vita}
+\thispagestyle{fancy}
+Lo sviluppo del progetto NetMus seguir\`a un di ciclo di vita basato sul
+modello incrementale studiato a lezione. Una volta fissate analisi dei requisiti
+e progettazione architetturale si proceder\`a con due iterazioni sulle fasi di
+progettazione di dettaglio e realizzazione. In questo modo si avr\`a la
+possibilit\`a di correggere potenziali mancanze e migliorare il
+software.\\
+La prima iterazione di progettazione logica e realizzazione sar\`a la pi\`u
+longeva: verranno soddisfatti i requisiti obbligatori descritti nel documento di
+AR.\\
+Nella seconda iterazione invece, verranno realizzate ed integrate le parti
+software che soddisfano i requisiti desiderabili ed opzionali che si \`e deciso
+di implementare.\\
+
+Questo modello, data la nostra inesperienza su progetti di tale dimensione e
+sulle nuove tecnologie usate (GAE, GWT e JavaFX), ci assicura un rischio minore
+di fallimento: dopo la prima iterazione completa il prodotto dovrebbe
+gi\`a possedere i requisiti obbligatori concordati con il committente; nella
+seconda si andr\`a solamente ad aggiungere valore senza dover rivoluzionare il
+lavoro gi\`a fatto.\\
+
+Le revisioni che il gruppo VT.G ha deciso di sostenere sono:
+\begin{itemize}
+  \item Revisione dei requisiti (RR): OBBLIGATORIA;
+  \item Revisione del progetto preliminare (RPP): SI;
+  \item Revisione del progetto definitivo (RPD): NO (effettuata internamente);
+  \item Revisione di qualifica (RQ): OBBLIGATORIA;
+  \item Revisione di accettazione (RA): OBBLIGATORIA.
+\end{itemize} \vspace{0.5cm}
+
+\`E stato scelto di sostenere la revisione del progetto preliminare poich\`e
+permette di avere una valutazione esterna della progettazione architetturale ad
+alto livello la quale costituisce, a nostro parere e secondo il modello di ciclo
+di vita adottato, l'attivit\`a pi\`u delicata dell'intero sviluppo.
+Verr\`a comunque sostenuta internamente una revisione del progetto definitivo.
+
+\chapter{Pianificazione}
+\thispagestyle{fancy}
+
+\section{Prospetto  Economico}
+\subsection{RR - RPP}
+\subsection{RPP - RPD}
+\subsection{RPD - RQ}
+\subsection{RQ - RA}
+
+\section{Costi complessivi}
+
+\newpage
+\section{Diagramma di Gantt}
+\vspace{1.5cm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=17.2cm, angle=90]{img/PP/gantt1.png}
+\caption{Diagramma di Gantt}
+\end{figure}
+
+
+\chapter{Analisi e gestione dei rischi}
+\thispagestyle{fancy}
+
+-- Daniele --
+
+
+% \chapter{Consuntivo}            da RR in poi
+% \thispagestyle{fancy}
+
+\end{document}
