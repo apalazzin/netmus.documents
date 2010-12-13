@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano di qualifica}
-\newcommand{\versione}{0.3}
+\newcommand{\versione}{0.4}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{PianoQualifica-\versione.pdf}
@@ -27,6 +27,17 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.4 &
+\bo{Autore:} Giovanni Trezzi\\
+\hline\\
+\multicolumn{3}{p{470px}}{Corretti errori di battitura nel Sommario. Modifiche
+sintattiche in 2.1. Scorporato 2.1.1 in 2.1.2, 2.1.3, 2.1.4. Modifica della
+struttura di 2.1.2 in elenco puntato. Corretto errore grammaticale in 2.1.3.
+Modifica sintattica in 2.1.4, in 2.2 e in 2.3}\\
+\\
+
 
 \bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.3 &
@@ -66,8 +77,8 @@ Aggiunta la versione dei documenti a cui si fa riferimento.}\\
 \chapter*{Sommario}
 Nelle pagine del presente documento saranno descritte le modalit\`a di verifica
 e validazione che si intendono adottare e che verranno utilizzate durante
-l'intero cicolo di vita del pogetto, a partire dalla stesura dell'intera
-documentazione fino alle ultime fasi di collaudo del sofware prima della
+l'intero cicolo di vita del progetto, a partire dalla stesura dell'intera
+documentazione fino alle ultime fasi di collaudo del software prima della
 consegna del prodotto finale. Il Piano di Qualifica rappresenta di fatto il
 punto di riferimento in cui sono contenute le linee guida da seguire per tutte
 le attività di verifica e validazione.
@@ -97,9 +108,8 @@ fine di evitare ed eventualmente correggere \underline{anomalie} e/o
 
 \section{Organizzazione, pianificazione strategica e temporale, responsabilit\`a}
 
-Al fine di garantire un'elevata qualit\`a del prodotto finale l'impegno che ci
-si assume \`e quello di pianificare ed effettuare una costante attivit\`a di
-verifica e validazione in tutte le fasi del progetto. Ogni singola modifica o
+Al fine di garantire un'elevata qualit\`a del prodotto finale, l'impegno che si
+assume \`e quello di pianificare ed effettuare una costante attivit\`a di verifica e validazione in tutte le fasi del progetto. Ogni singola modifica o
 l'insieme di pi\`u modifiche comporteranno una conseguente attivit\`a di verifica. Al fine di
 ottimizzare tempo e risorse, le attivit\`a verranno effettuate solamente quando
 una singola o pi\`u modifiche avranno comportato differenze di tipo rilevante
@@ -129,20 +139,28 @@ questo gestisca le relative attivit\`a di modifica. Una volta modificato, il
 documento dovr\`a essere nuovamente sottoposto all'attenzione del verificatore
 per una nuova attivit\`a di verifica.
 
-\subsubsection*{VERIFICA DELLA FASE PROGETTUALE}
+\subsection{Verifica della fase progettuale}
 
 La fase di progettazione dovr\`a essere verificata secondo i seguenti aspetti:
-Soddisfacimento di tutti i requisiti individuati nel documento Analisi dei Requisiti
-Individuazione di elementi progettuali superflui, non aderenti a nessun requisito richiesto.
-Corretta corrispondeza e tracciabilit\`a tra i requisiti e le relative parti del progetto.
-Correttezza progettuale nel soddisfacimento dei requisiti.
-Correttezza rispetto a quanto stabilito nel documento Norme di Progetto
-Possibilit\`a di manutenere ed estendere i vari elementi cos\`i come previsti nella progettazione del prodotto.
 
+\begin{itemize}
+
+\item soddisfacimento di tutti i requisiti individuati nel documento Analisi dei
+Requisiti;
+\item individuazione di elementi progettuali superflui, non aderenti a nessun
+requisito richiesto;
+\item corretta corrispondeza e tracciabilit\`a tra i requisiti e le relative
+parti del progetto;
+\item correttezza progettuale nel soddisfacimento dei requisiti;
+\item correttezza rispetto a quanto stabilito nel documento Norme di Progetto;
+\item possibilit\`a di manutenere ed estendere i vari elementi cos\`i come
+previsti nella progettazione del prodotto.
+
+\end{itemize}
 
 Nel caso si necessario intervenire in maniera correttiva rispetto ad uno o pi\`u di questi aspetti sar\`a dovere del verificatore contattare il progettista responsabile affinch\`e provveda alle relative modifiche riguardanti la progettazione.
 
-\subsubsection*{VERIFICA DELLA FASE DI REALIZZAZIONE/PROGRAMMAZIONE}
+\subsection{Verifica della fase di ralizzazione/programmazione}
 
 La fase di realizzazione/programmazione dovr\`a essere verificata secondo i seguenti aspetti:
 \begin{itemize}
@@ -151,7 +169,7 @@ La fase di realizzazione/programmazione dovr\`a essere verificata secondo i segu
 \item corretto funzionamento dell'applicazione, o delle sue parti, rispetto a
 quanto previsto nella fase di progettazione;
 \item Affidabilit\`a;
-\item Efficenza;
+\item Efficienza;
 \item Portabilit\`a;
 \item Manutenibilit\`a.
 \end{itemize}
@@ -161,20 +179,20 @@ sar\`a dovere del verificatore contattare il programmatore responsabile della
 relativa porzione di codice.
 
 Inoltre, per favorire l'attivit\`a di verifica, ogni programmatore sar\`a tenuto
-ad eseguire attivit\`a di debugging sul codice per cercare di diminuire il pi\`u
-possibile le possibilit\`a d'errore.
+ad eseguire attivit\`a di debugging sul codice per cercare di diminuire le
+possibilit\`a d'errore.
 
-\subsubsection*{VALIDAZIONE}
+\subsection{Validazione}
 
 L'impegno che ci si assume \`e quello di fornire un prodotto completamente e
 correttamente funzionante secondo i requisiti concordati. Qualora venissero
 riscontrati difetti o non conformit\`a, durante la verifica in fase di collaudo,
-ci si impegna ad effettuare ogni modifica o intervento che risultasse necessario
-al fine di risolvere ogni eventuale problema.
+ci si impegna ad effettuare modifiche o interventi necessari per risolvere i
+problemi.
 
 \section{Risorse necessarie e disponibili}
 
-Per il processo di qualifica sono necessarie risorse di tipo umano le quali
+Per il processo di qualifica sono necessarie risorse di tipo umano che
 effettueranno attivit\`a di verifica e validazione cos\`i come definito nel
 presente documento. Sono necessarie inoltre risorse di tipo logistico quali
 programmi per le attivit\`a di tracciamento tra i requisiti e i moduli software,
@@ -188,33 +206,33 @@ Per le attivit\`a di verifica ci avvarremo dei seguenti strumenti:
 
 \begin{itemize}
 
-\item Junit: verr\`a utilizzato come unit test framework per il linguaggio di
+\item Junit: come unit test framework per il linguaggio di
 programmazione Java;
 
-\item Emma: verr\`a utilizzato per il calcolo della copertura del codice;
+\item Emma: per il calcolo della copertura del codice;
 
-\item Eclipse + GWT: useremo le funzionalit\`a di debug di eclipse su codice java
+\item Eclipse + GWT: per le funzionalit\`a di debug di eclipse su codice java
 mentre l'applicazione da testare verr\`a eseguita in hosted mode tramite GWT;
 
-\item Google Project Hosting: verr\`a utilizzata la funzionalit\`a issue tracker per
+\item Google Project Hosting: per la funzionalit\`a issue tracker per
 la gestione e creazione di ticket cosi come descritto nel documento Norme di
 Progetto;
 
-\item FindBugs: verr\`a utilizzato per effettuare analisi statiche del codice
+\item FindBugs: per effettuare analisi statiche del codice
 sorgente Java al fine di trovare errori comuni;
 
-\item Metrics: verr\`a utilizzato per calcolare la misura di varie metriche del
+\item Metrics: per calcolare la misura di varie metriche del
 codice sorgente durante la fase di compilazione in modo da tenere continuamente
 sotto controllo lo stato del codice stesso;
 
-\item Cobertura: verr\`a utilizzato per misurare la carenza di test di unit\`a
+\item Cobertura: per misurare la carenza di test di unit\`a
 all'interno di un progetto: misurare la percentuale di linee di codice che
 vengono controllate dai test di unit\`a , la percentuale di diramazioni del
 codice che vengono controllate dai test di unit\`a, la complessit\`a ciclomatica
 di ogni classe e il numero di volte che una linea di codice \`e stata eseguita
 dai testi di unit\`a;
 
-\item CheckStyle: verr\`a utilizzato come aiuto per garantire che il codice Java
+\item CheckStyle: come aiuto per garantire che il codice Java
 aderisca alle pi\`u diffuse norme di codifica.
 \end{itemize}
 
