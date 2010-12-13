@@ -287,4 +287,186 @@ Qualora la qualità del processo risulterà minore di quella che ci si aspettava,
 si avranno dei parametri per la stima del costo del miglioramento della qualità
 del processo e quindi del prodotto.
 
+% INIZIO CAPITOLO 4
+
+\chapter{Tecniche di Analisi}
+\thispagestyle{fancy} % per lo stile di header e footer
+
+L'analisi (verifica) si pone come obiettivo di identificare i difetti presenti nel sistema e in tutte le sue fasi di progettazione.
+Essa può essere divisa in due parti fondamentali:
+
+\begin{itemize}
+
+\item Analisi statica.
+\item Aalisi dinamica. 
+
+\end{itemize}
+
+queste due tecniche verranno approfondite nei successivi paragrafi.
+
+\section{Principi e linee guida}
+
+La verifica deve sempre portare alla conferma che si stia lavorando nel modo
+corretto.
+
+\begin{itemize}
+
+\item I collaudi devono essere pianificati con largo anticipo. La pianificazione
+dei collaudi può iniziare non appena si è completata la definizione e specifica
+dei requisiti. La definizione dei casi di prova può cominciare appena il modello
+progettuale è stabile.
+\item Il tracciamento è la componente fondamentale della verifica in quanto ogni
+parte del software deve essere conforme ai requisiti e sua componente deve
+derivare da uno (o più) di questi.
+\item Principio di Pareto: l'80\% degli errori è riconducibile al 20\% dei
+componenti del programma. Il problema è identificare e isolare i componenti
+sospetti.
+\item Per essere efficace, il collaudo dovrebbe essere condotto da una parte
+indipendente, non da chi ha scritto il codice.
+
+\end{itemize}
+
+\section{Analisi Statica}
+
+L'analisi statica verrà utilizzata prevalentemente per attività di verifica
+sulle varie componenti affinchè ognuna di esse sia raggiunta durante
+l'esecuzione del programma nella sua interezza, che non comporta per questo
+l'esecuzione del codice. Inoltre permetterà di analizzare se vi è una corretta
+corrispondenza tra requisiti e codice sorgente tramite un'attenta lettura di
+quest'ultimo.\\
+
+Essa deve includere:
+
+\subsection{Tracciamento}
+
+Con il tracciamento si intende mappare l'evoluzione dei requisiti nel corso del
+progetto in modo tale da consentire durante le varie fasi di capire quali
+requisiti sono stati soddisfatti e quali non ancora o di avere un quadro
+generale sullo stato del progetto globale. In fase di progettazione si dovrà
+controllare che ogni requisito sia implementato correttamente e allo stesso
+tempo non esista alcuna funzionalità superflua o componenti inutili. Il
+tracciamento deve essere considerato come bidirezionale cioè esiste una
+corrispondeza biunivoca tra la fonte e l'oggetto del tracciamento. L'assunzione
+del tracciamento è resa obbligatoria e dovrà essere inserita in questo stesso
+documento come indicato nel paragrafo 4.1.
+
+\subsection{Walkthrough}
+
+Questa tecnica consiste in una lettura critica del codice senza l'assunzione di
+presupposti e con la simulazione di possibili esecuzioni, avente come obbiettivo
+la rivelazione di difettii, sarà applicata durante la verifica della fase
+realizzativa.
+
+\subsection{Inspection}
+
+Questa tecnica consiste in una lettura mirata del codice focalizzata sui
+presupposti per trovare eventuali errori, prevede la preparazione preliminare
+del gruppo prima dell'incontro: ogni membro esamina il prodotto, eventualmente
+applicando tecniche analitiche.
+
+\subsection{Analisi flusso di controllo}
+
+Questa analisi controlla il codice con lo scopo di determinare se è scritto in
+modo strutturato e esegue nel modo desiderato. Controlla inoltre che non ci sia
+codice sintatticamente irraggiungibile e cerca parti del codice che possono
+portare a terminazioni non desiderate, come chiamate ricorsive e/o iterazioni.
+
+\subsection{Analisi del flusso di dati}
+
+Accerta che nessun cammino d'esecuzione del programma acceda a variabili prive
+di valore, usa i risultati dell'analisi di flusso di controllo insieme alle
+informazioni sulle modalità di accesso alle variabili (lettura, scrittura).
+Rileva possibili anomalie, per esempio più scritture successive senza letture
+intermedie. \`E complicata dalla presenza e dall'uso di dati globali accedibili
+da ogni parte del programma.
+
+\subsection{Analisi del flusso d'informazione}
+
+Questa analisi va a determinare ed analizzare le dipendenze create tra gli
+ingressi e le uscite di un'unità di codice durante la sua esecuzione. Le uniche
+dipendenze possibili sono quelle previste dalla specifica, eventuali altre
+dipendenze sono da considerarsi errate. Consente inoltre di identificare
+eventuali effetti collaterali e può essere applicata a singoli moduli o a più
+moduli collegati o all'intero sistema.
+
+\subsection{Esecuzione simbolica}
+
+Unisce le tecniche di analisi di flusso di controllo, analisi di flusso dei dati
+e analisi di flusso d'informazione, verifica le proprietà del programma mediante
+la manipolazione algebrica del codice sorgente tramite ``sostituzioni inverse''.
+
+\subsection{Verifica consistenza dati e peso del codice}
+
+Verifica che i dati restino entro il limite del loro tipo e della precisione
+desiderata, considerando quindi gli arrotondamenti, il problema dell'overflow e
+la gestione dei valori di limite. Si occupa anche dell'analisi e di una corretta
+gestione dello heap.
+
+\subsection{Verifica corretta logica del codice}
+
+Si propone di accertare che il codice sia ben strutturato ed esegua nella
+sequenza attesa ed inoltre si occupa di verificare che nessun cammino
+d'esecuzione del programma acceda a variabili prive di valore.
+
+\subsection{Verifica formale del codice}
+
+Esplora tutte le esecuzioni possibili mediante prove statiche per rilevare
+difetti non sollevati dai test di unità. Si riferisce all'intero sistema integrato.
+
+\subsection{Analisi temporale del codice}
+
+Si occupa di verificare che nell'esecuzione del sistema totale le funzioni più
+importanti e gli eventuali algoritmi usati eseguano in modo da dare la risposta
+attesa in proporzione al carico di informazioni in ingresso.
+
+\section{Analisi dinamica}
+
+L'analisi dinamica consiste nel verificare le singole componenti e
+l'integrazione delle stesse tramite due strumenti equivalenti:
+
+\begin{itemize}
+
+\item Stub
+\item Driver
+
+
+\end{itemize}
+
+L'analisi dinamica non prevede l'attività di debugging che viene lasciata al
+programmatore come verifica dinamica non pianificata. Le tecniche di analisi
+dinamica utilizzabili sono descritte in seguito.
+
+\subsection{White-box}
+
+Partendo dalla conoscenza della struttura interna del prodotto, il collaudo mira
+a verificare che le strutture interne funzionino secondo le specifiche
+progettuali testando al contempo tutti i componenti.
+
+\subsection{Black-box}
+
+Partendo dalle specifiche del progetto si va a verificare che tutte le
+funzionalità richieste nei requisiti siano presenti, cercando contemporaneamente
+eventuali errori.
+
+% INIZIO CAPITOLO 5
+
+\chapter{Verifiche tramite test}
+\thispagestyle{fancy} % per lo stile di header e footer
+
+Si effettueranno tre tipi di test:
+
+\begin{itemize}
+
+\item Test di unità: effettuato al termine del disegnod i dettaglio e verrà
+eseguito in modo strutturale (white-box) o funzionale (black-box) su ciascuna
+unità; divverà completo quando avrà provato tutte le unità definite entro le
+componenti del progetto architetturale;
+\item Test di integrazione: applicato alle componenti del progetto
+architetturale;
+\item Test di sistema: effettuato per verificare se il comportamento dinamico
+del software aderisce ai requisiti. Esso può aver inizio solamente al
+completaento del test di integrazione.
+
+\end{itemize}
+
 \end{document}
