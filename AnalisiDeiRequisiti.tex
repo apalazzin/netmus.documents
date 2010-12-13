@@ -153,10 +153,45 @@ recupero delle informazioni (C2).
 \chapter{Use case}
 \thispagestyle{fancy}
 
-\section{UC1 - Web application NetMus}
+\section{UC1 - Sistema NetMus}
 \includegraphics[width=18cm]{img/AR/UC1.png}
 \\
 \bo{Use case UC1: Sistema NetMus}\\\\
+\bo{Attori primari: } Utente, Componente 1, Componente 2. \\\\
+\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, è
+necessaria una connessione ad internet. \\\\ 
+\bo{Post-condizioni: } La componente 2 ha inviato al server tutte le
+informazioni riuguardanti nuovi brani musicali presenti nel computer o altre
+periferiche dell'utente. La componente 1 ha soddisfatto tutte le richieste
+dell'utente. \\\\ 
+\bo{Scenario principale: } 
+\begin{enumerate}
+  \item Appena è attiva la connessione C2 invia le nuove informazioni al server.
+  \item L'utente, tramite browser, fa un certo numero di richieste tra quelle
+  possibili per visualizzare o modificare informazioni a C1.
+  \item C1 soddisfa la richiesta dell'utente.
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item La comunicazione tra utente e C1(server) fallisce per un problema di
+  connessione.
+  \begin {enumerate}
+    \item Non c'è possibilità di procedere fino a quando la connessione sarà
+    ristabilita. I dati che erano stati aggiornati prima del verificarsi del
+    problema sono già stati salvati.
+  \end{enumerate}
+  \item La comunicazione tra C2 e C1(server) fallisce per un problema di
+  connessione.
+  \begin {enumerate}
+    \item C2 registra a che punto è arrivato l'invio e continua a lavorare in
+    locale senza perdere informazioni.
+  \end{enumerate}
+\end{itemize}
+
+\section{UC1.1 - Sistema Netmus - Autenticazione}
+\includegraphics[width=18cm]{img/AR/UC1.1.png}
+
+\bo{Use case UC1.1: Sistema NetMus - Autenticazione}\\\\
 \bo{Attori primari: } Utente, Componente 1, Componente 2. \\\\
 \bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, è
 necessaria una connessione ad internet. \\\\ 
@@ -763,6 +798,12 @@ di utilizzo da parte dell'utente. A partire dall'interfaccia grafica sar\`a tutt
 molto intuitivo.
 \\
 \\
+
+\subsection{Gerarchia dei requisiti}
+\begin{center}
+	\includegraphics[width=14cm]{img/AR/GerarchiaRequisiti.png}\\
+	\emph{Tabella 1: gerarchia dei requisiti}
+\end{center}
 
 \section{Componente di recupero delle informazioni (C2)}
 \subsection{Requisiti funzionali}
