@@ -1,11 +1,11 @@
 
 \newcommand{\nomedoc}{Analisi dei requisiti}
-\newcommand{\versione}{0.2}
+\newcommand{\versione}{0.3}
 \newcommand{\versioneglossario}{0.1}
 \newcommand{\versionenormeprogetto}{0.3}
 \newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{9 Dicembre 2010}
+\newcommand{\datamodifica}{13 Dicembre 2010}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Mandolo Andrea}
@@ -27,6 +27,14 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.3 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Stesura completa dell'elenco dei requisiti della
+componente 1.}\\
+\\
+
 \bo{Data:} 09/12/2010 &
 \bo{Versione:} 0.2 &
 \bo{Autore:} Daminato Simone\\
@@ -133,117 +141,569 @@ utilizzata per catalogare i requisiti si veda il documento
 
 \section{Componente di persistenza e visualizzazione (Componente 1)}
 \subsection{Requisiti funzionali}
-C1FN-1-WEB Application NetMus (capitolato)
 
-C1FN-1.1-Grafica simile ad iTunes (capitolato)
+\bo{WEB Application NetMus} \\
+\bo{Id:} C1FN-1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato\\
+La componente 1 del software NetMus deve permettere la gestione di un catalogo
+multimediale virtuale ad ogni utente che ha effettuato la registrazione.
+Deve essere accessibile all'utente come applicazione WEB.\\ \\
 
-C1FN-1.1.1-Elenco brani raggruppati opportunamente
+\bo{Grafica simile ad iTunes} \\
+\bo{Id:} C1FN-1.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+L'interfaccia grafica deve dare un'esperienza di visualizzazione simile alla
+libreria musicale fornita dal software iTunes (\emph{http://www.apple.com/it/itunes/}).\\
+\\
 
-C1FN-1.1.2-Menu laterali
+\bo{Elenco brani} \\
+\bo{Id:} C1FN-1.1.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+La parte principale della visualizzazione della libreria \`e costituita
+dall'elenco dei brani dell'utente opportunamente raggruppati e catalogati con la
+possibilit\`a di ordinamento in base ad una o pi\`u delle categorie.
+\\
+\\
 
-C1FN-1.1.3-Visualizzare informazioni dettagliate di un brano
+\bo{Menu laterali} \\
+\bo{Id:} C1FN-1.1.2 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Come avviene in iTunes la navigazione tra le varie pagine deve essere favorita
+da un comodo men\`u laterale alla sinistra della finestra dei brani.
+\\
+\\
 
-C1FD-1.1.4-Visualizza player YouTube
+\bo{Informazioni dettagliate brano} \\
+\bo{Id:} C1FN-1.1.3 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Per ognuno dei propri brani catalogati sar\`a possibile accedere alle informazioni
+dettagliate, come ad esempio la copertina dell'album, in una nuova finestra
+\\
+\\
 
-C1FO-1.1.5-Visualizzazione copertina disco
+\bo{Player YouTube} \\
+\bo{Id:} C1FD-1.1.4 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} capitolato \\
+Insieme alle informazioni di un brano dovrebbe comparire anche un player fornito
+da Youtube con cui ascoltarlo.
+\\
+\\
 
-C1FN-1.2-Creazione profilo utente tramite registrazione (capitolato)
+\bo{Registrazione} \\
+\bo{Id:} C1FN-1.2 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Un individuo pu\`o diventare utente di Netmus ed avere la possibilit\`a di gestire
+il proprio catalogo multimediale solamente dopo aver effettuato la
+registrazione, che prevede l'inserimento di un username (unico), una
+password ed un indirizzo email (attraverso cui fare la conferma) pi\`u alcune
+informazioni personali.
+\\
+\\
 
-C1FO-1.2.1-Pagina di login indipendente da google login
+\bo{Pagina di login} \\
+\bo{Id:} C1FN-1.2.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} verbale1 \\
+L'applicazione avr\`a un sistema di autenticazione proprio oltre a fornire
+l'autenticazione di Google acquisita da Google AppEngine.
+\\
+\\
 
-C1FD-1.3-Personalizzazione del proprio catalogo (interna)
+\bo{Personalizzazione catalogo} \\
+\bo{Id:} C1FN-1.3 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+La gestione del catalogo prevede alcuni metodi di personalizzazione basilari che
+permettono all'utente di visualizzare la propria libreria nel modo preferito ma
+che non vanno a modificare le informazioni a livello di database.
+\\
+\\
 
-C1FD-1.3.1-Cancellazione brano
+\bo{Cancellazione brano} \\
+\bo{Id:} C1FN-1.3.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} verbale1 \\
+Un utente potr\`a rimuovere dalla propria libreria qualche brano, i dati
+rimarranno nel database.
+\\
+\\
 
-C1FD-1.3.2-Modifica info brano
+\bo{Modifica informazioni brano} \\
+\bo{Id:} C1FD-1.3.2 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} interna \\
+Tutte le informazioni di un brano potranno essere modificate dall'utente che le
+ha caricate, il database non risentir\`a di questi cambiamenti quindi gli altri
+utenti non risentiranno in alcun modo di questi cambiamenti.
+\\
+\\
 
-C1FO-1.3.3-Creazione playlist
+\bo{Creazione playlist} \\
+\bo{Id:} C1FO-1.3.3 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} opzionale \\
+\bo{Fonte:} interna \\
+Viene data all'utente la possibilit\`a di creare delle liste lunghe a piacere dei
+propri brani allo scopo di ordinare la propria libreria oppure di ascoltarle in
+sequenza attraverso i player.
+\\
+\\
 
-C1FO-1.3.4-Ranking brani
+\bo{Ranking brani} \\
+\bo{Id:} C1FO-1.3.4 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} opzionale \\
+\bo{Fonte:} interna \\
+L'utente pu\`o assegnare un punteggio ad ogni brano in base al suo gradimento
+personale, questo pu\`o tornare utile come criterio di ordinamento.
+\\
+\\
 
-C1FN-1.4-Gestione profilo personale (interna)
+\bo{Gestione profilo personale} \\
+\bo{Id:} C1FN-1.4 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+In ogni momento l'utente di NetMus pi\`u modificare i suoi dati di registrazione,
+eccetto l'username. Il profilo, se desiderato, pu\`o diventare pubblico e visibile
+dagli altri utenti fornendo la possibilit\`a di confrontare il proprio catalogo
+musicale e le le altre informazioni.
+\\
+\\
 
-C1FN-1.4.1-Modifica informazioni personali
+\bo{Modifica informazioni personali} \\
+\bo{Id:} C1FN-1.4.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Una volta effettuato il login sar\`a possibile accedere ad una pagina apposita per
+aggiornare ed aggiungere informazioni al proprio profilo.
+\\
+\\
 
-C1FN-1.4.2-Cambio password
+\bo{Cambio password} \\
+\bo{Id:} C1FN-1.4.2 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Quando l'utente lo desidera pu\`o cambiare la password del proprio account. \\ \\
 
-C1FN-1.4.3-Cancellazione del proprio account
+\bo{Cancellazione account} \\
+\bo{Id:} C1FN-1.4.3 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Deve essere possibile per ogni utente chiudere il proprio profilo in maniera
+permanente eliminando dal database ogni sua informazione.
+\\
+\\
 
-C1FD-1.4.4-Aggiungi infromazioni personali
+\bo{Pubblicazione profilo} \\
+\bo{Id:} C1FD-1.4.4 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} interna \\
+Per interagire con gli altri sar\`a necessario pubblicare il proprio profilo e
+di conseguenza la propria libreria di canzoni rendendo visibile a tutti ci\`o che
+contengono.
+\\
+\\
 
-C1FD-1.4.5-Pubblicazione profilo
+\bo{Riproduzione tracce in streaming} \\
+\bo{Id:} C1FD-1.5 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} capitolato \\
+NetMus prevede un sistema di riproduzione delle canzoni salvate nel database.
+Non contenendo alcun file multimediale l'ascolto sar\`a reso possibile dalla
+riproduzione in streaming fornita da Youtube. La ricerca dei brani
+corrispondenti alle informazioni nel database sar\`a a totale carico
+dell'applicazione NetMus.
+\\
+\\
 
-C1FD-1.5-Riproduzione tracce in streaming (capitolato)
+\bo{Interazione con altri utenti} \\
+\bo{Id:} C1FD-1.7 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} interna \\
+La comunicazione con altri utenti sar\`a favorita da alcune semplici funzionalit\`a
+che rendono la propria libreria oggetto di confronto dando pi\`u spazio
+allo scambio di idee e conoscenze tra gli utilizzatori di NetMus.
+\\
+\\
 
-C1FD-1.7-Interazione con altri utenti (interna)
+\bo{Visualizzazione altri profili} \\
+\bo{Id:} C1FD-1.7.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} interna \\
+Sar\`a possibile visualizzare l'intera libreria musicale e le altre informazioni
+di tutti gli utenti che hanno permesso la condivisione del proprio profilo.
+\\
+\\
 
-C1FD-1.7.1-Visualizzazione altri profili
+\bo{Lasciare commenti} \\
+\bo{Id:} C1FO-1.7.2 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} opzionale \\
+\bo{Fonte:} interna \\
+Uno strumento semplice ma molto coinvolgente sar\`a la possibilit\`a di scrivere
+commenti alle informazioni condivise da altri utenti come brani, autori e
+playlist.
+\\
+\\
 
-C1FO-1.7.2-Lasciare commenti su altri profili
+\bo{Elaborazione dati utente} \\
+\bo{Id:} C1FD-1.8 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} interna \\
+Il sistema NetMus si occuper\`a anche di elaborare in modo intelligente i dati
+raccolti dai vari utenti permettendo di avere nel proprio profilo dei dati
+riassuntivi riguardanti la propria libreria ma anche di avere delle informazioni
+di confronto con le librerie degli altri utenti.
+\\
+\\
 
-C1FD-1.8-Elaborazione dati utente (statistiche, brani in comune ecc ecc)
+\bo{Esportazione pdf} \\
+\bo{Id:} C1FO-1.8.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} opzionale \\
+\bo{Fonte:} interna \\
+Sar\`a possibile esportare il proprio catalogo opportunamente indicizzato e con
+informazioni aggiuntive procurate da NetMus in formato pdf predisposto per la stampa.
+\\
+\\
 
-C1FN-1.9-Ricezione ed elaborazione brani
+\bo{Ricezione ed elaborazione brani} \\
+\bo{Id:} C1FN-1.9 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Netmus deve occuparsi della rizeione dei dati in arrivo da tutte le componenti
+di invio che si connettono ad esso, dovr\`a quindi gestire queste connessioni in
+modo concorrente nel miglior modo possibile. Inoltre per tutte le informzioni
+ricevute con successo si occuper\`a di verificarne la validit\`a e di arricchirne i
+contenuti ove possibile.
+\\
+\\
 
-C1FN-1.9.1-Controllo di validità dei dati
+\bo{Controllo validit\`a dati} \\
+\bo{Id:} C1FN-1.9.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Tutte le informazioni inviate dalla componente 2 saranno controllate in maniera
+rapida ma che garantisca che non vi siano dati maligni per NetMus o che non
+riguardino brani musicali.
+\\
+\\
 
-C1FN-1.9.2-Completamento info da database interno
+\bo{Completamento informazioni da database interno} \\
+\bo{Id:} C1FN-1.9.2 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Sar\`a sfruttato il database interno per completare ed aggiungere informazioni
+mancanti ai brani in entrata. Questo sar\`a fatto basandosi su opportuni algoritmi
+di ricerca che garantiscano un buona probabilit\`a che i dati suggeriti per
+l'aggiornamento siano quelli corretti.
+\\
+\\
 
-C1FN-1.9.4-Identificazione dati ridondanti
+\bo{Inserimento nel database} \\
+\bo{Id:} C1FN-1.9.5 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Una volta controllate ed aggiornate le informazioni ricevute verranno salvate
+nel database entrando a far parte a tutti gli effetti della libreria musicale
+dell'utente da cui sono state ricevute.
+\\
+\\
 
-C1FN-1.9.5-Inserimento nel database
+\bo{Completamento informazioni da servizio esterno} \\
+\bo{Id:} C1FO-1.9.3 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} opzionale \\
+\bo{Fonte:} capitolato \\
+Per reperire informazioni sicure che possano servire per correggere eventuali
+dati mancanti riguardo i brani inviati a NetMus, se il database interno non le
+possiede, si sfrutter\`a uno o pi\`u servizi gratuiti esterni.
+\\
+\\
 
-C1FO-1.9.3-Completamento info da servizio esterno
+\bo{Invio nuove informazioni a componente 2} \\
+\bo{Id:} C1FD-1.10 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} verbale1 \\
+Se saranno trovate informazioni aggiuntive, da database interno o esterno, ai
+dati inviati da qualche utente sar\`a possibile anche, se desiderato, inviarle
+alla componente 2 per andare ad aggiornare i file multimediali dell'utente.
+\\
+\\
 
-C1FD-1.10-Invio nuove informazioni a componente 2
+\bo{Gestione database} \\
+\bo{Id:} C1FN-1.13 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Il fulcro della persistenza del sistema NetMus sar\`a un database nel quale
+verranno salvati tutti i dati gestiti. In particolare il database sar\`a quello
+fornito da Google AppEngine, Google DataStore che trae grandissimi benefici dal
+cloud computing.
+\\
+\\
 
-C1FN-1.13-Gestione database
+
 
 \subsection{Requisiti di qualit\`a}
-C1QD-1.5.1-Ottimizzazione della ricerca su YoutTube
 
-C1QN-1.6-Scalabilità (capitolato)
+\bo{Ottimizzazione della ricerca su YoutTube} \\
+\bo{Id:} C1QD-1.5.1 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} interna \\
+Youtube \`e uno strumento estremamente utile poich\`e garantisce una vasta gamma di
+dati sulla quale fare ricerche ma proprio per questo sar\`a importante che NetMus
+implementi degli algoritmi opportuni che eseguano queste ricerche in modo molto
+efficente.
+\\
+\\
 
-C1QN-1.6.1-Scalabilità interfaccia grafica
+\bo{Identificazione dati ridondanti} \\
+\bo{Id:} C1QN-1.9.4 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+NetMus sar\`a in grado di associare le informazioni simili e
+riguardanti lo stesso brano in modo da inserirle una sola vola all'interno del
+database. Questo verr\`a fatto solo se si ha la sicurezza che si tratti dello
+stesso brano, altrimenti verrano mantenute le diverse versioni fino a quando si
+avranno informazioni sufficenti per saperlo.
+\\
+\\
 
-C1QN-1.6.2-Scalabilità massa di utenza
+\bo{Gestione concorrenza} \\
+\bo{Id:} C1QN-1.9.6 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+La componente di persistenza sar\`a in grado di gestire la concorrenza tra le
+richieste di invio dati simultanee da vari clients in modo da garantire una
+corretta ricezione di tutte le informazioni.
+\\
+\\
 
-C1QN-1.11-Deve utilizzare il cloud computing
+\bo{Scalabilit\`a} \\
+\bo{Id:} C1QN-1.6 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+NetMus garantur\`a la possibilit\`a di crescere di dimensione, in tutti i vari
+aspetti, senza dover effettuare alcun ritocco o modifica all'architettura del
+sistema.
+\\
+\\
 
-C1QN-3-Utilizzo
+\bo{Scalabilit\`a interfaccia grafica} \\
+\bo{Id:} C1QN-1.6.1 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+La libreria personale dell'utente sar\`a potenzialmente infinita, di conseguenza
+le pagine che ne permetteranno la visualizzazione saranno in grado di adattarsi
+senza imporre vincoli di alcun tipo.
+\\
+\\
 
-C1QN-3.1-Accessibilità
+\bo{Scalabilit\`a massa di utenza} \\
+\bo{Id:} C1QN-1.6.2 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Poich\`e il bacino d'utenza potenziale \`e estremamente elevato NetMus sar\`a molto
+efficente per quanto riguarda gli accessi simultanei di molti utenti
+all'applicazione Web ed al database.
+\\
+\\
 
-C1QN-3.3-Portabilità
+\bo{Cloud computing} \\
+\bo{Id:} C1QN-1.11 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Sar\`a utilizzato il supporto al cloud computing fornito da Google AppEngine,
+anche per quanto riguarda il database grazie a Google DataStore.
+\\
+\\
 
-C1QD-3.4-Supporto multi-lingua
+\bo{Utilizzo} \\
+\bo{Id:} C1QN-3 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Un occhio di riguardo sar\`a dato alla semplicit\`a di utilizzo ed alla possibilit\`a
+per tutti i potenziali utenti di imparare ad utulizzare NetMus. L'utente
+deve poter essere subito in grado di visualizzare e gestire il proprio catalogo
+musicale dopo essersi registrato ed aver messo in funzione la componente 2.
+\\
+\\
 
-C1QN-3.5-Semplicità di utilizzo
+\bo{Accessibilit\`a} \\
+\bo{Id:} C1QO-3.1 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} opzionale \\
+\bo{Fonte:} interna \\
+Il software Web presenter\`a alcune caratteristiche per favorire l'accesso a
+qualsiasi tipoligia di utenza come ad esempio il codice sorgente validato
+secondo paramentri W3C.
+\\
+\\
 
-C1QN-3.6-Manutenibilità
+\bo{Portabilit\`a} \\
+\bo{Id:} C1QN-3.3 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Deve essere compatibile col maggior numero di configurazioni software e
+hardware. \\ \\
 
-C1QN-3.7-Gestione delle eccezioni
+\bo{Supporto multi-lingua} \\
+\bo{Id:} C1QD-3.4 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} capitolato \\
+Saranno accessibili due versioni dell'applicazione, una in italiano ed una in
+lingua inglese, con gli stessi contenuti e sar\`a possibile spostarsi da una
+all'altra in qualsiasi momento.
+\\
+\\
 
-C1QN-4.1-Manuale utente
+\bo{Manutenibilit\`a} \\
+\bo{Id:} C1QN-3.6 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Saranno seguiti dei criteri di scrittura del codice e stesura dei documenti che
+favoriranno il pi\`u possibile il processo di manutenzione.
+\\
+\\
+
+\bo{Gestione errori} \\
+\bo{Id:} C1QN-3.7 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Il sistema sar\`a robusto relativamente agli errori causati all'utilizzo della
+rete internet, risaputamente inaffidabile.
+\\
+\\
+
+\bo{Manuale utente} \\
+\bo{Id:} C1QN-4.1 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Sar\`a redatto un manuale utente che conterr\`a tutte e sole le informazioni
+necessarie all'utilizzo di NetMus in modo da essere facilmente comprensibile da
+tutta l'enorme fascia di utenza a cui si rivolge.
+\\
+\\
+
+\bo{Manuale utente inglese} \\
+\bo{Id:} C1QD-4.1.1 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} capitolato \\
+Sar\`a fornita anche una traduzione del manuale utente in lingua inglese. \\ \\
 
 \subsection{Requisiti di vincolo}
 
 \subsubsection{Interfacciamento con gli ambienti di installazione e d'uso }
-C1VN-1.12-Deve utilizzare le tecnologie GAE e GWT
 
-C1VN-1.13.1-Deve utilizzare Google DataStore
+\bo{Tecnologie GAE e GWT} \\
+\bo{Id:} C1VN-1.12 \\
+\bo{Tipo:} vincolo \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Per lo sviluppo dell'applicazione Web NetMus sar\`a utlizzata la piattaforma
+Google AppEngine (GAE) in concomitanza con l'insieme di strumenti forniti da
+Google Web Toolkit (GWT). Entrambi sono gratuiti.
+\\
+\\
+
+\bo{Google DataStore} \\
+\bo{Id:} C1VN-1.13.1 \\
+\bo{Tipo:} vincolo \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Il database verr\`a sviluppato utilizzando Google DataStore. \\ \\
 
 
 \subsubsection{Norme vigenti nel dominio applicativo}
-C1VD-1.5.2-Quote YouTube
 
-C1VD-1.5.3-YouTube Terms of Service
+\bo{Quote YouTube} \\
+\bo{Id:} C1VD-1.5.2 \\
+\bo{Tipo:} vincolo \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} interna \\
+NetMus rispetter\`a le qute di traffico imposte da Youtube per quanto riguarda il
+traffico in entrata ed in uscita dai loro server.
+\\
+\\
 
-C1VN-3.2-Open source
+\bo{YouTube Terms of Service} \\
+\bo{Id:} C1VD-1.5.3 \\
+\bo{Tipo:} vincolo \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} interna \\
+NetMus rispetter\`a le regole stabilite da YouTube per quanto riguarda i\\
+propri contenuti (\emph{http://www.youtube.com/t/terms}) e per quanto
+riguarda l'utilizzo delle YouTube API
+(\emph{http://code.google.com/apis/youtube/terms.html}).
+\\
+\\
 
+\bo{Open source} \\
+\bo{Id:} C1VN-3.2 \\
+\bo{Tipo:} vincolo \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+La licenza d'uso dell'applicazione sar\`a di tipo Open source. \\ \\
 
 \subsubsection{Caratteristiche dell'utente}
 
+\bo{Semplicit\`a di utilizzo} \\
+\bo{Id:} C1VN-3.5 \\
+\bo{Tipo:} vincolo \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Tutte le componenti dell'applicazione Web NetMus saranno mirate alla semplicit\`a
+di utilizzo da parte dell'utente. A partire dall'interfaccia grafica sar\`a tutto
+molto intuitivo.
+\\
+\\
 
 \section{Componente di recupero delle informazioni (Componente 2)}
 \subsection{Requisiti funzionali}
