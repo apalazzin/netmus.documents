@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano di qualifica}
-\newcommand{\versione}{0.2}
+\newcommand{\versione}{0.3}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{PianoQualifica-\versione.pdf}
@@ -9,7 +9,7 @@
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Giovanni Trezzi}
-\newcommand{\verifica}{Cosimo Caputo}
+\newcommand{\verifica}{Alberto Palazzin}
 \newcommand{\approvazione}{Valter}
 \newcommand{\distribuzione}{
 VT.G \\
@@ -29,10 +29,21 @@ VT.G \\
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
 
 \bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.3 &
+\bo{Autore:} Giovanni Trezzi\\
+\hline\\
+\multicolumn{3}{p{470px}}{Corretto il contenuto del Sommario. Corretto il
+paragrafo 1.2 ``Scopo del documento''. Modificato 2.1 integrando l'attività
+di validazione nel discorso. Corrette le maiuscole/minuscole negli elenchi
+puntati in 2.1.1, in 3.2 e 5. Corretto un errore di battitura in 3.3.1.
+Modificato parte di 4.2 per maggior chiarezza di lettura.}\\
+\\
+
+\bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.2 &
 \bo{Autore:} Giovanni Trezzi\\
 \hline\\
-\multicolumn{3}{p{470px}}{Correzione errori di battitura nei paragrafi 2.1 e
+\multicolumn{3}{p{470px}}{Correzione errori di battitura nei paragrafi 2.1
 3.1.2. Correzione punteggiatura degli elenchi puntati di tutto il documento.
 Aggiunta la versione dei documenti a cui si fa riferimento.}\\
 \\
@@ -54,8 +65,12 @@ Aggiunta la versione dei documenti a cui si fa riferimento.}\\
 
 \chapter*{Sommario}
 Nelle pagine del presente documento saranno descritte le modalit\`a di verifica
-che si intendono adottare a partire dalla stesura dei documenti principe e a
-seguire nell'intero svolgimento del ciclo di vita del software.
+e validazione che si intendono adottare e che verranno utilizzate durante
+l'intero cicolo di vita del pogetto, a partire dalla stesura dell'intera
+documentazione fino alle ultime fasi di collaudo del sofware prima della
+consegna del prodotto finale. Il Piano di Qualifica rappresenta di fatto il
+punto di riferimento in cui sono contenute le linee guida da seguire per tutte
+le attività di verifica e validazione.
 
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -68,6 +83,10 @@ seguire nell'intero svolgimento del ciclo di vita del software.
 
 \section{Scopo del documento}
 
+Il presente documento fornisce le strategie di \underline{verifica} e
+\underline{validazione} che verranno attuate durante lo sviluppo del progetto al
+fine di evitare ed eventualmente correggere \underline{anomalie} e/o
+\underline{difetti} all'interno del sistema.
 
 \input{parte_comune.tex}
 
@@ -80,24 +99,27 @@ seguire nell'intero svolgimento del ciclo di vita del software.
 
 Al fine di garantire un'elevata qualit\`a del prodotto finale l'impegno che ci
 si assume \`e quello di pianificare ed effettuare una costante attivit\`a di
-verifica in tutte le fasi del progetto. Ogni singola modifica o l'insieme di
-pi\`u modifiche comporteranno una conseguente attivit\`a di verifica. Al fine di
+verifica e validazione in tutte le fasi del progetto. Ogni singola modifica o
+l'insieme di pi\`u modifiche comporteranno una conseguente attivit\`a di verifica. Al fine di
 ottimizzare tempo e risorse, le attivit\`a verranno effettuate solamente quando
 una singola o pi\`u modifiche avranno comportato differenze di tipo rilevante
 all'interno di ogni fase del progetto. Le attivit\`a di verifica saranno
 tracciate per mezzo di strumenti specifici. Sar\`a dovere di chi effettua le
 modifiche segnalare i cambiamenti ai verificatori i quali provvederanno ad
-un'ulteriore attivit\`a di verifica. Sar\`a dovere del responsabile di qualifica
+un'ulteriore attivit\`a di verifica. La validazione dovrà avvenire
+solamente a fronte di una precisa e meticolosa attività di verifica e nel
+rispetto di tutti i requisiti e le specifiche, senza discostarsi da
+quanto inzialmente concordato. Sar\`a dovere del responsabile di qualifica
 accertarsi che tutte le attivit\`a si svolgano nelle modalit\`a descritte nel presente documento.
 
 \subsection{Verifica della documentazione}
 
 Per ogni documento dovranno essere verificati i seguenti aspetti:
 \begin{itemize}
-\item Sintassi e grammatica;
-\item Chiarezza espositiva;
-\item Correttezza e completezza dei concetti espressi;
-\item Formattazione del documento secondo quando specificato dall'amministratore
+\item sintassi e grammatica;
+\item chiarezza espositiva;
+\item correttezza e completezza dei concetti espressi;
+\item formattazione del documento secondo quando specificato dall'amministratore
 nelle Norme di Progetto.
 \end{itemize}
 
@@ -124,9 +146,9 @@ Nel caso si necessario intervenire in maniera correttiva rispetto ad uno o pi\`u
 
 La fase di realizzazione/programmazione dovr\`a essere verificata secondo i seguenti aspetti:
 \begin{itemize}
-\item Analisi statica del codice;
-\item Analisi dinamica del codice;
-\item Corretto funzionamento dell'applicazione, o delle sue parti, rispetto a
+\item Analisi Statica del codice;
+\item Analisi Dinamica del codice;
+\item corretto funzionamento dell'applicazione, o delle sue parti, rispetto a
 quanto previsto nella fase di progettazione;
 \item Affidabilit\`a;
 \item Efficenza;
@@ -251,9 +273,9 @@ Vanno incluse:
 
 \begin{itemize}
 
-\item Eventuali Responsabilità;
-\item Il preventivo dei tempi e dei costi necessari alla risoluzione;
-\item Una lista dei requisiti non soddisfatti.
+\item eventuali responsabilità;
+\item il preventivo dei tempi e dei costi necessari alla risoluzione;
+\item una lista dei requisiti non soddisfatti.
 
 \end{itemize}
 
@@ -288,7 +310,7 @@ Ai fini del miglioramento saranno analizzati i seguenti dati:
 \begin{itemize}
   
 \item tempo per le attività del processo fino al suo completamento;
-\item risorse richieste dal processo o le sue attività ( ad esempio le quantità
+\item risorse richieste dal processo o le sue attività (ad esempio le quantità
 totali di ore/persone).
   
 \end{itemize}
@@ -307,8 +329,8 @@ Essa può essere divisa in due parti fondamentali:
 
 \begin{itemize}
 
-\item Analisi statica;
-\item Aalisi dinamica. 
+\item Analisi Statica;
+\item Aalisi Dinamica. 
 
 \end{itemize}
 
@@ -345,7 +367,8 @@ l'esecuzione del codice. Inoltre permetterà di analizzare se vi è una corretta
 corrispondenza tra requisiti e codice sorgente tramite un'attenta lettura di
 quest'ultimo.\\
 
-Essa deve includere:
+Essa deve includere quanto indicato nei successivi paragrafi (da 4.2.1 a
+4.2.11).
 
 \subsection{Tracciamento}
 
@@ -467,13 +490,13 @@ Si effettueranno tre tipi di test:
 
 \begin{itemize}
 
-\item Test di unità: effettuato al termine del disegno di dettaglio e verrà
+\item test di unità: effettuato al termine del disegno di dettaglio e verrà
 eseguito in modo strutturale (white-box) o funzionale (black-box) su ciascuna
 unità; divverà completo quando avrà provato tutte le unità definite entro le
 componenti del progetto architetturale;
-\item Test di integrazione: applicato alle componenti del progetto
+\item test di integrazione: applicato alle componenti del progetto
 architetturale;
-\item Test di sistema: effettuato per verificare se il comportamento dinamico
+\item test di sistema: effettuato per verificare se il comportamento dinamico
 del software aderisce ai requisiti. Esso può aver inizio solamente al
 completaento del test di integrazione.
 
