@@ -1,13 +1,13 @@
 
 \newcommand{\nomedoc}{Piano di qualifica}
-\newcommand{\versione}{0.1}
-\newcommand{\versioneglossario}{0.1}
-\newcommand{\versionenormeprogetto}{0.3}
+\newcommand{\versione}{0.2}
+\newcommand{\versioneglossario}{1.0}
+\newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{PianoQualifica-\versione.pdf}
-\newcommand{\datacreazione}{9 Dicembre 2010}
-\newcommand{\datamodifica}{9 Dicembre 2010}
+\newcommand{\datacreazione}{3 Dicembre 2010}
+\newcommand{\datamodifica}{13 Dicembre 2010}
 \newcommand{\stato}{formale}
-\newcommand{\uso}{interno}
+\newcommand{\uso}{esterno}
 \newcommand{\redazione}{Giovanni Trezzi}
 \newcommand{\verifica}{Cosimo Caputo}
 \newcommand{\approvazione}{Valter}
@@ -27,6 +27,16 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.2 &
+\bo{Autore:} Giovanni Trezzi\\
+\hline\\
+\multicolumn{3}{p{470px}}{Correzione errori di battitura nei paragrafi 2.1 e
+3.1.2. Correzione punteggiatura degli elenchi puntati di tutto il documento.
+Aggiunta la versione dei documenti a cui si fa riferimento.}\\
+\\
+
 
 % TEMPLATE PER REVISIONE
 \bo{Data:} 03/12/2010 &
@@ -68,9 +78,9 @@ seguire nell'intero svolgimento del ciclo di vita del software.
 
 \section{Organizzazione, pianificazione strategica e temporale, responsabilit\`a}
 
-Al fine di garantire un'elevata qualit\`a del prodotto finale l'impegni che ci si
-assume \`e quello di pianificare ed effettuare una costante attivit\`a di
-verifica in tutte le fasi del progetto. Ognis ingola modifica o l'insieme di
+Al fine di garantire un'elevata qualit\`a del prodotto finale l'impegno che ci
+si assume \`e quello di pianificare ed effettuare una costante attivit\`a di
+verifica in tutte le fasi del progetto. Ogni singola modifica o l'insieme di
 pi\`u modifiche comporteranno una conseguente attivit\`a di verifica. Al fine di
 ottimizzare tempo e risorse, le attivit\`a verranno effettuate solamente quando
 una singola o pi\`u modifiche avranno comportato differenze di tipo rilevante
@@ -84,9 +94,9 @@ accertarsi che tutte le attivit\`a si svolgano nelle modalit\`a descritte nel pr
 
 Per ogni documento dovranno essere verificati i seguenti aspetti:
 \begin{itemize}
-\item Sintassi e grammatica.
-\item Chiarezza espositiva.
-\item Correttezza e completezza dei concetti espressi.
+\item Sintassi e grammatica;
+\item Chiarezza espositiva;
+\item Correttezza e completezza dei concetti espressi;
 \item Formattazione del documento secondo quando specificato dall'amministratore
 nelle Norme di Progetto.
 \end{itemize}
@@ -114,14 +124,14 @@ Nel caso si necessario intervenire in maniera correttiva rispetto ad uno o pi\`u
 
 La fase di realizzazione/programmazione dovr\`a essere verificata secondo i seguenti aspetti:
 \begin{itemize}
-\item Analisi statica del codice.
-\item Analisi dinamica del codice.
+\item Analisi statica del codice;
+\item Analisi dinamica del codice;
 \item Corretto funzionamento dell'applicazione, o delle sue parti, rispetto a
-quanto previsto nella fase di progettazione.
-\item Affidabilit\`a
-\item Efficenza
-\item Portabilit\`a
-\item Manutenibilit\`a
+quanto previsto nella fase di progettazione;
+\item Affidabilit\`a;
+\item Efficenza;
+\item Portabilit\`a;
+\item Manutenibilit\`a.
 \end{itemize}
 
 Nel caso sia necessario intervenire sul codice in base ad uno di questi aspetti
@@ -153,34 +163,34 @@ adeguato con possibilit\`a di effettuare debugging da parte dei programmatori.
 \section{Strumenti tecniche e metodi}
 
 Per le attivit\`a di verifica ci avvarremo dei seguenti strumenti:
-(provvisori, da discutere tutti assieme)
 
 \begin{itemize}
 
 \item Junit: verr\`a utilizzato come unit test framework per il linguaggio di
-programmazione Java.
+programmazione Java;
 
-\item Emma: verr\`a utilizzato per il calcolo della copertura del codice.
+\item Emma: verr\`a utilizzato per il calcolo della copertura del codice;
 
 \item Eclipse + GWT: useremo le funzionalit\`a di debug di eclipse su codice java
-mentre l'applicazione da testare verr\`a eseguita in hosted mode tramite GWT.
+mentre l'applicazione da testare verr\`a eseguita in hosted mode tramite GWT;
 
 \item Google Project Hosting: verr\`a utilizzata la funzionalit\`a issue tracker per
-la gestione e creazione di ticket cosi come descritto in x.x
+la gestione e creazione di ticket cosi come descritto nel documento Norme di
+Progetto;
 
 \item FindBugs: verr\`a utilizzato per effettuare analisi statiche del codice
-sorgente Java al fine di trovare errori comuni.
+sorgente Java al fine di trovare errori comuni;
 
 \item Metrics: verr\`a utilizzato per calcolare la misura di varie metriche del
 codice sorgente durante la fase di compilazione in modo da tenere continuamente
-sotto controllo lo stato del codice stesso.
+sotto controllo lo stato del codice stesso;
 
 \item Cobertura: verr\`a utilizzato per misurare la carenza di test di unit\`a
 all'interno di un progetto: misurare la percentuale di linee di codice che
 vengono controllate dai test di unit\`a , la percentuale di diramazioni del
 codice che vengono controllate dai test di unit\`a, la complessit\`a ciclomatica
 di ogni classe e il numero di volte che una linea di codice \`e stata eseguita
-dai testi di unit\`a.
+dai testi di unit\`a;
 
 \item CheckStyle: verr\`a utilizzato come aiuto per garantire che il codice Java
 aderisca alle pi\`u diffuse norme di codifica.
@@ -210,16 +220,16 @@ singoli ticket fare riferimento al documento Norme di Progetto paragrafo omonimo
 
 \subsection{Gestione dell'anomalia}
 
-Il verificatore che individua un'anomaliadovrà innnanzitutto analizzare il
-problema per valutare l'utilizzo di tempoe risorse necessarie per risolverlo. Se
-il problema è di sua competenza e di facile risoluzione può provvedere li stesso
-ad una correzione immediata. In seguito verrà comunicato, a chi ne ha
+Il verificatore che individua un'anomalia dovrà innnanzitutto analizzare il
+problema per valutare l'utilizzo di tempo e risorse necessarie per risolverlo.
+Se il problema è di sua competenza e di facile risoluzione può provvedere lui
+stesso ad una correzione immediata. In seguito verrà comunicato, a chi ne ha
 competenza, il tipo e l'ubicazione dell'errore (vedi sezione 3.1.1).
 L'incaricato dovrà provvedere ad una possibile soluzione. Se il problema è
 particolarmente grave, sarà necessario un incontro con i membri del gruppo per
 cercare una soluzione. Qualora trovare una soluzione all'anomalia venga
-giudicato troppo dipsendioso in termini di tempo o risorse di dovrà comunicare
-al cliente l'anomalia stessa, la sua origine e l'intenzione di non trattarle.
+giudicato troppo dipsendioso in termini di tempo o risorse si dovrà comunicare
+al cliente l'anomalia stessa, la sua origine e l'intenzione di non trattarla.
 
 \section{Trattamento delle discrepanze}
 
@@ -241,8 +251,8 @@ Vanno incluse:
 
 \begin{itemize}
 
-\item Eventuali Responsabilità.
-\item Il preventivo dei tempi e dei costi necessari alla risoluzione.
+\item Eventuali Responsabilità;
+\item Il preventivo dei tempi e dei costi necessari alla risoluzione;
 \item Una lista dei requisiti non soddisfatti.
 
 \end{itemize}
@@ -277,7 +287,7 @@ Ai fini del miglioramento saranno analizzati i seguenti dati:
 
 \begin{itemize}
   
-\item tempo per le attività del processo fino al suo completamento.
+\item tempo per le attività del processo fino al suo completamento;
 \item risorse richieste dal processo o le sue attività ( ad esempio le quantità
 totali di ore/persone).
   
@@ -297,7 +307,7 @@ Essa può essere divisa in due parti fondamentali:
 
 \begin{itemize}
 
-\item Analisi statica.
+\item Analisi statica;
 \item Aalisi dinamica. 
 
 \end{itemize}
@@ -426,8 +436,8 @@ l'integrazione delle stesse tramite due strumenti equivalenti:
 
 \begin{itemize}
 
-\item Stub
-\item Driver
+\item Stub;
+\item Driver.
 
 
 \end{itemize}
@@ -457,7 +467,7 @@ Si effettueranno tre tipi di test:
 
 \begin{itemize}
 
-\item Test di unità: effettuato al termine del disegnod i dettaglio e verrà
+\item Test di unità: effettuato al termine del disegno di dettaglio e verrà
 eseguito in modo strutturale (white-box) o funzionale (black-box) su ciascuna
 unità; divverà completo quando avrà provato tutte le unità definite entro le
 componenti del progetto architetturale;
