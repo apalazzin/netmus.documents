@@ -564,7 +564,7 @@ anche per quanto riguarda il database grazie a Google DataStore.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
 Un occhio di riguardo sar\`a dato alla semplicit\`a di utilizzo ed alla possibilit\`a
-per tutti i potenziali utenti di imparare ad utulizzare NetMus. L'utente
+per tutti i potenziali utenti di imparare ad utilizzare NetMus. L'utente
 deve poter essere subito in grado di visualizzare e gestire il proprio catalogo
 musicale dopo essersi registrato ed aver messo in funzione la C2.
 \\
@@ -668,8 +668,8 @@ Il database verr\`a sviluppato utilizzando Google DataStore. \\ \\
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} interna \\
-NetMus rispetter\`a le qute di traffico imposte da Youtube per quanto riguarda il
-traffico in entrata ed in uscita dai loro server.
+NetMus rispetter\`a le quote di traffico imposte da Youtube per quanto riguarda
+il traffico in entrata ed in uscita dai loro server.
 \\
 \\
 
@@ -707,51 +707,205 @@ molto intuitivo.
 
 \section{Componente di recupero delle informazioni (C2)}
 \subsection{Requisiti funzionali}
-C2FN-1-Componente per il recupero automatico delle informazioni (capitolato).
+\bo{Recupero delle informazioni dei file musicali} \\
+\bo{Id:} C2FN-1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+La componente 2 deve recuperare le informazioni dei brani musicali dell'utente
+per permettere alla componente 1 di creare la libreria musicale virtuale.
+\\
+\\
 
-C2FN-1.1-Recupero delle informazioni dei file musicali.
+\bo{Recupero automatico} \\
+\bo{Id:} C2FN-1.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+La componente 2 deve recuperare le informazioni dei brani musicali
+automaticamente all'inserimento di un nuovo dispositivo.
+\\
+\\
 
-C2FN-1.1.1-Recupero automatico all'inserimento di un nuovo dispositivo.
+\bo{Recupero manuale} \\
+\bo{Id:} C2FN-1.2 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Sotto comando dell'utente (alla pressione di un bottone), vengono recuperate le
+informazioni di tutti i brani musicali nuovi rilevabili.
+\\
+\\
 
-C2FN-1.1.2-Recupero manuale (a comando dell'utente).
+\bo{Raccolta delle informazioni anche con connessione non disponibile.} \\
+\bo{Id:} C2FN-1.3 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} verbale1 \\
+Il recupero delle informazioni va effettuato anche con connessione non
+disponibile, salvandolo temporaneamente in locale. Appena sarà possibile, queste
+informazioni verranno trasmesse alla componente 1.
+\\
+\\
 
-C2FN-1.1.3-Raccolta delle informazioni anche con connessione non disponibile.
+\bo{Raccolta delle informazioni dall'hard disk} \\
+\bo{Id:} C2FD-1.4 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} interna \\
+Vengono osservate per la ricerca di brani musicali anche le directory sull'hard
+disk indicate dall'utente.
+\\
+\\
 
-C2FN-1.1.4-Raccolta delle informazioni anche dall'hard disk (cartelle indicate
-dall'utente).
+\bo{I file musicali senza informazioni vengono ignorati} \\
+\bo{Id:} C2FN-1.5 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} verbale1 \\
+Tutti i brani musicali senza informazioni rintracciabili, cioè senza meta-tag e
+senza nome del brano nel nome del file, verranno ignorati perchè inutili ai fini
+del progetto.
+\\
+\\
 
-C2FN-1.1.5-Vanno ignorati i file musicali con assenza di informazioni.
+\bo{Indicazioni all'utente sui file ignorati} \\
+\bo{Id:} C2FO-1.5.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} opzionale \\
+\bo{Fonte:} interna \\
+Vengono indicati all'utente i file musicali non tracciati perchè senza
+sufficienti informazioni.
+\\
+\\
 
-C2FO-1.1.5.1-I file ignorati vengono indicati all'utente.
+\bo{Aggiornamento e completamento delle informazioni} \\
+\bo{Id:} C2FD-2 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} verbale1 \\
+Sotto richiesta esplicita dell'utente (alla pressione di un bottone) vengono
+aggiornate e completate, ove possibile, le informazioni sui file dell'utente,
+prelevate dalla componente 1.
+\\
+\\
 
-C2FD-1.2-Aggiornamento e completamento delle informazioni dei file musicali
-dell'utente.
+\bo{Comunicazione con la componente 1} \\
+\bo{Id:} C2FN-3 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+La componente 2 comunica attraverso la connessione internet con la componente 1.
+\\
+\\
 
-C2FD-1.2.1-Sotto esplicita richiesta dell'utente, aggiornamento e completamento
-delle informazioni dei file musicali con recupero dei dati da C1.
-
-C2FN-1.3-Comunicazione con C1.
-
-C2FN-1.3.1-Invio delle informazioni dei brani a C1.
+\bo{Invio delle informazioni dei brani} \\
+\bo{Id:} C2FN-3.1 \\
+\bo{Tipo:} funzionale \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+Invio delle informazioni sui brani raccolte alla componente 1 per permettere la
+generazione e/o l'aggiornamento della raccolta virtuale.
+\\
+\\
 
 \subsection{Requisiti di qualit\`a}
-C2FN-1.1.3.1-Utilizzo di poco spazio per la memorizzazione temporanea
-delle informazioni.
+\bo{Ottimizzazione della memoria cache} \\
+\bo{Id:} C2QN-1.3.1 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} verbale1 \\
+In caso di connessione non disponibile, deve utilizzare meno spazio possibile
+per memorizzare temporaneamente i dati dei nuovi brani, per poi eliminare i file
+temporanei appena questi dati non sono più necessari.
+\\
+\\
 
-C2FN-1.3.2-Comunicazioni solo quando strettamente necessarie.
+\bo{Scarso utilizzo di banda della connessione} \\
+\bo{Id:} C2QN-3.2 \\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} verbale1 \\
+Vanno evitate le comunicazioni inutili con la componente 1, limitandosi allo
+stretto necessario.
+\\
+\\
 
-C2QN-1.4-Utilizzo.
+\bo{Utilizzo} \\
+\bo{Id:} C2FN-4\\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+La componente, nel suo utilizzo, dev'essere alla portata di qualsiasi utente.
+\\
+\\
 
-C2QD-1.4.1-Portabilit\`a.
+\bo{Portabilit\`a} \\
+\bo{Id:} C2FD-4.1\\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} verbale1 \\
+Deve essere compatibile col maggior numero di configurazioni software e
+hardware.
+\\
+\\
 
-C2QN-1.4.2-Semplicit\`a di utilizzo.
+\bo{Semplicit\`a di utilizzo} \\
+\bo{Id:} C2FD-4.2\\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Deve essere semplice ed intuitiva da utilizzare.
+\\
+\\
 
-C2QD-1.4.3-Supporto multi-lingua.
+\bo{Supporto multi-lingua} \\
+\bo{Id:} C2FD-4.3\\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} capitolato \\
+La componente potr\`a essere configurata per utilizzare una specifica lingua tra
+quelle disponibili (italiano ed inglese).
+\\
+\\
+
+\bo{Manutenibilit\`a} \\
+\bo{Id:} C2FN-4.4\\
+\bo{Tipo:} qualit\`a \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} interna \\
+Saranno seguiti dei criteri di scrittura del codice e stesura dei documenti che
+favoriranno il pi\`u possibile il processo di manutenzione.
+\\
+\\
 
 \subsection{Requisiti di vincolo}
 \subsubsection{Interfacciamento con l'utente}
-C2QN-1.4.4-Arreca meno disturbo possibile all'utente.
+\bo{Arreca meno disturbo possibile} \\
+\bo{Id:} C2FD-4.5\\
+\bo{Tipo:} vincolo \\
+\bo{Richiesta:} desiderabile \\
+\bo{Fonte:} verbale1 \\
+Arreca meno disturbo possibile all'utente.
+\\
+\\
 
-C2QN-1.4.5-Richiede l'autorizzazione per la raccolta delle informazioni.
+\subsubsection{Norme vigenti nel dominio applicativo}
+\bo{Norme legali} \\
+\bo{Id:} C2FN-4.6\\
+\bo{Tipo:} vincolo \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} verbale1 \\
+Richieder\`a l'autorizzazione al trattamento dei dati personali dell'utente,
+rispettando tutte le normative al riguardo.
+\\
+\\
 
+\bo{Open source} \\
+\bo{Id:} C1VN-4.7 \\
+\bo{Tipo:} vincolo \\
+\bo{Richiesta:} obbligatorio \\
+\bo{Fonte:} capitolato \\
+La licenza d'uso sar\`a di tipo Open source.
+\\ \\
 \end{document}
