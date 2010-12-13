@@ -132,6 +132,34 @@ all'interno della documentazione. Questo documento sar\`a organizzato in ordine
 alfabetico in modo da permettere una rapida ricerca dei termini e sar\`a suddiviso
 due categorie: termini e acronimi.
 
+\chapter{Diagramma architetturale}
+\thispagestyle{fancy}
+Per facilitare la comprensione degli use case si fornisce un diagramma
+architetturale che reppresenta ad alto livello come sarà strutturato l'intero
+sistema NetMus. Si evidenzia la concomitanza tra le due componenti fondamentali
+del sistema, quella di persistenza e visualizzazione (C1) e quella di
+recupero delle informazioni (C2).
+\\\\\\
+\includegraphics[width=17cm]{img/AR/DiagrammaArchitetturale.png}
+
+\chapter{Use case}
+\thispagestyle{fancy}
+
+\section{UC1 - Web application NetMus}
+\includegraphics[width=18cm]{img/AR/UC1.png}
+\\
+\bo{Use case UC1: Sistema NetMus}\\\\
+\bo{Attori primari: }\\\\
+\bo{Attori secondari: }\\\\
+\bo{Pre-condizioni: }\\\\
+\bo{Post-condizioni: }\\\\
+\bo{Scenario principale: }\\\\
+\bo{Scenari secondari: }\\\\
+\bo{Evento scatenante: }\\\\
+
+\section{UC2 - Componente di persistenza e visualizzazione (C1)}
+\section{UC3 - Componente di recupero delle informazioni (C2)}
+
 \chapter{Lista dei requisiti}
 \thispagestyle{fancy}
 Ad ogni requisito è stato assegnato un codice di identificazione per facilitarne
@@ -559,7 +587,7 @@ anche per quanto riguarda il database grazie a Google DataStore.
 \\
 
 \bo{Utilizzo} \\
-\bo{Id:} C1QN-3 \\
+\bo{Id:} C1QN-2 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
@@ -571,7 +599,7 @@ musicale dopo essersi registrato ed aver messo in funzione la C2.
 \\
 
 \bo{Accessibilit\`a} \\
-\bo{Id:} C1QO-3.1 \\
+\bo{Id:} C1QO-2.1 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
@@ -582,7 +610,7 @@ secondo paramentri W3C.
 \\
 
 \bo{Portabilit\`a} \\
-\bo{Id:} C1QN-3.3 \\
+\bo{Id:} C1QN-2.3 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
@@ -590,7 +618,7 @@ Deve essere compatibile col maggior numero di configurazioni software e
 hardware. \\ \\
 
 \bo{Supporto multi-lingua} \\
-\bo{Id:} C1QD-3.4 \\
+\bo{Id:} C1QD-2.4 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} capitolato \\
@@ -601,7 +629,7 @@ all'altra in qualsiasi momento.
 \\
 
 \bo{Manutenibilit\`a} \\
-\bo{Id:} C1QN-3.6 \\
+\bo{Id:} C1QN-2.6 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
@@ -611,7 +639,7 @@ favoriranno il pi\`u possibile il processo di manutenzione.
 \\
 
 \bo{Gestione errori} \\
-\bo{Id:} C1QN-3.7 \\
+\bo{Id:} C1QN-2.7 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
@@ -621,7 +649,7 @@ rete internet, risaputamente inaffidabile.
 \\
 
 \bo{Manuale utente} \\
-\bo{Id:} C1QN-4.1 \\
+\bo{Id:} C1QN-3.1 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
@@ -632,7 +660,7 @@ tutta l'enorme fascia di utenza a cui si rivolge.
 \\
 
 \bo{Manuale utente inglese} \\
-\bo{Id:} C1QD-4.1.1 \\
+\bo{Id:} C1QD-3.1.1 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} capitolato \\
@@ -686,7 +714,7 @@ riguarda l'utilizzo delle YouTube API
 \\
 
 \bo{Open source} \\
-\bo{Id:} C1VN-3.2 \\
+\bo{Id:} C1VN-2.2 \\
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
@@ -695,7 +723,7 @@ La licenza d'uso dell'applicazione sar\`a di tipo Open source. \\ \\
 \subsubsection{Caratteristiche dell'utente}
 
 \bo{Semplicit\`a di utilizzo} \\
-\bo{Id:} C1VN-3.5 \\
+\bo{Id:} C1VN-2.5 \\
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
