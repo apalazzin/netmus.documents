@@ -143,22 +143,26 @@ due categorie: termini e acronimi.
 \chapter{Diagramma architetturale}
 \thispagestyle{fancy}
 Per facilitare la comprensione degli use case si fornisce un diagramma
-architetturale che reppresenta ad alto livello come sarà strutturato l'intero
+architetturale che reppresenta ad alto livello come sar\`a strutturato l'intero
 sistema NetMus. Si evidenzia la concomitanza tra le due componenti fondamentali
 del sistema, quella di persistenza e visualizzazione (C1) e quella di
 recupero delle informazioni (C2).
 \\\\\\
-\includegraphics[width=17cm]{img/AR/DiagrammaArchitetturale.png}
+\begin{center}
+	\includegraphics[width=18cm]{img/AR/DiagrammaArchitetturale.png}
+\end{center}
 
 \chapter{Use case}
 \thispagestyle{fancy}
 
 \section{UC1 - Sistema NetMus}
-\includegraphics[width=18cm]{img/AR/UC1.png}
-\\
+\begin{center}
+	\includegraphics[width=18cm]{img/AR/UC1.png}
+\end{center}
+
 \bo{Use case UC1: Sistema NetMus}\\\\
 \bo{Attori primari: } Utente, Componente 1, Componente 2. \\\\
-\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, è
+\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, \`e
 necessaria una connessione ad internet. \\\\ 
 \bo{Post-condizioni: } La componente 2 ha inviato al server tutte le
 informazioni riuguardanti nuovi brani musicali presenti nel computer o altre
@@ -166,7 +170,8 @@ periferiche dell'utente. La componente 1 ha soddisfatto tutte le richieste
 dell'utente. \\\\ 
 \bo{Scenario principale: } 
 \begin{enumerate}
-  \item Appena è attiva la connessione C2 invia le nuove informazioni al server.
+  \item L'utente effettua l'autenticazione.
+  \item Appena \`e attiva la connessione C2 invia le nuove informazioni al server.
   \item L'utente, tramite browser, fa un certo numero di richieste tra quelle
   possibili per visualizzare o modificare informazioni a C1.
   \item C1 soddisfa la richiesta dell'utente.
@@ -176,50 +181,40 @@ dell'utente. \\\\
   \item La comunicazione tra utente e C1(server) fallisce per un problema di
   connessione.
   \begin {enumerate}
-    \item Non c'è possibilità di procedere fino a quando la connessione sarà
+    \item Non c'\`e possibilit\`a di procedere fino a quando la connessione sar\`a
     ristabilita. I dati che erano stati aggiornati prima del verificarsi del
-    problema sono già stati salvati.
+    problema sono gi\`a stati salvati.
   \end{enumerate}
   \item La comunicazione tra C2 e C1(server) fallisce per un problema di
   connessione.
   \begin {enumerate}
-    \item C2 registra a che punto è arrivato l'invio e continua a lavorare in
+    \item C2 registra a che punto \`e arrivato l'invio e continua a lavorare in
     locale senza perdere informazioni.
   \end{enumerate}
 \end{itemize}
 
 \section{UC1.1 - Sistema Netmus - Autenticazione}
-\includegraphics[width=18cm]{img/AR/UC1.1.png}
+\begin{center}
+	\includegraphics[width=17cm]{img/AR/UC1_1.png}
+\end{center}
 
 \bo{Use case UC1.1: Sistema NetMus - Autenticazione}\\\\
 \bo{Attori primari: } Utente, Componente 1, Componente 2. \\\\
-\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, è
+\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, \`e
 necessaria una connessione ad internet. \\\\ 
-\bo{Post-condizioni: } La componente 2 ha inviato al server tutte le
-informazioni riuguardanti nuovi brani musicali presenti nel computer o altre
-periferiche dell'utente. La componente 1 ha soddisfatto tutte le richieste
-dell'utente. \\\\ 
+\bo{Post-condizioni: } L'utente \`e autenticato all'interno del sistema NetMus. \\\\
 \bo{Scenario principale: } 
 \begin{enumerate}
-  \item Appena è attiva la connessione C2 invia le nuove informazioni al server.
-  \item L'utente, tramite browser, fa un certo numero di richieste tra quelle
-  possibili per visualizzare o modificare informazioni a C1.
-  \item C1 soddisfa la richiesta dell'utente.
+  \item L'utente inserisce dei dati di login validi e se non li possiede
+  li ottiene effettuando l'autenticazione/registrazione a Google e la
+  registrazione a NetMus.
+  \item Netmus verifica i dati ed autentica l'utente.
 \end{enumerate}
 \bo{Scenari secondari: }
 \begin{itemize}
-  \item La comunicazione tra utente e C1(server) fallisce per un problema di
-  connessione.
+  \item L'utente inserisce dei dati di login non validi.
   \begin {enumerate}
-    \item Non c'è possibilità di procedere fino a quando la connessione sarà
-    ristabilita. I dati che erano stati aggiornati prima del verificarsi del
-    problema sono già stati salvati.
-  \end{enumerate}
-  \item La comunicazione tra C2 e C1(server) fallisce per un problema di
-  connessione.
-  \begin {enumerate}
-    \item C2 registra a che punto è arrivato l'invio e continua a lavorare in
-    locale senza perdere informazioni.
+    \item Il tentarivo di autenticazione fallisce.
   \end{enumerate}
 \end{itemize}
 
@@ -228,7 +223,7 @@ dell'utente. \\\\
 
 \chapter{Lista dei requisiti}
 \thispagestyle{fancy}
-Ad ogni requisito è stato assegnato un codice di identificazione per facilitarne
+Ad ogni requisito \`e stato assegnato un codice di identificazione per facilitarne
 il tracciamento, per maggiori informazioni per quanto riguarda la notazione
 utilizzata per catalogare i requisiti si veda il documento
 \emph{NormeDiProgetto-1.0.pdf}.
@@ -843,7 +838,7 @@ informazioni di tutti i brani musicali nuovi rilevabili.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
 Il recupero delle informazioni va effettuato anche con connessione non
-disponibile, salvandolo temporaneamente in locale. Appena sarà possibile, queste
+disponibile, salvandolo temporaneamente in locale. Appena sar\`a possibile, queste
 informazioni verranno trasmesse alla componente 1.
 \\
 \\
@@ -863,8 +858,8 @@ disk indicate dall'utente.
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
-Tutti i brani musicali senza informazioni rintracciabili, cioè senza meta-tag e
-senza nome del brano nel nome del file, verranno ignorati perchè inutili ai fini
+Tutti i brani musicali senza informazioni rintracciabili, cio\`e senza meta-tag e
+senza nome del brano nel nome del file, verranno ignorati perch\`e inutili ai fini
 del progetto.
 \\
 \\
@@ -874,7 +869,7 @@ del progetto.
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
-Vengono indicati all'utente i file musicali non tracciati perchè senza
+Vengono indicati all'utente i file musicali non tracciati perch\`e senza
 sufficienti informazioni.
 \\
 \\
