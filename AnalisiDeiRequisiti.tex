@@ -157,13 +157,36 @@ recupero delle informazioni (C2).
 \includegraphics[width=18cm]{img/AR/UC1.png}
 \\
 \bo{Use case UC1: Sistema NetMus}\\\\
-\bo{Attori primari: }\\\\
-\bo{Attori secondari: }\\\\
-\bo{Pre-condizioni: }\\\\
-\bo{Post-condizioni: }\\\\
-\bo{Scenario principale: }\\\\
-\bo{Scenari secondari: }\\\\
-\bo{Evento scatenante: }\\\\
+\bo{Attori primari: } Utente, Componente 1, Componente 2. \\\\
+\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, è
+necessaria una connessione ad internet. \\\\ 
+\bo{Post-condizioni: } La componente 2 ha inviato al server tutte le
+informazioni riuguardanti nuovi brani musicali presenti nel computer o altre
+periferiche dell'utente. La componente 1 ha soddisfatto tutte le richieste
+dell'utente. \\\\ 
+\bo{Scenario principale: } 
+\begin{enumerate}
+  \item Appena è attiva la connessione C2 invia le nuove informazioni al server.
+  \item L'utente, tramite browser, fa un certo numero di richieste tra quelle
+  possibili per visualizzare o modificare informazioni a C1.
+  \item C1 soddisfa la richiesta dell'utente.
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item La comunicazione tra utente e C1(server) fallisce per un problema di
+  connessione.
+  \begin {enumerate}
+    \item Non c'è possibilità di procedere fino a quando la connessione sarà
+    ristabilita. I dati che erano stati aggiornati prima del verificarsi del
+    problema sono già stati salvati.
+  \end{enumerate}
+  \item La comunicazione tra C2 e C1(server) fallisce per un problema di
+  connessione.
+  \begin {enumerate}
+    \item C2 registra a che punto è arrivato l'invio e continua a lavorare in
+    locale senza perdere informazioni.
+  \end{enumerate}
+\end{itemize}
 
 \section{UC2 - Componente di persistenza e visualizzazione (C1)}
 \section{UC3 - Componente di recupero delle informazioni (C2)}
