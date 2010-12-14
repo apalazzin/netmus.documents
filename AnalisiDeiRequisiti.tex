@@ -66,14 +66,14 @@ componente 1.}\\
 
 \chapter*{Sommario}
 Nel presente documento vengono individuati ed elencati i requisiti che VT.G si
-proprone di soddisfare nello sviluppo del software richiesto dal capitolato
+propone di soddisfare nello sviluppo del software richiesto dal capitolato
 d'appalto 02 NetMus. Per favorire la comprensione dell'analisi proposta sono
-descritti alcuni use-case che comprendono la quasi totalità dei requisiti
+descritti alcuni use-case che comprendono la quasi totalit\`a dei requisiti
 elaborati.
-Nel presentare questa Analisi dei requisiti si è scelto di separare chiaramente
-le due componenti fondamentali, quella di invio dati e quella di persistenza e
-visualizzazione, che costituiscono il sistema NetMus poichè dovranno essere il
-più possibile indipendenti.
+Nel presentare questa Analisi dei requisiti si \`e scelto di separare
+chiaramente le due componenti fondamentali, quella di invio dati e quella di persistenza e
+visualizzazione, che costituiscono il sistema NetMus poich\'e dovranno essere il
+pi\`u possibile indipendenti.
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
 \pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
@@ -87,7 +87,7 @@ più possibile indipendenti.
 Il presente documento ha lo scopo di presentare al committente l'Analisi dei
 Requisiti e le potenzialit\`a software del nostro prodotto per soddisfare le
 richieste del capitolato d'appalto 02 NetMus. Con il termine requisiti si
-vogliono indicare sia le funzionalità attese nel prodotto finale sia gli
+vogliono indicare sia le funzionalit\`a attese nel prodotto finale sia gli
 strumenti adottati per raggiungere tale risultato.
 
 \input{parte_comune.tex}
@@ -101,7 +101,7 @@ destinato ad una vasta gamma d'utenza, di et\`a variabile, stimata a 12 anni o
 superiore, in particolare adolescenti e adulti dai 15 ai 35 anni.
 \subsection{Piattaforma d'esecuzione e interfacciamento con l'ambiente di
 installazione e uso}
-Il prodotto finale utilizzer\`a diverse teconologie (in particolare: Java, GAE e
+Il prodotto finale utilizzer\`a diverse tecnologie (in particolare: Java, GAE e
 GWT) che renderanno possibile l'utilizzo del sistema su pi\`u piattaforme
 d'esecuzione con sistemi operativi diversi, i cui unici due requisiti
 fondamentali saranno di possedere una connessione ad internet e di aver
@@ -153,7 +153,7 @@ due categorie: termini e acronimi.
 \chapter{Diagramma architetturale}
 \thispagestyle{fancy}
 Per facilitare la comprensione degli use case si fornisce un diagramma
-architetturale che reppresenta ad alto livello come sar\`a strutturato l'intero
+architetturale che rappresenta ad alto livello come sar\`a strutturato l'intero
 sistema NetMus. Si evidenzia la concomitanza tra le due componenti fondamentali
 del sistema, quella di persistenza e visualizzazione (C1) e quella di
 recupero delle informazioni (C2).
@@ -177,7 +177,7 @@ recupero delle informazioni (C2).
 \bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, \`e
 necessaria una connessione ad internet. \\\\ 
 \bo{Post-condizioni: } La componente 2 ha inviato al server tutte le
-informazioni riuguardanti nuovi brani musicali presenti nel computer o altre
+informazioni riguardanti nuovi brani musicali presenti nel computer o altre
 periferiche dell'utente. La componente 1 ha soddisfatto tutte le richieste
 dell'utente. \\\\ 
 \bo{Scenario principale: } 
@@ -229,7 +229,7 @@ necessaria una connessione ad internet. \\\\
 \begin{itemize}
   \item L'utente inserisce dei dati di login non validi.
   \begin {enumerate}
-    \item Il tentarivo di autenticazione fallisce.
+    \item Il tentativo di autenticazione fallisce.
   \end{enumerate}
 \end{itemize}
 \newpage
@@ -243,7 +243,7 @@ necessaria una connessione ad internet. \\\\
 
 \bo{Use case UC2: Componente di persistenza e visualizzazione (C1)}\\\\
 \bo{Attori primari: } Utente, Google cloud (server + database). \\\\
-\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed è
+\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed \`e
 autenticato. \\\\ 
 \bo{Post-condizioni: } L'utente ha effettuato tutte le operazioni desiderate
 con successo. \\\\
@@ -269,8 +269,8 @@ con successo. \\\\
   il proprio.
   \begin {enumerate}
     \item Viene chiesto all'utente se vuole pubblicare la propria libreria.
-    \item In caso affermativo l'utente può procede a visualizzare altri profili,
-    atrimenti gli viene negato l'accesso e viene rimandato alla propria pagina.
+    \item In caso affermativo l'utente pu\`o procede a visualizzare altri profili,
+    altrimenti gli viene negato l'accesso e viene rimandato alla propria pagina.
   \end{enumerate}
 \end{itemize}
 \newpage
@@ -283,23 +283,23 @@ con successo. \\\\
 
 \bo{Use case UC2.1: C1 - Gestione catalogo}\\\\
 \bo{Attori primari: } Utente, Google cloud (server + database). \\\\
-\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed è
+\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed \`e
 autenticato. \\\\ 
-\bo{Post-condizioni: } L'utente è riuscito a vedere tutte le informazioni
+\bo{Post-condizioni: } L'utente \`e riuscito a vedere tutte le informazioni
 salvate nella sua libreria musicale, sia quelle inviate dal suo computer sia
 quelle aggiuntive recuperate dal database. L'utente ha inoltre
 personalizzato il proprio catalogo a piacimento. \\\\
 \bo{Scenario principale: } 
 \begin{enumerate}
   \item L'utente visualizza la propria libreria di canzoni
-  oppurtunamente raggruppate ed un menù sul lato sinistro per facilitare la
-  navigazione all'interno della pagina, la visualizzazione è simile a quella
+  opportunamente raggruppate ed un men\`u sul lato sinistro per facilitare la
+  navigazione all'interno della pagina, la visualizzazione \`e simile a quella
   del software iTunes.
   \item L'utente seleziona il brano che gli interessa e ne visualizza i
-  dettagli tra cui c'è anche il player di YouTube che permette di ascoltare la
+  dettagli tra cui c'\`e anche il player di YouTube che permette di ascoltare la
   canzone in streaming.
   \item In ogni momento, sia nella visualizzazione del catalogo sia in quella
-  del singolo brano, l'utente può modificare varie opzioni e cancellare o
+  del singolo brano, l'utente pu\`o modificare varie opzioni e cancellare o
   aggiungere contenuti.
   \item Il server invia la pagina che l'utente ha richiesto e, se necessario,
   salva l'aggiornamento sui dati che ha fatto.
@@ -316,7 +316,7 @@ personalizzato il proprio catalogo a piacimento. \\\\
   \item L'applicazione non ha trovato nessun corrispettivo del brano
   selezionato su YouTube.
   \begin {enumerate}
-    \item Il player non viene visualizzato ma tutte le altre funzionalità
+    \item Il player non viene visualizzato ma tutte le altre funzionalit\`a
     rimangono invariate.
   \end{enumerate}
 \end{itemize}
@@ -340,15 +340,15 @@ preesistenti nel database oppure provenienti da un servizio esterno. \\\\
 \bo{Scenario principale: } 
 \begin{enumerate}
   \item C2 invia tutti i dati che ha raccolto.
-  \item C1 controlla che non vi siano dati maligni o non riguardinti brani
+  \item C1 controlla che non vi siano dati maligni o non riguardanti brani
   musicali.
   \item C1 effettua una ricerca nel proprio database per verificare se alcuni
-  brani sono già presenti.
-  \item C1 trova alcuni brani già in memoria e scarta i doppioni in entrata. Nel
-  farlo, se le informazioni non combaciano precisamente, valuta quele delle due
-  versioni è la più completa e adotta una strategia di ``merge'' che minimizzi
+  brani sono gi\`a presenti.
+  \item C1 trova alcuni brani gi\`a in memoria e scarta i doppioni in entrata. Nel
+  farlo, se le informazioni non combaciano precisamente, valuta quale delle due
+  versioni \`e la pi\`u completa e adotta una strategia di ``merge'' che minimizzi
   la ridondanza.
-  \item Per i brani che non sono già presenti nel database C1 effettua una
+  \item Per i brani che non sono gi\`a presenti nel database C1 effettua una
   ricerca all'esterno e se trova informazioni aggiuntive per i brani in arrivo le inserisce.
   \item C1 salva i dati elaborati nel database.
 \end{enumerate}
@@ -356,13 +356,13 @@ preesistenti nel database oppure provenienti da un servizio esterno. \\\\
 \begin{itemize}
   \item Vengono identificati alcuni dati maligni.
   \begin {enumerate}
-    \item Queste informazioni vengono scartate senza possibilità di ripristino e
+    \item Queste informazioni vengono scartate senza possibilit\`a di ripristino e
     l'elaborazione procede senza conseguenze.
   \end{enumerate}
   \item C1 non riesce a stabilire se le informazioni relative a due brani
   descrivano effettivamente la stessa canzone.
   \begin {enumerate}
-    \item Vengono tenuti entrambi i brani, fino a quando il sistema avrà
+    \item Vengono tenuti entrambi i brani, fino a quando il sistema avr\`a
     abbastanza informazioni per decidere. L'elaborazione procede senza
     conseguenze.
   \end{enumerate}
@@ -724,10 +724,10 @@ cloud computing.
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} interna \\
-Youtube \`e uno strumento estremamente utile poich\`e garantisce una vasta gamma di
+Youtube \`e uno strumento estremamente utile poich\'e garantisce una vasta gamma di
 dati sulla quale fare ricerche ma proprio per questo sar\`a importante che NetMus
 implementi degli algoritmi opportuni che eseguano queste ricerche in modo molto
-efficente.
+efficiente.
 \\
 \\
 
@@ -739,8 +739,8 @@ efficente.
 NetMus sar\`a in grado di associare le informazioni simili e
 riguardanti lo stesso brano in modo da inserirle una sola vola all'interno del
 database. Questo verr\`a fatto solo se si ha la sicurezza che si tratti dello
-stesso brano, altrimenti verrano mantenute le diverse versioni fino a quando si
-avranno informazioni sufficenti per saperlo.
+stesso brano, altrimenti verranno mantenute le diverse versioni fino a quando si
+avranno informazioni sufficienti per saperlo.
 \\
 \\
 
@@ -760,7 +760,7 @@ corretta ricezione di tutte le informazioni.
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-NetMus garantur\`a la possibilit\`a di crescere di dimensione, in tutti i vari
+NetMus garantir\`a la possibilit\`a di crescere di dimensione, in tutti i vari
 aspetti, senza dover effettuare alcun ritocco o modifica all'architettura del
 sistema.
 \\
@@ -782,8 +782,8 @@ senza imporre vincoli di alcun tipo.
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-Poich\`e il bacino d'utenza potenziale \`e estremamente elevato NetMus sar\`a molto
-efficente per quanto riguarda gli accessi simultanei di molti utenti
+Poich\'e il bacino d'utenza potenziale \`e estremamente elevato NetMus sar\`a molto
+efficiente per quanto riguarda gli accessi simultanei di molti utenti
 all'applicazione Web ed al database.
 \\
 \\
@@ -816,8 +816,8 @@ musicale dopo essersi registrato ed aver messo in funzione la C2.
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
 Il software Web presenter\`a alcune caratteristiche per favorire l'accesso a
-qualsiasi tipoligia di utenza come ad esempio il codice sorgente validato
-secondo paramentri W3C.
+qualsiasi tipologia di utenza come ad esempio il codice sorgente validato
+secondo parametri W3C.
 \\
 \\
 
@@ -856,7 +856,7 @@ favoriranno il pi\`u possibile il processo di manutenzione.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
 Il sistema sar\`a robusto relativamente agli errori causati all'utilizzo della
-rete internet, risaputamente inaffidabile.
+rete internet, notoriamente inaffidabile.
 \\
 \\
 
@@ -887,7 +887,7 @@ Sar\`a fornita anche una traduzione del manuale utente in lingua inglese. \\ \\
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-Per lo sviluppo dell'applicazione Web NetMus sar\`a utlizzata la piattaforma
+Per lo sviluppo dell'applicazione Web NetMus sar\`a utilizzata la piattaforma
 Google AppEngine (GAE) in concomitanza con l'insieme di strumenti forniti da
 Google Web Toolkit (GWT). Entrambi sono gratuiti.
 \\
@@ -1031,7 +1031,7 @@ disk indicate dall'utente.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
 Tutti i brani musicali senza informazioni rintracciabili, cio\`e senza meta-tag e
-senza nome del brano nel nome del file, verranno ignorati perch\`e inutili ai fini
+senza nome del brano nel nome del file, verranno ignorati perch\'e inutili ai fini
 del progetto.
 \\
 \\
@@ -1041,7 +1041,7 @@ del progetto.
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
-Vengono indicati all'utente i file musicali non tracciati perch\`e senza
+Vengono indicati all'utente i file musicali non tracciati perch\'e senza
 sufficienti informazioni.
 \\
 \\
@@ -1084,7 +1084,7 @@ generazione e/o l'aggiornamento della raccolta virtuale.
 \bo{Fonte:} verbale1 \\
 In caso di connessione non disponibile, deve utilizzare meno spazio possibile
 per memorizzare temporaneamente i dati dei nuovi brani, per poi eliminare i file
-temporanei appena questi dati non sono più necessari.
+temporanei appena questi dati non sono pi\`u necessari.
 \\
 \\
 
