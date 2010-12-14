@@ -1,11 +1,11 @@
 
 \newcommand{\nomedoc}{Analisi dei requisiti}
-\newcommand{\versione}{0.4}
+\newcommand{\versione}{0.8}
 \newcommand{\versioneglossario}{0.1}
 \newcommand{\versionenormeprogetto}{0.3}
 \newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{13 Dicembre 2010}
+\newcommand{\datamodifica}{15 Dicembre 2010}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Mandolo Andrea}
@@ -27,6 +27,38 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+\bo{Data:} 15/12/2010 &
+\bo{Versione:} 0.8 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Aggiunta del capitolo ``Sommario". Correzione di
+alcuni errori grammaticali.}\\
+\\
+
+\bo{Data:} 14/12/2010 &
+\bo{Versione:} 0.7 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Inserimento degli use case, diagrammi e testo,
+UC1, UC1.1, UC2, UC2.1, UC 2.2.}\\
+\\
+
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.6 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Indicizzazione e reinserimento tabelle,
+inserimento della figura 1 (Diagramma architeturale).}\\
+\\
+
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.5 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Inserimento tabelle dei requisiti riassuntive per
+C1.}\\
+\\
+
 \bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.4 &
 \bo{Autore:} Daminato Simone\\
@@ -56,7 +88,6 @@ componente 1.}\\
 \hline\\
 \multicolumn{3}{p{470px}}{ Redazione del capitolo 1.}\\
 \\
-
 \end{tabular}
 
 % INDICE
@@ -67,9 +98,9 @@ componente 1.}\\
 \chapter*{Sommario}
 Nel presente documento vengono individuati ed elencati i requisiti che VT.G si
 propone di soddisfare nello sviluppo del software richiesto dal capitolato
-d'appalto 02 NetMus. Per favorire la comprensione dell'analisi proposta sono
-descritti alcuni use-case che comprendono la quasi totalit\`a dei requisiti
-elaborati.
+d'appalto 02 \underline{NetMus}. Per favorire la comprensione dell'analisi proposta sono
+descritti alcuni diagramma use-case che rispettano lo standard \underline{UML}
+2.2 e comprendono la quasi totalit\`a dei requisiti elaborati.
 Nel presentare questa Analisi dei requisiti si \`e scelto di separare
 chiaramente le due componenti fondamentali, quella di invio dati e quella di persistenza e
 visualizzazione, che costituiscono il sistema NetMus poich\'e dovranno essere il
@@ -101,13 +132,13 @@ destinato ad una vasta gamma d'utenza, di et\`a variabile, stimata a 12 anni o
 superiore, in particolare adolescenti e adulti dai 15 ai 35 anni.
 \subsection{Piattaforma d'esecuzione e interfacciamento con l'ambiente di
 installazione e uso}
-Il prodotto finale utilizzer\`a diverse tecnologie (in particolare: Java, GAE e
+Il prodotto finale utilizzer\`a diverse tecnologie (in particolare: \underline{Java}, GAE e
 GWT) che renderanno possibile l'utilizzo del sistema su pi\`u piattaforme
 d'esecuzione con sistemi operativi diversi, i cui unici due requisiti
-fondamentali saranno di possedere una connessione ad internet e di aver
+fondamentali saranno di possedere una connessione ad \underline{Internet} e di aver
 installata la Java Runtime Machine. In particolare, il prodotto finale sar\`a
-testato sui principali sistemi operativi: Windows (xp e 7), Linux (principali e
-pi\`u diffuse distribuzioni), Mac OS X (Snow Leopard).
+testato sui principali sistemi operativi: \underline{Windows} (xp e 7), \underline{Linux} (principali e
+pi\`u diffuse distribuzioni), \underline{Mac OS X} (Snow Leopard).
 \section{Funzioni del prodotto}
 Il prodotto finale sar\`a composto da due componenti. Una componente di
 persistenza e visualizzazione della libreria virtuale dell'utente. Un'altra
@@ -142,7 +173,7 @@ Il software nel suo funzionamento e sviluppo:
 \end{itemize}
 \section{Assunzioni e dipendenze}
 Si assume che sui personal computer utilizzati dagli utenti sia gi\`a installata
-una JVM.
+una \underline{JVM}.
 \section{Glossario}
 Esister\`a un unico glossario comune a tutti i documenti, contenente la
 spiegazione di tutti i termini e gli acronimi che verranno utilizzati
@@ -296,7 +327,7 @@ personalizzato il proprio catalogo a piacimento. \\\\
   navigazione all'interno della pagina, la visualizzazione \`e simile a quella
   del software iTunes.
   \item L'utente seleziona il brano che gli interessa e ne visualizza i
-  dettagli tra cui c'\`e anche il player di YouTube che permette di ascoltare la
+  dettagli tra cui c'\`e anche il player di \underline{Youtube} che permette di ascoltare la
   canzone in streaming.
   \item In ogni momento, sia nella visualizzazione del catalogo sia in quella
   del singolo brano, l'utente pu\`o modificare varie opzioni e cancellare o
@@ -346,7 +377,7 @@ preesistenti nel database oppure provenienti da un servizio esterno. \\\\
   brani sono gi\`a presenti.
   \item C1 trova alcuni brani gi\`a in memoria e scarta i doppioni in entrata. Nel
   farlo, se le informazioni non combaciano precisamente, valuta quale delle due
-  versioni \`e la pi\`u completa e adotta una strategia di ``merge'' che minimizzi
+  versioni \`e la pi\`u completa e adotta una strategia di ``\underline{merge}'' che minimizzi
   la ridondanza.
   \item Per i brani che non sono gi\`a presenti nel database C1 effettua una
   ricerca all'esterno e se trova informazioni aggiuntive per i brani in arrivo le inserisce.
@@ -448,7 +479,7 @@ da Youtube con cui ascoltarlo.
 \bo{Fonte:} capitolato \\
 Un individuo pu\`o diventare utente di Netmus ed avere la possibilit\`a di gestire
 il proprio catalogo multimediale solamente dopo aver effettuato la
-registrazione, che prevede l'inserimento di un username (unico), una
+registrazione, che prevede l'inserimento di un \underline{username} (unico), una
 password ed un indirizzo email (attraverso cui fare la conferma) pi\`u alcune
 informazioni personali.
 \\
@@ -460,7 +491,7 @@ informazioni personali.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
 L'applicazione avr\`a un sistema di autenticazione proprio oltre a fornire
-l'autenticazione di Google acquisita da Google AppEngine.
+l'autenticazione di Google acquisita da \underline{Google AppEngine}.
 \\
 \\
 
@@ -630,7 +661,7 @@ di confronto con le librerie degli altri utenti.
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
 Sar\`a possibile esportare il proprio catalogo opportunamente indicizzato e con
-informazioni aggiuntive procurate da NetMus in formato pdf predisposto per la stampa.
+informazioni aggiuntive procurate da NetMus in formato \underline{pdf} predisposto per la stampa.
 \\
 \\
 
@@ -711,7 +742,7 @@ a C2 per andare ad aggiornare i file multimediali dell'utente.
 Il fulcro della persistenza del sistema NetMus sar\`a un database nel quale
 verranno salvati tutti i dati gestiti. In particolare il database sar\`a quello
 fornito da Google AppEngine, Google DataStore che trae grandissimi benefici dal
-cloud computing.
+\underline{cloud computing}.
 \\
 \\
 
@@ -784,7 +815,7 @@ senza imporre vincoli di alcun tipo.
 \bo{Fonte:} capitolato \\
 Poich\'e il bacino d'utenza potenziale \`e estremamente elevato NetMus sar\`a molto
 efficiente per quanto riguarda gli accessi simultanei di molti utenti
-all'applicazione Web ed al database.
+all'\underline{applicazione web}ed al database.
 \\
 \\
 
@@ -817,7 +848,7 @@ musicale dopo essersi registrato ed aver messo in funzione la C2.
 \bo{Fonte:} interna \\
 Il software Web presenter\`a alcune caratteristiche per favorire l'accesso a
 qualsiasi tipologia di utenza come ad esempio il codice sorgente validato
-secondo parametri W3C.
+secondo parametri \underline{W3C}.
 \\
 \\
 
@@ -889,7 +920,7 @@ Sar\`a fornita anche una traduzione del manuale utente in lingua inglese. \\ \\
 \bo{Fonte:} capitolato \\
 Per lo sviluppo dell'applicazione Web NetMus sar\`a utilizzata la piattaforma
 Google AppEngine (GAE) in concomitanza con l'insieme di strumenti forniti da
-Google Web Toolkit (GWT). Entrambi sono gratuiti.
+\underline{Google Web Toolkit (GWT)}. Entrambi sono gratuiti.
 \\
 \\
 
@@ -930,7 +961,7 @@ riguarda l'utilizzo delle YouTube API
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-La licenza d'uso dell'applicazione sar\`a di tipo Open source. \\ \\
+La licenza d'uso dell'applicazione sar\`a di tipo \underline{Open source}. \\ \\
 
 \subsubsection{Caratteristiche dell'utente}
 
