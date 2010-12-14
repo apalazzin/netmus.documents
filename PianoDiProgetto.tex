@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano di Progetto}
-\newcommand{\versione}{0.2}
+\newcommand{\versione}{0.5}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{PianoDiProgetto-\versione.pdf}
@@ -36,9 +36,7 @@ VT.G \\
 \bo{Autore:} Lovato Daniele\\
 \hline\\
 \multicolumn{3}{p{470px}}{ Corretti errori grammaticali e di battitura e
-aggiunti commenti ai grafici}\\
-\\
-
+aggiunti commenti ai grafici}\\ \\
 
 \bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.3 &
@@ -66,9 +64,10 @@ aggiunti commenti ai grafici}\\
 
 
 \chapter*{Sommario}
-Il presente documento illustra l'organigramma dettagliato del gruppo VT.G, le
+Il presente documento descrive l'organizzazione del gruppo VT.G, le
 assegnazioni previste, la rotazione dei ruoli di progetto, l'impegno previsto
-per ogni ruolo e per ogni membro ed il conto economico preventivo.
+per ogni ruolo e per ogni membro ed il conto economico preventivo.\\
+Viene inoltre presentata un'analisi dei rischi presenti durante il progetto, con relativa strategia preventiva su di essi.
 
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -132,7 +131,7 @@ Tali ruoli verranno assegnati a rotazione tra i membri del gruppo, dando
 cos\`\i\ la possibilit\`a a tutti di provare ogni tipo di lavoro.
 
 \section{Attribuzione dei ruoli}
-Nel capitolo 4 di Pianificazione verra dettagliata la distribuzione dei ruoli
+Nel capitolo 4 di Pianificazione verr\`a dettagliata la distribuzione dei ruoli
 all'interno del gruppo, nei periodi compresi tra le varie revisioni.
 In un certo periodo, garantendo assenza di conflitto d'interessi, un membro
 coprir\`a pi\`u ruoli, ma sempre assicurando un'adeguata ripartizione delle ore
@@ -152,28 +151,29 @@ possibilit\`a di correggere potenziali mancanze e migliorare il
 software.\\
 La prima iterazione di progettazione logica e realizzazione sar\`a la pi\`u
 longeva: verranno soddisfatti i requisiti obbligatori descritti nel documento di
-AR.\\
+Analisi dei Requisiti.\\
 Nella seconda iterazione invece, verranno realizzate ed integrate le parti
 software che soddisfano i requisiti desiderabili ed opzionali che si \`e deciso
 di implementare.\\
 
 Questo modello, data la nostra inesperienza su progetti di tale dimensione e
-sulle nuove tecnologie usate (GAE, GWT e JavaFX), ci assicura un rischio minore
-di fallimento: dopo la prima iterazione completa il prodotto dovrebbe
+sulle nuove tecnologie usate (\underline{GAE}, \underline{GWT} e
+\underline{JavaFX}), ci assicura un rischio minore di fallimento: dopo la prima iterazione completa il prodotto dovrebbe
 gi\`a possedere i requisiti obbligatori concordati con il committente; nella
 seconda si andr\`a solamente ad aggiungere valore senza dover rivoluzionare il
 lavoro gi\`a fatto.\\
 
 Le revisioni che il gruppo VT.G ha deciso di sostenere sono:
 \begin{itemize}
-  \item Revisione dei requisiti (RR): OBBLIGATORIA;
-  \item Revisione del progetto preliminare (RPP): SI;
-  \item Revisione del progetto definitivo (RPD): NO (effettuata internamente);
-  \item Revisione di qualifica (RQ): OBBLIGATORIA;
-  \item Revisione di accettazione (RA): OBBLIGATORIA.
+  \item Revisione dei requisiti (\underline{RR}): OBBLIGATORIA;
+  \item Revisione del progetto preliminare (\underline{RPP}): SI;
+  \item Revisione del progetto definitivo (\underline{RPD}): NO (effettuata
+  internamente);
+  \item Revisione di qualifica (\underline{RQ}): OBBLIGATORIA;
+  \item Revisione di accettazione \underline{RA}): OBBLIGATORIA.
 \end{itemize} \vspace{0.5cm}
 
-\`E stato scelto di sostenere la revisione del progetto preliminare poich\`e
+\`E stato scelto di sostenere la revisione del progetto preliminare poich\'e
 permette di avere una valutazione esterna della progettazione architetturale ad
 alto livello la quale costituisce, a nostro parere e secondo il modello di ciclo
 di vita adottato, l'attivit\`a pi\`u delicata dell'intero sviluppo.
@@ -184,8 +184,8 @@ Verr\`a comunque sostenuta internamente una revisione del progetto definitivo.
 
 \section{Diagramma di Gantt}
 Per facilitare la gestione oraria e il rispetto delle scadenze preposte,
-forniamo un diagramma di Gantt che illustra in dettaglio l'andamento delle
-attivit\`a del gruppo durante l'intero sviluppo il progetto.
+forniamo un \underline{diagramma di Gantt} che illustra in dettaglio l'andamento
+delle attivit\`a del gruppo durante l'intero sviluppo il progetto.
 \vspace{0.8cm}
 \begin{figure}[htbp]
   \centering
@@ -194,17 +194,17 @@ attivit\`a del gruppo durante l'intero sviluppo il progetto.
 \end{figure}
 \newpage
 
-Come si pu\`o notare dal grafico, le revisioni sono indicate come punti di
+Come si pu\`o notare dal grafico, le revisioni sono indicate come punti di 
 verifica con dei piccoli rombi neri, per semplificare la visione.\\
 Si \`e deciso che la fase di analisi proseguir\`a per qualche giorno anche dopo
-la RR, per addattare i nostri requisiti ad eventuali variazioni emerse durante
+la RR, per adattare i nostri requisiti ad eventuali variazioni emerse durante
 tale revisione.\\
 
-Si pu\`o chiaramente vedere che la fase di verifica sar\`a presente
+Si pu\`o chiaramente vedere che la fase di \underline{verifica} sar\`a presente
 costantemente a partire dalla stesura dei documenti, per poi passare alla progettazione e alla
 programmazione fino ad arrivare ai test.\\
 
-La stesura dei documenti ricoprir\`a tutta la durata del progetto, poich\`e
+La stesura dei documenti ricoprir\`a tutta la durata del progetto, poich\'e
 verranno aggiornati i documenti stesi nella fase di analisi (Analisi dei
 requisiti, Piano di progetto, Piano di Qualifica, Glossario) e verranno stilati
 Specifica Tecnica (per la RPP), Definizione di Prodotto (per la RPD interna) e
@@ -239,7 +239,7 @@ Verificatore & 15 \\
 A partire dalla consegna dei documenti per la RR, verranno tracciate le ore di
 lavoro dei membri del gruppo. L'impegno totale di ciascun componente dovr\`a
 essere compreso tra 85 e 105 ore, dal quale risulteranno proporzionali
-ripartizioni tra carico di lavoro e responsabilità.\\
+ripartizioni tra carico di lavoro e responsabilit\`a.\\
 
 Di seguito riportiamo una stima dei costi per ogni revisione e il carico di
 lavoro previsto per ogni membro del gruppo.
@@ -468,11 +468,10 @@ sul conto di ore totale.\\
 \vspace{0.8cm}
  
 Vogliamo fare un piccolo appunto riguardo l'esigua fetta di tempo dedicata
-all'analisi. L'analisi infatti non \`e stata contabilizzata nelle varie fasi di
-lavoro poichè il prospetto economico parte dalla Revisione dei Requisiti(10
-Gennaio) ossia quando la gran parte dell'analisi \`e stata gi\`a sviluppata.
+all'analisi. La nostra contabilizzazione economica parte dalla consegna dei documenti per 
+la RR (20 Dicembre 2010), momento in cui la parte pi\`u importante dell'analisi \`e stata fatta.
 L'analisi che viene riportata in questo grafico sono dei rivisitamenti dovuti
-alla necessarie variazioni da effettuare decise alla RR.\\ 
+alle eventuali variazioni che possono presentarsi alla RR.\\ 
 
 \chapter{Analisi e gestione dei rischi}
 \thispagestyle{fancy}
@@ -487,59 +486,65 @@ progetto, i rischi che abbiamo individuato sono riportati nelle seguenti sezioni
 \section{Indisposizione dei membri del gruppo}
 Grado di pericolosit\`a: alto\\
 Per i componenti del VT.G questo progetto \`e una delle prime esperienze nel campo della progettazione software in dettaglio. 
-La disponibilit\`a dei membri \`e perciò uno dei rischi maggiori. 
+La disponibilit\`a dei membri \`e perci\`o uno dei rischi maggiori. 
 Assenze causate da problematiche fisiche (malattie, incidenti e imprevisti vari) comporterebbero gravi perdite 
 di tempo per tutti gli altri membri e conseguenti ritardi nell'avanzamento del
 lavoro.\\
 \\
 Ogni componente \`e tenuto a confermare in modo tempestivo la propria presenza prima di ogni nuovo incontro.
 I componenti di VT.G risiedono in differenti zone della regione, i ritrovi devono quindi essere organizzati 
-per tempo e comunicati a tutti tempestivamente. Ritardi e/o assenza causa trasporti sono difficilmente gestibili, ma \`e possibile svolgere delle conferenze da casa tramite skype.
+per tempo e comunicati a tutti tempestivamente. Ritardi e/o assenza causa trasporti sono difficilmente gestibili, ma \`e possibile svolgere delle conferenze da casa tramite Skype.
 
 \section{Conoscenza delle Tecnologie Utilizzate}
 Grado di pericolosit\`a: medio\\
-Per la maggior parte dei membri del gruppo questo progetto \`e il primo approccio con tecnologie come Google App Engine, 
-perciò almeno inizialmente questo sistema potrebbe risultare problematico e
+Per la maggior parte dei membri del gruppo questo progetto \`e il primo approccio con tecnologie come GAP, 
+perci\`o almeno inizialmente questo sistema potrebbe risultare problematico e
 creare ritardi nello sviluppo.\\
 \\ 
 \`E stato concordato che ogni membro potr\`a seguire un corso proposto
-  dall'azienda di un altro capitolato, quindi le basi per l'utilizzo di questo sistema saranno assicurate per tutti. Il fattore di rischio perciò \`e dettato principalmente dalla difficolt\`a del sistema in s\`e.
-Il linguaggio di programmazione adottato (java) non viene considerato come un rischio notevole, in quanto studiato durante il corso di laurea in modo esauriente. 
-L'unico inconveniente può essere la scrittura del codice del database che sar\`a implentato in GQL, linguaggio simile a SQL 
-(ampiamente trattato nel nostro corso di studio).
+  dall'azienda di un altro capitolato, quindi le basi per l'utilizzo di questo
+  sistema saranno assicurate per tutti. Il fattore di rischio perci\`o \`e
+  dettato principalmente dalla difficolt\`a del sistema in s\`e. Il linguaggio
+  di programmazione adottato (\underline{Java}) non viene considerato come un
+  rischio notevole, in quanto studiato durante il corso di laurea in modo
+  esauriente. L'unico inconveniente pu\`o essere la scrittura del codice del
+  database che sar\`a implentato in \underline{GQL}, linguaggio simile a
+  \underline{SQL} (trattato sufficientemente nel nostro corso di studio), usato
+  da \underline{Google Datastore}.
 
 \section{Usabilit\`a del Prodotto}
 Grado di pericolosit\`a: basso\\
-Il sistema Netmus \`e un buon prodotto di catalogazione e visualizzazione delle proprie preferenze musicali, 
-ma spesso i lettori mp3 che di per s\`e sono gi\`a dispositivi ad alta portabilit\`a mettono a disposizione la visualizzazione del catalogo multimediale, 
-aggiornato e ordinato. Inoltre sono presenti altri software simili a
-NetMus distribuiti sul web come ad esempio LastFM, molto famoso e
-utilizzato nella rete. Ciò potrebbe ridurre
-il numero di utenti disposti ad utilizzare il sistema NetMus.\\ 
+Il sistema NetMus \`e un buon prodotto di catalogazione e visualizzazione delle
+proprie preferenze musicali, ma spesso i lettori Mp3 che di per s\`e sono gi\`a
+dispositivi ad alta portabilit\`a mettono a disposizione la visualizzazione del
+catalogo multimediale, aggiornato e ordinato. Inoltre sono presenti altri
+software simili a NetMus distribuiti sul web come ad esempio LastFM, molto
+famoso e utilizzato nella rete. Ci potrebbe ridurre il numero di utenti disposti
+ad utilizzare il sistema NetMus.\\
 \\
 Una possibile soluzione \`e quella di decorare il progetto con delle
-innovative funzionalit\`a, così da riuscire ad attirare un maggior numero di clienti.
+innovative funzionalit\`a, cos\`\i\ da riuscire ad attirare un maggior numero di clienti.
 
 \section{Strumenti d'Utilizzo}
 Grado di pericolosit\`a: medio\\
 Altro fattore di rischio identificato \`e l'utilizzo delle strumentazioni adatte. 
 Tutti i membri devono utilizzare le stesse strumentazioni e avere le stesse possibilit\`a nel lavoro. 
-Guasti hardware, imossibilit\`a di connettersi alla rete Internet, mancanza di strumentazioni software 
-adatte comportano ritardi, incompatibilit\`a e sopratutto confusione. \\
+Guasti hardware, impossibilit\`a di connettersi alla rete \underline{Internet},
+mancanza di strumentazioni software adatte comportano ritardi, incompatibilit\`a e sopratutto confusione. \\
 \\
 Per questo ogni membro del gruppo, 
 rispettando le norme di progetto si \`e procurato la strumentazione software adatta prima dell'inizio del 
-lavoro, e in caso di problemi più complessi \`e invitato a comunicare il fatto al responsabile che cercher\`a una soluzione idonea.
+lavoro, e in caso di problemi pi complessi \`e invitato a comunicare il fatto al responsabile che cercher\`a una soluzione idonea.
 
 \section{Informazioni Aggiuntive sui Brani Musicali}
 Grado di pericolosit\`a: medio\\
-I file mp3 da cui si reperiscono i brani spesso non possiedono informazioni
-complete, anzi una buona parte di questi file non contiene affatto informazioni, perciò la libreria virtuale 
+I file Mp3 da cui si reperiscono i brani spesso non possiedono informazioni
+complete, anzi una buona parte di questi file non contiene affatto informazioni, perci\`o la libreria virtuale 
 di un utente risulterebbe composta da molti brani senza titolo,autore e altre
-informazioni essenziali.\\ 
+informazioni essenziali.\\
 \\
-Per rendere la liberia virtuale completa di tutte le informazioni si \`e ben pensato di implementare una 
-funzione di ricerca automatica nel server dai record di tutti i brani registrati, così da completare 
+Per rendere la libreria virtuale completa di tutte le informazioni si \`e ben pensato di implementare una 
+funzione di ricerca automatica nel server dai record di tutti i brani registrati, cos\`\i\ da completare 
 quelli incompleti. Nei casi estremi inoltre sar\`a resa possibile una funzione di inserimento delle informazioni manualmente.
 
 % \chapter{Consuntivo}            da RR in poi
