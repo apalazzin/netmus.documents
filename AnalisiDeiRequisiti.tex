@@ -192,6 +192,8 @@ dell'utente. \\\\
     locale senza perdere informazioni.
   \end{enumerate}
 \end{itemize}
+\newpage
+
 
 \section{UC1.1 - Sistema Netmus - Autenticazione}
 \begin{center}
@@ -217,8 +219,94 @@ necessaria una connessione ad internet. \\\\
     \item Il tentarivo di autenticazione fallisce.
   \end{enumerate}
 \end{itemize}
+\newpage
+
 
 \section{UC2 - Componente di persistenza e visualizzazione (C1)}
+\begin{center}
+	\includegraphics[width=18cm]{img/AR/UC2.png}
+\end{center}
+
+\bo{Use case UC2: Componente di persistenza e visualizzazione (C1)}\\\\
+\bo{Attori primari: } Utente, Google cloud (server + database). \\\\
+\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed è
+autenticato. \\\\ 
+\bo{Post-condizioni: } L'utente ha effettuato tutte le operazioni desiderate
+con successo. \\\\
+\bo{Scenario principale: } 
+\begin{enumerate}
+  \item L'utente naviga all'interno del proprio catalogo musicale presente nel
+  database di NetMus, oppure all'interno di quello di un altro utente.
+  \item L'utente seleziona le opzioni che preferisce, e fa alcune operazioni
+  consentite.
+  \item Tutti i dati richiesti dall'utente gli vengono forniti in tempo utile
+  dal server (Google cloud).
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item La comunicazione tra utente e server fallisce per un problema di
+  connessione.
+  \begin {enumerate}
+    \item Non c'\`e possibilit\`a di procedere fino a quando la connessione sar\`a
+    ristabilita. I dati che erano stati aggiornati prima del verificarsi del
+    problema sono gi\`a stati salvati.
+  \end{enumerate}
+  \item L'utente cerca di accedere ad un altro profilo senza aver reso pubblico
+  il proprio.
+  \begin {enumerate}
+    \item Viene chiesto all'utente se vuole pubblicare la propria libreria.
+    \item In caso affermativo l'utente può procede a visualizzare altri profili,
+    atrimenti gli viene negato l'accesso e viene rimandato alla propria pagina.
+  \end{enumerate}
+\end{itemize}
+\newpage
+
+\section{UC2.1 - C1 - Gestione catalogo}
+\begin{center}
+	\includegraphics[width=18cm]{img/AR/UC2_1.png}
+\end{center}
+
+\bo{Use case UC2.1: C1 - Gestione catalogo}\\\\
+\bo{Attori primari: } Utente, Google cloud (server + database). \\\\
+\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed è
+autenticato. \\\\ 
+\bo{Post-condizioni: } L'utente è riuscito a vedere tutte le informazioni
+salvate nella sua libreria musicale, sia quelle inviate dal suo computer sia
+quelle aggiuntive recuperate dal database. L'utente ha inoltre
+personalizzato il proprio catalogo a piacimento. \\\\
+\bo{Scenario principale: } 
+\begin{enumerate}
+  \item L'utente visualizza la propria libreria di canzoni
+  oppurtunamente raggruppate ed un menù sul lato sinistro per facilitare la
+  navigazione all'interno della pagina, la visualizzazione è simile a quella
+  del software iTunes.
+  \item L'utente seleziona il brano che gli interessa e ne visualizza i
+  dettagli tra cui c'è anche il player di YouTube che permette di ascoltare la
+  canzone in streaming.
+  \item In ogni momento, sia nella visualizzazione del catalogo sia in quella
+  del singolo brano, l'utente può modificare varie opzioni e cancellare o
+  aggiungere contenuti.
+  \item Il server invia la pagina che l'utente ha richiesto e, se necessario,
+  salva l'aggiornamento sui dati che ha fatto.
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item La comunicazione tra utente e server fallisce per un problema di
+  connessione.
+  \begin {enumerate}
+    \item Non c'\`e possibilit\`a di procedere fino a quando la connessione sar\`a
+    ristabilita. I dati che erano stati aggiornati prima del verificarsi del
+    problema sono gi\`a stati salvati.
+  \end{enumerate}
+  \item L'applicazione non ha trovato nessun corrispettivo del brano
+  selezionato su YouTube.
+  \begin {enumerate}
+    \item Il player non viene visualizzato ma tutte le altre funzionalità
+    rimangono invariate.
+  \end{enumerate}
+\end{itemize}
+\newpage
+
 \section{UC3 - Componente di recupero delle informazioni (C2)}
 
 \chapter{Lista dei requisiti}
