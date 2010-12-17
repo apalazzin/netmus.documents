@@ -402,6 +402,47 @@ preesistenti nel database oppure provenienti da un servizio esterno. \\\\
 
 
 \section{UC3 - Componente di recupero delle informazioni (C2)}
+\begin{center}
+	\includegraphics[width=16cm]{img/AR/UC3.png}\\
+	\emph{Figura 6: UC3}
+\end{center}
+\bo{Use case UC3: C2 - Recupero delle informazioni}\\\\
+\bo{Attori primari: } Utente, Memoria di massa (intesa come hard disk e/o
+periferiche usb), Google cloud. \\\\ \bo{Pre-condizioni: } La componente C2 \`e
+attiva e funzionante, per alcune operazioni \`e necessaria la connessione ad internet \\\\
+\bo{Post-condizioni: }
+Gli eventuali nuovi brani individuati sono stati analizzati, e le relative
+informazioni inviate a Google cloud.\\
+Potrebbero essere stati aggiornati o completati i meta-dati dei brani. \\\\
+\bo{Scenario principale: } \\
+Raccolta dati:
+\begin{enumerate}
+  \item Viene inserita una nuova periferica usb, o avviata dall'utente una
+  scansione manuale.
+  \item C2 cerca tutti i brani.
+  \item C2 estrapola le informazioni dei nuovi brani, scartando quelli senza
+  informazioni, e le memorizza su un file temporaneo.
+  \item C2 invia a Google cloud le informazioni dei nuovi brani.
+  \item C2 elimina il file temporaneo.
+\end{enumerate}
+Aggiornamento dati:
+\begin{enumerate}
+  \item L'utente avvia l'aggiornamento delle informazioni dei brani.
+  \item C2 invia a Google cloud la lista dei brani da aggiornare e/o completare.
+  \item Google cloud invia a C2 le eventuali informazioni da aggiornare.
+  \item C2 aggiorna le informazioni dei brani.
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item Connessione non disponibile.
+  \begin {enumerate}
+    \item Per la raccolta dati, l'operazione procede senza conseguenze, e
+    l'invio dei dati a Google cloud avverr\`a appena possibile in futuro.
+    \item Per l'aggiornamento dei dati, l'elaborazione viene interrotta.
+  \end{enumerate}
+\end{itemize}
+\newpage
+
 
 \chapter{Lista dei requisiti}
 \thispagestyle{fancy}
