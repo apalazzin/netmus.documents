@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Analisi Dei Requisiti}
-\newcommand{\versione}{0.4}
+\newcommand{\versione}{0.8}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
@@ -28,6 +28,38 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+\bo{Data:} 15/12/2010 &
+\bo{Versione:} 0.8 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Aggiunta del capitolo ``Sommario". Correzione di
+alcuni errori grammaticali.}\\
+\\
+
+\bo{Data:} 14/12/2010 &
+\bo{Versione:} 0.7 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Inserimento degli use case, diagrammi e testo,
+UC1, UC1.1, UC2, UC2.1, UC 2.2.}\\
+\\
+
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.6 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Indicizzazione e reinserimento tabelle,
+inserimento della figura 1 (Diagramma architeturale).}\\
+\\
+
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.5 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Inserimento tabelle dei requisiti riassuntive per
+C1.}\\
+\\
 
 \bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.4 &
@@ -58,18 +90,21 @@ componente 1.}\\
 \hline\\
 \multicolumn{3}{p{470px}}{ Redazione del capitolo 1.}\\
 \\
-
 \end{tabular}
 
 % INDICE
 \tableofcontents
 
 \chapter*{Sommario}
-Nel presente documento viene descritto il prodotto specificandone
-funzionalit\`a e contesti d'uso, vengono analizzati vari casi d'uso tramite
-diagrammi UML e viene pubblicata la lista dei requisiti emersi durante la
-fase di analisi.
-
+Nel presente documento vengono individuati ed elencati i requisiti che VT.G si
+propone di soddisfare nello sviluppo del software richiesto dal capitolato
+d'appalto C02 NetMus. Per favorire la comprensione dell'analisi proposta sono
+descritti alcuni diagrammi use-case che rispettano lo standard \underline{UML}
+2.0 e deducono la quasi totalit\`a dei requisiti elaborati.
+Nel presentare questa Analisi dei requisiti si \`e scelto di separare
+chiaramente le due componenti fondamentali, quella di invio dati e quella di persistenza e
+visualizzazione, che costituiscono il sistema NetMus poich\'e dovranno essere il
+pi\`u possibile indipendenti.
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
 \pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
@@ -98,13 +133,13 @@ a 12 anni, ma in particolare adolescenti e adulti dai 15 ai 35 anni.
 
 \subsection{Piattaforma d'esecuzione e interfacciamento con l'ambiente di
 installazione e uso}
-Il prodotto finale utilizzer\`a diverse teconologie (in particolare: Java, GAE e
+Il prodotto finale utilizzer\`a diverse tecnologie (in particolare: \underline{Java}, GAE e
 GWT) che renderanno possibile l'utilizzo del sistema su pi\`u piattaforme
 d'esecuzione con sistemi operativi diversi, i cui unici due requisiti
-fondamentali saranno di possedere una connessione ad internet e di aver
+fondamentali saranno di possedere una connessione ad \underline{Internet} e di aver
 installata la Java Runtime Machine. In particolare, il prodotto finale sar\`a
-testato sui principali sistemi operativi: Windows (xp e 7), Linux (principali e
-pi\`u diffuse distribuzioni), Mac OS X (Snow Leopard).
+testato sui principali sistemi operativi: \underline{Windows} (xp e 7), \underline{Linux} (principali e
+pi\`u diffuse distribuzioni), \underline{Mac OS X} (Snow Leopard).
 \section{Funzioni del prodotto}
 Il prodotto finale sar\`a composto da due componenti. Una componente di
 persistenza e visualizzazione della libreria virtuale dell'utente. Un'altra
@@ -142,7 +177,7 @@ Il software nel suo funzionamento e sviluppo:
 
 \section{Assunzioni e dipendenze}
 Si assume che sui personal computer utilizzati dagli utenti sia gi\`a installata
-una JVM.
+una \underline{JVM}.
 
 \section{Glossario}
 Esister\`a un unico glossario comune a tutti i documenti, contenente la
@@ -154,13 +189,15 @@ due categorie: termini e acronimi.
 \chapter{Diagramma architetturale}
 \thispagestyle{fancy}
 Per facilitare la comprensione degli use case si fornisce un diagramma
-architetturale che reppresenta ad alto livello come sar\`a strutturato l'intero
+architetturale che rappresenta ad alto livello come sar\`a strutturato l'intero
 sistema NetMus. Si evidenzia la concomitanza tra le due componenti fondamentali
 del sistema, quella di persistenza e visualizzazione (C1) e quella di
 recupero delle informazioni (C2).
 \\\\\\
 \begin{center}
-	\includegraphics[width=18cm]{img/AR/DiagrammaArchitetturale.png}
+	\includegraphics[width=16cm]{img/AR/DiagrammaArchitetturale.png}\\
+	\emph{Figura 1: diagramma architetturale}
+	% NON VA BENE SERVE IL CAPTION DENTRO AMBIENTE FIGURE...chiedere Andrea
 \end{center}
 
 \chapter{Use case}
@@ -168,7 +205,9 @@ recupero delle informazioni (C2).
 
 \section{UC1 - Sistema NetMus}
 \begin{center}
-	\includegraphics[width=18cm]{img/AR/UC1.png}
+	\includegraphics[width=18cm]{img/AR/UC1.png}\\
+	\emph{Figura 1: UC1}
+	% NON VA BENE SERVE IL CAPTION DENTRO AMBIENTE FIGURE...chiedere Andrea
 \end{center}
 
 \bo{Use case UC1: Sistema NetMus}\\\\
@@ -176,7 +215,7 @@ recupero delle informazioni (C2).
 \bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, \`e
 necessaria una connessione ad internet. \\\\ 
 \bo{Post-condizioni: } La componente 2 ha inviato al server tutte le
-informazioni riuguardanti nuovi brani musicali presenti nel computer o altre
+informazioni riguardanti nuovi brani musicali presenti nel computer o altre
 periferiche dell'utente. La componente 1 ha soddisfatto tutte le richieste
 dell'utente. \\\\ 
 \bo{Scenario principale: } 
@@ -203,10 +242,14 @@ dell'utente. \\\\
     locale senza perdere informazioni.
   \end{enumerate}
 \end{itemize}
+\newpage
+
 
 \section{UC1.1 - Sistema Netmus - Autenticazione}
 \begin{center}
-	\includegraphics[width=17cm]{img/AR/UC1_1.png}
+	\includegraphics[width=15cm]{img/AR/UC1_1.png}\\
+	\emph{Figura 2: UC1.1}
+	% NON VA BENE SERVE IL CAPTION DENTRO AMBIENTE FIGURE...chiedere Andrea
 \end{center}
 
 \bo{Use case UC1.1: Sistema NetMus - Autenticazione}\\\\
@@ -225,12 +268,189 @@ necessaria una connessione ad internet. \\\\
 \begin{itemize}
   \item L'utente inserisce dei dati di login non validi.
   \begin {enumerate}
-    \item Il tentarivo di autenticazione fallisce.
+    \item Il tentativo di autenticazione fallisce.
   \end{enumerate}
 \end{itemize}
+\newpage
+
 
 \section{UC2 - Componente di persistenza e visualizzazione (C1)}
+\begin{center}
+	\includegraphics[width=16cm]{img/AR/UC2.png}\\
+	\emph{Figura 3: UC2}
+\end{center}
+
+\bo{Use case UC2: Componente di persistenza e visualizzazione (C1)}\\\\
+\bo{Attori primari: } Utente, Google cloud (server + database). \\\\
+\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed \`e
+autenticato. \\\\ 
+\bo{Post-condizioni: } L'utente ha effettuato tutte le operazioni desiderate
+con successo. \\\\
+\bo{Scenario principale: } 
+\begin{enumerate}
+  \item L'utente naviga all'interno del proprio catalogo musicale presente nel
+  database di NetMus, oppure all'interno di quello di un altro utente.
+  \item L'utente seleziona le opzioni che preferisce, e fa alcune operazioni
+  consentite.
+  \item Tutti i dati richiesti dall'utente gli vengono forniti in tempo utile
+  dal server (Google cloud).
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item La comunicazione tra utente e server fallisce per un problema di
+  connessione.
+  \begin {enumerate}
+    \item Non c'\`e possibilit\`a di procedere fino a quando la connessione sar\`a
+    ristabilita. I dati che erano stati aggiornati prima del verificarsi del
+    problema sono gi\`a stati salvati.
+  \end{enumerate}
+  \item L'utente cerca di accedere ad un altro profilo senza aver reso pubblico
+  il proprio.
+  \begin {enumerate}
+    \item Viene chiesto all'utente se vuole pubblicare la propria libreria.
+    \item In caso affermativo l'utente pu\`o procede a visualizzare altri profili,
+    altrimenti gli viene negato l'accesso e viene rimandato alla propria pagina.
+  \end{enumerate}
+\end{itemize}
+\newpage
+
+\section{UC2.1 - C1 - Gestione catalogo}
+\begin{center}
+	\includegraphics[width=18cm]{img/AR/UC2_1.png}\\
+	\emph{Figura 4: UC2.1}
+\end{center}
+
+\bo{Use case UC2.1: C1 - Gestione catalogo}\\\\
+\bo{Attori primari: } Utente, Google cloud (server + database). \\\\
+\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed \`e
+autenticato. \\\\ 
+\bo{Post-condizioni: } L'utente \`e riuscito a vedere tutte le informazioni
+salvate nella sua libreria musicale, sia quelle inviate dal suo computer sia
+quelle aggiuntive recuperate dal database. L'utente ha inoltre
+personalizzato il proprio catalogo a piacimento. \\\\
+\bo{Scenario principale: } 
+\begin{enumerate}
+  \item L'utente visualizza la propria libreria di canzoni
+  opportunamente raggruppate ed un men\`u sul lato sinistro per facilitare la
+  navigazione all'interno della pagina, la visualizzazione \`e simile a quella
+  del software iTunes.
+  \item L'utente seleziona il brano che gli interessa e ne visualizza i
+  dettagli tra cui c'\`e anche il player di \underline{Youtube} che permette di ascoltare la
+  canzone in streaming.
+  \item In ogni momento, sia nella visualizzazione del catalogo sia in quella
+  del singolo brano, l'utente pu\`o modificare varie opzioni e cancellare o
+  aggiungere contenuti.
+  \item Il server invia la pagina che l'utente ha richiesto e, se necessario,
+  salva l'aggiornamento sui dati che ha fatto.
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item La comunicazione tra utente e server fallisce per un problema di
+  connessione.
+  \begin {enumerate}
+    \item Non c'\`e possibilit\`a di procedere fino a quando la connessione sar\`a
+    ristabilita. I dati che erano stati aggiornati prima del verificarsi del
+    problema sono gi\`a stati salvati.
+  \end{enumerate}
+  \item L'applicazione non ha trovato nessun corrispettivo del brano
+  selezionato su YouTube.
+  \begin {enumerate}
+    \item Il player non viene visualizzato ma tutte le altre funzionalit\`a
+    rimangono invariate.
+  \end{enumerate}
+\end{itemize}
+\newpage
+
+
+\section{UC2.2 - C1 - Elaborazione dati in entrata}
+\begin{center}
+	\includegraphics[width=18cm]{img/AR/UC2_2.png}\\
+	\emph{Figura 5: UC2.2}
+\end{center}
+
+\bo{Use case UC2.2: C1 - Elaborazione dati in entrata}\\\\
+\bo{Attori primari: } Componente 2, Componente 1 (database). \\\\
+\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, la
+componente di invio ha delle nuove informazioni da caricare, \`e necessaria una
+connessione ad internet. \\\\ 
+\bo{Post-condizioni: } Tutte le nuove informazioni valide sono state salvate
+nel database insieme ad eventuali informazioni aggiuntive reperite da brani
+preesistenti nel database oppure provenienti da un servizio esterno. \\\\
+\bo{Scenario principale: } 
+\begin{enumerate}
+  \item C2 invia tutti i dati che ha raccolto.
+  \item C1 controlla che non vi siano dati maligni o non riguardanti brani
+  musicali.
+  \item C1 effettua una ricerca nel proprio database per verificare se alcuni
+  brani sono gi\`a presenti.
+  \item C1 trova alcuni brani gi\`a in memoria e scarta i doppioni in entrata. Nel
+  farlo, se le informazioni non combaciano precisamente, valuta quale delle due
+  versioni \`e la pi\`u completa e adotta una strategia di ``\underline{merge}'' che minimizzi
+  la ridondanza.
+  \item Per i brani che non sono gi\`a presenti nel database C1 effettua una
+  ricerca all'esterno e se trova informazioni aggiuntive per i brani in arrivo le inserisce.
+  \item C1 salva i dati elaborati nel database.
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item Vengono identificati alcuni dati maligni.
+  \begin {enumerate}
+    \item Queste informazioni vengono scartate senza possibilit\`a di ripristino e
+    l'elaborazione procede senza conseguenze.
+  \end{enumerate}
+  \item C1 non riesce a stabilire se le informazioni relative a due brani
+  descrivano effettivamente la stessa canzone.
+  \begin {enumerate}
+    \item Vengono tenuti entrambi i brani, fino a quando il sistema avr\`a
+    abbastanza informazioni per decidere. L'elaborazione procede senza
+    conseguenze.
+  \end{enumerate}
+\end{itemize}
+\newpage
+
+
 \section{UC3 - Componente di recupero delle informazioni (C2)}
+\begin{center}
+	\includegraphics[width=16cm]{img/AR/UC3.png}\\
+	\emph{Figura 6: UC3}
+\end{center}
+\bo{Use case UC3: C2 - Recupero delle informazioni}\\\\
+\bo{Attori primari: } Utente, Memoria di massa (intesa come hard disk e/o
+periferiche usb), Google cloud. \\\\ \bo{Pre-condizioni: } La componente C2 \`e
+attiva e funzionante, per alcune operazioni \`e necessaria la connessione ad internet \\\\
+\bo{Post-condizioni: }
+Gli eventuali nuovi brani individuati sono stati analizzati, e le relative
+informazioni inviate a Google cloud.\\
+Potrebbero essere stati aggiornati o completati i meta-dati dei brani. \\\\
+\bo{Scenario principale: } \\
+Raccolta dati:
+\begin{enumerate}
+  \item Viene inserita una nuova periferica usb, o avviata dall'utente una
+  scansione manuale.
+  \item C2 cerca tutti i brani.
+  \item C2 estrapola le informazioni dei nuovi brani, scartando quelli senza
+  informazioni, e le memorizza su un file temporaneo.
+  \item C2 invia a Google cloud le informazioni dei nuovi brani.
+  \item C2 elimina il file temporaneo.
+\end{enumerate}
+Aggiornamento dati:
+\begin{enumerate}
+  \item L'utente avvia l'aggiornamento delle informazioni dei brani.
+  \item C2 invia a Google cloud la lista dei brani da aggiornare e/o completare.
+  \item Google cloud invia a C2 le eventuali informazioni da aggiornare.
+  \item C2 aggiorna le informazioni dei brani.
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item Connessione non disponibile.
+  \begin {enumerate}
+    \item Per la raccolta dati, l'operazione procede senza conseguenze, e
+    l'invio dei dati a Google cloud avverr\`a appena possibile in futuro.
+    \item Per l'aggiornamento dei dati, l'elaborazione viene interrotta.
+  \end{enumerate}
+\end{itemize}
+\newpage
+
 
 \chapter{Lista dei requisiti}
 \thispagestyle{fancy}
@@ -308,7 +528,7 @@ da Youtube con cui ascoltarlo.
 \bo{Fonte:} capitolato \\
 Un individuo pu\`o diventare utente di Netmus ed avere la possibilit\`a di gestire
 il proprio catalogo multimediale solamente dopo aver effettuato la
-registrazione, che prevede l'inserimento di un username (unico), una
+registrazione, che prevede l'inserimento di un \underline{username} (unico), una
 password ed un indirizzo email (attraverso cui fare la conferma) pi\`u alcune
 informazioni personali.
 \\
@@ -320,7 +540,7 @@ informazioni personali.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
 L'applicazione avr\`a un sistema di autenticazione proprio oltre a fornire
-l'autenticazione di Google acquisita da Google AppEngine.
+l'autenticazione di Google acquisita da \underline{Google AppEngine}.
 \\
 \\
 
@@ -571,7 +791,7 @@ a C2 per andare ad aggiornare i file multimediali dell'utente.
 Il fulcro della persistenza del sistema NetMus sar\`a un database nel quale
 verranno salvati tutti i dati gestiti. In particolare il database sar\`a quello
 fornito da Google AppEngine, Google DataStore che trae grandissimi benefici dal
-cloud computing.
+\underline{cloud computing}.
 \\
 \\
 
@@ -584,10 +804,10 @@ cloud computing.
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} interna \\
-Youtube \`e uno strumento estremamente utile poich\`e garantisce una vasta gamma di
+Youtube \`e uno strumento estremamente utile poich\'e garantisce una vasta gamma di
 dati sulla quale fare ricerche ma proprio per questo sar\`a importante che NetMus
 implementi degli algoritmi opportuni che eseguano queste ricerche in modo molto
-efficente.
+efficiente.
 \\
 \\
 
@@ -599,8 +819,8 @@ efficente.
 NetMus sar\`a in grado di associare le informazioni simili e
 riguardanti lo stesso brano in modo da inserirle una sola vola all'interno del
 database. Questo verr\`a fatto solo se si ha la sicurezza che si tratti dello
-stesso brano, altrimenti verrano mantenute le diverse versioni fino a quando si
-avranno informazioni sufficenti per saperlo.
+stesso brano, altrimenti verranno mantenute le diverse versioni fino a quando si
+avranno informazioni sufficienti per saperlo.
 \\
 \\
 
@@ -620,7 +840,7 @@ corretta ricezione di tutte le informazioni.
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-NetMus garantur\`a la possibilit\`a di crescere di dimensione, in tutti i vari
+NetMus garantir\`a la possibilit\`a di crescere di dimensione, in tutti i vari
 aspetti, senza dover effettuare alcun ritocco o modifica all'architettura del
 sistema.
 \\
@@ -642,9 +862,9 @@ senza imporre vincoli di alcun tipo.
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-Poich\`e il bacino d'utenza potenziale \`e estremamente elevato NetMus sar\`a molto
-efficente per quanto riguarda gli accessi simultanei di molti utenti
-all'applicazione Web ed al database.
+Poich\'e il bacino d'utenza potenziale \`e estremamente elevato NetMus sar\`a molto
+efficiente per quanto riguarda gli accessi simultanei di molti utenti
+all'\underline{applicazione web}ed al database.
 \\
 \\
 
@@ -676,8 +896,8 @@ musicale dopo essersi registrato ed aver messo in funzione la C2.
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
 Il software Web presenter\`a alcune caratteristiche per favorire l'accesso a
-qualsiasi tipoligia di utenza come ad esempio il codice sorgente validato
-secondo paramentri W3C.
+qualsiasi tipologia di utenza come ad esempio il codice sorgente validato
+secondo parametri \underline{W3C}.
 \\
 \\
 
@@ -716,7 +936,7 @@ favoriranno il pi\`u possibile il processo di manutenzione.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
 Il sistema sar\`a robusto relativamente agli errori causati all'utilizzo della
-rete internet, risaputamente inaffidabile.
+rete internet, notoriamente inaffidabile.
 \\
 \\
 
@@ -747,9 +967,9 @@ Sar\`a fornita anche una traduzione del manuale utente in lingua inglese. \\ \\
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-Per lo sviluppo dell'applicazione Web NetMus sar\`a utlizzata la piattaforma
+Per lo sviluppo dell'applicazione Web NetMus sar\`a utilizzata la piattaforma
 Google AppEngine (GAE) in concomitanza con l'insieme di strumenti forniti da
-Google Web Toolkit (GWT). Entrambi sono gratuiti.
+\underline{Google Web Toolkit (GWT)}. Entrambi sono gratuiti.
 \\
 \\
 
@@ -790,7 +1010,7 @@ riguarda l'utilizzo delle YouTube API
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-La licenza d'uso dell'applicazione sar\`a di tipo Open source. \\ \\
+La licenza d'uso dell'applicazione sar\`a di tipo \underline{Open source}. \\ \\
 
 \subsubsection{Caratteristiche dell'utente}
 
@@ -891,7 +1111,7 @@ disk indicate dall'utente.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
 Tutti i brani musicali senza informazioni rintracciabili, cio\`e senza meta-tag e
-senza nome del brano nel nome del file, verranno ignorati perch\`e inutili ai fini
+senza nome del brano nel nome del file, verranno ignorati perch\'e inutili ai fini
 del progetto.
 \\
 \\
@@ -901,7 +1121,7 @@ del progetto.
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
-Vengono indicati all'utente i file musicali non tracciati perch\`e senza
+Vengono indicati all'utente i file musicali non tracciati perch\'e senza
 sufficienti informazioni.
 \\
 \\
@@ -944,7 +1164,7 @@ generazione e/o l'aggiornamento della raccolta virtuale.
 \bo{Fonte:} verbale1 \\
 In caso di connessione non disponibile, deve utilizzare meno spazio possibile
 per memorizzare temporaneamente i dati dei nuovi brani, per poi eliminare i file
-temporanei appena questi dati non sono più necessari.
+temporanei appena questi dati non sono pi\`u necessari.
 \\
 \\
 
