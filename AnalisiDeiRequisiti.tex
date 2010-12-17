@@ -1,22 +1,23 @@
 
-\newcommand{\nomedoc}{Analisi dei requisiti}
+\newcommand{\nomedoc}{Analisi Dei Requisiti}
 \newcommand{\versione}{0.4}
-\newcommand{\versioneglossario}{0.1}
-\newcommand{\versionenormeprogetto}{0.3}
+\newcommand{\versioneglossario}{1.0}
+\newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{13 Dicembre 2010}
+\newcommand{\datamodifica}{16 Dicembre 2010}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
-\newcommand{\redazione}{Mandolo Andrea}
-\newcommand{\verifica}{Baffo}
-\newcommand{\approvazione}{Valter}
+\newcommand{\redazione}{Baron Federico, Daminato Simone}
+\newcommand{\verifica}{Mandolo Andrea}
+\newcommand{\approvazione}{---}
 \newcommand{\distribuzione}{
 VT.G \\
 & Prof. Vardanega Tullio\\
 & Prof. Cardin Riccardo }
 
 \input{preambolo.tex}
+\addtocontents{toc}{\protect\thispagestyle{fancy}}
 
 \begin{document}
 
@@ -27,6 +28,7 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
 \bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.4 &
 \bo{Autore:} Daminato Simone\\
@@ -61,10 +63,12 @@ componente 1.}\\
 
 % INDICE
 \tableofcontents
-\thispagestyle{fancy} % per lo stile di header e footer
-
 
 \chapter*{Sommario}
+Nel presente documento viene descritto il prodotto specificandone
+funzionalit\`a e contesti d'uso, vengono analizzati vari casi d'uso tramite
+diagrammi UML e viene pubblicata la lista dei requisiti emersi durante la
+fase di analisi.
 
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -77,18 +81,21 @@ componente 1.}\\
 
 \section{Scopo del documento}
 Il presente documento ha lo scopo di presentare al committente l'Analisi dei
-Requisiti e le potenzialit\`a software del nostro prodotto per soddisfare le
-richieste del capitolato d'appalto 02 NetMus.
+Requisiti e le potenzialit\`a del nostro prodotto software per soddisfare le
+richieste del capitolato d'appalto C02 NetMus (vedi 1.4.2 - Riferimenti
+Normativi).
 
 \input{parte_comune.tex}
 
 % INIZIO CAPITOLO 2
 \chapter{Descrizione generale}
 \thispagestyle{fancy}
+
 \section{Contesto d'uso del prodotto}
-Il progetto Netmus che abbiamo intenzione di sviluppare \`e un software
-destinato ad una vasta gamma d'utenza, di et\`a variabile, stimata a 12 anni o
-superiore, in particolare adolescenti e adulti dai 15 ai 35 anni.
+Il progetto NetMus che abbiamo intenzione di sviluppare \`e un software
+destinato ad una vasta gamma d'utenza, con et\`a maggiore o uguale
+a 12 anni, ma in particolare adolescenti e adulti dai 15 ai 35 anni.
+
 \subsection{Piattaforma d'esecuzione e interfacciamento con l'ambiente di
 installazione e uso}
 Il prodotto finale utilizzer\`a diverse teconologie (in particolare: Java, GAE e
@@ -112,10 +119,12 @@ L'estrazione avverr\`a non appena verr\`a rilevato un nuovo dispositivo di
 archiviazione di massa (storage USB o lettore mp3) che non cripta i propri file,
 e in modo del tutto autonomo verranno ricavate le informazioni, memorizzate in
 locale in caso di assenza di connessione, e poi successivamente inviate al server.
+
 \section{Caratteristiche degli utenti}
 L'utente tipo che utilizza il sistema non \`e in possesso di particolari
 conoscenze informatiche, ma \`e in grado di navigare sul web e di eseguire alcune
 semplici operazioni correlate (come per esempio effettuare un login).
+
 \section{Vincoli generali}
 Il software nel suo funzionamento e sviluppo:
 \begin{itemize}
@@ -130,9 +139,11 @@ Il software nel suo funzionamento e sviluppo:
   necessaria la connessione ad internet,
   \item il manuale utente sar\`a fornito sia in italiano che in inglese.
 \end{itemize}
+
 \section{Assunzioni e dipendenze}
 Si assume che sui personal computer utilizzati dagli utenti sia gi\`a installata
 una JVM.
+
 \section{Glossario}
 Esister\`a un unico glossario comune a tutti i documenti, contenente la
 spiegazione di tutti i termini e gli acronimi che verranno utilizzati
@@ -1024,4 +1035,5 @@ rispettando tutte le normative al riguardo.
 \bo{Fonte:} capitolato \\
 La licenza d'uso sar\`a di tipo Open source.
 \\ \\
+
 \end{document}
