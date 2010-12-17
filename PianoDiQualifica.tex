@@ -130,7 +130,7 @@ Per ogni documento dovranno essere verificati i seguenti aspetti:
 \item chiarezza espositiva;
 \item correttezza e completezza dei concetti espressi;
 \item formattazione del documento secondo quando specificato dall'amministratore
-nelle Norme di Progetto.
+in\\ \emph{NormeDiProgetto-1.0.pdf}.
 \end{itemize}
 
 Nel caso sia necessario intervenire per correggere uno o pi\`u di questi aspetti
@@ -145,14 +145,14 @@ La fase di progettazione dovr\`a essere verificata secondo i seguenti aspetti:
 
 \begin{itemize}
 
-\item soddisfacimento di tutti i requisiti individuati nel documento Analisi dei
-Requisiti;
+\item soddisfacimento di tutti i requisiti individuati nel documento
+\emph{AnalisiDeiRequisiti-1.0.pdf};
 \item individuazione di elementi progettuali superflui, non aderenti a nessun
 requisito richiesto;
 \item corretta corrispondenza e tracciabilit\`a tra i requisiti e le relative
 parti del progetto;
 \item correttezza progettuale nel soddisfacimento dei requisiti;
-\item correttezza rispetto a quanto stabilito nel documento Norme di Progetto;
+\item correttezza rispetto a quanto stabilito nel documento \emph{NormeDiProgetto-1.0.pdf};
 \item possibilit\`a di manutenere ed estendere i vari elementi cos\`i come
 previsti nella progettazione del prodotto.
 
@@ -165,8 +165,8 @@ pi\`u di questi aspetti sar\`a dovere del verificatore contattare il progettista
 
 La fase di realizzazione/programmazione dovr\`a essere verificata secondo i seguenti aspetti:
 \begin{itemize}
-\item Analisi Statica del codice;
-\item Analisi Dinamica del codice;
+\item \underline{Analisi Statica} del codice;
+\item \underline{Analisi Dinamica} del codice;
 \item corretto funzionamento dell'applicazione, o delle sue parti, rispetto a
 quanto previsto nella fase di progettazione;
 \item Affidabilit\`a;
@@ -207,17 +207,17 @@ Per le attivit\`a di verifica ci avvarremo dei seguenti strumenti:
 
 \begin{itemize}
 
-\item Junit: come unit test framework per il linguaggio di
-programmazione Java;
+\item Junit: come unit test \underline{framework} per il linguaggio di
+programmazione \underline{Java};
 
 \item Emma: per il calcolo della copertura del codice;
 
-\item Eclipse + GWT: per le funzionalit\`a di debug di eclipse su codice java
-mentre l'applicazione da testare verr\`a eseguita in hosted mode tramite GWT;
+\item Eclipse + \underline{GWT}: per le funzionalit\`a di debug di Eclipse su
+codice Java mentre l'applicazione da testare verr\`a eseguita in hosted mode
+tramite GWT;
 
-\item Google Project Hosting: per la funzionalit\`a issue tracker per
-la gestione e creazione di ticket cos\`i come descritto nel documento Norme di
-Progetto;
+\item Google Project Hosting: per la funzionalit\`a issue-tracker
+per la gestione e creazione di ticket cos\`i come descritto nel documento \emph{NormeDiProgetto-1.0.pdf};
 
 \item FindBugs: per effettuare analisi statica del codice
 sorgente Java al fine di trovare errori comuni;
@@ -256,7 +256,7 @@ caso a tutti i membri del gruppo di lavoro.
 Per notificare anomalie dovr\`a essere usato lo strumento issue-tracker messo a
 disposizione nella pagina \url{http://code.google.com/p/netmus/}. Per ogni
 anomalia individuata si dovr\`a creare un ticket. Per la creazione e la struttura dei
-singoli ticket fare riferimento al documento Norme di Progetto paragrafo omonimo.
+singoli ticket fare riferimento al documento \emph{NormeDiProgetto-1.0.pdf} paragrafo omonimo.
 
 
 \subsection{Gestione dell'anomalia}
@@ -278,7 +278,7 @@ comunicazione e della individuazione spetta ai verificatori. Per notificare
 discrepanze dovrà essere usato lo strumento issue-tracker messo a disposizione
 nella pagina \url{http://code.google.com/p/netmus}. Per ogni discrepanza
 individuata si creerà un ticket. Esso dovrà avere struttura simile a quella indicata nel
-documento Norme di Progetto, ma la priorità assegnatagli dovrà essere quella
+documento \emph{NormeDiProgetto-1.0.pdf}, ma la priorità assegnatagli dovrà essere quella
 massima. I verificatori analizzeranno il problema, usando la tabella di
 tracciabilità dei requisiti. Verrà trovato quale o quali di questi problemi non
 rispettano le aspettative del cliente o, in alternativa, quale requisito non è
@@ -433,7 +433,7 @@ da ogni parte del programma.
 
 \subsection{Analisi del flusso d'informazione}
 
-Questa analisi va a determinare ed analizzare le dipendenze create tra gli
+Quest'analisi va a determinare ed analizzare le dipendenze create tra gli
 ingressi e le uscite di un'unità di codice durante la sua esecuzione. Le uniche
 dipendenze possibili sono quelle previste dalla specifica, eventuali altre
 dipendenze sono da considerarsi errate. Consente inoltre di identificare
