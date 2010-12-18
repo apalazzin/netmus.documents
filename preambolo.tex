@@ -32,8 +32,8 @@
 
 \setlength{\headheight}{1.2cm} % NON TOCCARE
 \setlength{\voffset}{-1.5cm} % NON TOCCARE
-\setlength{\textheight}{686pt} % NON TOCCARE
-
+\setlength{\textheight}{666pt} % NON TOCCARE
+\setlength{\footskip}{60pt}
 \setlength{\parindent}{0pt} % INDENTAZIONE
 
 \lhead{\nomedoc\  (ver. \versione)}
@@ -42,6 +42,22 @@
 \lfoot{\includegraphics[height=0.8cm]{img/logo.png}}
 \cfoot{}
 \rfoot{\thepage}
+
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\huge\bfseries}
+{\thechapter}{20pt}{\Huge}
+
+\usepackage{rotating}   % PER TABELLE E AMBIENTI RUOTATI
+\usepackage{array}
+\usepackage{color}
+\usepackage{colortbl}  % VARIE PER GESTIRE I COLORI
+\definecolor{Orange}{RGB}{255,127,0}   % ARANCIO ACCES0
+\definecolor{orange}{RGB}{255,207,80}  % ARANCIO TENUE
+
+\addtocontents{toc}{\protect\thispagestyle{fancy}}  % PER INDICI CON + PAGINE
+\usepackage[font=it]{caption}    % PER RENDERE CORSIVE LE DIDASCALIE
+
+\usepackage{eurosym}   % PER SIMBOLO EURO
 
 % \usepackage{listings}   per codice sorgente
 
