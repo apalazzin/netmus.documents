@@ -47,6 +47,17 @@
 \titleformat{\chapter}{\normalfont\huge\bfseries}
 {\thechapter}{20pt}{\Huge}
 
+\usepackage{rotating}   % PER TABELLE E AMBIENTI RUOTATI
+\usepackage{array}
+\usepackage{color}
+\usepackage{colortbl}  % VARIE PER GESTIRE I COLORI
+\definecolor{Orange}{RGB}{255,127,0}   % ARANCIO ACCES0
+\definecolor{orange}{RGB}{255,207,80}  % ARANCIO TENUE
+
+\addtocontents{toc}{\protect\thispagestyle{fancy}}  % PER INDICI CON + PAGINE
+\usepackage[font=it]{caption}    % PER RENDERE CORSIVE LE DIDASCALIE
+\usepackage{eurosym}  % PER SIMBOLO EURO
+
 % \usepackage{listings}   per codice sorgente
 
 \author{VT.G - Valter Texas Group}
