@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
-\newcommand{\versione}{0.4}
+\newcommand{\versione}{0.5}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{PianoDiQualifica-\versione.pdf}
@@ -27,6 +27,14 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.5 &
+\bo{Autore:} Giovanni Trezzi, Alberto Palazzin\\
+\hline\\
+\multicolumn{3}{p{470px}}{Corretti errori di grammatica, sintattici ed
+ortografici. Corretta la sintassi del paragrafo 3.2 del paragrafo 4.2 e 4.2.3}\\
+\\
 
 \bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.4 &
@@ -273,10 +281,9 @@ al cliente l'anomalia stessa, la sua origine e l'intenzione di non trattarla.
 
 \section{Trattamento delle discrepanze}
 
-Una discrepanza può essere rilevata in sede di validazione; compito della
-comunicazione e della individuazione spetta ai verificatori. Per notificare
-discrepanze dovrà essere usato lo strumento issue-tracker messo a disposizione
-nella pagina \url{http://code.google.com/p/netmus}. Per ogni discrepanza
+\`E inoltre compito dei verificatori individuare e segnalare la presenza di
+discrepanze. Per notificare una discrepanza dovrà essere usato lo strumento
+issue-tracker messo a disposizione nella pagina \url{http://code.google.com/p/netmus}. Per ogni discrepanza
 individuata si creerà un ticket. Esso dovrà avere struttura simile a quella indicata nel
 documento \emph{NormeDiProgetto-1.0.pdf}, ma la priorità assegnatagli dovrà essere quella
 massima. I verificatori analizzeranno il problema, usando la tabella di
@@ -378,12 +385,11 @@ indipendente, non da chi ha scritto il codice.
 
 \section{Analisi Statica}
 
-L'analisi statica verrà utilizzata prevalentemente per attività di verifica
-sulle varie componenti affinchè ognuna di esse sia raggiunta durante
-l'esecuzione del programma nella sua interezza, che non comporta per questo
-l'esecuzione del codice. Inoltre permetterà di analizzare se vi è una corretta
-corrispondenza tra requisiti e codice sorgente tramite un'attenta lettura di
-quest'ultimo.\\
+
+L'analisi statica verrà utilizzata prevalentemente con lo scopo di sottoporre
+a verifica le singole componenti del programma e per garantire che siano  tutte
+raggiunte durante l'esecuzione dello stesso. Inoltre permetterà di analizzare se
+vi è una corretta corrispondenza tra requisiti e codice sorgente tramite un'attenta lettura di quest'ultimo.\\
 
 Essa deve includere quanto indicato nei successivi paragrafi (da 4.2.1 a
 4.2.11).
@@ -410,10 +416,9 @@ realizzativa.
 
 \subsection{Inspection}
 
-Questa tecnica consiste in una lettura mirata del codice focalizzata sui
-presupposti per trovare eventuali errori, prevede la preparazione preliminare
-del gruppo prima dell'incontro: ogni membro esamina il prodotto, eventualmente
-applicando tecniche analitiche.
+Questa tecnica consiste in una lettura mirata del codice con il preciso scopo
+di trovare determinati tipi di errori. Prevede la preparazione preliminare del
+gruppo prima dell'incontro: ogni membro esamina il prodotto, eventualmente applicando tecniche analitiche.
 
 \subsection{Analisi flusso di controllo}
 
