@@ -1,0 +1,62 @@
+% FUNZIONI TIPOGRAFICHE
+\newcommand{\co}{\texttt} % courier
+\newcommand{\bo}{\textbf} % bold
+\newcommand{\pr}{\par\medskip} % paragrafo spaziato
+\newcommand{\sca}{\textsc} % small caps
+
+\documentclass[a4paper,12pt]{report}
+% 10pt,11pt,12pt
+% titlepage, notitlepage -> per dare inizio o no ad una nuova pagina dopo titolo
+% twoside -> per dire se fronte-retro
+\usepackage[latin1]{inputenc}
+% per caratteri accentati
+\usepackage[italian]{babel}
+% per regole sintattiche italiane
+\usepackage[bookmarks=true, pdfborder={0 0 0 0}]{hyperref}
+% per collegamenti ipertestuali
+\usepackage{graphicx}
+% per inserimento immagini
+
+% \usepackage{enumerate}
+% per personalizzare elenchi puntati
+
+\usepackage[hmargin=2cm]{geometry} %margine 2 cm
+%\geometry{options varie}
+
+% comandi per gestire meglio header e footer
+\usepackage{fancyhdr}  % header e footer
+\usepackage{totpages}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\setlength{\headheight}{1.2cm} % NON TOCCARE
+\setlength{\voffset}{-1.5cm} % NON TOCCARE
+\setlength{\textheight}{666pt} % NON TOCCARE
+\setlength{\footskip}{60pt}
+\setlength{\parindent}{0pt} % INDENTAZIONE
+
+\lhead{\nomedoc\  (ver. \versione)}
+\chead{}
+\rhead{\includegraphics[height=1cm]{img/netmus.png}}
+\lfoot{\includegraphics[height=0.8cm]{img/logo.png}}
+\cfoot{}
+\rfoot{\thepage}
+
+\usepackage{titlesec}
+\titleformat{\chapter}{\normalfont\huge\bfseries}
+{\thechapter}{20pt}{\Huge}
+
+\usepackage{rotating}   % PER TABELLE E AMBIENTI RUOTATI
+\usepackage{array}
+\usepackage{color}
+\usepackage{colortbl}  % VARIE PER GESTIRE I COLORI
+\definecolor{Orange}{RGB}{255,127,0}   % ARANCIO ACCES0
+\definecolor{orange}{RGB}{255,207,80}  % ARANCIO TENUE
+
+\addtocontents{toc}{\protect\thispagestyle{fancy}}  % PER INDICI CON + PAGINE
+\usepackage[font=it]{caption}    % PER RENDERE CORSIVE LE DIDASCALIE
+
+% \usepackage{listings}   per codice sorgente
+
+\author{VT.G - Valter Texas Group}
