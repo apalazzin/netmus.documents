@@ -1205,14 +1205,14 @@ senza nome del brano nel nome del file, verranno ignorati perch\'e inutili ai fi
 del progetto.
 
 \subsubsection*{Indicazioni file ignorati}
-\bo{Id:} C2FO-1.5.1 \\
+\bo{Id:} C2FO-1.6 \\
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
 Vengono indicati all'utente i file musicali non tracciati perch\'e senza
 sufficienti informazioni.
 
-\subsubsection*{Aggiornamento informazioni}
+\subsubsection*{Aggiornamento e completamento informazioni}
 \bo{Id:} C2FD-2 \\
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} desiderabile \\
@@ -1238,7 +1238,7 @@ generazione e/o l'aggiornamento della raccolta virtuale.
 
 \subsection{Requisiti di qualit\`a}
 \subsubsection*{Ottimizzazione memoria cache}
-\bo{Id:} C2QN-1.3.1 \\
+\bo{Id:} C2QN-1.7 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
@@ -1255,14 +1255,14 @@ Vanno evitate le comunicazioni inutili con la componente 1, limitandosi allo
 stretto necessario.
 
 \subsubsection*{Utilizzo}
-\bo{Id:} C2FN-4\\
+\bo{Id:} C2QN-4\\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
 La componente, nel suo utilizzo, dev'essere alla portata di qualsiasi utente.
 
 \subsubsection*{Portabilit\`a}
-\bo{Id:} C2FD-4.1\\
+\bo{Id:} C2QD-4.1\\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} verbale1 \\
@@ -1270,14 +1270,14 @@ Deve essere compatibile col maggior numero di configurazioni software e
 hardware.
 
 \subsubsection*{Semplicit\`a di utilizzo}
-\bo{Id:} C2FD-4.2\\
+\bo{Id:} C2QD-4.2\\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
 Deve essere semplice ed intuitiva da utilizzare.
 
 \subsubsection*{Supporto multi-lingua}
-\bo{Id:} C2FD-4.3\\
+\bo{Id:} C2QD-4.3\\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} capitolato \\
@@ -1285,7 +1285,7 @@ La componente potr\`a essere configurata per utilizzare una specifica lingua tra
 quelle disponibili (italiano ed inglese).
 
 \subsubsection*{Manutenibilit\`a}
-\bo{Id:} C2FN-4.4\\
+\bo{Id:} C2QN-4.4\\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
@@ -1295,7 +1295,7 @@ favoriranno il pi\`u possibile il processo di manutenzione.
 \subsection{Requisiti di vincolo}
 \subsubsection{Interfacciamento con l'utente}
 \subsubsection*{Meno disturbo possibile}
-\bo{Id:} C2FD-4.5\\
+\bo{Id:} C2VD-4.5\\
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} verbale1 \\
@@ -1303,7 +1303,7 @@ Deve arrecare meno disturbo possibile all'utente.
 
 \subsubsection{Norme vigenti nel dominio applicativo}
 \subsubsection*{Norme legali}
-\bo{Id:} C2FN-4.6\\
+\bo{Id:} C2VN-4.6\\
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
@@ -1311,7 +1311,7 @@ Richieder\`a l'autorizzazione al trattamento dei dati personali dell'utente,
 rispettando tutte le normative al riguardo.
 
 \subsubsection*{Open source}
-\bo{Id:} C1VN-4.7 \\
+\bo{Id:} C2VN-4.7 \\
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
@@ -1322,28 +1322,25 @@ La licenza d'uso sar\`a di tipo Open source.
 \begin{table}[!h]
 \centering
 \begin{footnotesize}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|l|}
 \rowcolor{Orange}
-\bo{C2: recupero delle informazioni} \\
+\bo{Componente di recupero delle informazioni (C2)} \\
 \hline
 \cellcolor{orange}
-Recupero delle informazioni & Recupero automatico &  \\ 
-\cline{2-2}
- & Recupero manuale & \\
-\cline{2-3}
- & Informazioni senza connessione & Ottimizzazione memoria cache\\
-\cline{2-3}
- & Informazioni dall'hard disk & \\
-\cline{2-3}
- & File ignorati & Indicazioni file ignorati \\
+Recupero delle informazioni & Recupero automatico \\ 
+ & Recupero manuale \\
+ & Informazioni senza connessione \\
+ & Informazioni dall'hard disk \\
+ & File ignorati \\
+ & Indicazioni file ignorati \\
+ & Ottimizzazione memoria cache \\
 \hline
 \cellcolor{orange}
-Aggiornamento informazioni & & \\
+Aggiornamento e completamento informazioni & \\
 \hline
 \cellcolor{orange}
-Comunicazione con C1 & Invio delle informazioni & \\
-\cline{2-2}
- & Utilizzo della connessione & \\
+Comunicazione con C1 & Invio delle informazioni \\
+ & Utilizzo della connessione \\
 \hline
 \end{tabular}
 
@@ -1354,32 +1351,21 @@ Comunicazione con C1 & Invio delle informazioni & \\
 \bo{Utilizzo} \\
 \hline
 \rowcolor{orange}
- Accessibilit\`a \\
+ Portabilit\`a \\
  \rowcolor{orange}                  
- Open source \\  
+ Semplicit\`a di utilizzo \\
  \rowcolor{orange}         
  Portabilit\`a \\
  \rowcolor{orange}               
- Sviluppo Multi-lingua \\
- \rowcolor{orange}                  
- Semplicit\`a di utilizzo \\
- \rowcolor{orange}               
- Manutenibilit\`a \\
- \rowcolor{orange}         
- Gestione Errori \\             
-\hline
-\end{tabular}
-\hspace{3cm}
-\begin{tabular}{|l|}
-\hline
-\rowcolor{Orange}
-\bo{Documenti} \\           
-\hline
-\rowcolor{orange}
- Manuale utente \\                 
-\hline
-\rowcolor{orange}
- Manuale utente inglese \\                  
+ Supporto Multi-lingua \\
+ \rowcolor{orange}                           
+ Manutenibilit\`a \\    
+ \rowcolor{orange}     
+ Meno disturbo possibile \\        
+ \rowcolor{orange}     
+ Norme legali \\      
+ \rowcolor{orange}     
+ Open Source \\      
 \hline
 \end{tabular}
 \end{footnotesize}
@@ -1395,46 +1381,18 @@ Comunicazione con C1 & Invio delle informazioni & \\
 \hline
 \rowcolor{orange}                         
 \sca{Necessari} & \sca{Desiderabili} & \sca{Opzionali} \\         
-C1FN-1 Web Application Netmus & C1FD-1.1.4 Visualizza player Youtube &
-C1FO-1.2.1 Pagina login indipendente \\
-C1FN-1.1 Grafica simile ad iTunes & C1FD-1.3 Personalizzazione del catalogo & C1FO-1.3.3 Creazione playlist \\
- C1FN-1.1.1 Brani elencati opportunamente & C1FD-1.3.1 Cancellazione brano & C1FO-1.3.4 Ranking brani \\ 
-C1FN-1.1.2 Menu laterali & C1FD-1.1.4 Modifica informazioni brano & C1FO-1.7.2 Lasciare commenti su  \\ 
-C1FN-1.1.3 Visualiz. info dettagliate dei brani & C1FD-1.4.4 Publicazione
-profilo & C1FO-1.8.1 Esportazione PDF \\ C1FN-1.4 Gestione profilo personale &
-C1FD-1.5 Riproduzione tracce in streaming & C1FO-1.9.3 Completamento info da  \\
-C1FN-1.4.1 Modifica informazioni personali & C1FD-1.7 Interazione con altri utenti & \\       
-C1FN-1.4.3 Cancellazione del proprio account & C1FD-1.7.1 Visualizzazione altri profili & \\                    
-C1FN-1.9 Ricezione ed elaborazione dei brani & C1FD-1.8 Elaborazione dati utente &   \\             
-C1FN-1.9.1 Controllo di validit\`a dei dati & C1FD-1.10 Invio nuove informazioni a C2 & \\                
-C1FN-1.9.2 Completamento info da database interno & & \\                                 
-C1FN-1.9.4 Identificazione dati ridondanti & & \\                         
-C1FN-1.9.5 Inserimento nel Database & & \\                             
-C1FN-1.13 Gestione Database &  & \\      
-C1FN-3 Documenti &  & \\              
+C2FN-1 Recupero delle informazioni & C2FD-1.4 Informazioni dall'hard disk &
+C2FO-1.6 Indicazioni file ignorati \\
+C2FN-1.1 Recupero automatico & C2FD-2 Aggiornamento e completamento informazioni
+& \\
+C2FN-1.2 Recupero manuale & & \\
+C2FN-1.3 Informazioni senza connessione & & \\
+C2FN-1.5 File ignorati & & \\
+C2FN-3 Gestione profilo personale & & \\
+C2FN-3.1 Invio delle informazioni & & \\
 \hline
 \end{tabular}
 \caption{Requisiti funzionali}
-
-\begin{tabular}{|l|l|l|}
-\cline{1-1}
-\rowcolor{Orange}
-\bo{Requisiti Di Qualit\`a} \\
-\hline
-\rowcolor{orange}                         
-\sca{Necessari} & \sca{Desiderabili} & \sca{Opzionali} \\
-C1QN-1.6 Scalabilit\`a & C1QN-1.5.1 Ottimizzazione della ricerca su Youtube & C1QO-2.1 Accessibilit\`a   \\ 
-C1QN-1.6.1 Scalabilit\`a interfaccia grafica & C1QN-2.4 Supporto multilingua & \\                
-C1QN-1.6.2 Scalabilit\`a massa di utenza  &  & \\                         
-C1QN-1.9.6 Gestione concorrenza &  & \\              
-C1QN-1.11 Deve utilizzare il cloud computing &  & \\                            
-C1QN-2.3 Portabilit\`a &  & \\              
-C1QN-2.7 Gestione errori &  &   \\       
-C1QN-3.1 Manuale utente &  & \\                   
-C1QN-1.9.6 Gestione concorrenza &  & \\                             
-\hline
-\end{tabular}
-\caption{Requisiti di qualit\`a}
 \end{footnotesize}
 \end{sidewaystable}
 
@@ -1443,6 +1401,22 @@ C1QN-1.9.6 Gestione concorrenza &  & \\
 \begin{table}
 \centering
 \begin{footnotesize}
+
+\begin{tabular}{|l|l|}
+\cline{1-1}
+\rowcolor{Orange}
+\bo{Requisiti Di Qualit\`a} \\
+\hline
+\rowcolor{orange}                         
+\sca{Necessari} & \sca{Desiderabili}\\
+C2QN-1.7 Ottimizzazione memoria cache & C2QD-4.1 Portabilit\`a \\
+C2QN-3.2 Utilizzo della connessione & C2QD-4.2 Semplicit\`a di utilizzo \\
+C2QN-4.4 Manutenibilit\`a & C2QD-4.3 Supporto multi-lingua \\                        
+\hline
+\end{tabular}
+\caption{Requisiti di qualit\`a}
+
+\vspace{1cm}
 \begin{tabular}{|l|l|l|}
 \cline{1-1}
 \rowcolor{Orange}
@@ -1450,16 +1424,13 @@ C1QN-1.9.6 Gestione concorrenza &  & \\
 \hline
 \rowcolor{orange}                         
 \sca{Necessari} & \sca{Desiderabili} \\   
-C1VN-1.12 Deve utilizzare tecnologie GAE e GWT & C1VD-1.5.2 Quote Youtube   \\ 
-C1VN-1.13.1 Deve utilizzare Google Data Store & C1VD-1.5.3 Youtube Terms of
-Services \\ 
-C1VN-2.2 Open source & \\
-C1VN-2.5 Semplicit\`a di utilizzo & \\
+C2VN-4.6 Norme legali & C2VD-4.5 Meno disturbo
+possibile \\
+C2VN-4.7 Open source &  \\
 \hline
 \end{tabular}
 \caption{Requisiti di vincolo}
 \end{footnotesize}
 \end{table}
-
 
 \end{document}
