@@ -1,16 +1,17 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
-\newcommand{\versione}{0.6}
+\newcommand{\versione}{1.0}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
+\newcommand{\versioneAR}{1.0}
 \newcommand{\nomefile}{PianoDiQualifica-\versione.pdf}
 \newcommand{\datacreazione}{3 Dicembre 2010}
-\newcommand{\datamodifica}{18 Dicembre 2010}
+\newcommand{\datamodifica}{19 Dicembre 2010}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
-\newcommand{\redazione}{Giovanni Trezzi}
-\newcommand{\verifica}{Alberto Palazzin}
-\newcommand{\approvazione}{Valter}
+\newcommand{\redazione}{Trezzi Giovanni}
+\newcommand{\verifica}{Palazzin Alberto}
+\newcommand{\approvazione}{Mandolo Andrea}
 \newcommand{\distribuzione}{
 VT.G \\
 & Prof. Vardanega Tullio\\
@@ -28,16 +29,23 @@ VT.G \\
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
 
+\bo{Data:} 19/12/2010 &
+\bo{Versione:} 1.0 &
+\bo{Autore:} Mandolo Andrea\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Validazione documento per consegna RR.}\\
+\\
+
 \bo{Data:} 18/12/2010 &
 \bo{Versione:} 0.6 &
-\bo{Autore:} Alberto Palazzin\\
+\bo{Autore:} Palazzin Alberto\\
 \hline\\
 \multicolumn{3}{p{470px}}{Verificato l'intero documento.}\\
 \\
 
 \bo{Data:} 18/12/2010 &
 \bo{Versione:} 0.5 &
-\bo{Autore:} Giovanni Trezzi\\
+\bo{Autore:} Trezzi Giovanni\\
 \hline\\
 \multicolumn{3}{p{470px}}{Corretti errori di grammatica, sintattici ed
 ortografici. Corretta la sintassi del paragrafo 3.2 del paragrafo 4.2 e
@@ -46,7 +54,7 @@ ortografici. Corretta la sintassi del paragrafo 3.2 del paragrafo 4.2 e
 
 \bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.4 &
-\bo{Autore:} Giovanni Trezzi\\
+\bo{Autore:} Trezzi Giovanni\\
 \hline\\
 \multicolumn{3}{p{470px}}{Corretti errori di battitura nel Sommario. Modifiche
 sintattiche in 2.1. Scorporato 2.1.1 in 2.1.2, 2.1.3, 2.1.4. Modifica della
@@ -57,7 +65,7 @@ Modifica sintattica in 2.1.4, in 2.2 e in 2.3.}\\
 
 \bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.3 &
-\bo{Autore:} Giovanni Trezzi\\
+\bo{Autore:} Trezzi Giovanni\\
 \hline\\
 \multicolumn{3}{p{470px}}{Corretto il contenuto del Sommario. Corretto il
 paragrafo 1.2 ``Scopo del documento''. Modificato 2.1 integrando l'attivit\`a
@@ -68,7 +76,7 @@ Modificato parte di 4.2 per maggior chiarezza di lettura.}\\
 
 \bo{Data:} 13/12/2010 &
 \bo{Versione:} 0.2 &
-\bo{Autore:} Giovanni Trezzi\\
+\bo{Autore:} Trezzi Giovanni\\
 \hline\\
 \multicolumn{3}{p{470px}}{Correzione errori di battitura nei paragrafi 2.1
 3.1.2. Correzione punteggiatura degli elenchi puntati di tutto il documento.
@@ -79,7 +87,7 @@ Aggiunta la versione dei documenti a cui si fa riferimento.}\\
 % TEMPLATE PER REVISIONE
 \bo{Data:} 03/12/2010 &
 \bo{Versione:} 0.1 &
-\bo{Autore:} Giovanni Trezzi\\
+\bo{Autore:} Trezzi Giovanni\\
 \hline\\
 \multicolumn{3}{p{470px}}{ Stesura prima versione di Piano Di Qualifica.}\\ \\
 
@@ -111,21 +119,22 @@ le attività di verifica e validazione.
 
 Il presente documento fornisce le strategie di \underline{verifica} e
 \underline{validazione} che verranno attuate durante lo sviluppo del progetto al
-fine di evitare ed eventualmente correggere \underline{anomalie} e/o
-\underline{difetti} all'interno del sistema.
+fine di evitare ed eventualmente correggere anomalie e/o difetti all'interno del
+sistema.
 
 \input{parte_comune.tex}
 
 % INIZIO CAPITOLO 2
 
-\chapter{Visione generale della strategia di verifica}
+\chapter{Visione generale\\della strategia di verifica}
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
 
-\section{Organizzazione, pianificazione strategica e temporale, responsabilit\`a}
+\section{Organizzazione, pianificazione\\strategica e temporale,
+responsabilit\`a}
 
 Al fine di garantire un'elevata qualit\`a del prodotto finale, l'impegno che si
-assume \`e quello di pianificare ed effettuare una costante attivit\`a di verifica e validazione in tutte le fasi del progetto. Ogni singola modifica o
-l'insieme di pi\`u modifiche comporteranno una conseguente attivit\`a di verifica. Al fine di
+assume \`e quello di pianificare ed effettuare una costante attivit\`a di
+verifica e validazione in tutte le fasi del progetto. Ogni singola modifica o l'insieme di pi\`u modifiche comporteranno una conseguente attivit\`a di verifica. Al fine di
 ottimizzare tempo e risorse, le attivit\`a verranno effettuate solamente quando
 una singola o pi\`u modifiche avranno comportato differenze di tipo rilevante
 all'interno di ogni fase del progetto. Le attivit\`a di verifica saranno
@@ -134,8 +143,8 @@ modifiche segnalare i cambiamenti ai verificatori i quali provvederanno ad
 un'ulteriore attivit\`a di verifica. La validazione dovrà avvenire
 solamente a fronte di una precisa e meticolosa attività di verifica e nel
 rispetto di tutti i requisiti e le specifiche, senza discostarsi da
-quanto inizialmente concordato. Sar\`a dovere del responsabile di qualifica
-accertarsi che tutte le attivit\`a si svolgano nelle modalit\`a descritte nel presente documento.
+quanto inizialmente concordato. Sar\`a dovere del responsabile accertarsi che
+tutte le attivit\`a si svolgano nelle modalit\`a descritte nel presente documento.
 
 \subsection{Verifica della documentazione}
 
@@ -144,8 +153,8 @@ Per ogni documento dovranno essere verificati i seguenti aspetti:
 \item sintassi e grammatica;
 \item chiarezza espositiva;
 \item correttezza e completezza dei concetti espressi;
-\item formattazione del documento secondo quando specificato dall'amministratore
-in\\ \emph{NormeDiProgetto-1.0.pdf}.
+\item formattazione del documento secondo quanto specificato dall'amministratore
+in\\ \emph{NormeDiProgetto-\versionenormeprogetto.pdf}.
 \end{itemize}
 
 Nel caso sia necessario intervenire per correggere uno o pi\`u di questi aspetti
@@ -161,20 +170,22 @@ La fase di progettazione dovr\`a essere verificata secondo i seguenti aspetti:
 \begin{itemize}
 
 \item soddisfacimento di tutti i requisiti individuati nel documento
-\emph{AnalisiDeiRequisiti-1.0.pdf};
+\emph{AnalisiDeiRequisiti-\versioneAR.pdf};
 \item individuazione di elementi progettuali superflui, non aderenti a nessun
 requisito richiesto;
 \item corretta corrispondenza e tracciabilit\`a tra i requisiti e le relative
 parti del progetto;
 \item correttezza progettuale nel soddisfacimento dei requisiti;
-\item correttezza rispetto a quanto stabilito nel documento \emph{NormeDiProgetto-1.0.pdf};
+\item correttezza rispetto a quanto stabilito nel documento
+\emph{NormeDiProgetto-\versionenormeprogetto.pdf};
 \item possibilit\`a di manutenere ed estendere i vari elementi cos\`i come
 previsti nella progettazione del prodotto.
 
 \end{itemize}
 
 Nel caso sia necessario intervenire in maniera correttiva rispetto ad uno o
-pi\`u di questi aspetti sar\`a dovere del verificatore contattare il progettista responsabile affinch\`e provveda alle relative modifiche riguardanti la progettazione.
+pi\`u di questi aspetti sar\`a dovere del verificatore contattare il progettista
+responsabile affinch\`e provveda alle relative modifiche riguardanti la progettazione.
 
 \subsection{Verifica della fase di realizzazione/programmazione}
 
@@ -182,7 +193,7 @@ La fase di realizzazione/programmazione dovr\`a essere verificata secondo i segu
 \begin{itemize}
 \item \underline{Analisi Statica} del codice;
 \item \underline{Analisi Dinamica} del codice;
-\item corretto funzionamento dell'applicazione, o delle sue parti, rispetto a
+\item Corretto funzionamento dell'applicazione, o delle sue parti, rispetto a
 quanto previsto nella fase di progettazione;
 \item Affidabilit\`a;
 \item Efficienza;
@@ -255,7 +266,7 @@ aderisca alle pi\`u diffuse norme di codifica.
 
 % INIZIO CAPITOLO 3
 
-\chapter{Gestione amministrativa della revisione}
+\chapter{Gestione amministrativa\\della revisione}
 \thispagestyle{fancy} % per lo stile di header e footer
 
 \section{Comunicazione e risoluzione di anomalie}
@@ -328,7 +339,7 @@ che si compone di tre stadi principali:
 definite. Un miglioramento della valutazione secondo tali metriche è indice di
 miglioramento di processo.
 \item Analisi del processo: il processo attuale viene valutato e vengono
-identificati punti deboli e \underline{colli di bottiglia}. Durante questo
+identificati punti deboli e colli di bottiglia. Durante questo
 studio solitamente vengono sviluppati i modelli di processo che descrivono il
 processo stesso.
 \item Modifica del processo: vengono introdotte le modifiche al processo
