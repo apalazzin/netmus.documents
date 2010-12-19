@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Analisi Dei Requisiti}
-\newcommand{\versione}{0.10}
+\newcommand{\versione}{0.11}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
@@ -17,6 +17,7 @@ VT.G \\
 & Prof. Cardin Riccardo }
 
 \input{preambolo.tex}
+\usepackage{longtable}
 
 \begin{document}
 
@@ -27,6 +28,13 @@ VT.G \\
 \begin{tabular}{lll}
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
+\bo{Data:} 19/12/2010 &
+\bo{Versione:} 0.11 &
+\bo{Autore:} Daminato Simone\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Inserite tabelle per il tracciamento dei
+requisiti, e liste di immagini e tabelle.}\\
+\\
 
 \bo{Data:} 18/12/2010 &
 \bo{Versione:} 0.10 &
@@ -40,7 +48,7 @@ semantica del documento.}\\
 \bo{Versione:} 0.9 &
 \bo{Autore:} Daminato Simone\\
 \hline\\
-\multicolumn{3}{p{470px}}{ Inserimento degli use case, diagramma e testo,
+\multicolumn{3}{p{470px}}{ Inserimento dell'use case, diagramma e testo,
 UC3.}\\
 \\
 
@@ -1085,8 +1093,8 @@ C1FN-1 Web Application Netmus & C1FD-1.1.4 Visualizza player Youtube &
 C1FO-1.2.1 Pagina login indipendente \\
 C1FN-1.1 Grafica simile ad iTunes & C1FD-1.3 Personalizzazione del catalogo & C1FO-1.3.3 Creazione playlist \\
  C1FN-1.1.1 Brani elencati opportunamente & C1FD-1.3.1 Cancellazione brano & C1FO-1.3.4 Ranking brani \\ 
-C1FN-1.1.2 Menu laterali & C1FD-1.1.4 Modifica informazioni brano & C1FO-1.7.2 Lasciare commenti su  \\ 
-C1FN-1.1.3 Visualiz. info dettagliate dei brani & C1FD-1.4.4 Publicazione
+C1FN-1.1.2 Menu laterali & C1FD-1.3.2 Modifica informazioni brano & C1FO-1.7.2
+Lasciare commenti su  \\ C1FN-1.1.3 Visualiz. info dettagliate dei brani & C1FD-1.4.4 Pubblicazione
 profilo & C1FO-1.8.1 Esportazione PDF \\ C1FN-1.4 Gestione profilo personale &
 C1FD-1.5 Riproduzione tracce in streaming & C1FO-1.9.3 Completamento info da  \\
 C1FN-1.4.1 Modifica informazioni personali & C1FD-1.7 Interazione con altri utenti & \\       
@@ -1116,8 +1124,7 @@ C1QN-1.9.6 Gestione concorrenza &  & \\
 C1QN-1.11 Deve utilizzare il cloud computing &  & \\                            
 C1QN-2.3 Portabilit\`a &  & \\              
 C1QN-2.7 Gestione errori &  &   \\       
-C1QN-3.1 Manuale utente &  & \\                   
-C1QN-1.9.6 Gestione concorrenza &  & \\                             
+C1QN-3.1 Manuale utente &  & \\                            
 \hline
 \end{tabular}
 \caption{Requisiti di qualit\`a}
@@ -1388,7 +1395,7 @@ C2FN-1.1 Recupero automatico & C2FD-2 Aggiornamento e completamento informazioni
 C2FN-1.2 Recupero manuale & & \\
 C2FN-1.3 Informazioni senza connessione & & \\
 C2FN-1.5 File ignorati & & \\
-C2FN-3 Gestione profilo personale & & \\
+C2FN-3 Comunicazione con C1 & & \\
 C2FN-3.1 Invio delle informazioni & & \\
 \hline
 \end{tabular}
@@ -1433,4 +1440,230 @@ C2VN-4.7 Open source &  \\
 \end{footnotesize}
 \end{table}
 
+\chapter{Tracciamento dei requisiti}
+\thispagestyle{fancy}
+
+\section{Tracciamento requisiti - use case}
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Requisiti} & \sca{Use case}\\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\hline
+\endlastfoot
+C1FN-1.1 Grafica simile ad iTunes & UC2 - Visualizza catalogo \\ 
+& UC2 - Gestire profilo personale \\
+& UC2 - Visualizzare altri cataloghi \\\hline
+C1FN-1.1.1 Brani elencati opportunamente & UC2.1 - Visualizza elenco brani \\
+\hline
+C1FN-1.1.2 Menu laterali & UC2.1 - Visualizza men\`u laterale \\ \hline
+C1FN-1.1.3 Visualiz. info dettagliate dei brani & UC2.1 - Visualizza dettagli
+brano \\ \hline
+C1FD-1.1.4 Visualizza player Youtube & UC2.1 - Player YouTube \\ \hline
+C1FN-1.2 Registrazione & UC1.1 - Registrazione NetMus \\ \hline
+C1FO-1.2.1 Pagina login indipendente & UC1 - Autenticazione \\ \hline
+C1FD-1.3 Personalizzazione del catalogo & UC2.1 - Modifica catalogo \\ \hline
+C1FD-1.3.1 Cancellazione brano & UC2.1 - Cancella brano \\ \hline
+C1FD-1.3.2 Modifica informazioni brano & UC2.1 - Modifica brano \\ \hline
+C1FO-1.3.3 Creazione playlist & UC2.1 - Crea playlist \\ \hline
+C1FO-1.3.4 Ranking brani & UC2.1 - Aggiungi rank \\ \hline
+C1FN-1.4 Gestione profilo personale & UC2 - Gestire profilo personale \\ \hline
+C1FN-1.4.1 Modifica informazioni personali & UC2 - Gestire profilo personale \\
+\hline
+C1FN-1.4.2 Cambio password & UC2 - Gestire profilo personale \\ \hline
+C1FN-1.4.3 Cancellazione del proprio account & UC2 - Cancellare profilo \\
+\hline
+C1FD-1.4.4 Pubblicazione & UC2 - Pubblica catalogo \\ \hline
+C1FD-1.5 Riproduzione tracce in streaming & UC2.1 - Player YouTube \\ \hline
+C1QN-1.5.1 Ottimizzazione della ricerca su Youtube & UC2.2 - Ricerca esterna \\
+\hline
+C1FD-1.7 Interazione con altri utenti & UC2 - Visualizzare altri cataloghi \\
+ & UC2 - Scrivi commento \\ \hline
+C1FD-1.7.1 Visualizzazione altri profili & UC2 - Visualizzare altri cataloghi \\
+\hline
+C1FO-1.7.2 Lasciare commenti su profilo & UC2 - Scrivi commento \\ \hline
+C1FD-1.8 Elaborazione dati utente & UC1 - Interagire con altri cataloghi \\
+\hline
+C1FO-1.8.1 Esportazione PDF & UC2 - Esporta pdf \\ \hline
+C1FN-1.9 Ricezione ed elaborazione dei brani & UC2.2 - Ricezione dati \\
+ & UC2.2 - Inserimento nel database \\ \hline
+C1FN-1.9.1 Controllo di validit\`a dei dati & UC2.2 - Controllo validit\`a \\
+\hline C1FN-1.9.2 Completamento info da database interno & UC2.2 - Ricerca
+interna \\ \hline
+C1FO-1.9.3 Completamento info da servizio esterno & UC2.2 - Ricerca esterna \\
+\hline
+C1FN-1.9.4 Identificazione dati ridondanti & UC2.2 - Gestione ridondanza \\
+\hline
+C1FN-1.9.5 Inserimento nel Database & UC2.2 - Inserimento nel database \\ \hline
+C1FD-1.10 Invio nuove informazioni a C2 & UC1 - Aggiornamento informazioni \\
+\hline
+%requisiti c2
+C2FN-1 Recupero delle informazioni & UC3 - Recupera informazioni dai brani \\
+\hline
+C2FN-1.1 Recupero automatico & UC3 - Recupera automaticamente \\ \hline
+C2FN-1.2 Recupero manuale & UC3 - Recupera manualmente \\ \hline
+C2FN-1.3 Informazioni senza connessione & UC3 - Memorizzazione temporanea dei
+dati \\ \hline
+C2FD-1.4 Informazioni dall'hard disk & UC3 - Recupera informazioni dai brani \\
+\hline
+C2FN-1.5 File ignorati & UC3 - Recupera informazioni dai brani\\ \hline
+C2FO-1.6 Indicazioni file ignorati & UC3 - Gestire informazioni \\ \hline
+C2QN-1.7 Ottimizzazione memoria cache & UC3 - Memorizzazione temporanea dei dati
+\\ \hline
+C2FD-2 Aggiornamento e completamento informazioni & UC3 - Aggiorna le
+informazioni dei brani \\ \hline
+C2FN-3 Comunicazione con C1 & UC1 - Inviare nuovi brani \\
+ & UC1 - Aggiornamento informazioni \\ \hline
+C2FN-3.1 Invio delle informazioni & UC2.2 - Invio dati raccolti \\
+\end{longtable}
+\end{footnotesize}
+
+\newpage
+\section{Tracciamento use case - requisiti}
+
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Use case} & \sca{Requisiti} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\hline
+\endlastfoot
+UC1 - Interagire con altri cataloghi & C1FD-1.8 Elaborazione dati utente \\
+\hline
+UC1 - Inviare nuovi brani & C2FN-3 Comunicazione con C1 \\ \hline
+UC1 - Aggiornamento informazioni & C1FD-1.10 Invio nuove informazioni a C2 \\
+ & C2FN-3 Comunicazione con C1 \\ \hline
+UC1 - Autenticazione & C1FO-1.2.1 Pagina login indipendente \\ \hline
+UC1.1 - Registrazione NetMus & C1FN-1.2 Registrazione \\ \hline
+% ************************************************************************* 2
+UC2 - Scrivi commento & C1FD-1.7 Interazione con altri utenti \\
+ & C1FO-1.7.2 Lasciare commenti su profilo \\ \hline
+UC2 - Gestire profilo personale & C1FN-1.1 Grafica simile ad iTunes \\
+ & C1FN-1.4 Gestione profilo personale \\
+ & C1FN-1.4.1 Modifica informazioni personali \\
+ & C1FN-1.4.2 Cambio password \\ \hline
+UC2 - Visualizzare altri cataloghi & C1FN-1.1 Grafica simile ad iTunes \\
+ & C1FD-1.7 Interazione con altri utenti \\
+ & C1FD-1.7.1 Visualizzazione altri profili \\ \hline
+UC2 - Cancellare profilo & C1FN-1.4.3 Cancellazione del proprio account \\
+\hline
+UC2 - Pubblica catalogo & C1FD-1.4.4 Pubblicazione \\ \hline
+UC2 - Visualizza catalogo & C1FN-1.1 Grafica simile ad iTunes \\ \hline
+UC2 - Esporta pdf & C1FO-1.8.1 Esportazione PDF \\ \hline
+% ************************************************************************* 2.1
+UC2.1 - Visualizza elenco brani & C1FN-1.1.1 Brani elencati opportunamente \\
+\hline
+UC2.1 - Visualizza men\`u laterale & C1FN-1.1.2 Menu laterali \\ \hline
+UC2.1 - Visualizza dettagli brano & C1FN-1.1.3 Visualiz. info dettagliate dei
+brani \\ \hline
+UC2.1 - Player YouTube & C1FD-1.1.4 Visualizza player Youtube \\
+ & C1FD-1.5 Riproduzione tracce in streaming \\ \hline
+UC2.1 - Modifica catalogo & C1FD-1.3 Personalizzazione del catalogo \\ \hline
+UC2.1 - Cancella brano & C1FD-1.3.1 Cancellazione brano \\ \hline
+UC2.1 - Modifica brano & C1FD-1.3.2 Modifica informazioni brano \\ \hline
+UC2.1 - Crea playlist & C1FO-1.3.3 Creazione playlist \\ \hline
+UC2.1 - Aggiungi rank & C1FO-1.3.4 Ranking brani \\ \hline
+% ************************************************************************* 2.2
+UC2.2 - Ricerca esterna & C1QN-1.5.1 Ottimizzazione della ricerca su Youtube \\
+ & C1FO-1.9.3 Completamento info da servizio esterno \\ \hline
+UC2.2 - Ricerca interna & C1FN-1.9.2 Completamento info da database interno \\
+\hline
+UC2.2 - Ricezione dati & C1FN-1.9 Ricezione ed elaborazione dei brani \\ \hline
+UC2.2 - Inserimento nel database & C1FN-1.9 Ricezione ed elaborazione dei brani \\
+ & C1FN-1.9.5 Inserimento nel Database \\ \hline
+UC2.2 - Controllo validit\`a & C1FN-1.9.1 Controllo di validit\`a dei dati \\
+\hline
+UC2.2 - Gestione ridondanza & C1FN-1.9.4 Identificazione dati ridondanti \\
+\hline
+UC2.2 - Invio dati raccolti & C2FN-3.1 Invio delle informazioni \\ \hline
+% ************************************************************************* 3
+UC3 - Recupera informazioni dai brani & C2FN-1 Recupero delle informazioni \\
+ & C2FD-1.4 Informazioni dall'hard disk \\ 
+ & C2FN-1.5 File ignorati \\ \hline
+UC3 - Recupera automaticamente & C2FN-1.1 Recupero automatico \\ \hline
+UC3 - Recupera manualmente & C2FN-1.2 Recupero manuale \\ \hline
+UC3 - Memorizzazione temporanea dei dati & C2FN-1.3 Informazioni senza
+connessione \\
+ & C2QN-1.7 Ottimizzazione memoria cache \\ \hline
+UC3 - Gestire informazioni & C2FO-1.6 Indicazioni file ignorati \\ \hline
+UC3 - Aggiorna le informazioni dei brani & C2FD-2 Aggiornamento e completamento
+informazioni \\ \hline
+\end{longtable}
+\end{footnotesize}
+
+\newpage
+\section{Requisiti non tracciati}
+
+I requisiti qui elencati non sono stati tracciati da alcun Use Case, questo in
+quanto i requisiti di vincolo e di qualità non sono rappresentabili da nessuno
+di essi ma sorgono dalle richieste del capitolato o da regole di buon sviluppo
+di un progetto di Ingegneria del Software.
+Gli altri vincoli funzionali, come ad esempio C1FN-1.13 Gestione Database, non sono
+tracciati in quanto esprimono funzioni che non si potrebbero evincere da alcuno Use
+Case ma dalle richieste capitolato stesso.
+
+
+\begin{table}[!h]
+\centering
+\begin{footnotesize}
+
+\begin{tabular}{|l|}
+\cline{1-1}
+\rowcolor{orange}
+\hline
+\bo{Requisiti non tracciati} \\
+\hline
+C1FN-1 Web Application Netmus \\ \hline
+C1VD-1.5.2 Quote Youtube \\ \hline
+C1VD-1.5.3 Youtube Terms of Services \\ \hline
+C1QN-1.6 Scalabilit\`a \\ \hline
+C1QN-1.6.1 Scalabilit\`a interfaccia grafica \\ \hline
+C1QN-1.6.2 Scalabilit\`a massa di utenza \\ \hline
+C1QN-1.9.6 Gestione concorrenza \\ \hline
+C1QN-1.11 Deve utilizzare il cloud computing \\ \hline
+C1VN-1.12 Tecnologie GAE e GWT \\ \hline
+C1FN-1.13 Gestione Database \\ \hline
+C1VN-1.13.1 Deve utilizzare Google Data Store \\ \hline
+C1QN-2 Utilizzo \\ \hline
+C1QO-2.1 Accessibilit\`a \\ \hline
+C1VN-2.2 Open source \\ \hline
+C1QN-2.3 Portabilit\`a \\ \hline
+C1QD-2.4 Supporto multi-lingua \\ \hline
+C1VN-2.5 Semplicit\`a di utilizzo \\ \hline
+C1QN-2.6 Manutenibilit\`a \\ \hline
+C1QN-2.7 Gestione errori \\ \hline
+C1FN-3 Documenti \\ \hline
+C1QN-3.1 Manuale utente \\ \hline
+%c2
+C2QN-3.2 Utilizzo della connessione \\ \hline
+C2QD-4.1 Portabilit\`a \\ \hline
+C2QD-4.2 Semplicit\`a di utilizzo \\ \hline
+C2QD-4.3 Supporto multi-lingua \\ \hline
+C2QN-4.4 Manutenibilit\`a \\ \hline
+C2VD-4.5 Meno disturbo possibile \\ \hline
+C2VN-4.6 Norme legali \\ \hline
+C2VN-4.7 Open source \\ \hline
+\end{tabular}
+\end{footnotesize}
+\end{table}
+
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{Indice Tabelle}
+\listoffigures
+\addcontentsline{toc}{chapter}{Indice Figure}
 \end{document}
