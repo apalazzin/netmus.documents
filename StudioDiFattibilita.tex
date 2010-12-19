@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Studio Di Fattibilit\`a}
-\newcommand{\versione}{0.5}
+\newcommand{\versione}{1.0}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{StudioDiFattibilita-\versione.pdf}
@@ -10,7 +10,7 @@
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Lovato Daniele, Palazzin Alberto}
 \newcommand{\verifica}{Mandolo Andrea}
-\newcommand{\approvazione}{---}
+\newcommand{\approvazione}{Baron Federico}
 \newcommand{\distribuzione}{
 VT.G \\
 & Prof. Vardanega Tullio\\
@@ -29,6 +29,12 @@ VT.G \\
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
 
 % TEMPLATE PER REVISIONE
+\bo{Data:} 19/12/2010 &
+\bo{Versione:} 1.0 &
+\bo{Autore:} Baron Federico\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Validazione documento per consegna revizione RR.}\\
+\\
 
 \bo{Data:} 16/12/2010 &
 \bo{Versione:} 0.5 &
@@ -70,7 +76,7 @@ VT.G \\
 
 \chapter*{Sommario}
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca headere footer
-Dopo aver letto, discusso e analizzato i vari capitolati d'appalto, \`e
+Dopo aver letto, discusso ed analizzato i vari capitolati d'appalto, \`e
 stato stilato il documento dello Studio Di Fattibilit\`a per riassumere e
 documentare le valutazioni effettuate dal gruppo. \`E stato infine selezionato
 il capitolato C02 NetMus come futuro progetto da sviluppare, ritenendolo
@@ -100,8 +106,8 @@ mapping}) proposto dall'azienda Zucchetti richiede l'utilizzo del linguaggio di
 markup \underline{HTML5}.
 Il progetto risulta interessante considerando l'utilit\`a del prodotto
 risultante, ma dopo un'attenta lettura della specifica ed un confronto con gli
-altri capitolati, si ritiene che non sia abbastanza stimolante tecnologicamente
-per il gruppo.
+altri capitolati, si ritiene che la tecnologia richiesta non sia abbastanza
+stimolante per il gruppo.
 
 \chapter{Capitolato C02 - Netmus}
 \thispagestyle{fancy}
@@ -125,8 +131,8 @@ riguardano i seguenti ambiti:
   GAE e \underline{JavaFX};
   \item buone conoscenze sulle basi di dati, per usare il database
   non relazionale \underline{Google DataStore};
-  \item conoscenze sui vari \underline{sistemi operativi} (\underline{Windows},
-  \underline{Linux}, \underline{MacOsx}) per poter interagire con periferiche
+  \item conoscenze riguardo vari \underline{sistemi operativi}
+  (\underline{Windows}, \underline{Linux}, \underline{MacOsx}) per poter interagire con periferiche
   audio e di archiviazione dati.
 \end{itemize}
 
@@ -150,14 +156,23 @@ rispettando le tempistiche per le varie revisioni.
 \section{Componenti del progetto e dettagli sulle tecnologie}
 Il problema che viene posto nel capitolato C02 presenta due principali componenti
 da considerare per lo studio della fattibilit\`a.\\
-Una componente che gestisce il recupero delle informazioni dei brani musicali
-dal dispositivo di riproduzione personale dell'utente.\\
-L'altra componente gestisce la memorizzazione e visualizzazione della libreria
-virtuale personale dell'utente.
+Una componente che gestisce la memorizzazione e visualizzazione della libreria
+virtuale personale dell'utente.\\
+L'altra componente gestisce il recupero delle informazioni dei brani
+musicali dal dispositivo di riproduzione personale dell'utente.
+
+\subsection{Componente di memorizzazione e gestione della libreria}
+La prima componente dovr\`a essere accessibile all'utente come
+applicazione web. Il sistema consigliato per lo sviluppo, ossia Google App Engine, 
+\`e una tecnologia cloud computing che permette l'utilizzo di risorse hardware o
+ software distribuite in remoto.\\
+ User\`a inoltre il database distribuito
+ Google DataStore. Questo database utilizza una linguaggio simile
+ all'\underline{SQL} chiamato \underline{GQL}.
 
 \subsection{Componente di estrazione delle informazioni}
-Per sviluppare la prima componente si \`e pensato di ricorrere alla creazione di
-una Rich Internet Application, ossia un'applicazione web che possiede le
+Per sviluppare la seconda componente si \`e pensato di ricorrere alla creazione
+di una Rich Internet Application, ossia un'applicazione web che possiede le
 caratteristiche e le funzionalit\`a delle \underline{applicazioni desktop}, senza
 per\`o necessitare dell'installazione sul \underline{disco fisso}. Questa scelta
 \`e stata dettata dal fatto che le RIA si caratterizzano per la dimensione
@@ -168,15 +183,6 @@ dell'applicazione rimane sul server remoto, con notevole alleggerimento per il
 computer utente. Queste caratteristiche rendono l'applicazione il meno invasiva
 possibile per l'utente.
 
-\subsection{Componente di memorizzazione e gestione della libreria}
-La seconda componente dovr\`a essere accessibile all'utente come
-applicazione web. Il sistema consigliato per lo sviluppo, ossia Google App Engine, 
-\`e una tecnologia cloud computing che permette l'utilizzo di risorse hardware o
- software distribuite in remoto.\\
- User\`a inoltre il database distribuito
- Google DataStore. Questo database utilizza una linguaggio simile
- all'\underline{SQL} chiamato \underline{GQL}.
-
 \section{Rischi}
 L'analisi dettagliata dei capitolati, illustrata in questo Studio Di
 Fattibilit\`a dovrebbe aver diminuito le variabili di rischio. Tuttavia la
@@ -184,8 +190,9 @@ nostra mancanza di esperienza o imprevisti inattesi come la mancanza di
 risorse umane potrebbero provocare ritardi o addirittura il non completamento
 del prodotto.\\
 
-Verranno studiati in maniera pi\`u approfondita i rischi emergenti e possibili
-soluzioni nell'analisi dei rischi interna al Piano Di Progetto.
+Verranno studiati in maniera pi\`u approfondita i rischi derivanti da
+\underline{propriet\`a emergenti} del sistema e le possibili soluzioni
+nell'analisi dei rischi interna al Piano Di Progetto.
 
 \chapter{Capitolato C03 - RescueMe}
 \thispagestyle{fancy}
