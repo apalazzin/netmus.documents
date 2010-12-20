@@ -1,16 +1,17 @@
 
 \newcommand{\nomedoc}{Piano Di Progetto}
-\newcommand{\versione}{0.6}
+\newcommand{\versione}{1.0}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
+\newcommand{\versioneAR}{1.0}
 \newcommand{\nomefile}{PianoDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{11 Dicembre 2010}
-\newcommand{\datamodifica}{16 Dicembre 2010}
+\newcommand{\datamodifica}{19 Dicembre 2010}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno} 
 \newcommand{\redazione}{Mandolo Andrea\\&Lovato Daniele}
 \newcommand{\verifica}{Trezzi Giovanni}
-\newcommand{\approvazione}{---}
+\newcommand{\approvazione}{Palazzin Alberto}
 \newcommand{\distribuzione}{
 VT.G \\
 & Prof. Vardanega Tullio\\
@@ -28,9 +29,16 @@ VT.G \\
 % REVISIONI DEL DOCUMENTO
 % DALLA PIU' NUOVA ALLA PIU' VECCHIA
 
+\bo{Data:} 19/12/2010 &
+\bo{Versione:} 1.0 &
+\bo{Autore:} Palazzin Alberto\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Validazione per consegna revisione RR.}\\
+\\
+
 \bo{Data:} 18/12/2010 &
 \bo{Versione:} 0.6 &
-\bo{Autore:} Giovanni Trezzi\\
+\bo{Autore:} Trezzi Giovanni\\
 \hline\\
 \multicolumn{3}{p{470px}}{ Verificato l'intero documento.}\\
 \\
@@ -155,15 +163,15 @@ accurata definizione e studio dei requisiti iniziali.
 
 \chapter{Ciclo di vita}
 \thispagestyle{fancy}
-Lo sviluppo del progetto NetMus seguir\`a un di ciclo di vita basato sul
-modello incrementale studiato a lezione. Una volta fissate analisi dei requisiti
-e progettazione architetturale si proceder\`a con due iterazioni sulle fasi di
+Lo sviluppo del progetto NetMus seguir\`a un modello di ciclo di vita
+di tipo incrementale. Una volta fissate analisi dei
+requisiti e progettazione architetturale si proceder\`a con due iterazioni sulle fasi di
 progettazione di dettaglio e realizzazione. In questo modo si avr\`a la
 possibilit\`a di correggere potenziali mancanze e migliorare il
 software.\\
 La prima iterazione di progettazione logica e realizzazione sar\`a la pi\`u
-longeva: verranno soddisfatti i requisiti obbligatori descritti nel documento di
-Analisi dei Requisiti.\\
+longeva: in essa verranno soddisfatti i requisiti obbligatori descritti nel
+documento \emph{AnalisiDeiRequisiti-\versioneAR.pdf}.\\
 Nella seconda iterazione invece, verranno realizzate ed integrate le parti
 software che soddisfano i requisiti desiderabili ed opzionali che si \`e deciso
 di implementare.\\
@@ -217,9 +225,9 @@ costantemente a partire dalla stesura dei documenti, per poi passare alla proget
 programmazione fino ad arrivare ai test.\\
 
 La stesura dei documenti ricoprir\`a tutta la durata del progetto, poich\'e
-verranno aggiornati i documenti stesi nella fase di analisi (Analisi dei
-requisiti, Piano di progetto, Piano di Qualifica, Glossario) e verranno stilati
-Specifica Tecnica (per la RPP), Definizione di Prodotto (per la RPD interna) e
+verranno aggiornati i documenti stesi nella fase di analisi (Analisi Dei
+Requisiti, Piano Di Progetto, Piano Di Qualifica, Glossario) e verranno stilati
+Specifica Tecnica (per la RPP), Definizione Di Prodotto (per la RPD interna) e
 Manuale Utente (per la RQ).
 
 \section{Prospetto  Economico}
@@ -548,17 +556,18 @@ Tutti i membri devono utilizzare le stesse strumentazioni e avere le stesse poss
 Guasti hardware, impossibilit\`a di connettersi alla rete \underline{Internet},
 mancanza di strumentazioni software adatte comportano ritardi, incompatibilit\`a e sopratutto confusione. \\
 \\
-Per questo ogni membro del gruppo, 
-rispettando le norme di progetto si \`e procurato la strumentazione software
-adatta prima dell'inizio del lavoro. In caso di problemi pi\`u complessi ogni
-membro \`e invitato a comunicare il fatto al amministratore che cercher\`a una
-soluzione idonea.
+Ogni membro del gruppo, 
+rispettando quanto scritto nel documento
+\emph{NormeDiProgetto-\versionenormeprogetto.pdf}, si \`e procurato la
+strumentazione software adatta prima dell'inizio del lavoro. In caso di problemi
+pi\`u complessi ogni membro \`e invitato a comunicare il fatto
+all'amministratore che cercher\`a una soluzione idonea.
 
 \section{Informazioni Aggiuntive sui Brani Musicali}
 \bo{Grado di pericolosit\`a}: medio\\
 I file Mp3 da cui si reperiscono i brani spesso non possiedono informazioni
 complete, anzi una buona parte di questi file non contiene affatto informazioni, perci\`o la libreria virtuale 
-di un utente risulterebbe composta da molti brani senza titolo,autore e altre
+di un utente risulterebbe composta da molti brani senza titolo, autore e altre
 informazioni essenziali.\\
 \\
 Per rendere la libreria virtuale completa di tutte le informazioni si \`e ben pensato di implementare una 
