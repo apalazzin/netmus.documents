@@ -39,7 +39,7 @@ VT.G \\
 \bo{Autore:} Daminato Simone\\
 \hline\\
 \multicolumn{3}{p{470px}}{ Inserite tabelle per il tracciamento dei
-requisiti, e liste di immagini e tabelle.}\\
+requisiti, liste di immagini e tabelle.}\\
 \\
 
 \bo{Data:} 18/12/2010 &
@@ -95,7 +95,7 @@ C1.}\\
 \bo{Autore:} Daminato Simone\\
 \hline\\
 \multicolumn{3}{p{470px}}{ Stesura completa dell'elenco dei requisiti della
-componente 2.}\\
+Componente 2.}\\
 \\
 
 \bo{Data:} 13/12/2010 &
@@ -103,7 +103,7 @@ componente 2.}\\
 \bo{Autore:} Baron Federico\\
 \hline\\
 \multicolumn{3}{p{470px}}{ Stesura completa dell'elenco dei requisiti della
-componente 1.}\\
+Componente 1.}\\
 \\
 
 \bo{Data:} 09/12/2010 &
@@ -130,7 +130,7 @@ propone di soddisfare nello sviluppo del software richiesto dal capitolato
 d'appalto C02 NetMus. Per favorire la comprensione dell'analisi proposta sono
 descritti alcuni diagrammi use-case che rispettano lo standard \underline{UML}
 2.0 e deducono la quasi totalit\`a dei requisiti elaborati.
-Nel presentare questa Analisi dei requisiti si \`e scelto di separare
+Nel presentare questa Analisi Dei Requisiti si \`e scelto di separare
 chiaramente le due componenti fondamentali, quella di invio dati e quella di persistenza e
 visualizzazione, che costituiscono il sistema NetMus poich\'e dovranno essere il
 pi\`u possibile indipendenti.
@@ -182,7 +182,7 @@ l'utente che intanto potr\`a continuare a svolgere il proprio lavoro indisturbat
 L'estrazione avverr\`a non appena verr\`a rilevato un nuovo dispositivo di
 archiviazione di massa (storage USB o lettore mp3) che non cripta i propri file,
 e in modo del tutto autonomo verranno ricavate le informazioni, memorizzate in
-locale in caso di assenza di connessione, e poi successivamente inviate al server.
+locale e successivamente, se la connessione \`e disponibile, inviate al server.
 
 \section{Caratteristiche degli utenti}
 L'utente tipo che utilizza il sistema non \`e in possesso di particolari
@@ -192,15 +192,15 @@ semplici operazioni correlate (come per esempio effettuare un login).
 \section{Vincoli generali}
 Il software nel suo funzionamento e sviluppo:
 \begin{itemize}
-  \item sar\`a completo della documentazione necessaria e del manuale d'uso,
+  \item sar\`a completo della documentazione necessaria e del manuale d'uso;
   \item sar\`a portabile (verr\`a testato e garantito il suo funzionamento sui
-  principali sistemi operativi),
+  principali sistemi operativi);
   \item sar\`a sicuro per gli utenti: garantir\`a il controllo del proprio account e
-  dei propri dati, e della propria privacy,
+  dei propri dati, e della propria privacy;
   \item per la raccolta dei dati dei brani localmente non sar\`a necessario
-  l'accesso ad internet,
+  l'accesso ad internet;
   \item per l'aggiornamento e la visualizzazione dei propri dati online sar\`a
-  necessaria la connessione ad internet,
+  necessaria la connessione ad internet;
   \item il manuale utente sar\`a fornito sia in italiano che in inglese.
 \end{itemize}
 
@@ -247,9 +247,9 @@ recupero delle informazioni (C2).
 \bo{Attori primari: } Utente, Componente 1, Componente 2. \\\\
 \bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, \`e
 necessaria una connessione ad internet. \\\\ 
-\bo{Post-condizioni: } La componente 2 ha inviato al server tutte le
+\bo{Post-condizioni: } La Componente 2 ha inviato al server tutte le
 informazioni riguardanti nuovi brani musicali presenti nel computer o altre
-periferiche dell'utente. La componente 1 ha soddisfatto tutte le richieste
+periferiche dell'utente. La Componente 1 ha soddisfatto tutte le richieste
 dell'utente. \\\\ 
 \bo{Scenario principale: } 
 \begin{enumerate}
@@ -462,7 +462,7 @@ preesistenti nel database oppure provenienti da un servizio esterno. \\\\
 \vspace*{0.5cm}
 \bo{Use case UC3: C2 - Recupero delle informazioni}\\\\
 \bo{Attori primari: } Utente, Memoria di massa (intesa come hard disk e/o
-periferiche usb), Google cloud. \\\\ \bo{Pre-condizioni: } La componente C2 \`e
+periferiche usb), Google cloud. \\\\ \bo{Pre-condizioni: } La Componente C2 \`e
 attiva e funzionante, per alcune operazioni \`e necessaria la connessione ad internet \\\\
 \bo{Post-condizioni: }
 Gli eventuali nuovi brani individuati sono stati analizzati, e le relative
@@ -513,7 +513,7 @@ utilizzata per catalogare i requisiti si veda il documento
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato\\
-La componente 1 del software NetMus deve permettere la gestione di un catalogo
+La Componente 1 del software NetMus deve permettere la gestione di un catalogo
 multimediale virtuale ad ogni utente che ha effettuato la registrazione.
 Deve essere accessibile all'utente come applicazione WEB.
 
@@ -523,7 +523,7 @@ Deve essere accessibile all'utente come applicazione WEB.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
 L'interfaccia grafica deve dare un'esperienza di visualizzazione simile alla
-libreria musicale fornita dal software iTunes (\emph{http://www.apple.com/it/itunes/}).
+libreria musicale fornita dal software iTunes (\url{http://www.apple.com/it/itunes/}).
 
 \subsubsection*{Elenco brani}
 \bo{Id:} C1FN-1.1.1 \\
@@ -1035,7 +1035,7 @@ Ricezione ed elaborazione brani & Controllo di validit\`a dati \\
 & Completamento informazioni da servizio esterno \\         
 \hline
 \cellcolor{orange}
-Invio nuove informazioni a componente 2& \\       
+Invio nuove informazioni a Componente 2& \\       
 \hline
 \cellcolor{orange}
 Deve utilizzare il cluod computing& \\
@@ -1171,15 +1171,15 @@ C1VN-2.5 Semplicit\`a di utilizzo & \\
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-La componente 2 deve recuperare le informazioni dei brani musicali dell'utente
-per permettere alla componente 1 di creare la libreria musicale virtuale.
+La Componente 2 deve recuperare le informazioni dei brani musicali dell'utente
+per permettere alla Componente 1 di creare la libreria musicale virtuale.
 
 \subsubsection*{Recupero automatico}
 \bo{Id:} C2FN-1.1 \\
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-La componente 2 deve recuperare le informazioni dei brani musicali
+La Componente 2 deve recuperare le informazioni dei brani musicali
 automaticamente all'inserimento di un nuovo dispositivo.
 
 \subsubsection*{Recupero manuale}
@@ -1191,13 +1191,13 @@ Sotto comando dell'utente (alla pressione di un bottone), vengono recuperate le
 informazioni di tutti i brani musicali nuovi rilevabili.
 
 \subsubsection*{Informazioni senza connessione}
-\bo{Id:} C2FN-1.3 \\
+\bo{Id:} C2FD-1.3 \\
 \bo{Tipo:} funzionale \\
-\bo{Richiesta:} obbligatorio \\
+\bo{Richiesta:} desiderabile \\
 \bo{Fonte:} verbale1 \\
 Il recupero delle informazioni va effettuato anche con connessione non
 disponibile, salvandolo temporaneamente in locale. Appena sar\`a possibile, queste
-informazioni verranno trasmesse alla componente 1.
+informazioni verranno trasmesse alla Componente 1.
 
 \subsubsection*{Informazioni dall'hard disk}
 \bo{Id:} C2FD-1.4 \\
@@ -1231,21 +1231,21 @@ sufficienti informazioni.
 \bo{Fonte:} verbale1 \\
 Sotto richiesta esplicita dell'utente (alla pressione di un bottone) vengono
 aggiornate e completate, ove possibile, le informazioni sui file dell'utente,
-prelevate dalla componente 1.
+prelevate dalla Componente 1.
 
 \subsubsection*{Comunicazione con C1}
 \bo{Id:} C2FN-3 \\
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-La componente 2 comunica attraverso la connessione internet con la componente 1.
+La Componente 2 comunica attraverso la connessione internet con la Componente 1.
 
 \subsubsection*{Invio delle informazioni}
 \bo{Id:} C2FN-3.1 \\
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-Invio delle informazioni sui brani raccolte alla componente 1 per permettere la
+Invio delle informazioni sui brani raccolte alla Componente 1 per permettere la
 generazione e/o l'aggiornamento della raccolta virtuale.
 
 \subsection{Requisiti di qualit\`a}
@@ -1263,7 +1263,7 @@ temporanei appena questi dati non sono pi\`u necessari.
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
-Vanno evitate le comunicazioni inutili con la componente 1, limitandosi allo
+Vanno evitate le comunicazioni inutili con la Componente 1, limitandosi allo
 stretto necessario.
 
 \subsubsection*{Utilizzo}
@@ -1395,8 +1395,7 @@ C2FN-1 Recupero delle informazioni & C2FD-1.4 Informazioni dall'hard disk &
 C2FO-1.6 Indicazioni file ignorati \\
 C2FN-1.1 Recupero automatico & C2FD-2 Aggiornamento e completamento informazioni
 & \\
-C2FN-1.2 Recupero manuale & & \\
-C2FN-1.3 Informazioni senza connessione & & \\
+C2FN-1.2 Recupero manuale & C2FD-1.3 Informazioni senza connessione & \\
 C2FN-1.5 File ignorati & & \\
 C2FN-3 Comunicazione con C1 & & \\
 C2FN-3.1 Invio delle informazioni & & \\
@@ -1506,7 +1505,7 @@ C2FN-1 Recupero delle informazioni & UC3 - Recupera informazioni dai brani \\
 \hline
 C2FN-1.1 Recupero automatico & UC3 - Recupera automaticamente \\ \hline
 C2FN-1.2 Recupero manuale & UC3 - Recupera manualmente \\ \hline
-C2FN-1.3 Informazioni senza connessione & UC3 - Memorizzazione temporanea dei
+C2FD-1.3 Informazioni senza connessione & UC3 - Memorizzazione temporanea dei
 dati \\ \hline
 C2FD-1.4 Informazioni dall'hard disk & UC3 - Recupera informazioni dai brani \\
 \hline
@@ -1594,7 +1593,7 @@ UC3 - Recupera informazioni dai brani & C2FN-1 Recupero delle informazioni \\
  & C2FN-1.5 File ignorati \\ \hline
 UC3 - Recupera automaticamente & C2FN-1.1 Recupero automatico \\ \hline
 UC3 - Recupera manualmente & C2FN-1.2 Recupero manuale \\ \hline
-UC3 - Memorizzazione temporanea dei dati & C2FN-1.3 Informazioni senza
+UC3 - Memorizzazione temporanea dei dati & C2FD-1.3 Informazioni senza
 connessione \\
  & C2QN-1.7 Ottimizzazione memoria cache \\ \hline
 UC3 - Gestire informazioni & C2FO-1.6 Indicazioni file ignorati \\ \hline
