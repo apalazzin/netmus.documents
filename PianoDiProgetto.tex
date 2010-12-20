@@ -1,0 +1,600 @@
+
+\newcommand{\nomedoc}{Piano Di Progetto}
+\newcommand{\versione}{1.0}
+\newcommand{\versioneglossario}{1.0}
+\newcommand{\versionenormeprogetto}{1.0}
+\newcommand{\versioneAR}{1.0}
+\newcommand{\nomefile}{PianoDiProgetto-\versione.pdf}
+\newcommand{\datacreazione}{11 Dicembre 2010}
+\newcommand{\datamodifica}{19 Dicembre 2010}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{esterno} 
+\newcommand{\redazione}{Lovato Daniele\\& Mandolo Andrea}
+\newcommand{\verifica}{Trezzi Giovanni}
+\newcommand{\approvazione}{Palazzin Alberto}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo}
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+% REVISIONI DEL DOCUMENTO
+% DALLA PIU' NUOVA ALLA PIU' VECCHIA
+
+\begin{tabular}{lll}
+\bo{Data:} 19/12/2010 &
+\bo{Versione:} 1.0 &
+\bo{Autore:} Palazzin Alberto\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Validazione per consegna revisione RR.}\\
+&&\\
+\end{tabular}
+
+\begin{tabular}{lll}
+\bo{Data:} 18/12/2010 &
+\bo{Versione:} 0.6 &
+\bo{Autore:} Trezzi Giovanni\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Verificato l'intero documento.}\\
+&&\\
+\end{tabular}
+
+\begin{tabular}{lll}
+\bo{Data:} 16/12/2010 &
+\bo{Versione:} 0.5 &
+\bo{Autore:} Mandolo Andrea\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Corretti errori ortografici e sintattici, su
+verifica da parte di Trezzi Giovanni.}\\
+&&\\
+\end{tabular}
+
+\begin{tabular}{lll}
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.4 &
+\bo{Autore:} Lovato Daniele\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Corretti errori grammaticali e di battitura e
+aggiunti commenti ai grafici.}\\
+&&\\
+\end{tabular}
+
+\begin{tabular}{lll}
+\bo{Data:} 13/12/2010 &
+\bo{Versione:} 0.3 &
+\bo{Autore:} Mandolo Andrea\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Completati contenuti dei capitoli 2-3-4.}\\
+&&\\
+\end{tabular}
+
+\begin{tabular}{lll}
+\bo{Data:} 12/12/2010 &
+\bo{Versione:} 0.2 &
+\bo{Autore:} Lovato Daniele\\
+\hline\\ 
+\multicolumn{3}{p{470px}}{ Aggiunta sezione analisi dei rischi.}\\
+&&\\
+\end{tabular}
+
+\begin{tabular}{lll}
+\bo{Data:} 11/12/2010 &
+\bo{Versione:} 0.1 &
+\bo{Autore:} Mandolo Andrea\\
+\hline\\
+\multicolumn{3}{p{470px}}{ Stesura prima versione del Piano di Progetto.}\\
+&&\\
+\end{tabular}
+
+% INDICE
+\tableofcontents
+\thispagestyle{fancy} % per lo stile di header e footer
+
+
+\chapter*{Sommario}
+Il presente documento descrive l'organizzazione del gruppo VT.G, le
+assegnazioni previste, la rotazione dei ruoli di progetto, l'impegno previsto
+per ogni ruolo e per ogni membro ed il conto economico preventivo.\\
+Viene inoltre presentata un'analisi dei rischi presenti durante il progetto, con relativa strategia preventiva su di essi.
+
+
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+\addcontentsline{toc}{chapter}{Sommario}
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+
+\section{Scopo del documento}
+Il piano di progetto fissa le risorse disponili nel gruppo, la suddivisione
+delle attivit\`a di progetto, il calendario delle attivit\`a ed un prospetto
+economico preventivo. Deve descrivere l'organizzazione delle attivit\`a di
+progetto al fine di produrre risultati utili al responsabile per valutare in
+maniera appropriata il progresso del lavoro.
+
+\input{parte_comune.tex}
+
+
+\chapter{Organizzazione del gruppo}
+\thispagestyle{fancy}
+
+\section{Membri del gruppo}
+Il gruppo VT.G - Valter Texas Group si compone in data 26/11/2010 in previsione
+del progetto didattico di Ingegneria del Software 2010/2011, inserito
+all'interno del corso di laurea in Informatica dell'Universit\`a di Padova,
+e dopo aver valutato e studiato i capitolati d'appalto presentati a lezione il
+30/11/2010, accetta di sviluppare in data 03/12/2010 il progetto presentato nel capitolato C02 - NetMus proposto dal Prof. Cardin Riccardo.\\
+
+Il gruppo \`e composto da 7 membri:
+
+\begin{center}
+\begin{tabular}{lcl}
+\hline
+\bo{Nominativo} & \bo{Matricola} & \bo{E-mail} \\
+\hline
+Baron Federico & 599799 & fede.baron.89@gmail.com \\
+Caputo Cosimo & 524037 & caputo.cosimo85@gmail.com \\
+Daminato Simone & 574545 & skyled@alice.it \\
+Lovato Daniele & 578396 & danyleleorti@hotmail.com \\
+Mandolo Andrea & 563175 & andrea.mandolo@gmail.com \\
+Palazzin Alberto & 522095 & alberto.palazzin@gmail.com \\
+Trezzi Giovanni & 487539 & giovytr@trezzi.net \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Ruoli di progetto}
+Durante lo sviluppo del progetto saranno presenti nel gruppo i seguenti ruoli:
+\begin{itemize}
+  \item Responsabile
+  \item Amministratore
+  \item Analista
+  \item Progettista
+  \item Programmatore
+  \item Verificatore
+\end{itemize}
+
+Tali ruoli verranno assegnati a rotazione tra i membri del gruppo, dando
+cos\`\i\ la possibilit\`a a tutti di provare ogni tipo di lavoro.
+
+\section{Attribuzione dei ruoli}
+Nel capitolo 4 di Pianificazione verr\`a illustrata nel dettaglio la distribuzione dei ruoli
+all'interno del gruppo, nei periodi compresi tra le varie revisioni.
+In un certo periodo, garantendo assenza di conflitto d'interessi, un membro
+coprir\`a pi\`u ruoli, ma sempre assicurando un'adeguata ripartizione delle ore
+di lavoro individuale.\\
+
+Per il periodo della stesura iniziale dei documenti, ciascun
+componente ricopre il ruolo di analista, in modo da poter garantire una pi\`u
+accurata definizione e studio dei requisiti iniziali.
+
+\chapter{Ciclo di vita}
+\thispagestyle{fancy}
+Lo sviluppo del progetto NetMus seguir\`a un modello di ciclo di vita
+di tipo incrementale. Una volta fissate analisi dei
+requisiti e progettazione architetturale si proceder\`a con due iterazioni sulle fasi di
+progettazione di dettaglio e realizzazione. In questo modo si avr\`a la
+possibilit\`a di correggere potenziali mancanze e migliorare il
+software.\\
+La prima iterazione di progettazione logica e realizzazione sar\`a la pi\`u
+longeva: in essa verranno soddisfatti i requisiti obbligatori descritti nel
+documento \emph{AnalisiDeiRequisiti-\versioneAR.pdf}.\\
+Nella seconda iterazione invece, verranno realizzate ed integrate le parti
+software che soddisfano i requisiti desiderabili ed opzionali che si \`e deciso
+di implementare.\\
+
+Questo modello, data la nostra inesperienza su progetti di tale dimensione e
+sulle nuove tecnologie usate (\underline{GAE}, \underline{GWT} e
+\underline{JavaFX}), ci assicura un rischio minore di fallimento: dopo la prima iterazione completa il prodotto dovrebbe
+gi\`a possedere i requisiti obbligatori concordati con il committente; nella
+seconda si andr\`a solamente ad aggiungere valore senza dover rivoluzionare il
+lavoro gi\`a fatto.\\
+
+Le revisioni che il gruppo VT.G ha deciso di sostenere sono:
+\begin{itemize}
+  \item Revisione dei requisiti (\underline{RR}): OBBLIGATORIA;
+  \item Revisione del progetto preliminare (\underline{RPP}): SI;
+  \item Revisione del progetto definitivo (\underline{RPD}): NO (effettuata
+  internamente);
+  \item Revisione di qualifica (\underline{RQ}): OBBLIGATORIA;
+  \item Revisione di accettazione \underline{RA}): OBBLIGATORIA.
+\end{itemize} \vspace{0.5cm}
+
+\`E stato scelto di sostenere la revisione del progetto preliminare poich\'e
+permette di avere una valutazione esterna della progettazione architetturale ad
+alto livello la quale costituisce, a nostro parere e secondo il modello di ciclo
+di vita adottato, l'attivit\`a pi\`u delicata dell'intero sviluppo.
+Verr\`a comunque sostenuta internamente una revisione del progetto definitivo.
+
+\chapter{Pianificazione}
+\thispagestyle{fancy}
+
+\section{Diagramma di Gantt}
+Per facilitare la gestione oraria e il rispetto delle scadenze preposte,
+forniamo un \underline{diagramma di Gantt} che illustra in dettaglio l'andamento
+delle attivit\`a del gruppo durante l'intero sviluppo del progetto.
+\vspace{0.8cm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/gantt1.png}
+\caption{Diagramma di Gantt}
+\end{figure}
+\newpage
+
+Come si pu\`o notare dal grafico, le revisioni sono indicate come punti di 
+verifica con dei piccoli rombi neri, per semplificare la visione.\\
+Si \`e deciso che la fase di analisi proseguir\`a per qualche giorno anche dopo
+la RR, per adattare i nostri requisiti ad eventuali variazioni emerse durante
+tale revisione.\\
+
+Si pu\`o chiaramente vedere che la fase di \underline{verifica} sar\`a presente
+costantemente a partire dalla stesura dei documenti, per poi passare alla progettazione e alla
+programmazione fino ad arrivare ai test.\\
+
+La stesura dei documenti ricoprir\`a tutta la durata del progetto, poich\'e
+verranno aggiornati i documenti stesi nella fase di analisi (Analisi Dei
+Requisiti, Piano Di Progetto, Piano Di Qualifica, Glossario) e verranno stilati
+Specifica Tecnica (per la RPP), Definizione Di Prodotto (per la RPD interna) e
+Manuale Utente (per la RQ).
+
+\section{Prospetto  Economico}
+Come specificato nelle richieste del progetto didattico, ciascun ruolo avr\`a un
+determinato costo orario (vedi tabella sottostante) che contribuir\`a al calcolo
+del costo complessivo del prodotto, che ricordiamo non dovr\`a essere
+inferiore a 13.000 Euro.
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+\rowcolor{orange}
+\bo{Ruolo}  & \bo{Costo(\euro)} \\
+\hline Responsabile & 30 \\ \hline
+Amministratore & 20 \\ \hline
+Analista & 25 \\ \hline
+Progettista & 22 \\ \hline
+Programmatore & 15 \\ \hline
+Verificatore & 15 \\
+\hline
+\end{tabular}
+\caption{Ruoli e costi orari}
+\end{center}
+\end{table}
+
+
+\vspace{0.5cm}
+A partire dalla consegna dei documenti per la RR, verranno tracciate le ore di
+lavoro dei membri del gruppo. L'impegno totale di ciascun componente dovr\`a
+essere compreso tra 85 e 105 ore, dal quale risulteranno proporzionali
+ripartizioni tra carico di lavoro e responsabilit\`a.\\
+
+Di seguito riportiamo una stima dei costi per ogni revisione e il carico di
+lavoro previsto per ogni membro del gruppo.
+\newpage
+
+\subsection{RR - RPP}
+
+\vspace{0.5cm}
+\bo{Responsabile:} Daminato Simone\\
+
+\bo{Amministratore:} Baron Federico
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+& \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
+\bo{Anl.}\cellcolor{orange} & \bo{Proget.}\cellcolor{orange} &
+\bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
+Totali}\cellcolor{orange} \\ \hline
+
+\bo{Baron}\cellcolor{orange}    &   & 15 &  5 &  6 & &   & 26 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &   &    &  5 & 12 & & 5 & 22 \\ \hline
+\bo{Daminato}\cellcolor{orange} & 12&    &    &  7 & & 6 & 25 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &   &    & 10 & 10 & &   & 20 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  &   &    &  8 & 12 & &   & 20 \\ \hline
+\bo{Palazzin}\cellcolor{orange} &   &    &  6 &  9 & & 5 & 20 \\ \hline
+\bo{Trezzi}\cellcolor{orange}   &   &    &  7 & 10 & & 6 & 23 \\  \hline
+
+\end{tabular}
+\caption{Pianificazione oraria RR-RPP}
+\end{center}
+\end{table}
+\vspace{0.5cm}
+
+\bo{Ore totali:} 156.\\
+
+\bo{Costo previsto per il periodo RR-RPP:} \euro\ 3467.
+
+\vspace{0.8cm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/RR-RPP.png}
+\caption{Distribuzione ore RR-RPP}
+\end{figure}
+\newpage
+
+
+\subsection{RPP - RPD}
+
+\vspace{0.5cm}
+\bo{Responsabile:} Palazzin Alberto\\
+
+\bo{Amministratore:} Trezzi Giovanni
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+& \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
+\bo{Anl.}\cellcolor{orange} & \bo{Proget.}\cellcolor{orange} &
+\bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
+Totali}\cellcolor{orange} \\ \hline
+
+\bo{Baron}\cellcolor{orange}    &    &    & 2 & 10 & 7 & 5 & 24 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &    &    & 4 & 11 &   & 8 & 23 \\ \hline
+\bo{Daminato}\cellcolor{orange} &    &    & 7 & 12 &   & 5 & 24 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &    &    &   & 12 & 3 & 7 & 22 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  &    &    & 2 &  7 & 8 & 7 & 24 \\ \hline
+\bo{Palazzin}\cellcolor{orange} & 12 &    & 4 & 10 &   &   & 26\\ \hline
+\bo{Trezzi}\cellcolor{orange}   &    & 13 &   &  9 & 2 &   & 24 \\  \hline
+
+\end{tabular}
+\caption{Pianificazione oraria RPP-RPD}
+\end{center}
+\end{table}
+\vspace{0.5cm}
+
+\bo{Ore totali:} 167.\\
+
+\bo{Costo previsto per il periodo RPP-RPD:} \euro\ 3437.
+
+\vspace{0.8cm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/RPP-RPD.png}
+\caption{Distribuzione ore RPP-RPD}
+\end{figure}
+\newpage
+
+
+
+\subsection{RPD - RQ}
+
+\vspace{0.5cm}
+\bo{Responsabile:} Trezzi Giovanni\\
+
+\bo{Amministratore:} Caputo Cosimo
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+& \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
+\bo{Anl.}\cellcolor{orange} & \bo{Proget.}\cellcolor{orange} &
+\bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
+Totali}\cellcolor{orange} \\ \hline
+
+\bo{Baron}\cellcolor{orange}    &    &    &    &  8 & 15 &  5 & 28 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &    & 14 &    &    & 16 &  3 & 33 \\ \hline
+\bo{Daminato}\cellcolor{orange} &    &    &    &  8 & 20 &    & 28 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &    &    &    &  4 & 21 &  8 & 33 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  &    &    &    &  8 & 18 &  4 & 30 \\ \hline
+\bo{Palazzin}\cellcolor{orange} &    &    &    &  4 & 18 &  8 & 30 \\ \hline
+\bo{Trezzi}\cellcolor{orange}   &  9 &    &    &  3 & 16 &  2 & 30 \\ \hline
+
+\end{tabular}
+\caption{Pianificazione oraria RPD-RQ}
+\end{center}
+\end{table}
+\vspace{0.5cm}
+
+\bo{Ore totali:} 212.\\
+
+\bo{Costo previsto per il periodo RPD-RQ:} \euro\ 3630.
+
+\vspace{0.8cm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/RPD-RQ.png}
+\caption{Distribuzione ore RPD-RQ}
+\end{figure}
+\newpage
+
+
+\subsection{RQ - RA}
+
+\vspace{0.5cm}
+\bo{Responsabile:} Mandolo Andrea\\
+
+\bo{Amministratore:} Lovato Daniele
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+& \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
+\bo{Anl.}\cellcolor{orange} & \bo{Proget.}\cellcolor{orange} &
+\bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
+Totali}\cellcolor{orange} \\ \hline
+
+\bo{Baron}\cellcolor{orange}    &    &    &    &    &  3 & 18 & 21 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &    &    &    &    &  6 & 15 & 21 \\ \hline
+\bo{Daminato}\cellcolor{orange} &    &    &    &    &  4 & 18 & 22 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &    & 13 &    &    &    & 11 & 24 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  & 10 &    &    &    &    & 15 & 25 \\ \hline
+\bo{Palazzin}\cellcolor{orange} &    &    &    &    &  7 & 16 & 23 \\ \hline
+\bo{Trezzi}\cellcolor{orange}   &    &    &    &    &  4 & 18 & 22 \\  \hline
+
+\end{tabular}
+\caption{Pianificazione oraria RQ-RA}
+\end{center}
+\end{table}
+\vspace{0.5cm}
+
+\bo{Ore totali:} 158.\\
+
+\bo{Costo previsto per il periodo RQ-RA:} \euro\ 2585.
+
+\vspace{0.8cm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/RQ-RA.png}
+\caption{Distribuzione ore RQ-RA}
+\end{figure}
+\newpage
+
+
+\section{Costi complessivi}
+
+\vspace{0.5cm}
+In tutto il periodo di sviluppo del software, verranno complessivamente usate
+693 ore per un costo totale di \euro\ 13.119,00.
+
+\vspace{0.3cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+& \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
+\bo{Anl.}\cellcolor{orange} & \bo{Proget.}\cellcolor{orange} &
+\bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
+Totali}\cellcolor{orange} \\ \hline
+
+\bo{Baron}\cellcolor{orange}    &  0 & 15 &  7 & 24 & 25 & 28 & 99 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &  0 & 14 &  9 & 23 & 22 & 31 & 99 \\ \hline
+\bo{Daminato}\cellcolor{orange} & 12 &  0 &  7 & 27 & 24 & 29 & 99 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &  0 & 13 & 10 & 26 & 24 & 26 & 99 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  & 10 &  0 & 10 & 27 & 26 & 26 & 99 \\ \hline
+\bo{Palazzin}\cellcolor{orange} & 12 &  0 & 10 & 23 & 25 & 29 & 99 \\ \hline
+\bo{Trezzi}\cellcolor{orange}   &  9 & 13 &  7 & 22 & 22 & 26 & 99 \\ 
+\hline
+
+\end{tabular}
+\caption{Pianificazione oraria totale}
+\end{center}
+\end{table}
+\vspace{0cm}
+
+Riportiamo qui di seguito un grafico che illustra la ripartizione dei ruoli
+sul conto di ore totale.\\
+
+
+
+\vspace{0cm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/totale.png}
+\caption{Grafico ripartizione ruoli su ore totali}
+\end{figure}
+
+\vspace{0.8cm}
+ 
+Vogliamo fare un piccolo appunto riguardo l'esigua fetta di tempo dedicata
+all'analisi. La nostra contabilizzazione economica parte dalla consegna dei documenti per 
+la RR (20 Dicembre 2010), momento in cui la parte pi\`u importante dell'analisi \`e stata fatta.
+L'analisi che viene riportata in questo grafico \`e conseguenza delle
+rivisitazioni dovute alle eventuali variazioni che possono presentarsi alla RR.\\ 
+
+\chapter{Analisi e gestione dei rischi}
+\thispagestyle{fancy}
+
+Questo capitolo ha lo scopo di classificare eventuali problematiche per grado
+di pericolosit\`a, di analizzarle e di determinare le azioni da intraprendere per
+ridurne i danni. L'attenzione ai rischi sar\`a continua nel corso del
+progetto.\\ 
+Nonostante il nostro gruppo non abbia ancora una visione completa e dettagliata del 
+progetto, i rischi che abbiamo individuato sono riportati nelle seguenti sezioni.
+
+\section{Indisposizione dei membri del gruppo}
+\bo{Grado di pericolosit\`a}: alto\\
+Per i componenti del VT.G questo progetto \`e una delle prime esperienze nel campo della progettazione software in dettaglio. 
+La disponibilit\`a dei membri \`e perci\`o uno dei rischi maggiori. 
+Assenze causate da problematiche fisiche (malattie, incidenti e imprevisti vari) comporterebbero gravi perdite 
+di tempo per tutti gli altri membri e conseguenti ritardi nell'avanzamento del
+lavoro.\\
+\\
+Ogni componente \`e tenuto a confermare in modo tempestivo la propria presenza
+prima di ogni nuovo incontro. I componenti di VT.G risiedono in differenti zone
+della regione, i ritrovi devono quindi essere organizzati per tempo e comunicati
+a tutti tempestivamente. Ritardi e/o assenza causa trasporti sono difficilmente
+gestibili, ma \`e possibile svolgere delle conferenze da casa tramite il
+software di videoconferenza Skype.
+
+\section{Conoscenza delle Tecnologie Utilizzate}
+\bo{Grado di pericolosit\`a}: medio\\
+Per la maggior parte dei membri del gruppo questo progetto \`e il primo approccio con tecnologie come GAP, 
+perci\`o almeno inizialmente questo sistema potrebbe risultare problematico e
+creare ritardi nello sviluppo.\\
+\\ 
+\`E stato concordato che ogni membro potr\`a seguire un corso proposto
+  dall'azienda di un altro capitolato, quindi le basi per l'utilizzo di questo
+  sistema saranno assicurate per tutti. Il fattore di rischio perci\`o \`e
+  dettato principalmente dalla difficolt\`a del sistema in s\`e. Il linguaggio
+  di programmazione adottato (\underline{Java}) non viene considerato come un
+  rischio notevole, in quanto studiato durante il corso di laurea in modo
+  esauriente. L'unico inconveniente pu\`o essere la scrittura del codice del
+  database che sar\`a implentato in \underline{GQL}, linguaggio simile a
+  \underline{SQL} (trattato sufficientemente nel nostro corso di studio), usato
+  da \underline{Google Datastore}.
+
+\section{Usabilit\`a del Prodotto}
+\bo{Grado di pericolosit\`a}: basso\\
+Il sistema NetMus \`e un buon prodotto di catalogazione e visualizzazione delle
+proprie preferenze musicali, ma spesso i lettori Mp3 che di per s\`e sono gi\`a
+dispositivi ad alta portabilit\`a mettono a disposizione la visualizzazione del
+catalogo multimediale, aggiornato e ordinato. Inoltre sono presenti altri
+software simili a NetMus distribuiti sul web come ad esempio LastFM, molto
+famoso e utilizzato nella rete. Ci potrebbe ridurre il numero di utenti disposti
+ad utilizzare il sistema NetMus.\\
+\\
+Una possibile soluzione \`e quella di decorare il progetto con delle
+innovative funzionalit\`a, cos\`\i\ da riuscire ad attirare un maggior numero di clienti.
+
+\section{Strumenti d'Utilizzo}
+\bo{Grado di pericolosit\`a}: medio\\
+Altro fattore di rischio identificato \`e l'utilizzo delle strumentazioni adatte. 
+Tutti i membri devono utilizzare le stesse strumentazioni e avere le stesse possibilit\`a nel lavoro. 
+Guasti hardware, impossibilit\`a di connettersi alla rete \underline{Internet},
+mancanza di strumentazioni software adatte comportano ritardi, incompatibilit\`a e sopratutto confusione. \\
+\\
+Ogni membro del gruppo, 
+rispettando quanto scritto nel documento
+\emph{NormeDiProgetto-\versionenormeprogetto.pdf}, si \`e procurato la
+strumentazione software adatta prima dell'inizio del lavoro. In caso di problemi
+pi\`u complessi ogni membro \`e invitato a comunicare il fatto
+all'amministratore che cercher\`a una soluzione idonea.
+
+\section{Informazioni Aggiuntive sui Brani Musicali}
+\bo{Grado di pericolosit\`a}: medio\\
+I file Mp3 da cui si reperiscono i brani spesso non possiedono informazioni
+complete, anzi una buona parte di questi file non contiene affatto informazioni, perci\`o la libreria virtuale 
+di un utente risulterebbe composta da molti brani senza titolo, autore e altre
+informazioni essenziali.\\
+\\
+Per rendere la libreria virtuale completa di tutte le informazioni si \`e ben pensato di implementare una 
+funzione di ricerca automatica nel server dai record di tutti i brani registrati, cos\`\i\ da completare 
+quelli incompleti. Nei casi estremi inoltre sar\`a resa possibile una funzione
+di inserimento delle informazioni manualmente.
+
+% \chapter{Consuntivo}            da RR in poi
+% \thispagestyle{fancy}
+
+\listoftables
+\addcontentsline{toc}{chapter}{Indice Tabelle}
+\listoffigures
+\addcontentsline{toc}{chapter}{Indice Figure}
+\end{document}
