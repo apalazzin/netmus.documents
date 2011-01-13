@@ -181,50 +181,75 @@ recupero delle informazioni (C2).
 \chapter{Use case}
 \thispagestyle{fancy}
 
-\section{UC1 - Sistema NetMus}
+\section{UC1 - Sistema NetMus (1/2)}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=18cm]{img/AR/UC1.png}
+  \includegraphics[width=14cm]{img/AR/UC1A.png}
 \caption{Diagramma UC1}
 \end{figure}
 
-\newpage
 \vspace*{0.5cm}
-\bo{Use case UC1: Sistema NetMus}\\\\
-\bo{Attori primari: } Utente, Componente 1, Componente 2. \\\\
-\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, \`e
-necessaria una connessione ad internet. \\\\ 
-\bo{Post-condizioni: } La Componente 2 ha inviato al server tutte le
-informazioni riguardanti nuovi brani musicali presenti nel computer o altre
-periferiche dell'utente. La Componente 1 ha soddisfatto tutte le richieste
+\bo{Use case UC1: Sistema NetMus (1/2)}\\\\
+\bo{Attori primari: } Utente \\\\
+\bo{Pre-condizioni: } L'utente è connesso ad internet ed accede al portale
+NetMus tramite un browser. \\\\ 
+\bo{Post-condizioni: } Il portale NetMus ha soddisfatto tutte le richieste
 dell'utente. \\\\ 
 \bo{Scenario principale: } 
 \begin{enumerate}
-  \item L'utente effettua l'autenticazione.
-  \item Appena \`e attiva la connessione C2 invia le nuove informazioni al server.
+  \item L'utente effettua l'autenticazione (S4).
   \item L'utente, tramite browser, fa un certo numero di richieste tra quelle
-  possibili per visualizzare o modificare informazioni a C1.
-  \item C1 soddisfa la richiesta dell'utente.
+  possibili per visualizzare o modificare informazioni a C1 (S1, S2 e S3 in
+  qualsiasi ordine).
+  \item Le richieste dell'utente vengono tutte soddisfatte in un tempo
+  accettabile.
 \end{enumerate}
 \bo{Scenari secondari: }
 \begin{itemize}
-  \item La comunicazione tra utente e C1(server) fallisce per un problema di
+  \item La comunicazione tra utente e NetMus fallisce per un problema di
   connessione.
   \begin {enumerate}
     \item Non c'\`e possibilit\`a di procedere fino a quando la connessione sar\`a
     ristabilita. I dati che erano stati aggiornati prima del verificarsi del
     problema sono gi\`a stati salvati.
   \end{enumerate}
-  \item La comunicazione tra C2 e C1(server) fallisce per un problema di
-  connessione.
+\end{itemize}
+\newpage
+
+\section{UC2 - Sistema NetMus (2/2)}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm]{img/AR/UC1B.png}
+\caption{Diagramma UC2}
+\end{figure}
+
+\vspace*{0.5cm}
+\bo{Use case UC2: Sistema NetMus (2/2)}\\\\
+\bo{Attori primari: } Utente \\\\
+\bo{Pre-condizioni: } L'utente è connesso ad internet ed accede al portale
+NetMus tramite un browser. \\\\ 
+\bo{Post-condizioni: } Sono state inviate al server tutte le
+informazioni riguardanti nuovi brani musicali presenti nel computer o altre
+periferiche dell'utente. I tag dei file musicali dell'utente sono stati
+aggiornati con informazioni aggiuntive reperite da NetMus. \\\\
+\bo{Scenario principale: } 
+\begin{enumerate}
+  \item L'utente effettua l'autenticazione (S4).
+  \item Vengono inviate a NetMus tutte le nuove informazioni recuperate (S6).
+  \item I brani dell'utente vengono aggiornati con eventuali informazioni
+  aggiuntive reperite da NetMus (S5).
+\end{enumerate}
+\bo{Scenari secondari: }
+\begin{itemize}
+  \item La comunicazione fallisce per un problema di connessione.
   \begin {enumerate}
     \item C2 registra a che punto \`e arrivato l'invio e continua a lavorare in
     locale senza perdere informazioni.
   \end{enumerate}
 \end{itemize}
 \newpage
-
 
 \section{UC1.1 - Sistema Netmus - Autenticazione}
 \begin{figure}[h]
