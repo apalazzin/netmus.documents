@@ -1,11 +1,11 @@
 
 \newcommand{\nomedoc}{Analisi Dei Requisiti}
-\newcommand{\versione}{1.1}
+\newcommand{\versione}{1.2}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{12 Gennaio 2011}
+\newcommand{\datamodifica}{14 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Baron Federico\\&Daminato Simone}
@@ -32,6 +32,10 @@ VT.G \\
 \endhead
 \hline
 \endfoot
+14/01/2011 & 1.2 & Baron Federico & Corretti UC1 e UC1.1 secondo le
+indicazioni proposte nella valutazione di RR. UC1 \`e stato diviso in UC1A e
+UC1B. \\
+\hline
 12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
 modifiche.\\
 \hline
@@ -181,18 +185,18 @@ recupero delle informazioni (C2).
 \chapter{Use case}
 \thispagestyle{fancy}
 
-\section{UC1 - Sistema NetMus (1/2)}
+\section{UC1A - Sistema NetMus (1/2)}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=14cm]{img/AR/UC1A.png}
-\caption{Diagramma UC1}
+\caption{Diagramma UC1A}
 \end{figure}
 
 \vspace*{0.5cm}
-\bo{Use case UC1: Sistema NetMus (1/2)}\\\\
+\bo{Use case UC1A: Sistema NetMus (1/2)}\\\\
 \bo{Attori primari: } Utente \\\\
-\bo{Pre-condizioni: } L'utente è connesso ad internet ed accede al portale
+\bo{Pre-condizioni: } L'utente \`e connesso ad internet ed accede al portale
 NetMus tramite un browser. \\\\ 
 \bo{Post-condizioni: } Il portale NetMus ha soddisfatto tutte le richieste
 dell'utente. \\\\ 
@@ -217,22 +221,22 @@ dell'utente. \\\\
 \end{itemize}
 \newpage
 
-\section{UC2 - Sistema NetMus (2/2)}
+\section{UC1B - Sistema NetMus (2/2)}
 
 \begin{figure}[h]
   \centering
   \includegraphics[width=13cm]{img/AR/UC1B.png}
-\caption{Diagramma UC2}
+\caption{Diagramma UC1B}
 \end{figure}
 
 \vspace*{0.5cm}
-\bo{Use case UC2: Sistema NetMus (2/2)}\\\\
+\bo{Use case UC1B: Sistema NetMus (2/2)}\\\\
 \bo{Attori primari: } Utente \\\\
-\bo{Pre-condizioni: } L'utente è connesso ad internet ed accede al portale
+\bo{Pre-condizioni: } L'utente \`e connesso ad internet ed accede al portale
 NetMus tramite un browser. \\\\ 
 \bo{Post-condizioni: } Sono state inviate al server tutte le
 informazioni riguardanti nuovi brani musicali presenti nel computer o altre
-periferiche dell'utente. I tag dei file musicali dell'utente sono stati
+periferiche dell'utente. I dati dei file musicali dell'utente sono stati
 aggiornati con informazioni aggiuntive reperite da NetMus. \\\\
 \bo{Scenario principale: } 
 \begin{enumerate}
@@ -254,28 +258,34 @@ aggiornati con informazioni aggiuntive reperite da NetMus. \\\\
 \section{UC1.1 - Sistema Netmus - Autenticazione}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=15cm]{img/AR/UC1_1.png}
+  \includegraphics[width=12cm]{img/AR/UC1_1.png}
 \caption{Diagramma UC1.1}
 \end{figure}
 
 \vspace{1cm}
 \bo{Use case UC1.1: Sistema NetMus - Autenticazione}\\\\
-\bo{Attori primari: } Utente, Componente 1, Componente 2. \\\\
-\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, \`e
-necessaria una connessione ad internet. \\\\ 
+\bo{Attori primari: } Utente. \\\\
+\bo{Pre-condizioni: } L'utente \`e connesso ad internet ed accede al portale
+NetMus tramite un browser. \\\\ 
 \bo{Post-condizioni: } L'utente \`e autenticato all'interno del sistema NetMus. \\\\
 \bo{Scenario principale: } 
 \begin{enumerate}
-  \item L'utente inserisce dei dati di login validi e se non li possiede
-  li ottiene effettuando l'autenticazione/registrazione a Google e la
-  registrazione a NetMus.
+  \item L'utente inserisce dei dati di login validi (S4).
   \item Netmus verifica i dati ed autentica l'utente.
 \end{enumerate}
 \bo{Scenari secondari: }
 \begin{itemize}
-  \item L'utente inserisce dei dati di login non validi.
+  \item L'utente inserisce dei dati di login non validi (S4).
   \begin {enumerate}
     \item Il tentativo di autenticazione fallisce.
+    \item L'utente non \`e in grado di accedere a NetMus, pu\`o decidere di
+    riprovare l'autenticazione (S4) o effettuare la registrazione (S8).
+  \end{enumerate}
+  \item L'utente decide di effettuare la registrazione.
+  \begin {enumerate}
+    \item L'utente esegue i passi standard per la registrazione a NetMus (S8).
+    \item L'utente ora possiede i dati necessari per effettuare
+    l'autenticazione.
   \end{enumerate}
 \end{itemize}
 \newpage
