@@ -392,54 +392,55 @@ inoltre personalizzato il proprio catalogo a piacimento (S21, S22, S23, S34).
 \newpage
 
 
-\section{UC2.2 - C1 - Elaborazione dati in entrata}
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=18cm]{img/AR/UC2_2.png}
-\caption{Diagramma UC2.2}
-\end{figure}
+% \section{UC2.2 - C1 - Elaborazione dati in entrata}
+%\begin{figure}[h]
+%  \centering
+%  \includegraphics[width=18cm]{img/AR/UC2_2.png}
+%\caption{Diagramma UC2.2}
+%\end{figure}
 
-\newpage
-\vspace*{0.5cm}
-\bo{Use case UC2.2: C1 - Elaborazione dati in entrata}\\\\
-\bo{Attori primari: } Componente 2, Componente 1 (database). \\\\
-\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, la
-componente di invio ha delle nuove informazioni da caricare, \`e necessaria una
-connessione ad internet. \\\\ 
-\bo{Post-condizioni: } Tutte le nuove informazioni valide sono state salvate
-nel database insieme ad eventuali informazioni aggiuntive reperite da brani
-preesistenti nel database oppure provenienti da un servizio esterno. \\\\
-\bo{Scenario principale: } 
-\begin{enumerate}
-  \item C2 invia tutti i dati che ha raccolto.
-  \item C1 controlla che non vi siano dati maligni o non riguardanti brani
-  musicali.
-  \item C1 effettua una ricerca nel proprio database per verificare se alcuni
-  brani sono gi\`a presenti.
-  \item C1 trova alcuni brani gi\`a in memoria e scarta i doppioni in entrata. Nel
-  farlo, se le informazioni non combaciano precisamente, valuta quale delle due
-  versioni \`e la pi\`u completa e adotta una strategia di ``\underline{merge}'' che minimizzi
-  la ridondanza.
-  \item Per i brani che non sono gi\`a presenti nel database C1 effettua una
-  ricerca all'esterno e se trova informazioni aggiuntive per i brani in arrivo le inserisce.
-  \item C1 salva i dati elaborati nel database.
-\end{enumerate}
-\bo{Scenari secondari: }
-\begin{itemize}
-  \item Vengono identificati alcuni dati maligni.
-  \begin {enumerate}
-    \item Queste informazioni vengono scartate senza possibilit\`a di ripristino e
-    l'elaborazione procede senza conseguenze.
-  \end{enumerate}
-  \item C1 non riesce a stabilire se le informazioni relative a due brani
-  descrivano effettivamente la stessa canzone.
-  \begin {enumerate}
-    \item Vengono tenuti entrambi i brani, fino a quando il sistema avr\`a
-    abbastanza informazioni per decidere. L'elaborazione procede senza
-    conseguenze.
-  \end{enumerate}
-\end{itemize}
-\newpage
+%\newpage
+%\vspace*{0.5cm}
+%\bo{Use case UC2.2: C1 - Elaborazione dati in entrata}\\\\
+%\bo{Attori primari: } Componente 2, Componente 1 (database). \\\\
+%\bo{Pre-condizioni: } Entrambe le componenti sono attive e funzionanti, la
+%componente di invio ha delle nuove informazioni da caricare, \`e necessaria una
+%connessione ad internet. \\\\ 
+%\bo{Post-condizioni: } Tutte le nuove informazioni valide sono state salvate
+%nel database insieme ad eventuali informazioni aggiuntive reperite da brani
+%preesistenti nel database oppure provenienti da un servizio esterno. \\\\
+%\bo{Scenario principale: } 
+%\begin{enumerate}
+%  \item C2 invia tutti i dati che ha raccolto.
+%  \item C1 controlla che non vi siano dati maligni o non riguardanti brani
+%  musicali.
+%  \item C1 effettua una ricerca nel proprio database per verificare se alcuni
+%  brani sono gi\`a presenti.
+%  \item C1 trova alcuni brani gi\`a in memoria e scarta i doppioni in entrata.
+%  Nel farlo, se le informazioni non combaciano precisamente, valuta quale delle
+%  due versioni \`e la pi\`u completa e adotta una strategia di
+%  ``\underline{merge}'' che minimizzi la ridondanza.
+%  \item Per i brani che non sono gi\`a presenti nel database C1 effettua una
+%  ricerca all'esterno e se trova informazioni aggiuntive per i brani in arrivo
+%  le inserisce.
+%  \item C1 salva i dati elaborati nel database.
+%\end{enumerate}
+%\bo{Scenari secondari: }
+%\begin{itemize}
+%  \item Vengono identificati alcuni dati maligni.
+%  \begin {enumerate}
+%    \item Queste informazioni vengono scartate senza possibilit\`a di
+%    ripristino e l'elaborazione procede senza conseguenze.
+%  \end{enumerate}
+%  \item C1 non riesce a stabilire se le informazioni relative a due brani
+%  descrivano effettivamente la stessa canzone.
+%  \begin {enumerate}
+%    \item Vengono tenuti entrambi i brani, fino a quando il sistema avr\`a
+%    abbastanza informazioni per decidere. L'elaborazione procede senza
+%    conseguenze.
+%  \end{enumerate}
+%\end{itemize}
+%\newpage
 
 \section{UC3 - Componente di recupero delle informazioni (C2)}
 \begin{figure}[h]
