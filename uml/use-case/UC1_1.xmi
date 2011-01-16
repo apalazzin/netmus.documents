@@ -25,10 +25,29 @@ extension point: cancella</body>
 breve testo nel box commenti}
 extension point: cancella</body>
   </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_-W1xcAn9EeC_mb6iXEbmWA" annotatedElement="_Qk0B8An3EeCsragUJudLvA">
+    <body>Condition: {L'utente
+ha richiesto di
+eseguire questa 
+operazione}</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_dp1TQAn-EeC_mb6iXEbmWA">
+    <body>Condition: {Connessione
+non disponibile}</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_G6DTMAn_EeC_mb6iXEbmWA" annotatedElement="_GHsCIAn_EeC_mb6iXEbmWA">
+    <body>Condition: {Evento:
+inserimento di una
+periferica usb}</body>
+  </ownedComment>
+  <ownedComment xmi:type="uml:Comment" xmi:id="_urqnIAn_EeC_mb6iXEbmWA" annotatedElement="_rdyV4An_EeC_mb6iXEbmWA">
+    <body>Condition: {L'utente
+ha richiesto di
+eseguire questa
+operazione}</body>
+  </ownedComment>
   <packagedElement xmi:type="uml:Actor" xmi:id="_Upty8AajEeCSCJAxHDluhA" name="utente"/>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_kF1isAajEeCSCJAxHDluhA" name="componente1 (persistenza)"/>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_G4sdoAakEeCSCJAxHDluhA" name="componente2 (invio)"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_a81r8AalEeCSCJAxHDluhA" name="Gestire libreria musicale"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_a81r8AalEeCSCJAxHDluhA" name="S3 - Gestire libreria musicale"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_WmuVYAanEeCSCJAxHDluhA" memberEnd="_WmuVYQanEeCSCJAxHDluhA _WmuVYganEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="_WmuVYQanEeCSCJAxHDluhA" type="_Upty8AajEeCSCJAxHDluhA"
         owningAssociation="_WmuVYAanEeCSCJAxHDluhA" association="_WmuVYAanEeCSCJAxHDluhA"/>
@@ -38,24 +57,24 @@ extension point: cancella</body>
   <packagedElement xmi:type="uml:Association" xmi:id="_mrFJ0AanEeCSCJAxHDluhA" memberEnd="_mrFJ0QanEeCSCJAxHDluhA _mrFJ0ganEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="_mrFJ0QanEeCSCJAxHDluhA" type="_a81r8AalEeCSCJAxHDluhA"
         owningAssociation="_mrFJ0AanEeCSCJAxHDluhA" association="_mrFJ0AanEeCSCJAxHDluhA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_mrFJ0ganEeCSCJAxHDluhA" type="_kF1isAajEeCSCJAxHDluhA"
-        owningAssociation="_mrFJ0AanEeCSCJAxHDluhA" association="_mrFJ0AanEeCSCJAxHDluhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mrFJ0ganEeCSCJAxHDluhA" owningAssociation="_mrFJ0AanEeCSCJAxHDluhA"
+        association="_mrFJ0AanEeCSCJAxHDluhA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_A9KWgAaoEeCSCJAxHDluhA" name="Inviare nuovi brani"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_A9KWgAaoEeCSCJAxHDluhA" name="S6 - Inviare nuovi brani"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_N0WEUAaoEeCSCJAxHDluhA" memberEnd="_N0WEUQaoEeCSCJAxHDluhA _N0WEUgaoEeCSCJAxHDluhA"
       navigableOwnedEnd="_N0WEUQaoEeCSCJAxHDluhA _N0WEUgaoEeCSCJAxHDluhA">
-    <ownedEnd xmi:type="uml:Property" xmi:id="_N0WEUQaoEeCSCJAxHDluhA" type="_G4sdoAakEeCSCJAxHDluhA"
-        owningAssociation="_N0WEUAaoEeCSCJAxHDluhA" association="_N0WEUAaoEeCSCJAxHDluhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_N0WEUQaoEeCSCJAxHDluhA" owningAssociation="_N0WEUAaoEeCSCJAxHDluhA"
+        association="_N0WEUAaoEeCSCJAxHDluhA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_N0WEUgaoEeCSCJAxHDluhA" type="_A9KWgAaoEeCSCJAxHDluhA"
         owningAssociation="_N0WEUAaoEeCSCJAxHDluhA" association="_N0WEUAaoEeCSCJAxHDluhA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_QfFMQAaoEeCSCJAxHDluhA" memberEnd="_QfFMQQaoEeCSCJAxHDluhA _QfFMQgaoEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="_QfFMQQaoEeCSCJAxHDluhA" type="_A9KWgAaoEeCSCJAxHDluhA"
         owningAssociation="_QfFMQAaoEeCSCJAxHDluhA" association="_QfFMQAaoEeCSCJAxHDluhA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_QfFMQgaoEeCSCJAxHDluhA" type="_kF1isAajEeCSCJAxHDluhA"
-        owningAssociation="_QfFMQAaoEeCSCJAxHDluhA" association="_QfFMQAaoEeCSCJAxHDluhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_QfFMQgaoEeCSCJAxHDluhA" owningAssociation="_QfFMQAaoEeCSCJAxHDluhA"
+        association="_QfFMQAaoEeCSCJAxHDluhA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_itVscAaoEeCSCJAxHDluhA" name="Gestire profilo personale">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_itVscAaoEeCSCJAxHDluhA" name="S1 - Gestire profilo personale">
     <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_uzYEYAdcEeC8UqsTZlQMww" name="cancella" useCase="_itVscAaoEeCSCJAxHDluhA"/>
     <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_3LdkIAdxEeC8UqsTZlQMww" name="pubblica" useCase="_itVscAaoEeCSCJAxHDluhA"/>
   </packagedElement>
@@ -68,37 +87,36 @@ extension point: cancella</body>
   <packagedElement xmi:type="uml:Association" xmi:id="_oPNZkAaoEeCSCJAxHDluhA" memberEnd="_oPNZkQaoEeCSCJAxHDluhA _oPNZkgaoEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="_oPNZkQaoEeCSCJAxHDluhA" type="_itVscAaoEeCSCJAxHDluhA"
         owningAssociation="_oPNZkAaoEeCSCJAxHDluhA" association="_oPNZkAaoEeCSCJAxHDluhA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_oPNZkgaoEeCSCJAxHDluhA" type="_kF1isAajEeCSCJAxHDluhA"
-        owningAssociation="_oPNZkAaoEeCSCJAxHDluhA" association="_oPNZkAaoEeCSCJAxHDluhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_oPNZkgaoEeCSCJAxHDluhA" owningAssociation="_oPNZkAaoEeCSCJAxHDluhA"
+        association="_oPNZkAaoEeCSCJAxHDluhA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_E5GyMAapEeCSCJAxHDluhA" name="altri utenti"/>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_Mk2V4AapEeCSCJAxHDluhA" name="Interagire con altri cataloghi"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Mk2V4AapEeCSCJAxHDluhA" name="S2 - Interagire con altri cataloghi"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_ZF-UIAapEeCSCJAxHDluhA" memberEnd="_ZF-UIQapEeCSCJAxHDluhA _ZF-UIgapEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="_ZF-UIQapEeCSCJAxHDluhA" type="_Upty8AajEeCSCJAxHDluhA"
         owningAssociation="_ZF-UIAapEeCSCJAxHDluhA" association="_ZF-UIAapEeCSCJAxHDluhA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_ZF-UIgapEeCSCJAxHDluhA" type="_Mk2V4AapEeCSCJAxHDluhA"
         owningAssociation="_ZF-UIAapEeCSCJAxHDluhA" association="_ZF-UIAapEeCSCJAxHDluhA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_2wVrQAapEeCSCJAxHDluhA" name="Aggiornamento informazioni"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_2wVrQAapEeCSCJAxHDluhA" name="S5- Aggiornamento informazioni"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_--jp4AapEeCSCJAxHDluhA" memberEnd="_--jp4QapEeCSCJAxHDluhA _--jp4gapEeCSCJAxHDluhA">
-    <ownedEnd xmi:type="uml:Property" xmi:id="_--jp4QapEeCSCJAxHDluhA" type="_G4sdoAakEeCSCJAxHDluhA"
-        owningAssociation="_--jp4AapEeCSCJAxHDluhA" association="_--jp4AapEeCSCJAxHDluhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_--jp4QapEeCSCJAxHDluhA" owningAssociation="_--jp4AapEeCSCJAxHDluhA"
+        association="_--jp4AapEeCSCJAxHDluhA"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_--jp4gapEeCSCJAxHDluhA" type="_2wVrQAapEeCSCJAxHDluhA"
         owningAssociation="_--jp4AapEeCSCJAxHDluhA" association="_--jp4AapEeCSCJAxHDluhA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="__f7RkAapEeCSCJAxHDluhA" memberEnd="__f7RkQapEeCSCJAxHDluhA __f7RkgapEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="__f7RkQapEeCSCJAxHDluhA" type="_2wVrQAapEeCSCJAxHDluhA"
         owningAssociation="__f7RkAapEeCSCJAxHDluhA" association="__f7RkAapEeCSCJAxHDluhA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="__f7RkgapEeCSCJAxHDluhA" type="_kF1isAajEeCSCJAxHDluhA"
-        owningAssociation="__f7RkAapEeCSCJAxHDluhA" association="__f7RkAapEeCSCJAxHDluhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="__f7RkgapEeCSCJAxHDluhA" owningAssociation="__f7RkAapEeCSCJAxHDluhA"
+        association="__f7RkAapEeCSCJAxHDluhA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_hIVZUAavEeCSCJAxHDluhA" memberEnd="_hIWAYAavEeCSCJAxHDluhA _hIWAYQavEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="_hIWAYAavEeCSCJAxHDluhA" type="_Mk2V4AapEeCSCJAxHDluhA"
         owningAssociation="_hIVZUAavEeCSCJAxHDluhA" association="_hIVZUAavEeCSCJAxHDluhA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_hIWAYQavEeCSCJAxHDluhA" type="_kF1isAajEeCSCJAxHDluhA"
-        owningAssociation="_hIVZUAavEeCSCJAxHDluhA" association="_hIVZUAavEeCSCJAxHDluhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_hIWAYQavEeCSCJAxHDluhA" owningAssociation="_hIVZUAavEeCSCJAxHDluhA"
+        association="_hIVZUAavEeCSCJAxHDluhA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_Hq3MgAbHEeCSCJAxHDluhA" name="Autenticazione">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_Hq3MgAbHEeCSCJAxHDluhA" name="S4 - Autenticazione">
     <include xmi:type="uml:Include" xmi:id="_nmlWsAbREeCSCJAxHDluhA" addition="_Mk2V4AapEeCSCJAxHDluhA"
         includingCase="_Hq3MgAbHEeCSCJAxHDluhA"/>
     <include xmi:type="uml:Include" xmi:id="_-DCVoAbREeCSCJAxHDluhA" addition="_a81r8AalEeCSCJAxHDluhA"
@@ -113,9 +131,12 @@ extension point: cancella</body>
         includingCase="_Hq3MgAbHEeCSCJAxHDluhA"/>
     <include xmi:type="uml:Include" xmi:id="_Po280AbSEeCSCJAxHDluhA" addition="_Mk2V4AapEeCSCJAxHDluhA"
         includingCase="_Hq3MgAbHEeCSCJAxHDluhA"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_ouvkcB_yEeC0buTBFwahWg" useCase="_Hq3MgAbHEeCSCJAxHDluhA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_1o17EAbSEeCSCJAxHDluhA" name="Autenticazione Google">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_1o17EAbSEeCSCJAxHDluhA" name="S7 - Autenticazione Google">
     <include xmi:type="uml:Include" xmi:id="_q6MfsAbVEeCSCJAxHDluhA" addition="_5xDGkAbSEeCSCJAxHDluhA"
+        includingCase="_1o17EAbSEeCSCJAxHDluhA"/>
+    <include xmi:type="uml:Include" xmi:id="_pfazcB_yEeC0buTBFwahWg" addition="_Hq3MgAbHEeCSCJAxHDluhA"
         includingCase="_1o17EAbSEeCSCJAxHDluhA"/>
     <extend xmi:type="uml:Extend" xmi:id="_loriwAbVEeCSCJAxHDluhA" extendedCase="_5xDGkAbSEeCSCJAxHDluhA"
         extensionLocation="_loqUoAbVEeCSCJAxHDluhA" extension="_1o17EAbSEeCSCJAxHDluhA"/>
@@ -142,16 +163,16 @@ extension point: cancella</body>
   <packagedElement xmi:type="uml:Association" xmi:id="_Mx0o0AbTEeCSCJAxHDluhA" memberEnd="_Mx0o0QbTEeCSCJAxHDluhA _Mx0o0gbTEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="_Mx0o0QbTEeCSCJAxHDluhA" type="_5xDGkAbSEeCSCJAxHDluhA"
         owningAssociation="_Mx0o0AbTEeCSCJAxHDluhA" association="_Mx0o0AbTEeCSCJAxHDluhA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_Mx0o0gbTEeCSCJAxHDluhA" type="_kF1isAajEeCSCJAxHDluhA"
-        owningAssociation="_Mx0o0AbTEeCSCJAxHDluhA" association="_Mx0o0AbTEeCSCJAxHDluhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_Mx0o0gbTEeCSCJAxHDluhA" owningAssociation="_Mx0o0AbTEeCSCJAxHDluhA"
+        association="_Mx0o0AbTEeCSCJAxHDluhA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_OPoqoAbTEeCSCJAxHDluhA" memberEnd="_OPoqoQbTEeCSCJAxHDluhA _OPoqogbTEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="_OPoqoQbTEeCSCJAxHDluhA" type="_5xDGkAbSEeCSCJAxHDluhA"
         owningAssociation="_OPoqoAbTEeCSCJAxHDluhA" association="_OPoqoAbTEeCSCJAxHDluhA"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_OPoqogbTEeCSCJAxHDluhA" type="_G4sdoAakEeCSCJAxHDluhA"
-        owningAssociation="_OPoqoAbTEeCSCJAxHDluhA" association="_OPoqoAbTEeCSCJAxHDluhA"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_OPoqogbTEeCSCJAxHDluhA" owningAssociation="_OPoqoAbTEeCSCJAxHDluhA"
+        association="_OPoqoAbTEeCSCJAxHDluhA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_vLS98AbUEeCSCJAxHDluhA" name="Rregistrazione Google">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_vLS98AbUEeCSCJAxHDluhA" name="S9 - Registrazione Google">
     <include xmi:type="uml:Include" xmi:id="_1cPiIAbVEeCSCJAxHDluhA" addition="_0Y-jwAbUEeCSCJAxHDluhA"
         includingCase="_vLS98AbUEeCSCJAxHDluhA"/>
     <extend xmi:type="uml:Extend" xmi:id="_7HxXAAbUEeCSCJAxHDluhA" extendedCase="_1o17EAbSEeCSCJAxHDluhA"
@@ -159,11 +180,13 @@ extension point: cancella</body>
     <extend xmi:type="uml:Extend" xmi:id="_nCaV0AbVEeCSCJAxHDluhA" extendedCase="_1o17EAbSEeCSCJAxHDluhA"
         extensionLocation="_nCZHsAbVEeCSCJAxHDluhA" extension="_vLS98AbUEeCSCJAxHDluhA"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_0Y-jwAbUEeCSCJAxHDluhA" name="Registrazione NetMus">
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_0Y-jwAbUEeCSCJAxHDluhA" name="S8 - Registrazione NetMus">
     <extend xmi:type="uml:Extend" xmi:id="_Niyg0AbVEeCSCJAxHDluhA" extendedCase="_5xDGkAbSEeCSCJAxHDluhA"
         extensionLocation="_Nix5wAbVEeCSCJAxHDluhA" extension="_0Y-jwAbUEeCSCJAxHDluhA"/>
     <extend xmi:type="uml:Extend" xmi:id="_R8UF0AbVEeCSCJAxHDluhA" extendedCase="_5xDGkAbSEeCSCJAxHDluhA"
         extensionLocation="_R8TewAbVEeCSCJAxHDluhA" extension="_0Y-jwAbUEeCSCJAxHDluhA"/>
+    <extend xmi:type="uml:Extend" xmi:id="_ouwLgB_yEeC0buTBFwahWg" extendedCase="_Hq3MgAbHEeCSCJAxHDluhA"
+        extensionLocation="_ouvkcB_yEeC0buTBFwahWg" extension="_0Y-jwAbUEeCSCJAxHDluhA"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_grfQAAbVEeCSCJAxHDluhA" memberEnd="_grfQAQbVEeCSCJAxHDluhA _grfQAgbVEeCSCJAxHDluhA">
     <ownedEnd xmi:type="uml:Property" xmi:id="_grfQAQbVEeCSCJAxHDluhA" type="_Upty8AajEeCSCJAxHDluhA"
@@ -194,7 +217,6 @@ extension point: cancella</body>
     <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_UXJZAAdjEeC8UqsTZlQMww" useCase="_PY5JMAcJEeCcZYE4dB6tbw"/>
     <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_V25UgAdjEeC8UqsTZlQMww" useCase="_PY5JMAcJEeCcZYE4dB6tbw"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Actor" xmi:id="_WysvEAdbEeC8UqsTZlQMww" name="Google cloud"/>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_krlKcAdbEeC8UqsTZlQMww" name="Player YouTube">
     <include xmi:type="uml:Include" xmi:id="_oPPecAdbEeC8UqsTZlQMww" addition="_KnaXMAcJEeCcZYE4dB6tbw"
         includingCase="_krlKcAdbEeC8UqsTZlQMww"/>
@@ -216,10 +238,13 @@ extension point: cancella</body>
   <packagedElement xmi:type="uml:Association" xmi:id="_mlXhIAdcEeC8UqsTZlQMww" memberEnd="_mlXhIQdcEeC8UqsTZlQMww _mlXhIgdcEeC8UqsTZlQMww">
     <ownedEnd xmi:type="uml:Property" xmi:id="_mlXhIQdcEeC8UqsTZlQMww" type="_J86eIAcIEeCcZYE4dB6tbw"
         owningAssociation="_mlXhIAdcEeC8UqsTZlQMww" association="_mlXhIAdcEeC8UqsTZlQMww"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_mlXhIgdcEeC8UqsTZlQMww" type="_WysvEAdbEeC8UqsTZlQMww"
-        owningAssociation="_mlXhIAdcEeC8UqsTZlQMww" association="_mlXhIAdcEeC8UqsTZlQMww"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mlXhIgdcEeC8UqsTZlQMww" owningAssociation="_mlXhIAdcEeC8UqsTZlQMww"
+        association="_mlXhIAdcEeC8UqsTZlQMww"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:UseCase" xmi:id="_ssScEAdcEeC8UqsTZlQMww"/>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_ssScEAdcEeC8UqsTZlQMww">
+    <include xmi:type="uml:Include" xmi:id="_NSGCEAn5EeCsragUJudLvA" name="diostracaan" addition="_JkZrUAnYEeCsragUJudLvA"
+        includingCase="_ssScEAdcEeC8UqsTZlQMww"/>
+  </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_1t1VEAdcEeC8UqsTZlQMww" memberEnd="_1t1VEQdcEeC8UqsTZlQMww _1t1VEgdcEeC8UqsTZlQMww">
     <ownedEnd xmi:type="uml:Property" xmi:id="_1t1VEQdcEeC8UqsTZlQMww" type="_Upty8AajEeCSCJAxHDluhA"
         owningAssociation="_1t1VEAdcEeC8UqsTZlQMww" association="_1t1VEAdcEeC8UqsTZlQMww"/>
@@ -229,8 +254,8 @@ extension point: cancella</body>
   <packagedElement xmi:type="uml:Association" xmi:id="_2dyLUAdcEeC8UqsTZlQMww" memberEnd="_2dyLUQdcEeC8UqsTZlQMww _2dyLUgdcEeC8UqsTZlQMww">
     <ownedEnd xmi:type="uml:Property" xmi:id="_2dyLUQdcEeC8UqsTZlQMww" type="_itVscAaoEeCSCJAxHDluhA"
         owningAssociation="_2dyLUAdcEeC8UqsTZlQMww" association="_2dyLUAdcEeC8UqsTZlQMww"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_2dyLUgdcEeC8UqsTZlQMww" type="_WysvEAdbEeC8UqsTZlQMww"
-        owningAssociation="_2dyLUAdcEeC8UqsTZlQMww" association="_2dyLUAdcEeC8UqsTZlQMww"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2dyLUgdcEeC8UqsTZlQMww" owningAssociation="_2dyLUAdcEeC8UqsTZlQMww"
+        association="_2dyLUAdcEeC8UqsTZlQMww"/>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_4UHa0AdcEeC8UqsTZlQMww" name="Cancellare profilo">
     <extend xmi:type="uml:Extend" xmi:id="_B7b6YAddEeC8UqsTZlQMww" extendedCase="_itVscAaoEeCSCJAxHDluhA"
@@ -259,8 +284,8 @@ extension point: cancella</body>
   <packagedElement xmi:type="uml:Association" xmi:id="_hNV3EAddEeC8UqsTZlQMww" memberEnd="_hNV3EQddEeC8UqsTZlQMww _hNV3EgddEeC8UqsTZlQMww">
     <ownedEnd xmi:type="uml:Property" xmi:id="_hNV3EQddEeC8UqsTZlQMww" type="_KyqZwAddEeC8UqsTZlQMww"
         owningAssociation="_hNV3EAddEeC8UqsTZlQMww" association="_hNV3EAddEeC8UqsTZlQMww"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_hNV3EgddEeC8UqsTZlQMww" type="_WysvEAdbEeC8UqsTZlQMww"
-        owningAssociation="_hNV3EAddEeC8UqsTZlQMww" association="_hNV3EAddEeC8UqsTZlQMww"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_hNV3EgddEeC8UqsTZlQMww" owningAssociation="_hNV3EAddEeC8UqsTZlQMww"
+        association="_hNV3EAddEeC8UqsTZlQMww"/>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_fWK9QAdhEeC8UqsTZlQMww" name="Visualizza elenco brani">
     <generalization xmi:type="uml:Generalization" xmi:id="_n3vVsAdhEeC8UqsTZlQMww" general="_J86eIAcIEeCcZYE4dB6tbw"
@@ -283,8 +308,8 @@ extension point: cancella</body>
   <packagedElement xmi:type="uml:Association" xmi:id="_6FfqIAdiEeC8UqsTZlQMww" memberEnd="_6FfqIQdiEeC8UqsTZlQMww _6FfqIgdiEeC8UqsTZlQMww">
     <ownedEnd xmi:type="uml:Property" xmi:id="_6FfqIQdiEeC8UqsTZlQMww" type="_J86eIAcIEeCcZYE4dB6tbw"
         owningAssociation="_6FfqIAdiEeC8UqsTZlQMww" association="_6FfqIAdiEeC8UqsTZlQMww"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_6FfqIgdiEeC8UqsTZlQMww" type="_WysvEAdbEeC8UqsTZlQMww"
-        owningAssociation="_6FfqIAdiEeC8UqsTZlQMww" association="_6FfqIAdiEeC8UqsTZlQMww"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_6FfqIgdiEeC8UqsTZlQMww" owningAssociation="_6FfqIAdiEeC8UqsTZlQMww"
+        association="_6FfqIAdiEeC8UqsTZlQMww"/>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_9eiCgAdiEeC8UqsTZlQMww" name="Cancella brano">
     <extend xmi:type="uml:Extend" xmi:id="_V26ioAdjEeC8UqsTZlQMww" extendedCase="_PY5JMAcJEeCcZYE4dB6tbw"
@@ -308,16 +333,16 @@ extension point: cancella</body>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_aqhL0Ad0EeC8UqsTZlQMww" name="Invio dati raccolti"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_dWHPYAd0EeC8UqsTZlQMww" memberEnd="_dWHPYQd0EeC8UqsTZlQMww _dWHPYgd0EeC8UqsTZlQMww">
-    <ownedEnd xmi:type="uml:Property" xmi:id="_dWHPYQd0EeC8UqsTZlQMww" type="_G4sdoAakEeCSCJAxHDluhA"
-        owningAssociation="_dWHPYAd0EeC8UqsTZlQMww" association="_dWHPYAd0EeC8UqsTZlQMww"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_dWHPYQd0EeC8UqsTZlQMww" owningAssociation="_dWHPYAd0EeC8UqsTZlQMww"
+        association="_dWHPYAd0EeC8UqsTZlQMww"/>
     <ownedEnd xmi:type="uml:Property" xmi:id="_dWHPYgd0EeC8UqsTZlQMww" type="_aqhL0Ad0EeC8UqsTZlQMww"
         owningAssociation="_dWHPYAd0EeC8UqsTZlQMww" association="_dWHPYAd0EeC8UqsTZlQMww"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_d1LxAAd0EeC8UqsTZlQMww" memberEnd="_d1MYEAd0EeC8UqsTZlQMww _d1MYEQd0EeC8UqsTZlQMww">
     <ownedEnd xmi:type="uml:Property" xmi:id="_d1MYEAd0EeC8UqsTZlQMww" type="_aqhL0Ad0EeC8UqsTZlQMww"
         owningAssociation="_d1LxAAd0EeC8UqsTZlQMww" association="_d1LxAAd0EeC8UqsTZlQMww"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_d1MYEQd0EeC8UqsTZlQMww" type="_kF1isAajEeCSCJAxHDluhA"
-        owningAssociation="_d1LxAAd0EeC8UqsTZlQMww" association="_d1LxAAd0EeC8UqsTZlQMww"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_d1MYEQd0EeC8UqsTZlQMww" owningAssociation="_d1LxAAd0EeC8UqsTZlQMww"
+        association="_d1LxAAd0EeC8UqsTZlQMww"/>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_zLcj8Ad0EeC8UqsTZlQMww" name="Controllo validità">
     <include xmi:type="uml:Include" xmi:id="_FeTQQAd1EeC8UqsTZlQMww" addition="_aqhL0Ad0EeC8UqsTZlQMww"
@@ -349,8 +374,8 @@ extension point: cancella</body>
   <packagedElement xmi:type="uml:Association" xmi:id="_8Op0YAd1EeC8UqsTZlQMww" memberEnd="_8Op0YQd1EeC8UqsTZlQMww _8Op0Ygd1EeC8UqsTZlQMww">
     <ownedEnd xmi:type="uml:Property" xmi:id="_8Op0YQd1EeC8UqsTZlQMww" type="_2Gm4EAd1EeC8UqsTZlQMww"
         owningAssociation="_8Op0YAd1EeC8UqsTZlQMww" association="_8Op0YAd1EeC8UqsTZlQMww"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_8Op0Ygd1EeC8UqsTZlQMww" type="_kF1isAajEeCSCJAxHDluhA"
-        owningAssociation="_8Op0YAd1EeC8UqsTZlQMww" association="_8Op0YAd1EeC8UqsTZlQMww"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_8Op0Ygd1EeC8UqsTZlQMww" owningAssociation="_8Op0YAd1EeC8UqsTZlQMww"
+        association="_8Op0YAd1EeC8UqsTZlQMww"/>
   </packagedElement>
   <packagedElement xmi:type="uml:UseCase" xmi:id="_-rPyoAd1EeC8UqsTZlQMww" name="Inserimento nel database"/>
   <packagedElement xmi:type="uml:Association" xmi:id="_BXNpoAd2EeC8UqsTZlQMww" memberEnd="_BXNpoQd2EeC8UqsTZlQMww _BXNpogd2EeC8UqsTZlQMww">
@@ -362,13 +387,91 @@ extension point: cancella</body>
   <packagedElement xmi:type="uml:Association" xmi:id="_CC8HMAd2EeC8UqsTZlQMww" memberEnd="_CC8HMQd2EeC8UqsTZlQMww _CC8HMgd2EeC8UqsTZlQMww">
     <ownedEnd xmi:type="uml:Property" xmi:id="_CC8HMQd2EeC8UqsTZlQMww" type="_-rPyoAd1EeC8UqsTZlQMww"
         owningAssociation="_CC8HMAd2EeC8UqsTZlQMww" association="_CC8HMAd2EeC8UqsTZlQMww"/>
-    <ownedEnd xmi:type="uml:Property" xmi:id="_CC8HMgd2EeC8UqsTZlQMww" type="_kF1isAajEeCSCJAxHDluhA"
-        owningAssociation="_CC8HMAd2EeC8UqsTZlQMww" association="_CC8HMAd2EeC8UqsTZlQMww"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_CC8HMgd2EeC8UqsTZlQMww" owningAssociation="_CC8HMAd2EeC8UqsTZlQMww"
+        association="_CC8HMAd2EeC8UqsTZlQMww"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_S2_tgAnXEeCsragUJudLvA" name="Gestire informazioni">
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_PFHw0An3EeCsragUJudLvA" name="Recupera" useCase="_S2_tgAnXEeCsragUJudLvA"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_Qkza4An3EeCsragUJudLvA" name="Aggiorna" useCase="_S2_tgAnXEeCsragUJudLvA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_JkZrUAnYEeCsragUJudLvA" name="Recupera informazioni dai brani">
+    <generalization xmi:type="uml:Generalization" xmi:id="_Lgx4cAnYEeCsragUJudLvA" general="_S2_tgAnXEeCsragUJudLvA"
+        specific="_JkZrUAnYEeCsragUJudLvA"/>
+    <extend xmi:type="uml:Extend" xmi:id="_PFIX4An3EeCsragUJudLvA" extendedCase="_S2_tgAnXEeCsragUJudLvA"
+        extensionLocation="_PFHw0An3EeCsragUJudLvA" extension="_JkZrUAnYEeCsragUJudLvA"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_GHrbEAn_EeC_mb6iXEbmWA" useCase="_JkZrUAnYEeCsragUJudLvA"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_rdxu0An_EeC_mb6iXEbmWA" useCase="_JkZrUAnYEeCsragUJudLvA"/>
+    <extensionPoint xmi:type="uml:ExtensionPoint" xmi:id="_NOs2MAoBEeC_mb6iXEbmWA" useCase="_JkZrUAnYEeCsragUJudLvA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_CqJd4An3EeCsragUJudLvA" name="Aggiorna le informazioni dei brani">
+    <extend xmi:type="uml:Extend" xmi:id="_DdowUQn3EeCsragUJudLvA" extendedCase="_S2_tgAnXEeCsragUJudLvA"
+        extension="_CqJd4An3EeCsragUJudLvA"/>
+    <extend xmi:type="uml:Extend" xmi:id="_Qk0B8An3EeCsragUJudLvA" extendedCase="_S2_tgAnXEeCsragUJudLvA"
+        extensionLocation="_Qkza4An3EeCsragUJudLvA" extension="_CqJd4An3EeCsragUJudLvA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_wJGIEAn3EeCsragUJudLvA" name="Memorizzazione temporanea dei dati">
+    <include xmi:type="uml:Include" xmi:id="_C-WLQAoCEeC_mb6iXEbmWA" addition="_JkZrUAnYEeCsragUJudLvA"
+        includingCase="_wJGIEAn3EeCsragUJudLvA"/>
+    <extend xmi:type="uml:Extend" xmi:id="_NOtdQAoBEeC_mb6iXEbmWA" extendedCase="_JkZrUAnYEeCsragUJudLvA"
+        extensionLocation="_NOs2MAoBEeC_mb6iXEbmWA" extension="_wJGIEAn3EeCsragUJudLvA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_ldbA0An9EeC73rcPeZtHcg" memberEnd="_ldbn4An9EeC73rcPeZtHcg _ldbn4Qn9EeC73rcPeZtHcg"
+      navigableOwnedEnd="_ldbn4An9EeC73rcPeZtHcg _ldbn4Qn9EeC73rcPeZtHcg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ldbn4An9EeC73rcPeZtHcg" type="_Upty8AajEeCSCJAxHDluhA"
+        owningAssociation="_ldbA0An9EeC73rcPeZtHcg" association="_ldbA0An9EeC73rcPeZtHcg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_ldbn4Qn9EeC73rcPeZtHcg" type="_S2_tgAnXEeCsragUJudLvA"
+        owningAssociation="_ldbA0An9EeC73rcPeZtHcg" association="_ldbA0An9EeC73rcPeZtHcg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_mCigEAn9EeC73rcPeZtHcg" memberEnd="_mCigEQn9EeC73rcPeZtHcg _mCigEgn9EeC73rcPeZtHcg"
+      navigableOwnedEnd="_mCigEQn9EeC73rcPeZtHcg _mCigEgn9EeC73rcPeZtHcg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mCigEQn9EeC73rcPeZtHcg" owningAssociation="_mCigEAn9EeC73rcPeZtHcg"
+        association="_mCigEAn9EeC73rcPeZtHcg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mCigEgn9EeC73rcPeZtHcg" type="_S2_tgAnXEeCsragUJudLvA"
+        owningAssociation="_mCigEAn9EeC73rcPeZtHcg" association="_mCigEAn9EeC73rcPeZtHcg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_mhDoEAn9EeC73rcPeZtHcg" memberEnd="_mhDoEQn9EeC73rcPeZtHcg _mhDoEgn9EeC73rcPeZtHcg"
+      navigableOwnedEnd="_mhDoEQn9EeC73rcPeZtHcg _mhDoEgn9EeC73rcPeZtHcg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mhDoEQn9EeC73rcPeZtHcg" owningAssociation="_mhDoEAn9EeC73rcPeZtHcg"
+        association="_mhDoEAn9EeC73rcPeZtHcg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_mhDoEgn9EeC73rcPeZtHcg" type="_S2_tgAnXEeCsragUJudLvA"
+        owningAssociation="_mhDoEAn9EeC73rcPeZtHcg" association="_mhDoEAn9EeC73rcPeZtHcg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_9cdXYAn-EeC_mb6iXEbmWA" name="Recupera automaticamente">
+    <extend xmi:type="uml:Extend" xmi:id="_GHsCIAn_EeC_mb6iXEbmWA" extendedCase="_JkZrUAnYEeCsragUJudLvA"
+        extensionLocation="_GHrbEAn_EeC_mb6iXEbmWA" extension="_9cdXYAn-EeC_mb6iXEbmWA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:UseCase" xmi:id="_m0MUkAn_EeC_mb6iXEbmWA" name="Recupera manualmente">
+    <extend xmi:type="uml:Extend" xmi:id="_rdyV4An_EeC_mb6iXEbmWA" extendedCase="_JkZrUAnYEeCsragUJudLvA"
+        extensionLocation="_rdxu0An_EeC_mb6iXEbmWA" extension="_m0MUkAn_EeC_mb6iXEbmWA"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_zHufkB_0EeC0buTBFwahWg" memberEnd="_zHufkR_0EeC0buTBFwahWg _zHufkh_0EeC0buTBFwahWg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zHufkR_0EeC0buTBFwahWg" type="_Upty8AajEeCSCJAxHDluhA"
+        owningAssociation="_zHufkB_0EeC0buTBFwahWg" association="_zHufkB_0EeC0buTBFwahWg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_zHufkh_0EeC0buTBFwahWg" type="_Hq3MgAbHEeCSCJAxHDluhA"
+        owningAssociation="_zHufkB_0EeC0buTBFwahWg" association="_zHufkB_0EeC0buTBFwahWg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_0FjZwB_0EeC0buTBFwahWg" memberEnd="_0FjZwR_0EeC0buTBFwahWg _0FjZwh_0EeC0buTBFwahWg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_0FjZwR_0EeC0buTBFwahWg" type="_Upty8AajEeCSCJAxHDluhA"
+        owningAssociation="_0FjZwB_0EeC0buTBFwahWg" association="_0FjZwB_0EeC0buTBFwahWg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_0FjZwh_0EeC0buTBFwahWg" type="_1o17EAbSEeCSCJAxHDluhA"
+        owningAssociation="_0FjZwB_0EeC0buTBFwahWg" association="_0FjZwB_0EeC0buTBFwahWg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_0xpqwB_0EeC0buTBFwahWg" memberEnd="_0xpqwR_0EeC0buTBFwahWg _0xpqwh_0EeC0buTBFwahWg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_0xpqwR_0EeC0buTBFwahWg" type="_Upty8AajEeCSCJAxHDluhA"
+        owningAssociation="_0xpqwB_0EeC0buTBFwahWg" association="_0xpqwB_0EeC0buTBFwahWg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_0xpqwh_0EeC0buTBFwahWg" type="_vLS98AbUEeCSCJAxHDluhA"
+        owningAssociation="_0xpqwB_0EeC0buTBFwahWg" association="_0xpqwB_0EeC0buTBFwahWg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_2m244B_0EeC0buTBFwahWg" memberEnd="_2m244R_0EeC0buTBFwahWg _2m244h_0EeC0buTBFwahWg">
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2m244R_0EeC0buTBFwahWg" type="_Upty8AajEeCSCJAxHDluhA"
+        owningAssociation="_2m244B_0EeC0buTBFwahWg" association="_2m244B_0EeC0buTBFwahWg"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_2m244h_0EeC0buTBFwahWg" type="_0Y-jwAbUEeCSCJAxHDluhA"
+        owningAssociation="_2m244B_0EeC0buTBFwahWg" association="_2m244B_0EeC0buTBFwahWg"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_lpFXcACrEeCaKqsl_35Oeg" applyingPackage="_lpEwYACrEeCaKqsl_35Oeg">
     <xmi:Extension extender="http://www.eclipse.org/emf/2002/Ecore">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_lpVPEACrEeCaKqsl_35Oeg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="http://argouml.org/profiles/uml22/default-uml22.xmi#_vpRocQeaEeCIVtRJUKD5wg"/>
+        <references xmi:type="ecore:EPackage" href="http://argouml.org/profiles/uml22/default-uml22.xmi#_xQyTcR_xEeC0buTBFwahWg"/>
       </eAnnotations>
     </xmi:Extension>
     <appliedProfile xmi:type="uml:Profile" href="http://argouml.org/profiles/uml22/default-uml22.xmi#_PB5O8MoqEd6otN4YcPG1_w"/>
