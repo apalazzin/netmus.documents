@@ -301,19 +301,22 @@ NetMus tramite un browser. \\\\
 \newpage
 \vspace*{0.5cm}
 \bo{Use case UC2: Componente di persistenza e visualizzazione (C1)}\\\\
-\bo{Attori primari: } Utente, Google cloud (server + database). \\\\
-\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed \`e
-autenticato. \\\\ 
+\bo{Attori primari: } Utente. \\\\
+\bo{Attori secondari: } YouTube. \\\\
+\bo{Pre-condizioni: } L'utente \`e connesso ad internet, accede al portale
+NetMus tramite un browser ed  \`e autenticato. \\\\ 
 \bo{Post-condizioni: } L'utente ha effettuato tutte le operazioni desiderate
 con successo. \\\\
 \bo{Scenario principale: } 
 \begin{enumerate}
   \item L'utente naviga all'interno del proprio catalogo musicale presente nel
-  database di NetMus, oppure all'interno di quello di un altro utente.
+  database di NetMus (S14), all'interno di quello di un altro utente
+  (S2), oppure nella pagina di gestione del proprio profilo personale (S1).
   \item L'utente seleziona le opzioni che preferisce, e fa alcune operazioni
-  consentite.
+  consentite (S13, S10, S11, S12).
   \item Tutti i dati richiesti dall'utente gli vengono forniti in tempo utile
-  dal server (Google cloud).
+  dal server o, nel caso venga chiesta la riproduzione del brano (S12), dal
+  servizio esterno YouTube.
 \end{enumerate}
 \bo{Scenari secondari: }
 \begin{itemize}
@@ -324,12 +327,14 @@ con successo. \\\\
     ristabilita. I dati che erano stati aggiornati prima del verificarsi del
     problema sono gi\`a stati salvati.
   \end{enumerate}
-  \item L'utente cerca di accedere ad un altro profilo senza aver reso pubblico
-  il proprio.
+  \item L'utente cerca di accedere ad un altro catalogo (S2) senza aver reso
+  pubblico il proprio (S16).
   \begin {enumerate}
-    \item Viene chiesto all'utente se vuole pubblicare la propria libreria.
-    \item In caso affermativo l'utente pu\`o procede a visualizzare altri profili,
-    altrimenti gli viene negato l'accesso e viene rimandato alla propria pagina.
+    \item Viene chiesto all'utente se vuole pubblicare la propria libreria
+    (S16).
+    \item In caso affermativo l'utente pu\`o procede a visualizzare altri
+    cataloghi (S2), altrimenti gli viene negato l'accesso e viene rimandato alla
+    propria pagina (S14).
   \end{enumerate}
 \end{itemize}
 \newpage
