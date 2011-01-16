@@ -300,9 +300,9 @@ NetMus tramite un browser. \\\\
 
 \newpage
 \vspace*{0.5cm}
-\bo{Use case UC2: Componente di persistenza e visualizzazione (C1)}\\\\
+\bo{Use case UC2: Componente di persistenza e visualizzazione (C1)} \\\\
 \bo{Attori primari: } Utente. \\\\
-\bo{Attori secondari: } YouTube. \\\\
+\bo{Attori secondari: } \underline{YouTube}. \\\\
 \bo{Pre-condizioni: } L'utente \`e connesso ad internet, accede al portale
 NetMus tramite un browser ed  \`e autenticato. \\\\ 
 \bo{Post-condizioni: } L'utente ha effettuato tutte le operazioni desiderate
@@ -342,34 +342,36 @@ con successo. \\\\
 \section{UC2.1 - C1 - Gestione catalogo}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=18cm]{img/AR/UC2_1.png}
+  \includegraphics[width=14cm]{img/AR/UC2_1.png}
 \caption{Diagramma UC2.1}
 \end{figure}
 
 \newpage
 \vspace*{0.5cm}
-\bo{Use case UC2.1: C1 - Gestione catalogo}\\\\
-\bo{Attori primari: } Utente, Google cloud (server + database). \\\\
-\bo{Pre-condizioni: } L'utente ha aperto l'applicazione da browser ed \`e
-autenticato. \\\\ 
+\bo{Use case UC2.1: C1 - Gestione catalogo} \\\\
+\bo{Attori primari: } Utente. \\\\
+\bo{Attori secondari: } YouTube. \\\\
+\bo{Pre-condizioni: } L'utente \`e connesso ad internet, accede al portale
+NetMus tramite un browser, \`e autenticato ed entra nella sezione dedicata alla
+gestione del proprio catalogo multimediale. \\\\ 
 \bo{Post-condizioni: } L'utente \`e riuscito a vedere tutte le informazioni
 salvate nella sua libreria musicale, sia quelle inviate dal suo computer sia
-quelle aggiuntive recuperate dal database. L'utente ha inoltre
-personalizzato il proprio catalogo a piacimento. \\\\
+quelle aggiuntive recuperate dal database (S18, S19, S20, S11, S12). L'utente ha
+inoltre personalizzato il proprio catalogo a piacimento (S21, S22, S23, S34).
+\\\\
 \bo{Scenario principale: } 
 \begin{enumerate}
   \item L'utente visualizza la propria libreria di canzoni
   opportunamente raggruppate ed un men\`u sul lato sinistro per facilitare la
   navigazione all'interno della pagina, la visualizzazione \`e simile a quella
   del software \underline{iTunes}.
-  \item L'utente seleziona il brano che gli interessa e ne visualizza i
-  dettagli tra cui c'\`e anche il player di \underline{Youtube} che permette di ascoltare la
-  canzone in streaming.
-  \item In ogni momento, sia nella visualizzazione del catalogo sia in quella
-  del singolo brano, l'utente pu\`o modificare varie opzioni e cancellare o
-  aggiungere contenuti.
-  \item Il server invia la pagina che l'utente ha richiesto e, se necessario,
-  salva l'aggiornamento sui dati che ha fatto.
+  \item L'utente compie alcune tra le operazioni possibili sul proprio
+  catalogo (S10,S21) oppure seleziona il brano che gli interessa e ne
+  visualizza ed amministra i dettagli (S11, S22, S23, S24) tra cui c'\`e anche
+  il player Youtube (S12) che gli permette di ascoltare la canzone in streaming.
+  \item Il server o, nel caso venga chiesta la riproduzione del brano (S12), il
+  servizio esterno YouTube invia la pagina che l'utente ha richiesto e, se
+  necessario, salva l'aggiornamento sui dati che ha fatto.
 \end{enumerate}
 \bo{Scenari secondari: }
 \begin{itemize}
@@ -383,8 +385,8 @@ personalizzato il proprio catalogo a piacimento. \\\\
   \item L'applicazione non ha trovato nessun corrispettivo del brano
   selezionato su YouTube.
   \begin {enumerate}
-    \item Il player non viene visualizzato ma tutte le altre funzionalit\`a
-    rimangono invariate.
+    \item Il player (S12) non viene visualizzato ma tutte le altre
+    funzionalit\`a rimangono invariate.
   \end{enumerate}
 \end{itemize}
 \newpage
