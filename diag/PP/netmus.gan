@@ -38,29 +38,29 @@
         <task id="22" name="Stesura documenti" color="#8cb6ce" meeting="false" start="2010-12-03" duration="107" complete="0" priority="1" expand="true"/>
         <task id="1" name="Consegna documenti RR" color="#8cb6ce" meeting="false" start="2010-12-19" duration="1" complete="0" priority="1" expand="true"/>
         <task id="23" name="RR" color="#010101" meeting="true" start="2011-01-10" duration="1" complete="0" priority="1" expand="true"/>
-        <task id="3" name="Analisi requisiti funzionali" color="#8cb6ce" meeting="false" start="2010-12-07" duration="37" complete="0" priority="1" expand="true">
+        <task id="3" name="Analisi requisiti funzionali" color="#8cb6ce" meeting="false" start="2010-12-07" duration="38" complete="0" priority="1" expand="true">
             <depend id="6" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="4" name="Analisi requisiti interfacciamento" color="#8cb6ce" meeting="false" start="2010-12-07" duration="37" complete="0" priority="1" expand="true">
+        <task id="4" name="Analisi requisiti interfacciamento" color="#8cb6ce" meeting="false" start="2010-12-07" duration="38" complete="0" priority="1" expand="true">
             <depend id="6" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="5" name="Analisi requisiti qualita'" color="#8cb6ce" meeting="false" start="2010-12-07" duration="37" complete="0" priority="1" expand="true">
+        <task id="5" name="Analisi requisiti qualita'" color="#8cb6ce" meeting="false" start="2010-12-07" duration="38" complete="0" priority="1" expand="true">
             <depend id="6" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="6" name="Progettazione architetturale" color="#8cb6ce" meeting="false" start="2011-01-13" duration="18" complete="0" priority="1" expand="true"/>
+        <task id="6" name="Progettazione architetturale" color="#8cb6ce" meeting="false" start="2011-01-14" duration="18" complete="0" priority="1" expand="true"/>
         <task id="8" name="RP" color="#010101" meeting="true" start="2011-02-07" duration="1" complete="0" priority="1" expand="true"/>
-        <task id="9" name="Progettazione di dettaglio 1" color="#8cb6ce" meeting="false" start="2011-01-26" duration="14" complete="0" priority="1" expand="true"/>
-        <task id="10" name="Codifica 1" color="#8cb6ce" meeting="false" start="2011-02-06" duration="13" complete="0" priority="1" expand="true"/>
-        <task id="11" name="Progettazione di dettaglio 2 " color="#8cb6ce" meeting="false" start="2011-02-18" duration="5" complete="0" priority="1" expand="true"/>
-        <task id="12" name="Codfica 2 " color="#8cb6ce" meeting="false" start="2011-02-21" duration="7" complete="0" priority="1" expand="true"/>
+        <task id="9" name="Progettazione di dettaglio 1" color="#8cb6ce" meeting="false" start="2011-01-31" duration="14" complete="0" priority="1" expand="true"/>
+        <task id="10" name="Codifica 1" color="#8cb6ce" meeting="false" start="2011-02-11" duration="11" complete="0" priority="1" expand="true"/>
+        <task id="11" name="Progettazione di dettaglio 2" color="#8cb6ce" meeting="false" start="2011-02-20" duration="7" complete="0" priority="1" expand="true"/>
+        <task id="12" name="Codfica 2" color="#8cb6ce" meeting="false" start="2011-02-26" duration="5" complete="0" priority="1" expand="true"/>
         <task id="24" name="RQ" color="#010101" meeting="true" start="2011-03-07" duration="1" complete="0" priority="1" expand="true"/>
-        <task id="13" name="Test di unita'" color="#8cb6ce" meeting="false" start="2011-02-28" duration="3" complete="0" priority="1" expand="true">
+        <task id="13" name="Test di unita'" color="#8cb6ce" meeting="false" start="2011-03-03" duration="3" complete="0" priority="1" expand="true">
             <depend id="14" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="14" name="Test di integrazione" color="#8cb6ce" meeting="false" start="2011-03-03" duration="2" complete="0" priority="1" expand="true">
+        <task id="14" name="Test di integrazione" color="#8cb6ce" meeting="false" start="2011-03-06" duration="3" complete="0" priority="1" expand="true">
             <depend id="15" type="2" difference="0" hardness="Strong"/>
         </task>
-        <task id="15" name="Test di sistema" color="#8cb6ce" meeting="false" start="2011-03-05" duration="2" complete="0" priority="1" expand="true"/>
+        <task id="15" name="Test di sistema" color="#8cb6ce" meeting="false" start="2011-03-09" duration="3" complete="0" priority="1" expand="true"/>
         <task id="18" name="Impostazione verifica" color="#8cb6ce" meeting="false" start="2010-12-11" duration="1" complete="0" priority="1" expand="true">
             <depend id="19" type="2" difference="0" hardness="Strong"/>
         </task>
