@@ -1,12 +1,12 @@
 
 \newcommand{\nomedoc}{Piano Di Progetto}
-\newcommand{\versione}{1.2}
+\newcommand{\versione}{1.3}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\versioneAR}{1.0}
 \newcommand{\nomefile}{PianoDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{11 Dicembre 2010}
-\newcommand{\datamodifica}{12 Gennaio 2011}
+\newcommand{\datamodifica}{19 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno} 
 \newcommand{\redazione}{Lovato Daniele\\& Mandolo Andrea}
@@ -33,8 +33,11 @@ VT.G \\
 \endhead
 \hline
 \endfoot
+19/01/2011 & 1.3 & Mandolo Andrea & Corretto Capitolo 3 e 4.\\
+&&&Rifatta completamente la Pianificazione.\\
+\hline
 19/01/2011 & 1.2 & Lovato Daniele & Perfezionata Analisi dei Rischi e aggiunta
-sezione dei rischi rilevati nella fase RR-RP.\\
+sezione Rischi nella fase RR-RP.\\
 \hline
 12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
 modifiche.\\
@@ -193,7 +196,7 @@ l'andamento delle attivit\`a del gruppo durante l'intero sviluppo del progetto.
 \vspace{0.8cm}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=17.2cm, angle=0]{img/PP/gantt1.png}
+  \includegraphics[width=17.2cm, angle=0]{img/PP/gantt.png}
 \caption{Diagramma di Gantt}
 \end{figure}
 \newpage
@@ -243,18 +246,17 @@ lavoro dei membri del gruppo. L'impegno totale di ciascun componente dovr\`a
 essere compreso tra 85 e 105 ore, dal quale risulteranno proporzionali
 ripartizioni tra carico di lavoro e responsabilit\`a.\\
 \\
-Di seguito riportiamo una stima dei costi per ogni revisione e il carico di
-lavoro previsto per ogni membro del gruppo.
+Di seguito riportiamo una stima dei costi per ogni periodo intermedio
+tra le revisioni e il carico di lavoro previsto per ogni membro del gruppo.
+Verrano inoltre illustrati il criterio ed il calendario di rotazione dei
+ruoli sulle attivit\`a previste per ogni periodo.
 \newpage
 
-\subsection{RR - RPP}
+\subsection{RR - RP}
 
 \vspace{0.5cm}
-\bo{Responsabile:} Daminato Simone\\
+Periodo compreso tra la RR (10/01/2011) e la RP (07/02/2011).
 
-\bo{Amministratore:} Baron Federico
-
-\vspace{1cm}
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
@@ -264,41 +266,102 @@ lavoro previsto per ogni membro del gruppo.
 \bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
 Totali}\cellcolor{orange} \\ \hline
 
-\bo{Baron}\cellcolor{orange}    &   & 15 &  5 &  6 & &   & 26 \\ \hline
-\bo{Caputo}\cellcolor{orange}   &   &    &  5 & 12 & & 5 & 22 \\ \hline
-\bo{Daminato}\cellcolor{orange} & 12&    &    &  7 & & 6 & 25 \\ \hline
-\bo{Lovato}\cellcolor{orange}   &   &    & 10 & 10 & &   & 20 \\ \hline
-\bo{Mandolo}\cellcolor{orange}  &   &    &  8 & 12 & &   & 20 \\ \hline
-\bo{Palazzin}\cellcolor{orange} &   &    &  6 &  9 & & 5 & 20 \\ \hline
-\bo{Trezzi}\cellcolor{orange}   &   &    &  7 & 10 & & 6 & 23 \\  \hline
+\bo{Baron}\cellcolor{orange}    &  8&    & 12 & 15 & &   & 35 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &   &  14&    & 15 & & 6 & 35 \\ \hline
+\bo{Daminato}\cellcolor{orange} & 10&    & 10 & 15 & &   & 35 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &   &    &  4 & 10 & &21 & 35 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  &   &    &    & 15 & &20 & 35 \\ \hline
+\bo{Palazzin}\cellcolor{orange} &   &   7&    & 10 & &18 & 35 \\ \hline
+\bo{Trezzi}\cellcolor{orange}   &   &    &  4 & 15 & &16 & 35 \\  \hline
 
 \end{tabular}
-\caption{Pianificazione oraria RR-RPP}
+\caption{Pianificazione oraria RR-RP}
 \end{center}
 \end{table}
 \vspace{0.5cm}
 
-\bo{Ore totali:} 156.\\
+\bo{Ore totali:} 245.\\
 
-\bo{Costo previsto per il periodo RR-RPP:} \euro\ 3467.
+\bo{Costo previsto per il periodo RR-RP:} \euro\ 5015.
 
 \vspace{0.8cm}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=17.2cm, angle=0]{img/PP/RR-RPP.png}
-\caption{Distribuzione ore RR-RPP}
+  \includegraphics[width=17.2cm, angle=0]{img/PP/RR-RP.png}
+\caption{Distribuzione ore RR-RP}
 \end{figure}
 \newpage
 
+In questo periodo verr\`a suddiviso il lavoro come riportato nella tabella
+sottostante:
 
-\subsection{RPP - RPD}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|p{0.17\textwidth}|c|c|c|c|c|}
+\hline
+& \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
+\bo{Anl.}\cellcolor{orange} & \bo{Proget.}\cellcolor{orange} &
+\bo{Verif.}\cellcolor{orange} \\ \hline
+
+\cellcolor{orange}&&& Lovato(4) & Baron(15) &\\
+\bo{Progettazione}\cellcolor{orange}    &  &  &  & Caputo(15)  & \\
+\bo{Architetturale}\cellcolor{orange}    &  &  & & Daminato(15)  & \\
+\cellcolor{orange}&&&& Mandolo(15) &\\\hline
+
+
+\bo{Inizio Proget.}\cellcolor{orange}    &  &  & Trezzi(4) & Lovato(10) &
+\\ \bo{di Dettaglio 1}\cellcolor{orange}    &  &  & & Palazzin(10) & \\\hline
+
+\bo{Agg. PP (v2)}\cellcolor{orange}    & Baron(5) & Caputo(5) &  & & \\ \hline
+
+\cellcolor{orange}&&&&Trezzi(3)&Lovato(8)\\
+\bo{Agg. PQ (v2)}\cellcolor{orange}    &&&&&Mandolo(7) \\
+\cellcolor{orange}&&&&&Palazzin(5)\\\hline
+
+\bo{Correzione}\cellcolor{orange}&Daminato&Palazzin(7)&Baron(12)&Trezzi(12)&\\
+\bo{docum. RR}\cellcolor{orange}&(10)&&Daminato(10)&&\\\hline
+
+\cellcolor{orange}&&&&&Caputo(6)\\
+\cellcolor{orange}&&&&&Lovato(13)\\
+\bo{Verifica}\cellcolor{orange}&&&&&Mandolo(13)\\
+\cellcolor{orange}&&&&&Palazzin(13)\\
+\cellcolor{orange}&&&&&Trezzi(16)\\ \hline
+
+\bo{Controllo e}\cellcolor{orange}&Baron(3)&&&&\\
+\bo{Gestione}\cellcolor{orange}&&&&&\\ \hline
+
+\bo{Gestione}\cellcolor{orange}&&Caputo(9)&&&\\
+\bo{strumentaz.}\cellcolor{orange}&&&&&\\ \hline
+
+\end{tabular}
+\caption{Ripartizione ruoli e attivit\`a RR-RP}
+\end{center}
+\end{table}
+
+Da subito verranno corretti i documenti della RR che presentano
+errori segnalati dal committente. \\
+Si pu\`o notare come i vari documenti vengano presi in mano dai ruoli
+corretti: AR e SF da Analisti, NP da Amministratore, PP da Responsabile e
+Amministratore, PQ da Progettisti nella parte programmatica e Verificatori nella
+parte retrospettiva, ST e DP da Progettisti, MU da Programmatori (in veste di
+redattori).\\
+Nell'attivit\`a di Progettazione Architetturale verr\`a prodotta la
+Specifica Tecnica che sar\`a il nostro documento in ingresso alla RP. Verr\`a poi dedicato un p\`o di tempo nel cominciare la Progettazione di Dettaglio, in modo da impostare bene il lavoro che partir\`a a pieno regime appena dopo tale revisione.\\ Parteciperanno qualche ora alla progettazione iniziale anche due Analisti, per individuare vincoli ed eventuali rischi tecnologici.\\
+\\
+Verranno poi portati alla versione 2.0 il Piano di Progetto ed il Piano di
+Qualit\`a.\\
+\\
+Durante l'intero periodo verr\`a inoltre fatta Verifica, Gestione Strumentazione
+e Controllo e Gestione delle Attivit\`a.
+
+\newpage
+
+
+\subsection{RP - RQ}
 
 \vspace{0.5cm}
-\bo{Responsabile:} Palazzin Alberto\\
+Periodo compreso tra la RP (07/02/2011) e la RQ (07/03/2011).
 
-\bo{Amministratore:} Trezzi Giovanni
-
-\vspace{1cm}
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
@@ -308,86 +371,109 @@ Totali}\cellcolor{orange} \\ \hline
 \bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
 Totali}\cellcolor{orange} \\ \hline
 
-\bo{Baron}\cellcolor{orange}    &    &    & 2 & 10 & 7 & 5 & 24 \\ \hline
-\bo{Caputo}\cellcolor{orange}   &    &    & 4 & 11 &   & 8 & 23 \\ \hline
-\bo{Daminato}\cellcolor{orange} &    &    & 7 & 12 &   & 5 & 24 \\ \hline
-\bo{Lovato}\cellcolor{orange}   &    &    &   & 12 & 3 & 7 & 22 \\ \hline
-\bo{Mandolo}\cellcolor{orange}  &    &    & 2 &  7 & 8 & 7 & 24 \\ \hline
-\bo{Palazzin}\cellcolor{orange} & 12 &    & 4 & 10 &   &   & 26\\ \hline
-\bo{Trezzi}\cellcolor{orange}   &    & 13 &   &  9 & 2 &   & 24 \\  \hline
+\bo{Baron}\cellcolor{orange}    &   &    &    & 10 & 10&30 & 50 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &   &    &    & 15 & 20&16 & 51 \\ \hline
+\bo{Daminato}\cellcolor{orange} &   &   4&    & 15 & 20&12 & 51 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &   &   9&    & 15 & 10&17 & 51 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  &  5&    &    & 10 & 20&16 & 51 \\ \hline
+\bo{Palazzin}\cellcolor{orange} &   &    &    & 20 & 15&15 & 50 \\ \hline
+\bo{Trezzi}\cellcolor{orange}   &  8&    &    & 10 & 20&13 & 51 \\  \hline
 
 \end{tabular}
-\caption{Pianificazione oraria RPP-RPD}
+\caption{Pianificazione oraria RP-RQ}
 \end{center}
 \end{table}
 \vspace{0.5cm}
 
-\bo{Ore totali:} 167.\\
+\bo{Ore totali:} 355.\\
 
-\bo{Costo previsto per il periodo RPP-RPD:} \euro\ 3437.
+\bo{Costo previsto per il periodo RR-RP:} \euro\ 6250.
 
 \vspace{0.8cm}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=17.2cm, angle=0]{img/PP/RPP-RPD.png}
-\caption{Distribuzione ore RPP-RPD}
+  \includegraphics[width=17.2cm, angle=0]{img/PP/RP-RQ.png}
+\caption{Distribuzione ore RP-RQ}
 \end{figure}
 \newpage
 
 
+In questo periodo verr\`a suddiviso il lavoro come riportato nella tabella
+sottostante:
 
-\subsection{RPD - RQ}
-
-\vspace{0.5cm}
-\bo{Responsabile:} Trezzi Giovanni\\
-
-\bo{Amministratore:} Caputo Cosimo
-
-\vspace{1cm}
-\begin{table}[h]
+\begin{table}[h!]
 \begin{center}
-\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\begin{tabular}{|p{0.17\textwidth}|c|c|c|c|c|}
 \hline
 & \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
-\bo{Anl.}\cellcolor{orange} & \bo{Proget.}\cellcolor{orange} &
-\bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
-Totali}\cellcolor{orange} \\ \hline
+\bo{Proget.}\cellcolor{orange} & \bo{Program.}\cellcolor{orange} &
+\bo{Verif.}\cellcolor{orange} \\ \hline
 
-\bo{Baron}\cellcolor{orange}    &    &    &    &  8 & 15 &  5 & 28 \\ \hline
-\bo{Caputo}\cellcolor{orange}   &    & 14 &    &    & 16 &  3 & 33 \\ \hline
-\bo{Daminato}\cellcolor{orange} &    &    &    &  8 & 20 &    & 28 \\ \hline
-\bo{Lovato}\cellcolor{orange}   &    &    &    &  4 & 21 &  8 & 33 \\ \hline
-\bo{Mandolo}\cellcolor{orange}  &    &    &    &  8 & 18 &  4 & 30 \\ \hline
-\bo{Palazzin}\cellcolor{orange} &    &    &    &  4 & 18 &  8 & 30 \\ \hline
-\bo{Trezzi}\cellcolor{orange}   &  9 &    &    &  3 & 16 &  2 & 30 \\ \hline
+\cellcolor{orange}&&&Baron(10) &&\\
+\bo{Progettazione}\cellcolor{orange}&&&Daminato(15) &&\\
+\bo{di Dettaglio 1}\cellcolor{orange}&&&Lovato(15) &&\\
+\cellcolor{orange}&&&Palazzin(5) &&\\
+\cellcolor{orange}&&&Trezzi(10)&&\\ \hline
+
+\cellcolor{orange}&&&&Caputo(15) &\\
+\cellcolor{orange}&&&&Daminato(15) &\\
+\bo{Codifica 1}\cellcolor{orange}&&&&Mandolo(5)&\\
+\cellcolor{orange}&&&& Palazzin(10) &\\
+\cellcolor{orange}&&&&Trezzi(20)&\\ \hline
+
+\bo{Progettazione}\cellcolor{orange}&&&Caputo(15) &&\\
+\bo{di Dettaglio 2}\cellcolor{orange}&&&Mandolo(10) &&\\
+\cellcolor{orange}&&&Palazzin(10)&&\\ \hline
+
+\cellcolor{orange}&&&&Baron(5) &\\
+\bo{Codifica 2}\cellcolor{orange}&&&&Lovato(10)&\\
+\cellcolor{orange}&&&& Mandolo(15)&\\ \hline
+
+\bo{Inizio Test}\cellcolor{orange}&&&&&Baron(15) \\
+\bo{di Qualifica}\cellcolor{orange}&&&&&Lovato(17) \\
+\cellcolor{orange}&&&&&Trezzi(13)\\ \hline
+
+\bo{Agg. PP (v3)}\cellcolor{orange}  & Trezzi(8) & Daminato(4) &  & & \\ \hline
+\bo{Agg. PQ (v3)}\cellcolor{orange}  &  &  &  & &Daminato(6) \\ \hline
+\bo{Agg. PQ (v4)}\cellcolor{orange}  &  &  &  & &Caputo(8) \\ \hline
+
+\cellcolor{orange}&&&&Baron(5)&\\
+\bo{Manuale}\cellcolor{orange}&&&& Caputo(5) &\\
+\bo{Utente (v1)}\cellcolor{orange}&&&&Daminato(5) &\\
+\cellcolor{orange}&&&&Palazzin(5)&\\ \hline
+
+\bo{Correzione}\cellcolor{orange}&&&Palazzin(5)&&Mandolo(5)\\
+\bo{docum. RP}\cellcolor{orange}&&&&&\\\hline
+
+\cellcolor{orange}&&&&&Baron(15)\\
+\cellcolor{orange}&&&&& Caputo(8) \\
+\bo{Verifica}\cellcolor{orange}&&&&&Daminato(6) \\
+\cellcolor{orange}&&&&&Mandolo(11) \\
+\cellcolor{orange}&&&&&Palazzin(15)\\ \hline
+
+\bo{Controllo e}\cellcolor{orange}&Mandolo(5)&&&&\\
+\bo{Gestione}\cellcolor{orange}&&&&&\\ \hline
+
+\bo{Gestione}\cellcolor{orange}&&Lovato(9)&&&\\
+\bo{strumentaz.}\cellcolor{orange}&&&&&\\ \hline
 
 \end{tabular}
-\caption{Pianificazione oraria RPD-RQ}
+\caption{Ripartizione ruoli e attivit\`a RP-RQ}
 \end{center}
 \end{table}
-\vspace{0.5cm}
 
-\bo{Ore totali:} 212.\\
+Durante la Progettazione di Dettaglio verr\`a stesa la Definizione di
+Prodotto.\\
+Inizieranno i Test e verr\`a creata una versione preliminare del Manuale Utente.
 
-\bo{Costo previsto per il periodo RPD-RQ:} \euro\ 3630.
-
-\vspace{0.8cm}
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=17.2cm, angle=0]{img/PP/RPD-RQ.png}
-\caption{Distribuzione ore RPD-RQ}
-\end{figure}
 \newpage
 
 
 \subsection{RQ - RA}
 
 \vspace{0.5cm}
-\bo{Responsabile:} Mandolo Andrea\\
+Periodo compreso tra la RQ (07/03/2011) e la RA (primo appello).
 
-\bo{Amministratore:} Lovato Daniele
-
-\vspace{1cm}
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|l|c|c|c|c|c|c|c|}
@@ -397,13 +483,13 @@ Totali}\cellcolor{orange} \\ \hline
 \bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
 Totali}\cellcolor{orange} \\ \hline
 
-\bo{Baron}\cellcolor{orange}    &    &    &    &    &  3 & 18 & 21 \\ \hline
-\bo{Caputo}\cellcolor{orange}   &    &    &    &    &  6 & 15 & 21 \\ \hline
-\bo{Daminato}\cellcolor{orange} &    &    &    &    &  4 & 18 & 22 \\ \hline
-\bo{Lovato}\cellcolor{orange}   &    & 13 &    &    &    & 11 & 24 \\ \hline
-\bo{Mandolo}\cellcolor{orange}  & 10 &    &    &    &    & 15 & 25 \\ \hline
-\bo{Palazzin}\cellcolor{orange} &    &    &    &    &  7 & 16 & 23 \\ \hline
-\bo{Trezzi}\cellcolor{orange}   &    &    &    &    &  4 & 18 & 22 \\  \hline
+\bo{Baron}\cellcolor{orange}    &   &    &    &    & 15& 5 & 20 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &  6&    &    &    &  5& 8 & 19 \\ \hline
+\bo{Daminato}\cellcolor{orange} &   &    &    &    &   &19 & 19 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &   &    &    &  5 & 10& 4 & 19 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  &   &    &    &    & 10& 9 & 19 \\ \hline
+\bo{Palazzin}\cellcolor{orange} &   &    &    &    &   &20 & 20 \\ \hline
+\bo{Trezzi}\cellcolor{orange}   &   &   9&    &    & 10&   & 19 \\  \hline
 
 \end{tabular}
 \caption{Pianificazione oraria RQ-RA}
@@ -411,9 +497,9 @@ Totali}\cellcolor{orange} \\ \hline
 \end{table}
 \vspace{0.5cm}
 
-\bo{Ore totali:} 158.\\
+\bo{Ore totali:} 135.\\
 
-\bo{Costo previsto per il periodo RQ-RA:} \euro\ 2585.
+\bo{Costo previsto per il periodo RQ-RA:} \euro\ 2195.
 
 \vspace{0.8cm}
 \begin{figure}[htbp]
@@ -423,12 +509,69 @@ Totali}\cellcolor{orange} \\ \hline
 \end{figure}
 \newpage
 
+In questo periodo verr\`a suddiviso il lavoro come riportato nella tabella
+sottostante:
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|p{0.17\textwidth}|c|c|c|c|c|}
+\hline
+& \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
+\bo{Proget.}\cellcolor{orange} & \bo{Program.}\cellcolor{orange} &
+\bo{Verif.}\cellcolor{orange} \\ \hline
+
+\cellcolor{orange}&&&&& Daminato(10)\\
+\bo{Test Qualifica}\cellcolor{orange}&&&&& Caputo(8) \\
+\cellcolor{orange}&&&&& Palazzin(12)\\ \hline
+
+\bo{Manuale}\cellcolor{orange}&&&& Baron(15)  &\\
+\bo{Utente (v2)}\cellcolor{orange}&&&& Lovato(10) &\\
+\bo{ITA}\cellcolor{orange}&&&& Trezzi(10) & \\ \hline
+
+\bo{Manuale}\cellcolor{orange}&&&& Caputo(5)&\\
+\bo{Utente (v2)}\cellcolor{orange}&&&&  Mandolo(10)&\\
+\bo{ENG}\cellcolor{orange}&&&&&\\ \hline
+
+\bo{Agg. PQ (v5)}\cellcolor{orange}  &  &  &  & & Daminato(5) \\
+\cellcolor{orange}&&&&&Palazzin(5)\\ \hline
+
+\bo{Correzione}\cellcolor{orange}&&&Palazzin(5)&&Baron(5)\\
+\bo{docum. RQ}\cellcolor{orange}&&&&&\\\hline
+
+\cellcolor{orange}&&&&& Daminato(4) \\
+\bo{Verifica}\cellcolor{orange}&&&&& Lovato(4) \\
+\cellcolor{orange}&&&&& Mandolo(9) \\
+\cellcolor{orange}&&&&& Palazzin(3)\\ \hline
+
+\bo{Controllo e}\cellcolor{orange}&Caputo(6)&&&&\\
+\bo{Gestione}\cellcolor{orange}&&&&&\\ \hline
+
+\bo{Gestione}\cellcolor{orange}&&Trezzi(9)&&&\\
+\bo{strumentaz.}\cellcolor{orange}&&&&&\\ \hline
+
+\end{tabular}
+\caption{Ripartizione ruoli e attivit\`a RQ-RA}
+\end{center}
+\end{table}
+
+Verr\`a inoltre fatt\`a internamente la validazione del sistema per verificare
+che vengano soddisfatti tutti i requisiti e che il prodotto realizzato sia
+quello atteso.\\
+\\
+Durante la RA, insieme al committente, verr\`a eseguito il
+collaudo formale del prodotto.\\
+\\
+Dettagli pi\`u specifici di come avverr\`a la qualifica del prodotto sono
+presenti nel Piano Di Qualifica.
+
+\newpage
+
 
 \section{Costi complessivi}
 
 \vspace{0.5cm}
 In tutto il periodo di sviluppo del software, verranno complessivamente usate
-693 ore per un costo totale di \euro\ 13.119,00.
+735 ore per un costo totale di \euro\ 13.460,00.
 
 \vspace{0.3cm}
 \begin{table}[h]
@@ -440,13 +583,13 @@ In tutto il periodo di sviluppo del software, verranno complessivamente usate
 \bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
 Totali}\cellcolor{orange} \\ \hline
 
-\bo{Baron}\cellcolor{orange}    &  0 & 15 &  7 & 24 & 25 & 28 & 99 \\ \hline
-\bo{Caputo}\cellcolor{orange}   &  0 & 14 &  9 & 23 & 22 & 31 & 99 \\ \hline
-\bo{Daminato}\cellcolor{orange} & 12 &  0 &  7 & 27 & 24 & 29 & 99 \\ \hline
-\bo{Lovato}\cellcolor{orange}   &  0 & 13 & 10 & 26 & 24 & 26 & 99 \\ \hline
-\bo{Mandolo}\cellcolor{orange}  & 10 &  0 & 10 & 27 & 26 & 26 & 99 \\ \hline
-\bo{Palazzin}\cellcolor{orange} & 12 &  0 & 10 & 23 & 25 & 29 & 99 \\ \hline
-\bo{Trezzi}\cellcolor{orange}   &  9 & 13 &  7 & 22 & 22 & 26 & 99 \\ 
+\bo{Baron}\cellcolor{orange}    &  8 &  0 & 12 & 25 & 25 & 35 & 105 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &  6 & 14 &  0 & 30 & 25 & 30 & 105 \\ \hline
+\bo{Daminato}\cellcolor{orange} & 10 &  4 & 10 & 30 & 20 & 31 & 105 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &  0 &  9 &  4 & 30 & 20 & 42 & 105 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  &  5 &  0 &  0 & 25 & 30 & 45 & 105 \\ \hline
+\bo{Palazzin}\cellcolor{orange} &  0 &  7 &  0 & 30 & 15 & 53 & 105 \\ \hline
+\bo{Trezzi}\cellcolor{orange}   &  8 &  9 &  4 & 25 & 30 & 29 & 105 \\ 
 \hline
 
 \end{tabular}
@@ -458,13 +601,11 @@ Totali}\cellcolor{orange} \\ \hline
 Riportiamo qui di seguito un grafico che illustra la ripartizione dei ruoli
 sul conto di ore totale.\\
 
-
-
 \vspace{0cm}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=17.2cm, angle=0]{img/PP/totale.png}
-\caption{Grafico ripartizione ruoli su ore totali}
+  \includegraphics[width=17.2cm, angle=0]{img/PP/RUOLI.png}
+\caption{Ripartizione ruoli su ore totali}
 \end{figure}
 
 \vspace{0.8cm}
@@ -472,8 +613,34 @@ sul conto di ore totale.\\
 Vogliamo fare un piccolo appunto riguardo l'esigua fetta di tempo dedicata
 all'analisi. La nostra contabilizzazione economica parte dalla consegna dei documenti per 
 la RR (20 Dicembre 2010), momento in cui la parte pi\`u importante dell'analisi \`e stata fatta.
-L'analisi che viene riportata in questo grafico \`e conseguenza delle
-rivisitazioni dovute alle eventuali variazioni che possono presentarsi alla RR.\\ 
+L'analisi che viene riportata in questo grafico fa parte delle
+rivisitazioni dei requisiti dopo la RR.\\
+\newpage
+
+Questo grafico riporta, in percentuale, il costo dei vari ruoli sul costo totale
+del progetto.
+
+\vspace{0cm}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/COSTI.png}
+\caption{Ripartizione costi per ruolo su costo totale}
+\end{figure}
+\vspace{0.5cm}
+
+Qui di seguito riportiamo la ripartizione oraria per risorsa dei ruoli.
+
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/RISORSE.png}
+\caption{Ripartizione oraria per risorsa dei ruoli}
+\end{figure}
+\vspace{0.5cm}
+
+
+
+
 
 \chapter{Analisi e gestione dei rischi}
 \thispagestyle{fancy}
