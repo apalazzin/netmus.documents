@@ -1,10 +1,10 @@
 \newcommand{\nomedoc}{Norme Di Progetto}
-\newcommand{\versione}{1.1}
+\newcommand{\versione}{1.2}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
-\newcommand{\datamodifica}{12 Gennaio 2011}
+\newcommand{\datamodifica}{19 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Baron Federico\\&Palazzin Alberto}
@@ -32,8 +32,8 @@ VT.G \\
 \hline
 \endfoot
 
-18/01/2011 & 1.2 & Lovato Daniele & Aggiunto e redatto capitolo Norme per le
-fasi di Analisi,Progettazione e Codifica\\
+19/01/2011 & 1.2 & Palazzin Alberto & Aggiunto e redatto capitolo
+``Analisi e Progettazione'' e ``Norme di codifica''.\\
 \hline
 12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
 modifiche.\\
@@ -162,8 +162,7 @@ didascalia che ne dia una breve spiegazione.
 Le diverse revisioni sono indicate con:
 \begin{itemize}
 \item {RR: Revisione dei Requisiti;}
-\item {RPP: Revisione del Progetto Preliminare; }
-\item {RPD: Revisione del Progetto Definitivo;}
+\item {RP: Revisione di Progettazione; }
 \item {RQ: Revisione di Qualifica;}
 \item {RA: Revisione di Accettazione.}
 \end{itemize}
@@ -171,11 +170,12 @@ Si utilizza l'acronimo VT.G (Valter Texas Group) per qualsiasi riferimento al
 nostro gruppo di progetto.
 
 
+
 \chapter{Strumenti e tecnologie da utilizzare}
 \thispagestyle{fancy}
 Si impone a tutti i membri di VT.G di utilizzare gli stessi strumenti e
 configurazioni per qualsiasi attivit\`a di lavoro. Qui di seguito vengono
-riportati i dettagli realtivi ad ogni strumento.
+riportati i dettagli relativi ad ogni strumento.
 
 \section{IDE}
 Eclipse for \underline{Java} Developers (versione $\geq$ Helios 3.6).
@@ -218,11 +218,41 @@ utilizzare queste credenziali per continuare l'istallazione del plugin);}
 \item {installare.}
 \end{itemize}
 
-% \section{SDK per AppEngine}
-% ???
-% 
-% \section{Plugin per AppEngine}
-% ???
+\section{Plugin e SDKs di GAE e GWT per Eclipse}
+Google App Engine (versione $\geq$ 1.4.0) e Google Web Toolkit (versione $\geq$
+2.1.1).
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://dl.google.com/eclipse/plugin/3.6};}
+\item {selezionare Plugin (Google Plugin 1.4.2 for Eclipse 3.6) e SDKs (Google
+App Engine Java SDK 1.4.0 e Google Web Toolkit SDK 2.1.1) dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
+
+\section{JavaFX}
+JavaFX SDK (versione 1.2.1).
+\\
+Scarica e installa la versione 1.2.1 dal link \\
+\url{http://www.oracle.com/technetwork/java/javafx/downloads/previous-jsp-137062.html}.
+
+\section{Plugin JavaFX per Eclipse}
+JavaFX Feature (versione 1.2.1).
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://javafx.com/downloads/eclipse-plugin};}
+\item {selezionare l'unico file dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
 
 \section{Latex}
 \begin{itemize}
@@ -254,12 +284,20 @@ operazioni:
 \item {installare.}
 \end{itemize} 
 
-\section{UML}
-ArgoUML (versione $\geq$ 0.30.2) configurato per \underline{UML} 2.x. 
+\section{Plugin UML per Eclipse}
+Papyrus (versione $\geq$ 0.7.2). 
 \\
-Scarica e installa dal link
-\url{http://argouml-downloads.tigris.org/argouml-0.30.2/}. Per eseguirlo utilizzare ``argouml2.sh'' (o ``.exe''), file presente dentro la
-directory del programma.
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire} \\
+{\url{http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/helios};}
+\item {selezionare ``Papyrus UML MDT'' dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
 
 \section{Gantt}
 GanttProject (versione $\geq$ 2.0.10). 
@@ -267,40 +305,97 @@ GanttProject (versione $\geq$ 2.0.10).
 Scarica e installa dal link
 \url{http://www.ganttproject.biz/download}.
 
-\chapter{Norme per le fasi di Analisi, Progettazione e Codifica}
+
+\chapter{Pianificazione, ticketing e \\time-tracking}
+\thispagestyle{fancy}
+Per fare pianificazione verranno utilizzati i diagrammi di Gantt e nello
+specifico lo strumento GanttProject (per maggiori dettagli vedi sezione 4.11). 
+\\Il tracciamento delle ore di lavoro per ogni componente verr\`a eseguito
+tramite un progetto di GanttProject appositamente condiviso e accessibile da ognuno (non concorrentemente). Questo permetter\`a anche un comodo confronto con la
+gestione delle risorse pianificata nel \emph{PianoDiQualifica-1.0.pdf}.
+Il ticketing sar\`a utilizzato tramite gli appositi strumenti forniti da Google
+Code.
+
+
+\chapter{Analisi e Progettazione}
 \thispagestyle{fancy} 
-\section{Norme per l'Analisi dei Requisiti}
-Nell'analisi dei requisiti \`e stato utilizzato il linguaggio UML per la
-modellazione delgli Use Case. \\
-UML \`e stato scelto poich\`e adottato come standard per la scrittura dei Casi
-D'uso.\\ La tecnologia utilizzata per la scrittura in UML \`e citata chiaramente
-nel capitolo 4.7.\\
-L'individuazione e il tracciamento dei requisiti \`e stata effettuata
-analizzando a fondo i requisiti esposti nel capitolato d'appalto, e integrati
-poi con i requisiti emersi dall'incontro effettuato con il proponente
-trascritto nel documento Verbale-1.0.pdf.\\ Ricercando e testando programmi concorrenti simili a NetMus presenti nella rete globale, quali GrooveShark e LastFM, sono stati focalizzati nuovi requisiti che migliorano o integrano alcune funzioni di questi, così da redarre un'analisi
- dei requisiti pi\`u dettagliata.\\
-  L'Analisi dei Requisiti \`e stata svolta tenendo presenti le esigenze di un qualunque utente che possa usufruire di NetMus.
 
-\section{Norme per la Progettazione} 
+Per l'analisi dei requisiti e per la progettazione si utilizzer\`a il linguaggio
+UML (versione 2.0) perch\`e adottato come standard nella modellazione e
+scrittura dei diagrammi: Use case, di flusso, dei package, delle classi, degli
+oggetti, di attivit\`a e di sequenza. 
+\\
+La tecnologia e gli strumenti utilizzati per la scrittura in UML
+sono specificati chiaramente nella sezione 4.10.
 
-\section{Norme per la Codifica}
-Per la fase finale dello sviluppo del progetto, ossia per la codifica, sono state scelte tecnologie quali 
-Eclipse per la programmazione Java con plugin di GAE per il Cloud Computing, per
-la componente di Visualizzazione del Catalogo Multimediale.\\ Eclipse \`e stato
-scelto come editor poichè tra i migliori nella rete per la programmazione Java,
-oltre ad essere gi\`a stato ampiamente utilizzato da ognuno dei membri nel corso
-di studi.\\ Inoltre eclipse offre plugin per GAE e GWT, e quindi offre un'unica
-interfaccia per le tecnologie sfruttate.\\ Google App Engine \`e il più rinomato
-software per il cloud Computing, e come scritto nello studio di Fattibilit\`a
-desta interesse per tutti i membri del gruppo, con ore di formazione gratuite
-fornite da uno dei proponenti del capitolato.\\
-Usare come riferimento la sezione 4.1  per queste tecnologie.\\
-Per la codifica della componente di Estrazione delle informazioni \`e stata
-scelta la tecnologia JavaFX.\\
-Questa tecnologia \`e stata suggerita dal proponente nel capitolato d'appalto, e
-tra i vari test effettuati con altre tecnologie per lo sviluppo di Rich Internet Application \`e stato concordato come JavaFX sia la tecnologia migliore per lo sviluppo di questa componente.
+\section{Individuazione e tracciamento dei requisiti}
+L'individuazione e il tracciamento dei requisiti si effettueranno analizzando a
+fondo i requisiti esposti nel capitolato d'appalto e quelli emersi nell'incontro effettuato con il proponente (vedi documento \emph{Verbale-1.0.pdf}).
+\\
+Per identificare in modo univoco e significativo ognuno dei requisiti software
+estratti dall'analisi, gli viene assegnato un codice.
+La lista dei requisiti sar\`a presente solamente nel documento
+\emph{AnalisiDeiRequisiti-1.0.pdf} mentre in tutti gli altri verranno riferiti tramite il codice suddetto.
+\\
+\\
+(C1/C2)(F/Q/I/V)(N/D/O)-n1.n2.n3...nx\\
+C1 = componente 1 (componente di persistenza e visualizzazione)\\
+C2 = componente 2 (componente di recupero delle informazioni dei brani
+musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
+F = funzionale\\
+Q = qualit\`a\\
+I = interfacciamento\\
+V = vincolo\\
+N = obbligatorio (necessario)\\
+D = desiderabile\\
+O = opzionale\\
+nx = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di un
+requisito avranno una cifra in pi\`u del genitore.
 
+
+\chapter{Norme di Codifica}
+\thispagestyle{fancy} 
+Per la fase di codifica del progetto \`e stato scelto innanzitutto l'ambiente
+integrato di sviluppo Eclipse perch\`e supporta sia la programmazione Java
+sia la possibilit\`a  di installare eventuali plugin per interfacciarsi con
+altre tecnologie (per maggiori dettagli vedi sezione 4.1).\\
+Per la componente di visualizzazione del Catalogo
+Multimediale sono stati scelti i plugin di GAE e di GWT oltre i relativi SDKs
+(per maggiori dettagli vedi sezione 4.5).\\ 
+Per la codifica della componente di estrazione delle informazioni \`e stata
+scelta la tecnologia JavaFX. Questa tecnologia \`e stata sia suggerita dal
+proponente nel capitolato d'appalto sia risultata una delle tecnologie migliori
+per lo sviluppo delle RIA (per maggiori dettagli vedi sezione 4.6 e 4.7).
+\\ \\
+Per cercare di semplificare la verificabilit\`a, migliorare la
+manutenibilit\`a e massimizzare la portabilit\`a si deve rendere il codice
+scritto pi\`u leggibile possibile.\\
+Per fare questo nel codice si dovr\`a utilizzare un tool automatico gi\`a
+installato dentro Eclipse che genera documentazione API in HTML a partire da codice sorgente Java
+e pi\`u precisamente usando il comando ``Generate Javadoc''; mentre nel progetto
+si dovr\`a strutturare nella maniera pi\`u semplice e coerente i moduli, i file,
+le directory, ecc. .\\
+Inoltre si dovr\`a cercare di scrivere meno linee di codice possibile e non
+usare l'identazione con il TAB (poco portabile) ma utilizzare gli spazi.
+\\ \\
+Ogni classe Java dovr\`a avere la sua intestazione contenente:
+\begin{itemize}
+  \item {Dati dell'unit\`a: tipo, contenuto, posizione;}
+  \item {Responsabilit\`a: autore, reparto, organizzazione;}
+  \item {Copyright / copyleft: licenze, visibilit\`a;}
+  \item {Avvertenze: limiti di uso e di garanzia;}
+  \item {Registro modifiche: storia, spiegazione, versione.} 
+\end{itemize}
+Ogni programmatore dovr\`a:
+\begin{itemize}
+  \item{consegnare codice che compila senza errori fatali o
+potenziali (warning);} 
+  \item{aver utilizzato con chiarezza e coerenza i costrutti del
+linguaggio;}
+  \item{aver utilizzato un sottoinsieme appropriato del linguaggio
+(preferire i costrutti di maggiore robustezza, verificabilit\`a e leggibilit\`a
+rispetto quelli di maggiore potenza espressa e velocit\`a).}
+\end{itemize}
 
 \chapter{Repository e Versionamento}
 \thispagestyle{fancy}
@@ -358,38 +453,6 @@ effettuate, all'interno di ciascun documento deve essere sempre
 presente un registro dettagliato delle modifiche (a partire da
 pagina II prima dell'indice). Questo permette di evidenziare la data
 d'introduzione della modifica, il numero di versione raggiunto e l'autore di tale modifica.
-
-\chapter{Tracciamento dei requisiti}
-\thispagestyle{fancy}
-Per identificare in modo univoco e significativo ognuno dei requisiti software
-estratti dall'analisi fatta dai membri di VT.G, gli viene assegnato un codice.
-La lista dei requisiti sar\`a presente solamente nel documento
-\emph{AnalisiDeiRequisiti-1.0.pdf} mentre in tutti gli altri verranno riferiti tramite il codice suddetto.
-\\
-\\
-(C1/C2)(F/Q/I/V)(N/D/O)-n1.n2.n3...nx\\
-C1 = componente 1 (componente di persistenza e visualizzazione)\\
-C2 = componente 2 (componente di recupero delle informazioni dei brani
-musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
-F = funzionale\\
-Q = qualità\\
-I = interfacciamento\\
-V = vincolo\\
-N = obbligatorio (necessario)\\
-D = desiderabile\\
-O = opzionale\\
-nx = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di un
-requisito avranno una cifra in pi\`u del genitore.
-\\
-
-\chapter{Ticketing e time-tracking}
-\thispagestyle{fancy}
-Il tracciamento delle ore di lavoro per ogni componente verr\`a eseguito tramite
-un progetto di GanttProject appositamente condiviso e accessibile da ognuno
-(non concorrentemente). Questo permetter\`a anche un comodo confronto con la
-gestione delle risorse pianificata nel \emph{PianoDiQualifica-1.0.pdf}.
-Il ticketing sar\`a utilizzato tramite gli appositi strumenti forniti da Google
-Code.
 
 
 \chapter{Riunioni e incontri}
