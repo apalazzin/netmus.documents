@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano Di Progetto}
-\newcommand{\versione}{1.1}
+\newcommand{\versione}{1.2}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\versioneAR}{1.0}
@@ -33,6 +33,9 @@ VT.G \\
 \endhead
 \hline
 \endfoot
+19/01/2011 & 1.2 & Lovato Daniele & Perfezionata Analisi dei Rischi e aggiunta
+sezione dei rischi rilevati nella fase RR-RP.\\
+\hline
 12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
 modifiche.\\
 \hline
@@ -482,13 +485,19 @@ progetto.\\
 Nonostante il nostro gruppo non abbia ancora una visione completa e dettagliata del 
 progetto, i rischi che abbiamo individuato sono riportati nelle seguenti sezioni.
 
-\section{Indisposizione dei membri del gruppo}
+\section{Elenco dei rischi maggiori}
+
+\subsection{Indisposizione dei membri del gruppo}
 \bo{Grado di pericolosit\`a}: alto\\
 Per i componenti del VT.G questo progetto \`e una delle prime esperienze nel campo della progettazione software in dettaglio. 
 La disponibilit\`a dei membri \`e perci\`o uno dei rischi maggiori. 
 Assenze causate da problematiche fisiche (malattie, incidenti e imprevisti vari) comporterebbero gravi perdite 
 di tempo per tutti gli altri membri e conseguenti ritardi nell'avanzamento del
 lavoro.\\
+La Proabilità di occorrenza di questo rischio è direttamente proporzionale alla
+frequenza con cui questi incontri si svolgono. 
+Si può affermare che la minor frequenza di riunioni è una conseguenza dell'indisposizione di alcuni membri.
+Ad ogni modo la probabilit\`a stimata \`e del 30\%.\\
 \\
 Ogni componente \`e tenuto a confermare in modo tempestivo la propria presenza
 prima di ogni nuovo incontro. I componenti di VT.G risiedono in differenti zone
@@ -497,11 +506,12 @@ a tutti tempestivamente. Ritardi e/o assenza causa trasporti sono difficilmente
 gestibili, ma \`e possibile svolgere delle conferenze da casa tramite il
 software di videoconferenza Skype.
 
-\section{Conoscenza delle Tecnologie Utilizzate}
+\subsection{Conoscenza delle Tecnologie Utilizzate}
 \bo{Grado di pericolosit\`a}: medio\\
 Per la maggior parte dei membri del gruppo questo progetto \`e il primo approccio con tecnologie come GAP, 
 perci\`o almeno inizialmente questo sistema potrebbe risultare problematico e
 creare ritardi nello sviluppo.\\
+La Probabilit\`a di occorrenza \`e stata stimata del 20\%.\\
 \\ 
 \`E stato concordato che ogni membro potr\`a seguire un corso proposto
   dall'azienda di un altro capitolato, quindi le basi per l'utilizzo di questo
@@ -514,7 +524,7 @@ creare ritardi nello sviluppo.\\
   \underline{SQL} (trattato sufficientemente nel nostro corso di studio), usato
   da \underline{Google Datastore}.
 
-\section{Usabilit\`a del Prodotto}
+\subsection{Usabilit\`a del Prodotto}
 \bo{Grado di pericolosit\`a}: basso\\
 Il sistema NetMus \`e un buon prodotto di catalogazione e visualizzazione delle
 proprie preferenze musicali, ma spesso i lettori Mp3 che di per s\`e sono gi\`a
@@ -523,16 +533,20 @@ catalogo multimediale, aggiornato e ordinato. Inoltre sono presenti altri
 software simili a NetMus distribuiti sul web come ad esempio LastFM, molto
 famoso e utilizzato nella rete. Ci potrebbe ridurre il numero di utenti disposti
 ad utilizzare il sistema NetMus.\\
+La Probabilita' di occorrenza del rischio e molto variabile, dipendente
+sopratutto da come viene svolto il lavoro nelle varie fasi. Ad ogni modo si
+stima una probabilita' di occorrenza pari al 33\%.\\
 \\
 Una possibile soluzione \`e quella di decorare il progetto con delle
 innovative funzionalit\`a, cos\`\i\ da riuscire ad attirare un maggior numero di clienti.
 
-\section{Strumenti d'Utilizzo}
+\subsection{Strumenti d'Utilizzo}
 \bo{Grado di pericolosit\`a}: medio\\
 Altro fattore di rischio identificato \`e l'utilizzo delle strumentazioni adatte. 
 Tutti i membri devono utilizzare le stesse strumentazioni e avere le stesse possibilit\`a nel lavoro. 
 Guasti hardware, impossibilit\`a di connettersi alla rete \underline{Internet},
 mancanza di strumentazioni software adatte comportano ritardi, incompatibilit\`a e sopratutto confusione. \\
+La Probabilit\`a di occorrenza \`e del 40\%.\\
 \\
 Ogni membro del gruppo, 
 rispettando quanto scritto nel documento
@@ -541,18 +555,31 @@ strumentazione software adatta prima dell'inizio del lavoro. In caso di problemi
 pi\`u complessi ogni membro \`e invitato a comunicare il fatto
 all'amministratore che cercher\`a una soluzione idonea.
 
-\section{Informazioni Aggiuntive sui Brani Musicali}
+\subsection{Informazioni Aggiuntive sui Brani Musicali}
 \bo{Grado di pericolosit\`a}: medio\\
 I file Mp3 da cui si reperiscono i brani spesso non possiedono informazioni
 complete, anzi una buona parte di questi file non contiene affatto informazioni, perci\`o la libreria virtuale 
 di un utente risulterebbe composta da molti brani senza titolo, autore e altre
 informazioni essenziali.\\
+La Probabilit\`a di occorrenza \`e del 60\%.\\
 \\
 Per rendere la libreria virtuale completa di tutte le informazioni si \`e ben pensato di implementare una 
 funzione di ricerca automatica nel server dai record di tutti i brani registrati, cos\`\i\ da completare 
 quelli incompleti. Nei casi estremi inoltre sar\`a resa possibile una funzione
 di inserimento delle informazioni manualmente.
 
+\section{Rischi nella fase RR - RP}
+Il rischio maggiore che il gruppo ha dovuto affrontare in questa fase \`e stato il
+dover correggere e rivedere alcuni documenti per intero. Ci\`o non ha gravato
+sul monte ore totali, infatti come si può vedere dal Piano di Progetto era già
+stato previsto un ritorno sui documenti dopo l'ingresso in Revisione dei
+Requisiti. Perci\`o il rischio non \`e stato rilevato.\\
+\\
+Il grado di pericolosit\`a del rischio esposto al paragrafo 5.1.2 si \`e
+ridotto. Ci\`o \`e dettato dal fatto che i membri hanno potuto avere una prima
+esperienza personale con i tutorial di App Engine e con un Corso tenuto da un'esterno. 
+La probabilità di occorrenza del rischio \`e comunque alta.\\
+\\
 % \chapter{Consuntivo}            da RR in poi
 % \thispagestyle{fancy}
 
