@@ -1,9 +1,9 @@
 
-\newcommand{\nomedoc}{Modello}
-\newcommand{\versione}{1.2}
+\newcommand{\nomedoc}{Specifica Tecnica}
+\newcommand{\versione}{0.1}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
-\newcommand{\nomefile}{modello-\versione.pdf}
+\newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
 \newcommand{\datamodifica}{21 Gennaio 2011}
 \newcommand{\stato}{formale}
@@ -32,25 +32,8 @@ VT.G \\
 \endhead
 \hline
 \endfoot
-12/01/2011 & 1.2 & Mandolo Andrea & Corretti Riferimenti.\\ 
-\hline
-12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
-modifiche.\\ 
-\hline
-18/12/2010 & 1.0 & Mandolo Andrea & Controllo per consegna RR.\\
-\hline
-18/12/2010 & 0.4 & Mandolo Andrea & Inserite istruzioni comuni nel preambolo,\\
-&&& sistemata impaginazione parte comune, \\
-&&&indice lungo, correzione errori.\\
-\hline
-09/12/2010 & 0.3 & Mandolo Andrea & Sistemato layout fondo pagina,\\
-&&& aggiunti contenuti comuni.\\
-\hline
-03/12/2010 & 0.2 & Mandolo Andrea & Rinominato file, dimensione caratteri
-12pt,\\
-&&&aggiunti alcuni contenuti comuni.\\
-\hline
-03/12/2010 & 0.1 & Mandolo Andrea & Stesura prima versione di modello.\\
+
+21/01/2011 & 0.1 & Mandolo Andrea & Creato documento iniziale.\\
 
 \end{longtable}
 
@@ -58,7 +41,7 @@ modifiche.\\
 \tableofcontents
 
 \chapter*{Sommario}
-Questo documento e' il modello per tutti gli altri documenti.
+-- da compilare --
 
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -70,10 +53,26 @@ Questo documento e' il modello per tutti gli altri documenti.
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
 
 \section{Scopo del documento}
-Scopo del modello \`e fare da modello per gli altri documenti.
+Lo scopo della Specifica Tecnica \`e quello di illustrare le scelte progettuali
+che il gruppo ha deciso di seguire nella realizzazione del prodotto. Viene
+presentata, pur restando ad alto livello, la gerarchia dei package, delle loro
+connessioni e delle principali classi di cui essi si compongono.
 
 \input{parte_comune.tex}
 
-% INIZIO CAPITOLO 2
+\chapter{Definizione del Prodotto}
+\section{Metodo e formalismo di specifica}
+\section{Presentazione dell'architettura generale del sistema e identificazione
+dei componenti architetturali di alto livello}
+
+\chapter{Descrizione dei singoli componenti}
+\section{Tipo, obiettivo e funzione del componente}
+\section{Relazioni d'uso di altre componenti}
+\section{Interfacce con e relazioni di uso da altre componenti}
+\section{Attivit\`a svolte e dati trattati}
+
+\chapter{Stime di fattibilit\`a e di bisogno di risorse}
+
+\chapter{Tracciamento della relazione componenti - requisiti}
 
 \end{document}
