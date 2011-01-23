@@ -5,7 +5,7 @@
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{21 Gennaio 2011}
+\newcommand{\datamodifica}{23 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Baron Federico\\&Daminato Simone}
@@ -32,6 +32,10 @@ VT.G \\
 \endhead
 \hline
 \endfoot
+\hline
+23/01/2011 & 1.6 & Baron Federico & Aggiornamento del tracciamento con i nuovi
+codici degli use-cases. Leggera modifica dei capitoli 2.4 e 2.5.
+\\
 \hline
 21/01/2011 & 1.5 & Mandolo Andrea & Corretti Riferimenti.
 \\
@@ -127,12 +131,12 @@ a 12 anni, ma in particolare adolescenti e adulti dai 15 ai 35 anni.
 
 \subsection{Piattaforma d'esecuzione e interfacciamento con l'ambiente di
 installazione e uso}
-Il prodotto finale utilizzer\`a diverse tecnologie (in particolare: \underline{Java}, GAE e
-GWT) che renderanno possibile l'utilizzo del sistema su pi\`u piattaforme
-d'esecuzione con sistemi operativi diversi, i cui unici due requisiti
+Il prodotto finale utilizzer\`a diverse tecnologie (in particolare:
+\underline{Java}, GAE, GWT e \underline{JavaFX}) che renderanno possibile
+l'utilizzo del sistema su pi\`u piattaforme d'esecuzione con sistemi operativi diversi, i cui unici due requisiti
 fondamentali saranno di possedere una connessione ad \underline{Internet} e di aver
-installata la Java Runtime Machine. In particolare, il prodotto finale sar\`a
-testato sui principali sistemi operativi: \underline{Windows} (xp e 7), \underline{Linux} (principali e
+installata una Java Runtime Environment non obsoleta (JRE 6 Update 13 minimo).
+In particolare, il prodotto finale sar\`a testato sui principali sistemi operativi: \underline{Windows} (xp e 7), \underline{Linux} (principali e
 pi\`u diffuse distribuzioni), \underline{Mac OS X} (Snow Leopard).
 \section{Funzioni del prodotto}
 Il prodotto finale sar\`a composto da due componenti. Una componente di
@@ -162,16 +166,15 @@ Il software nel suo funzionamento e sviluppo:
   principali sistemi operativi);
   \item sar\`a sicuro per gli utenti: garantir\`a il controllo del proprio account e
   dei propri dati, e della propria privacy;
-  \item per la raccolta dei dati dei brani localmente non sar\`a necessario
-  l'accesso ad internet;
-  \item per l'aggiornamento e la visualizzazione dei propri dati online sar\`a
-  necessaria la connessione ad internet;
+  \item la visualizzazione ed l'utilizzo avverranno tramite browser,
+  sar\`a necessaria la connessione ad Internet;
   \item il manuale utente sar\`a fornito sia in italiano che in inglese.
 \end{itemize}
 
 \section{Assunzioni e dipendenze}
 Si assume che sui personal computer utilizzati dagli utenti sia gi\`a installata
-una \underline{JVM}.
+una \underline{JVM} che non sia ad una versione obsoleta. Sarà
+necessaria l'installazione di una JRE  versione 6 update 13 minimo.
 
 \section{Glossario}
 Esister\`a un unico glossario comune a tutti i documenti, contenente la
@@ -183,8 +186,8 @@ due categorie: termini e acronimi.
 \chapter{Diagramma architetturale}
 \thispagestyle{fancy}
 Per facilitare la comprensione degli use case si fornisce un diagramma
-architetturale che rappresenta ad alto livello come sar\`a strutturato l'intero
-sistema NetMus. Si evidenzia la concomitanza tra le due componenti fondamentali
+architetturale che rappresenta ad altissimo livello come sar\`a strutturato
+l'intero sistema NetMus. Si evidenzia la concomitanza tra le due componenti fondamentali
 del sistema, quella di persistenza e visualizzazione (C1) e quella di
 recupero delle informazioni (C2).
 \vspace{1cm}
@@ -464,7 +467,6 @@ all'utente dalla componente 2 per inviare le nuove informazioni musicali al
 database di NetMus.}
 \end{figure}
 
-\newpage
 \vspace*{0.5cm}
 \bo{Use case UC2.2: Inviare nuovi brani}\\\\
 \bo{Attori primari:} Utente. \\\\ 
@@ -1586,7 +1588,7 @@ di essi ma sorgono dalle richieste del capitolato o da regole di buon sviluppo
 di un progetto di Ingegneria del Software.
 Gli altri vincoli funzionali, come ad esempio C1FN-1.13 Gestione Database, non sono
 tracciati in quanto esprimono funzioni che non si potrebbero evincere da alcuno Use
-Case ma dalle richieste capitolato stesso.
+Case ma riguardano piuttosto elementi strutturali del sistema NetMus.
 
 
 \begin{table}[!h]
