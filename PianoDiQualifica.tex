@@ -92,7 +92,8 @@ le attività di verifica e validazione.
 Il presente documento fornisce le strategie di \underline{verifica} e
 \underline{validazione} che verranno attuate durante lo sviluppo del progetto al
 fine di evitare ed eventualmente correggere anomalie e/o difetti all'interno del
-sistema.
+sistema e per garantire l'insieme delle caratteristiche e proprietà che, nel
+loro complesso, rappresentano la qualità del prodotto finale.
 
 \input{parte_comune.tex}
 
@@ -104,19 +105,65 @@ sistema.
 \section{Organizzazione, pianificazione\\strategica e temporale,
 responsabilit\`a}
 
-Al fine di garantire un'elevata qualit\`a del prodotto finale, l'impegno che si
-assume \`e quello di pianificare ed effettuare una costante attivit\`a di
-verifica e validazione in tutte le fasi del progetto. Ogni singola modifica o l'insieme di pi\`u modifiche comporteranno una conseguente attivit\`a di verifica. Al fine di
+Lo scopo che ci si prefigge è quello di garantire la più alta
+\underline{qualità} possibile per quello che sarà il prodotto finale. Con lo
+scopo di garantire un'elevata qualità, verranno stabilite precise procedure di
+verifica su tutti i prodotti di ogni singola fase di lavoro, verranno indicati
+gli strumenti con i quali effettuare le operazioni di verifica e verranno
+indicate le strategie elaborate per poter operare in tal senso e ai fini di una
+corretta validazione. Ogni singola modifica o l'insieme di pi\`u modifiche
+comporteranno una conseguente attivit\`a di verifica. Al fine di
 ottimizzare tempo e risorse, le attivit\`a verranno effettuate solamente quando
 una singola o pi\`u modifiche avranno comportato differenze di tipo rilevante
-all'interno di ogni fase del progetto. Le attivit\`a di verifica saranno
-tracciate per mezzo di strumenti specifici. Sar\`a dovere di chi effettua le
-modifiche segnalare i cambiamenti ai verificatori i quali provvederanno ad
-un'ulteriore attivit\`a di verifica. La validazione dovrà avvenire
+all'interno di ogni fase del progetto. La validazione dovrà avvenire
 solamente a fronte di una precisa e meticolosa attività di verifica e nel
 rispetto di tutti i requisiti e le specifiche, senza discostarsi da
 quanto inizialmente concordato. Sar\`a dovere del responsabile accertarsi che
 tutte le attivit\`a si svolgano nelle modalit\`a descritte nel presente documento.
+\\
+\\ 
+Al fine di procedere in modo rigoroso per quanto riguarda la misurazione
+delle varie parti del progetto, verrà applicato quanto affermato all'interno
+della ISO 15939 dove la misurazione del software è un processo iterativo PDCA,
+con 4 attività principali.
+\\
+\\
+\includegraphics[height=4cm]{img/pdca.png}
+\\
+\\
+Le esigenze di misurazione verranno definite nel presente capitolo dove per ogni
+fase progettuale verranno indicate le necessità che ci si prefigge
+di soddisfare e le risorse necessarie e dispobili ai fini del processo di
+qualifica. Verranno inoltre indicati quali strumenti saranno utilizzati.
+Nel capitolo numero 3 verranno approfondite le procedure e le metriche
+relativmamente alla pianificazione della misurazione mentre nel capitolo numero
+4 verranno trattate le tecniche da utilizzare. Una volta volta terminata
+l'attività di verifica e la conseguente attività di misurazione, si procederà
+con il riportare l'esito in appendice al presente documento. A questo punto
+sulla base dei risultati si decideranno eventuali manovre correttive o
+l'accettazione del prodotto verificato secondo le misure stabilite. 
+
+
+\subsection{Feedback di valutazione}
+Per aiutare il responsabile a comprendere quali fattori posso influenzare
+positivametne o negativamente le varie fasi del progetto è stato introdotto un
+sistema di raccolta feedback su tutte le attività svolte. Ogni volta che
+qualcuno porta a termine un'attività dovrà compilare un brevissimo questionario
+relativamente ai seguenti aspetti:
+
+\begin{itemize}
+\item lavoro svolto;
+\item interazione con gli altri;
+\item strumenti utilizzati;
+\item tempo impegato;
+\end{itemize}
+
+per ciascuno di queste voci verrà data una valutazione da 1 a 10 in base alla
+propria soddisfazione. Alla fine di ogni fase di progetto verrà sviluppato un
+grafico con la media dei punteggi il quale confrontato con i risultati ottenuti
+potrà fornire ulteriori ed interessanti spunti su come correggere o
+rafforzare il modo di procedere nel lavoro.
+
 
 \subsection{Verifica della documentazione}
 
@@ -153,6 +200,22 @@ parti del progetto;
 \item possibilit\`a di manutenere ed estendere i vari elementi cos\`i come
 previsti nella progettazione del prodotto.
 
+\end{itemize}
+
+Per quanto riguarda la definizione dei requisiti software in fase progettuale
+verrà adottato il modello FURPS, elaborato inizialmente da RoberGrady presso i
+laboratori dell'Hewlwtt-Packard.
+FURPS è un acronimo mnemonico per la definizione dei requisiti di software di
+vario genere e sta a significare:
+
+
+\begin{itemize}
+
+\item F - Functionality (capacità di fornire le funzioni richieste);
+\item U - Usability (facilità d'uso dell'utenza finale);
+\item R - Reliability (gestione degli errori e dei crash);
+\item P - Performance (Prestazioni);
+\item S - Supportability (Supportabilità);
 \end{itemize}
 
 Nel caso sia necessario intervenire in maniera correttiva rispetto ad uno o
@@ -199,10 +262,25 @@ un \underline{framework} per i test specifici di unit\`a del codice, un
 applicativo software per la gestione e la risoluzione delle anomalie, un ambiente di sviluppo
 adeguato con possibilit\`a di effettuare debugging da parte dei programmatori.
 	
-\section{Strumenti tecniche e metodi}
+\section{Strumenti}
 
 Per le attivit\`a di verifica ci avvarremo dei seguenti strumenti:
 
+
+\subsection{Strumenti per la verifica della documentazione}
+DA COMPLETARE CON I VARI STRUMENTI X LA CORREZIONE DI (VEDI 2.1.1)
+
+\subsection{Strumenti per la verifica della progettazione}
+DA COMPLETARE PARLANDO DI COME COSTRUIRE UNA TABELLA CON I QUALI VERIFICARE
+(2.1.2) RELATIVAMENTE AI REQUISITI TROVATI
+
+\subsection{Strumenti per la realizzazione/programmazione}
+DA COMPLETARE
+
+\subsection{Strumenti per la progettazione}
+DA COMPLETARE\\\\
+
+(Da rimuovere, sistemare e distribuire la seguente lista)
 \begin{itemize}
 
 \item Junit: come unit test framework per il linguaggio di
@@ -261,9 +339,7 @@ singoli ticket fare riferimento al documento \emph{NormeDiProgetto-1.0.pdf} para
 
 Il verificatore che individua un'anomalia dovrà innanzitutto analizzare il
 problema per valutare l'utilizzo di tempo e risorse necessarie per risolverlo.
-Se il problema è di sua competenza e di facile risoluzione può provvedere lui
-stesso ad una correzione immediata. In seguito verrà comunicato, a chi ne ha
-competenza, il tipo e l'ubicazione dell'errore (vedi sezione 3.1.1).
+In seguito verrà comunicato, a chi ne ha competenza, il tipo e l'ubicazione dell'errore (vedi sezione 3.1.1).
 L'incaricato dovrà provvedere ad una possibile soluzione. Se il problema
 fosse particolarmente grave, sarà necessario un incontro con i membri del gruppo
 per cercare una soluzione. Qualora trovare una soluzione all'anomalia venga giudicato troppo dispendioso in termini di tempo o risorse si dovrà comunicare
@@ -307,27 +383,99 @@ che si compone di tre stadi principali:
 
 \begin{enumerate}
   
-\item Misurazione del processo: si analizza il prodotto secondo metriche
+\item misurazione del processo: si analizza il prodotto secondo metriche
 definite. Un miglioramento della valutazione secondo tali metriche è indice di
 miglioramento di processo.
-\item Analisi del processo: il processo attuale viene valutato e vengono
+\item mnalisi del processo: il processo attuale viene valutato e vengono
 identificati punti deboli e colli di bottiglia. Durante questo
 studio solitamente vengono sviluppati i modelli di processo che descrivono il
 processo stesso.
-\item Modifica del processo: vengono introdotte le modifiche al processo
+\item modifica del processo: vengono introdotte le modifiche al processo
 identificate durante l'analisi.
 
 \end{enumerate}
 
 \subsection{Metriche}
 
-Ai fini del miglioramento saranno analizzati i seguenti dati:
+Una metrica viene definita come un metodo di misura associato ad una scala di
+valutazione. Secondo il glossario IEEE una metrica è la misura quatitativa del
+grado con cui una entità possiede un determinato attributo.
+
+Ai fini della valutazione e quindi di un possibile miglioramento o
+correzione della qualità del prodotto finito, devono essere stabilite delle
+misure precise con cui misurare quantitativamente i prodotti delle varie fasi
+progettuali.\\
+\\
+\\
+TUTTE LE METRICHE DI SEGUITO SONO SOLAMENTE ELENCATE, VANNO SCELTE E DISCUSSE
+
+
+\subsection{Misure nell'analisi dei requisiti}
 
 \begin{itemize}
+  
+\item numero di requisiti;
+\item functions Points (requisiti funzionali);
+\item volatilità dei requisiti;
+
+\end{itemize}
+
+\subsection{Misure nelle specifiche}
+
+\begin{itemize}
+  
+\item numero di entità in un diagramma E/R;
+\item numero di blocchi in un Diagramma DFD;
+\item numero degli use case points;
+
+\end{itemize}
+
+
+\subsection{Misure nella progettazione}
+
+\begin{itemize}
+  
+\item numero di moduli in uno schema di progettazione;
+\item livello di coesione tra i moduli;
+\item livello di accoppiamento (copuling) tra moduli;
+\item complessità di flusso (quantità di informazioni in entrata ed uscita da
+una funzione in ragione della lungezza in LOC);
+
+\end{itemize}
+
+
+\subsection{Misure sul codice}
+
+\begin{itemize}
+  
+\item LOC linee di codice;
+\item complessità ciclomatica;
+\item misure di Halstead (1977, combinazione di 5 elementi);
+\item misure di complessità;
+\item misure object oriented;
+\item misure di coesione funzionale;
+
+\end{itemize}
+
+
+\subsection{Misure sui test}
+
+\begin{itemize}
+  
+\item livello di copertura di istruzioni;
+\item livello di copertura dei rami;
+\item livello di copertura dei percorsi di base;
+\end{itemize}
+
+
+\begin{itemize}
+  
+\subsection{Misure sui processi} 
   
 \item tempo per le attività del processo fino al suo completamento;
 \item risorse richieste dal processo o le sue attività (ad esempio le quantità
 totali di ore/persone).
+\item Soddisfazione degli Stakeholder
   
 \end{itemize}
 
@@ -373,9 +521,25 @@ indipendente, non da chi ha scritto il codice.
 
 \end{itemize}
 
+
+
 \section{Analisi Statica}
 
 
+\subsection{Tecnice d'analisi per la documentazione}
+DA COMPLETARE
+
+\subsection{Tecnice d'analisi per l'analisi}
+DA COMPLETARE (AD ESEMPIO COME SI USA LA TABELLA paragrafo 2.3.2)
+
+\subsection{Tecnice d'analisi per le specifiche}
+DA COMPLETARE
+
+\subsection{Tecnice d'analisi per la progettazione}
+DA COMPLETARE
+
+\subsection{Tecnice d'analisi sul codice}
+DA RIVEDERE\\
 L'analisi statica verrà utilizzata prevalentemente con lo scopo di sottoporre
 a verifica le singole componenti del programma e per garantire che siano  tutte
 raggiunte durante l'esecuzione dello stesso. Inoltre permetterà di analizzare se
@@ -384,7 +548,7 @@ vi è una corretta corrispondenza tra requisiti e codice sorgente tramite un'atte
 Essa deve includere quanto indicato nei successivi paragrafi (da 4.2.1 a
 4.2.11).
 
-\subsection{Tracciamento}
+\subsubsection{Tracciamento}
 
 Con il tracciamento si intende mappare l'evoluzione dei requisiti nel corso del
 progetto in modo tale da consentire durante le varie fasi di capire quali
@@ -397,27 +561,27 @@ corrispondenza biunivoca tra la fonte e l'oggetto del tracciamento. L'assunzione
 del tracciamento è resa obbligatoria e dovrà essere inserita in questo stesso
 documento come indicato nel paragrafo 4.1.
 
-\subsection{Walkthrough}
+\subsubsection{Walkthrough}
 
 Questa tecnica consiste nella lettura critica del codice senza l'assunzione di
 presupposti e nella simulazione di possibili esecuzioni con l'obiettivo
 di rivelare eventuali difetti. Sarà applicata durante la verifica della fase
 realizzativa.
 
-\subsection{Inspection}
+\subsubsection{Inspection}
 
 Questa tecnica consiste in una lettura mirata del codice con il preciso scopo
 di trovare determinati tipi di errori. Prevede la preparazione preliminare del
 gruppo prima dell'incontro: ogni membro esamina il prodotto, eventualmente applicando tecniche analitiche.
 
-\subsection{Analisi flusso di controllo}
+\subsubsection{Analisi flusso di controllo}
 
 Quest'analisi controlla il codice con lo scopo di determinare se è scritto in
 modo strutturato e se esegue nel modo desiderato. Controlla inoltre che non ci
 sia codice sintatticamente irraggiungibile e cerca parti del codice che possono
 portare a terminazioni non desiderate, come chiamate ricorsive e/o iterazioni.
 
-\subsection{Analisi del flusso di dati}
+\subsubsection{Analisi del flusso di dati}
 
 Accerta che nessun cammino d'esecuzione del programma acceda a variabili prive
 di valore, usa i risultati dell'analisi di flusso di controllo insieme alle
@@ -426,7 +590,7 @@ Rileva possibili anomalie, per esempio più scritture successive senza letture
 intermedie. \`E complicata dalla presenza e dall'uso di dati globali accedibili
 da ogni parte del programma.
 
-\subsection{Analisi del flusso d'informazione}
+\subsubsection{Analisi del flusso d'informazione}
 
 Quest'analisi va a determinare ed analizzare le dipendenze create tra gli
 ingressi e le uscite di un'unità di codice durante la sua esecuzione. Le uniche
@@ -435,31 +599,31 @@ dipendenze sono da considerarsi errate. Consente inoltre di identificare
 eventuali effetti collaterali e può essere applicata a singoli moduli o a più
 moduli collegati o all'intero sistema.
 
-\subsection{Esecuzione simbolica}
+\subsubsection{Esecuzione simbolica}
 
 Unisce le tecniche di analisi di flusso di controllo, analisi di flusso dei dati
 e analisi di flusso d'informazione, verifica le proprietà del programma mediante
 la manipolazione algebrica del codice sorgente tramite ``sostituzioni inverse''.
 
-\subsection{Verifica consistenza dati e peso del codice}
+\subsubsection{Verifica consistenza dati e peso del codice}
 
 Verifica che i dati restino entro il limite del loro tipo e della precisione
 desiderata, considerando quindi gli arrotondamenti, il problema dell'overflow e
 la gestione dei valori di limite. Si occupa anche dell'analisi e di una corretta
 gestione dello heap.
 
-\subsection{Verifica corretta logica del codice}
+\subsubsection{Verifica corretta logica del codice}
 
 Si propone di accertare che il codice sia ben strutturato ed esegua nella
 sequenza attesa. Si occupa inoltre di verificare che nessun cammino
 d'esecuzione del programma acceda a variabili prive di valore.
 
-\subsection{Verifica formale del codice}
+\subsubsection{Verifica formale del codice}
 
 Esplora tutte le esecuzioni possibili mediante prove statiche per rilevare
 difetti non sollevati dai test di unità. Si riferisce all'intero sistema integrato.
 
-\subsection{Analisi temporale del codice}
+\subsubsection{Analisi temporale del codice}
 
 Si occupa di verificare che nell'esecuzione del sistema totale le funzioni più
 importanti e gli eventuali algoritmi usati eseguano in modo da dare la risposta
