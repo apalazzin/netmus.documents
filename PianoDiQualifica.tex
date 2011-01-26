@@ -231,7 +231,7 @@ La fase di progettazione dovr\`a essere verificata secondo i seguenti aspetti:
 requisito richiesto;
 \item corretta corrispondenza e tracciabilit\`a tra i requisiti e le relative
 parti del progetto;
-\item efficienza;
+\item flessibilità;
 \item manutenibilità.
 
 \end{itemize}
@@ -603,6 +603,61 @@ i test non possono dimostrare la totale assenza di errori.
 
 
 \section{Metodi di Verifica}
+
+\subsection{Documentazione}
+
+\subsection{Analisi}
+
+\subsection{Progettazione ad Alto Livello}
+
+\subsubsection{Soddisfacimento di tutti i requisiti individuati}
+
+Verificare la corrispondenza dei requisiti individuati in fase di analisi (vedi
+cap. 5 del documento \emph{AnalisiDeiRequisiti-2.0.pdf}) con almeno un modulo
+software previsto dalla specifica tecnica. Si consiglia di utilizzare la tabella di tracciamento dei requisiti con le relative componenti
+software proposta all'interno del documento \emph{SpecificaTecnica-1.0.pdf}.
+\\\\
+Esito atteso: ci si aspetta di ritrovare all'interno della tabella tutti gli
+stessi requisiti così come individuati in fase di analisi.
+ 
+\subsubsection{Individuazione di elementi progettuali superflui}
+
+Individuare tutti i moduli software proposti a livello di progettazione e
+verificare che tutti svolgano una funzione richeista da uno dei requisiti individuati in fase
+di analisi. Si consiglia di utilizzare la tabella di tracciamento dei requisiti
+con le relative componenti software proposta all'interno del documento
+\emph{SpecificaTecnica-1.0.pdf}.
+\\\\
+Esito atteso: ci si aspetta di ritrovare all'interno della tabella tutti i
+moduli software previsti dalla progettazione.
+
+
+\subsubsection{Corretta corrispondenza e tracciabilità tra i requisiti e i
+moduli software}
+
+Verificare che le funzioni dei moduli software soddisfino le richieste dei
+requisiti con cui sono tracciati. Si consiglia di confrontare la descrizione
+delle funzionalità fornite dai singoli moduli così come descritto in
+\emph{SpecificaTecnica-1.0.pdf} con la descrizione dei singoli requisiti
+proposta nel cap. 5 del documento \emph{AnalisiDeiRequisiti-2.0.pdf}).
+\\\\
+Esito atteso: ci si aspetta di trovare riscontro tra quello che esigono i
+singoli requisito con le funzionalità descritte dai moduli a loro tracciati.
+
+
+\subsubsection{Felssibilità e manutenibilità}
+
+Verificare che il numero di moduli presente sia sufficientemente alto a coprire
+in maniera efficace il numero di requisiti funzionali e che tutte le
+funzionalità richieste siano distribuite il più possibile senza incentrare
+tutto su pochi moduli costretti a fare tante cose. Controllare la coesione e
+l'accoppiamento di ogni singolo modulo. Verificare inoltre la presenza e
+l'utilizzo di pattern.
+\\\\
+Esito atteso: ci si aspetta di trovare un numero di moduli sufficientemente alto
+in proporzione al numero di requisiti funzionali. Inoltre ci si aspetta di
+rilevare un'alta coesione e un basso accoppiamento di tutti i moduli previsti,
+favorito anche dall'utilizzo di un buon numero di pattern. 
 
 
 % INIZIO CAPITOLO 3
