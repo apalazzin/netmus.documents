@@ -452,6 +452,31 @@ indipendente, non da chi ha scritto il codice.
 
 AGGIUNGERE UNA PICCOLA DESCRIZIONE GENERALE RELATIVAMENTE ALL'ANALISI STATICA
 
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+\rowcolor{orange}
+\bo{Sigla}  & \bo{Descrizione} \\
+\hline TR & Tracciamento \\ \hline
+WT & Walkthrough \\ \hline
+IN & Inspection \\ \hline
+AFC & Analisi flusso di controllo \\ \hline
+AFD & Analisi del flusso di dati \\ \hline
+AFI & Analisi del flusso d'informazione \\ \hline
+ES & Esecuzione simbolica \\ \hline
+VDC & Verifica consistenza dati e peso del codice \\ \hline
+VLC & Verifica corretta logica del codice \\ \hline
+VFC & Verifica formale del codice \\ \hline
+ATC & Analisi temporale del codice \\ 
+\hline
+\end{tabular}
+\caption{Analisi Statica}
+\end{center}
+\end{table}
+
+\newpage
 \subsubsection{Tracciamento}
 
 Con il tracciamento si intende mappare l'evoluzione dei requisiti nel corso del
@@ -657,16 +682,19 @@ identificate durante l'analisi.
 Si effettueranno tre tipi di test:
 
 \begin{itemize}
-
-\item test di unità: effettuato al termine del disegno di dettaglio ed eseguito
+	\item test di unità: effettuato al termine del disegno di dettaglio ed eseguito
 in modo strutturale (white-box) o funzionale (black-box) su ciascuna unità; diverrà completo quando avrà provato tutte le unità definite entro le
 componenti del progetto architetturale;
-\item test di integrazione: applicato alle componenti del progetto
+	\item test di integrazione: applicato alle componenti del progetto
 architetturale;
-\item test di sistema: effettuato per verificare se il comportamento dinamico
+	\item test di sistema: effettuato per verificare se il comportamento dinamico
 del software aderisce ai requisiti. Esso può aver inizio solamente al
 completamento del test di integrazione.
-
 \end{itemize}
 
+\listoftables
+\addcontentsline{toc}{chapter}{Indice Tabelle}
+\listoffigures
+\addcontentsline{toc}{chapter}{Indice Figure}
 \end{document}
+
