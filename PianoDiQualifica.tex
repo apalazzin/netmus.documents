@@ -8,11 +8,11 @@
 \newcommand{\datacreazione}{3 Dicembre 2010}
 \newcommand{\datamodifica}{21 Gennaio 2011}
 \newcommand{\stato}{formale}
-\newcommand{\uso}{esterno}
+\newcommand{\uso}{esterno} 
 \newcommand{\redazione}{Trezzi Giovanni}
 \newcommand{\verifica}{Palazzin Alberto}
 \newcommand{\approvazione}{Lovato Daniele}
-\newcommand{\distribuzione}{
+\newcommand{\distribuzione}{ 
 VT.G \\
 & Prof. Vardanega Tullio\\
 & Prof. Cardin Riccardo }
@@ -539,33 +539,67 @@ importanti e gli eventuali algoritmi usati eseguano in modo da dare la risposta
 attesa in proporzione al carico di informazioni in ingresso.
 
 \subsection{Analisi dinamica}
-
-L'analisi dinamica consiste nel verificare le singole componenti e
-l'integrazione delle stesse tramite due strumenti equivalenti:
+In base al ciclo di vita adottato, ossia il modello incrementale, verranno effettuati dei 
+test di integrazione adottando un modello di integrazione incrementale. 
+Non \`e infatti conveniente riunire l'intero sistema e collaudarlo, ma la
+strategia utilizzata sar\`a integrazione top-down. Ci\`o significa che i moduli
+saranno gradualmente integrati in sottosistemi, effettuando opportune verifiche della loro  corretta interazione. 
+L'integrazione incrementale top down richiede l'utilizzo di molti stub che sostituiscano 
+le componenti; spesso questi stub presentano degli errori dato che sono dei semplici 
+prototipi realizzati rapidamente per diminuire i costi, ma permette il funzionamento di 
+un sistema parziale molto pi\`u in fretta rispetto ad un modello bottom up.\\
+\\
+L'integrazione top down richiede che ogni componente venga sostituita da uno stub, 
+a partire dalle foglie nell'albero delle dipendenze, e man mano che si scende si 
+inseriscono sempre più componenti al posto degli stub. 
+Lo schema del procedimento da seguire è il seguente:
 
 \begin{itemize}
-
-\item Stub;
-\item Driver.
-
-
+  \item si progetta, scrive e testa una parte del sistema
+  \item se ne scrive un altro pezzo
+  \item si integrano le due parti e si testa
+  \item ogni malfunzionamento rilevato sar\`a conseguenza del malfunzionamento
+  dell'ultima componente aggiunta
 \end{itemize}
 
-L'analisi dinamica non prevede l'attività di debugging lasciata al
-programmatore se non pianificata. Le tecniche di analisi
-dinamica utilizzabili sono descritte in seguito.
 
-\subsubsection{White-box}
+\subsubsection{Test di Unit\`a}
+Il seguente paragrafo intende illustrare i procedimenti seguiti durante i test
+di ogni singola unit\`a.\\
+La verifica del codice adotterà 2 modelli:
 
-Partendo dalla conoscenza della struttura interna del prodotto, il collaudo mira
-a verificare che le strutture interne funzionino secondo le specifiche
-progettuali e testando al contempo tutti i componenti.
+\begin{itemize}
+  \item Verifica funzionale dei requisiti(black box): questo modello si basa su un sistema 
+di test a scatola chiusa, ossia partendo dalla conoscenza della struttura interna del 
+prodotto, verranno controllati ed accertati che gli output di ogni unità siano  conformi 
+a quelli attesi, testandoli in qualunque condizione possibile si possa trovare la singola 
+unità. Questi test fanno riferimento alla specifica dell'unità e utilizza dati in input 
+capaci di provocare in output i dati attesi.
+  \item Verifica strutturale(white box): questo modello parte dalla conoscenza  delle 
+specifiche del progetto, e come in un sistema a scatola trasparente si analizzano i 
+comportamenti specifici dell'unità e dei rispettivi metodi per verificarne la logica 
+interna e il corretto funzionamento. In questi test deve essere preso in considerazione 
+ogni cammino di esecuzione all'interno del modulo, quindi i casi di prova devono essere 
+tutti adeguatamente progettati. 
+\end{itemize}
 
-\subsubsection{Black-box}
 
-Partendo dalle specifiche del progetto si va a verificare che tutte le
-funzionalità richieste nei requisiti siano presenti, cercando contemporaneamente
-eventuali errori.
+Il piano dei test di unità(che dovrà essere chiaramente esposto al termine della 
+progettazione in dettaglio) prevede che per ogni test siano elencati:
+
+\begin{itemize}
+  \item Unità o Modulo su cui sarà effettuato il test
+  \item Dati in Input
+  \item Output attesi e output ottenuti
+  \item Funzionalità testate
+  \item Obbiettivi del test
+  \item Malfunzionamenti rilevati
+  \item Costi e Rischi
+\end{itemize}
+
+L'obiettivo è quello di rintracciare tutti gli errori presenti all'interno del
+codice ed una volta identificati, risolverli. Da sottolineare che come afferma la tesi di Dijkstra 
+i test non possono dimostrare la totale assenza di errori.
 
 
 \section{Metodi di Verifica}
