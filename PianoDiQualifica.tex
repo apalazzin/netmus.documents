@@ -209,7 +209,7 @@ di software di vario genere e sta a significare:
 \item U - Usability (facilità d'uso dell'utenza finale);
 \item R - Reliability (gestione degli errori e dei crash);
 \item P - Performance (Prestazioni);
-\item S - Supportability (Supportabilità);
+\item S - Supportability (Supportabilità).
 \end{itemize}
 
 
@@ -231,9 +231,8 @@ La fase di progettazione dovr\`a essere verificata secondo i seguenti aspetti:
 requisito richiesto;
 \item corretta corrispondenza e tracciabilit\`a tra i requisiti e le relative
 parti del progetto;
-\item numero dei moduli;
-\item livello di coesione tra i moduli;
-\item livello di accoppiamento tra i moduli.
+\item efficienza;
+\item manutenibilità.
 
 \end{itemize}
 
@@ -357,16 +356,6 @@ TUTTE LE METRICHE DI SEGUITO SONO SOLAMENTE ELENCATE, VANNO SCELTE E DISCUSSE
 
 \end{itemize}
 
-\subsection{Misure nelle specifiche}
-
-\begin{itemize}
-  
-\item numero di entità in un diagramma E/R;
-\item numero di blocchi in un Diagramma DFD;
-\item numero degli use case points;
-
-\end{itemize}
-
 
 \subsection{Misure nella progettazione}
 
@@ -461,28 +450,7 @@ indipendente, non da chi ha scritto il codice.
 
 \section{Analisi Statica}
 
-
-\subsection{Tecnice d'analisi per la documentazione}
-DA COMPLETARE
-
-\subsection{Tecnice d'analisi per l'analisi}
-DA COMPLETARE (AD ESEMPIO COME SI USA LA TABELLA paragrafo 2.3.2)
-
-\subsection{Tecnice d'analisi per le specifiche}
-DA COMPLETARE
-
-\subsection{Tecnice d'analisi per la progettazione}
-DA COMPLETARE
-
-\subsection{Tecnice d'analisi sul codice}
-DA RIVEDERE\\
-L'analisi statica verrà utilizzata prevalentemente con lo scopo di sottoporre
-a verifica le singole componenti del programma e per garantire che siano  tutte
-raggiunte durante l'esecuzione dello stesso. Inoltre permetterà di analizzare se
-vi è una corretta corrispondenza tra requisiti e codice sorgente tramite un'attenta lettura di quest'ultimo.\\
-
-Essa deve includere quanto indicato nei successivi paragrafi (da 4.2.1 a
-4.2.11).
+AGGIUNGERE UNA PICCOLA DESCRIZIONE GENERALE RELATIVAMENTE ALL'ANALISI STATICA
 
 \subsubsection{Tracciamento}
 
@@ -493,22 +461,19 @@ generale sullo stato del progetto globale. In fase di progettazione si dovrà
 controllare che ogni requisito sia implementato correttamente e allo stesso
 tempo non esista alcuna funzionalità superflua o componenti inutili. Il
 tracciamento deve essere bidirezionale cioè esista una
-corrispondenza biunivoca tra la fonte e l'oggetto del tracciamento. L'assunzione
-del tracciamento è resa obbligatoria e dovrà essere inserita in questo stesso
-documento come indicato nel paragrafo 4.1.
+corrispondenza biunivoca tra la fonte e l'oggetto del tracciamento.
 
 \subsubsection{Walkthrough}
 
-Questa tecnica consiste nella lettura critica del codice senza l'assunzione di
-presupposti e nella simulazione di possibili esecuzioni con l'obiettivo
-di rivelare eventuali difetti. Sarà applicata durante la verifica della fase
-realizzativa.
+Questa tecnica consiste nella verifica critica dei dati senza
+l'assunzione di presupposti e nella simulazione di possibili esecuzioni con l'obiettivo
+di rivelare eventuali difetti.
 
 \subsubsection{Inspection}
 
-Questa tecnica consiste in una lettura mirata del codice con il preciso scopo
-di trovare determinati tipi di errori. Prevede la preparazione preliminare del
-gruppo prima dell'incontro: ogni membro esamina il prodotto, eventualmente applicando tecniche analitiche.
+Questa tecnica consiste in una verifica mirata dei dati rispettivamente a
+determinate metriche con il preciso scopo di trovare determinati tipi di errori.
+Prevede la preparazione preliminare del gruppo prima dell'incontro: ogni membro esamina il prodotto, eventualmente applicando tecniche analitiche.
 
 \subsubsection{Analisi flusso di controllo}
 
@@ -582,13 +547,13 @@ L'analisi dinamica non prevede l'attività di debugging lasciata al
 programmatore se non pianificata. Le tecniche di analisi
 dinamica utilizzabili sono descritte in seguito.
 
-\subsection{White-box}
+\subsubsection{White-box}
 
 Partendo dalla conoscenza della struttura interna del prodotto, il collaudo mira
 a verificare che le strutture interne funzionino secondo le specifiche
 progettuali e testando al contempo tutti i componenti.
 
-\subsection{Black-box}
+\subsubsection{Black-box}
 
 Partendo dalle specifiche del progetto si va a verificare che tutte le
 funzionalità richieste nei requisiti siano presenti, cercando contemporaneamente
