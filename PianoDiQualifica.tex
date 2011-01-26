@@ -136,21 +136,21 @@ Nel presente capitolo verranno definite le esigenze di misurazione che si
 ritengono necessarie ai fini della qualità, ovvero verrà indicato cosa per ogni
 singola fase del progetto sarà necessario verificare. Verranno indicati gli
 strumenti con i quali effettuare la verifica e verranno indicate le metriche con
-le quali misurare le proprietà di cià che si sta verificando. Verranno indicate
+le quali misurare le proprietà di ciò che si sta verificando. Verranno indicate
 infine le tecniche con le quali procedere. Una volta volta terminata l'attività
 di verifica e la conseguente attività di misurazione, si procederà con il
-riportare l'esito in appendice al presente documento. Una volta terminata
+riportare l'esito nel capitolo 4 del presente documento. Una volta terminata
 l'attività di misurazione sulla base dei risultati si valuteranno eventuali
 decisioni, manovre correttive o l'accettazione del prodotto verificato secondo
 le misure e i criteri stabiliti.
 
 
 \subsection{Feedback di valutazione}
-Per aiutare a comprendere quali fattori posso influenzare
-positivamente o negativamente le varie fasi del progetto è stato introdotto un
-sistema di raccolta feedback su tutte le attività svolte. Ogni volta che
-qualcuno porta a termine un'attività dovrà compilare un brevissimo questionario
-relativamente ai seguenti aspetti:
+Per una migliore comprensione su come alcuni fattori posso influenzare
+ le varie fasi del progetto è stato introdotto un
+sistema di feedback su tutte le attività svolte. Ogni volta che
+qualcuno porta a termine un'attività viene raccolto una valutazione in termini
+di soddisfazione su uno dei seguenti aspetti:
 
 \begin{itemize}
 \item lavoro svolto;
@@ -159,19 +159,21 @@ relativamente ai seguenti aspetti:
 \item tempo impegato;
 \end{itemize}
 
-per ciascuno di queste voci verrà data una valutazione da 1 a 10 in base alla
-propria soddisfazione. Alla fine di ogni fase di progetto verrà sviluppato un
-grafico con la media dei punteggi il quale confrontato con i risultati ottenuti
-potrà fornire ulteriori ed interessanti spunti su come correggere o
-rafforzare il modo di procedere nel lavoro.
+La valutazione può essere assegnata in una scala numerica da 1 a 10. Alla fine
+di ogni fase di progetto verrà sviluppato un grafico riassuntivo con la media dei
+punteggi per ogni singola voce. I risultati ottenuti confrontati con le
+valutazioni ricevute in fase di revisione potrà fornire interessanti spunti su
+come correggere o rafforzare il metodo di lavoro.
 
 
 \subsection{Verifica della documentazione}
 
 Per ogni documento dovranno essere verificati i seguenti aspetti:
 \begin{itemize}
-\item sintassi e grammatica;
+\item correttezza semantica e grammaticale;
 \item chiarezza espositiva;
+\item assenza di errori concettuali;
+\item comprensibilità e accuratezza;
 \item correttezza e completezza dei concetti espressi;
 \item formattazione del documento secondo quanto specificato dall'amministratore
 in\\ \emph{NormeDiProgetto-\versionenormeprogetto.pdf}.
@@ -182,6 +184,40 @@ sar\`a dovere del verificatore contattare il redattore del documento affinch\`e
 questo gestisca le relative attivit\`a di modifica. Una volta modificato, il
 documento dovr\`a essere nuovamente sottoposto all'attenzione del verificatore
 per una nuova attivit\`a di verifica.
+
+
+\subsection{Verifica della fase di analisi}
+
+La fase di analisi dovr\`a essere verificata secondo i seguenti aspetti:
+
+\begin{itemize}
+
+\item costi;
+\item scheduling;
+\item completenza rispetto al modello FURPS.
+ 
+
+\end{itemize}
+
+Il modello FURPS, elaborato inizialmente da RoberGrady presso i laboratori
+dell'Hewlwtt-Packard. \`E un acronimo mnemonico per la definizione dei requisiti
+di software di vario genere e sta a significare:
+
+\begin{itemize}
+
+\item F - Functionality (capacità di fornire le funzioni richieste);
+\item U - Usability (facilità d'uso dell'utenza finale);
+\item R - Reliability (gestione degli errori e dei crash);
+\item P - Performance (Prestazioni);
+\item S - Supportability (Supportabilità);
+\end{itemize}
+
+
+Nel caso sia necessario intervenire in maniera correttiva rispetto ad uno o
+pi\`u di questi aspetti sar\`a dovere del verificatore contattare l'analista
+responsabile affinch\`e provveda alle relative modifiche.
+
+
 
 \subsection{Verifica della fase progettuale}
 
@@ -195,28 +231,10 @@ La fase di progettazione dovr\`a essere verificata secondo i seguenti aspetti:
 requisito richiesto;
 \item corretta corrispondenza e tracciabilit\`a tra i requisiti e le relative
 parti del progetto;
-\item correttezza progettuale nel soddisfacimento dei requisiti;
-\item correttezza rispetto a quanto stabilito nel documento
-\emph{NormeDiProgetto-\versionenormeprogetto.pdf};
-\item possibilit\`a di manutenere ed estendere i vari elementi cos\`i come
-previsti nella progettazione del prodotto.
+\item numero dei moduli;
+\item livello di coesione tra i moduli;
+\item livello di accoppiamento tra i moduli.
 
-\end{itemize}
-
-Per quanto riguarda la definizione dei requisiti software in fase progettuale
-verrà adottato il modello FURPS, elaborato inizialmente da RoberGrady presso i
-laboratori dell'Hewlwtt-Packard.
-FURPS è un acronimo mnemonico per la definizione dei requisiti di software di
-vario genere e sta a significare:
-
-
-\begin{itemize}
-
-\item F - Functionality (capacità di fornire le funzioni richieste);
-\item U - Usability (facilità d'uso dell'utenza finale);
-\item R - Reliability (gestione degli errori e dei crash);
-\item P - Performance (Prestazioni);
-\item S - Supportability (Supportabilità);
 \end{itemize}
 
 Nel caso sia necessario intervenire in maniera correttiva rispetto ad uno o
@@ -227,14 +245,12 @@ responsabile affinch\`e provveda alle relative modifiche riguardanti la progetta
 
 La fase di realizzazione/programmazione dovr\`a essere verificata secondo i seguenti aspetti:
 \begin{itemize}
-\item \underline{Analisi Statica} del codice;
-\item \underline{Analisi Dinamica} del codice;
-\item Corretto funzionamento dell'applicazione, o delle sue parti, rispetto a
-quanto previsto nella fase di progettazione;
+\item Corretto funzionamento dell'applicazione;
 \item Affidabilit\`a;
 \item Efficienza;
 \item Portabilit\`a;
 \item Manutenibilit\`a.
+
 \end{itemize}
 
 Nel caso sia necessario intervenire sul codice in base ad uno di questi aspetti
@@ -313,6 +329,96 @@ dai testi di unit\`a);
 \item CheckStyle: come aiuto per garantire che il codice Java
 aderisca alle pi\`u diffuse norme di codifica.
 \end{itemize}
+
+
+
+\section{Metriche}
+
+Una metrica viene definita come un metodo di misura associato ad una scala di
+valutazione. Secondo il glossario IEEE una metrica è la misura quatitativa del
+grado con cui una entità possiede un determinato attributo.
+
+Ai fini della valutazione e quindi di un possibile miglioramento o
+correzione della qualità del prodotto finito, devono essere stabilite delle
+misure precise con cui misurare quantitativamente i prodotti delle varie fasi
+progettuali.\\
+\\
+\\
+TUTTE LE METRICHE DI SEGUITO SONO SOLAMENTE ELENCATE, VANNO SCELTE E DISCUSSE
+
+
+\subsection{Misure nell'analisi dei requisiti}
+
+\begin{itemize}
+  
+\item numero di requisiti;
+\item functions Points (requisiti funzionali);
+\item volatilità dei requisiti;
+
+\end{itemize}
+
+\subsection{Misure nelle specifiche}
+
+\begin{itemize}
+  
+\item numero di entità in un diagramma E/R;
+\item numero di blocchi in un Diagramma DFD;
+\item numero degli use case points;
+
+\end{itemize}
+
+
+\subsection{Misure nella progettazione}
+
+\begin{itemize}
+  
+\item numero di moduli in uno schema di progettazione;
+\item livello di coesione tra i moduli;
+\item livello di accoppiamento (copuling) tra moduli;
+\item complessità di flusso (quantità di informazioni in entrata ed uscita da
+una funzione in ragione della lungezza in LOC);
+
+\end{itemize}
+
+
+\subsection{Misure sul codice}
+
+\begin{itemize}
+  
+\item LOC linee di codice;
+\item complessità ciclomatica;
+\item misure di Halstead (1977, combinazione di 5 elementi);
+\item misure di complessità;
+\item misure object oriented;
+\item misure di coesione funzionale;
+
+\end{itemize}
+
+
+\subsection{Misure sui test}
+
+\begin{itemize}
+  
+\item livello di copertura di istruzioni;
+\item livello di copertura dei rami;
+\item livello di copertura dei percorsi di base;
+\end{itemize}
+
+
+\begin{itemize}
+  
+\subsection{Misure sui processi} 
+  
+\item tempo per le attività del processo fino al suo completamento;
+\item risorse richieste dal processo o le sue attività (ad esempio le quantità
+totali di ore/persone).
+\item Soddisfazione degli Stakeholder
+  
+\end{itemize}
+
+Qualora la qualità del processo risultasse minore di quella preventivata,
+si avranno dei parametri per la stima del costo del miglioramento della qualità
+del processo e quindi del prodotto.
 
 
 
@@ -571,93 +677,6 @@ identificate durante l'analisi.
 
 \end{enumerate}
 
-\subsection{Metriche}
-
-Una metrica viene definita come un metodo di misura associato ad una scala di
-valutazione. Secondo il glossario IEEE una metrica è la misura quatitativa del
-grado con cui una entità possiede un determinato attributo.
-
-Ai fini della valutazione e quindi di un possibile miglioramento o
-correzione della qualità del prodotto finito, devono essere stabilite delle
-misure precise con cui misurare quantitativamente i prodotti delle varie fasi
-progettuali.\\
-\\
-\\
-TUTTE LE METRICHE DI SEGUITO SONO SOLAMENTE ELENCATE, VANNO SCELTE E DISCUSSE
-
-
-\subsection{Misure nell'analisi dei requisiti}
-
-\begin{itemize}
-  
-\item numero di requisiti;
-\item functions Points (requisiti funzionali);
-\item volatilità dei requisiti;
-
-\end{itemize}
-
-\subsection{Misure nelle specifiche}
-
-\begin{itemize}
-  
-\item numero di entità in un diagramma E/R;
-\item numero di blocchi in un Diagramma DFD;
-\item numero degli use case points;
-
-\end{itemize}
-
-
-\subsection{Misure nella progettazione}
-
-\begin{itemize}
-  
-\item numero di moduli in uno schema di progettazione;
-\item livello di coesione tra i moduli;
-\item livello di accoppiamento (copuling) tra moduli;
-\item complessità di flusso (quantità di informazioni in entrata ed uscita da
-una funzione in ragione della lungezza in LOC);
-
-\end{itemize}
-
-
-\subsection{Misure sul codice}
-
-\begin{itemize}
-  
-\item LOC linee di codice;
-\item complessità ciclomatica;
-\item misure di Halstead (1977, combinazione di 5 elementi);
-\item misure di complessità;
-\item misure object oriented;
-\item misure di coesione funzionale;
-
-\end{itemize}
-
-
-\subsection{Misure sui test}
-
-\begin{itemize}
-  
-\item livello di copertura di istruzioni;
-\item livello di copertura dei rami;
-\item livello di copertura dei percorsi di base;
-\end{itemize}
-
-
-\begin{itemize}
-  
-\subsection{Misure sui processi} 
-  
-\item tempo per le attività del processo fino al suo completamento;
-\item risorse richieste dal processo o le sue attività (ad esempio le quantità
-totali di ore/persone).
-\item Soddisfazione degli Stakeholder
-  
-\end{itemize}
-
-Qualora la qualità del processo risultasse minore di quella preventivata,
-si avranno dei parametri per la stima del costo del miglioramento della qualità
-del processo e quindi del prodotto.
 
 % INIZIO CAPITOLO 4
 
