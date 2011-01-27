@@ -524,7 +524,7 @@ importanti e gli eventuali algoritmi usati eseguano in modo da dare la risposta
 attesa in proporzione al carico di informazioni in ingresso.
 
 \subsection{Analisi dinamica}
-\subsubsection{Test d'integrazione}
+\subsubsection{Test d'Integrazione}
 I test di integrazione rappresentano la logica dei test di unità.
 In base al ciclo di vita adottato, ossia il modello incrementale, verranno effettuati dei 
 test di integrazione adottando un modello di integrazione incrementale. 
@@ -587,6 +587,30 @@ progettazione in dettaglio) prevede che per ogni test siano elencati:
 L'obiettivo è quello di rintracciare tutti gli errori presenti all'interno del
 codice ed una volta identificati, risolverli. Da sottolineare che come afferma la tesi di Dijkstra 
 i test non possono dimostrare la totale assenza di errori.
+
+\subsubsection{Test di Sistema}
+I test di sistema verranno effettuati alla fine dello sviluppo del progetto
+software. Lo scopo è quello di valutare le funzionalità del prodotto una volta 
+che ha raggiunto la sua completezza.\\ 
+Le tecniche adottate per i test sono riportate nel seguito, i cui obiettivi sono 
+normalmente mirati a verificare il sistema sotto ben determinati aspetti:
+
+\begin{itemize}
+  \item Test di Funzionalità: test che mira a controllare che ogni funzionalità del prodotto stabilita dai requisiti sia stata realizzata correttamente.
+  \item Test di Sicurezza: test che cerca di accedere a quei dati e funzionalità che dovrebbero essere riservati, così da valutare l'efficacia dei meccanismi di sicurezza.
+  \item Test di Usabilità:  test che vuole vautare soggettivamente la facilità
+  d'uso del prodotto.
+  \item Test delle Prestazioni: test che mira a valutare l'efficenza del
+  prodotto in termini di tempi di elaborazione e di risposta.
+  \item Storage Test: test che valuta ancora l'efficenza del
+  prodotto, ma questa volta dal punto di vista dell'uso della memoria e della richiesta di risorse.
+  \item Test di Carico: durante questo tipo di test il sistema è sottoposto ad
+  un carico di lavoro massimo, per verificare le funzionalità in queste condizioni. L'obbiettivo è di rilevare malfunzionamenti che non si presentano in condizioni normali.
+  \item Stress Test: durante questo tipo di test il sistema è sottoposto ad un
+  carico di lavoro superiore da quello previsto dai requisiti in condizioni massime o è portato a condizioni operative eccessive. Lo scopo è quello di valutare la capacità di recovery di un sistema dopo un fallimento.
+  \item Test di Compatibilità: questo controllo ha l'obbiettivo di valutare la
+  compatibilità del software con altri sistemi software con cui il prodotto deve interagire nel suo ambiente operativo finale.
+ \end{itemize}
 
 
 \section{Metodi di Verifica}
