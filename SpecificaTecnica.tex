@@ -1,11 +1,11 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.1}
+\newcommand{\versione}{0.2}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{21 Gennaio 2011}
+\newcommand{\datamodifica}{27 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Mandolo Andrea}
@@ -33,6 +33,9 @@ VT.G \\
 \hline
 \endfoot
 
+27/01/2011 & 0.2 & Mandolo Andrea & Inserita presentazione dell'architettura
+generale del sistema.\\
+\hline
 21/01/2011 & 0.1 & Mandolo Andrea & Creato documento iniziale.\\
 
 \end{longtable}
@@ -62,14 +65,69 @@ connessioni e delle principali classi di cui essi si compongono.
 
 \chapter{Definizione del Prodotto}
 \section{Metodo e formalismo di specifica}
-\section{Presentazione dell'architettura generale del sistema e identificazione
-dei componenti architetturali di alto livello}
+
+\section{Presentazione dell'architettura generale del sistema.}
+
+Il sistema Netmus sar\`a principalmente formato dai seguenti package:
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16cm]{img/ST/PackageGeneric.png}
+\caption{Diagramma dei package principali di Netmus.}
+\end{figure}
+
+\begin{itemize}
+  \item Package \emph{client} : definisce la parte client del programma
+  \begin {itemize}
+    \item Package \emph{client::ui} : comprende l'insieme di viste del sistema,
+    rispettando il framework \emph{MVP with Place and Activity}. Ci sar\`a una
+    interfaccia per ogni vista, per dare la possibilit\`a di creare in futuro
+    pi\`u implementazioni differenti a seconda del dispositivo client;
+    \item Package \emph{client::activity} : rappresenta l'insieme di classi
+    controllori che formano la logica del sistema. Esse mandano dati aggiornati alle
+    viste, gestiscono le richieste delle viste e possono inoltre gestire
+    richieste provenienti da altre componenti e mandare eventi propri nell'event-bus;
+    \item Package \emph{client::place} : comprende l'insieme di classi Place i
+    quali rappresentano un URL associato ad una vista. Gestiscono i parametri
+    agganciati all'URL con un Tokenizer interno;
+    \item Package \emph{client::mvp} : comprende un ActivityMapper e
+    un PlaceHistoryManager che mappano per ogni Place la sua corrispondente
+    Activity e gestiscono la cronologia dei Place;
+    \item Package \emph{client::service} : rappresenta l'insieme di interfaccie
+    che offrono un servizio di comunicazione col server tramite GWT RPC;
+    %----------------- TOGLIERE FORSE --------------------
+    \item Package \emph{client::javafx} : contiene l'interfacciamento alla
+    applet JavaFX di estrazione dei TAG dagli Mp3 da dispositivi multimediali del client;
+    %-------------------------------------------------------
+  \end {itemize}
+  \item Package \emph{server} : rappresenta la parte server di Netmus
+  \begin{itemize}
+    \item Package \emph{server::persistent} : comprende tutte le classi che
+    rappresentano un entit\`a JDO (Java Data Object), le quali usate per lo scambio dati tra
+    server e Google Datastore;
+    \item Package \emph{server::servlet} : comprende tutte le servlet utilizzate
+    per interfacciarsi a servizi esterni (es. Google Authentication, YouTube);
+    \item Package \emph{server::utils} : comprende classi di utilit\`a per
+    svolgere attivit\`a interne al server di varie tipologie;
+  \end{itemize}
+  \item Package \emph{shared} :  contiene classi condivise tra client e server,
+  che verrano anch'esse compilate in JavaScript da GWT, come tutto il package
+  client. La maggior parte saranno gli oggetti di trasferimento che
+  aderiscono al pattern DTO.
+\end{itemize}
+
 
 \chapter{Descrizione dei singoli componenti}
-\section{Tipo, obiettivo e funzione del componente}
-\section{Relazioni d'uso di altre componenti}
-\section{Interfacce con e relazioni di uso da altre componenti}
-\section{Attivit\`a svolte e dati trattati}
+\section{Package client}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16cm]{img/ST/ClassClient.png}
+\caption{Diagramma delle classi del package client.}
+\end{figure}
+
+\subsection{Tipo, obiettivo e funzione del componente}
+\subsection{Relazioni d'uso di altre componenti}
+\subsection{Interfacce con e relazioni di uso da altre componenti}
+\subsection{Attivit\`a svolte e dati trattati}
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 
