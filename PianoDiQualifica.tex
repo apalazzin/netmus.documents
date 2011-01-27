@@ -173,13 +173,14 @@ La fase di analisi dovr\`a essere verificata secondo i seguenti aspetti:
 
 \item costi;
 \item scheduling;
-\item completenza rispetto al modello FURPS.
+\item qualità dei requisiti;
+\item completezza del sistema definito rispetto al modello FURPS.
  
 
 \end{itemize}
 
-Il modello FURPS, elaborato inizialmente da Rober Grady presso i laboratori
-dell'Hewlett-Packard. \`E un acronimo mnemonico per la definizione dei requisiti
+Il modello FURPS è stato elaborato inizialmente da Rober Grady presso i
+laboratori dell'Hewlett-Packard. \`E un acronimo mnemonico per la definizione dei requisiti
 di software di vario genere e sta a significare:
 
 \begin{itemize}
@@ -334,9 +335,15 @@ TUTTE LE METRICHE DI SEGUITO SONO SOLAMENTE ELENCATE, VANNO SCELTE E DISCUSSE
 
 \begin{itemize}
   
-\item Numero di requisiti;
-\item functions Points (requisiti funzionali);
-\item volatilità dei requisiti.
+\item correttezza (se realmente richiesto dal sistema);
+\item completezza (se ogni funzione richiesta al software ed il suo
+comportamento rispetto ad ogni suo input è specificato);
+\item ambiguità (se ogni requisito ha una sola interpretazione);
+\item verificabilità (se è possibile verificare che il sistema lo realizzi);
+\item consistenza (se nessun requisito è in contraddizione con gli altri);
+\item tracciabilità (se è collegabile a qualche elemento del progetto e del
+codice);
+\item functions Points (numero di requisiti funzionali);
 
 \end{itemize}
 
@@ -372,7 +379,7 @@ una funzione in ragione della lungezza in LOC).
 
 \begin{itemize}
   
-\item Livello di copertura di istruzioni;
+\item livello di copertura di istruzioni;
 \item livello di copertura dei rami;
 \item livello di copertura dei percorsi di base.
 \end{itemize}
@@ -598,7 +605,7 @@ i test non possono dimostrare la totale assenza di errori.
 Ispezionare il documento alla ricerca di errori semantici e grammaticali in
 tutte le sue parti scritte comprensice di titolo, singoli paragrafi, grafici e didascalie.
 Utilizzare la tabella per la correzione dei documenti in appendice a questo
-docuemnto.
+documento.
 \\\\
 Esito atteso: assenza di errori semantici e grammaticali.
 \\\\
@@ -608,7 +615,7 @@ Tecniche: WT, IN.
 
 Procedere nella lettura del documento facendo attenzione alla forma con cui
 sono espressi i concetti. Utilizzare la tabella per la correzione dei documenti
-in appendice a questo docuemnto.
+in appendice a questo documento.
 \\\\
 Esito atteso: linguaggio chiaro e comprensibile privo di ambiguità
 d'esposizione.
@@ -642,6 +649,49 @@ Tecniche: WT, IN.
 
 
 \subsection{Analisi}
+
+\subsubsection{Qualità dei requisiti}
+
+Verificare la lista di requisiti individuati e indicati nel cap. 5 del documento
+\emph{AnalisiDeiRequisiti-2.0.pdf} secondo le metriche nel paragrafo 2.5.1.
+Utilizzare la tabella di check per l'analisi qualitativa dei requisiti in
+appendice a questo documento.
+\\\\
+Esito atteso: ogni requisito deve possedere le qualitò elencate.
+\\\\
+Tecniche: WT, IN.
+
+
+\subsubsection{Completezza del sistema rispetto al modello FURPS}
+
+Verificare la lista di requisiti individuando per ciascuno a quale requisito
+FURPS risponde. Utilizzare la tabella di check per i requisiti FURPS in
+appendice a questo documento.
+\\\\
+Esito atteso: l'insieme dei requisiti individuati deve comprire
+efficacemente tutte le specifiche del modello FURPS.
+\\\\ Tecniche: IN.
+
+\subsubsection{Scheduling}
+
+Quantificare il numero di functions points e sulla base di questi calcorae una
+stima della dimensione in LOC del codice. Da questa elaborare una proiezioni dei
+tempi di programmazione necessari alla realizzazione del software. Tenere in
+considerazione che una persona in media si stima riesca ad implementare 12
+requisiti funzionali al mese. Per quantificare le linee di codice
+rispetto al numero di requisiti funzionali utilizzare come riferimento la tabella ``function points languages table'' reperibile all'indirizzo:
+\\\\
+\url{http://www.qsm.com/?q=resources/function-point-languages-table/index.html}
+\\\\
+Esito atteso: tempistiche adeguate alle possibilità a disposizione.
+
+\subsubsection{Costi}
+
+In base alla stima del tempo necessario alla realizzazione calcolare una stima
+dei costi necessari alla realizzazione. Utilizzare come riferimento i risultati
+della verifica di Scheduling.
+\\\\
+Esito atteso: costi adeguati all'offerta prevista.
 
 \subsection{Progettazione ad Alto Livello}
 
@@ -885,6 +935,85 @@ La campagna di validazione non è stata ancora eseguita.
 \item Concetto Incompleto.
 \end{itemize}
 
+\chapter{Tabella per il check dei requisiti}
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|p{2cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|}
+\hline
+\rowcolor{orange}
+\bo{Requisito}  & \bo{Corr.}  & \bo{Comp.}  & \bo{Ambi.}  & \bo{Veri.}  &
+\bo{Cons.}  & \bo{Trac.} \\
+\hline 
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+
+
+\end{tabular}
+\caption{Tabella per il check dei requisiti}
+\end{center}
+\end{table}
+
+
+\chapter{Tabella per il modello FURPS}
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|p{2cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|}
+\hline
+\rowcolor{orange}
+\bo{Requisito}  & \bo{F.}  & \bo{U.}  & \bo{R.}  & \bo{P.}  &
+\bo{S.}\\
+\hline 
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+TOTALE&  &  &  &  & \\ \hline
+
+\end{tabular}
+\caption{Tabella per il modello FURPS}
+\end{center}
+\end{table}
 
 
 \end{document}
