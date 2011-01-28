@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.4}
+\newcommand{\versione}{0.6}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -32,7 +32,11 @@ VT.G \\
 \endhead
 \hline
 \endfoot 
-28/01/2011 & 0.5 & Mandolo Andrea & Inseriti contenuti package client e ui.\\
+
+28/01/2011 & 0.6 & Mandolo Andrea & Inseriti contenuti package client e ui.\\
+\hline
+28/01/2011 & 0.5 & Caputo Cosimo & Reinserimento di tutti i grafici UML con
+cambio di stile.\\
 \hline
 28/01/2011 & 0.4 & Mandolo Andrea & Inserita traccia dell'intero capitolo 2.\\
 \hline
@@ -152,7 +156,7 @@ di Presenter e i Places rappresentano gli stati della UI.
 \subsubsection{Data Access Object (DAO)  e  Data Transfer Object (DTO)}
 \begin{figure}[h]
 \centering
-\includegraphics[width=9cm]{img/ST/daodto.png}
+\includegraphics[width=15cm]{img/ST/DAO_DTO.png}
 \caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
 simultaneo dei patterns DAO e DTO}
 \end{figure}
@@ -185,7 +189,7 @@ prodotti senza specificare classi concrete.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=13cm]{img/ST/as.png}
+\includegraphics[width=16.5cm]{img/ST/AbstractFactory.png}
 \caption{Diagramma UML delle classi che descrive la struttura tradizionale di
 Abstract factory}
 \end{figure}
@@ -201,34 +205,10 @@ di estendibilit\`a per il futuro anche se allo stadio attuale la factory
 implementata sar\`a solamente una.
 
 \newpage
-\subsubsection{Data Access Object (DAO)  e  Data Transfer Object (DTO)}
-\begin{figure}[h]
-\centering
-\includegraphics[width=9cm]{img/ST/daodto.png}
-\caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
-simultaneo dei patterns DAO e DTO}
-\end{figure}
-Questi patterns vengono introdotti all'interno della componente model di MVP e
-riguardano gli oggetti utilizzati per l'incapsulamento dei dati nelle
-comunicazioni tra client, server e database. 
-Il DAO (Data Access Object) \`e un pattern semplice ma fondamentale per
-stratificare ed isolare gli accessi al database dalla parte logica
-dell'applicazione, nel nostro caso le Activity di MVP. L'implementazione \`e
-fondamentalmente una classe che rappresenta un'entit\`a tabellare di un database.
-Questi oggetti estratti dal database in alcuni casi possono essere utilizzati
-per la comunicazione con i clients ma hanno pesanti restrizioni dovute alla
-grande quantit\`a di informazioni e procedure che contengono, per questo motivo
-abbiamo deciso di affiancare a DAO anche il pattern Data Transfer Object. Gli
-oggetti DTO saranno quelli che verranno usati nella comunicazione tra client
-e server con il vantaggio di essere pi\`u essenziali dei DAO, sono pacchetti su
-misura per la comunicazione. La logica del tracciamento tra DAO e DTO sar\`a a
-carico degli oggetti DAO.
-
-\newpage
 \subsubsection{Singleton}
 \begin{figure}[h]
 \centering
-\includegraphics[width=8cm]{img/ST/Singleton.png}
+\includegraphics[width=4cm]{img/ST/Singleton.png}
 \caption{Diagramma UML delle classi che descrive l'implementazione del design
 pattern Singleton}
 \end{figure}
@@ -297,7 +277,7 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
 \section{Package client}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=16cm]{img/ST/ClassClient.png}
+  \includegraphics[width=16.5cm]{img/ST/client.png}
 \caption{Diagramma delle classi del package client.}
 \end{figure}
 
