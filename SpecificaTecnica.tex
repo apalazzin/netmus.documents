@@ -133,28 +133,6 @@ di Presenter e i Places rappresentano gli stati della UI.
 \end{figure}
 
 \newpage
-\subsubsection{Abstract factory}
-Un abstract factory \`e rappresentata da un'interfaccia che permette di creare dei
-prodotti senza specificare classi concrete.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=13cm]{img/ST/as.png}
-\caption{Diagramma UML delle classi che descrive la struttura tradizionale di
-Abstract factory}
-\end{figure}
-Nello specifico lo utilizzeremo per rendere facilmente configurabile il nostro
-sistema. L'interfaccia ClientFactory sar\`a utilizzataita per ottenere le
-intefacce degli elementi architetturali necessari alla nostra applicazione come
-ad esempio l'event bus e le varie UI.
-Per caricare le differenti implementazioni di ClientFactory a seconda delle
-peculiarit\`a dell'utente che vi accede \`e molto conveniente utilizzare il GWT
-deferred binding offerto dal toolkit stesso.
-Il pattern in questione verr\`a utilizzato per una evidente convenienza in termini
-di estendibilit\`a per il futuro anche se allo stadio attuale la factory
-implementata sar\`a solamente una.
-
-\newpage
 \subsubsection{Data Access Object (DAO)  e  Data Transfer Object (DTO)}
 \begin{figure}[h]
 \centering
@@ -177,9 +155,54 @@ oggetti DTO saranno quelli che verranno scambiati nella comunicazione tra client
 e server con il vantaggio di essere pi\`u essenziali dei DAO e la possibilit\`a di
 costituire dei pacchetti su misura per la comunicazione. La logica del
 tracciamento tra DAO e DTO sar\`a a carico degli oggetti DAO.
+\\
+Per questo scopo GWT2.1 propone un potente framework per gestire la
+comunicazione tra client e server, Request Factory, che implementa i patterns
+precedentemente descritti. Abbiamo deciso però di non utilizzarlo, progettando
+una nostra implementazione, a causa della documentazione insufficente fornita
+da Google.
+
+\newpage
+\subsubsection{Abstract factory}
+Un abstract factory \`e rappresentata da un'interfaccia che permette di creare dei
+prodotti senza specificare classi concrete.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{img/ST/as.png}
+\caption{Diagramma UML delle classi che descrive la struttura tradizionale di
+Abstract factory}
+\end{figure}
+Nello specifico lo utilizzeremo per rendere facilmente configurabile il nostro
+sistema. L'interfaccia ClientFactory sar\`a utilizzataita per ottenere le
+intefacce degli elementi architetturali necessari alla nostra applicazione come
+ad esempio l'event bus e le varie UI.
+Per caricare le differenti implementazioni di ClientFactory a seconda delle
+peculiarit\`a dell'utente che vi accede \`e molto conveniente utilizzare il GWT
+deferred binding offerto dal toolkit stesso.
+Il pattern in questione verr\`a utilizzato per una evidente convenienza in termini
+di estendibilit\`a per il futuro anche se allo stadio attuale la factory
+implementata sar\`a solamente una.
 
 \newpage
 \subsubsection{Singleton}
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{img/ST/Singleton.png}
+\caption{Diagramma UML delle classi che descrive l'implementazione del design
+pattern Singleton}
+\end{figure}
+Singleton è un design pattern creazionale che ha lo scopo di assicurare
+l'esistenza di una sola istanza di una certa classe ed avere un punto di accesso
+globale a quest'ultima. 
+L'implementazione di Singleton diminuisce in generale l'accoppiamento del
+sistema.
+Utilizzeremo questo pattern per una classe (Persistent manager factory) che si
+occuperà di creare degli speciali oggetti introdotti da JDO per la comunicazione
+con il database (query). \`E molto importante che venga instanziata una sola
+istanza di Persistent manager factory e che questa sia visibile all'intero
+dell'intero lato server del sistema NetMus. 
+
 
 \newpage
 \subsection{Diagrammi UML dei Package}
