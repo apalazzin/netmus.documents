@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.4}
+\newcommand{\versione}{0.6}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -31,8 +31,13 @@ VT.G \\
 \hline
 \endhead
 \hline
-\endfoot
+\endfoot 
 
+28/01/2011 & 0.6 & Mandolo Andrea & Inseriti contenuti package client e ui.\\
+\hline
+28/01/2011 & 0.5 & Caputo Cosimo & Reinserimento di tutti i grafici UML con
+cambio di stile.\\
+\hline
 28/01/2011 & 0.4 & Mandolo Andrea & Inserita traccia dell'intero capitolo 2.\\
 \hline
 27/01/2011 & 0.3 & Baron Federico & Redazione del capitolo 2.2.1 Deisgn
@@ -151,7 +156,7 @@ di Presenter e i Places rappresentano gli stati della UI.
 \subsubsection{Data Access Object (DAO)  e  Data Transfer Object (DTO)}
 \begin{figure}[h]
 \centering
-\includegraphics[width=9cm]{img/ST/daodto.png}
+\includegraphics[width=15cm]{img/ST/DAO_DTO.png}
 \caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
 simultaneo dei patterns DAO e DTO}
 \end{figure}
@@ -184,7 +189,7 @@ prodotti senza specificare classi concrete.
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=13cm]{img/ST/as.png}
+\includegraphics[width=16.5cm]{img/ST/AbstractFactory.png}
 \caption{Diagramma UML delle classi che descrive la struttura tradizionale di
 Abstract factory}
 \end{figure}
@@ -200,34 +205,10 @@ di estendibilit\`a per il futuro anche se allo stadio attuale la factory
 implementata sar\`a solamente una.
 
 \newpage
-\subsubsection{Data Access Object (DAO)  e  Data Transfer Object (DTO)}
-\begin{figure}[h]
-\centering
-\includegraphics[width=9cm]{img/ST/daodto.png}
-\caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
-simultaneo dei patterns DAO e DTO}
-\end{figure}
-Questi patterns vengono introdotti all'interno della componente model di MVP e
-riguardano gli oggetti utilizzati per l'incapsulamento dei dati nelle
-comunicazioni tra client, server e database. 
-Il DAO (Data Access Object) \`e un pattern semplice ma fondamentale per
-stratificare ed isolare gli accessi al database dalla parte logica
-dell'applicazione, nel nostro caso le Activity di MVP. L'implementazione \`e
-fondamentalmente una classe che rappresenta un'entit\`a tabellare di un database.
-Questi oggetti estratti dal database in alcuni casi possono essere utilizzati
-per la comunicazione con i clients ma hanno pesanti restrizioni dovute alla
-grande quantit\`a di informazioni e procedure che contengono, per questo motivo
-abbiamo deciso di affiancare a DAO anche il pattern Data Transfer Object. Gli
-oggetti DTO saranno quelli che verranno usati nella comunicazione tra client
-e server con il vantaggio di essere pi\`u essenziali dei DAO, sono pacchetti su
-misura per la comunicazione. La logica del tracciamento tra DAO e DTO sar\`a a
-carico degli oggetti DAO.
-
-\newpage
 \subsubsection{Singleton}
 \begin{figure}[h]
 \centering
-\includegraphics[width=8cm]{img/ST/Singleton.png}
+\includegraphics[width=4cm]{img/ST/Singleton.png}
 \caption{Diagramma UML delle classi che descrive l'implementazione del design
 pattern Singleton}
 \end{figure}
@@ -272,11 +253,11 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
     che offrono un servizio di comunicazione col server tramite \underline{GWT
     RPC};
     %----------------- TOGLIERE FORSE --------------------
-    \item Package \emph{client.javafx} : contiene l'interfacciamento alla
-    applet JavaFX di estrazione dei TAG dagli Mp3 da dispositivi multimediali del client;
+    \item Package \emph{client.javafx} : definisce la componente di
+    ricezione dei dati estratti dall'applet JavaFX;
     %-------------------------------------------------------
   \end {itemize}
-  \item Package \emph{server} : rappresenta la parte server di Netmus
+  \item Package \emph{server} : rappresenta la parte server di Netmus;
   \begin{itemize}
     \item Package \emph{server.persistent} : comprende tutte le classi che
     rappresentano un entit\`a JDO (Java Data Object), le quali usate per lo scambio dati tra
@@ -296,20 +277,20 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
 \section{Package client}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=16cm]{img/ST/ClassClient.png}
+  \includegraphics[width=16.5cm]{img/ST/client.png}
 \caption{Diagramma delle classi del package client.}
 \end{figure}
 
 \newpage
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
-Il package client rappresenta la parte del sistema con la quale l'utente pu\`o
-interagire. Tutte le sue classi ed i suoi sottopackage saranno compilati in
+Il package \emph{client} rappresenta la parte del sistema con la quale l'utente
+pu\`o interagire. Tutte le sue classi ed i suoi sottopackage saranno compilati in
 JavaScript da GWT, prima che il sistema venga depositato nel dominio
 \emph{appspot.com} di Google. Contiene la classe \underline{Entry Point}
 \co{Netmus}.
 
 \subsection*{Relazioni d'uso di altre componenti}
-Il package client utilizza i DTO nel package shared.
+Il package \emph{client} utilizza i DTO nel package \emph{shared}.
 
 \subsection*{Interfacce con altre componenti}
 Nessuna.
@@ -319,9 +300,23 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
 \subsection{Classe Netmus}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe rappresenta l'Entry Point di GWT che genera tutte le altre
+componenti e rende disponibile e visibile l'intero sistema.\\
+In particolare andr\`a a creare dinamicamente il ClientFactoryImpl adatto, nel
+caso ce ne fossero diversi, e lo aggancia insieme all'EventBus al nostro
+\co{NetmusPlaceHistoryMapper} ed al \co{NetmusActivityMapper}.
+Inoltre allaccia al body Html il widget principale dell'applicazione.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+La classe \co{Netmus} utilizza \co{ClientFactory}, \co{NetmusActivityMapper} e
+\co{NetmusPlaceHistoryMapper}.
+
 \subsubsection*{Interfacce con altre componenti}
+Nessuna.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+\co{Netmus} praticamente si occupa di avviare il sistema e portare l'utente alla
+pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
 
 \subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -349,9 +344,20 @@ l'utente prima del passaggio ad uno stato differente.
 \newpage
 \section{Package client.ui} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
+Il package \emph{ui} contiene le interfacce e le implementazioni delle View del
+sistema. Le View generano gli ambienti grafici con cui gli utenti possono
+interagire e si occupano di catturare gli eventi da essi prodotti.
+
 \subsection*{Relazioni d'uso di altre componenti}
+Questo package utilizza \emph{place} per creare istanze dei vari Place quando
+richiesto.
+
 \subsection*{Interfacce con altre componenti}
+Viene utilizzato dal package \emph{activity}.
+
 \subsection*{Attivit\`a svolte e dati trattati}
+In sostanza svolge il compito di organizzare le informazioni del model in un
+interfaccia accessibile dall'utente.
 
 \subsection{Classe LoginView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
