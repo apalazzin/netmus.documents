@@ -47,7 +47,12 @@ generale del sistema.\\
 \tableofcontents
 
 \chapter*{Sommario}
--- da compilare --
+In questo documento verr\`a descritta l'architettura del sistema Netmus,
+motivando le scelte progettuali sull'uso di particolari pattern e framework.
+Verrano descritte le classi dei componenti principali del sistema,
+specificandone l'obbiettivo, le attivit\`a che devono svolgere e le varie
+relazioni fra di loro.
+
 
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -101,11 +106,12 @@ verifica e validazione:
   contiene i dati che dovranno essere mostrati. 
   \item{\bo{Presenter} }
   \`e la componente fondamentale, si occupa di mandare i dati del model
-  all'interfaccia e viceversa. Puo' inoltre gestire gli eventi scatenati da
+  all'interfaccia e viceversa. Pu\`o inoltre gestire gli eventi scatenati da
   altre parti del sistema o avviare i propri grazie alla comunicazione diretta
   con un event bus.
+
 \end{itemize}    
-\begin{figure}[h]
+\begin{figure}[!h]
 \centering
 \includegraphics[width=8.5cm]{img/ST/mvp.png}
 \caption{Architettura tipica di MVP utilizzando Google Web Toolkit}
@@ -133,36 +139,6 @@ di Presenter e i Places rappresentano gli stati della UI.
 \end{figure}
 
 \newpage
-\subsubsection{Data Access Object (DAO)  e  Data Transfer Object (DTO)}
-\begin{figure}[h]
-\centering
-\includegraphics[width=9cm]{img/ST/daodto.png}
-\caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
-simultaneo dei patterns DAO e DTO}
-\end{figure}
-Questi patterns vengono introdotti all'interno della componente model di MVP e
-riguardano gli oggetti utilizzati per l'incapsulamento dei dati nelle
-comunicazioni tra client, server e database. 
-Il DAO (Data Access Object) \`e un pattern semplice ma fondamentale per
-stratificare ed isolare gli accessi al database dalla parte logica
-dell'applicazione, nel nostro caso le Activity di MVP. L'implementazione \`e
-fondamentalmente una classe che rappresenta un'entit\`a tabellare di un database.
-Questi oggetti estratti dal database in alcuni casi possono essere utilizzati
-per la comunicazione con i clients ma hanno pesanti restrizioni dovute alla
-grande quantit\`a di informazioni e procedure che contengono, per questo motivo
-abbiamo deciso di affiancare a DAO anche il pattern Data Transfer Object. Gli
-oggetti DTO saranno quelli che verranno scambiati nella comunicazione tra client
-e server con il vantaggio di essere pi\`u essenziali dei DAO e la possibilit\`a di
-costituire dei pacchetti su misura per la comunicazione. La logica del
-tracciamento tra DAO e DTO sar\`a a carico degli oggetti DAO.
-\\
-Per questo scopo GWT2.1 propone un potente framework per gestire la
-comunicazione tra client e server, Request Factory, che implementa i patterns
-precedentemente descritti. Abbiamo deciso però di non utilizzarlo, progettando
-una nostra implementazione, a causa della documentazione insufficente fornita
-da Google.
-
-\newpage
 \subsubsection{Abstract factory}
 Un abstract factory \`e rappresentata da un'interfaccia che permette di creare dei
 prodotti senza specificare classi concrete.
@@ -185,24 +161,31 @@ di estendibilit\`a per il futuro anche se allo stadio attuale la factory
 implementata sar\`a solamente una.
 
 \newpage
-\subsubsection{Singleton}
+\subsubsection{Data Access Object (DAO)  e  Data Transfer Object (DTO)}
 \begin{figure}[h]
 \centering
-\includegraphics[width=8cm]{img/ST/Singleton.png}
-\caption{Diagramma UML delle classi che descrive l'implementazione del design
-pattern Singleton}
+\includegraphics[width=9cm]{img/ST/daodto.png}
+\caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
+simultaneo dei patterns DAO e DTO}
 \end{figure}
-Singleton è un design pattern creazionale che ha lo scopo di assicurare
-l'esistenza di una sola istanza di una certa classe ed avere un punto di accesso
-globale a quest'ultima. 
-L'implementazione di Singleton diminuisce in generale l'accoppiamento del
-sistema.
-Utilizzeremo questo pattern per una classe (Persistent manager factory) che si
-occuperà di creare degli speciali oggetti introdotti da JDO per la comunicazione
-con il database (query). \`E molto importante che venga instanziata una sola
-istanza di Persistent manager factory e che questa sia visibile all'intero
-dell'intero lato server del sistema NetMus. 
+Questi patterns vengono introdotti all'interno della componente model di MVP e
+riguardano gli oggetti utilizzati per l'incapsulamento dei dati nelle
+comunicazioni tra client, server e database. 
+Il DAO (Data Access Object) \`e un pattern semplice ma fondamentale per
+stratificare ed isolare gli accessi al database dalla parte logica
+dell'applicazione, nel nostro caso le Activity di MVP. L'implementazione \`e
+fondamentalmente una classe che rappresenta un'entit\`a tabellare di un database.
+Questi oggetti estratti dal database in alcuni casi possono essere utilizzati
+per la comunicazione con i clients ma hanno pesanti restrizioni dovute alla
+grande quantit\`a di informazioni e procedure che contengono, per questo motivo
+abbiamo deciso di affiancare a DAO anche il pattern Data Transfer Object. Gli
+oggetti DTO saranno quelli che verranno usati nella comunicazione tra client
+e server con il vantaggio di essere pi\`u essenziali dei DAO, sono pacchetti su
+misura per la comunicazione. La logica del tracciamento tra DAO e DTO sar\`a a
+carico degli oggetti DAO.
 
+\newpage
+\subsubsection{Singleton}
 
 \newpage
 \subsection{Diagrammi UML dei Package}
@@ -216,35 +199,36 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
 \begin{itemize}
   \item Package \emph{client} : definisce la parte client del programma
   \begin {itemize}
-    \item Package \emph{client::ui} : comprende l'insieme di viste del sistema,
+    \item Package \emph{client.ui} : comprende l'insieme di viste del sistema,
     rispettando il framework \emph{MVP with Place and Activity}. Ci sar\`a una
     interfaccia per ogni vista, per dare la possibilit\`a di creare in futuro
     pi\`u implementazioni differenti a seconda del dispositivo client;
-    \item Package \emph{client::activity} : rappresenta l'insieme di classi
+    \item Package \emph{client.activity} : rappresenta l'insieme di classi
     controllori che formano la logica del sistema. Esse mandano dati aggiornati alle
     viste, gestiscono le richieste delle viste e possono inoltre gestire
     richieste provenienti da altre componenti e mandare eventi propri nell'event-bus;
-    \item Package \emph{client::place} : comprende l'insieme di classi Place i
+    \item Package \emph{client.place} : comprende l'insieme di classi Place i
     quali rappresentano un URL associato ad una vista. Gestiscono i parametri
     agganciati all'URL con un Tokenizer interno;
-    \item Package \emph{client::mvp} : comprende un ActivityMapper e
+    \item Package \emph{client.mvp} : comprende un ActivityMapper e
     un PlaceHistoryManager che mappano per ogni Place la sua corrispondente
     Activity e gestiscono la cronologia dei Place;
-    \item Package \emph{client::service} : rappresenta l'insieme di interfaccie
-    che offrono un servizio di comunicazione col server tramite GWT RPC;
+    \item Package \emph{client.service} : rappresenta l'insieme di interfaccie
+    che offrono un servizio di comunicazione col server tramite \underline{GWT
+    RPC};
     %----------------- TOGLIERE FORSE --------------------
-    \item Package \emph{client::javafx} : contiene l'interfacciamento alla
+    \item Package \emph{client.javafx} : contiene l'interfacciamento alla
     applet JavaFX di estrazione dei TAG dagli Mp3 da dispositivi multimediali del client;
     %-------------------------------------------------------
   \end {itemize}
   \item Package \emph{server} : rappresenta la parte server di Netmus
   \begin{itemize}
-    \item Package \emph{server::persistent} : comprende tutte le classi che
+    \item Package \emph{server.persistent} : comprende tutte le classi che
     rappresentano un entit\`a JDO (Java Data Object), le quali usate per lo scambio dati tra
     server e Google Datastore;
-    \item Package \emph{server::servlet} : comprende tutte le servlet utilizzate
+    \item Package \emph{server.servlet} : comprende tutte le servlet utilizzate
     per interfacciarsi a servizi esterni (es. Google Authentication, YouTube);
-    \item Package \emph{server::utils} : comprende classi di utilit\`a per
+    \item Package \emph{server.utils} : comprende classi di utilit\`a per
     svolgere attivit\`a interne al server di varie tipologie;
   \end{itemize}
   \item Package \emph{shared} :  contiene classi condivise tra client e server,
@@ -261,13 +245,322 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
 \caption{Diagramma delle classi del package client.}
 \end{figure}
 
-\subsection{Tipo, obiettivo e funzione del componente}
-\subsection{Relazioni d'uso di altre componenti}
-\subsection{Interfacce con e relazioni di uso da altre componenti}
-\subsection{Attivit\`a svolte e dati trattati}
+\newpage
+\subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
+Il package client rappresenta la parte del sistema con la quale l'utente pu\`o
+interagire. Tutte le sue classi ed i suoi sottopackage saranno compilati in
+JavaScript da GWT, prima che il sistema venga depositato nel dominio
+\emph{appspot.com} di Google. Contiene la classe \underline{Entry Point}
+\co{Netmus}.
+
+\subsection*{Relazioni d'uso di altre componenti}
+Il package client utilizza i DTO nel package shared.
+
+\subsection*{Interfacce con altre componenti}
+Nessuna.
+
+\subsection*{Attivit\`a svolte e dati trattati}
+Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
+
+\subsection{Classe Netmus}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\newpage
+\section{Package client.ui} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe LoginView}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe ProfileView}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe EditUserView}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe EditSongsView}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\newpage
+\section{Package client.activity} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe LoginActivity}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe ProfileActivity}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe EditUserActivity}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe EditSongsActivity}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\newpage
+\section{Package client.place} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe LoginPlace}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe ProfilePlace}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe EditUserPlace}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe EditSongsPlace}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\newpage
+\section{Package client.mvp} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe NetmusActivityMapper}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe NetmusPlaceHistoryMapper}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\newpage
+\section{Package client.service} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe SongsService}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe UsersService}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe LoginService}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+%--------------- FORSE -------------------------------
+\section{Package client.javafx} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+%------------------------------------------------------
+\newpage
+\section{Package server} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe SongsServiceImpl}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe UsersServiceImpl}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe LoginServiceImpl}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe LoginHelper}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\newpage
+\subsection{Classe PMF (Singleton)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\section{Package server.peristent} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe User (da decidere nomi e tipi di DAO)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe . . . . (da decidere nomi e tipi di DAO)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\newpage
+\section{Package server.servlet} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe LoginSuperServlet}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe LoginGoogleServlet}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe LoginGoogleCallbackServlet}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe YouTubeServlet (da decidere tipo di servlet)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\newpage
+\subsection{Classe TaggingServlet(da decidere . . .)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\section{Package server.utils} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe AuthenticationProvider}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe ServletUtils}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe Utils}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\newpage
+\section{Package shared} % LASCIARE WARNING
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe 'Tipo'DTO  (decidere tipi DTO ecc)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe . . . .  (decidere tipi DTO ecc)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 
 \chapter{Tracciamento della relazione componenti - requisiti}
 
+\listoftables
+\addcontentsline{toc}{chapter}{Indice Tabelle}
+\listoffigures
+\addcontentsline{toc}{chapter}{Indice Figure}
 \end{document}
