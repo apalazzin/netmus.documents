@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.6}
+\newcommand{\versione}{0.7}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -33,10 +33,13 @@ VT.G \\
 \hline
 \endfoot 
 
-28/01/2011 & 0.6 & Mandolo Andrea & Inseriti contenuti package client e ui.\\
+28/01/2011 & 0.7 & Mandolo Andrea & Inseriti contenuti package client e ui.\\
 \hline
-28/01/2011 & 0.5 & Caputo Cosimo & Reinserimento di tutti i grafici UML con
+28/01/2011 & 0.6 & Caputo Cosimo & Reinserimento di tutti i grafici UML con
 cambio di stile.\\
+\hline
+28/01/2011 & 0.5 & Daminato Simone & Inserite descizioni delle classi *DTO
+nel package shared.\\
 \hline
 28/01/2011 & 0.4 & Mandolo Andrea & Inserita traccia dell'intero capitolo 2.\\
 \hline
@@ -250,8 +253,7 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
     un PlaceHistoryManager che mappano per ogni Place la sua corrispondente
     Activity e gestiscono la cronologia dei Place;
     \item Package \emph{client.service} : rappresenta l'insieme di interfaccie
-    che offrono un servizio di comunicazione col server tramite \underline{GWT
-    RPC};
+    che offrono un servizio di comunicazione col server tramite GWT RPC;
     %----------------- TOGLIERE FORSE --------------------
     \item Package \emph{client.javafx} : definisce la componente di
     ricezione dei dati estratti dall'applet JavaFX;
@@ -625,21 +627,102 @@ comunicazioni operative.
 \newpage
 \section{Package shared} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
+Il package \textit{shared} contiene le classi degli oggetti che vengono
+scambiati tra client e server; in particolare, troviamo presenti le classi che
+aderiscono al pattern DTO.
 \subsection*{Relazioni d'uso di altre componenti}
+Tutte le classi di questo package implementano l'interfaccia
+\textit{java.io.Serializable} per poter essere serializzate e quindi inviate
+attraverso la rete. 
 \subsection*{Interfacce con altre componenti}
+Viene utilizzata dalle classi dei package \textit{client} e \textit{server} per
+lo scambio di dati.
 \subsection*{Attivit\`a svolte e dati trattati}
+In generale, le classi di questo package si occupano di inglobare e trasportare
+le informazioni attraverso la rete, per le comunicazioni tra server e client.
+Vengono qui di seguito descritte pi\`u in dettaglio.
 
-\subsection{Classe 'Tipo'DTO  (decidere tipi DTO ecc)}
+\subsection{Interfaccia GenericDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Interfaccia comune per le classi DTO. Definisce una generica classe che potrà
+essere usata come contenitore dei dati di una DAO.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Vedere la descrizione del package.
 \subsubsection*{Interfacce con altre componenti}
+Viene implementata dalle classi del package \textit{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Nessuna. 
 
-\subsection{Classe . . . .  (decidere tipi DTO ecc)}
+\subsection{Classe UserDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Contiene e rappresenta i dati più comunemente utilizzati di un utente, ovvero
+quelli che vengono visualizzati in un profilo.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Implementa l'interfaccia \textit{GenericDTO}.
 \subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Funge da contenitore per i dati pi\`u comunemente utilizzati dell'utente, come
+per esempio nick ed email.
+
+\subsection{Classe RegistrationDTO}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Contiene e rappresenta la maggior parte dei dati di un utente, pi\`u
+precisamente quelli richiesti alla registrazione.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Estende la classe \textit{UserDTO}.
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Funge da contenitore per i dati dettagliati di un utente.
+
+\subsection{Classe UserCompleteDTO}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Contiene e rappresenta tutti i dati di un utente, a partire da quelli
+visualizzati sul profilo, a quelli interni del sistema.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Estende la classe \textit{RegistrationDTO}.
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Funge da contenitore per tutti dati dell'utente, dal nick al numero di
+registrazione.
+
+\subsection{Classe SongDTO}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Contiene e rappresenta i dati più comunemente utilizzati di un brano, ovvero
+quelli che vengono visualizzati in una playlist all'interno di un profilo.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Implementa l'interfaccia \textit{GenericDTO}.
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Funge da contenitore per i dati pi\`u comunemente utilizzati di un brano, come
+per esempio titolo ed autore.
+
+\subsection{Classe SongCompleteDTO}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Contiene e rappresenta tutti i dati di un brano, compresi quelli interni del
+sistema. 
+\subsubsection*{Relazioni d'uso di altre componenti}
+Estende la classe \textit{SongDTO}.
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Funge da contenitore per tutti dati del brano, dal titolo al numero
+identificativo del brano. 
+
+\subsection{Classe LoginDTO}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Contiene e rappresenta i dati di login di un utente.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Implementa l'interfaccia \textit{GenericDTO}.
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Trasporta nome utente e password dal client al server per l'autenticazione.
+
+%da decidere se utilizzare le eccezioni
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 
