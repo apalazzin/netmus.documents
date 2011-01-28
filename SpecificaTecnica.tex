@@ -189,7 +189,7 @@ prodotti senza specificare classi concrete.
 Abstract factory}
 \end{figure}
 Nello specifico lo utilizzeremo per rendere facilmente configurabile il nostro
-sistema. L'interfaccia ClientFactory sar\`a utilizzataita per ottenere le
+sistema. L'interfaccia ClientFactory sar\`a utilizzata per ottenere le
 intefacce degli elementi architetturali necessari alla nostra applicazione come
 ad esempio l'event bus e le varie UI.
 Per caricare le differenti implementazioni di ClientFactory a seconda delle
@@ -325,9 +325,26 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
 \subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+In Netmus \`e disponibile un'unica implementazione dell'intefaccia
+ClientFactory, poich\`e per il momento non \`e contemplato un utilizzo di
+alternative all'interfaccia utente desktop.
+Nella classe si definiscono le propriet\`a di un vista (desktop) del
+sistema.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+La classe utilizza \co{EventBus}, \co{PlaceController}, \co{LoginView},
+\co{ProfileView}, \co{EditUserView} e
+\co{EditSongView}.
 \subsubsection*{Interfacce con altre componenti}
+\co{Netmus} crea l'istanza della classe. L'interfaccia \co{ClientFactory} \`e
+utilizzata da \co{ActivityMapper} e successivamente dalle \co{Activity} per
+l'utilizzo dell'EventBus.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+La classe si occupa di istanziare l'event bus, il place controller e le varie
+view. L'event bus gestisce le comunicazioni tra componenti, il place
+controller permette la navigazione tra i Place ed \`e si occupa di avvisare
+l'utente prima del passaggio ad uno stato differente.
+
 
 \newpage
 \section{Package client.ui} % LASCIARE WARNING
@@ -338,9 +355,17 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
 \subsection{Classe LoginView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per l'autenticazione e la
+registrazione degli utenti Netmus.
 \subsubsection*{Relazioni d'uso di altre componenti}
+La classe istanzia oggetti di tipo \co{Place} che definiscono gli stati attuali
+della vista.
 \subsubsection*{Interfacce con altre componenti}
+La vista viene creata da \co{ClientFactory} e \`e settata ed utilizzata dalle
+varie \co{Activity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Mette a disposizione gli strumenti per l'immissione dei dati utente e per le
+comunicazioni operative.
 
 \subsection{Classe ProfileView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
