@@ -1,11 +1,11 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.3}
+\newcommand{\versione}{0.4}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{27 Gennaio 2011}
+\newcommand{\datamodifica}{28 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Mandolo Andrea}
@@ -33,6 +33,8 @@ VT.G \\
 \hline
 \endfoot
 
+28/01/2011 & 0.4 & Mandolo Andrea & Inserita traccia dell'intero capitolo 2.\\
+\hline
 27/01/2011 & 0.3 & Baron Federico & Redazione del capitolo 2.2.1 Deisgn
 patterns.\\
 \hline
@@ -47,12 +49,13 @@ generale del sistema.\\
 \tableofcontents
 
 \chapter*{Sommario}
-In questo documento verr\`a descritta l'architettura del sistema Netmus,
-motivando le scelte progettuali sull'uso di particolari pattern e framework.
-Verrano descritte le classi dei componenti principali del sistema,
-specificandone l'obbiettivo, le attivit\`a che devono svolgere e le varie
-relazioni fra di loro.
-
+Il presente documento fornisce la descrizione ad alto livello dell'architettura
+del sistema Netmus, riservando particolare attenzione alle motivazioni e ai
+metodi utilizzati per l'identificazione delle principali componenti, alla loro
+struttura, funzione e alle relazioni d'uso. Vengono infine presentati una stima
+della fattibilit\`a e delle risorse necessarie e il tracciamento delle
+componenti sui requisiti, descritti in dettaglio nel documento
+\emph{AnalisiDeiRequisiti}.
 
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -73,6 +76,10 @@ connessioni e delle principali classi di cui essi si compongono.
 
 \chapter{Definizione del Prodotto}
 \section{Metodo e formalismo di specifica}
+I diagrammi delle classi illustrati in questo capitolo (utilizzando il
+linguaggio di modellazione e specifica UML) definiscono la struttura ad alto
+livello del sistema Netmus a partire da una visione macroscopica del sistema,
+scendendo via via nel dettaglio.
 
 \section{Presentazione dell'architettura generale del sistema.}
 
@@ -139,6 +146,37 @@ di Presenter e i Places rappresentano gli stati della UI.
 \end{figure}
 
 \newpage
+
+\subsubsection{Data Access Object (DAO)  e  Data Transfer Object (DTO)}
+\begin{figure}[h]
+\centering
+\includegraphics[width=9cm]{img/ST/daodto.png}
+\caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
+simultaneo dei patterns DAO e DTO}
+\end{figure}
+Questi patterns vengono introdotti all'interno della componente model di MVP e
+riguardano gli oggetti utilizzati per l'incapsulamento dei dati nelle
+comunicazioni tra client, server e database. 
+Il DAO (Data Access Object) \`e un pattern semplice ma fondamentale per
+stratificare ed isolare gli accessi al database dalla parte logica
+dell'applicazione, nel nostro caso le Activity di MVP. L'implementazione \`e
+fondamentalmente una classe che rappresenta un'entit\`a tabellare di un database.
+Questi oggetti estratti dal database in alcuni casi possono essere utilizzati
+per la comunicazione con i clients ma hanno pesanti restrizioni dovute alla
+grande quantit\`a di informazioni e procedure che contengono, per questo motivo
+abbiamo deciso di affiancare a DAO anche il pattern Data Transfer Object. Gli
+oggetti DTO saranno quelli che verranno scambiati nella comunicazione tra client
+e server con il vantaggio di essere pi\`u essenziali dei DAO e la possibilit\`a di
+costituire dei pacchetti su misura per la comunicazione. La logica del
+tracciamento tra DAO e DTO sar\`a a carico degli oggetti DAO.
+\\
+Per questo scopo GWT2.1 propone un potente framework per gestire la
+comunicazione tra client e server, Request Factory, che implementa i patterns
+precedentemente descritti. Abbiamo deciso per\`o di non utilizzarlo, progettando
+una nostra implementazione, a causa della documentazione insufficente fornita
+da Google.
+
+\newpage
 \subsubsection{Abstract factory}
 Un abstract factory \`e rappresentata da un'interfaccia che permette di creare dei
 prodotti senza specificare classi concrete.
@@ -186,9 +224,25 @@ carico degli oggetti DAO.
 
 \newpage
 \subsubsection{Singleton}
+\begin{figure}[h]
+\centering
+\includegraphics[width=8cm]{img/ST/Singleton.png}
+\caption{Diagramma UML delle classi che descrive l'implementazione del design
+pattern Singleton}
+\end{figure}
+Singleton \`e un design pattern creazionale che ha lo scopo di assicurare
+l'esistenza di una sola istanza di una certa classe ed avere un punto di accesso
+globale a quest'ultima. 
+L'implementazione di Singleton diminuisce in generale l'accoppiamento del
+sistema.
+Utilizzeremo questo pattern per una classe (Persistent manager factory) che si
+occupera di creare degli speciali oggetti introdotti da JDO per la
+comunicazione con il database (query). \`E molto importante che venga instanziata una sola
+istanza di Persistent manager factory e che questa sia visibile all'intero
+dell'intero lato server del sistema NetMus. 
 
 \newpage
-\subsection{Diagrammi UML dei Package}
+\subsubsection{Diagrammi UML dei Package}
 Il sistema Netmus sar\`a principalmente formato dai seguenti package:
 \begin{figure}[h]
   \centering
