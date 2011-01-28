@@ -168,7 +168,7 @@ tracciamento tra DAO e DTO sar\`a a carico degli oggetti DAO.
 \\
 Per questo scopo GWT2.1 propone un potente framework per gestire la
 comunicazione tra client e server, Request Factory, che implementa i patterns
-precedentemente descritti. Abbiamo deciso per� di non utilizzarlo, progettando
+precedentemente descritti. Abbiamo deciso per\`o di non utilizzarlo, progettando
 una nostra implementazione, a causa della documentazione insufficente fornita
 da Google.
 
@@ -202,14 +202,14 @@ implementata sar\`a solamente una.
 \caption{Diagramma UML delle classi che descrive l'implementazione del design
 pattern Singleton}
 \end{figure}
-Singleton � un design pattern creazionale che ha lo scopo di assicurare
+Singleton \`e un design pattern creazionale che ha lo scopo di assicurare
 l'esistenza di una sola istanza di una certa classe ed avere un punto di accesso
 globale a quest'ultima. 
 L'implementazione di Singleton diminuisce in generale l'accoppiamento del
 sistema.
 Utilizzeremo questo pattern per una classe (Persistent manager factory) che si
-occuper� di creare degli speciali oggetti introdotti da JDO per la comunicazione
-con il database (query). \`E molto importante che venga instanziata una sola
+occupera di creare degli speciali oggetti introdotti da JDO per la
+comunicazione con il database (query). \`E molto importante che venga instanziata una sola
 istanza di Persistent manager factory e che questa sia visibile all'intero
 dell'intero lato server del sistema NetMus. 
 
