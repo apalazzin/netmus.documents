@@ -226,35 +226,35 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
 \begin{itemize}
   \item Package \emph{client} : definisce la parte client del programma
   \begin {itemize}
-    \item Package \emph{client::ui} : comprende l'insieme di viste del sistema,
+    \item Package \emph{client.ui} : comprende l'insieme di viste del sistema,
     rispettando il framework \emph{MVP with Place and Activity}. Ci sar\`a una
     interfaccia per ogni vista, per dare la possibilit\`a di creare in futuro
     pi\`u implementazioni differenti a seconda del dispositivo client;
-    \item Package \emph{client::activity} : rappresenta l'insieme di classi
+    \item Package \emph{client.activity} : rappresenta l'insieme di classi
     controllori che formano la logica del sistema. Esse mandano dati aggiornati alle
     viste, gestiscono le richieste delle viste e possono inoltre gestire
     richieste provenienti da altre componenti e mandare eventi propri nell'event-bus;
-    \item Package \emph{client::place} : comprende l'insieme di classi Place i
+    \item Package \emph{client.place} : comprende l'insieme di classi Place i
     quali rappresentano un URL associato ad una vista. Gestiscono i parametri
     agganciati all'URL con un Tokenizer interno;
-    \item Package \emph{client::mvp} : comprende un ActivityMapper e
+    \item Package \emph{client.mvp} : comprende un ActivityMapper e
     un PlaceHistoryManager che mappano per ogni Place la sua corrispondente
     Activity e gestiscono la cronologia dei Place;
-    \item Package \emph{client::service} : rappresenta l'insieme di interfaccie
+    \item Package \emph{client.service} : rappresenta l'insieme di interfaccie
     che offrono un servizio di comunicazione col server tramite GWT RPC;
     %----------------- TOGLIERE FORSE --------------------
-    \item Package \emph{client::javafx} : contiene l'interfacciamento alla
+    \item Package \emph{client.javafx} : contiene l'interfacciamento alla
     applet JavaFX di estrazione dei TAG dagli Mp3 da dispositivi multimediali del client;
     %-------------------------------------------------------
   \end {itemize}
   \item Package \emph{server} : rappresenta la parte server di Netmus
   \begin{itemize}
-    \item Package \emph{server::persistent} : comprende tutte le classi che
+    \item Package \emph{server.persistent} : comprende tutte le classi che
     rappresentano un entit\`a JDO (Java Data Object), le quali usate per lo scambio dati tra
     server e Google Datastore;
-    \item Package \emph{server::servlet} : comprende tutte le servlet utilizzate
+    \item Package \emph{server.servlet} : comprende tutte le servlet utilizzate
     per interfacciarsi a servizi esterni (es. Google Authentication, YouTube);
-    \item Package \emph{server::utils} : comprende classi di utilit\`a per
+    \item Package \emph{server.utils} : comprende classi di utilit\`a per
     svolgere attivit\`a interne al server di varie tipologie;
   \end{itemize}
   \item Package \emph{shared} :  contiene classi condivise tra client e server,
@@ -268,6 +268,19 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
 \begin{figure}[h]
   \centering
   \includegraphics[width=16cm]{img/ST/ClassClient.png}
+\caption{Diagramma delle classi del package client.}
+\end{figure}
+
+\subsection{Tipo, obiettivo e funzione del componente}
+\subsection{Relazioni d'uso di altre componenti}
+\subsection{Interfacce con e relazioni di uso da altre componenti}
+\subsection{Attivit\`a svolte e dati trattati}
+
+\newpage
+\section{Package server}
+\begin{figure}[h]
+  \centering
+  %\includegraphics[width=16cm]{img/ST/ClassClient.png}
 \caption{Diagramma delle classi del package client.}
 \end{figure}
 
