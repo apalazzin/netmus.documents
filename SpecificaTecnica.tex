@@ -47,7 +47,13 @@ generale del sistema.\\
 \tableofcontents
 
 \chapter*{Sommario}
--- da compilare --
+Il presente documento fornisce la descrizione ad alto livello dell'architettura
+del sistema Netmus, riservando particolare attenzione alle motivazioni e ai
+metodi utilizzati per l'identificazione delle principali componenti, alla loro
+struttura, funzione e alle relazioni d'uso. Vengono infine presentati una stima
+della fattibilit\`a e delle risorse necessarie e il tracciamento delle
+componenti sui requisiti, descritti in dettaglio nel documento
+\emph{AnalisiDeiRequisiti}.
 
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -68,6 +74,10 @@ connessioni e delle principali classi di cui essi si compongono.
 
 \chapter{Definizione del Prodotto}
 \section{Metodo e formalismo di specifica}
+I diagrammi delle classi illustrati in questo capitolo (utilizzando il
+linguaggio di modellazione e specifica UML) definiscono la struttura ad alto
+livello del sistema Netmus a partire da una visione macroscopica del sistema,
+scendendo via via nel dettaglio.
 
 \section{Presentazione dell'architettura generale del sistema.}
 
@@ -158,7 +168,7 @@ tracciamento tra DAO e DTO sar\`a a carico degli oggetti DAO.
 \\
 Per questo scopo GWT2.1 propone un potente framework per gestire la
 comunicazione tra client e server, Request Factory, che implementa i patterns
-precedentemente descritti. Abbiamo deciso però di non utilizzarlo, progettando
+precedentemente descritti. Abbiamo deciso perï¿½ di non utilizzarlo, progettando
 una nostra implementazione, a causa della documentazione insufficente fornita
 da Google.
 
@@ -192,13 +202,13 @@ implementata sar\`a solamente una.
 \caption{Diagramma UML delle classi che descrive l'implementazione del design
 pattern Singleton}
 \end{figure}
-Singleton è un design pattern creazionale che ha lo scopo di assicurare
+Singleton ï¿½ un design pattern creazionale che ha lo scopo di assicurare
 l'esistenza di una sola istanza di una certa classe ed avere un punto di accesso
 globale a quest'ultima. 
 L'implementazione di Singleton diminuisce in generale l'accoppiamento del
 sistema.
 Utilizzeremo questo pattern per una classe (Persistent manager factory) che si
-occuperà di creare degli speciali oggetti introdotti da JDO per la comunicazione
+occuperï¿½ di creare degli speciali oggetti introdotti da JDO per la comunicazione
 con il database (query). \`E molto importante che venga instanziata una sola
 istanza di Persistent manager factory e che questa sia visibile all'intero
 dell'intero lato server del sistema NetMus. 
