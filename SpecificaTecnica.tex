@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.2}
+\newcommand{\versione}{0.3}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -33,6 +33,9 @@ VT.G \\
 \hline
 \endfoot
 
+27/01/2011 & 0.3 & Baron Federico & Redazione del capitolo 2.2.1 Deisgn
+patterns.\\
+\hline
 27/01/2011 & 0.2 & Mandolo Andrea & Inserita presentazione dell'architettura
 generale del sistema.\\
 \hline
@@ -68,6 +71,118 @@ connessioni e delle principali classi di cui essi si compongono.
 
 \section{Presentazione dell'architettura generale del sistema.}
 
+\subsection{Design patterns utilizzati}
+Nei seguenti paragrafi sono presentati i design patterns utilizzati per
+sviluppare l'architettura di NetMus. Alcuni di questi derivano dall'utilizzo
+delle tecnologie GAE e GWT che forniscono dei frameworks che implementano
+patterns considerati best practices per queste particolari tecnologie.
+
+\subsubsection{L'importanza dei design patterns in NetMus}
+La via intrapresa da VT.G nello sviluppo del sistema NetMus comprende il forte
+utilizzo dei design patterns al fine di produrre un software al pi\`u
+possibile manutenibile ed estendibile e che quindi mantenga un ciclo di
+vita equilibrato. 
+I design patterns inibiscono l'ispirazione dei programmatori dove
+questa non \`e necessaria e piuttosto forniscono un modo universalmente
+riconosciuto di produrre software ben architettato e facilmente manutenibile.
+MVP in particolare \`e il pattern pi\`u utilizzato sulla piattaforma Google Web
+Toolkit ed \`e quindi sostenuto egregiamente da alcuni strumenti offerti da
+Google.
+
+\subsubsection{Model View Presentation (MVP) }
+La potenza di questo pattern architetturale \`e quella di separare tre
+importantissime componenti riducendo l'accoppiamento e facilitando i processi di
+verifica e validazione:
+\begin{itemize}
+  \item{\bo{View} }
+  costituisce l'interfaccia utente che comprende tutte le componenti utili alla
+  visualizzazione.
+  \item{\bo{Model} }
+  contiene i dati che dovranno essere mostrati. 
+  \item{\bo{Presenter} }
+  \`e la componente fondamentale, si occupa di mandare i dati del model
+  all'interfaccia e viceversa. Puo' inoltre gestire gli eventi scatenati da
+  altre parti del sistema o avviare i propri grazie alla comunicazione diretta
+  con un event bus.
+\end{itemize}    
+\begin{figure}[h]
+\centering
+\includegraphics[width=8.5cm]{img/ST/mvp.png}
+\caption{Architettura tipica di MVP utilizzando Google Web Toolkit}
+\end{figure}
+
+Nel nostro caso questo design pattern sar\`a implementato con il framework MVP con
+Activities e Places offerto da GWT 2.1 che semplifica la gestione di alcuni
+aspetti consolidati di MVP. In questo framework le Activities svolgono il ruolo
+di Presenter e i Places rappresentano gli stati della UI.
+\begin{itemize}
+  \item{\bo{Activity} }
+  \`e l'analogo di presenter in MVP tradizionale. Non contiene alcun componente
+  grafico ed il suo avvio e la sua terminazione sono gestite da un
+  ActivityManager.
+  \item{\bo{Place} }
+  un Place in GWT 2.1 rappresenta un particolare stato della UI e viene
+  utilizzato anche per tenere una history degli URL che \`e fondamentale per una
+  Web Application.
+
+\end{itemize} 
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{img/ST/mvpap.png}
+\caption{Comparazione tra MVP tradizionale e MVP con Activities e Places}
+\end{figure}
+
+\newpage
+\subsubsection{Abstract factory}
+Un abstract factory \`e rappresentata da un'interfaccia che permette di creare dei
+prodotti senza specificare classi concrete.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=13cm]{img/ST/as.png}
+\caption{Diagramma UML delle classi che descrive la struttura tradizionale di
+Abstract factory}
+\end{figure}
+Nello specifico lo utilizzeremo per rendere facilmente configurabile il nostro
+sistema. L'interfaccia ClientFactory sar\`a utilizzataita per ottenere le
+intefacce degli elementi architetturali necessari alla nostra applicazione come
+ad esempio l'event bus e le varie UI.
+Per caricare le differenti implementazioni di ClientFactory a seconda delle
+peculiarit\`a dell'utente che vi accede \`e molto conveniente utilizzare il GWT
+deferred binding offerto dal toolkit stesso.
+Il pattern in questione verr\`a utilizzato per una evidente convenienza in termini
+di estendibilit\`a per il futuro anche se allo stadio attuale la factory
+implementata sar\`a solamente una.
+
+\newpage
+\subsubsection{Data Access Object (DAO)  e  Data Transfer Object (DTO)}
+\begin{figure}[h]
+\centering
+\includegraphics[width=9cm]{img/ST/daodto.png}
+\caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
+simultaneo dei patterns DAO e DTO}
+\end{figure}
+Questi patterns vengono introdotti all'interno della componente model di MVP e
+riguardano gli oggetti utilizzati per l'incapsulamento dei dati nelle
+comunicazioni tra client, server e database. 
+Il DAO (Data Access Object) \`e un pattern semplice ma fondamentale per
+stratificare ed isolare gli accessi al database dalla parte logica
+dell'applicazione, nel nostro caso le Activity di MVP. L'implementazione \`e
+fondamentalmente una classe che rappresenta un'entit\`a tabellare di un database.
+Questi oggetti estratti dal database in alcuni casi possono essere utilizzati
+per la comunicazione con i clients ma hanno pesanti restrizioni dovute alla
+grande quantit\`a di informazioni e procedure che contengono, per questo motivo
+abbiamo deciso di affiancare a DAO anche il pattern Data Transfer Object. Gli
+oggetti DTO saranno quelli che verranno scambiati nella comunicazione tra client
+e server con il vantaggio di essere pi\`u essenziali dei DAO e la possibilit\`a di
+costituire dei pacchetti su misura per la comunicazione. La logica del
+tracciamento tra DAO e DTO sar\`a a carico degli oggetti DAO.
+
+\newpage
+\subsubsection{Singleton}
+
+\newpage
+\subsection{Diagrammi UML dei Package}
 Il sistema Netmus sar\`a principalmente formato dai seguenti package:
 \begin{figure}[h]
   \centering
@@ -114,7 +229,6 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
   client. La maggior parte saranno gli oggetti di trasferimento che
   aderiscono al pattern DTO.
 \end{itemize}
-
 
 \chapter{Descrizione dei singoli componenti}
 \section{Package client}
