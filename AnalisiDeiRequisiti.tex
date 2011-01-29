@@ -385,7 +385,7 @@ ancora tutte funzionanti e disponibili. \\\\
   \item L'utente compie alcune tra le operazioni possibili sul proprio
   catalogo (UC1.3.2, UC1.3.4, UC1.3.5) oppure seleziona il brano che gli
   interessa e ne visualizza ed amministra i dettagli (UC1.3.3, UC1.3.3.1,
-  UC1.3.3.2, UC1.3.3.3). Inoltre c'\`e anche il player Youtube (UC1.3.3.2) che
+  UC1.3.3.2, UC1.3.3.3). Inoltre c'\`e anche il player YouTube (UC1.3.3.2) che
   gli permette di ascoltare la canzone in streaming.
   \item Il server o, nel caso venga chiesta la riproduzione del brano (UC1.3.3.2), il
   servizio esterno YouTube invia la pagina che l'utente ha richiesto e se
@@ -543,7 +543,7 @@ da un comodo men\`u laterale alla sinistra della finestra dei brani.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
 Per ognuno dei propri brani catalogati sar\`a possibile accedere alle informazioni
-dettagliate, come ad esempio la copertina dell'album, in una nuova finestra
+dettagliate in una nuova finestra, come ad esempio la copertina dell'album.
 
 \subsubsection*{Player YouTube}
 \bo{Id:} C1FD-1.1.4 \\
@@ -551,7 +551,7 @@ dettagliate, come ad esempio la copertina dell'album, in una nuova finestra
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} capitolato \\
 Insieme alle informazioni di un brano dovrebbe comparire anche un player fornito
-da Youtube con cui ascoltarlo.
+da YouTube con cui ascoltarlo.
 
 \subsubsection*{Registrazione}
 \bo{Id:} C1FN-1.2 \\
@@ -561,7 +561,7 @@ da Youtube con cui ascoltarlo.
 Un individuo pu\`o diventare utente di Netmus ed avere la possibilit\`a di gestire
 il proprio catalogo multimediale solamente dopo aver effettuato la
 registrazione, che prevede l'inserimento di un \underline{username} (unico), una
-password ed un indirizzo email (attraverso cui fare la conferma) pi\`u alcune
+password, un indirizzo email (attraverso cui fare la conferma) e alcune
 informazioni personali.
 
 \subsubsection*{Pagina di login}
@@ -569,8 +569,8 @@ informazioni personali.
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
-L'applicazione avr\`a un sistema di autenticazione proprio oltre a fornire
-l'autenticazione di Google acquisita da \underline{Google AppEngine}.
+L'applicazione avr\`a due sistemi di autenticazione: il proprio e quello di
+Google.
 
 \subsubsection*{Personalizzazione catalogo}
 \bo{Id:} C1FN-1.3 \\
@@ -578,15 +578,15 @@ l'autenticazione di Google acquisita da \underline{Google AppEngine}.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
 La gestione del catalogo prevede alcuni metodi di personalizzazione basilari che
-permettono all'utente di visualizzare la propria libreria nel modo preferito ma
-che non vanno a modificare le informazioni a livello di database.
+permettono all'utente di visualizzare la propria libreria nel modo preferito,
+senza modificare le informazioni a livello di database.
 
 \subsubsection*{Cancellazione brano}
 \bo{Id:} C1FN-1.3.1 \\
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} verbale1 \\
-Un utente potr\`a rimuovere dalla propria libreria qualche brano, i dati
+Un utente potr\`a rimuovere dalla propria libreria qualche brano, per\`o i dati
 rimarranno nel database.
 
 \subsubsection*{Modifica informazioni brano}
@@ -595,17 +595,17 @@ rimarranno nel database.
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} interna \\
 Tutte le informazioni di un brano potranno essere modificate dall'utente che le
-ha caricate, il database non risentir\`a di questi cambiamenti quindi gli altri
-utenti non risentiranno in alcun modo di questi cambiamenti.
+ha caricate, il database non risentir\`a di questi cambiamenti e quindi anche
+gli altri utenti non ne risentiranno in alcun modo.
 
 \subsubsection*{Creazione playlist}
 \bo{Id:} C1FO-1.3.3 \\
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
-Viene data all'utente la possibilit\`a di creare delle liste lunghe a piacere dei
-propri brani allo scopo di ordinare la propria libreria oppure di ascoltarle in
-sequenza attraverso i player.
+Viene data all'utente la possibilit\`a di creare delle liste lunghe a piacere
+con i propri brani allo scopo di ordinare la propria libreria oppure di
+ascoltarle in sequenza attraverso i player.
 
 \subsubsection*{Ranking brani}
 \bo{Id:} C1FO-1.3.4 \\
@@ -613,17 +613,17 @@ sequenza attraverso i player.
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} interna \\
 L'utente pu\`o assegnare un punteggio ad ogni brano in base al suo gradimento
-personale, questo pu\`o tornare utile come criterio di ordinamento.
+personale e questo pu\`o tornare utile come criterio di ordinamento.
 
 \subsubsection*{Gestione profilo personale}
 \bo{Id:} C1FN-1.4 \\
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
-In ogni momento l'utente di NetMus pi\`u modificare i suoi dati di registrazione,
-eccetto l'username. Il profilo, se desiderato, pu\`o diventare pubblico e visibile
-dagli altri utenti fornendo la possibilit\`a di confrontare il proprio catalogo
-musicale e le le altre informazioni.
+In ogni momento l'utente di NetMus pu\`o modificare i suoi dati di registrazione,
+eccetto l'username. Se desiderato il profilo pu\`o diventare pubblico ed essere
+visibile agli altri utenti in modo da offrire la possibilit\`a di
+confrontare il proprio catalogo musicale con quello degli altri.
 
 \subsubsection*{Modifica informazioni personali}
 \bo{Id:} C1FN-1.4.1 \\
@@ -664,7 +664,7 @@ contengono.
 \bo{Fonte:} capitolato \\
 NetMus prevede un sistema di riproduzione delle canzoni salvate nel database.
 Non contenendo alcun file multimediale l'ascolto sar\`a reso possibile dalla
-riproduzione in streaming fornita da Youtube. La ricerca dei brani
+riproduzione in streaming fornita da YouTube. La ricerca dei brani
 corrispondenti alle informazioni nel database sar\`a a totale carico
 dell'applicazione NetMus.
 
@@ -740,7 +740,7 @@ riguardino brani musicali.
 \bo{Fonte:} interna \\
 Sar\`a sfruttato il database interno per completare ed aggiungere informazioni
 mancanti ai brani in entrata. Questo sar\`a fatto basandosi su opportuni algoritmi
-di ricerca che garantiscano un buona probabilit\`a che i dati suggeriti per
+di ricerca che garantiscano una buona probabilit\`a che i dati suggeriti per
 l'aggiornamento siano quelli corretti.
 
 \subsubsection*{Inserimento nel database}
@@ -766,9 +766,10 @@ possiede, si sfrutter\`a uno o pi\`u servizi gratuiti esterni.
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} verbale1 \\
-Se saranno trovate informazioni aggiuntive, da database interno o esterno, ai
-dati inviati da qualche utente sar\`a possibile anche, se desiderato, inviarle
-a C2 per andare ad aggiornare i file multimediali dell'utente.
+Se consultando il database interno o esterno saranno trovate informazioni
+aggiuntive ai dati inviati da qualche utente e questo lo desidera, sar\`a
+possibile inviarle a C2 per andare ad aggiornare i file multimediali
+dell'utente.
 
 \subsubsection*{Gestione database}
 \bo{Id:} C1FN-1.13 \\
@@ -776,9 +777,9 @@ a C2 per andare ad aggiornare i file multimediali dell'utente.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
 Il fulcro della persistenza del sistema NetMus sar\`a un database nel quale
-verranno salvati tutti i dati gestiti. In particolare il database sar\`a quello
-fornito da Google AppEngine, Google DataStore che trae grandissimi benefici dal
-\underline{cloud computing}.
+verranno salvati tutti i dati gestiti. In particolare il database sar\`a Google
+DataStore, fornito da Google AppEngine, che trae grandissimi benefici
+dal \underline{cloud computing}.
 
 \subsection{Requisiti di qualit\`a}
 
@@ -787,10 +788,10 @@ fornito da Google AppEngine, Google DataStore che trae grandissimi benefici dal
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} interna \\
-Youtube \`e uno strumento estremamente utile poich\'e garantisce una vasta gamma di
-dati sulla quale fare ricerche ma proprio per questo sar\`a importante che NetMus
-implementi degli algoritmi opportuni che eseguano queste ricerche in modo molto
-efficiente.
+YouTube \`e uno strumento estremamente utile perch\'e garantisce una vasta gamma
+di dati sulla quale si possono fare ricerche e proprio per questo sar\`a
+importante che NetMus implementi degli algoritmi opportuni per eseguire ricerche
+in modo molto efficiente.
 
 \subsubsection*{Identificazione dati ridondanti}
 \bo{Id:} C1QN-1.9.4 \\
@@ -837,17 +838,17 @@ senza imporre vincoli di alcun tipo.
 \bo{Fonte:} capitolato \\
 Poich\'e il bacino d'utenza potenziale \`e estremamente elevato NetMus sar\`a molto
 efficiente per quanto riguarda gli accessi simultanei di molti utenti
-all'\underline{applicazione web}ed al database.
+all'\underline{applicazione web} e al database.
 
 \subsubsection*{Utilizzo}
 \bo{Id:} C1QN-2 \\
 \bo{Tipo:} qualit\`a \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
-Un occhio di riguardo sar\`a dato alla semplicit\`a di utilizzo ed alla possibilit\`a
-per tutti i potenziali utenti di imparare ad utilizzare NetMus. L'utente
+Un occhio di riguardo sar\`a dato alla semplicit\`a di utilizzo e alla
+possibilit\`a per tutti i potenziali utenti di imparare ad utilizzare NetMus. L'utente
 deve poter essere subito in grado di visualizzare e gestire il proprio catalogo
-musicale dopo essersi registrato ed aver messo in funzione la C2.
+musicale dopo essersi registrato e aver messo in funzione la C2.
 
 \subsubsection*{Accessibilit\`a}
 \bo{Id:} C1QO-2.1 \\
@@ -918,8 +919,8 @@ Sar\`a fornita anche una traduzione del manuale utente in lingua inglese.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
 Per lo sviluppo dell'applicazione Web NetMus sar\`a utilizzata la piattaforma
-\underline{Google AppEngine (GAE)} in concomitanza con l'insieme di strumenti
-forniti da \underline{Google Web Toolkit (GWT)}. Entrambi sono gratuiti.
+\underline{Google AppEngine} (GAE) in concomitanza con l'insieme di strumenti
+forniti da \underline{Google Web Toolkit} (GWT). Entrambi sono gratuiti.
 
 \subsubsection*{Google DataStore}
 \bo{Id:} C1VN-1.13.1 \\
@@ -943,7 +944,7 @@ anche per quanto riguarda il database grazie a Google DataStore.
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} interna \\
-NetMus rispetter\`a le quote di traffico imposte da Youtube per quanto riguarda
+NetMus rispetter\`a le quote di traffico imposte da YouTube per quanto riguarda
 il traffico in entrata ed in uscita dai loro server.
 
 \subsubsection*{YouTube Terms of Service}
@@ -951,10 +952,10 @@ il traffico in entrata ed in uscita dai loro server.
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} interna \\
-NetMus rispetter\`a le regole stabilite da YouTube per quanto riguarda i\\
-propri contenuti (\url{http://www.youtube.com/t/terms}) e per quanto
-riguarda l'utilizzo delle YouTube API
-(\url{http://code.google.com/apis/youtube/terms.html}).
+NetMus rispetter\`a le regole stabilite da YouTube per quanto riguarda i
+propri contenuti \\(\url{http://www.YouTube.com/t/terms}) e per quanto
+riguarda l'utilizzo delle YouTube API\\
+(\url{http://code.google.com/apis/YouTube/terms.html}).
 
 \subsubsection*{Open source}
 \bo{Id:} C1VN-2.2 \\
@@ -989,7 +990,7 @@ molto intuitivo.
 Grafica simile ad iTunes & Elenco brani raggruppati opportunamente \\
 & Menu laterali \\   
 & Visualizzazione informazioni dettagliate di un brano \\         
-& Visualizza player youtube \\         
+& Visualizza player YouTube \\         
 \hline
 \cellcolor{orange}
 Creazione profilo utente tramite registrazione & Pagina di login dipendente da Google login \\ 
@@ -1007,9 +1008,9 @@ Gestione profilo personale & Modifica informazioni personali \\
 & Pubblicazione profilo \\
 \hline
 \cellcolor{orange}
-Riproduzione tracce in streaming & Ottimizzazione della ricerca su Youtube \\       
-& Quote Youtube \\
-& Youtube Terms of Service \\       
+Riproduzione tracce in streaming & Ottimizzazione della ricerca su YouTube \\       
+& Quote YouTube \\
+& YouTube Terms of Service \\       
 \hline
 \cellcolor{orange}
 Scalabilit\`a & Scalabilit\`a di interfaccia grafica \\       
@@ -1024,10 +1025,10 @@ Elaborazione dati utente & Esportazione pdf \\
 \hline
 \cellcolor{orange}
 Ricezione ed elaborazione brani & Controllo di validit\`a dati \\   
-& Controllo informazioni da Database interno \\       
+& Controllo informazioni da database interno \\       
 & Identificazione di dati ridondanti \\
-& Inserimento nel Database \\
-& Gestione Concorrenza \\
+& Inserimento nel database \\
+& Gestione concorrenza \\
 & Completamento informazioni da servizio esterno \\         
 \hline
 \cellcolor{orange}
@@ -1040,7 +1041,7 @@ Deve utilizzare il cloud computing& \\
 Deve utilizzare tecnologie GAE e GWT& \\
 \hline
 \cellcolor{orange}
-Gestione Database & Deve utilizzare Google Datastore \\        
+Gestione database & Deve utilizzare Google Datastore \\        
 \hline
 \end{tabular}
 \\\vspace{1cm}
@@ -1056,13 +1057,13 @@ Gestione Database & Deve utilizzare Google Datastore \\
  \rowcolor{orange}         
  Portabilit\`a \\
  \rowcolor{orange}               
- Sviluppo Multi-lingua \\
+ Sviluppo multi-lingua \\
  \rowcolor{orange}                  
  Semplicit\`a di utilizzo \\
  \rowcolor{orange}               
  Manutenibilit\`a \\
  \rowcolor{orange}         
- Gestione Errori \\             
+ Gestione errori \\             
 \hline
 \end{tabular}
 \hspace{3cm}
@@ -1091,7 +1092,7 @@ Gestione Database & Deve utilizzare Google Datastore \\
 \hline
 \rowcolor{orange}                         
 \sca{Necessari} & \sca{Desiderabili} & \sca{Opzionali} \\         
-C1FN-1 Web Application Netmus & C1FD-1.1.4 Visualizza player Youtube &
+C1FN-1 Web Application Netmus & C1FD-1.1.4 Visualizza player YouTube &
 C1FO-1.2.1 Pagina login indipendente \\
 C1FN-1.1 Grafica simile ad iTunes & C1FD-1.3 Personalizzazione del catalogo & C1FO-1.3.3 Creazione playlist \\
  C1FN-1.1.1 Brani elencati opportunamente & C1FD-1.3.1 Cancellazione brano & C1FO-1.3.4 Ranking brani \\ 
@@ -1118,7 +1119,7 @@ C1FN-1.13 Gestione Database &  & \\
 \hline
 \rowcolor{orange}                         
 \sca{Necessari} & \sca{Desiderabili} & \sca{Opzionali} \\
-C1QN-1.6 Scalabilit\`a & C1QN-1.5.1 Ottimizzazione della ricerca su Youtube & C1QO-2.1 Accessibilit\`a   \\ 
+C1QN-1.6 Scalabilit\`a & C1QN-1.5.1 Ottimizzazione della ricerca su YouTube & C1QO-2.1 Accessibilit\`a   \\ 
 C1QN-1.6.1 Scalabilit\`a interfaccia grafica & C1QN-2.4 Supporto multilingua & \\                
 C1QN-1.6.2 Scalabilit\`a massa di utenza  &  & \\                         
 C1QN-1.9.6 Gestione concorrenza &  & \\                          
@@ -1143,8 +1144,8 @@ C1QN-3.1 Manuale utente &  & \\
 \hline
 \rowcolor{orange}                         
 \sca{Necessari} & \sca{Desiderabili} \\   
-C1VN-1.12 Deve utilizzare tecnologie GAE e GWT & C1VD-1.5.2 Quote Youtube   \\ 
-C1VN-1.13.1 Deve utilizzare Google Data Store & C1VD-1.5.3 Youtube Terms of
+C1VN-1.12 Deve utilizzare tecnologie GAE e GWT & C1VD-1.5.2 Quote YouTube   \\ 
+C1VN-1.13.1 Deve utilizzare Google Data Store & C1VD-1.5.3 YouTube Terms of
 Services \\
 C1VN-1.11 Deve utilizzare il cloud computing & \\  
 C1VN-2.2 Open source & \\
@@ -1183,7 +1184,7 @@ automaticamente all'inserimento di un nuovo dispositivo.
 \bo{Tipo:} funzionale \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} interna \\
-Sotto comando dell'utente (alla pressione di un bottone), vengono recuperate le
+Sotto comando dell'utente (alla pressione di un bottone) vengono recuperate le
 informazioni di tutti i brani musicali nuovi rilevabili.
 
 \subsubsection*{Informazioni senza connessione}
@@ -1192,7 +1193,7 @@ informazioni di tutti i brani musicali nuovi rilevabili.
 \bo{Richiesta:} opzionale \\
 \bo{Fonte:} verbale1 \\
 Il recupero delle informazioni va effettuato anche con connessione non
-disponibile, salvandolo temporaneamente in locale. Appena sar\`a possibile, queste
+disponibile, salvandolo temporaneamente in locale. Appena possibile queste
 informazioni verranno trasmesse alla Componente 1.
 
 \subsubsection*{Informazioni dall'hard disk}
@@ -1363,7 +1364,7 @@ Comunicazione con C1 & Invio delle informazioni \\
  \rowcolor{orange}                  
  Semplicit\`a di utilizzo \\
  \rowcolor{orange}               
- Supporto Multi-lingua \\
+ Supporto multi-lingua \\
  \rowcolor{orange}                           
  Manutenibilit\`a \\    
  \rowcolor{orange}     
@@ -1371,7 +1372,7 @@ Comunicazione con C1 & Invio delle informazioni \\
  \rowcolor{orange}     
  Norme legali \\      
  \rowcolor{orange}     
- Open Source \\      
+ Open source \\      
 \hline
 \end{tabular}
 \end{footnotesize}
@@ -1458,7 +1459,7 @@ C1FN-1.1.1 Brani elencati opportunamente & UC1.3.1 - Visualizzare catalogo \\
 \hline
 C1FN-1.1.2 Menu laterali & UC1.3.1 - Visualizzare catalogo \\ \hline
 C1FN-1.1.3 Visualiz. info dettagliate dei brani & UC1.3.3.1 - Visualizzare dettagli brano \\ \hline
-C1FD-1.1.4 Visualizza player Youtube & UC1.3.3.2 - Player YouTube \\ \hline
+C1FD-1.1.4 Visualizza player YouTube & UC1.3.3.2 - Player YouTube \\ \hline
 C1FN-1.2 Registrazione & UC1.4.2 - Registrazione NetMus \\ \hline
 C1FO-1.2.1 Pagina login indipendente & UC1.4 - Autenticazione \\
 & UC1.4.3  - Autenticazione NetMus \\ 
@@ -1554,7 +1555,7 @@ catalogo \\
 UC1.3.3 - Gestire dettagli brano & C1FD-1.3.1 Cancellazione brano \\ \hline
 UC1.3.3.1 - Visualizzare dettagli brano & C1FN-1.1 Grafica simile ad iTunes \\
 & C1FN-1.1.3 Visualiz. info dettagliate dei brani \\ \hline
-UC1.3.3.2 - Player YouTube & C1FD-1.1.4 Visualizza player Youtube \\
+UC1.3.3.2 - Player YouTube & C1FD-1.1.4 Visualizza player YouTube \\
 & C1FD-1.5 Riproduzione tracce in streaming \\ \hline
 UC1.3.3.3 - Modificare informazioni brano & C1FD-1.3.2 Modifica informazioni
 brano \\ \hline
@@ -1602,9 +1603,9 @@ Case ma riguardano piuttosto elementi strutturali del sistema NetMus.
 \bo{Requisiti non tracciati} \\
 \hline
 C1FN-1 Web Application Netmus \\ \hline
-C1QN-1.5.1 Ottimizzazione della ricerca su Youtube \\ \hline
-C1VD-1.5.2 Quote Youtube \\ \hline
-C1VD-1.5.3 Youtube Terms of Services \\ \hline
+C1QN-1.5.1 Ottimizzazione della ricerca su YouTube \\ \hline
+C1VD-1.5.2 Quote YouTube \\ \hline
+C1VD-1.5.3 YouTube Terms of Services \\ \hline
 C1QN-1.6 Scalabilit\`a \\ \hline
 C1QN-1.6.1 Scalabilit\`a interfaccia grafica \\ \hline
 C1QN-1.6.2 Scalabilit\`a massa di utenza \\ \hline
