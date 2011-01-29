@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.10}
+\newcommand{\versione}{0.11}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -32,6 +32,9 @@ VT.G \\
 \endhead
 \hline
 \endfoot 
+
+30/01/2011 & 0.11 & Mandolo Andrea & Inseriti  componenti Service lato client.\\
+\hline
 
 29/01/2011 & 0.10 & Baron Federico & Inseriti i diagrammi delle classi e dei
 package aggiornati.\\
@@ -275,8 +278,8 @@ La struttura sar\`a quindi formata dai seguenti packages:
     \item Package \emph{client.service} : rappresenta l'insieme di interfaccie
     che offrono un servizio di comunicazione col server tramite GWT RPC;
     %----------------- TOGLIERE FORSE --------------------
-    \item Package \emph{client.javafx} : definisce la componente di
-    ricezione dei dati estratti dall'applet JavaFX;
+    \item Package \emph{client.applet} : definisce la componente di
+    ricezione dei dati estratti dall'Applet precompilata;
     %-------------------------------------------------------
   \end {itemize}
   \item Package \emph{server} : rappresenta la parte server di Netmus;
@@ -412,7 +415,9 @@ interfaccia accessibile dall'utente.
 \subsection{Classe LoginView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per l'autenticazione e la
-registrazione degli utenti Netmus.
+registrazione degli utenti Netmus. La classe \co{LoginViewImpl}
+implementa l'interfaccia \co{LoginView} che estende \co{isWidget}
+(interfaccia introdotta da GWT 2.1).
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe istanzia oggetti di tipo \co{LoginPlace} che definiscono gli stati
 attuali della vista.
@@ -575,13 +580,13 @@ Organizza i Places.
 classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 La classe \`e creata da \co{LoginView} utilizzata da \co{LoginActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{LoginActivity} in modo da rendere eccessibili le funzionalit\`a di history e
-bookmarking del browser;
+bookmarking del browser.
 
 \subsection{Classe ProfilePlace}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -589,13 +594,13 @@ bookmarking del browser;
 classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 La classe \`e creata da \co{ProfileView} utilizzata da \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{ProfileActivity} in modo da rendere eccessibili le funzionalit\`a di history
-e bookmarking del browser;
+e bookmarking del browser.
 
 \subsection{Classe EditUserPlace}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -603,13 +608,13 @@ e bookmarking del browser;
 classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 La classe \`e creata da \co{EditUserView} utilizzata da \co{EditUserActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{EditUserActivity} in modo da rendere eccessibili le funzionalit\`a di history e
-bookmarking del browser;
+bookmarking del browser.
 
 \subsection{Classe EditSongsPlace}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -617,13 +622,13 @@ bookmarking del browser;
 classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 La classe \`e creata da \co{EditSongsView} utilizzata da \co{EditSongsActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{EditSongsActivity} in modo da rendere eccessibili le funzionalit\`a di history e
-bookmarking del browser;
+bookmarking del browser.
 
 \newpage
 \section{Package client.mvp} % LASCIARE WARNING
@@ -634,7 +639,7 @@ Places.
 Fanno parte di questo package le classi \co{NetmusHistoryMapper} e
 \co{NetmusActivityMapper}.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Nessuna
+Nessuna.
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
@@ -660,35 +665,100 @@ Il PlaceHistoryHandler utilizza la classe per la sincronizzazione del URL.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da connessione tra i PlaceTokenizer (classe interna ad ogni Place) e il
 PlaceHistoryHandler (messo a disposizione da GWT) che sincronizza l'URL del
-browes con i vari Place.
+browser con i vari Place.
 
 \newpage
 \section{Package client.service} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
+Il package \co{service} \`e costituito da tutte le interfacce dei servizi remoti
+offerti dal server. Le funzionalit\`a delle classi in esso contenute saranno
+divise in base al tipo di servizio offerto.  Per ognuno di questi sar\`a
+presente un'interfaccia normale e un interfaccia \bo{asincrona}.
+
 \subsection*{Relazioni d'uso di altre componenti}
+Queste interfacce vengono implementate su \emph{server}, perci\`o non
+hanno relazioni d'uso definite. Verranno sempre usati oggetti DTO (definiti in
+\emph{shared}) come pacchetti di scambio nei servizi tra \emph{client} e
+\emph{server}.
+
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verranno istanziati degli oggetti di \emph{service} col metodo del
+\emph{deferred binding} dalla classe di Entry Point \co{Netmus}, pur avendo
+visibilit\`a solamente delle interfacce. Verranno poi usati dalle varie Activity.
+
 \subsection*{Attivit\`a svolte e dati trattati}
+Vengono forniti tutti i servizi che il server sar\`a in grado di dare, i dati
+trattati saranno i DTO definiti nel package \emph{shared}.
 
-\subsection{Classe SongsService}
+\subsection{Interfaccia SongsService (e SongServiceAsync)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+Questa classe dovr\`a consentire alle componenti Activity di \emph{client} di
+inviare richieste di vario tipo a \emph{server} riguardanti informazioni sui
+brani musicali. Sar\`a presente anche \co{SongServiceAsync}, che gestir\`a il ritorno
+dai metodi in maniera asincrona.
 
-\subsection{Classe UsersService}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+Queste interfacce verranno implementate su \emph{server}, perci\`o non
+avranno relazioni d'uso definite, se non con gli oggetti DTO (\co{SongDTO},
+\co{SongSummaryDTO}, \co{MusicLibraryDTO}) che verranno utilizzati per il
+trasferimento client-server.
 
-\subsection{Classe LoginService}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
+binding e verr\`a utilizzata da \co{ProfileActivity} ed \co{EditSongsActivity}.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
+di informazione riguardante i brani musicali e utilizzer\`a dati di tipo SongDTO
+e SongSummaryDTO.
+
+\subsection{Interfaccia UserService (e UserServiceAsync)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
+richieste di vario tipo a \emph{server} riguardanti le informazioni personali
+dell'utente da mostrare  nell'interfaccia grafica. Sar\`a presente anche
+\co{UserServiceAsync}, che gestir\`a il ritorno dai metodi in maniera asincrona.
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+Queste interfacce verranno implementate su \emph{server}, perci\`o non
+avranno relazioni d'uso definite, se non con gli oggetti DTO (UserDTO,
+\co{UserSummaryDTO}, \co{UserCompleteDTO}) che verranno utilizzati per il
+trasferimento client-server.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
+binding e verr\`a utilizzata da \co{EditUserActivity} e \co{ProfileActivity}.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
+di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
+UserDTO, UserSummaryDTO e UserCompleteDTO.
+
+\subsection{Interfaccia LoginService (e LoginServiceAsync)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
+richieste di vario tipo a \emph{server} riguardanti la fase di autenticazione e
+logout degli utenti. Sar\`a presente anche \co{LoginServiceAsync}, che gestir\`a
+il ritorno dai metodi in maniera asincrona.
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+Queste interfacce verranno implementate su \emph{server}, perci\`o non
+avranno relazioni d'uso definite, se non con oggetti \co{LoginDTO} che
+vengono utilizzati per il trasferimento client-server.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
+binding e verr\`a utilizzata \co{LoginActivity} e dalle altre Activity che
+permetterano il logout dell'utente.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
+di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
+\co{UserDTO}, \co{UserSummaryDTO} e \bo{UserCompleteDTO}.
+
 
 %--------------- FORSE -------------------------------
-\section{Package client.javafx} % LASCIARE WARNING
+\section{Package client.applet} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -843,7 +913,7 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 \begin{figure}[h]
   \centering
   \includegraphics[width=7cm]{img/ST/Shared.png}
-\caption{Diagramma delle classi del package client.}
+\caption{Diagramma delle classi del package \emph{shared}.}
 \end{figure}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \textit{shared} contiene le classi degli oggetti che vengono
@@ -909,7 +979,7 @@ registrazione.
 
 \subsection{Classe SongSummaryDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Contiene e rappresenta i dati pi\`u comunemente utilizzati di un brano, ovvero
+Contiene e rappresenta i dati pi� comunemente utilizzati di un brano, ovvero
 quelli che vengono visualizzati in una playlist all'interno di un profilo.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Implementa l'interfaccia \textit{GenericDTO}.
