@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.9}
+\newcommand{\versione}{0.10}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -32,6 +32,10 @@ VT.G \\
 \endhead
 \hline
 \endfoot 
+
+29/01/2011 & 0.10 & Baron Federico & Inseriti i diagrammi delle classi e dei
+package aggiornati.\\
+\hline
 
 29/01/2011 & 0.9 & Caputo Cosimo & Inseriti contenuti package ui, activity,
 places e mvp.\\
@@ -234,8 +238,17 @@ istanza di Persistent manager factory e che questa sia visibile all'intero
 dell'intero lato server del sistema NetMus. 
 
 \newpage
-\subsection{Diagrammi UML dei Package}
-Il sistema Netmus sar\`a principalmente formato dai seguenti package:
+\subsection{Decomposizione architeturale}
+La decomposizione architetturale da noi individuata a partire dalla lista dei
+requisiti prodotta dal processo di analisi si compone di tre moduli
+fondamentali distribuiti su una parte client e una server. Questi tre moduli, in
+accordo con il framework \emph{MVP con Activities e Places} precendetemente
+presentato, sono il model che riguarda le parti di businnes logic e businnes
+data, la view che contiene l'intera parte grafica del sistema (UI) con i
+relativi stati (Places) e il presenter che costituisce il collegamento tra view
+e model attraverso le Activities.
+\\\\
+La struttura sar\`a quindi formata dai seguenti packages:
 \begin{figure}[h]
   \centering
   \includegraphics[width=16cm]{img/ST/PackageGeneric.png}
@@ -246,7 +259,7 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
   \item Package \emph{client} : definisce la parte client del programma
   \begin {itemize}
     \item Package \emph{client.ui} : comprende l'insieme di viste del sistema,
-    rispettando il framework \emph{MVP with Place and Activity}. Ci sar\`a una
+    rispettando il framework \emph{MVP con Places e Activities}. Ci sar\`a una
     interfaccia per ogni vista, per dare la possibilit\`a di creare in futuro
     pi\`u implementazioni differenti a seconda del dispositivo client;
     \item Package \emph{client.activity} : rappresenta l'insieme di classi
@@ -282,15 +295,43 @@ Il sistema Netmus sar\`a principalmente formato dai seguenti package:
   aderiscono al pattern DTO.
 \end{itemize}
 
-\chapter{Descrizione dei singoli componenti}
-\section{Package client}
+\newpage
+\subsubsection{Decomposizione architeturale - lato client}
+Per soddisfare i requisiti funzionali del sistema NetMus sono state individuate
+4 componenti che implementano altrettante UI con la relativa logica di
+attivazione delle Activities. Queste sono Login, User, EditProfile e EditSongs
+che grazie all'interazione tra le loro parti view, place e activity garantiscono
+all'utente tutte le funzionalit\`a attese.\\
+Le interfacce Service invece rappresentano il punto di collegamento con il model
+la cui implementazione \`e sviluppata principalmente lato server. Queste
+interfacce, infatti, vengono accedute dalle Activities poich\'e forniscono tutti i
+metodi riguardanti la businness logic. \\\\ 
+L'intero schema delle classi individuate durante la progettazione \`e il
+sueguente: 
 \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/client.png}
 \caption{Diagramma delle classi del package client.}
 \end{figure}
-
 \newpage
+\subsubsection{Decomposizione architeturale - lato server}
+Nella parte server si trovano le implementazioni dei Service che hanno
+la possibilit\`a di accedere alle informazioni presenti nel database grazie alle
+classi DAO presenti nel package \emph{persistent}.
+Grande importanza viene data alle classi presenti nel pakage \emph{shared}
+poich\'e rendono allo stesso tempo semplice ed efficente il passaggio di
+informazioni tra il server e i clients poich\'e incapsulano gli oggetti di
+peristenza DAO rimuovendone la parte logica, rispettando il design pattern DTO.
+\\\\ L'intero schema delle classi
+individuate durante la progettazione \`e il sueguente: \begin{figure}[h]
+  \centering
+  \includegraphics[width=16.5cm]{img/ST/Server&Shared.png}
+\caption{Diagramma delle classi dei packages server e shared.}
+\end{figure}
+
+
+\chapter{Descrizione dei singoli componenti}
+\section{Package client}
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
 Il package \emph{client} rappresenta la parte del sistema con la quale l'utente
 pu\`o interagire. Tutte le sue classi ed i suoi sottopackage saranno compilati in
@@ -356,11 +397,14 @@ l'utente prima del passaggio ad uno stato differente.
 Il package \emph{ui} contiene le interfacce e le implementazioni delle View del
 sistema. Le View generano gli ambienti grafici con cui gli utenti possono
 interagire e si occupano di catturare gli eventi da essi prodotti.
+
 \subsection*{Relazioni d'uso di altre componenti}
 Questo package utilizza \emph{place} per creare istanze dei vari Place quando
 richiesto.
+
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene utilizzato dal package \emph{activity}.
+
 \subsection*{Attivit\`a svolte e dati trattati}
 In sostanza svolge il compito di organizzare le informazioni del model in un
 interfaccia accessibile dall'utente.
@@ -513,7 +557,6 @@ Questa classe gestisce, assieme a \co{songsService}, le attivit\`a utili alla
 visualizzazione e modifica della libreria musicale personale.
 
 \newpage
-
 \section{Package client.place} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package contiene le classi di tipo Place. I Place sono indispensabili
@@ -651,12 +694,32 @@ browes con i vari Place.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsection*{Attivit\`a svolte e dati trattati}
 %------------------------------------------------------
+
 \newpage
-\section{Package server} % LASCIARE WARNING
-\subsection*{Tipo, obiettivo e funzione del componente}
+\section{Package server}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=10cm]{img/ST/Server.png}
+\caption{Diagramma delle classi del package client.}
+\end{figure}
+
+\subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
+Questo package racchiude tutte le classi che collaborano al fine di gestire la
+businness logic del sistema ovvero tutte quelle operazioni che potranno essere
+compiute sui dati raccolti. Contiene inoltre delle classi di interfacciamento
+con il databse stesso che consentono il controllo sulla persistenza dei dati.
+
 \subsection*{Relazioni d'uso di altre componenti}
+Si fa utilizzo delle classi presenti nel package \emph{shared} in cui vengono
+incapsulati tutti i dati in uscita del server.
+
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Il package \emph{server} si interfaccia direttamente con \emph{shared} e tramite
+questo e con la presenza del package \emph{service} si interfaccia anche con
+\emph{client}.
+
 \subsection*{Attivit\`a svolte e dati trattati}
+Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
 \subsection{Classe SongsServiceImpl}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -695,13 +758,19 @@ browes con i vari Place.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsection*{Attivit\`a svolte e dati trattati}
 
-\subsection{Classe User (da decidere nomi e tipi di DAO)}
+\subsection{Classe UserAccount}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
-\subsection{Classe . . . . (da decidere nomi e tipi di DAO)}
+\subsection{Classe MusicLibrary}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe Song}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -771,6 +840,11 @@ browes con i vari Place.
 
 \newpage
 \section{Package shared} % LASCIARE WARNING
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=7cm]{img/ST/Shared.png}
+\caption{Diagramma delle classi del package client.}
+\end{figure}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \textit{shared} contiene le classi degli oggetti che vengono
 scambiati tra client e server; in particolare, troviamo presenti le classi che
@@ -798,7 +872,7 @@ Viene implementata dalle classi del package \textit{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Nessuna. 
 
-\subsection{Classe UserDTO}
+\subsection{Classe UserSummaryDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta i dati pi\`u comunemente utilizzati di un utente, ovvero
 quelli che vengono visualizzati in un profilo.
@@ -810,12 +884,12 @@ Vedere la descrizione del package.
 Funge da contenitore per i dati pi\`u comunemente utilizzati dell'utente, come
 per esempio nick ed email.
 
-\subsection{Classe RegistrationDTO}
+\subsection{Classe UserDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta la maggior parte dei dati di un utente, pi\`u
 precisamente quelli richiesti alla registrazione.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{UserDTO}.
+Estende la classe \textit{UserSummaryDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -826,14 +900,14 @@ Funge da contenitore per i dati dettagliati di un utente.
 Contiene e rappresenta tutti i dati di un utente, a partire da quelli
 visualizzati sul profilo, a quelli interni del sistema.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{RegistrationDTO}.
+Estende la classe \textit{UserDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per tutti dati dell'utente, dal nick al numero di
 registrazione.
 
-\subsection{Classe SongDTO}
+\subsection{Classe SongSummaryDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta i dati pi\`u comunemente utilizzati di un brano, ovvero
 quelli che vengono visualizzati in una playlist all'interno di un profilo.
@@ -845,12 +919,12 @@ Vedere la descrizione del package.
 Funge da contenitore per i dati pi\`u comunemente utilizzati di un brano, come
 per esempio titolo ed autore.
 
-\subsection{Classe SongCompleteDTO}
+\subsection{Classe SongDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta tutti i dati di un brano, compresi quelli interni del
 sistema. 
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{SongDTO}.
+Estende la classe \textit{SongSummaryDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -865,7 +939,13 @@ Implementa l'interfaccia \textit{GenericDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Trasporta nome utente e password dal client al server per l'autenticazione.
+Trasporta nome utente e passwsord dal client al server per l'autenticazione.
+
+\subsection{Classe MusicLibraryDTO}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe NetMusException}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
