@@ -1,8 +1,8 @@
 
 \newcommand{\nomedoc}{Analisi Dei Requisiti}
 \newcommand{\versione}{1.6}
-\newcommand{\versioneglossario}{1.0}
-\newcommand{\versionenormeprogetto}{1.0}
+\newcommand{\versioneglossario}{2.0}
+\newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
 \newcommand{\datamodifica}{23 Gennaio 2011}
@@ -99,9 +99,9 @@ propone di soddisfare nello sviluppo del software richiesto dal capitolato
 d'appalto C02 NetMus. Per favorire la comprensione dell'analisi proposta sono
 descritti alcuni diagrammi use-case che rispettano lo standard \underline{UML}
 2.0 e deducono la quasi totalit\`a dei requisiti elaborati.
-Nel presentare questa Analisi Dei Requisiti si \`e scelto di separare
+Nel presentare questa Analisi dei Requisiti si \`e scelto di separare
 chiaramente le due componenti fondamentali, quella di invio dati e quella di persistenza e
-visualizzazione, che costituiscono il sistema NetMus poich\'e dovranno essere il
+visualizzazione, che costituiscono il sistema NetMus e che dovranno essere il
 pi\`u possibile indipendenti.
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -144,14 +144,14 @@ persistenza e visualizzazione della libreria virtuale dell'utente. Un'altra
 componente di recupero delle informazioni dei brani musicali contenuti nei
 sistemi di riproduzione personale dell'utente. La prima componente avr\`a il
 compito di gestire la memorizzazione delle informazioni dei brani nel database,
-e la sua visualizzazione e gestione con un'interfaccia semplice e facilmente
+di visualizzazione e di gestione tramite un'interfaccia semplice e facilmente
 utilizzabile. La seconda componente svolger\`a il ruolo di estrazione delle
-informazioni dai brani musicali, e le invier\`a al server senza interferire con
-l'utente che intanto potr\`a continuare a svolgere il proprio lavoro indisturbato.
-L'estrazione avverr\`a non appena verr\`a rilevato un nuovo dispositivo di
-archiviazione di massa (storage \underline{USB} o lettore mp3) che non cripta i
-propri file, e in modo del tutto autonomo verranno ricavate le informazioni, memorizzate in
-locale e successivamente inviate al server.
+informazioni dai brani musicali e le invier\`a al server senza interferire con
+l'utente che intanto potr\`a continuare a svolgere il proprio lavoro
+indisturbato. L'estrazione avverr\`a non appena verr\`a rilevato un nuovo
+dispositivo di archiviazione di massa (storage \underline{USB} o lettore mp3)
+che non cripta i propri file, e in modo del tutto autonomo verranno ricavate le
+informazioni, memorizzate in locale e successivamente inviate al server.
 
 \section{Caratteristiche degli utenti}
 L'utente tipo che utilizza il sistema non \`e in possesso di particolari
@@ -164,10 +164,10 @@ Il software nel suo funzionamento e sviluppo:
   \item sar\`a completo della documentazione necessaria e del manuale d'uso;
   \item sar\`a portabile (verr\`a testato e garantito il suo funzionamento sui
   principali sistemi operativi);
-  \item sar\`a sicuro per gli utenti: garantir\`a il controllo del proprio account e
-  dei propri dati, e della propria privacy;
-  \item la visualizzazione ed l'utilizzo avverranno tramite browser,
-  sar\`a necessaria la connessione ad Internet;
+  \item sar\`a sicuro per gli utenti (garantir\`a il controllo del proprio
+  account, dei propri dati e della propria privacy);
+  \item la visualizzazione e l'utilizzo avverranno tramite browser (sar\`a
+  necessaria la connessione ad Internet);
   \item il manuale utente sar\`a fornito sia in italiano che in inglese.
 \end{itemize}
 
@@ -251,9 +251,9 @@ componente di recupero delle informazioni.}
 \vspace*{0.5cm}
 \bo{Use case UC2: Sistema NetMus, componente di recupero delle informazioni}\\\\
 \bo{Attori primari:} Utente \\\\
-\bo{Pre-condizioni:} Tutte le componenti del sistema sono attive e l'utente,
-connesso ad internet, vi accede. \\\\ 
-\bo{Post-condizioni:} Se online sono state inviate al server tutte le
+\bo{Pre-condizioni:} Il portale \`e attivo e l'utente, connesso ad internet, vi
+accede tramite un browser. \\\\ 
+\bo{Post-condizioni:} Online sono state inviate al server tutte le
 informazioni riguardanti nuovi brani musicali presenti nel computer o altre periferiche
 dell'utente. I dati dei file musicali dell'utente sono stati aggiornati con
 informazioni aggiuntive reperite da NetMus. Il sistema \`e pronto a ricevere altre
@@ -384,12 +384,12 @@ ancora tutte funzionanti e disponibili. \\\\
   del software \underline{iTunes}.
   \item L'utente compie alcune tra le operazioni possibili sul proprio
   catalogo (UC1.3.2, UC1.3.4, UC1.3.5) oppure seleziona il brano che gli
-  interessa e ne visualizza ed amministra i dettagli (UC1.3.3, UC1.3.3.1, UC1.3.3.2, UC1.3.3.3)
-  tra cui c'\`e anche il player Youtube (UC1.3.3.2) che gli permette di
-  ascoltare la canzone in streaming.
+  interessa e ne visualizza ed amministra i dettagli (UC1.3.3, UC1.3.3.1,
+  UC1.3.3.2, UC1.3.3.3). Inoltre c'\`e anche il player Youtube (UC1.3.3.2) che
+  gli permette di ascoltare la canzone in streaming.
   \item Il server o, nel caso venga chiesta la riproduzione del brano (UC1.3.3.2), il
-  servizio esterno YouTube invia la pagina che l'utente ha richiesto e, se
-  necessario, salva l'aggiornamento sui dati che ha fatto.
+  servizio esterno YouTube invia la pagina che l'utente ha richiesto e se
+  necessario salva l'aggiornamento sui dati che ha fatto.
 \end{enumerate}
 \bo{Scenari secondari:}
 \begin{itemize}
@@ -498,7 +498,7 @@ informazioni reperite sono state tutte inviate al database di NetMus.\\\\
 Ad ogni requisito \`e stato assegnato un codice di identificazione per facilitarne
 il tracciamento, per maggiori informazioni per quanto riguarda la notazione
 utilizzata per catalogare i requisiti si veda il documento
-\emph{NormeDiProgetto-1.0.pdf}.
+\emph{NormeDiProgetto-\versionenormeprogetto.pdf}.
 
 \section{Componente di persistenza e visualizzazione (C1)}
 \subsection{Requisiti funzionali}
