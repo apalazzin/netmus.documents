@@ -1,11 +1,11 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.8}
+\newcommand{\versione}{0.9}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{28 Gennaio 2011}
+\newcommand{\datamodifica}{29 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Mandolo Andrea}
@@ -33,12 +33,16 @@ VT.G \\
 \hline
 \endfoot 
 
-28/01/2011 & 0.8 & Daminato Simone & Inserite descrizioni delle eccezioni in
+29/01/2011 & 0.9 & Caputo Cosimo & Inseriti contenuti package ui, activity,
+places e mvp.\\
+\hline
+
+29/01/2011 & 0.8 & Daminato Simone & Inserite descrizioni delle eccezioni in
 shared.\\
 \hline
 28/01/2011 & 0.7 & Mandolo Andrea & Inseriti contenuti package client e ui.\\
 \hline
-28/01/2011 & 0.6 & Caputo Cosimo & Reinserimento di tutti i grafici UML con
+28/01/2011 & 0.6 & Baron Federico & Reinserimento di tutti i grafici UML con
 cambio di stile.\\
 \hline
 28/01/2011 & 0.5 & Daminato Simone & Inserite descizioni delle classi *DTO
@@ -297,7 +301,7 @@ JavaScript da GWT, prima che il sistema venga depositato nel dominio
 \subsection*{Relazioni d'uso di altre componenti}
 Il package \emph{client} utilizza i DTO nel package \emph{shared}.
 
-\subsection*{Interfacce con altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Nessuna.
 
 \subsection*{Attivit\`a svolte e dati trattati}
@@ -313,10 +317,10 @@ caso ce ne fossero diversi, e lo aggancia insieme all'EventBus al nostro
 Inoltre allaccia al body Html il widget principale dell'applicazione.
 
 \subsubsection*{Relazioni d'uso di altre componenti}
-La classe \co{Netmus} utilizza \co{ClientFactory}, \co{NetmusActivityMapper} e
-\co{NetmusPlaceHistoryMapper}.
+La classe \co{Netmus} utilizza le classi \co{ClientFactory},
+\co{NetmusActivityMapper} e \\\co{NetmusPlaceHistoryMapper}.
 
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Nessuna.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -335,7 +339,7 @@ sistema.
 La classe utilizza \co{EventBus}, \co{PlaceController}, \co{LoginView},
 \co{ProfileView}, \co{EditUserView} e
 \co{EditSongView}.
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \co{Netmus} crea l'istanza della classe. L'interfaccia \co{ClientFactory} \`e
 utilizzata da \co{ActivityMapper} e successivamente dalle \co{Activity} per
 l'utilizzo dell'EventBus.
@@ -352,14 +356,11 @@ l'utente prima del passaggio ad uno stato differente.
 Il package \emph{ui} contiene le interfacce e le implementazioni delle View del
 sistema. Le View generano gli ambienti grafici con cui gli utenti possono
 interagire e si occupano di catturare gli eventi da essi prodotti.
-
 \subsection*{Relazioni d'uso di altre componenti}
 Questo package utilizza \emph{place} per creare istanze dei vari Place quando
 richiesto.
-
-\subsection*{Interfacce con altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene utilizzato dal package \emph{activity}.
-
 \subsection*{Attivit\`a svolte e dati trattati}
 In sostanza svolge il compito di organizzare le informazioni del model in un
 interfaccia accessibile dall'utente.
@@ -369,262 +370,403 @@ interfaccia accessibile dall'utente.
 Il sistema mette a disposizione una vista per l'autenticazione e la
 registrazione degli utenti Netmus.
 \subsubsection*{Relazioni d'uso di altre componenti}
-La classe istanzia oggetti di tipo \co{Place} che definiscono gli stati attuali
-della vista.
-\subsubsection*{Interfacce con altre componenti}
-La vista viene creata da \co{ClientFactory} e \`e settata ed utilizzata dalle
-varie \co{Activity}.
+La classe istanzia oggetti di tipo \co{LoginPlace} che definiscono gli stati
+attuali della vista.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+\co{LoginActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Mette a disposizione gli strumenti per l'immissione dei dati utente e per le
-comunicazioni operative.
+La classe permette all'utente di scegliere il tipo di registrazione da
+effettuare (Google o Netmus), contiene una form per l'inserimento password e
+nome utente e pu\`o visualizzare warning se i dati inseriti non sono corretti.
 
 \subsection{Classe ProfileView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+Il sistema mette a disposizione una vista per la visualizzazione dei profili e
+dei brani degli altri utenti registrati. La classe \co{ProfileViewImpl}
+implementa l'interfaccia \co{ProfileView} che estende \co{isWidget}
+(interfaccia introdotta da GWT 2.1).
+\subsubsection*{Relazioni d'uso di altrecomponenti} 
+La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
+attuali della vista.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+ La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+ \co{ProfileActivity}.
+ \subsubsection*{Attivit\`a svolte e dati trattati}
+Contiene la lista dei profili che l'utente pu\`o visualizzare e gli strumenti
+per navigare tra i cataloghi musicali.
 
 \subsection{Classe EditUserView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per la
+modifica delle informazioni personali dell'utente registrato. La classe
+\co{EditUserViewImpl} implementa l'interfaccia \co{EditUserView} che estende
+\co{isWidget} (interfaccia introdotta da GWT 2.1).
+
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+La classe istanzia oggetti di tipo \co{EditUserPlace} che definiscono gli stati
+attuali della vista.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+\co{EditUserActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Mette a disposizione gli strumenti per la modifica delle informazioni personali
+dell'utente registrato.
 
 \subsection{Classe EditSongsView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per visualizzazione e la modifica del
+catalogo brani utente. La classe \co{EditSongsViewImpl} implementa l'interfaccia
+\co{EditSongsView} che estende \co{isWidget} (interfaccia introdotta da GWT
+2.1).
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+La classe istanzia oggetti di tipo \co{EditSongsPlace} che definiscono gli stati
+attuali della vista.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+\co{EditSongsActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Permette di visualizzare e aggiungere o rimuovere manualmente brani dalla
+propria libreria musicale. La rimozione di informazioni non influenza i dati che
+Netmus salva sul database.
 
 \newpage
 \section{Package client.activity} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
+Questo package contiene le classi Activity che implementano le funzionalit\`a
+usabili da un certo Place. Corrisponde in pratica alla componente Presenter del
+pattern MVP originale.
 \subsection*{Relazioni d'uso di altre componenti}
-\subsection*{Interfacce con altre componenti}
+Il package usa gli oggetti View di \emph{ui} e Place di \emph{place} per gestire
+informazioni di stato o modificatori della vista, ma quando serve pu\`o
+utilizzare servizi forniti da \emph{service}.
+\subsection*{Interfacce con e relazioni d'uso da altre componenti} 
+Le istanze delle classi Activity vengono create dal \co{NetmusActivityMapper}
+che quando, riceve una richiesta di una Activity, ritorna una corretta istanza
+di tale classe, in base al Place corrente.
 \subsection*{Attivit\`a svolte e dati trattati}
+Il package \emph{activity} si pu\`o considerare il boss, poich\`e gestisce
+l'intera logica di business del client.
 
 \subsection{Classe LoginActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe sar\`a di tipo \co{AbstractActivity}, implementa il \co{Presenter}
+interno alla \co{LoginView} e dovr\`a fornire i servizi destinati ad autenticare
+o registrare l'utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+Invoca i servizi di autenticazione forniti da \co{LoginService} e utilizza
+le relative classi \co{LoginPlace} e \co{LoginView}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} 
+Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
+un Place di tipo \co{LoginPlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Questa classe gestir\`a, assieme a \co{LoginService}, le richieste di login,
+logout, registrazione solo a Netmus, registrazione tramite Google.
 
 \subsection{Classe ProfileActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
+interno alla \co{ProfileView} e fornir\`a i servizi
+che il profilo utente dovr\`a offrire all'utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
+\co{UsersService} e utilizza le relative classi \co{ProfilePlace} e
+\co{ProfileView}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
+un Place di tipo \co{ProfilePlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
+creazione ed interazione con l'utente della pagina principale come: la
+richiesta dei dati utente dettagliati, della lista dei brani, del dettaglio di
+un brano, ecc.
 
 \subsection{Classe EditUserActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
+interno alla \co{EditUserView} e fornisce i servizi per la modifica dei dati
+personali.
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
+\co{UsersService} e utilizza le relative classi \co{EditUserPlace} e
+\co{EditUserView}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
+un Place di tipo \co{EditUserPlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
+modifica delle informazioni personali visualizzate nel profilo.
 
 \subsection{Classe EditSongsActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
+interno alla \co{EditSongsView} e fornisce i servizi per la visualizzazione e la
+modifica della libreria musicale.
+\subsubsection*{Relazioni d'uso di altre componenti} Invoca i servizi di
+interrogazione e modifica dei dati musicali forniti da \co{SongsService} e
+utilizza le relative classi \co{EditSongsPlace} e \co{EditSongsView}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
+un Place di tipo \co{EditSongsPlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Questa classe gestisce, assieme a \co{songsService}, le attivit\`a utili alla
+visualizzazione e modifica della libreria musicale personale.
 
 \newpage
+
 \section{Package client.place} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
+Il package contiene le classi di tipo Place. I Place sono indispensabili
+per far s\`i che la corrispondente Activity sia accessibile via URL.
 \subsection*{Relazioni d'uso di altre componenti}
-\subsection*{Interfacce con altre componenti}
+A questo package appartengono le classi \co{LoginPlace}, \co{ProfilePlace},
+\co{EditUserPlace}, \co{EditSongsPlace}.
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
+ I suoi elementi vengono utilizzati dal package \emph{mvp}.
 \subsection*{Attivit\`a svolte e dati trattati}
+Organizza i Places.
 
 \subsection{Classe LoginPlace}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+\co{LoginPlace} estende la classe \co{Place} messa a disposizione da GWT. La
+classe \`e associata alla classe interna \co{Tokenizer} che permette di
+serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+Nessuna
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La classe \`e creata da \co{LoginView} utilizzata da \co{LoginActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Il compito della classe \`e quello di indicizzare gli stati di
+\co{LoginActivity} in modo da rendere eccessibili le funzionalit\`a di history e
+bookmarking del browser;
 
 \subsection{Classe ProfilePlace}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+\co{ProfilePlace} estende la classe \co{Place} messa a disposizione da GWT. La
+classe \`e associata alla classe interna \co{Tokenizer} che permette di
+serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+Nessuna
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La classe \`e creata da \co{ProfileView} utilizzata da \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Il compito della classe \`e quello di indicizzare gli stati di
+\co{ProfileActivity} in modo da rendere eccessibili le funzionalit\`a di history
+e bookmarking del browser;
 
 \subsection{Classe EditUserPlace}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+\co{EditUserPlace} estende la classe \co{Place} messa a disposizione da GWT. La
+classe \`e associata alla classe interna \co{Tokenizer} che permette di
+serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+Nessuna
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La classe \`e creata da \co{EditUserView} utilizzata da \co{EditUserActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Il compito della classe \`e quello di indicizzare gli stati di
+\co{EditUserActivity} in modo da rendere eccessibili le funzionalit\`a di history e
+bookmarking del browser;
 
 \subsection{Classe EditSongsPlace}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+\co{EditSongsPlace} estende la classe \co{Place} messa a disposizione da GWT. La
+classe \`e associata alla classe interna \co{Tokenizer} che permette di
+serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+Nessuna
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La classe \`e creata da \co{EditSongsView} utilizzata da \co{EditSongsActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Il compito della classe \`e quello di indicizzare gli stati di
+\co{EditSongsActivity} in modo da rendere eccessibili le funzionalit\`a di history e
+bookmarking del browser;
 
 \newpage
 \section{Package client.mvp} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
+Il package contiene le classi funzionali al meccanismo delle Activity e dei
+Places.
 \subsection*{Relazioni d'uso di altre componenti}
-\subsection*{Interfacce con altre componenti}
+Fanno parte di questo package le classi \co{NetmusHistoryMapper} e
+\co{NetmusActivityMapper}.
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Nessuna
 \subsection*{Attivit\`a svolte e dati trattati}
+Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
 \subsection{Classe NetmusActivityMapper}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe si occupa di mappare ogni attivita con il corrispondente Place.
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+La classe utilizza istanze di classi appartenenti al package
+\emph{client.place} e crea istanze di classi appartenenti al package
+\emph{client.activity}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre
+componenti} Nessuna
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Tramite un riferimento ad un Place crea e restituisce un oggetto activity.
 
 \subsection{Classe NetmusPlaceHistoryMapper}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Dichiara e riferisce tutti i places che saranno utilizzati da Netmus.
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+Utilizza i PlaceTokenizer
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Il PlaceHistoryHandler utilizza la classe per la sincronizzazione del URL.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Funge da connessione tra i PlaceTokenizer (classe interna ad ogni Place) e il
+PlaceHistoryHandler (messo a disposizione da GWT) che sincronizza l'URL del
+browes con i vari Place.
 
 \newpage
 \section{Package client.service} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
-\subsection*{Interfacce con altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe SongsService}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe UsersService}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe LoginService}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 %--------------- FORSE -------------------------------
 \section{Package client.javafx} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
-\subsection*{Interfacce con altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsection*{Attivit\`a svolte e dati trattati}
 %------------------------------------------------------
 \newpage
 \section{Package server} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
-\subsection*{Interfacce con altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe SongsServiceImpl}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe UsersServiceImpl}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe LoginServiceImpl}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe LoginHelper}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \newpage
 \subsection{Classe PMF (Singleton)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \section{Package server.peristent} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
-\subsection*{Interfacce con altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe User (da decidere nomi e tipi di DAO)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe . . . . (da decidere nomi e tipi di DAO)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \newpage
 \section{Package server.servlet} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
-\subsection*{Interfacce con altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe LoginSuperServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe LoginGoogleServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe LoginGoogleCallbackServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe YouTubeServlet (da decidere tipo di servlet)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \newpage
 \subsection{Classe TaggingServlet(da decidere . . .)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \section{Package server.utils} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
-\subsection*{Interfacce con altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe AuthenticationProvider}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe ServletUtils}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe Utils}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
 \newpage
@@ -637,7 +779,7 @@ aderiscono al pattern DTO.
 Tutte le classi di questo package implementano l'interfaccia
 \textit{java.io.Serializable} per poter essere serializzate e quindi inviate
 attraverso la rete. 
-\subsection*{Interfacce con altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene utilizzata dalle classi dei package \textit{client} e \textit{server} per
 lo scambio di dati e/o informazioni.
 \subsection*{Attivit\`a svolte e dati trattati}
@@ -647,22 +789,22 @@ Vengono qui di seguito descritte pi\`u in dettaglio.
 
 \subsection{Interfaccia GenericDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Interfaccia comune per le classi DTO. Definisce una generica classe che potrà
+Interfaccia comune per le classi DTO. Definisce una generica classe che potr\`a
 essere usata come contenitore dei dati di una DAO.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Vedere la descrizione del package.
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene implementata dalle classi del package \textit{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Nessuna. 
 
 \subsection{Classe UserDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Contiene e rappresenta i dati più comunemente utilizzati di un utente, ovvero
+Contiene e rappresenta i dati pi\`u comunemente utilizzati di un utente, ovvero
 quelli che vengono visualizzati in un profilo.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Implementa l'interfaccia \textit{GenericDTO}.
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per i dati pi\`u comunemente utilizzati dell'utente, come
@@ -674,7 +816,7 @@ Contiene e rappresenta la maggior parte dei dati di un utente, pi\`u
 precisamente quelli richiesti alla registrazione.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Estende la classe \textit{UserDTO}.
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per i dati dettagliati di un utente.
@@ -685,7 +827,7 @@ Contiene e rappresenta tutti i dati di un utente, a partire da quelli
 visualizzati sul profilo, a quelli interni del sistema.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Estende la classe \textit{RegistrationDTO}.
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per tutti dati dell'utente, dal nick al numero di
@@ -693,11 +835,11 @@ registrazione.
 
 \subsection{Classe SongDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Contiene e rappresenta i dati più comunemente utilizzati di un brano, ovvero
+Contiene e rappresenta i dati pi\`u comunemente utilizzati di un brano, ovvero
 quelli che vengono visualizzati in una playlist all'interno di un profilo.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Implementa l'interfaccia \textit{GenericDTO}.
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per i dati pi\`u comunemente utilizzati di un brano, come
@@ -709,7 +851,7 @@ Contiene e rappresenta tutti i dati di un brano, compresi quelli interni del
 sistema. 
 \subsubsection*{Relazioni d'uso di altre componenti}
 Estende la classe \textit{SongDTO}.
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per tutti dati del brano, dal titolo al numero
@@ -720,7 +862,7 @@ identificativo del brano.
 Contiene e rappresenta i dati di login di un utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Implementa l'interfaccia \textit{GenericDTO}.
-\subsubsection*{Interfacce con altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Trasporta nome utente e password dal client al server per l'autenticazione.
