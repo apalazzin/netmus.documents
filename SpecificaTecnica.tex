@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.7}
+\newcommand{\versione}{0.8}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -33,6 +33,9 @@ VT.G \\
 \hline
 \endfoot 
 
+28/01/2011 & 0.8 & Daminato Simone & Inserite descrizioni delle eccezioni in
+shared.\\
+\hline
 28/01/2011 & 0.7 & Mandolo Andrea & Inseriti contenuti package client e ui.\\
 \hline
 28/01/2011 & 0.6 & Caputo Cosimo & Reinserimento di tutti i grafici UML con
@@ -636,7 +639,7 @@ Tutte le classi di questo package implementano l'interfaccia
 attraverso la rete. 
 \subsection*{Interfacce con altre componenti}
 Viene utilizzata dalle classi dei package \textit{client} e \textit{server} per
-lo scambio di dati.
+lo scambio di dati e/o informazioni.
 \subsection*{Attivit\`a svolte e dati trattati}
 In generale, le classi di questo package si occupano di inglobare e trasportare
 le informazioni attraverso la rete, per le comunicazioni tra server e client.
@@ -721,6 +724,70 @@ Implementa l'interfaccia \textit{GenericDTO}.
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Trasporta nome utente e password dal client al server per l'autenticazione.
+
+\subsection{Classe NetMusException}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Generica eccezione del nostro programma.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Estende la classe \textit{Exception}
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Rappresenta una generica eccezione usata all'interno del sistema NetMus.
+Tutte le altre eccezioni estendono questa.
+
+\subsection{Classe LoginException}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Indica un generico errore rilevato durante il tentativo di login.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Estende la classe \textit{NetMusException}
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Nessuna.
+
+\subsection{Classe WrongLoginException}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Indica dei dati errati di login.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Estende la classe \textit{LoginException}
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Indica che username e/o password sono errati.
+
+\subsection{Classe RegistrationException}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Indica un generico errore rilevato durante la registrazione di un nuovo utente.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Estende la classe \textit{NetMusException}
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Nessuna.
+
+\subsection{Classe NickNotFreeException}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Indica che il login richiesto durante la registrazione \`e gi\`a in uso.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Estende la classe \textit{RegistrationException}
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Eccezione sollevata quando si rileva che il nome utente richiesto dal nuovo
+utente \`e gi\`a utilizzato.
+
+\subsection{Classe DuplicateEmailException}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Indica che l'email inserita durante la registrazione \`e gi\`a in uso.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Estende la classe \textit{RegistrationException}
+\subsubsection*{Interfacce con altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Eccezione sollevata quando si rileva che l'email inserita durante la
+registrazione \`e gi\`a in uso, e quindi non pu\`o essere utilizzata per la
+registrazione di un nuovo utente.
 
 %da decidere se utilizzare le eccezioni
 
