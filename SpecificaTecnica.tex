@@ -366,32 +366,65 @@ interfaccia accessibile dall'utente.
 Il sistema mette a disposizione una vista per l'autenticazione e la
 registrazione degli utenti Netmus.
 \subsubsection*{Relazioni d'uso di altre componenti}
-La classe istanzia oggetti di tipo \co{Place} che definiscono gli stati attuali
-della vista.
+La classe istanzia oggetti di tipo \co{LoginPlace} che definiscono gli stati
+attuali della vista.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-La vista viene creata da \co{ClientFactory} e \`e settata ed utilizzata dalle
-varie \co{Activity}.
+La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+\co{LoginActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Mette a disposizione gli strumenti per l'immissione dei dati utente e per le
-comunicazioni operative.
+La classe permette all'utente di scegliere il tipo di registrazione da
+effettuare (Google o Netmus), contiene una form per l'inserimento password e
+nome utente e pu\`o visualizzare warning se i dati inseriti non sono corretti.
 
 \subsection{Classe ProfileView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
+Il sistema mette a disposizione una vista per la visualizzazione dei profili e
+dei brani degli altri utenti registrati. La classe \co{ProfileViewImpl}
+implementa l'interfaccia \co{ProfileView} che estende \co{isWidget}
+(interfaccia introdotta da GWT 2.1).
+\subsubsection*{Relazioni d'uso di altrecomponenti} 
+La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
+attuali della vista.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+ La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+ \co{ProfileActivity}.
+ \subsubsection*{Attivit\`a svolte e dati trattati}
+Contiene la lista dei profili che l'utente pu\`o visualizzare e gli strumenti
+per navigare tra i cataloghi musicali.
 
 \subsection{Classe EditUserView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per la
+modifica delle informazioni personali dell'utente registrato. La classe
+\co{EditUserViewImpl} implementa l'interfaccia \co{EditUserView} che estende
+\co{isWidget} (interfaccia introdotta da GWT 2.1).
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+La classe istanzia oggetti di tipo \co{EditUserPlace} che definiscono gli stati
+attuali della vista.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+\co{EditUserActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Mette a disposizione gli strumenti per la modifica delle informazioni personali
+dell'utente registrato.
 
 \subsection{Classe EditSongsView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per visualizzazione e la modifica del
+catalogo brani utente. La classe \co{EditSongsViewImpl} implementa l'interfaccia
+\co{EditSongsView} che estende \co{isWidget} (interfaccia introdotta da GWT
+2.1).
 \subsubsection*{Relazioni d'uso di altre componenti}
+La classe istanzia oggetti di tipo \co{EditSongsPlace} che definiscono gli stati
+attuali della vista.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+\co{EditSongsActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Permette di visualizzare e aggiungere o rimuovere manualmente brani dalla
+propria libreria musicale. La rimozione di informazioni non influenza i dati che
+Netmus salva sul database.
 
 \newpage
 \section{Package client.activity} % LASCIARE WARNING
@@ -432,28 +465,47 @@ interno alla \co{ProfileView} e fornir\`a i servizi
 che il profilo utente dovr\`a offrire all'utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
-\co{ProfileService} e utilizza le relative classi \co{ProfilePlace} e
+\co{UsersService} e utilizza le relative classi \co{ProfilePlace} e
 \co{ProfileView}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
 un Place di tipo \co{ProfilePlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Questa classe gestir\`a, assieme a \co{ProfileService}, le attivit\`a utili alla
+Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
 creazione ed interazione con l'utente della pagina principale come: la
 richiesta dei dati utente dettagliati, della lista dei brani, del dettaglio di
 un brano, ecc.
 
 \subsection{Classe EditUserActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
+interno alla \co{EditUserView} e fornisce i servizi per la modifica dei dati
+personali.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
+\co{UsersService} e utilizza le relative classi \co{EditUserPlace} e
+\co{EditUserView}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
+un Place di tipo \co{EditUserPlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
+modifica delle informazioni personali visualizzate nel profilo.
 
 \subsection{Classe EditSongsActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
+Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
+interno alla \co{EditSongsView} e fornisce i servizi per la visualizzazione e la
+modifica della libreria musicale.
+\subsubsection*{Relazioni d'uso di altre componenti} Invoca i servizi di
+interrogazione e modifica dei dati musicali forniti da \co{SongsService} e
+utilizza le relative classi \co{EditSongsPlace} e \co{EditSongsView}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
+un Place di tipo \co{EditSongsPlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Questa classe gestisce, assieme a \co{songsService}, le attivit\`a utili alla
+visualizzazione e modifica della libreria musicale personale.
 
 \newpage
 \section{Package client.place} % LASCIARE WARNING
@@ -675,7 +727,7 @@ Vengono qui di seguito descritte pi\`u in dettaglio.
 
 \subsection{Interfaccia GenericDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Interfaccia comune per le classi DTO. Definisce una generica classe che potrà
+Interfaccia comune per le classi DTO. Definisce una generica classe che potrï¿½
 essere usata come contenitore dei dati di una DAO.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Vedere la descrizione del package.
@@ -686,7 +738,7 @@ Nessuna.
 
 \subsection{Classe UserDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Contiene e rappresenta i dati più comunemente utilizzati di un utente, ovvero
+Contiene e rappresenta i dati piï¿½ comunemente utilizzati di un utente, ovvero
 quelli che vengono visualizzati in un profilo.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Implementa l'interfaccia \textit{GenericDTO}.
@@ -721,7 +773,7 @@ registrazione.
 
 \subsection{Classe SongDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Contiene e rappresenta i dati più comunemente utilizzati di un brano, ovvero
+Contiene e rappresenta i dati piï¿½ comunemente utilizzati di un brano, ovvero
 quelli che vengono visualizzati in una playlist all'interno di un profilo.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Implementa l'interfaccia \textit{GenericDTO}.
