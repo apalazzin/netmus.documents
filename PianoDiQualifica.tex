@@ -1,12 +1,12 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
-\newcommand{\versione}{1.13}
+\newcommand{\versione}{1.14}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\versioneAR}{2.0}
 \newcommand{\nomefile}{PianoDiQualifica-\versione.pdf}
 \newcommand{\datacreazione}{3 Dicembre 2010}
-\newcommand{\datamodifica}{21 Gennaio 2011}
+\newcommand{\datamodifica}{31 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno} 
 \newcommand{\redazione}{Trezzi Giovanni}
@@ -33,32 +33,38 @@ VT.G \\
 \endhead
 \hline
 \endfoot
+
+31/01/2011 & 1.14 & Palazzin Alberto & Tolto paragrafo ``Principi e linee
+guida''.\\
+\hline
 30/01/2011 & 1.13 & Lovato Daniele & Sistemata Sezione 3.1 e 3.2.
 Perfezionata sezione 5.1.\\
 \hline
 30/01/2011 & 1.12 & Palazzin Alberto & Correzione errori ortografici.
 Sistemazione dei termini enfatizzati. Aggiunto strumento ASPELL. Correzione
-semantica. Correzzione della punteggiatura su elenchi puntati.
+semantica. Correzione della punteggiatura su elenchi puntati.
 Ridimensionamento misure delle tabelle sui dettagli della verifica
 dell'analisi. Eliminato sottoparagrafo 2.7.3 ``Verifica tramite test''.
-Aggiunti i link per reperire gli strumenti. Aggunto paragrafo 4.4 ``Dettaglio
+Aggiunti i link per reperire gli strumenti. Aggiunto paragrafo 4.4 ``Dettaglio
 dell'esito delle revisioni''.\\
 \hline
 30/01/2011 & 1.11 & Trezzi Giovanni & Aggiunto lo Scheduling nei risultati
 della verifica dell'analisi.\\
 \hline
 29/01/2011 & 1.10 & Trezzi Giovanni & Correzione errori grammaticali. Aggiunto
-l'esito della verifica sulla qualità dei requisiti. Paragrafo 4.2.1. Aggiunto
+l'esito della verifica sulla qualit\`a dei requisiti. Paragrafo 4.2.1. Aggiunto
 il risultato della verifica dei requisiti secondo il modello FURPS paragrafo
 4.2.1. Aggiunto il sottoparagrafo ``Correttezza formale'' nei metodi di
 verifica della documentazione.\\
 \hline
 27/01/2011 & 1.9 & Trezzi Giovanni & Aggiunto
-il paragrafo 2.7.1. ``Metodi di verifica per la documentazione'', aggiunta la tabella ``Correzione documenti'' in Appendice. Aggiunto paragrafo 2.7.2 ``Metodi di verifica per l'analisi" e le tabelle B e C in appendice per la verifica dei requisiti.\\
+il paragrafo 2.7.1. ``Metodi di verifica per la documentazione'', aggiunta la
+tabella ``Correzione documenti'' in Appendice. Aggiunto paragrafo 2.7.2 ``Metodi
+di verifica per l'analisi'' e le tabelle B e C in appendice per la verifica dei requisiti.\\
 \hline
 27/01/2011 & 1.8 & Lovato Daniele & Aggiunta introduzione al paragrafo
 ``Analisi dinamica'' e corretto il contenuto nella sua forma. Aggiunta
-sottosezione ``Test di sistema".\\
+sottosezione ``Test di sistema''.\\
 \hline
 27/01/2011 & 1.7 & Palazzin Alberto & Creato il paragrafo 3.3.1. Correzioni
 grammaticali. Modifica del paragrafo 3.3.\\
@@ -71,11 +77,11 @@ l'indice del documento.\\
 26/01/2011 & 1.4 & Trezzi Giovanni & Modificate le tecniche di analisi.
 Modificato il paragrafo 2.1.3 e sistemato la verifica della fase progettuale.
 Aggiunto paragrafo 2.9 ``Metodi di verifica''. Rimodulato il paragrafo 2.3
-``Strumenti". Aggiunti i metodi di verifica per la progettazione ad alto
+``Strumenti''. Aggiunti i metodi di verifica per la progettazione ad alto
 livello, paragrafo 2.7.3.\\
 \hline
 25/01/2011 & 1.3 & Trezzi Giovanni & Spostato l'intero capitolo 4 alla fine
-del capitolo 2, rinominato il capitolo 4 in ``Resoconto delle attività di
+del capitolo 2, rinominato il capitolo 4 in ``Resoconto delle attivit\`a di
 verifica'', rinominato il capitolo 5 in ``Pianificazione ed esecuzione del
 collaudo''. Corretta forma e contenuto del capitolo 2 fino a 2.1.6 compreso,
 spostato il paragrafo ``Metriche'' in 2.4.  
@@ -307,25 +313,7 @@ un \underline{framework} per i test specifici di unit\`a del codice, un
 applicativo software per la gestione e la risoluzione delle anomalie, un ambiente di sviluppo
 adeguato con possibilit\`a di effettuare debugging da parte dei programmatori.
 
-\section{Principi e linee guida}
 
-La verifica deve sempre portare alla conferma che si stia lavorando nel modo
-corretto.
-
-\begin{itemize}
-\item I collaudi devono essere pianificati con largo anticipo. La pianificazione
-dei collaudi pu\`o iniziare non appena si \`e completata la definizione e specifica
-dei requisiti. La definizione dei casi di prova pu\`o cominciare appena il modello
-progettuale \`e stabile.
-\item Il tracciamento \`e la componente fondamentale della verifica in quanto ogni
-parte del software deve essere conforme e soddisfare i requisiti.
-\item Principio di Pareto: l'80\% degli errori \`e riconducibile al 20\% dei
-componenti del programma. Il problema \`e identificare ed isolare i componenti
-sospetti.
-\item Per essere efficace, il collaudo dovrebbe essere condotto da una parte
-indipendente, non da chi ha scritto il codice.
-\end{itemize}	
-	
 \section{Strumenti}
 
 Per le attivit\`a di verifica ci avvarremo dei seguenti strumenti:
@@ -847,8 +835,8 @@ Tecniche: IN.
 
 \section{Comunicazione e risoluzione di anomalie}
 
-Un'anomalia è una deviazione da una norma o da una struttura standard
-considerata normale. Possiamo prevedere che la maggioranza delle anomalie verrà 
+Un'anomalia \`e una deviazione da una norma o da una struttura standard
+considerata normale. Possiamo prevedere che la maggioranza delle anomalie verr\`a 
 rilevata durante il processo di verifica. Nonostante i verificatori svolgano un
 ruolo fondamentale nel trattamento delle anomalie, non possiamo escludere che
 queste vengano riscontrate anche durante una qualsiasi fase di ciclo di vita,
@@ -868,7 +856,7 @@ singoli ticket fare riferimento al documento \emph{NormeDiProgetto-\versionenorm
 Il verificatore che individua un'anomalia dovr\`a innanzitutto analizzare il
 problema per valutare la causa dell'anomalia.
 In seguito verr\`a comunicato, a chi ne ha competenza, il tipo e l'ubicazione
-dell'errore ,allegando una descrizione chiara del problema ed elencando le
+dell'errore, allegando una descrizione chiara del problema ed elencando le
 cause. L'incaricato dovr\`a provvedere ad una possibile soluzione. Se il
 problema fosse particolarmente grave, sar\`a necessario un incontro con i membri 
 del gruppo per cercare una soluzione. Una volta risolto, il modulo viene
@@ -876,14 +864,14 @@ riverificato.
 
 \section{Trattamento delle discrepanze}
 
-Una discrepanza è un discostamento, totale o parziale, dalle attese del
+Una discrepanza \`e un discostamento, totale o parziale, dalle attese del
 committente o del gruppo stesso, rilevabile in un prodotto intermedio
 o finale. \`E compito dei verificatori, una volta individuata una discrepanza,
 comunicarlo al gruppo tramite l'apertura di un ticket. Per notificare una
 discrepanza dovr\`a essere usato lo strumento issue-tracker messo a disposizione nella pagina \url{http://code.google.com/p/netmus}. 
 Esso dovr\`a avere struttura simile a quella indicata nel
 documento \emph{NormeDiProgetto-\versionenormeprogetto.pdf}, ma la priorit\`a assegnatagli dovr\`a essere quella
-massima. I verificatori analizzeranno il problema, usando la tabella di
+massima. I verificatori analizzeranno il problema usando la tabella di
 tracciabilit\`a dei requisiti. Verr\`a trovato quale o quali di questi problemi non
 rispettano le aspettative del cliente o, in alternativa, quale requisito non \`e
 stato rispettato. Se il problema fosse risolvibile in tempi e costi ragionevoli
@@ -1232,21 +1220,21 @@ del software aderisce ai requisiti. Esso pu\`o aver inizio solamente al
 completamento del test di integrazione.
 \end{itemize}
 
-Durante la fase di collaudo, si attuerà un procedimento per individuare carenze
-relative alla correttezza, alla completezza e all'affidabilità delle componenti 
-software create rispetto ai requisiti definiti durante la fase di analisi.\\
-Il collaudo consisterà in due fasi: 
+Durante la fase di collaudo, si attuer\`a un procedimento per individuare carenze
+relative alla correttezza, alla completezza e all'affidabilit\`a delle componenti 
+software create rispetto ai requisiti definiti durante la fase di analisi.\\ \\
+Il collaudo consister\`a in due fasi: 
 
 \begin{itemize}
-  \item collaudo interno(alpha test), in cui viene effettuato prima del rilascio
+  \item collaudo interno(alpha test): viene effettuato prima del rilascio
   del prodotto internamente al gruppo e consiste in verifica finale del tracciamento 
   e in prove di esecuzione, anche se quest'ultime non sono da considerarsi tecniche di
   ricerca e risoluzione di errori.
-  \item collaudo esterno(beta test), viene effettuato una volta superato il
+  \item collaudo esterno(beta test): viene effettuato una volta superato il
   collaudo interno. Durante questo test il prodotto viene rilasciato a
   pochi utenti esterni i quali vengono avvertiti che il prodotto potrebbe non essere 
-  di qualità elevata e avere bisogno di ulteriori correzioni. 
-  Il compito di questi soggetti esterni e di valutarne la fruibilità e l'accessibilità.
+  di qualit\`a elevata e avere bisogno di ulteriori correzioni. 
+  Il compito di questi soggetti esterni e di valutarne la fruibilit\`a e l'accessibilit\`a.
 \end{itemize}
 
 \section{Dettaglio dell'esito della campagna di validazione}
