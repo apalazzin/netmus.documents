@@ -33,6 +33,11 @@ VT.G \\
 \hline
 \endfoot 
 
+30/01/2011 & 0.13 & Caputo Cosimo & Inseriti contenuti LibraryService e
+LibraryServiceImpl.\\
+\hline
+
+
 30/01/2011 & 0.13 & Baron Federico & Inserite componenti del package
 server.persistent.\\
 \hline
@@ -738,6 +743,27 @@ Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
 \co{UserDTO}, \co{UserSummaryDTO} e\\\co{UserCompleteDTO}.
 
+\subsection{Interfaccia LibraryService (e LibraryServiceAsync)}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
+richieste di vario tipo a \emph{server} riguardanti il catalogo musicale utente
+da mostrare nell'interfaccia grafica. Sar\`a presente anche
+\co{LibraryServiceAsync}, che gestir\`a il ritorno dai metodi in maniera
+asincrona.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Queste interfacce verranno implementate su \emph{server}, perci\`o non
+avranno relazioni d'uso definite, se non con gli oggetti DTO
+(\co{MusicLibraryDTO}) che verranno utilizzati per il trasferimento
+client-server.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
+binding e verr\`a utilizzata da \co{ProfileActivity}.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
+di informazione riguardante la libreria musicale utente e utilizzer\`a dati di
+tipo \co{MusicLibraryDTO}.
+
+
 \subsection{Interfaccia LoginService (e LoginServiceAsync)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
@@ -759,12 +785,6 @@ permetterano il logout dell'utente.
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
 \co{UserDTO}, \co{UserSummaryDTO} e \bo{UserCompleteDTO}.
-
-\subsection{Classe LibraryService}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
 
 
 %--------------- FORSE -------------------------------
@@ -839,15 +859,12 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{UsersService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
 immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{UsersService}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
 
@@ -855,7 +872,6 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{LoginService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Utilizzar\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
 gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
@@ -863,19 +879,29 @@ Verranno utilizzate funzionalit\`a interne di gestione login definite in
 \co{LoginHelper}. Potranno essere usate opportune classi \emph{servlet} per
 andare ad utilizzare servizi di login e reperimento informazioni utente esterni
 (Google Account).
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LoginService}.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Descritte nell'interfaccia lato \emph{client}.
+
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
 
 \subsection{Classe LibraryServiceImpl}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe corrisponde all'implementazione del \co{LibraryService} (di
+\emph{client}) ed estende la classe \co{RemoteServiceServlet}.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
+immagazzinati oppure usati i relativi oggetti \emph{persistent}.
+Potranno essere usate opportune classi in \emph{servlet} per andare ad
+utilizzare servizi di login e reperimento informazioni utente esterni (Google
+Account).
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
+utilizzando l'interfaccia \co{LibraryService}.
 
 \subsection{Classe LoginHelper}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -924,7 +950,7 @@ di usare il database.
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{server.persistent} contiene le classi di persistenza che
 implementano il design pattern \emph{Data Access Object (DAO)} che hanno lo
-scopo di interfacciare il sistema con il database nascondendo così ogni
+scopo di interfacciare il sistema con il database nascondendo cos\`i ogni
 dettaglio sulla struttura del database all'esterno. 
 \subsection*{Relazioni d'uso di altre componenti}
 Vengono utilizzate le classi DTO presenti nel package \emph{shared} per
@@ -1026,7 +1052,7 @@ quale utilizza \\\co{HttpSerletRequest} e \co{HttpSerletResponse}.
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Predispone il servizio e reindirizza l'utente al servizio di login di Google.
-Google, dopo che l'utente avrà effettuato l'accesso, lo reindizzer\`a nuovamente
+Google, dopo che l'utente avr\`a effettuato l'accesso, lo reindizzer\`a nuovamente
 al nostro programma, trasmettendo a \co{LoginGoogleCallbackServlet} tutte le
 informazioni del caso.
 
