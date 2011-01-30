@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.10}
+\newcommand{\versione}{0.11}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -32,15 +32,14 @@ VT.G \\
 \endhead
 \hline
 \endfoot 
-
+29/01/2011 & 0.11 & Daminato Simone & Inserite le descrizioni dei servlet.\\
+\hline
 29/01/2011 & 0.10 & Baron Federico & Inseriti i diagrammi delle classi e dei
 package aggiornati.\\
 \hline
-
 29/01/2011 & 0.9 & Caputo Cosimo & Inseriti contenuti package ui, activity,
 places e mvp.\\
 \hline
-
 29/01/2011 & 0.8 & Daminato Simone & Inserite descrizioni delle eccezioni in
 shared.\\
 \hline
@@ -779,40 +778,50 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 \newpage
 \section{Package server.servlet} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
+Package del server che contiene le classi utilizzate per interfacciarsi a
+servizi esterni, come il login utilizzando l'account Google, o come Youtube.
 \subsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Queste classi vengono usati da \textit{server} per integrare al suo interno
+altri servizi.
 \subsection*{Attivit\`a svolte e dati trattati}
+Gestisce lo scambio di dati con servizi esterni.
 
 \subsection{Classe LoginSuperServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Generica classe che implementa i metodi in comune dei servlet.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene estesa dalle altre classi di questo package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Definisce ed implementa i metodi comuni tra i servlet, come la definizione degli
+url corretti.
 
 \subsection{Classe LoginGoogleServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Utilizzata per il login tramite l'account Google.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Estende \textit{LoginSuperServlet}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Predispone il servizio e reindirizza l'utente al servizio di login di Google.
+Google, dopo che l'utente avrà effettuato l'accesso, lo reindizzer\`a nuovamente
+al nostro programma, trasmettendo a \textit{LoginGoogleCallbackServlet} tutte le
+informazioni del caso.
 
 \subsection{Classe LoginGoogleCallbackServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Utilizzata per il login tramite l'account Google.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Estende \textit{LoginSuperServlet}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-
-\subsection{Classe YouTubeServlet (da decidere tipo di servlet)}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
-
-\newpage
-\subsection{Classe TaggingServlet(da decidere . . .)}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+Riceve i dati dell'account dell'utente dopo che quest'ultimo ha effettuato
+l'accesso tramite il Google account.
 
 \section{Package server.utils} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
