@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.11}
+\newcommand{\versione}{0.12}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -32,6 +32,10 @@ VT.G \\
 \endhead
 \hline
 \endfoot 
+
+30/01/2011 & 0.12 & Baron Federico & Inserite componenti del package
+server.persistent.\\
+\hline
 
 30/01/2011 & 0.11 & Mandolo Andrea & Inseriti  componenti Service lato client.\\
 \hline
@@ -907,27 +911,67 @@ di usare il database.
 
 \section{Package server.peristent} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
+Il package \emph{server.persistent} contiene le classi di persistenza che
+implementano il design pattern \emph{Data Access Object (DAO)} che hanno lo
+scopo di interfacciare il sistema con il database nascondendo così ogni
+dettaglio sulla struttura del database all'esterno. 
 \subsection*{Relazioni d'uso di altre componenti}
+Vengono utilizzate le classi DTO presenti nel package \emph{shared} per
+impacchetare i dati in uscita dal database. 
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questo package \`e di fondamentale importanza per il resto del sistema poich\'e
+rappresenta l'unica via di accesso ai dati persistenti, le classi contenute
+vengono quindi utilizzate in modo massiccio dalle classi logiche Service nel
+package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
+Le classi DAO gestiscono i dati del sistema garantendone la persistenza e si
+occupano anche di implementare la parte logica di salvataggio, recupero e
+relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e il
+database utilizzato \`e non relazionale.
 
 \subsection{Classe UserAccount}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+\co{UserAccount} contiene le informazioni relative ad un utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
+La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione uno-a-uno
+che la lega a questa classe. Vengono inoltre utilizzate le classi
+\emph{UserSummaryDTO}, \emph{UserDTO} e \emph{UserCompleteDTO} come input ed
+output in gran parte dei metodi. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Tutte le classi logiche Service presenti nel package \emph{server} ne fanno uso
+qual'ora abbiano bisogno di informazioni riguadanti un utente del sistema.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Gestisce la logica di persistenza di tutti i dati relativi ad un utente del
+sistema NetMus.
 
 \subsection{Classe MusicLibrary}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+\subsubsection*{Tipo, obiettivo e funzione del componente} \co{MusicLibrary}
+contiene tutte le informazioni relative ad un catalogo multimediale.
+\subsubsection*{Relazioni d'uso di altre componenti} Alla luce della relazione
+di tipo uno-a-molti che la lega a \co{Song} e quella uno-a-uno con
+\co{UserAccount} queste due classi DAO sono necessarie. Viene utilizzata la
+classe \emph{MusicLibraryDTO} come input ed output in gran parte dei metodi.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Tutte le
+classi logiche Service presenti nel package \emph{server} ne fanno uso qual'ora
+abbiano bisogno di informazioni riguadanti un catalogo multimediale.
+\subsubsection*{Attivit\`a svolte e dati trattati} Gestisce la logica di
+persistenza di tutti i dati relativi ad un catalogo multimediale del sistema
+NetMus.
 
 \subsection{Classe Song}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+\subsubsection*{Tipo, obiettivo e funzione del componente} Contiene le
+informazioni relative ad un brano musicale. 
+\subsubsection*{Relazioni d'uso di
+altre componenti} Essendo in relazione con \co{MusicLibrary} ne fa uso. Vengono
+utilizzate le classi \emph{SongDTO} e \co{SongSummaryDTO} come input ed output
+in gran parte dei metodi. 
+\subsubsection*{Interfacce con e relazioni d'uso da
+altre componenti} Tutte le classi logiche Service presenti nel package
+\emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguadanti
+un brano musicale. 
+\subsubsection*{Attivit\`a svolte e dati trattati} Gestisce
+la logica di persistenza di tutti i dati relativi ad un brano musicale del
+sistema NetMus.
 
 \newpage
 \section{Package server.servlet} % LASCIARE WARNING
@@ -1062,7 +1106,7 @@ registrazione.
 
 \subsection{Classe SongSummaryDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Contiene e rappresenta i dati piï¿½ comunemente utilizzati di un brano, ovvero
+Contiene e rappresenta i dati pi\`u comunemente utilizzati di un brano, ovvero
 quelli che vengono visualizzati in una playlist all'interno di un profilo.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Implementa l'interfaccia \textit{GenericDTO}.
@@ -1096,9 +1140,14 @@ Trasporta nome utente e passwsord dal client al server per l'autenticazione.
 
 \subsection{Classe MusicLibraryDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
+Contiene le informazioni relative ad un catalogo multimediali compresa la lista
+di canzoni di cui \`e composto. 
+\subsubsection*{Relazioni d'uso di altre componenti} 
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Fa da contenitore per tutti dati di un catalogo multimediale.
 
 \subsection{Classe NetMusException}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
