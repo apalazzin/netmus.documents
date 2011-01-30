@@ -1,12 +1,12 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
-\newcommand{\versione}{1.2}
+\newcommand{\versione}{1.13}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\versioneAR}{2.0}
 \newcommand{\nomefile}{PianoDiQualifica-\versione.pdf}
 \newcommand{\datacreazione}{3 Dicembre 2010}
-\newcommand{\datamodifica}{21 Gennaio 2011}
+\newcommand{\datamodifica}{30 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno} 
 \newcommand{\redazione}{Trezzi Giovanni}
@@ -33,8 +33,11 @@ VT.G \\
 \endhead
 \hline
 \endfoot
-30/01/2011 & 1.12 & Palazzin Alberto & Correzione errori ortografici.
-Sistemazione dei termini enfatizzati. Aggiunto strumento ASPELL. Correzione
+30/01/2011 & 1.13 & Trezzi Giovanni & Aggiunta la verifica dei requisiti di
+analisi v.1.7 indicati come modificati a fornte della precedente verifica sulla
+versione 1.6.\\
+\hline
+30/01/2011 & 1.12 & Palazzin Alberto & Correzione errori ortografici. Sistemazione dei termini enfatizzati. Aggiunto strumento ASPELL. Correzione
 semantica. Correzzione della punteggiatura su elenchi puntati.
 Ridimensionamento misure delle tabelle sui dettagli della verifica
 dell'analisi. Eliminato sottoparagrafo 2.7.3 ``Verifica tramite test''.
@@ -1027,7 +1030,7 @@ Verifica dei requisiti proposti nel documento
  C2VN-4.6&  OK&  OK&  OK&  OK&  OK& -\\ \hline
  C2VN-4.7&  OK&  OK&  OK&  OK&  OK& -\\ \hline
  
-\caption{Check sulla qualit\`a dei requisiti}
+\caption{Check sulla qualit\`a dei requisiti v. 1.6}
 \end{longtable}
 \end{footnotesize}
 
@@ -1037,6 +1040,27 @@ essendo in evidente contrasto a fronte di un'interpretazione scorretta dovuta
 all'ambiguit\`a rilevata in C1FN-1.3 potrebbero risultarlo.
 La seconda riguarda C2QD-4.2 e C2QN-4. Anche queste pi\`u che in contraddittorio
 sembrano coprire, se pur con una diversa sfumatura, la stessa esigenza.
+
+
+Verifica dei requisiti proposti come corretti nel documento
+\emph{AnalisiDeiRequisiti-1.7.pdf}. a fronte delle correzioni della versione 1.6
+
+\begin{footnotesize}
+\begin{longtable}{|p{2,4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2,3cm}|p{2cm}|}
+\hline
+\rowcolor{orange} \bo{Requisito}  & \bo{Corr.}  & \bo{Comp.}  & \bo{Ambi.}  &
+\bo{Veri.}  & \bo{Cons.}  & \bo{Trac.} \\
+\hline
+\endhead
+\endfoot
+ C1FN-1.3&  OK&  OK&  OK&  OK&  OK & OK\\ \hline
+ C2QD-4.2&  OK&  OK&  OK&  OK&  OK& -\\ \hline
+\caption{Check sulla qualit\`a dei requisiti v. 1.7}
+\end{longtable}
+\end{footnotesize}
+
+Dall'analisi dei requisiti indicati risultano corretti i problemi
+d'incosistenza emersi precedentemente. 
 
 
 \subsection*{Completezza dei requisiti rispetto al modello FURPS}
@@ -1152,8 +1176,8 @@ linee di codice per ogni requisito funzionale.
 Risulta quindi che approssimativamente il software avr\`a una dimensione di
 circa almeno 2255 LOC.
 \\\\
-Considerando che una persona riesce a sviluppare mediamente 660 in un mese di
-lavoro possiamo approssimare che dividendo l'intero carico di lavoro su tutte le
+Considerando che una persona riesce a sviluppare mediamente 660 LOC in un mese
+di lavoro possiamo approssimare che dividendo l'intero carico di lavoro su tutte le
 componenti del gruppo, lo sviluppo del codice occuper\`a all'incirca
 15 giorni di lavoro ciascuno, con una media di lavoro di 2 ore al giorno. Pur
 essendo una misura approssimativa e probabilmente ottimistica risulta comunque
