@@ -568,7 +568,7 @@ Il package contiene le classi di tipo Place. I Place sono indispensabili
 per far s\`i che la corrispondente Activity sia accessibile via URL.
 \subsection*{Relazioni d'uso di altre componenti}
 A questo package appartengono le classi \co{LoginPlace}, \co{ProfilePlace},
-\co{EditUserPlace}, \co{EditSongsPlace}.
+\co{EditUserPlace}, \\\co{EditSongsPlace}.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
  I suoi elementi vengono utilizzati dal package \emph{mvp}.
 \subsection*{Attivit\`a svolte e dati trattati}
@@ -733,7 +733,7 @@ binding e verr\`a utilizzata da \co{EditUserActivity} e \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
-\co{UserDTO}, \co{UserSummaryDTO} e \co{UserCompleteDTO}.
+\co{UserDTO}, \co{UserSummaryDTO} e\\\co{UserCompleteDTO}.
 
 \subsection{Interfaccia LoginService (e LoginServiceAsync)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -749,7 +749,7 @@ vengono utilizzati per il trasferimento client-server.
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
-binding e verr\`a utilizzata \co{LoginActivity} e dalle altre Activity che
+binding e verr\`a utilizzata \\\co{LoginActivity} e dalle altre Activity che
 permetterano il logout dell'utente.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -848,11 +848,12 @@ Questa classe corrisponde all'implementazione del \co{LoginService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
 
 \subsubsection*{Relazioni d'uso di altre componenti}
-Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
-immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-Potranno essere usate opportune classi in \emph{servlet} per andare ad
-utilizzare servizi di login e reperimento informazioni utente esterni (Google
-Account).
+Utilizzar\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
+gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
+Verranno utilizzate funzionalit\`a interne di gestione login definite in
+\co{LoginHelper}. Potranno essere usate opportune classi in \emph{servlet} per
+andare ad utilizzare servizi di login e reperimento informazioni utente esterni
+(Google Account).
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
@@ -863,15 +864,46 @@ Descritte nell'interfaccia lato \emph{client}.
 
 \subsection{Classe LoginHelper}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+La classe \co{LoginHelper} \`e stata pensata per offrire funzionalit\`a statiche
+per gestire le sessioni HTML, utili a \co{LoginServiceImpl} ed a \emph{servlet}.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+User\`a al suo interno le classi di utilit\`a per i servlet definite in
+\emph{utils} e l'oggetto di persistenza \co{UserAccount}.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa classe viene utilizzat\`a da \co{LoginServiceImpl} e nel package
+\emph{servlet} dalle classi dedicate al Login.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Le funzionali\`a che metter\`a a disposizione sono quelle di individuare se
+l'utente corrente \`e gi\`a loggato o meno, e di riprendere la
+sessione restituendo un \emph{persistent} \co{UserAccount} nel caso esso sia
+gi\`a loggato.
 
 \subsection{Classe PMF (Singleton)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+\co{PMF} \`e una classe final che segue il pattern Singleton, illustrato
+nell'introduzione. Ha la funzione di creare un'unica istanza del
+\co{PersistentManagerFactory} (\emph{javax.jdo})e di restituirla a qualunque
+oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il DataStore, inviando
+query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
+tramite semplici metodi.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+Vengono usate le classi di \emph{javax.jdo} \co{PersistentManager},
+\co{PersistentManagerFactory}\\ e \co{JDOHelper}.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa classe pu\`o essere utilizzata da qualunque classe di \emph{server}, ogni
+qualvolta ci sia bisogno di avere il \co{PersistentManager} per interagire col
+DataStore.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Crea un'unica istanza del \co{PersistentManagerFactory} e tramite un metodo
+statico \emph{get()} la passa alle classi, in maniera da dargli la possibilit\`a
+di usare il database.
+
 
 \section{Package server.peristent} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
