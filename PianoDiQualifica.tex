@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
-\newcommand{\versione}{1.13}
+\newcommand{\versione}{1.14}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\versioneAR}{2.0}
@@ -33,9 +33,12 @@ VT.G \\
 \endhead
 \hline
 \endfoot
-30/01/2011 & 1.13 & Trezzi Giovanni & Aggiunta la verifica dei requisiti di
+30/01/2011 & 1.14 & Trezzi Giovanni & Aggiunta la verifica dei requisiti di
 analisi v.1.7 indicati come modificati a fornte della precedente verifica sulla
 versione 1.6.\\
+\hline
+30/01/2011 & 1.13 & Lovato Daniele & Sistemata Sezione 3.1 e 3.2.
+Perfezionata sezione 5.1.\\
 \hline
 30/01/2011 & 1.12 & Palazzin Alberto & Correzione errori ortografici. Sistemazione dei termini enfatizzati. Aggiunto strumento ASPELL. Correzione
 semantica. Correzzione della punteggiatura su elenchi puntati.
@@ -847,11 +850,13 @@ Tecniche: IN.
 
 \section{Comunicazione e risoluzione di anomalie}
 
-Possiamo prevedere che la maggioranza delle anomalie verr\`a individuata in fase
-di verifica. Ci\`o nonostante non possiamo escludere che vengano riscontrate
-anche durante una qualsiasi fase di ciclo di vita, quindi non vogliamo limitare
-il compito della comunicazione ai soli verificatori ma intendiamo estendere il
-caso a tutti i membri del gruppo di lavoro.
+Un'anomalia è una deviazione da una norma o da una struttura standard
+considerata normale. Possiamo prevedere che la maggioranza delle anomalie verrà 
+rilevata durante il processo di verifica. Nonostante i verificatori svolgano un
+ruolo fondamentale nel trattamento delle anomalie, non possiamo escludere che
+queste vengano riscontrate anche durante una qualsiasi fase di ciclo di vita,
+quindi non vogliamo limitare il compito della comunicazione ai soli verificatori ma 
+intendiamo estendere il caso a tutti i membri del gruppo di lavoro.
 
 \subsection{Comunicazione}
 
@@ -864,19 +869,22 @@ singoli ticket fare riferimento al documento \emph{NormeDiProgetto-\versionenorm
 \subsection{Gestione dell'anomalia}
 
 Il verificatore che individua un'anomalia dovr\`a innanzitutto analizzare il
-problema per valutare l'utilizzo di tempo e risorse necessarie per risolverlo.
-In seguito verr\`a comunicato, a chi ne ha competenza, il tipo e l'ubicazione dell'errore (vedi sezione 3.1.1).
-L'incaricato dovr\`a provvedere ad una possibile soluzione. Se il problema
-fosse particolarmente grave, sar\`a necessario un incontro con i membri del gruppo
-per cercare una soluzione. Qualora trovare una soluzione all'anomalia venga giudicato troppo dispendioso in termini di tempo o risorse si dovr\`a comunicare
-al cliente l'anomalia stessa, la sua origine e l'intenzione di non trattarla.
+problema per valutare la causa dell'anomalia.
+In seguito verr\`a comunicato, a chi ne ha competenza, il tipo e l'ubicazione
+dell'errore ,allegando una descrizione chiara del problema ed elencando le
+cause. L'incaricato dovr\`a provvedere ad una possibile soluzione. Se il
+problema fosse particolarmente grave, sar\`a necessario un incontro con i membri 
+del gruppo per cercare una soluzione. Una volta risolto, il modulo viene
+riverificato.
 
 \section{Trattamento delle discrepanze}
 
-\`E inoltre compito dei verificatori individuare e segnalare la presenza di
-discrepanze. Per notificare una discrepanza dovr\`a essere usato lo strumento
-issue-tracker messo a disposizione nella pagina \url{http://code.google.com/p/netmus}. Per ogni discrepanza
-individuata si creer\`a un ticket. Esso dovr\`a avere struttura simile a quella indicata nel
+Una discrepanza è un discostamento, totale o parziale, dalle attese del
+committente o del gruppo stesso, rilevabile in un prodotto intermedio
+o finale. \`E compito dei verificatori, una volta individuata una discrepanza,
+comunicarlo al gruppo tramite l'apertura di un ticket. Per notificare una
+discrepanza dovr\`a essere usato lo strumento issue-tracker messo a disposizione nella pagina \url{http://code.google.com/p/netmus}. 
+Esso dovr\`a avere struttura simile a quella indicata nel
 documento \emph{NormeDiProgetto-\versionenormeprogetto.pdf}, ma la priorit\`a assegnatagli dovr\`a essere quella
 massima. I verificatori analizzeranno il problema, usando la tabella di
 tracciabilit\`a dei requisiti. Verr\`a trovato quale o quali di questi problemi non
@@ -1246,6 +1254,23 @@ architetturale;
 	\item test di sistema: effettuato per verificare se il comportamento dinamico
 del software aderisce ai requisiti. Esso pu\`o aver inizio solamente al
 completamento del test di integrazione.
+\end{itemize}
+
+Durante la fase di collaudo, si attuerà un procedimento per individuare carenze
+relative alla correttezza, alla completezza e all'affidabilità delle componenti 
+software create rispetto ai requisiti definiti durante la fase di analisi.\\
+Il collaudo consisterà in due fasi: 
+
+\begin{itemize}
+  \item collaudo interno(alpha test), in cui viene effettuato prima del rilascio
+  del prodotto internamente al gruppo e consiste in verifica finale del tracciamento 
+  e in prove di esecuzione, anche se quest'ultime non sono da considerarsi tecniche di
+  ricerca e risoluzione di errori.
+  \item collaudo esterno(beta test), viene effettuato una volta superato il
+  collaudo interno. Durante questo test il prodotto viene rilasciato a
+  pochi utenti esterni i quali vengono avvertiti che il prodotto potrebbe non essere 
+  di qualità elevata e avere bisogno di ulteriori correzioni. 
+  Il compito di questi soggetti esterni e di valutarne la fruibilità e l'accessibilità.
 \end{itemize}
 
 \section{Dettaglio dell'esito della campagna di validazione}
