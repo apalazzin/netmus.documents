@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.13}
+\newcommand{\versione}{0.15}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -33,15 +33,14 @@ VT.G \\
 \hline
 \endfoot 
 
-30/01/2011 & 0.13 & Caputo Cosimo & Inseriti contenuti LibraryService e
+30/01/2011 & 0.15 & Mandolo Andrea & Inserita Applet di estrazione (3.13)\\
+\hline
+30/01/2011 & 0.14 & Caputo Cosimo & Inseriti contenuti LibraryService e
 LibraryServiceImpl.\\
 \hline
-
-
 30/01/2011 & 0.13 & Baron Federico & Inserite componenti del package
 server.persistent.\\
 \hline
-
 30/01/2011 & 0.12 & Mandolo Andrea & Inseriti  componenti Service lato client.\\
 \hline
 29/01/2011 & 0.11 & Daminato Simone & Inserite le descrizioni dei servlet.\\
@@ -859,12 +858,15 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{UsersService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
 Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
 immagazzinati oppure usati i relativi oggetti \emph{persistent}.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{UsersService}.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
 
@@ -872,6 +874,7 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{LoginService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
 Utilizzar\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
 gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
@@ -879,12 +882,10 @@ Verranno utilizzate funzionalit\`a interne di gestione login definite in
 \co{LoginHelper}. Potranno essere usate opportune classi \emph{servlet} per
 andare ad utilizzare servizi di login e reperimento informazioni utente esterni
 (Google Account).
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LoginService}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Descritte nell'interfaccia lato \emph{client}.
-
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
@@ -893,15 +894,20 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{LibraryService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
 Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
 immagazzinati oppure usati i relativi oggetti \emph{persistent}.
 Potranno essere usate opportune classi in \emph{servlet} per andare ad
 utilizzare servizi di login e reperimento informazioni utente esterni (Google
 Account).
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LibraryService}.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Descritte nell'interfaccia lato \emph{client}.
 
 \subsection{Classe LoginHelper}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -1271,7 +1277,36 @@ Eccezione sollevata quando si rileva che l'email inserita durante la
 registrazione \`e gi\`a in uso, e quindi non pu\`o essere utilizzata per la
 registrazione di un nuovo utente.
 
-%da decidere se utilizzare le eccezioni
+\section{Applet di estrazione brani}
+Verr\`a creata una semplice applet che avr\`a lo scopo di catturare eventi
+provocati dall'inserimento di una periferica USB. Questa applet verr\`a inserita
+nella pagina web in maniera dinamica dalle nostre View, e sar\`a l'utente a
+decidere se tenerla attiva o meno tramite un piccolo tasto on/off presente nella
+pagina. Di default questa applet sar\`a integrata e attiva nella
+\co{ProfileView} ed \co{EditSongsView}.\\
+L'applet verr\`a pre-compilata come una componente indipendente ed utilizzata
+mediante l'inserimento di uno script HTML all'interno della pagina.\\
+\\
+Quando viene rilevato un dispositivo di archiviazione di massa USB, come una
+pen drive, un telefono o lettore Mp3, vengono estratti tutti i Tag dagli Mp3
+trovati tramite la libreria Java MP3 ID3 Tag Library, dai quali viene creata una
+lista di \co{SongDTO} che verr\`a inviata al server tramite \co{SongsService}.\\
+\\
+La scansione del dispositivo riguarda solamente i file Mp3 e se un Tag dovesse
+risultare corrotto o vuoto, verr\`a ignorato il brano.\\
+\\
+Una volta inviate al server tali informazioni, verranno cercate le
+corrispondenze con eventuali brani gi\`a presenti nel nosto DataStore: se un
+brano risulta presente verr\`a semplicemente associato all'utente aggiornando la
+sua MusicLibrary; se non \`e ancora presente allora verr\`a integrato e corretto
+tramite un servizio esterno. Verr\`a per questo implementato un algoritmo
+decisionale per stabilire che livello di corrispondenza deve avere il brano per
+essere considerato attendibile o meno.\\
+\\
+Il client, come risposta dell'invio dei brani, avr\`a un reindirizzamento alla
+\co{EditSongsView}, la quale mostrer\`a a video la sua lista dei brani
+aggiornata e modificabile.
+
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 
