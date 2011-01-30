@@ -1077,11 +1077,38 @@ Vedere la descrizione del package.
 Riceve i dati dell'account dell'utente dopo che quest'ultimo ha effettuato
 l'accesso tramite il Google account.
 
+\subsection{YouTubeServlet} % <-- resta per LINK VIDEO
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe si occuper\`a di dialogare con il servizio di ricerca offerto
+dalle API di YouTube e sar\`a di tipo \co{HttpServlet}.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a utilizzato da un \co{SongService} al momento della memorizzazione nel
+DataStore di un nuovo brano.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Lo scopo sar\`a quello di fornire ad un nuovo brano
+da memorizzare anche un link al relativo streaming audio/video.
+
+\subsection{TaggingServlet} % <-- resta per completamento TAG
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe si occuper\`a di dialogare con un servizio web che possa fornirci
+un Tag Mp3 completo, passandogli solo qualche informazione del brano (es.
+solo titolo e artista, titolo e album).
+\subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a utilizzata questa classe da \co{SongService} quando dovr\`a memorizzare
+un nuovo brano e non avr\`a sufficienti informazioni.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Cercare di fornire pi\`u informazioni ad un brano, il cui Tag al momento
+dell'estrazione risultava scarso di dati, prima di memorizzarlo sul
+DataStore.
 
 \section{Package server.utils} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 Contiene le classi che forniscono funzioni di utilit\`a comunemente utilizzate
-dalle altre classi del package \emph{server}
+dalle altre classi del package \emph{server}.
 \subsection*{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
