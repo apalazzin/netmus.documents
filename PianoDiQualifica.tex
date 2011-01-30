@@ -1,9 +1,9 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
 \newcommand{\versione}{1.2}
-\newcommand{\versioneglossario}{1.0}
-\newcommand{\versionenormeprogetto}{1.0}
-\newcommand{\versioneAR}{1.0}
+\newcommand{\versioneglossario}{2.0}
+\newcommand{\versionenormeprogetto}{2.0}
+\newcommand{\versioneAR}{2.0}
 \newcommand{\nomefile}{PianoDiQualifica-\versione.pdf}
 \newcommand{\datacreazione}{3 Dicembre 2010}
 \newcommand{\datamodifica}{21 Gennaio 2011}
@@ -225,11 +225,11 @@ responsabile affinch\'e provveda alle relative modifiche riguardanti la progetta
 
 La fase di realizzazione/programmazione dovr\`a essere verificata secondo i seguenti aspetti:
 \begin{itemize}
-\item Corretto funzionamento dell'applicazione;
-\item Affidabilit\`a;
-\item Efficienza;
-\item Portabilit\`a;
-\item Manutenibilit\`a.
+\item corretto funzionamento dell'applicazione;
+\item affidabilit\`a;
+\item efficienza;
+\item portabilit\`a;
+\item manutenibilit\`a.
 
 \end{itemize}
 
@@ -280,11 +280,12 @@ indipendente, non da chi ha scritto il codice.
 	
 \section{Strumenti}
 
-Per le attivit\`a di verifica ci avvarremo dei seguenti strumenti:\\
-
-LISTA DA RIVEDERE AMPLIARE E AGGIUSTARE
+Per le attivit\`a di verifica ci avvarremo dei seguenti strumenti:
 
 \begin{itemize}
+
+\item Aspell: per controllo ortografico dei
+documenti con estensione .tex, necessita di importare un dizionario italiano;
 
 \item Junit: come unit test framework per il linguaggio di
 programmazione \underline{Java};
@@ -296,7 +297,7 @@ codice Java mentre l'applicazione da testare verr\`a eseguita in hosted mode
 tramite GWT;
 
 \item Google Project Hosting: per la funzionalit\`a issue-tracker
-per la gestione e creazione di ticket cos\`i come descritto nel documento \emph{NormeDiProgetto-1.0.pdf};
+per la gestione e creazione di ticket cos\`i come descritto nel documento \emph{NormeDiProgetto-\versionenormeprogetto.pdf};
 
 \item FindBugs: per effettuare analisi statica del codice
 sorgente Java al fine di trovare errori comuni;
@@ -321,30 +322,27 @@ aderisca alle pi\`u diffuse norme di codifica.
 
 Una metrica viene definita come un metodo di misura associato ad una scala di
 valutazione. Secondo il glossario IEEE una metrica \`e la misura quantitativa del
-grado con cui una entit\`a possiede un determinato attributo.
+grado con cui un'entit\`a possiede un determinato attributo.
 
 Ai fini della valutazione e quindi di un possibile miglioramento o
 correzione della qualit\`a del prodotto finito, devono essere stabilite delle
 misure precise con cui misurare quantitativamente i prodotti delle varie fasi
-progettuali.\\
-\\
-\\
-TUTTE LE METRICHE DI SEGUITO SONO SOLAMENTE ELENCATE, VANNO SCELTE E DISCUSSE
+progettuali.
 
 
 \subsection{Misure nell'analisi dei requisiti}
 
 \begin{itemize}
   
-\item correttezza (se realmente richiesto dal sistema);
+\item Correttezza (se realmente richiesto dal sistema);
 \item completezza (se ogni funzione richiesta al software ed il suo
-comportamento rispetto ad ogni suo input \`e specificato);
+comportamento rispetto ad ogni suo input sono specificati);
 \item ambiguit\`a (se ogni requisito ha una sola interpretazione);
 \item verificabilit\`a (se \`e possibile verificare che il sistema lo realizzi);
 \item consistenza (se nessun requisito \`e in contraddizione con gli altri);
 \item tracciabilit\`a (se \`e collegabile a qualche elemento del progetto e del
 codice);
-\item functions Points (numero di requisiti funzionali);
+\item Function Point (numero di requisiti funzionali).
 
 \end{itemize}
 
@@ -380,7 +378,7 @@ una funzione in ragione della lunghezza in LOC).
 
 \begin{itemize}
   
-\item livello di copertura di istruzioni;
+\item Livello di copertura di istruzioni;
 \item livello di copertura dei rami;
 \item livello di copertura dei percorsi di base.
 \end{itemize}
@@ -392,8 +390,8 @@ una funzione in ragione della lunghezza in LOC).
 
 \begin{itemize} 
 \item Tempo per le attivit\`a del processo fino al suo completamento;
-\item risorse richieste dal processo o le sue attivit\`a (ad esempio le quantit\`a
-totali di ore/persone).
+\item risorse richieste dal processo o dalle sue attivit\`a (ad esempio le
+quantit\`a totali di ore/persone).
 \item soddisfazione degli Stakeholder.  
 \end{itemize}
 
@@ -423,8 +421,8 @@ Questa forma d'analisi non richiede esecuzione del programma.
 Il motivo di ci\`o \`e che eseguire un programma ha un costo che in molti casi pu\`o preferire 
 controlli basati sulla sola analisi del codice. Si basa su metodi di lettura, 
 che vengono utilizzati per prodotti semplici, e risulta pi\`u economica poich\'e
-l'uso di risorse informatiche \`e limitato.\\ Di seguito un elenco dei metodi che
-abbiamo adottato:
+l'uso di risorse informatiche \`e limitato.\\ 
+Di seguito un elenco dei metodi che abbiamo adottato:
 
 
 \vspace{1cm}
@@ -533,45 +531,45 @@ attesa in proporzione al carico di informazioni in ingresso.
 
 \subsection{Analisi dinamica}
 \subsubsection{Test d'integrazione}
-I test di integrazione rappresentano la logica dei test di unit\`a.
+I test d'integrazione rappresentano la logica dei test di unit\`a.
 In base al ciclo di vita adottato, ossia il modello incrementale, verranno effettuati dei 
-test di integrazione adottando un modello di integrazione incrementale. 
+test di integrazione adottando un modello d'integrazione incrementale. 
 Non \`e infatti conveniente riunire l'intero sistema e collaudarlo, ma la
-strategia utilizzata sar\`a integrazione top-down. Ci\`o significa che i moduli
-saranno gradualmente integrati in sottosistemi, effettuando opportune verifiche della loro  corretta interazione. 
-L'integrazione incrementale top down richiede l'utilizzo di molti stub che sostituiscano 
-le componenti; spesso questi stub presentano degli errori dato che sono dei semplici 
+strategia utilizzata sar\`a l'integrazione top-down. Ci\`o significa che i
+moduli saranno gradualmente integrati in sottosistemi, effettuando opportune verifiche della loro  corretta interazione. 
+L'integrazione incrementale top-down richiede l'utilizzo di molti stub che
+sostituiscano le componenti; spesso questi stub presentano degli errori dato che sono dei semplici 
 prototipi realizzati rapidamente per diminuire i costi, ma permette il funzionamento di 
-un sistema parziale molto pi\`u in fretta rispetto ad un modello bottom up.\\
+un sistema parziale molto pi\`u in fretta rispetto ad un modello bottom-up.\\
 \\
-L'integrazione top down richiede che ogni componente venga sostituita da uno stub, 
-a partire dalle foglie nell'albero delle dipendenze, e man mano che si scende si 
-inseriscono sempre pi\`u componenti al posto degli stub. 
+L'integrazione top-down richiede che ogni componente venga sostituita da uno
+stub, a partire dalle foglie nell'albero delle dipendenze, e man mano che si scende si 
+inseriscono sempre pi\`u componenti al posto degli stub. \\ \\
 Lo schema del procedimento da seguire \`e il seguente:
 
 \begin{itemize}
-  \item si progetta, scrive e testa una parte del sistema
-  \item se ne scrive un altro pezzo
-  \item si integrano le due parti e si testa
+  \item si progetta, scrive e testa una parte del sistema;
+  \item se ne scrive un altro pezzo;
+  \item si integrano le due parti e si testa;
   \item ogni malfunzionamento rilevato sar\`a conseguenza del malfunzionamento
-  dell'ultima componente aggiunta
+  dell'ultima componente aggiunta.
 \end{itemize}
 
 
 \subsubsection{Test di Unit\`a}
 Il seguente paragrafo intende illustrare i procedimenti seguiti durante i test
-di ogni singola unit\`a.\\
+di ogni singola unit\`a.\\ \\
 La verifica del codice adotter\`a 2 modelli:
 
 \begin{itemize}
-  \item Verifica funzionale dei requisiti(black box): questo modello si basa su un sistema 
-di test a scatola chiusa, ossia partendo dalla conoscenza della struttura interna del 
+  \item verifica funzionale dei requisiti (Black Box): questo modello si basa su
+  un sistema di test a scatola chiusa, ossia partendo dalla conoscenza della struttura interna del 
 prodotto, verranno controllati ed accertati che gli output di ogni unit\`a siano  conformi 
 a quelli attesi, testandoli in qualunque condizione possibile si possa trovare la singola 
 unit\`a. Questi test fanno riferimento alla specifica dell'unit\`a e utilizza dati in input 
-capaci di provocare in output i dati attesi.
-  \item Verifica strutturale(white box): questo modello parte dalla conoscenza  delle 
-specifiche del progetto, e come in un sistema a scatola trasparente si analizzano i 
+capaci di provocare in output i dati attesi;
+  \item verifica strutturale (White Box): questo modello parte dalla conoscenza 
+  delle specifiche del progetto, e come in un sistema a scatola trasparente si analizzano i 
 comportamenti specifici dell'unit\`a e dei rispettivi metodi per verificarne la logica 
 interna e il corretto funzionamento. In questi test deve essere preso in considerazione 
 ogni cammino di esecuzione all'interno del modulo, quindi i casi di prova devono essere 
@@ -579,8 +577,8 @@ tutti adeguatamente progettati.
 \end{itemize}
 
 
-Il piano dei test di unit\`a(che dovr\`a essere chiaramente esposto al termine della 
-progettazione in dettaglio) prevede che per ogni test siano elencati:
+Il piano dei test di unit\`a (che dovr\`a essere chiaramente esposto al termine
+della progettazione in dettaglio) prevede che per ogni test siano elencati:
 
 \begin{itemize}
   \item unit\`a o modulo su cui sar\`a effettuato il test;
@@ -599,23 +597,28 @@ i test non possono dimostrare la totale assenza di errori.
 \subsubsection{Test di Sistema}
 I test di sistema verranno effettuati alla fine dello sviluppo del progetto
 software. Lo scopo \`e quello di valutare le funzionalit\`a del prodotto una volta 
-che ha raggiunto la sua completezza.\\ 
+che ha raggiunto la sua completezza.\\ \\ 
 Le tecniche adottate per i test sono riportate nel seguito, i cui obiettivi sono 
 normalmente mirati a verificare il sistema sotto ben determinati aspetti:
 
 \begin{itemize}
-  \item Test di Funzionalit\`a: test che mira a controllare che ogni funzionalit\`a del prodotto stabilita dai requisiti sia stata realizzata correttamente.
-  \item Test di Sicurezza: test che cerca di accedere a quei dati e funzionalit\`a che dovrebbero essere riservati, cos\`i da valutare l'efficacia dei meccanismi di sicurezza.
+  \item Test di Funzionalit\`a: test che mira a controllare che ogni
+  funzionalit\`a del prodotto stabilita dai requisiti sia stata realizzata correttamente;
+  \item Test di Sicurezza: test che cerca di accedere a quei dati e
+  funzionalit\`a che dovrebbero essere riservati, cos\`i da valutare l'efficacia dei meccanismi di sicurezza;
   \item Test di Usabilit\`a:  test che vuole valutare soggettivamente la facilit\`a
-  d'uso del prodotto.
+  d'uso del prodotto;
   \item Test delle Prestazioni: test che mira a valutare l'efficienza del
-  prodotto in termini di tempi di elaborazione e di risposta.
+  prodotto in termini di tempi di elaborazione e di risposta;
   \item Storage Test: test che valuta ancora l'efficienza del
-  prodotto, ma questa volta dal punto di vista dell'uso della memoria e della richiesta di risorse.
+  prodotto, ma questa volta dal punto di vista dell'uso della memoria e della
+  richiesta di risorse;
   \item Test di Carico: durante questo tipo di test il sistema \`e sottoposto ad
-  un carico di lavoro massimo, per verificare le funzionalit\`a in queste condizioni. L'obbiettivo \`e di rilevare malfunzionamenti che non si presentano in condizioni normali.
+  un carico di lavoro massimo, per verificare le funzionalit\`a in queste
+  condizioni. L'obbiettivo \`e di rilevare malfunzionamenti che non si presentano in condizioni normali;
   \item Stress Test: durante questo tipo di test il sistema \`e sottoposto ad un
-  carico di lavoro superiore da quello previsto dai requisiti in condizioni massime o \`e portato a condizioni operative eccessive. Lo scopo \`e quello di valutare la capacit\`a di recovery di un sistema dopo un fallimento.
+  carico di lavoro superiore da quello previsto dai requisiti in condizioni
+  massime o \`e portato a condizioni operative eccessive. Lo scopo \`e quello di valutare la capacit\`a di recovery di un sistema dopo un fallimento;
   \item Test di Compatibilit\`a: questo controllo ha l'obbiettivo di valutare la
   compatibilit\`a del software con altri sistemi software con cui il prodotto deve interagire nel suo ambiente operativo finale.
  \end{itemize}
@@ -676,7 +679,7 @@ Tecniche: WT, IN.
 
 Verificare il documento soffermandosi sulla correttezza formale delle sue 
 singole parti. Utilizzare come riferimento il documento
-\emph{NormeDiProgetto-2.0.pdf} attenendosi alle indicazioni del capitolo 3.
+\emph{NormeDiProgetto-\versionenormeprogetto.pdf} attenendosi alle indicazioni del capitolo 3.
 \\\\
 Esito atteso: Correttezza formale rispetto a quanto enunciano nelle Norme di
 Progetto.
@@ -689,7 +692,7 @@ Tecniche: WT, IN.
 \subsubsection{Qualit\`a dei requisiti}
 
 Verificare la lista di requisiti individuati e indicati nel cap. 5 del documento
-\emph{AnalisiDeiRequisiti-2.0.pdf} secondo le metriche nel paragrafo 2.5.1.
+\emph{AnalisiDeiRequisiti-\versioneAR.pdf} secondo le metriche nel paragrafo 2.5.1.
 Utilizzare la tabella di check per l'analisi qualitativa dei requisiti in
 appendice a questo documento.
 \\\\
@@ -710,14 +713,14 @@ efficacemente tutte le specifiche del modello FURPS.
 
 \subsubsection{Scheduling}
 
-Quantificare il numero di functions points e sulla base di questi calcolare una
+Quantificare il numero di Function Point e sulla base di questi calcolare una
 stima della dimensione in LOC del codice. Da questa elaborare una proiezioni dei
 tempi di programmazione necessari alla realizzazione del software. Tenere in
 considerazione che una persona in media si stima riesca ad implementare 12
 requisiti funzionali al mese. Per quantificare le linee di codice
-rispetto al numero di requisiti funzionali utilizzare come riferimento la tabella ``function points languages table'' reperibile all'indirizzo:
-\\\\
-\url{http://www.qsm.com/?q=resources/function-point-languages-table/index.html}
+rispetto al numero di requisiti funzionali utilizzare come riferimento la
+tabella ``Function Point languages table'' reperibile all'indirizzo
+\url{http://www.qsm.com/?q=resources/function-point-languages-table/index.html}.
 \\\\
 Esito atteso: tempistiche adeguate alle possibilit\`a a disposizione.
 
@@ -727,7 +730,7 @@ Esito atteso: tempistiche adeguate alle possibilit\`a a disposizione.
 \subsubsection{Soddisfacimento di tutti i requisiti individuati}
 
 Verificare la corrispondenza dei requisiti individuati in fase di analisi (vedi
-cap. 5 del documento \emph{AnalisiDeiRequisiti-2.0.pdf}) con almeno un modulo
+cap. 5 del documento \emph{AnalisiDeiRequisiti-\versioneAR.pdf}) con almeno un modulo
 software previsto dalla specifica tecnica. Si consiglia di utilizzare la tabella di tracciamento dei requisiti con le relative componenti
 software proposta all'interno del documento \emph{SpecificaTecnica-1.0.pdf}.
 \\\\
@@ -755,10 +758,10 @@ Verificare che le funzioni dei moduli software soddisfino le richieste dei
 requisiti con cui sono tracciati. Si consiglia di confrontare la descrizione
 delle funzionalit\`a fornite dai singoli moduli cos\`i come descritto in
 \emph{SpecificaTecnica-1.0.pdf} con la descrizione dei singoli requisiti
-proposta nel cap. 5 del documento \emph{AnalisiDeiRequisiti-2.0.pdf}).
+proposta nel cap. 5 del documento \emph{AnalisiDeiRequisiti-\versioneAR.pdf}).
 \\\\
 Esito atteso: ci si aspetta di trovare riscontro tra quello che esigono i
-singoli requisito con le funzionalit\`a descritte dai moduli a loro tracciati.
+singoli requisiti con le funzionalit\`a descritte dai moduli a loro tracciati.
 \\\\
 Tecniche: TR, IN.
 
@@ -789,7 +792,7 @@ Esito atteso: data un'azione di input ci si aspetta di riuscire a prevedere e
 ottenere un determinato output percorrendo i vari moduli del software attraverso le interconnessioni che
 li legano. 
 \\\\
-
+Tecniche: Black Box.
 
 
 % INIZIO CAPITOLO 3
@@ -810,7 +813,7 @@ caso a tutti i membri del gruppo di lavoro.
 Per notificare anomalie dovr\`a essere usato lo strumento issue-tracker messo a
 disposizione nella pagina \url{http://code.google.com/p/netmus/}. Per ogni
 anomalia individuata si dovr\`a creare un ticket. Per la creazione e la struttura dei
-singoli ticket fare riferimento al documento \emph{NormeDiProgetto-1.0.pdf} paragrafo omonimo.
+singoli ticket fare riferimento al documento \emph{NormeDiProgetto-\versionenormeprogetto.pdf} paragrafo omonimo.
 
 
 \subsection{Gestione dell'anomalia}
@@ -829,7 +832,7 @@ al cliente l'anomalia stessa, la sua origine e l'intenzione di non trattarla.
 discrepanze. Per notificare una discrepanza dovr\`a essere usato lo strumento
 issue-tracker messo a disposizione nella pagina \url{http://code.google.com/p/netmus}. Per ogni discrepanza
 individuata si creer\`a un ticket. Esso dovr\`a avere struttura simile a quella indicata nel
-documento \emph{NormeDiProgetto-1.0.pdf}, ma la priorit\`a assegnatagli dovr\`a essere quella
+documento \emph{NormeDiProgetto-\versionenormeprogetto.pdf}, ma la priorit\`a assegnatagli dovr\`a essere quella
 massima. I verificatori analizzeranno il problema, usando la tabella di
 tracciabilit\`a dei requisiti. Verr\`a trovato quale o quali di questi problemi non
 rispettano le aspettative del cliente o, in alternativa, quale requisito non \`e
@@ -853,7 +856,7 @@ contrario il progetto sar\`a esposto ad alto rischio di fallimento.
 
 \section{Procedure di controllo di qualit\`a di processo}
 Per ogni processo di verifica verr\`a aperto un ticket (per maggiori dettagli vedi
-``Pianificazione, ticketing e time-tracking'' in \emph{NormeDiProgetto-2.0.pdf}). Dopo aver
+``Pianificazione, ticketing e time-tracking'' in \emph{NormeDiProgetto-\versionenormeprogetto.pdf}). Dopo aver
 accettato la commessa ogni verificatore dovr\`a verificare le caratteristiche di
 qualit\`a stabilite nel capitolo 2 del presente documento applicando le tecniche
 appropriate e i relativi metodi di misurazione. A lavoro terminato il
@@ -863,7 +866,7 @@ esiti predetti.
 \subsection{Test di valutazione sul processo di lavoro}
 Per una chiara comprensione su come alcuni fattori possono influenzare le varie
 fasi del progetto e per ricercare un miglioramento del processo \`e
-stato introdotto un sistema di feedback su tutte le attivit\`a svolte. \\
+stato introdotto un sistema di feedback su tutte le attivit\`a svolte.\\ \\
 Alla chiusura di un ticket, chi ha effettuato il lavoro deve compilare un form
 contenente un test di valutazione sui seguenti aspetti:
 
@@ -875,7 +878,7 @@ contenente un test di valutazione sui seguenti aspetti:
 \end{itemize}
 
 La valutazione \`e assegnata su una scala numerica da 1 a 10 in modo crescente
-rispetto al proprio livello di soddisfacimento. \\
+rispetto al proprio livello di soddisfacimento.
 In prossimit\`a di una revisione e prima della consegna verr\`a sviluppato un
 grafico riassuntivo con la media dei punteggi per voce. 
 I risultati ottenuti confrontati con le valutazioni ricevute in seguito nella
@@ -1094,8 +1097,8 @@ previste, C1 e C2, sia per quanto riguarda il software nel suo insieme.
 
 \subsection*{Scheduling}
 
-Dal conteggio dei function points sono risultati esserci 41 requisiti
-funzionali. Come riferimento \`e stata utilizzata la tabella ``function points
+Dal conteggio dei Function Point sono risultati esserci 41 requisiti
+funzionali. Come riferimento \`e stata utilizzata la tabella ``Function Point
 languages table'' reperibile all'indirizzo:
 \\\\
 \url{http://www.qsm.com/?q=resources/function-point-languages-table/index.html}
