@@ -761,6 +761,12 @@ Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
 \co{UserDTO}, \co{UserSummaryDTO} e \bo{UserCompleteDTO}.
 
+\subsection{Classe LibraryService}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
 
 %--------------- FORSE -------------------------------
 \section{Package client.applet} % LASCIARE WARNING
@@ -819,7 +825,7 @@ Questa classe corrisponde all'implementazione del \co{SongsService} (di
 \subsubsection*{Relazioni d'uso di altre componenti}
 Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
 immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-Potranno essere usati opportuni servizi in \emph{servlet} per andare a prelevare
+Potranno essere usati opportuni servizi \emph{servlet} per andare a prelevare
 informazioni sui brani da servizi esterni oppure per cercare il corrispettivo
 link di streming audio-video (tipo YouTube).
 
@@ -855,7 +861,7 @@ Questa classe corrisponde all'implementazione del \co{LoginService} (di
 Utilizzar\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
 gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
 Verranno utilizzate funzionalit\`a interne di gestione login definite in
-\co{LoginHelper}. Potranno essere usate opportune classi in \emph{servlet} per
+\co{LoginHelper}. Potranno essere usate opportune classi \emph{servlet} per
 andare ad utilizzare servizi di login e reperimento informazioni utente esterni
 (Google Account).
 
@@ -865,6 +871,12 @@ utilizzando l'interfaccia \co{LoginService}.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
+
+\subsection{Classe LibraryServiceImpl}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe LoginHelper}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -973,24 +985,51 @@ un brano musicale.
 la logica di persistenza di tutti i dati relativi ad un brano musicale del
 sistema NetMus.
 
-\newpage
-\section{Package server.servlet} % LASCIARE WARNING
+\section{Package server.servlet}
 \subsection*{Tipo, obiettivo e funzione del componente}
+Questo package contiene tutti i nostri ServletHttp che ci permetteranno di
+comunicare con servizi esterni, quale Google Authentication, YouTube o eventualmente altri
+servizi per avere informazioni complete sui brani musicali.
+
 \subsection*{Relazioni d'uso di altre componenti}
+Verranno utilizzati alcuni \emph{persistent} e classi di \emph{utils}, ma
+si vedr\`a pi\`u in dettaglio nelle classi.
+
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Queste classi verranno pubblicate come servizi HTTP, e saranno accessibili da
+URL una volta assegnato loro un indirizzo in WAR/web.xml.
+
 \subsection*{Attivit\`a svolte e dati trattati}
+Vedere nel dettaglio i vari Servlet.
 
 \subsection{Classe LoginSuperServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+\`E una classe astratta che estende \co{HttpServlet} ed ha lo scopo di
+implementare il metodo di creazione dell'indirizzo di ritorno del richiedente.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a concretizzata da \co{LoginGoogleServlet}.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Crea semplicemente l'URL di Callback per far tornare una risposta HTTP al
+client in seguito ad una sua richiesta di login.
 
 \subsection{Classe LoginGoogleServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa servlet avr\`a lo scopo di reindirizzare l'utente all'
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+Concretizza il \co{LoginSuperServlet} ed implementa il metodo \emph{doGet} il
+quale utilizza \\\co{HttpSerletRequest} e \co{HttpSerletResponse}.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+
 
 \subsection{Classe LoginGoogleCallbackServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -1004,7 +1043,6 @@ sistema NetMus.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
-\newpage
 \subsection{Classe TaggingServlet(da decidere . . .)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
