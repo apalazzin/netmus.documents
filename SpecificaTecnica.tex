@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.13}
+\newcommand{\versione}{0.15}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -33,15 +33,15 @@ VT.G \\
 \hline
 \endfoot 
 
-30/01/2011 & 0.13 & Caputo Cosimo & Inseriti contenuti LibraryService e
+30/01/2011 & 0.15 & Daminato Simone & Inserite componenti del package
+server.utils.\\
+\hline
+30/01/2011 & 0.14 & Caputo Cosimo & Inseriti contenuti LibraryService e
 LibraryServiceImpl.\\
 \hline
-
-
 30/01/2011 & 0.13 & Baron Federico & Inserite componenti del package
 server.persistent.\\
 \hline
-
 30/01/2011 & 0.12 & Mandolo Andrea & Inseriti  componenti Service lato client.\\
 \hline
 29/01/2011 & 0.11 & Daminato Simone & Inserite le descrizioni dei servlet.\\
@@ -1071,27 +1071,47 @@ l'accesso tramite il Google account.
 
 \section{Package server.utils} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
+Contiene le classi che forniscono funzioni di utilit\`a comunemente utilizzate
+dalle altre classi del package \emph{server}
 \subsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene utilizzato dalle classi del package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
+Varie.
 
 \subsection{Classe AuthenticationProvider}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Funzioni utili alla gestione dell'autenticazione.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Usata dalle classi \co{LoginHelper} e \co{LoginServiceImpl}. 
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Funzioni utili e comuni per la gestione del login e dei relativi dati, in
+particolare per tracciare il servizio esterno di login a cui appoggiarsi.
 
 \subsection{Classe ServletUtils}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Funzioni utili per l'utilizzo dei servizi esterni.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Usata dal package \emph{Servlet}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Funzioni utili e comuni per la gestione e l'interfacciamento con i servizi
+esterni.
 
 \subsection{Classe Utils}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Varie funzioni utili e generiche, utilizzate da svariati package all'interno di
+\emph{server}.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene utilizzato dalle classi del package \emph{server}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Varie.
 
 \newpage
 \section{Package shared} % LASCIARE WARNING
