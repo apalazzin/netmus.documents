@@ -5,7 +5,7 @@
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{29 Gennaio 2011}
+\newcommand{\datamodifica}{30 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Mandolo Andrea}
@@ -38,21 +38,20 @@ LibraryServiceImpl.\\
 \hline
 
 
-30/01/2011 & 0.12 & Baron Federico & Inserite componenti del package
+30/01/2011 & 0.13 & Baron Federico & Inserite componenti del package
 server.persistent.\\
 \hline
 
-30/01/2011 & 0.11 & Mandolo Andrea & Inseriti  componenti Service lato client.\\
+30/01/2011 & 0.12 & Mandolo Andrea & Inseriti  componenti Service lato client.\\
 \hline
-
+29/01/2011 & 0.11 & Daminato Simone & Inserite le descrizioni dei servlet.\\
+\hline
 29/01/2011 & 0.10 & Baron Federico & Inseriti i diagrammi delle classi e dei
 package aggiornati.\\
 \hline
-
 29/01/2011 & 0.9 & Caputo Cosimo & Inseriti contenuti package ui, activity,
 places e mvp.\\
 \hline
-
 29/01/2011 & 0.8 & Daminato Simone & Inserite descrizioni delle eccezioni in
 shared.\\
 \hline
@@ -577,7 +576,7 @@ Il package contiene le classi di tipo Place. I Place sono indispensabili
 per far s\`i che la corrispondente Activity sia accessibile via URL.
 \subsection*{Relazioni d'uso di altre componenti}
 A questo package appartengono le classi \co{LoginPlace}, \co{ProfilePlace},
-\co{EditUserPlace}, \co{EditSongsPlace}.
+\co{EditUserPlace}, \\\co{EditSongsPlace}.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
  I suoi elementi vengono utilizzati dal package \emph{mvp}.
 \subsection*{Attivit\`a svolte e dati trattati}
@@ -742,7 +741,7 @@ binding e verr\`a utilizzata da \co{EditUserActivity} e \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
-\co{UserDTO}, \co{UserSummaryDTO} e \co{UserCompleteDTO}.
+\co{UserDTO}, \co{UserSummaryDTO} e\\\co{UserCompleteDTO}.
 
 \subsection{Interfaccia LibraryService (e LibraryServiceAsync)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -779,7 +778,7 @@ vengono utilizzati per il trasferimento client-server.
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
-binding e verr\`a utilizzata \co{LoginActivity} e dalle altre Activity che
+binding e verr\`a utilizzata \\\co{LoginActivity} e dalle altre Activity che
 permetterano il logout dell'utente.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -845,7 +844,7 @@ Questa classe corrisponde all'implementazione del \co{SongsService} (di
 \subsubsection*{Relazioni d'uso di altre componenti}
 Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
 immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-Potranno essere usati opportuni servizi in \emph{servlet} per andare a prelevare
+Potranno essere usati opportuni servizi \emph{servlet} per andare a prelevare
 informazioni sui brani da servizi esterni oppure per cercare il corrispettivo
 link di streming audio-video (tipo YouTube).
 
@@ -874,14 +873,19 @@ Descritte nell'interfaccia lato \emph{client}.
 Questa classe corrisponde all'implementazione del \co{LoginService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
-immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-Potranno essere usate opportune classi in \emph{servlet} per andare ad
-utilizzare servizi di login e reperimento informazioni utente esterni (Google
-Account).
+Utilizzar\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
+gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
+Verranno utilizzate funzionalit\`a interne di gestione login definite in
+\co{LoginHelper}. Potranno essere usate opportune classi \emph{servlet} per
+andare ad utilizzare servizi di login e reperimento informazioni utente esterni
+(Google Account).
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LoginService}.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Descritte nell'interfaccia lato \emph{client}.
+
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
 
@@ -898,28 +902,57 @@ Account).
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LibraryService}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Descritte nell'interfaccia lato \emph{client}.
 
 \subsection{Classe LoginHelper}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+La classe \co{LoginHelper} \`e stata pensata per offrire funzionalit\`a statiche
+per gestire le sessioni HTML, utili a \co{LoginServiceImpl} ed a \emph{servlet}.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+User\`a al suo interno le classi di utilit\`a per i servlet definite in
+\emph{utils} e l'oggetto di persistenza \co{UserAccount}.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa classe viene utilizzat\`a da \co{LoginServiceImpl} e nel package
+\emph{servlet} dalle classi dedicate al Login.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Le funzionali\`a che metter\`a a disposizione sono quelle di individuare se
+l'utente corrente \`e gi\`a loggato o meno, e di riprendere la
+sessione restituendo un \emph{persistent} \co{UserAccount} nel caso esso sia
+gi\`a loggato.
 
 \subsection{Classe PMF (Singleton)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+\co{PMF} \`e una classe final che segue il pattern Singleton, illustrato
+nell'introduzione. Ha la funzione di creare un'unica istanza del
+\co{PersistentManagerFactory} (\emph{javax.jdo})e di restituirla a qualunque
+oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il DataStore, inviando
+query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
+tramite semplici metodi.
 
-\section{Package server.peristent} % LASCIARE WARNING
+\subsubsection*{Relazioni d'uso di altre componenti}
+Vengono usate le classi di \emph{javax.jdo} \co{PersistentManager},
+\co{PersistentManagerFactory}\\ e \co{JDOHelper}.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa classe pu\`o essere utilizzata da qualunque classe di \emph{server}, ogni
+qualvolta ci sia bisogno di avere il \co{PersistentManager} per interagire col
+DataStore.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Crea un'unica istanza del \co{PersistentManagerFactory} e tramite un metodo
+statico \emph{get()} la passa alle classi, in maniera da dargli la possibilit\`a
+di usare il database.
+
+
+\section{Package server.persistent} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{server.persistent} contiene le classi di persistenza che
 implementano il design pattern \emph{Data Access Object (DAO)} che hanno lo
-scopo di interfacciare il sistema con il database nascondendo cos� ogni
+scopo di interfacciare il sistema con il database nascondendo cos\`i ogni
 dettaglio sulla struttura del database all'esterno. 
-\subsection*{Relazioni d'uso di altrecomponenti}
+\subsection*{Relazioni d'uso di altre componenti}
 Vengono utilizzate le classi DTO presenti nel package \emph{shared} per
 impacchetare i dati in uscita dal database. 
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -939,7 +972,7 @@ database utilizzato \`e non relazionale.
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione uno-a-uno
 che la lega a questa classe. Vengono inoltre utilizzate le classi
-\emph{UserSummaryDTO}, \emph{UserDTO} e \emph{UserCompleteDTO} come input ed
+\co{UserSummaryDTO}, \co{UserDTO} e \co{UserCompleteDTO} come input ed
 output in gran parte dei metodi. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Tutte le classi logiche Service presenti nel package \emph{server} ne fanno uso
@@ -954,7 +987,7 @@ contiene tutte le informazioni relative ad un catalogo multimediale.
 \subsubsection*{Relazioni d'uso di altre componenti} Alla luce della relazione
 di tipo uno-a-molti che la lega a \co{Song} e quella uno-a-uno con
 \co{UserAccount} queste due classi DAO sono necessarie. Viene utilizzata la
-classe \emph{MusicLibraryDTO} come input ed output in gran parte dei metodi.
+classe \co{MusicLibraryDTO} come input ed output in gran parte dei metodi.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Tutte le
 classi logiche Service presenti nel package \emph{server} ne fanno uso qual'ora
 abbiano bisogno di informazioni riguadanti un catalogo multimediale.
@@ -967,7 +1000,7 @@ NetMus.
 informazioni relative ad un brano musicale. 
 \subsubsection*{Relazioni d'uso di
 altre componenti} Essendo in relazione con \co{MusicLibrary} ne fa uso. Vengono
-utilizzate le classi \emph{SongDTO} e \co{SongSummaryDTO} come input ed output
+utilizzate le classi \co{SongDTO} e \co{SongSummaryDTO} come input ed output
 in gran parte dei metodi. 
 \subsubsection*{Interfacce con e relazioni d'uso da
 altre componenti} Tutte le classi logiche Service presenti nel package
@@ -977,43 +1010,64 @@ un brano musicale.
 la logica di persistenza di tutti i dati relativi ad un brano musicale del
 sistema NetMus.
 
-\newpage
-\section{Package server.servlet} % LASCIARE WARNING
+\section{Package server.servlet}
 \subsection*{Tipo, obiettivo e funzione del componente}
+Package del server che contiene le classi utilizzate per interfacciarsi a
+servizi esterni, come il login utilizzando l'account Google, o come Youtube.
+
 \subsection*{Relazioni d'uso di altre componenti}
+Verranno utilizzati alcuni \emph{persistent} e classi di \emph{utils}, ma
+si vedr\`a pi\`u in dettaglio nelle classi.
+
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Queste classi vengono usati da \emph{server} per integrare al suo interno
+altri servizi esterni.
 \subsection*{Attivit\`a svolte e dati trattati}
+Gestisce lo scambio di dati con servizi esterni.
 
 \subsection{Classe LoginSuperServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+\`E una classe astratta che estende \co{HttpServlet} ed ha lo scopo di
+implementare il metodo di creazione dell'indirizzo di ritorno del richiedente.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a concretizzata da \co{LoginGoogleServlet}.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Crea semplicemente l'URL di Callback per far tornare una risposta HTTP al
+client in seguito ad una sua richiesta di login.
 
 \subsection{Classe LoginGoogleServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Utilizzata per il login tramite l'account Google.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+Concretizza il \co{LoginSuperServlet} ed implementa il metodo \emph{doGet} il
+quale utilizza \\\co{HttpSerletRequest} e \co{HttpSerletResponse}.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Predispone il servizio e reindirizza l'utente al servizio di login di Google.
+Google, dopo che l'utente avr\`a effettuato l'accesso, lo reindizzer\`a nuovamente
+al nostro programma, trasmettendo a \co{LoginGoogleCallbackServlet} tutte le
+informazioni del caso.
+
 
 \subsection{Classe LoginGoogleCallbackServlet}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Utilizzata per il login tramite l'account Google.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Riceve i dati dell'account dell'utente dopo che quest'ultimo ha effettuato
+l'accesso tramite il Google account.
 
-\subsection{Classe YouTubeServlet (da decidere tipo di servlet)}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
-
-\newpage
-\subsection{Classe TaggingServlet(da decidere . . .)}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
 
 \section{Package server.utils} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
@@ -1047,15 +1101,15 @@ sistema NetMus.
 \caption{Diagramma delle classi del package shared.}
 \end{figure}
 \subsection*{Tipo, obiettivo e funzione del componente}
-Il package \textit{shared} contiene le classi degli oggetti che vengono
+Il package \emph{shared} contiene le classi degli oggetti che vengono
 scambiati tra client e server; in particolare, troviamo presenti le classi che
 aderiscono al pattern DTO.
 \subsection*{Relazioni d'uso di altre componenti}
 Tutte le classi di questo package implementano l'interfaccia
-\textit{java.io.Serializable} per poter essere serializzate e quindi inviate
+\co{java.io.Serializable} per poter essere serializzate e quindi inviate
 attraverso la rete. 
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene utilizzata dalle classi dei package \textit{client} e \textit{server} per
+Viene utilizzata dalle classi dei package \emph{client} e \emph{server} per
 lo scambio di dati e/o informazioni.
 \subsection*{Attivit\`a svolte e dati trattati}
 In generale, le classi di questo package si occupano di inglobare e trasportare
@@ -1069,7 +1123,7 @@ essere usata come contenitore dei dati di una DAO.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene implementata dalle classi del package \textit{shared}.
+Viene implementata dalle classi del package \emph{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Nessuna. 
 
@@ -1078,7 +1132,7 @@ Nessuna.
 Contiene e rappresenta i dati pi\`u comunemente utilizzati di un utente, ovvero
 quelli che vengono visualizzati in un profilo.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Implementa l'interfaccia \textit{GenericDTO}.
+Implementa l'interfaccia \co{GenericDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1090,7 +1144,7 @@ per esempio nick ed email.
 Contiene e rappresenta la maggior parte dei dati di un utente, pi\`u
 precisamente quelli richiesti alla registrazione.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{UserSummaryDTO}.
+Estende la classe \co{UserSummaryDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1101,7 +1155,7 @@ Funge da contenitore per i dati dettagliati di un utente.
 Contiene e rappresenta tutti i dati di un utente, a partire da quelli
 visualizzati sul profilo, a quelli interni del sistema.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{UserDTO}.
+Estende la classe \co{UserDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1113,7 +1167,7 @@ registrazione.
 Contiene e rappresenta i dati pi\`u comunemente utilizzati di un brano, ovvero
 quelli che vengono visualizzati in una playlist all'interno di un profilo.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Implementa l'interfaccia \textit{GenericDTO}.
+Implementa l'interfaccia \co{GenericDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1125,7 +1179,7 @@ per esempio titolo ed autore.
 Contiene e rappresenta tutti i dati di un brano, compresi quelli interni del
 sistema. 
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{SongSummaryDTO}.
+Estende la classe \co{SongSummaryDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1136,7 +1190,7 @@ identificativo del brano.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta i dati di login di un utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Implementa l'interfaccia \textit{GenericDTO}.
+Implementa l'interfaccia \co{GenericDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1157,7 +1211,7 @@ Fa da contenitore per tutti dati di un catalogo multimediale.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Generica eccezione del nostro programma.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{Exception}
+Estende la classe \co{Exception}
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1168,7 +1222,7 @@ Tutte le altre eccezioni estendono questa.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica un generico errore rilevato durante il tentativo di login.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{NetMusException}
+Estende la classe \co{NetMusException}
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1178,7 +1232,7 @@ Nessuna.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica dei dati errati di login.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{LoginException}
+Estende la classe \co{LoginException}
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1188,7 +1242,7 @@ Indica che username e/o password sono errati.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica un generico errore rilevato durante la registrazione di un nuovo utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{NetMusException}
+Estende la classe \co{NetMusException}
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1198,7 +1252,7 @@ Nessuna.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica che il login richiesto durante la registrazione \`e gi\`a in uso.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{RegistrationException}
+Estende la classe \co{RegistrationException}
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1209,7 +1263,7 @@ utente \`e gi\`a utilizzato.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica che l'email inserita durante la registrazione \`e gi\`a in uso.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \textit{RegistrationException}
+Estende la classe \co{RegistrationException}
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
