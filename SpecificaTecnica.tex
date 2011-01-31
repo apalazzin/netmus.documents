@@ -292,9 +292,9 @@ La decomposizione architetturale, da noi individuata a partire dalla lista dei
 requisiti e prodotta nel processo di analisi, si compone di tre moduli
 fondamentali distribuiti su una parte client e una server. Questi tre moduli, in
 accordo con il framework \emph{MVP con Activities e Places} precedentemente
-presentato, sono il model, che riguarda le parti di business logic e business
-data, la view, che contiene l'intera parte grafica del sistema (UI) con i
-relativi stati (Places) e il presenter che costituisce il collegamento tra view
+presentato, sono il model, che riguarda le parti di \underline{business logic} e
+\underline{business data}, la view, che contiene l'intera parte grafica del
+sistema (UI) con i relativi stati (Places) e il presenter che costituisce il collegamento tra view
 e model attraverso le Activities.
 \\\\
 La struttura sar\`a quindi formata dai seguenti packages:
@@ -371,9 +371,9 @@ la possibilit\`a di accedere alle informazioni presenti nel database grazie alle
 classi DAO presenti nel package \emph{persistent}.
 Grande importanza viene data alle classi presenti nel package \emph{shared}
 poich\'e rendono allo stesso tempo semplice ed efficiente il passaggio di
-informazioni tra il server e i clients poich\'e incapsulano gli oggetti di
-persistenza DAO rimuovendone la parte logica, rispettando il design pattern DTO.
-\\\\ L'intero schema delle classi
+informazioni tra il server e i clients incapsulando gli oggetti di
+persistenza DAO e rimuovendone la parte logica, nel rispetto del design pattern
+DTO. \\\\ L'intero schema delle classi
 individuate durante la progettazione \`e il seguente: 
 \begin{figure}[h]
   \centering
@@ -384,8 +384,8 @@ individuate durante la progettazione \`e il seguente:
 \subsubsection{Decomposizione architetturale - diagrammi delle attivit\`a}
 Nella realizzazione di un'\underline{applicazione web} l'efficienza e la
 \underline{qualit\`a} della visualizzazione dei contenuti assumono grande
-importanza per cui buona parte della struttura di NetMus lavorer\`a al fine di garantire queste
-caratteristiche. \\
+importanza e buona parte della struttura di NetMus lavorer\`a
+al fine di garantire queste caratteristiche. \\
 Di seguito viene illustrato un diagramma UML delle attivit\`a che descrive il
 procedimento di visualizzazione della pagina di profilo utente a partire
 dall'accesso all'applicazione, procedimento che si ripete in modo del tutto
@@ -509,7 +509,7 @@ l'utilizzo dell'EventBus.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 La classe si occupa di istanziare l'event bus, il place controller e le varie
 view. L'event bus gestisce le comunicazioni tra componenti, il place
-controller permette la navigazione tra i Place ed \`e si occupa di avvisare
+controller permette la navigazione tra i Place e si occupa di avvisare
 l'utente prima del passaggio ad uno stato differente.
 
 
@@ -517,8 +517,10 @@ l'utente prima del passaggio ad uno stato differente.
 \section{Package client.ui} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{ui} contiene le interfacce e le implementazioni delle View del
-sistema. Le View generano gli ambienti grafici con cui gli utenti possono
-interagire e si occupano di catturare gli eventi da essi prodotti.
+sistema. Le View generano gli ambienti grafici (assimilabili all'interfaccia
+utente di iTunes) con cui gli utenti possono interagire e si occupano di
+catturare gli eventi da essi prodotti.
+
 
 \subsection*{Relazioni d'uso di altre componenti}
 Questo package utilizza \emph{place} per creare istanze dei vari Place quando
@@ -550,10 +552,11 @@ nome utente e pu\`o visualizzare warning se i dati inseriti non sono corretti.
 
 \subsection{Classe ProfileView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Il sistema mette a disposizione una vista per la visualizzazione dei profili e
-dei brani degli altri utenti registrati. La classe \co{ProfileViewImpl}
-implementa l'interfaccia \co{ProfileView} che estende \co{isWidget}
-(interfaccia introdotta da GWT 2.1).
+Il sistema mette a disposizione una vista per la visualizzazione del profilo e
+dei brani di un generico utente registrato e per la riproduzione dalla musica
+tramite un player streaming. La classe \co{ProfileViewImpl} implementa
+l'interfaccia \co{ProfileView} che estende \co{isWidget} (interfaccia introdotta
+da GWT 2.1).
 \subsubsection*{Relazioni d'uso di altre componenti} 
 La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
 attuali della vista.
@@ -579,8 +582,9 @@ La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
 \co{EditUserActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Mette a disposizione gli strumenti per la modifica delle informazioni personali
-dell'utente registrato.
-
+dell'utente registrato (cambio password, cancellazione account,
+pubblicazione catalogo)
+ 
 \subsection{Classe EditSongsView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per visualizzazione e la modifica del
@@ -594,33 +598,37 @@ attuali della vista.
 La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
 \co{EditSongsActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Permette di visualizzare e aggiungere o rimuovere manualmente brani dalla
-propria libreria musicale. La rimozione di informazioni non influenza i dati che
-Netmus salva sul database.
+Permette di visualizzare e aggiungere, rimuovere o modificare manualmente brani
+nella propria libreria musicale e di creare playlist personalizzate. La
+rimozione di informazioni non influenza i dati che Netmus salva sul database.
 
 \newpage
 \section{Package client.activity} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
-Questo package contiene le classi Activity che implementano le funzionalit\`a
-usabili da un certo Place. Corrisponde in pratica alla componente Presenter del
-pattern MVP originale.
-\subsection*{Relazioni d'uso di altre componenti}
-Il package usa gli oggetti View di \emph{ui} e Place di \emph{place} per gestire
-informazioni di stato o modificatori della vista, ma quando serve pu\`o
-utilizzare servizi forniti da \emph{service}.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti} 
-Le istanze delle classi Activity vengono create dal \co{NetmusActivityMapper}
-che quando, riceve una richiesta di una Activity, ritorna una corretta istanza
-di tale classe, in base al Place corrente.
-\subsection*{Attivit\`a svolte e dati trattati}
-Il package \emph{activity} si pu\`o considerare il boss, poich\'e gestisce
-l'intera logica di business del client.
+Questo package contiene le classi Activity che corrispondono in pratica alla
+componente Presenter del pattern MVP originale. la Activity sono avviate e
+terminate da un ActivityManager associato con un contenitore Widget. Un activity
+può inoltre visualizzare automaticamente un avviso quando sta per essere
+terminata (in pi\`u l'ActivityManager ci avvisa quando la finestra sta per
+essere chiusa).
+
+\subsection*{Relazioni d'uso di altre componenti} Il package usa gli oggetti
+View di \emph{ui} e Place di \emph{place} per gestire informazioni di stato o
+modificatori della vista, ma quando serve pu\`o utilizzare servizi forniti da
+\emph{service} (per passare i dati alla view).
+\subsection*{Interfacce con e relazioni d'uso da altre componenti} Le istanze
+delle classi Activity vengono create dal \co{NetmusActivityMapper} che quando,
+riceve una richiesta di una Activity, ritorna una corretta istanza di tale
+classe, in base al Place corrente.
+\subsection*{Attivit\`a svolte e dati trattati} Il package \emph{activity} si
+pu\`o considerare il boss, poich\'e gestisce l'intera logica di business del
+client.
 
 \subsection{Classe LoginActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe sar\`a di tipo \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{LoginView} e dovr\`a fornire i servizi destinati ad autenticare
-o registrare l'utente.
+interno alla \co{LoginView} e richiede al \co{clientFactory} di implementarela.
+ 
 \subsubsection*{Relazioni d'uso di altre componenti}
 Invoca i servizi di autenticazione forniti da \co{LoginService} e utilizza
 le relative classi \co{LoginPlace} e \co{LoginView}.
@@ -634,8 +642,8 @@ logout, registrazione solo a Netmus, registrazione tramite Google.
 \subsection{Classe ProfileActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{ProfileView} e fornir\`a i servizi
-che il profilo utente dovr\`a offrire all'utente.
+interno alla \co{ProfileView} e richiede al \co{clientFactory} di
+implementarela.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
 \co{UsersService} e utilizza le relative classi \co{ProfilePlace} e
@@ -652,8 +660,8 @@ un brano, ecc.
 \subsection{Classe EditUserActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{EditUserView} e fornisce i servizi per la modifica dei dati
-personali.
+interno alla \co{EditUserView} e richiede al \co{clientFactory} di
+implementarela.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
 \co{UsersService} e utilizza le relative classi \co{EditUserPlace} e
@@ -668,8 +676,8 @@ modifica delle informazioni personali visualizzate nel profilo.
 \subsection{Classe EditSongsActivity}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{EditSongsView} e fornisce i servizi per la visualizzazione e la
-modifica della libreria musicale.
+interno alla \co{EditSongsView} e richiede al \co{clientFactory} di
+implementarela.
 \subsubsection*{Relazioni d'uso di altre componenti} Invoca i servizi di
 interrogazione e modifica dei dati musicali forniti da \co{SongsService} e
 utilizza le relative classi \co{EditSongsPlace} e \co{EditSongsView}.
@@ -850,9 +858,10 @@ Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
 binding e verr\`a utilizzata da \co{EditUserActivity} e \co{ProfileActivity}.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
-di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
-\co{UserDTO}, \co{UserSummaryDTO} e\\\co{UserCompleteDTO}.
+Questa interfaccia fornir\`a l'accesso a servizi per richiedere o
+modificare (quando possibile) qualsiasi tipo di informazione riguardante gli
+utenti del sistema e utilizzer\`a dati di tipo \co{UserDTO}, \co{UserSummaryDTO}
+e\\\co{UserCompleteDTO}.
 
 \subsection{Interfaccia LibraryService (e LibraryServiceAsync)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
