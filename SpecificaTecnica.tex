@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.18}
+\newcommand{\versione}{0.20}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -33,10 +33,16 @@ VT.G \\
 \hline
 \endfoot 
 
+30/01/2011 & 0.20 & Mandolo Andrea & Inserimento del diagramma di sequenza
+login.\\
+\hline
+30/01/2011 & 0.19 & Baron Federico & Inserimento del package exception: testo
+e diagramma.\\
+\hline
 30/01/2011 & 0.18 & Baron Federico & Inserimento dei diagrammi di attivit\`a
 con relative spiegazioni.\\
 \hline
-30/01/2011 & 0.17 & Baron Federico & Integazione con nuovi contenuti del
+30/01/2011 & 0.17 & Baron Federico & Integrazione con nuovi contenuti del
 capitolo 2.1 Metodo e formalismo di specifica.\\
 \hline
 30/01/2011 & 0.16 & Daminato Simone & Inserite componenti del package
@@ -68,12 +74,12 @@ shared.\\
 28/01/2011 & 0.6 & Baron Federico & Reinserimento di tutti i grafici UML con
 cambio di stile.\\
 \hline
-28/01/2011 & 0.5 & Daminato Simone & Inserite descizioni delle classi *DTO
+28/01/2011 & 0.5 & Daminato Simone & Inserite descrizioni delle classi *DTO
 nel package shared.\\
 \hline
 28/01/2011 & 0.4 & Mandolo Andrea & Inserita traccia dell'intero capitolo 2.\\
 \hline
-27/01/2011 & 0.3 & Baron Federico & Redazione del capitolo 2.2.1 Deisgn
+27/01/2011 & 0.3 & Baron Federico & Redazione del capitolo 2.2.1 Design
 patterns.\\
 \hline
 27/01/2011 & 0.2 & Mandolo Andrea & Inserita presentazione dell'architettura
@@ -116,16 +122,20 @@ connessioni e delle principali classi di cui essi si compongono.
 \section{Metodo e formalismo di specifica}
 Il processo di progettazione architetturale svolto da VT.G per la
 realizzazione di NetMus verr\`a presentato per intero nel seguente documento. Per
-facilitarne la comprensione si utilizzaranno diagrammi aderenti allo
+facilitarne la comprensione si utilizzeranno diagrammi aderenti allo
 standard di modellazione UML 2.x, nello specifico verranno illustrati diagrammi
 dei package, delle classi, di attivit\`a e di sequenza.
 In accordo con l'approccio top-down impiegato durante la progettazione i
 contenuti sono stati organizzati in modo da mostrare come prima cosa
-l'architatura mascroscopica del sistema per poi scendere pi\`u nel dettaglio
+l'architettura macroscopica del sistema per poi scendere pi\`u nel dettaglio
 proseguendo nel documento.\\
 Molto importante per la comprensione del documento \`e il capitolo 2.1 dedicato
 ai design patterns poich\'e rappresenta, insieme all'analisi dei requisiti, la
 base dell'architettura realizzata.
+\\\\
+Per le norme riguardanti il tracciamento delle componenti con i requisiti e le
+regole generali di stesura dei documenti e tecnologie utilizzate si fa
+riferimento al documento \emph{Norme di progetto (ver. 2.0)} ai capitoli 3 e 4.
 
 \section{Presentazione dell'architettura generale del sistema.}
 
@@ -133,7 +143,7 @@ base dell'architettura realizzata.
 Nei seguenti paragrafi sono presentati i design patterns utilizzati per
 sviluppare l'architettura di NetMus. Alcuni di questi derivano dall'utilizzo
 delle tecnologie GAE e GWT che forniscono dei frameworks che implementano
-patterns considerati best practices per queste particolari tecnologie.
+patterns considerati best-practices per queste particolari tecnologie.
 
 \subsubsection{L'importanza dei design patterns in NetMus}
 La via intrapresa da VT.G nello sviluppo del sistema NetMus comprende il forte
@@ -220,7 +230,7 @@ tracciamento tra DAO e DTO sar\`a a carico degli oggetti DAO.
 Per questo scopo GWT2.1 propone un potente framework per gestire la
 comunicazione tra client e server, Request Factory, che implementa i patterns
 precedentemente descritti. Abbiamo deciso per\`o di non utilizzarlo, progettando
-una nostra implementazione, a causa della documentazione insufficente fornita
+una nostra implementazione, a causa della documentazione insufficiente fornita
 da Google.
 
 \newpage
@@ -236,7 +246,7 @@ Abstract factory}
 \end{figure}
 Nello specifico lo utilizzeremo per rendere facilmente configurabile il nostro
 sistema. L'interfaccia ClientFactory sar\`a utilizzata per ottenere le
-intefacce degli elementi architetturali necessari alla nostra applicazione come
+interfacce degli elementi architetturali necessari alla nostra applicazione come
 ad esempio l'event bus e le varie UI.
 Per caricare le differenti implementazioni di ClientFactory a seconda delle
 peculiarit\`a dell'utente che vi accede \`e molto conveniente utilizzare il GWT
@@ -259,17 +269,17 @@ globale a quest'ultima.
 L'implementazione di Singleton diminuisce in generale l'accoppiamento del
 sistema.
 Utilizzeremo questo pattern per una classe (Persistent manager factory) che si
-occupera di creare degli speciali oggetti introdotti da JDO per la
-comunicazione con il database (query). \`E molto importante che venga instanziata una sola
+occuper\`a di creare degli speciali oggetti introdotti da JDO per la
+comunicazione con il database (query). \`E molto importante che venga istanziata una sola
 istanza di Persistent manager factory e che questa sia visibile all'intero
 dell'intero lato server del sistema NetMus. 
 
 \newpage
-\subsection{Decomposizione architeturale}
+\subsection{Decomposizione architetturale}
 La decomposizione architetturale da noi individuata a partire dalla lista dei
 requisiti prodotta dal processo di analisi si compone di tre moduli
 fondamentali distribuiti su una parte client e una server. Questi tre moduli, in
-accordo con il framework \emph{MVP con Activities e Places} precendetemente
+accordo con il framework \emph{MVP con Activities e Places} precedentemente
 presentato, sono il model che riguarda le parti di businnes logic e businnes
 data, la view che contiene l'intera parte grafica del sistema (UI) con i
 relativi stati (Places) e il presenter che costituisce il collegamento tra view
@@ -299,7 +309,7 @@ La struttura sar\`a quindi formata dai seguenti packages:
     \item Package \emph{client.mvp} : comprende un ActivityMapper e
     un PlaceHistoryManager che mappano per ogni Place la sua corrispondente
     Activity e gestiscono la cronologia dei Place;
-    \item Package \emph{client.service} : rappresenta l'insieme di interfaccie
+    \item Package \emph{client.service} : rappresenta l'insieme di interfacce
     che offrono un servizio di comunicazione col server tramite GWT RPC;
     %----------------- TOGLIERE FORSE --------------------
     \item Package \emph{client.applet} : definisce la componente di
@@ -317,13 +327,13 @@ La struttura sar\`a quindi formata dai seguenti packages:
     svolgere attivit\`a interne al server di varie tipologie;
   \end{itemize}
   \item Package \emph{shared} :  contiene classi condivise tra client e server,
-  che verrano anch'esse compilate in JavaScript da GWT, come tutto il package
+  che verranno anch'esse compilate in JavaScript da GWT, come tutto il package
   client. La maggior parte saranno gli oggetti di trasferimento che
   aderiscono al pattern DTO.
 \end{itemize}
 
 \newpage
-\subsubsection{Decomposizione architeturale - lato client}
+\subsubsection{Decomposizione architetturale - lato client}
 Per soddisfare i requisiti funzionali del sistema NetMus sono state individuate
 4 componenti che implementano altrettante UI con la relativa logica di
 attivazione delle Activities. Queste sono Login, User, EditProfile e EditSongs
@@ -334,34 +344,33 @@ la cui implementazione \`e sviluppata principalmente lato server. Queste
 interfacce, infatti, vengono accedute dalle Activities poich\'e forniscono tutti i
 metodi riguardanti la businness logic. \\\\ 
 L'intero schema delle classi individuate durante la progettazione \`e il
-sueguente: 
+seguente: 
 \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/client.png}
 \caption{Diagramma delle classi del package client.}
 \end{figure}
 \newpage
-\subsubsection{Decomposizione architeturale - lato server}
+\subsubsection{Decomposizione architetturale - lato server}
 Nella parte server si trovano le implementazioni dei Service che hanno
 la possibilit\`a di accedere alle informazioni presenti nel database grazie alle
 classi DAO presenti nel package \emph{persistent}.
 Grande importanza viene data alle classi presenti nel pakage \emph{shared}
-poich\'e rendono allo stesso tempo semplice ed efficente il passaggio di
+poich\'e rendono allo stesso tempo semplice ed efficiente il passaggio di
 informazioni tra il server e i clients poich\'e incapsulano gli oggetti di
-peristenza DAO rimuovendone la parte logica, rispettando il design pattern DTO.
+persistenza DAO rimuovendone la parte logica, rispettando il design pattern DTO.
 \\\\ L'intero schema delle classi
-individuate durante la progettazione \`e il sueguente: 
+individuate durante la progettazione \`e il seguente: 
 \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/Server&Shared.png}
 \caption{Diagramma delle classi dei packages server e shared.}
 \end{figure}
 
-\newpage
-\subsubsection{Decomposizione architeturale - diagrammi delle attivit\`a}
-Nella realizzazione di un'applicazione Web l'efficenza e la
+\subsubsection{Decomposizione architetturale - diagrammi delle attivit\`a}
+Nella realizzazione di un'applicazione Web l'efficienza e la
 qualit\`a della visualizzazione dei contenuti assumono grande importanza per cui
-buona parte della strattura di NetMus lavorer\`a al fine di garantire queste
+buona parte della struttura di NetMus lavorer\`a al fine di garantire queste
 componenti. \\
 Di seguito viene illustrato un diagramma UML delle attivit\`a che descrive il
 procedimento di visualizzazione della pagina di profilo utente a partire
@@ -378,7 +387,7 @@ effettuare il login e per visualizzare la pagina di profilo utente bisogna acced
 richiedendo l'URL corrispondente (rappresentato dalla classe \co{ProfilePlace}),
 vi sar\`a anche un reindirizzamento automatico alla fine della procedura di
 login.\\ 
-Una volta richiesta la pagina avverranno in sequeza le seguenti attivit\`a:
+Una volta richiesta la pagina avverranno in sequenza le seguenti attivit\`a:
 \begin{itemize}
   \item i dati di login dell'utente vengono inviati da \co{ProfileActivity},
   tramite \co{ProfileService} che li incapsula in oggetti DTO (\co{LoginDTO}),
@@ -1351,9 +1360,17 @@ Fa da contenitore per tutti dati di un catalogo multimediale.
 
 \section{Package shared.exception}
 \subsection*{Tipo, obiettivo e funzione del componente}
+Il package \emph{shared.exception} raccoglie le classi che trattano
+le eccezioni che posso essere lanciate dal sistema NetMus. Le classi eccezione
+sono opportunamente gerarchizzate. 
 \subsection*{Relazioni d'uso di altre componenti}
+Tutte le classi qui contenute estendono la classe \co{Exception}.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questo package \`e visibile all'intero sistema e all'occorrenza le classi al suo
+interno posso essere utilizzate da qualsiasi altro componente.
 \subsection*{Attivit\`a svolte e dati trattati}
+Fornisce tutte le possibili eccezioni che possono essere lanciate dal sistima
+NetMus.
 
 \subsection{Classe NetMusException}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
