@@ -1,8 +1,8 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
 \newcommand{\versione}{0.20}
-\newcommand{\versioneglossario}{1.0}
-\newcommand{\versionenormeprogetto}{1.0}
+\newcommand{\versioneglossario}{2.0}
+\newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
 \newcommand{\datamodifica}{30 Gennaio 2011}
@@ -227,7 +227,7 @@ e server con il vantaggio di essere pi\`u essenziali dei DAO e la possibilit\`a 
 costituire dei pacchetti su misura per la comunicazione. La logica del
 tracciamento tra DAO e DTO sar\`a a carico degli oggetti DAO.
 \\
-Per questo scopo GWT2.1 propone un potente framework per gestire la
+Per questo scopo GWT 2.1 propone un potente framework per gestire la
 comunicazione tra client e server, Request Factory, che implementa i patterns
 precedentemente descritti. Abbiamo deciso per\`o di non utilizzarlo, progettando
 una nostra implementazione, a causa della documentazione insufficiente fornita
@@ -280,7 +280,7 @@ La decomposizione architetturale da noi individuata a partire dalla lista dei
 requisiti prodotta dal processo di analisi si compone di tre moduli
 fondamentali distribuiti su una parte client e una server. Questi tre moduli, in
 accordo con il framework \emph{MVP con Activities e Places} precedentemente
-presentato, sono il model che riguarda le parti di businnes logic e businnes
+presentato, sono il model che riguarda le parti di business logic e business
 data, la view che contiene l'intera parte grafica del sistema (UI) con i
 relativi stati (Places) e il presenter che costituisce il collegamento tra view
 e model attraverso le Activities.
@@ -342,7 +342,7 @@ all'utente tutte le funzionalit\`a attese.\\
 Le interfacce Service invece rappresentano il punto di collegamento con il model
 la cui implementazione \`e sviluppata principalmente lato server. Queste
 interfacce, infatti, vengono accedute dalle Activities poich\'e forniscono tutti i
-metodi riguardanti la businness logic. \\\\ 
+metodi riguardanti la business logic. \\\\ 
 L'intero schema delle classi individuate durante la progettazione \`e il
 seguente: 
 \begin{figure}[h]
@@ -355,7 +355,7 @@ seguente:
 Nella parte server si trovano le implementazioni dei Service che hanno
 la possibilit\`a di accedere alle informazioni presenti nel database grazie alle
 classi DAO presenti nel package \emph{persistent}.
-Grande importanza viene data alle classi presenti nel pakage \emph{shared}
+Grande importanza viene data alle classi presenti nel package \emph{shared}
 poich\'e rendono allo stesso tempo semplice ed efficiente il passaggio di
 informazioni tra il server e i clients poich\'e incapsulano gli oggetti di
 persistenza DAO rimuovendone la parte logica, rispettando il design pattern DTO.
@@ -420,7 +420,7 @@ procedimento di login \`e la seguente:
   scegliere tra le due modalit\`a di login
   \item ricezione dei dati di login immessi dall'utente (in entrambi i casi)
   \item verifica della correttezza dei dati inserti (nel database interno per
-  autenticazione NetMus e facendo una rischiesta esterna tramite
+  autenticazione NetMus e facendo una richiesta esterna tramite
   \co{LoginGoogleServlet} nel caso di autenticazione Google).
   \item Fine del login se i dati sono corretti, ritorno a \co{LoginView} con la
   possibilit\`a di effettuare la registrazione altrimenti.
@@ -478,8 +478,8 @@ pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
 
 \subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-In Netmus \`e disponibile un'unica implementazione dell'intefaccia
-ClientFactory, poich\`e per il momento non \`e contemplato un utilizzo di
+In Netmus \`e disponibile un'unica implementazione dell'interfaccia
+ClientFactory, poich\'e per il momento non \`e contemplato un utilizzo di
 alternative all'interfaccia utente desktop.
 Nella classe si definiscono le propriet\`a di un vista (desktop) del
 sistema.
@@ -540,7 +540,7 @@ Il sistema mette a disposizione una vista per la visualizzazione dei profili e
 dei brani degli altri utenti registrati. La classe \co{ProfileViewImpl}
 implementa l'interfaccia \co{ProfileView} che estende \co{isWidget}
 (interfaccia introdotta da GWT 2.1).
-\subsubsection*{Relazioni d'uso di altrecomponenti} 
+\subsubsection*{Relazioni d'uso di altre componenti} 
 La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
 attuali della vista.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -599,7 +599,7 @@ Le istanze delle classi Activity vengono create dal \co{NetmusActivityMapper}
 che quando, riceve una richiesta di una Activity, ritorna una corretta istanza
 di tale classe, in base al Place corrente.
 \subsection*{Attivit\`a svolte e dati trattati}
-Il package \emph{activity} si pu\`o considerare il boss, poich\`e gestisce
+Il package \emph{activity} si pu\`o considerare il boss, poich\'e gestisce
 l'intera logica di business del client.
 
 \subsection{Classe LoginActivity}
@@ -750,7 +750,7 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
 \subsection{Classe NetmusActivityMapper}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe si occupa di mappare ogni attivita con il corrispondente Place.
+Questa classe si occupa di mappare ogni attivit\`a con il corrispondente Place.
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe utilizza istanze di classi appartenenti al package
 \emph{client.place} e crea istanze di classi appartenenti al package
@@ -876,7 +876,7 @@ vengono utilizzati per il trasferimento client-server.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
 binding e verr\`a utilizzata \\\co{LoginActivity} e dalle altre Activity che
-permetterano il logout dell'utente.
+permetteranno il logout dell'utente.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
@@ -891,7 +891,7 @@ Questo package conterr\`a le classi necessarie a gestire richieste e segnali
 provenienti dalla applet precompilata, che andremo ad inserire nel programma.
 Tale applet avr\`a la funzione di effettuare la scansione e l'estrazione
 automatica dei tag dei file musicali Mp3, presenti nei dispositivi di
-archiviavione di massa che vengono collegati alla macchina dell'utente.\\
+archiviazione di massa che vengono collegati alla macchina dell'utente.\\
 Per comunicare con tale applet sono state valutate due possibili metodologie
 d'implementazione: l'uso di una libreria che crea un sistema proxy tra la applet
 e GWT; oppure l'utilizzo di \underline{JSNI} (JavaScript Native Interface) che
@@ -943,7 +943,7 @@ Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
 immagazzinati oppure usati i relativi oggetti \emph{persistent}.
 Potranno essere usati opportuni servizi \emph{servlet} per andare a prelevare
 informazioni sui brani da servizi esterni oppure per cercare il corrispettivo
-link di streming audio-video (tipo YouTube).
+link di streaming audio-video (tipo YouTube).
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
@@ -974,7 +974,7 @@ Questa classe corrisponde all'implementazione del \co{LoginService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
 
 \subsubsection*{Relazioni d'uso di altre componenti}
-Utilizzar\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
+Utilizzer\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
 gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
 Verranno utilizzate funzionalit\`a interne di gestione login definite in
 \co{LoginHelper}. Potranno essere usate opportune classi \emph{servlet} per
@@ -1017,11 +1017,11 @@ User\`a al suo interno le classi di utilit\`a per i servlet definite in
 \emph{utils} e l'oggetto di persistenza \co{UserAccount}.
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa classe viene utilizzat\`a da \co{LoginServiceImpl} e nel package
+Questa classe viene utilizzata da \co{LoginServiceImpl} e nel package
 \emph{servlet} dalle classi dedicate al Login.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Le funzionali\`a che metter\`a a disposizione sono quelle di individuare se
+Le funzionalit\`a che metter\`a a disposizione sono quelle di individuare se
 l'utente corrente \`e gi\`a loggato o meno, e di riprendere la
 sessione restituendo un \emph{persistent} \co{UserAccount} nel caso esso sia
 gi\`a loggato.
@@ -1058,7 +1058,7 @@ scopo di interfacciare il sistema con il database nascondendo cos\`i ogni
 dettaglio sulla struttura del database all'esterno. 
 \subsection*{Relazioni d'uso di altre componenti}
 Vengono utilizzate le classi DTO presenti nel package \emph{shared} per
-impacchetare i dati in uscita dal database. 
+impacchettare i dati in uscita dal database. 
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questo package \`e di fondamentale importanza per il resto del sistema poich\'e
 rappresenta l'unica via di accesso ai dati persistenti, le classi contenute
@@ -1080,7 +1080,7 @@ che la lega a questa classe. Vengono inoltre utilizzate le classi
 output in gran parte dei metodi. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Tutte le classi logiche Service presenti nel package \emph{server} ne fanno uso
-qual'ora abbiano bisogno di informazioni riguadanti un utente del sistema.
+qual'ora abbiano bisogno di informazioni riguardanti un utente del sistema.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Gestisce la logica di persistenza di tutti i dati relativi ad un utente del
 sistema NetMus.
@@ -1094,7 +1094,7 @@ di tipo uno-a-molti che la lega a \co{Song} e quella uno-a-uno con
 classe \co{MusicLibraryDTO} come input ed output in gran parte dei metodi.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Tutte le
 classi logiche Service presenti nel package \emph{server} ne fanno uso qual'ora
-abbiano bisogno di informazioni riguadanti un catalogo multimediale.
+abbiano bisogno di informazioni riguardanti un catalogo multimediale.
 \subsubsection*{Attivit\`a svolte e dati trattati} Gestisce la logica di
 persistenza di tutti i dati relativi ad un catalogo multimediale del sistema
 NetMus.
@@ -1108,7 +1108,7 @@ utilizzate le classi \co{SongDTO} e \co{SongSummaryDTO} come input ed output
 in gran parte dei metodi. 
 \subsubsection*{Interfacce con e relazioni d'uso da
 altre componenti} Tutte le classi logiche Service presenti nel package
-\emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguadanti
+\emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
 un brano musicale. 
 \subsubsection*{Attivit\`a svolte e dati trattati} Gestisce
 la logica di persistenza di tutti i dati relativi ad un brano musicale del
@@ -1117,7 +1117,7 @@ sistema NetMus.
 \section{Package server.servlet}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Package del server che contiene le classi utilizzate per interfacciarsi a
-servizi esterni, come il login utilizzando l'account Google, o come Youtube.
+servizi esterni, come il login utilizzando l'account Google, o come YouTube.
 
 \subsection*{Relazioni d'uso di altre componenti}
 Verranno utilizzati alcuni \emph{persistent} e classi di \emph{utils}, ma
@@ -1345,7 +1345,7 @@ Implementa l'interfaccia \co{GenericDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Trasporta nome utente e passwsord dal client al server per l'autenticazione.
+Trasporta nome utente e password dal client al server per l'autenticazione.
 
 \subsection{Classe MusicLibraryDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -1369,7 +1369,7 @@ Tutte le classi qui contenute estendono la classe \co{Exception}.
 Questo package \`e visibile all'intero sistema e all'occorrenza le classi al suo
 interno posso essere utilizzate da qualsiasi altro componente.
 \subsection*{Attivit\`a svolte e dati trattati}
-Fornisce tutte le possibili eccezioni che possono essere lanciate dal sistima
+Fornisce tutte le possibili eccezioni che possono essere lanciate dal sistema
 NetMus.
 
 \subsection{Classe NetMusException}
@@ -1461,7 +1461,7 @@ La scansione del dispositivo riguarda solamente i file Mp3 e se un Tag dovesse
 risultare corrotto o vuoto, verr\`a ignorato il brano.\\
 \\
 Una volta inviate al server tali informazioni, verranno cercate le
-corrispondenze con eventuali brani gi\`a presenti nel nosto DataStore: se un
+corrispondenze con eventuali brani gi\`a presenti nel nostro DataStore: se un
 brano risulta presente verr\`a semplicemente associato all'utente aggiornando la
 sua MusicLibrary; se non \`e ancora presente allora verr\`a integrato e corretto
 tramite un servizio esterno. Verr\`a per questo implementato un algoritmo
