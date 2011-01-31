@@ -1,10 +1,12 @@
 \newcommand{\nomedoc}{Norme Di Progetto}
-\newcommand{\versione}{1.5}
+\newcommand{\versione}{1.6}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
+\newcommand{\versioneAR}{2.0}
+\newcommand{\versioneST}{1.0}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
-\newcommand{\datamodifica}{30 Gennaio 2011}
+\newcommand{\datamodifica}{31 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Baron Federico\\&Palazzin Alberto}
@@ -32,6 +34,9 @@ VT.G \\
 \hline
 \endfoot
 
+31/01/2011 & 1.6 & Palazzin Alberto & Aggiunta sezione 6.2 ``Tracciamento dei
+requisiti - componenti''.\\
+\hline
 30/01/2011 & 1.5 & Palazzin Alberto & Correzione errori grammaticali e
 semantici in tutto il documento.\\
 \hline
@@ -341,43 +346,63 @@ maggiori dettagli vedi documento \emph{PianoDiQualifica-2.0.pdf}).
 \thispagestyle{fancy} 
 
 Per l'analisi dei requisiti e per la progettazione si utilizzer\`a il linguaggio
-UML 2.0 perch\`e adottato come standard nella modellazione e
+UML 2.0 perch\'e adottato come standard nella modellazione e
 scrittura dei diagrammi: Use case, di flusso, dei package, delle classi, degli
 oggetti, di attivit\`a e di sequenza. 
 \\
 La tecnologia e gli strumenti utilizzati per la scrittura in UML
 sono specificati chiaramente nella sezione 4.10.
 
-\section{Individuazione e tracciamento dei requisiti}
-L'individuazione e il tracciamento dei requisiti si effettueranno analizzando a
-fondo i requisiti esposti nel capitolato d'appalto e quelli emersi nell'incontro effettuato con il proponente (vedi documento \emph{Verbale-1.0.pdf}).
+\section{Individuazione e tracciamento dei requisiti - use case}
+L'individuazione e il tracciamento dei requisiti - use case si effettueranno
+analizzando a fondo i requisiti esposti nel capitolato d'appalto e quelli emersi nell'incontro effettuato con il proponente (vedi documento \emph{Verbale-1.0.pdf}).
 \\
 Per identificare in modo univoco e significativo ognuno dei requisiti software
 estratti dall'analisi, gli viene assegnato un codice.
-La lista dei requisiti sar\`a presente solamente nel documento
-\emph{AnalisiDeiRequisiti-2.0.pdf} mentre in tutti gli altri verranno riferiti
-tramite il codice suddetto.
+Tale lista sar\`a presente solamente nel documento
+\emph{AnalisiDeiRequisiti-\versioneAR.pdf} mentre in tutti gli altri verranno
+riferiti tramite il codice suddetto.
 \\
 \\
-(C1/C2)(F/Q/I/V)(N/D/O)-n1.n2.n3...nx\\
-C1 = componente 1 (componente di persistenza e visualizzazione)\\
-C2 = componente 2 (componente di recupero delle informazioni dei brani
+\bo{(C1/C2)(F/Q/I/V)(N/D/O)-n1.n2.n3...nx}\\
+\bo{C1} = componente 1 (componente di persistenza e visualizzazione)\\
+\bo{C2} = componente 2 (componente di recupero delle informazioni dei brani
 musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
-F = funzionale\\
-Q = qualit\`a\\
-I = interfacciamento\\
-V = vincolo\\
-N = obbligatorio (necessario)\\
-D = desiderabile\\
-O = opzionale\\
-nx = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di un
-requisito avranno una cifra in pi\`u del genitore.
+\bo{F} = funzionale\\
+\bo{Q} = qualit\`a\\
+\bo{I} = interfacciamento\\
+\bo{V} = vincolo\\
+\bo{N} = obbligatorio (necessario)\\
+\bo{D} = desiderabile\\
+\bo{O} = opzionale\\
+\bo{nx} = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di
+un requisito avranno una cifra in pi\`u del genitore.
+
+\section{Tracciamento dei requisiti - componenti}
+Per identificare in modo univoco e significativo ognuno dei requisiti software
+estratti dalla progettazione, gli viene assegnato un codice.
+Tale lista sar\`a presente solamente nel documento
+\emph{SpecificaTecnica-\versioneST.pdf} mentre in tutti gli altri verranno
+riferiti tramite il codice suddetto.
+\\
+\\
+\bo{C(pc)(sc)n}\\
+\bo{C} = componente\\
+\bo{pc} = due lettere per identificare il package\\
+\bo{sc} = due lettere per identificare il sottopackage\\
+\bo{n} = numero incrementale che indica il package stesso se uguale a 0, la
+classe contenuta nel package se maggiore di 0\\ \\
+Esempi:
+\begin{itemize}
+  \item \bo{Cclmv0} = il package stesso client.mvp
+  \item \bo{Cclmv1} = la classe NetMusetc del package client.mvp
+\end{itemize}
 
 
 \chapter{Norme di Codifica}
 \thispagestyle{fancy} 
 Per la fase di codifica del progetto \`e stato scelto innanzitutto l'ambiente
-integrato di sviluppo Eclipse perch\`e supporta sia la programmazione Java
+integrato di sviluppo Eclipse perch\'e supporta sia la programmazione Java
 sia la possibilit\`a  di installare eventuali plugin per interfacciarsi con
 altre tecnologie (per maggiori dettagli vedi sezione 4.1).\\
 Per la componente di visualizzazione del Catalogo
