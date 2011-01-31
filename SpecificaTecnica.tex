@@ -104,7 +104,7 @@ metodi utilizzati per l'identificazione delle principali componenti, alla loro
 struttura, funzione e alle relazioni d'uso. Vengono infine presentati una stima
 della fattibilit\`a e delle risorse necessarie e il tracciamento delle
 componenti sui requisiti, descritti in dettaglio nel documento
-\emph{AnalisiDeiRequisiti}.
+\emph{Analisi dei requisiti (ver. 2.0)}.
 
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -117,9 +117,9 @@ componenti sui requisiti, descritti in dettaglio nel documento
 
 \section{Scopo del documento}
 Lo scopo della Specifica Tecnica \`e quello di illustrare le scelte progettuali
-che il gruppo ha deciso di seguire nella realizzazione del prodotto. Viene
-presentata, pur restando ad alto livello, la gerarchia dei package, delle loro
-connessioni e delle principali classi di cui essi si compongono.
+che il gruppo ha deciso di seguire nella realizzazione del prodotto. Vengono
+presentati, pur restando ad alto livello, la gerarchia dei package, le loro
+interazioni e le principali classi in essi contenute.
 
 \input{parte_comune.tex}
 
@@ -130,7 +130,7 @@ realizzazione di NetMus verr\`a presentato per intero nel seguente documento. Pe
 facilitarne la comprensione si utilizzeranno diagrammi aderenti allo
 standard di modellazione UML 2.x, nello specifico verranno illustrati diagrammi
 dei package, delle classi, di attivit\`a e di sequenza.
-In accordo con l'approccio top-down impiegato durante la progettazione i
+In accordo con l'approccio top-down impiegato durante la progettazione, i
 contenuti sono stati organizzati in modo da mostrare come prima cosa
 l'architettura macroscopica del sistema per poi scendere pi\`u nel dettaglio
 proseguendo nel documento.\\
@@ -152,18 +152,18 @@ patterns considerati best-practices per queste particolari tecnologie.
 
 \subsubsection{L'importanza dei design patterns in NetMus}
 La via intrapresa da VT.G nello sviluppo del sistema NetMus comprende il forte
-utilizzo dei design patterns al fine di produrre un software al pi\`u
+utilizzo dei design patterns al fine di produrre un software il pi\`u
 possibile manutenibile ed estendibile e che quindi mantenga un ciclo di
 vita equilibrato. 
 I design patterns inibiscono l'ispirazione dei programmatori dove
 questa non \`e necessaria e piuttosto forniscono un modo universalmente
 riconosciuto di produrre software ben architettato e facilmente manutenibile.
 MVP in particolare \`e il pattern pi\`u utilizzato sulla piattaforma Google Web
-Toolkit ed \`e quindi sostenuto egregiamente da alcuni strumenti offerti da
+Toolkit ed \`e quindi sostenuto egregiamente dagli strumenti offerti da
 Google.
 
 \newpage
-\subsubsection{Model View Presentation (MVP) }
+\subsubsection{Model View Presenter (MVP) }
 La potenza di questo pattern architetturale \`e quella di separare tre
 importantissime componenti riducendo l'accoppiamento e facilitando i processi di
 verifica e validazione:
@@ -175,8 +175,8 @@ verifica e validazione:
   contiene i dati che dovranno essere mostrati. 
   \item{\bo{Presenter} }
   \`e la componente fondamentale, si occupa di mandare i dati del model
-  all'interfaccia e viceversa. Pu\`o inoltre gestire gli eventi scatenati da
-  altre parti del sistema o avviare i propri grazie alla comunicazione diretta
+  all'interfaccia utente e viceversa. Pu\`o inoltre gestire gli eventi scatenati
+  da altre parti del sistema o avviare i propri grazie alla comunicazione diretta
   con un event bus.
 
 \end{itemize}    
@@ -196,7 +196,7 @@ di Presenter e i Places rappresentano gli stati della UI.
   grafico ed il suo avvio e la sua terminazione sono gestite da un
   ActivityManager.
   \item{\bo{Place} }
-  un Place in GWT 2.1 rappresenta un particolare stato della UI e viene
+   in GWT 2.1 rappresenta un particolare stato della UI e viene
   utilizzato anche per tenere una history degli URL che \`e fondamentale per una
   Web Application.
 
@@ -273,20 +273,20 @@ l'esistenza di una sola istanza di una certa classe ed avere un punto di accesso
 globale a quest'ultima. 
 L'implementazione di Singleton diminuisce in generale l'accoppiamento del
 sistema.
-Utilizzeremo questo pattern per una classe (Persistent manager factory) che si
-occuper\`a di creare degli speciali oggetti introdotti da JDO per la
-comunicazione con il database (query). \`E molto importante che venga istanziata una sola
-istanza di Persistent manager factory e che questa sia visibile all'intero
-dell'intero lato server del sistema NetMus. 
+Utilizzeremo questo pattern per una classe (\co{PMF}, persistent manager
+factory) che si occuper\`a di creare degli speciali oggetti introdotti da JDO per la
+comunicazione con il database (query). \`E molto importante che venga creata una
+sola istanza di \co{PMF} e che questa sia visibile nell'intero lato server del
+sistema NetMus.
 
 \newpage
 \subsection{Decomposizione architetturale}
-La decomposizione architetturale da noi individuata a partire dalla lista dei
-requisiti prodotta dal processo di analisi si compone di tre moduli
+La decomposizione architetturale, da noi individuata a partire dalla lista dei
+requisiti e prodotta nel processo di analisi, si compone di tre moduli
 fondamentali distribuiti su una parte client e una server. Questi tre moduli, in
 accordo con il framework \emph{MVP con Activities e Places} precedentemente
-presentato, sono il model che riguarda le parti di business logic e business
-data, la view che contiene l'intera parte grafica del sistema (UI) con i
+presentato, sono il model, che riguarda le parti di business logic e business
+data, la view, che contiene l'intera parte grafica del sistema (UI) con i
 relativi stati (Places) e il presenter che costituisce il collegamento tra view
 e model attraverso le Activities.
 \\\\
@@ -301,18 +301,18 @@ La struttura sar\`a quindi formata dai seguenti packages:
   \item Package \emph{client} : definisce la parte client del programma
   \begin {itemize}
     \item Package \emph{client.ui} : comprende l'insieme di viste del sistema,
-    rispettando il framework \emph{MVP con Places e Activities}. Ci sar\`a una
+    utilizzando il framework \emph{MVP con Places e Activities}. Ci sar\`a una
     interfaccia per ogni vista, per dare la possibilit\`a di creare in futuro
     pi\`u implementazioni differenti a seconda del dispositivo client;
     \item Package \emph{client.activity} : rappresenta l'insieme di classi
     controllori che formano la logica del sistema. Esse mandano dati aggiornati alle
-    viste, gestiscono le richieste delle viste e possono inoltre gestire
-    richieste provenienti da altre componenti e mandare eventi propri nell'event-bus;
-    \item Package \emph{client.place} : comprende l'insieme di classi Place i
+    viste, gestiscono le loro richieste e quelle provenienti da altre componenti
+    e inoltre inviano eventi propri nell'event-bus;
+    \item Package \emph{client.place} : comprende l'insieme di classi Place le
     quali rappresentano un URL associato ad una vista. Gestiscono i parametri
     agganciati all'URL con un Tokenizer interno;
     \item Package \emph{client.mvp} : comprende un ActivityMapper e
-    un PlaceHistoryManager che mappano per ogni Place la sua corrispondente
+    un PlaceHistoryMapper che tracciano per ogni Place la corrispondente
     Activity e gestiscono la cronologia dei Place;
     \item Package \emph{client.service} : rappresenta l'insieme di interfacce
     che offrono un servizio di comunicazione col server tramite GWT RPC;
@@ -324,7 +324,7 @@ La struttura sar\`a quindi formata dai seguenti packages:
   \item Package \emph{server} : rappresenta la parte server di Netmus;
   \begin{itemize}
     \item Package \emph{server.persistent} : comprende tutte le classi che
-    rappresentano un entit\`a JDO (Java Data Object), le quali usate per lo scambio dati tra
+    rappresentano un entit\`a JDO (Java Data Object), usate per lo scambio dati tra
     server e Google Datastore;
     \item Package \emph{server.servlet} : comprende tutte le servlet utilizzate
     per interfacciarsi a servizi esterni (es. Google Authentication, YouTube);
@@ -342,8 +342,8 @@ La struttura sar\`a quindi formata dai seguenti packages:
 Per soddisfare i requisiti funzionali del sistema NetMus sono state individuate
 4 componenti che implementano altrettante UI con la relativa logica di
 attivazione delle Activities. Queste sono Login, User, EditProfile e EditSongs
-che grazie all'interazione tra le loro parti view, place e activity garantiscono
-all'utente tutte le funzionalit\`a attese.\\
+che, grazie all'interazione tra le loro parti view, place e activity,
+garantiscono all'utente tutte le funzionalit\`a attese.\\
 Le interfacce Service invece rappresentano il punto di collegamento con il model
 la cui implementazione \`e sviluppata principalmente lato server. Queste
 interfacce, infatti, vengono accedute dalle Activities poich\'e forniscono tutti i
