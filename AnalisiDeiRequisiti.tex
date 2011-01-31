@@ -1,15 +1,15 @@
 
 \newcommand{\nomedoc}{Analisi Dei Requisiti}
-\newcommand{\versione}{1.7}
+\newcommand{\versione}{1.8}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\nomefile}{AnalisiDeiRequisiti-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{29 Gennaio 2011}
+\newcommand{\datamodifica}{31 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Baron Federico\\&Daminato Simone}
-\newcommand{\verifica}{Caputo Cosimo}
+\newcommand{\verifica}{Caputo Cosimo\\&Palazzin Alberto}
 \newcommand{\approvazione}{Lovato Daniele}
 \newcommand{\distribuzione}{
 VT.G \\
@@ -32,12 +32,14 @@ VT.G \\
 \endhead
 \hline
 \endfoot
+
+31/01/2011 & 1.8 & Palazzin Alberto & Verificato l'intero documento.
+\\
 \hline
 29/01/2011 & 1.7 & Palazzin Alberto & Correzione di errori grammaticali e
 semantici in tutto il documento. Correzione a fronte della verifica di qualit\`a
 dei requisiti.
 \\
-\hline
 \hline
 23/01/2011 & 1.6 & Baron Federico & Aggiornamento del tracciamento con i nuovi
 codici degli use-cases. Leggera modifica dei capitoli 2.4 e 2.5.
@@ -782,15 +784,15 @@ dell'utente.
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
 Il fulcro della persistenza del sistema NetMus sar\`a un database nel quale
-verranno salvati tutti i dati gestiti. In particolare il database sar\`a Google
-DataStore, fornito da Google AppEngine, che trae grandissimi benefici
-dal cloud computing.
+verranno salvati tutti i dati gestiti. In particolare il database sar\`a
+\underline{Google DataStore}, fornito da Google AppEngine, che trae grandissimi
+benefici dal cloud computing.
 
 \subsection{Requisiti di qualit\`a}
 
 \subsubsection*{Ottimizzazione della ricerca su YoutTube}
 \bo{Id:} C1QD-1.5.1 \\
-\bo{Tipo:} qualit\`a \\
+\bo{Tipo:} \underline{qualit\`a} \\
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} interna \\
 YouTube \`e uno strumento estremamente utile perch\'e garantisce una vasta gamma
@@ -931,7 +933,7 @@ Google App Engine (GAE) in concomitanza con l'insieme di strumenti forniti da Go
 \bo{Tipo:} vincolo \\
 \bo{Richiesta:} obbligatorio \\
 \bo{Fonte:} capitolato \\
-Il database verr\`a sviluppato utilizzando \underline{Google DataStore}.
+Il database verr\`a sviluppato utilizzando Google DataStore.
 
 \subsubsection*{Cloud computing}
 \bo{Id:} C1VN-1.11 \\
@@ -979,7 +981,7 @@ Tutte le componenti dell'applicazione Web NetMus saranno mirate alla semplicit\`
 di utilizzo da parte dell'utente. A partire dall'interfaccia grafica sar\`a tutto
 molto intuitivo.
 
-
+\newpage
 \subsection{Gerarchia dei requisiti}
 
 \begin{table}[!h]
