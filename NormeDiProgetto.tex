@@ -1,12 +1,13 @@
 \newcommand{\nomedoc}{Norme Di Progetto}
-\newcommand{\versione}{1.6}
-\newcommand{\versioneglossario}{2.0}
-\newcommand{\versionenormeprogetto}{2.0}
+\newcommand{\versione}{2.0}
+\newcommand{\versioneGL}{2.0}
+\newcommand{\versionePP}{2.0}
+\newcommand{\versionePQ}{2.0}
 \newcommand{\versioneAR}{2.0}
 \newcommand{\versioneST}{1.0}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
-\newcommand{\datamodifica}{31 Gennaio 2011}
+\newcommand{\datamodifica}{30 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Baron Federico\\&Palazzin Alberto}
@@ -34,13 +35,17 @@ VT.G \\
 \hline
 \endfoot
 
-31/01/2011 & 1.6 & Palazzin Alberto & Aggiunta sezione 6.2 ``Tracciamento dei
+31/01/2011 & 2.0 & Baron Federico & Validazione per consegna RP.\\
+\hline
+30/01/2011 & 1.7 & Mandolo Andrea & Verificate modifiche e nuove sezioni.\\
+\hline
+30/01/2011 & 1.6 & Caputo Cosimo & Aggiunta sezione 6.2 ``Tracciamento dei
 requisiti - componenti''.\\
 \hline
-30/01/2011 & 1.5 & Palazzin Alberto & Correzione errori grammaticali e
+30/01/2011 & 1.5 & Caputo Cosimo & Correzione errori grammaticali e
 semantici in tutto il documento.\\
 \hline
-22/01/2011 & 1.4 & Palazzin Alberto & Sistemati capitoli 3, 5 e 10.\\
+22/01/2011 & 1.4 & Caputo Cosimo & Sistemati capitoli 3, 5 e 10.\\
 \hline
 21/01/2011 & 1.3 & Mandolo Andrea & Corretti Riferimenti.\\
 \hline
@@ -120,7 +125,7 @@ sezione ``Discussioni'' del forum interno.
 \chapter{Norme per la stesura dei documenti}
 \thispagestyle{fancy}
 Per scrivere i documenti si utilizzer\`a il linguaggio di markup
-\underline{LateX} in quanto permette di dedicarsi meglio al contenuto da
+\underline{LaTeX} in quanto permette di dedicarsi meglio al contenuto da
 scrivere rispetto alla formattazione, che una volta impostata \`e automatica (per maggiori dettagli
 vedi sezione 4.8 e 4.9).
 
@@ -128,7 +133,7 @@ vedi sezione 4.8 e 4.9).
 Tutti i nomi dei file devono cominciare con la lettera maiuscola e
 indicare in maniera univoca il loro contenuto. Il nome deve essere seguito da un
 trattino (-) e due cifre separate da un punto che indicano la versione del
-documento (esempio: \emph{NormeDiProgetto-1.0.pdf}).
+documento (esempio: \emph{NormeDiProgetto-2.0.pdf}).
 
 \section{Contenuto}
 Tutti i documenti devono contenere: 
@@ -329,17 +334,17 @@ nello specifico lo strumento GanttProject (per maggiori dettagli vedi sezione 4.
 \\ \\
 Il tracciamento delle ore di lavoro per ogni componente verr\`a eseguito
 tramite un progetto di GanttProject appositamente condiviso e accessibile da ognuno (non concorrentemente). Questo permetter\`a anche un comodo confronto con la
-gestione delle risorse pianificata nel \emph{PianoDiQualifica-2.0.pdf}.
+gestione delle risorse pianificata nel \emph{PianoDiQualifica-\versionePQ.pdf}.
 \\ \\
 Il \underline{ticketing} sar\`a utilizzato tramite gli appositi strumenti
-forniti da Google Code al link \url{http://code.google.com/p/netmus/issues/list}.
-Al link \url{http://code.google.com/p/support/wiki/IssueTracker} si pu\`o
-trovare un tutorial che spiega come usare questo strumento.\\
+forniti da Google Code al link
+\\\url{http://code.google.com/p/netmus/issues/list}. \\Al link
+\url{http://code.google.com/p/support/wiki/IssueTracker} si pu\`o trovare un tutorial che spiega come usare questo strumento.\\
 Chi si \`e preso in carico il ticket, alla sua chiusura dovr\`a
 compilare un form al link
 \url{https://spreadsheets.google.com/viewform?formkey=dFpYYUdtWTB4c3BsbzdXY0JZaGFDZUE6MQ}.
-Questo form sar\`a utile per il miglioramento dei processi di lavoro (per
-maggiori dettagli vedi documento \emph{PianoDiQualifica-2.0.pdf}).
+\\Questo form sar\`a utile per il miglioramento dei processi di lavoro (per
+maggiori dettagli vedi documento \emph{PianoDiQualifica-\versionePQ.pdf}).
 
 
 \chapter{Analisi e Progettazione}
@@ -378,6 +383,7 @@ musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
 \bo{nx} = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di
 un requisito avranno una cifra in pi\`u del genitore.
 
+\newpage
 \section{Tracciamento dei requisiti - componenti}
 Per identificare in modo univoco e significativo ognuno dei requisiti software
 estratti dalla progettazione, gli viene assegnato un codice.
