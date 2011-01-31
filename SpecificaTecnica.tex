@@ -357,6 +357,7 @@ individuate durante la progettazione \`e il sueguente:
 \caption{Diagramma delle classi dei packages server e shared.}
 \end{figure}
 
+\newpage
 \subsubsection{Decomposizione architeturale - diagrammi delle attivit\`a}
 Nella realizzazione di un'applicazione Web l'efficenza e la
 qualit\`a della visualizzazione dei contenuti assumono grande importanza per cui
@@ -394,11 +395,13 @@ Una volta richiesta la pagina avverranno in sequeza le seguenti attivit\`a:
 
 La sotto-attivit\`a di login sopra citata viene dettagliata dal prossimo diagramma
 delle attivit\`a.
-\begin{figure}[h]
+\begin{figure}[!h]
   \centering
   \includegraphics[width=15cm]{img/ST/login.png}
-\caption{Diagramma delle classi dei packages server e shared.}
+\caption{Diagramma delle attivit\`a che descrive in dettaglio la
+sotto-attivit\`a di login.}
 \end{figure}
+\\
 I sistemi di login offerti sono due, quello di Google ed uno specifico
 dell'applicazione NetMus e la sequenza di attivit\`a svolte durante il
 procedimento di login \`e la seguente:
@@ -413,6 +416,18 @@ procedimento di login \`e la seguente:
   \item Fine del login se i dati sono corretti, ritorno a \co{LoginView} con la
   possibilit\`a di effettuare la registrazione altrimenti.
 \end{itemize}
+
+\vspace{1cm}
+Con il seguente diagramma di sequenza possiamo vedere in dettaglio come le
+classi che fanno parte dell'architettura di NetMus si relazionano fra di loro
+durante l'attivit\`a di login:
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16.5cm]{img/ST/seq-login.png}
+\caption{Diagramma di sequenza che descrive in dettaglio l'attivit\`a di login}
+\end{figure}
+
 
 \chapter{Descrizione dei singoli componenti}
 \section{Package client}
@@ -1441,6 +1456,8 @@ Il client, come risposta dell'invio dei brani, avr\`a un reindirizzamento alla
 aggiornata e modificabile.
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
+
+
 
 \chapter{Tracciamento della relazione componenti - requisiti}
 
