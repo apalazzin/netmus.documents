@@ -1,9 +1,8 @@
-
 \newcommand{\nomedoc}{Glossario}
-\newcommand{\versione}{1.1}
+\newcommand{\versione}{1.2}
 \newcommand{\nomefile}{Glossario-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
-\newcommand{\datamodifica}{12 Gennaio 2011}
+\newcommand{\datamodifica}{31 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Caputo Cosimo}
@@ -30,6 +29,8 @@ VT.G \\
 \endhead
 \hline
 \endfoot
+
+31/01/2011 & 1.2 & Caputo Cosimo & Aggiunti nuovi termini.\\
 12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
 modifiche.\\
 \hline
@@ -71,11 +72,29 @@ Applicazione software che non necessita di una connessione internet per operare.
 Applicazione software che non necessita di essere installata sul dispositivo
 hardware dell'utente (in genere \`e sita su uno o pi\`u server remoti) ed \`e accessibile tramite browser.
 
+\subsubsection*{Applet:}
+Con questo termine (combinazione di application e gadget) si indica un programma
+che viene eseguito come "ospite" nel contesto di un altro programma, per questo
+detto container, su un computer client.
+
 \subsection*{\huge{B}}
 
 \subsubsection*{Branch:} 
 Flusso logico che permette a pi\`u persone di lavorare su un unico file o
 progetto in maniera indipendente.
+
+\subsubsection*{Best practice:}
+Per migliore pratica o migliore prassi (dall'inglese best practice) si intendono
+ in genere le esperienze pi\`u significative, o comunque quelle che hanno
+ permesso di ottenere migliori risultati, relativamente a svariati contesti.
+Il termine \`e usato per esempio nella direzione aziendale, nel software
+engineering, in medicina, nelle organizzazioni aziendali o governative.
+Questo concetto, nato all'inizio del secolo, \`e un'idea manageriale che
+asserisce l'esistenza di una tecnica, un metodo, un processo o un'attivit\`a,
+che sono pi\`u efficaci nel raggiungere un particolare risultato, di qualunque
+altra tecnica, metodo, processo, o attivit\`a. Si afferma che, con i processi
+adeguati, con i giusti controlli e le corrette analisi, il risultato voluto
+pu\`o essere ottenuto evitando problemi e complicazioni impreviste.
 
 \subsection*{\huge{C}}
 
@@ -86,10 +105,28 @@ permettono l'utilizzo di risorse hardware (storage, CPU) o software distribuite 
 linguaggio di programmazione ad alto livello. Il codice sorgente deve essere
 opportunamente elaborato per arrivare ad un programma eseguibile.
 
-\subsubsection*{Commit} Comando che permette di creare un nuovo changeset in
+\subsubsection*{Commit:} Comando che permette di creare un nuovo changeset in
 un repository e di identificarlo con una descrizione.
 
 \subsection*{\huge{D}}
+
+\subsubsection*{Database NON-Relazionale:} Usa file per memorizzare le
+informazioni. Si chiama cos\`i proprio perch\`e i dati non risultano collegati
+gli uni agli altri. Ogni dato memorizzato è costituito da un valore e una chiave
+associata. Queste coppie (chiave,valore) sono semplici stringhe, non sono array
+di caratteri, in modo da poter anche memorizzare informazioni binarie. Non ci
+sono limiti alle chiavi che si possono scegliere, perché non vengono fissate dal
+database. Il loro sviluppo nasce dall'esigenza di scalabilit\`a, di performance
+e di uno schema di sviluppo e progettazione rigido (e quindi replicabile con
+facilit\`a).
+
+\subsubsection*{Design Pattern:}
+Nell'ingegneria del software, un design pattern (schema di progettazione) pu\`o
+essere definito "una soluzione progettuale generale a un problema ricorrente".
+Esso non \`e una libreria o un componente di software riusabile, quanto
+piuttosto una descrizione o un modello da applicare per risolvere un problema
+che pu\`o presentarsi in diverse situazioni durante la progettazione e lo
+sviluppo del software.
 
 \subsubsection*{Diagrammi di Gantt:} Strumento per la pianificazione temporale e
 gestione delle risorse di un progetto ideato nel 1917 dall'ingegnere
@@ -98,7 +135,23 @@ statunitense Henry Laurence Gantt.
 \subsubsection*{Disco rigido (HDD):} Dispositivo di memoria di massa che
 utilizza uno o pi\`u dischi magnetici per l'archiviazione dei dati.
 
-%\subsection*{\huge{E}}
+\subsection*{\huge{E}}
+
+\subsubsection*{Entry Point}
+Un modulo entry point \`e una qualsiasi classe che implementa l'interfaccia
+EntryPoint. Quando un modulo \`e caricato ogni classe entry point elencata nel
+file .gwt.xml viene istanziata e il rispettivo metodo onModuleLoad() richiamato.
+\`E possibile sia creare un modulo con pi\`u di un entry point che senza (se si
+intende ad esempio generare un codice libreria riutilizzabile che sar\`a
+utilizzato da altri moduli GWT).
+
+A module entry point is any class that implements the EntryPoint interface. When
+a module is loaded, each entry point class listed in the .gwt.xml file is
+instantiated and its onModuleLoad() method is called. It is possible to create a
+module with more than one entry point. It is also possible to create a module
+with no entry points. If you wish to make a re-usable GWT code library, you
+should package it as a GWT module that contains no entry point classes. This
+module could then be inherited by other GWT modules
 
 \subsection*{\huge{F}}
 \subsubsection*{Framework:}  Struttura di supporto su cui un software pu\`o
@@ -106,11 +159,11 @@ essere organizzato e progettato. Alla base di un framework c'\`e sempre una
 serie di librerie di codice utilizzabili con uno o pi\`u linguaggi di
 programmazione, spesso corredate da una serie di strumenti di supporto allo
 sviluppo del software, come ad esempio un IDE, un debugger, o altri strumenti
-ideati per aumentare la velocit\`a� di sviluppo del prodotto finito.
+ideati per aumentare la velocit\`a di sviluppo del prodotto finito.
 
 \subsection*{\huge{G}}
 
-\subsubsection*{Goole App Engine (GAE):} Piattaforma Google che consente di
+\subsubsection*{Google App Engine (GAE):} Piattaforma Google che consente di
 progettare ed eseguire applicazioni, servendosi della scalabilit\`a offerta
 dall'infrastruttura web che Google stessa utilizza per le sue applicazioni:
 migliaia di server sparsi per il mondo che distribuiscono le copie
@@ -137,6 +190,18 @@ Apache. Punti di forza di GWT sono la riusabilit\`a del codice, la possibilit\`a
 realizzare pagine web dinamiche mediante le chiamate asincrone di AJAX, la
 gestione delle modifiche, il bookmarking, l'internazionalizzazione e la
 portabilit\`a fra differenti browser.
+
+\subsubsection*{GWT Deferred Binding:}
+\`E una tecnica utilizzata dal compilatore GWT per creare e selezionare una
+specifica implementazione di una classe basata su una serie di parametri.
+Consente allo sviluppatore GWT di produrre diverse varianti di
+applicazioni personalizzate per ogni ambiente browser e scaricare ed eseguire
+nel browser effettivamente solo uno di essi.
+
+\subsubsection*{GWT RPC:}
+Framework che supporta le componenti client e server nello scambio di
+oggetti Java tramite HTTP. L'implementazione di un servizio RPC si basa sulla
+consolidata architettura dei servlet Java.
 
 \subsection*{\huge{H}}
 \subsubsection*{HTML5:} Linguaggio di markup per la progettazione delle pagine
@@ -186,6 +251,18 @@ integrato di sviluppo NetBeans con JavaFX
 \item Consente agli sviluppatori di integrare risorse Web di grafica vettoriale,
 animazione, audio e video per creare applicazioni interattive e coinvolgenti
 \end{itemize}
+
+\subsubsection*{Javascript Native Interface (JSNI)}
+Nel contesto GWT permette di usare parti dell'applicazione GWT al di fuori della
+propria applicazione e di utilizzare codice JavaScript che non fa parte
+dell'applicazione.
+
+\subsubsection*{JDO:}
+Interfaccia standard per la memorizzazione di oggetti contenenti dati in un
+database. Permette di descrivere strutture dati in termini di classi Java con il
+vantaggio del type-safety, permettendo di applicare uno schema pi\`u
+robusto di quello richiesto dalle entit\`a del Datastore e semplificandone la
+gestione.
 
 \subsubsection*{JVM:} Macchina virtuale che esegue i programmi Java in byte-code
 (.class), risultato della compilazione di file sorgenti Java (.java).
@@ -251,7 +328,23 @@ differenze sono semplicemente nuove parti di testo) oppure manualmente.
 
 \subsubsection*{Open-Source:} Dicesi di un sofware i cui autori ne permettono e
 ne favoriscono il libero studio e l'apporto di modifiche da parte di altri programmatori indipendenti.
+
 \subsection*{\huge{P}}
+
+\subsubsection*{Pattern Architetturale:}
+Sono la categoria di design pattern che opera a livello pi\`u elevato,
+definendo schemi di base per impostare l'organizzazione dell'intero
+sistema software.
+
+\subsubsection*{Pattern Strutturale:}
+Riguarda il modo in cui pi\`u oggetti sono collegati tra loro per formare
+strutture complesse. Usa l'ereditariet\`a e il polimorfismo per comporre
+interfacce diverse o implementazioni diverse di una stessa interfaccia.
+
+\subsubsection*{Pattern Creazionale:}
+Fornisce un'astrazione del processo di creazione delle
+istanze delle classi, favorendo l'indipendenza del sistema dalle modalit\`a di
+creazione e dai tipi concreti effettivamente generati.
 
 \subsubsection*{Pdf (Portable Document Format):} Formato di file basato su un
 linguaggio di descrizione di pagina sviluppato da Adobe Systems nel 1993 per rappresentare
@@ -259,7 +352,7 @@ documenti in modo indipendente dall'hardware e dal software utilizzati per gener
 
 \subsubsection*{Propriet\`a emergenti:} Si tratta di propriet\`a del sistema
 softaware nel suo complesso e non relative a singole componenti. Sono molto
-delicate poich\'e conseguenza dell'interazione tra le varie componenti.\\
+delicate poich\`e conseguenza dell'interazione tra le varie componenti.\\
 Sono visibili e misurabili solo dopo l'integrazione del sistema.
 
 \subsubsection*{Pull:} Operazione di sincronizzazione che consiste
@@ -273,6 +366,10 @@ nell'aggiornare il contenuto del repository (eventualmente dopo il merge delle m
 \subsubsection*{Query:} Termine utilizzato per indicare l'interrogazione di un
 database nel compiere determinate operazioni (inserimento dati, cancellazione
 dati, ecc.) da eseguire in uno o pi\`u database.
+
+\subsubsection*{Qualit\`a:}
+Un' insieme di caratteristiche (proprieta') che, nel loro complesso,
+rappresentano la qualita' del prodotto.
 
 \subsection*{\huge{R}}
 
@@ -309,6 +406,7 @@ team che si occuper\`a di gestire l'elemento. Lo status del ticket consente di
 verificare se il ticket \`e in lavorazione, in standby o completato.
 
 \subsection*{\huge{U}}
+
 \subsubsection*{UML:} Acronimo di Unified Modeling Language, \`e un linguaggio
 di modellazione e specifica basato sul paradigma object-oriented, utilizzato per
 descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile.
@@ -319,6 +417,13 @@ per consentire a pi\`u periferiche di essere connesse usando una sola interfacci
 standardizzata ed un solo tipo di connettore, e per migliorare la funzionalit\`a
 plug-and-play consentendo di collegare/scollegare i dispositivi senza dover
 riavviare il computer (hot swap).
+
+\subsubsection*{User Interface(UI)}
+Ci\`o che si frappone tra la macchina e l'utente, che fa dialogare
+l'uomo con la macchina. L'interfaccia utente non \`e necessariamente legata ad
+un sistema informatico (ad un PC), l'interfaccia \`e qualsiasi cosa che permette
+ad un utente di poter gestire (pi\`u o meno) semplicemente le funzionalit\`a di
+un sistema.
 
 \subsubsection*{Username:} In informatica definisce il nome con il quale
 l'utente viene riconosciuto da un computer, da un programma o da un server.
