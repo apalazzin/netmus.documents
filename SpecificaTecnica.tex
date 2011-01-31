@@ -128,14 +128,14 @@ connessioni e delle principali classi di cui essi si compongono.
 Il processo di progettazione architetturale svolto da VT.G per la
 realizzazione di NetMus verr\`a presentato per intero nel seguente documento. Per
 facilitarne la comprensione si utilizzeranno diagrammi aderenti allo
-standard di modellazione UML 2.x, nello specifico verranno illustrati diagrammi
-dei package, delle classi, di attivit\`a e di sequenza.
+standard di modellazione \underline{UML 2.x}, nello specifico verranno
+illustrati diagrammi dei package, delle classi, di attivit\`a e di sequenza.
 In accordo con l'approccio top-down impiegato durante la progettazione i
 contenuti sono stati organizzati in modo da mostrare come prima cosa
 l'architettura macroscopica del sistema per poi scendere pi\`u nel dettaglio
 proseguendo nel documento.\\
 Molto importante per la comprensione del documento \`e il capitolo 2.1 dedicato
-ai design patterns poich\'e rappresenta, insieme all'analisi dei requisiti, la
+ai \underline{design patterns} poich\'e rappresenta, insieme all'analisi dei requisiti, la
 base dell'architettura realizzata.
 \\\\
 Per le norme riguardanti il tracciamento delle componenti con i requisiti e le
@@ -147,8 +147,9 @@ riferimento al documento \emph{Norme di progetto (ver. 2.0)} ai capitoli 3 e 4.
 \subsection{Design patterns utilizzati}
 Nei seguenti paragrafi sono presentati i design patterns utilizzati per
 sviluppare l'architettura di NetMus. Alcuni di questi derivano dall'utilizzo
-delle tecnologie GAE e GWT che forniscono dei frameworks che implementano
-patterns considerati best-practices per queste particolari tecnologie.
+delle tecnologie \underline{GAE} e \underline{GWT} che forniscono dei
+\underline{frameworks} che implementano patterns considerati \underline{best-practices} per queste particolari
+tecnologie.
 
 \subsubsection{L'importanza dei design patterns in NetMus}
 La via intrapresa da VT.G nello sviluppo del sistema NetMus comprende il forte
@@ -164,9 +165,9 @@ Google.
 
 \newpage
 \subsubsection{Model View Presentation (MVP) }
-La potenza di questo pattern architetturale \`e quella di separare tre
-importantissime componenti riducendo l'accoppiamento e facilitando i processi di
-verifica e validazione:
+La potenza di questo \underline{pattern architetturale} \`e quella di separare
+tre importantissime componenti riducendo l'accoppiamento e facilitando i processi di
+\underline{verifica} e \underline{validazione}:
 \begin{itemize}
   \item{\bo{View} }
   costituisce l'interfaccia utente che comprende tutte le componenti utili alla
@@ -189,7 +190,7 @@ verifica e validazione:
 Nel nostro caso questo design pattern sar\`a implementato con il framework MVP con
 Activities e Places offerto da GWT 2.1 che semplifica la gestione di alcuni
 aspetti consolidati di MVP. In questo framework le Activities svolgono il ruolo
-di Presenter e i Places rappresentano gli stati della UI.
+di Presenter e i Places rappresentano gli stati della \underline{UI}.
 \begin{itemize}
   \item{\bo{Activity} }
   \`e l'analogo di presenter in MVP tradizionale. Non contiene alcun componente
@@ -216,8 +217,8 @@ di Presenter e i Places rappresentano gli stati della UI.
 \caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
 simultaneo dei patterns DAO e DTO}
 \end{figure}
-Questi patterns vengono introdotti all'interno della componente model di MVP e
-riguardano gli oggetti utilizzati per l'incapsulamento dei dati nelle
+Questi patterns vengono introdotti all'interno della
+componente model di MVP e riguardano gli oggetti utilizzati per l'incapsulamento dei dati nelle
 comunicazioni tra client, server e database. 
 Il DAO (Data Access Object) \`e un pattern semplice ma fondamentale per
 stratificare ed isolare gli accessi al database dalla parte logica
@@ -250,12 +251,12 @@ prodotti senza specificare classi concrete.
 Abstract factory}
 \end{figure}
 Nello specifico lo utilizzeremo per rendere facilmente configurabile il nostro
-sistema. L'interfaccia ClientFactory sar\`a utilizzata per ottenere le
+sistema. L'interfaccia \co{ClientFactory} sar\`a utilizzata per ottenere le
 interfacce degli elementi architetturali necessari alla nostra applicazione come
 ad esempio l'event bus e le varie UI.
-Per caricare le differenti implementazioni di ClientFactory a seconda delle
+Per caricare le differenti implementazioni di \co{ClientFactory} a seconda delle
 peculiarit\`a dell'utente che vi accede \`e molto conveniente utilizzare il GWT
-deferred binding offerto dal toolkit stesso.
+\underline{deferred binding} offerto dal toolkit stesso.
 Il pattern in questione verr\`a utilizzato per una evidente convenienza in termini
 di estendibilit\`a per il futuro anche se allo stadio attuale la factory
 implementata sar\`a solamente una.
@@ -268,15 +269,15 @@ implementata sar\`a solamente una.
 \caption{Diagramma UML delle classi che descrive l'implementazione del design
 pattern Singleton}
 \end{figure}
-Singleton \`e un design pattern creazionale che ha lo scopo di assicurare
-l'esistenza di una sola istanza di una certa classe ed avere un punto di accesso
+Singleton \`e un design \underline{pattern creazionale} che ha lo scopo di
+assicurare l'esistenza di una sola istanza di una certa classe ed avere un punto di accesso
 globale a quest'ultima. 
 L'implementazione di Singleton diminuisce in generale l'accoppiamento del
 sistema.
 Utilizzeremo questo pattern per una classe (Persistent manager factory) che si
-occuper\`a di creare degli speciali oggetti introdotti da JDO per la
-comunicazione con il database (query). \`E molto importante che venga istanziata una sola
-istanza di Persistent manager factory e che questa sia visibile all'intero
+occuper\`a di creare degli speciali oggetti introdotti da \underline{JDO} per la
+comunicazione con il database (\underline{query}). \`E molto importante che
+venga istanziata una sola istanza di Persistent manager factory e che questa sia visibile all'intero
 dell'intero lato server del sistema NetMus. 
 
 \newpage
@@ -315,25 +316,27 @@ La struttura sar\`a quindi formata dai seguenti packages:
     un PlaceHistoryManager che mappano per ogni Place la sua corrispondente
     Activity e gestiscono la cronologia dei Place;
     \item Package \emph{client.service} : rappresenta l'insieme di interfacce
-    che offrono un servizio di comunicazione col server tramite GWT RPC;
+    che offrono un servizio di comunicazione col server tramite \underline{GWT
+    RPC};
     %----------------- TOGLIERE FORSE --------------------
     \item Package \emph{client.applet} : definisce la componente di
-    ricezione dei dati estratti dall'Applet precompilata;
+    ricezione dei dati estratti dall'\underline{Applet} precompilata;
     %-------------------------------------------------------
   \end {itemize}
   \item Package \emph{server} : rappresenta la parte server di Netmus;
   \begin{itemize}
     \item Package \emph{server.persistent} : comprende tutte le classi che
     rappresentano un entit\`a JDO (Java Data Object), le quali usate per lo scambio dati tra
-    server e Google Datastore;
+    server e \underline{Google Datastore};
     \item Package \emph{server.servlet} : comprende tutte le servlet utilizzate
-    per interfacciarsi a servizi esterni (es. Google Authentication, YouTube);
+    per interfacciarsi a servizi esterni (es. Google Authentication,
+    \underline{YouTube});
     \item Package \emph{server.utils} : comprende classi di utilit\`a per
     svolgere attivit\`a interne al server di varie tipologie;
   \end{itemize}
   \item Package \emph{shared} :  contiene classi condivise tra client e server,
-  che verranno anch'esse compilate in JavaScript da GWT, come tutto il package
-  client. La maggior parte saranno gli oggetti di trasferimento che
+  che verranno anch'esse compilate in \underline{JavaScript} da GWT, come tutto
+  il package client. La maggior parte saranno gli oggetti di trasferimento che
   aderiscono al pattern DTO.
 \end{itemize}
 
@@ -373,10 +376,10 @@ individuate durante la progettazione \`e il seguente:
 \end{figure}
 
 \subsubsection{Decomposizione architetturale - diagrammi delle attivit\`a}
-Nella realizzazione di un'applicazione Web l'efficienza e la
-qualit\`a della visualizzazione dei contenuti assumono grande importanza per cui
-buona parte della struttura di NetMus lavorer\`a al fine di garantire queste
-componenti. \\
+Nella realizzazione di un'\underline{applicazione web} l'efficienza e la
+\underline{qualit\`a} della visualizzazione dei contenuti assumono grande
+importanza per cui buona parte della struttura di NetMus lavorer\`a al fine di garantire queste
+caratteristiche. \\
 Di seguito viene illustrato un diagramma UML delle attivit\`a che descrive il
 procedimento di visualizzazione della pagina di profilo utente a partire
 dall'accesso all'applicazione, procedimento che si ripete in modo del tutto
@@ -465,8 +468,8 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe rappresenta l'Entry Point di GWT che genera tutte le altre
 componenti e rende disponibile e visibile l'intero sistema.\\
-In particolare andr\`a a creare dinamicamente il ClientFactoryImpl adatto, nel
-caso ce ne fossero diversi, e lo aggancia insieme all'EventBus al nostro
+In particolare andr\`a a creare dinamicamente il \co{ClientFactoryImpl} adatto,
+nel caso ce ne fossero diversi, e lo aggancia insieme all'EventBus al nostro
 \co{NetmusPlaceHistoryMapper} ed al \co{NetmusActivityMapper}.
 Inoltre allaccia al body Html il widget principale dell'applicazione.
 
@@ -484,7 +487,7 @@ pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
 \subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 In Netmus \`e disponibile un'unica implementazione dell'interfaccia
-ClientFactory, poich\'e per il momento non \`e contemplato un utilizzo di
+\co{ClientFactory}, poich\'e per il momento non \`e contemplato un utilizzo di
 alternative all'interfaccia utente desktop.
 Nella classe si definiscono le propriet\`a di un vista (desktop) del
 sistema.
@@ -900,8 +903,8 @@ archiviazione di massa che vengono collegati alla macchina dell'utente.\\
 Per comunicare con tale applet sono state valutate due possibili metodologie
 d'implementazione: l'uso di una libreria che crea un sistema proxy tra la applet
 e GWT; oppure l'utilizzo di \underline{JSNI} (JavaScript Native Interface) che
-sostanzialmente ci permetterebbe di fare chiamate da JavaScript al codice Java e
-vice versa.
+sostanzialmente ci permetterebbe di fare chiamate da JavaScript al codice
+\underline{Java} e vice versa.
 
 \subsection*{Meccanismo di lavoro del componente}
 Una volta ricevuta una richiesta da parte della applet, verr\`a gestita da un
@@ -1073,7 +1076,7 @@ package \emph{server}.
 Le classi DAO gestiscono i dati del sistema garantendone la persistenza e si
 occupano anche di implementare la parte logica di salvataggio, recupero e
 relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e il
-database utilizzato \`e non relazionale.
+\underline{database} utilizzato \`e \underline{non-relazionale}.
 
 \subsection{Classe UserAccount}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -1406,7 +1409,7 @@ Estende la classe \co{LoginException}
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Indica che username e/o password sono errati.
+Indica che \underline{username} e/o password sono errati.
 
 \subsection{Classe RegistrationException}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -1541,7 +1544,7 @@ server.PMF & Cse1\\\hline
 server.LoginHelper & Cse2\\\hline
 server.SongsServiceImpl & Cse3\\\hline
 server.LoginServiceImpl & Cse4\\\hline
-server.UserServiceImpl & Cse5\\\hline
+server.UsersServiceImpl & Cse5\\\hline
 server.LibraryServiceImpl & Cse6\\\hline
 server.utils & Cseut0\\\hline
 server.utils.AuthenticationProvider & Cseut1\\\hline
@@ -1573,7 +1576,7 @@ server.persistent.Song & Csepe3\\\hline
 \hline
 \endfoot
 \endlastfoot
-C1FN-1.1 Grafica simile ad iTunes & Cclui0\\ \hline
+C1FN-1.1 Grafica simile ad \underline{iTunes} & Cclui0\\ \hline
 C1FN-1.1.1 Brani elencati opportunamente & Cclac2\\
  & Cclui2\\\hline
 C1FN-1.1.2 Menu laterali & Cclui0\\ \hline
@@ -1633,7 +1636,7 @@ C1FD-1.7.1 Visualizzazione altri profili & Cclui2\\
 C1FO-1.7.2 Lasciare commenti su profilo & Cclui2\\
  & Cclpl2\\
  & Cclac2\\\hline
-C1FO-1.8.1 Esportazione PDF & Cclui0\\
+C1FO-1.8.1 Esportazione \underline{PDF} & Cclui0\\
  & Cclac0\\\hline
 C1FD-1.10 Invio nuove informazioni a C2 & Ccl0\\\hline
 %requisiti c2
@@ -1708,7 +1711,7 @@ C1VN-1.11 Deve utilizzare il cloud computing \\ \hline
 C1VN-1.12 Tecnologie GAE e GWT \\ \hline
 C1FN-1.13 Gestione Database \\ \hline
 C1VN-1.13.1 Deve utilizzare Google Data Store \\ \hline
-C1VN-2.2 Open source \\ \hline
+C1VN-2.2 \underline{Open source} \\ \hline
 C1QN-2.3 Portabilit\`a \\ \hline
 C1VN-2.5 Semplicit\`a di utilizzo \\ \hline
 C1QN-2.6 Manutenibilit\`a \\ \hline
@@ -1743,8 +1746,8 @@ dell'architettura.
 Un'altro fattore emerso in questa fase di progettazione riguarda lo sviluppo
 della componente di estrazione dei brani da dispositivi USB dell'utente. La
 difficolt\`a incontrata riguarda il metodo di comunicazione tra la Web
-Application e tale Applet se implementata con JavaFX. Sono state per\`o gi\`a
-individuate alcune soluzioni possibili, tra le quali
+Application e tale Applet se implementata con \underline{JavaFX}. Sono state
+per\`o gi\`a individuate alcune soluzioni possibili, tra le quali
 l'implementazione come Java Applet firmata, i cui dettagli implementativi saranno definiti durante la
 progettazione di dettaglio. Tale variazione non andr\`a ad interferire con la
 nostra progettazione architetturale.
