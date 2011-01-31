@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.16}
+\newcommand{\versione}{0.18}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
@@ -33,6 +33,12 @@ VT.G \\
 \hline
 \endfoot 
 
+30/01/2011 & 0.18 & Baron Federico & Inserimento dei diagrammi di attivit\`a
+con relative spiegazioni.\\
+\hline
+30/01/2011 & 0.17 & Baron Federico & Integazione con nuovi contenuti del
+capitolo 2.1 Metodo e formalismo di specifica.\\
+\hline
 30/01/2011 & 0.16 & Daminato Simone & Inserite componenti del package
 server.utils.\\
 \hline
@@ -108,10 +114,18 @@ connessioni e delle principali classi di cui essi si compongono.
 
 \chapter{Definizione del Prodotto}
 \section{Metodo e formalismo di specifica}
-I diagrammi delle classi illustrati in questo capitolo (utilizzando il
-linguaggio di modellazione e specifica UML) definiscono la struttura ad alto
-livello del sistema Netmus a partire da una visione macroscopica del sistema,
-scendendo via via nel dettaglio.
+Il processo di progettazione architetturale svolto da VT.G per la
+realizzazione di NetMus verr\`a presentato per intero nel seguente documento. Per
+facilitarne la comprensione si utilizzaranno diagrammi aderenti allo
+standard di modellazione UML 2.x, nello specifico verranno illustrati diagrammi
+dei package, delle classi, di attivit\`a e di sequenza.
+In accordo con l'approccio top-down impiegato durante la progettazione i
+contenuti sono stati organizzati in modo da mostrare come prima cosa
+l'architatura mascroscopica del sistema per poi scendere pi\`u nel dettaglio
+proseguendo nel documento.\\
+Molto importante per la comprensione del documento \`e il capitolo 2.1 dedicato
+ai design patterns poich\'e rappresenta, insieme all'analisi dei requisiti, la
+base dell'architettura realizzata.
 
 \section{Presentazione dell'architettura generale del sistema.}
 
@@ -336,12 +350,69 @@ poich\'e rendono allo stesso tempo semplice ed efficente il passaggio di
 informazioni tra il server e i clients poich\'e incapsulano gli oggetti di
 peristenza DAO rimuovendone la parte logica, rispettando il design pattern DTO.
 \\\\ L'intero schema delle classi
-individuate durante la progettazione \`e il sueguente: \begin{figure}[h]
+individuate durante la progettazione \`e il sueguente: 
+\begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/Server&Shared.png}
 \caption{Diagramma delle classi dei packages server e shared.}
 \end{figure}
 
+\subsubsection{Decomposizione architeturale - diagrammi delle attivit\`a}
+Nella realizzazione di un'applicazione Web l'efficenza e la
+qualit\`a della visualizzazione dei contenuti assumono grande importanza per cui
+buona parte della strattura di NetMus lavorer\`a al fine di garantire queste
+componenti. \\
+Di seguito viene illustrato un diagramma UML delle attivit\`a che descrive il
+procedimento di visualizzazione della pagina di profilo utente a partire
+dall'accesso all'applicazione, procedimento che si ripete in modo del tutto
+analogo per la visualizzazione delle altre UI previste in NetMus.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16.5cm]{img/ST/profile.png}
+\caption{Diagramma delle classi che descrive il procedimento di
+visualizzazione della pagina di profilo utente.}
+\end{figure}
+\\\\\\Come possiamo vedere all'avvio dell'applicazione \`e sempre necessario
+effettuare il login e per visualizzare la pagina di profilo utente bisogna accedervi
+richiedendo l'URL corrispondente (rappresentato dalla classe \co{ProfilePlace}),
+vi sar\`a anche un reindirizzamento automatico alla fine della procedura di
+login.\\ 
+Una volta richiesta la pagina avverranno in sequeza le seguenti attivit\`a:
+\begin{itemize}
+  \item i dati di login dell'utente vengono inviati da \co{ProfileActivity},
+  tramite \co{ProfileService} che li incapsula in oggetti DTO (\co{LoginDTO}),
+  al server
+  \item viene cercato nel database il catalogo multimediale e tutti
+  gli altri dati relativi all'utente proprietario del login ricevuto
+  \item le informazioni ed il catalogo dell'utente, o un nuovo catalogo vuoto se
+  l'utente non lo aveva ancora creato, vengono restituito al client sempre
+  incapsulate in una classe DTO (\co{UserCompleteDTO})
+  \item La UI \co{ProfileView} inserisce i dati presenti in \co{UserCompleteDTO}
+  nei propri moduli grafici, la pagina \`e pronta e completa di tutti i suoi
+  contenuti.
+\end{itemize}
+
+La sotto-attivit\`a di login sopra citata viene dettagliata dal prossimo diagramma
+delle attivit\`a.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=15cm]{img/ST/login.png}
+\caption{Diagramma delle classi dei packages server e shared.}
+\end{figure}
+I sistemi di login offerti sono due, quello di Google ed uno specifico
+dell'applicazione NetMus e la sequenza di attivit\`a svolte durante il
+procedimento di login \`e la seguente:
+\begin{itemize}
+  \item verifica che l'utente non sia gi\`a autenticato
+  \item visualizzazione della UI \co{LoginView} che prevede la possibilit\`a di
+  scegliere tra le due modalit\`a di login
+  \item ricezione dei dati di login immessi dall'utente (in entrambi i casi)
+  \item verifica della correttezza dei dati inserti (nel database interno per
+  autenticazione NetMus e facendo una rischiesta esterna tramite
+  \co{LoginGoogleServlet} nel caso di autenticazione Google).
+  \item Fine del login se i dati sono corretti, ritorno a \co{LoginView} con la
+  possibilit\`a di effettuare la registrazione altrimenti.
+\end{itemize}
 
 \chapter{Descrizione dei singoli componenti}
 \section{Package client}
@@ -1263,6 +1334,12 @@ Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Fa da contenitore per tutti dati di un catalogo multimediale.
 
+\section{Package shared.exception}
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
 \subsection{Classe NetMusException}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Generica eccezione del nostro programma.
@@ -1328,6 +1405,12 @@ registrazione \`e gi\`a in uso, e quindi non pu\`o essere utilizzata per la
 registrazione di un nuovo utente.
 
 \section{Applet di estrazione brani}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16.5cm]{img/ST/recupero.png}
+\caption{Diagramma delle attivit\`a che descrive il procedimento di estrazione
+ed elaborazione dei brani recuperati dall'utente}
+\end{figure}
 Verr\`a creata una semplice applet che avr\`a lo scopo di catturare eventi
 provocati dall'inserimento di una periferica USB. Questa applet verr\`a inserita
 nella pagina web in maniera dinamica dalle nostre View, e sar\`a l'utente a
@@ -1356,7 +1439,6 @@ essere considerato attendibile o meno.\\
 Il client, come risposta dell'invio dei brani, avr\`a un reindirizzamento alla
 \co{EditSongsView}, la quale mostrer\`a a video la sua lista dei brani
 aggiornata e modificabile.
-
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 
