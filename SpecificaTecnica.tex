@@ -1,11 +1,11 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{0.20}
+\newcommand{\versione}{0.21}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
 \newcommand{\datacreazione}{2 Dicembre 2010}
-\newcommand{\datamodifica}{30 Gennaio 2011}
+\newcommand{\datamodifica}{31 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Mandolo Andrea}
@@ -33,6 +33,9 @@ VT.G \\
 \hline
 \endfoot 
 
+31/01/2011 & 0.21 & Daminato Simone & Inserimento delle tabelle di
+tracciamento.\\
+\hline
 30/01/2011 & 0.20 & Mandolo Andrea & Inserimento del diagramma di sequenza
 login.\\
 \hline
@@ -1648,50 +1651,76 @@ C2FN-3.1 Invio delle informazioni & Cclap0\\
  & Cclse3\\
  & Cse3\\\hline 
 
-
 %''extra''
 C1QN-1.5.1 Ottimizzazione della ricerca su YouTube & Csese4 \\ \hline
 C1VD-1.5.2 Quote YouTube & Csese4\\ \hline
-C1FD-1.8 Elaborazione dati utente\\ \hline
-C1FN-1.9 Ricezione ed elaborazione dei brani \\ \hline
-C1FN-1.9.1 Controllo di validit\`a dei dati \\ \hline
-C1FN-1.9.2 Completamento info da database interno \\ \hline
-C1FO-1.9.3 Completamento info da servizio esterno \\ \hline
-C1FN-1.9.4 Identificazione dati ridondanti \\ \hline
-C1FN-1.9.5 Inserimento nel Database \\ \hline
+C1FD-1.8 Elaborazione dati utente & Cse0\\ \hline
+C1FN-1.9 Ricezione ed elaborazione dei brani & Cse3\\ \hline
+C1FN-1.9.1 Controllo di validit\`a dei dati & Cse3\\ \hline
+C1FN-1.9.2 Completamento info da database interno & Cseut2\\
+ & Cse3\\
+ & Csepe0\\\hline
+C1FO-1.9.3 Completamento info da servizio esterno & Csese0\\ \hline
+C1FN-1.9.4 Identificazione dati ridondanti & Cseut2\\ \hline
+C1FN-1.9.5 Inserimento nel Database & Cse3\\
+ & Csepe0\\\hline
+C1QN-2 Utilizzo & Cclui0\\ \hline
+C1QO-2.1 Accessibilit\`a &Cclui0\\ \hline
+C1QD-2.4 Supporto multi-lingua & Ccl2\\
+ & Ccl3\\\hline
+C1QN-2.7 Gestione errori & Csh0\\ \hline
+%c2
+C2FO-1.3 Informazioni senza connessione & Cclap0\\ \hline
+C2FO-1.6 Indicazioni file ignorati & Cclap0\\ \hline
+C2QD-1.7 Ottimizzazione memoria cache & Cclap0\\ \hline 
+C2QN-3.2 Utilizzo della connessione & Cclse0\\ \hline 
+C2QD-4.3 Supporto multi-lingua & Cclap0\\ \hline
+\caption{Tracciamento requisiti - componenti}
+\end{longtable}
+\end{footnotesize}
+
+I seguenti componenti non sono risultati tracciabili, in quanto appartengono ad
+una delle seguenti categorie:
+\begin{itemize}
+  \item vincoli;
+  \item requisiti di qualit\`a generici;
+  \item requisiti intrisecamente legati alla piattaforma.
+\end{itemize}
+%non tracciati
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Requisiti non tracciati} \\
+\hline
+\endhead
+\hline
+\multicolumn{1}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+C1VD-1.5.3 YouTube Terms of Services \\ \hline
+C1QN-1.6 Scalabilit\`a \\ \hline
+C1QN-1.6.1 Scalabilit\`a interfaccia grafica \\ \hline
+C1QN-1.6.2 Scalabilit\`a massa di utenza \\ \hline
 C1QN-1.9.6 Gestione concorrenza \\ \hline
 C1VN-1.11 Deve utilizzare il cloud computing \\ \hline
 C1VN-1.12 Tecnologie GAE e GWT \\ \hline
 C1FN-1.13 Gestione Database \\ \hline
 C1VN-1.13.1 Deve utilizzare Google Data Store \\ \hline
-C1QN-2 Utilizzo \\ \hline
-C1QO-2.1 Accessibilit\`a \\ \hline
 C1VN-2.2 Open source \\ \hline
 C1QN-2.3 Portabilit\`a \\ \hline
-C1QD-2.4 Supporto multi-lingua \\ \hline
 C1VN-2.5 Semplicit\`a di utilizzo \\ \hline
 C1QN-2.6 Manutenibilit\`a \\ \hline
-C1QN-2.7 Gestione errori \\ \hline
 C1QN-3.1 Manuale utente \\ \hline
-%c2
-C2FO-1.3 Informazioni senza connessione \\ \hline
-C2FO-1.6 Indicazioni file ignorati \\ \hline
-C2QD-1.7 Ottimizzazione memoria cache \\ \hline 
-C2QN-3.2 Utilizzo della connessione \\ \hline 
 C2QD-4.1 Portabilit\`a \\ \hline
 C2QD-4.2 Semplicit\`a di utilizzo \\ \hline
-C2QD-4.3 Supporto multi-lingua \\ \hline
 C2QN-4.4 Manutenibilit\`a \\ \hline
 C2VD-4.5 Meno disturbo possibile \\ \hline
 C2VN-4.6 Norme legali \\ \hline
 C2VN-4.7 Open source \\ \hline
-
-%non tracciati
-C1VD-1.5.3 YouTube Terms of Services \\ \hline
-C1QN-1.6 Scalabilit\`a \\ \hline
-C1QN-1.6.1 Scalabilit\`a interfaccia grafica \\ \hline
-C1QN-1.6.2 Scalabilit\`a massa di utenza \\ \hline
-\caption{Tracciamento requisiti - componenti}
+\caption{Requisiti non tracciati}
 \end{longtable}
 \end{footnotesize}
 
