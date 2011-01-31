@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano Di Progetto}
-\newcommand{\versione}{1.5}
+\newcommand{\versione}{1.6}
 \newcommand{\versioneglossario}{1.0}
 \newcommand{\versionenormeprogetto}{1.0}
 \newcommand{\versioneAR}{1.0}
@@ -33,6 +33,8 @@ VT.G \\
 \endhead
 \hline
 \endfoot
+30/01/2011 & 1.6 & Lovato Daniele & Completato consuntivo.\\
+\hline
 29/01/2011 & 1.5 & Lovato Daniele & Corretti errori grammaticali e di sintassi.\\
 \hline
 28/01/2011 & 1.4 & Lovato Daniele & Sistemata tutta la sezione di analisi dei
@@ -669,38 +671,79 @@ in fase RR-RP e le ore effettivamente utilizzate dagli sviluppatori.
 \hline
 
 
-\bo{Progettazione Architetturale}\cellcolor{orange} & 45 &  \\\hline
-\bo{Inizio Proget. di Dettaglio 1}\cellcolor{orange}    & 24 &  
+\bo{Progettazione Architetturale}\cellcolor{orange} & 64 & 88 \\\hline
+\bo{Inizio Proget. di Dettaglio 1}\cellcolor{orange}    & 24 & 13 
 \\\hline
-\bo{Agg. PP (v2)}\cellcolor{orange}  & 10 &\\ \hline
-\bo{Agg. PQ (v2)}\cellcolor{orange}  & 23 &\\\hline
-\bo{Correzione docum. RR}\cellcolor{orange}&51&\\\hline
-\bo{Verifica}\cellcolor{orange}&61&\\\hline
-\bo{Controllo e Gestione}\cellcolor{orange}&3&\\\hline
-\bo{Gestione strumentaz.}\cellcolor{orange}&9&\\\hline
+\bo{Agg. PP (v2)}\cellcolor{orange}  & 10 & 12\\ \hline
+\bo{Agg. PQ (v2)}\cellcolor{orange}  & 23 & 33\\\hline
+\bo{Correzione docum. RR}\cellcolor{orange} & 51 & 32\\\hline
+\bo{Verifica}\cellcolor{orange}& 61 & 64\\\hline
+\bo{Controllo e Gestione}\cellcolor{orange}& 3 & 2 \\\hline
+\bo{Gestione strumentaz.}\cellcolor{orange}& 9 & 7\\\hline
+\bo{Totale}& 245 & 251\\\hline 
 \end{tabular}
 \caption{Confronto Preventivo/Consuntivo in fase RR-RP}
 \end{center}
 \end{table}
 
-------------------------Commenti------------------------------------\\
-
+Come si può notare dalla tabella, la progettazione architetturale ad alto
+livello ha occupato più ore di quante se ne fosse preventivato.
+La progettazione del sistema era stata sottostimata. 
+Conseguentemente le ore di progettazione in dettaglio sono state inferiori
+rispetto alle previsioni. 
+A compensare le ore in più svolte in progettazione è l'attività di correzione
+dei documenti dopo gli esiti della RR, che ha occupato quasi 20 ore in meno del
+previsto. Per quanto riguarda le rimanenti attività, le ore preventivate e le
+ore parziali combaciano quasi perfettamente ad esclusione
+dell'aggiornamento del PQ che ha richiesto una decina di ore in più rispetto a
+quelle preventivate.\\
+\\
+\\
 Riportiamo di seguito un grafico con un confronto tra le ore di lavoro
-preventivate, e le ore di lavoro effettive svolte in questa fase.\\
+preventivate, e le ore di lavoro effettive svolte in questa fase.
 
-``grafico ore tot-parziali''\\
-------------------------Commenti------------------------------------\\
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/ORE-RP.png}
+\caption{Rapporto tra ore parziali e ore totali preventivate per membro.}
+\end{figure}
+\vspace{0.5cm}
+
+Come illustra chiaramente il grafico, per ogni membro il monte ore parziale per
+questa fase si aggira intorno alle 35 ore, proprio come preventivato, che è
+circa il 25\% delle ore totali.\\
+\\
 
 Riportiamo ora un grafico che illustra chiaramente le spese sostenute in questa
-fase in relazione al budget totale fornito per lo sviluppo del progetto.\\
-``grafico budget totale-parziale''\\
-------------------------Commenti------------------------------------\\
+fase in relazione al budget totale fornito per lo sviluppo del progetto.
+
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/BUDGET-RP.png}
+\caption{Stato del budget utilizzato fino a RP}
+\end{figure}
+\vspace{0.5cm}
+
+Il budget speso è stato all'incirca il 26.6\% del budget totale.\\
+\\
 
 Inoltre di seguito forniamo anche un grafico a torta a che espone la
-ripartizione delle spese per ogni ruolo.\\
+ripartizione delle spese per ogni ruolo.
 
-``grafico torta ruoli-spese''\\
-------------------------Commenti------------------------------------\\
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/COSTI-RP.png}
+\caption{Ripartizione dei costi per ruolo in fase RR-RP}
+\end{figure}
+\vspace{0.5cm}
+
+In questa fase, la maggior parte delle risorse economiche sono state consumate
+dai progettisti e dai verificatori, seguiti dagli analisti che hanno ultimato il
+loro lavoro.\\
+\\
 
 \chapter{Analisi e gestione dei rischi}
 \thispagestyle{fancy}
