@@ -8,7 +8,7 @@
 \newcommand{\datacreazione}{3 Dicembre 2010}
 \newcommand{\datamodifica}{31 Gennaio 2011}
 \newcommand{\stato}{formale}
-\newcommand{\uso}{esterno} 
+\newcommand{\uso}{esterno}
 \newcommand{\redazione}{Trezzi Giovanni}
 \newcommand{\verifica}{Palazzin Alberto}
 \newcommand{\approvazione}{Lovato Daniele}
@@ -840,10 +840,10 @@ Tecniche: IN.
 
 \subsection{Progettazione nel dettaglio}
 
-Per la verifica della progettazione nel dettaglio si cercherà di elaborare 
+Per la verifica della progettazione nel dettaglio si cercher\`a di elaborare 
 metodi di misura mirati a rilevare i difetti all'interno dello sviluppo delle
-singole componenti cercando di rilevarne le proprietà di coesione e di
-accoppiamento. Si analizzeranno inoltre tutte quelle metriche già introdotte o
+singole componenti cercando di rilevarne le propriet\`a di coesione e di
+accoppiamento. Si analizzeranno inoltre tutte quelle metriche gi\`a introdotte o
 da introdurre, comprese quelle per i linguaggi ad oggetti, al fine di
 ottimizzare la progettazione nel dettaglio per una efficace successiva fase di
 codifica.
@@ -853,9 +853,9 @@ progettazione nel dettaglio all'interno di questo paragrafo.
 
 \subsection{Codifica}
 
-Per l'analisi del codice si elaboreranno metodi di verifica il cui scopo sarà
-quello di vagliare tutte le metriche già introdotte, o da introddure, utili a
-determinare affidabilità, efficienza, portabilità e manutenibilità del codice.
+Per l'analisi del codice si elaboreranno metodi di verifica il cui scopo sar\`a
+quello di vagliare tutte le metriche gi\`a introdotte, o da introddure, utili a
+determinare affidabilit\`a, efficienza, portabilit\`a e manutenibilit\`a del codice.
 \\\\
 I verificatori potranno trovare i metodi di verifica per la fase di codifica
 all'interno di questo paragrafo.
@@ -961,8 +961,6 @@ rafforzare il metodo di lavoro.
 
 \chapter{Resoconto delle attivit\`a di verifica}
 \thispagestyle{fancy} % per lo stile di header e footer
-
-\section{Tracciamento componenti - requisiti}
 
 \section{Dettaglio delle verifiche tramite analisi}
 
@@ -1214,7 +1212,7 @@ compatibile con le tempistiche a disposizione.
 
 Verifica dei requisiti proposti nel documento \emph{AnalisiDeiRequisiti-1.8.pdf}
 con almeno un modulo software previsto nel documento
-\emph{SpecificaTecnica-0.24.pdf}.
+\emph{SpecificaTecnica-0.21.pdf}.
 
 \begin{footnotesize}
 \begin{longtable}{|p{2,4cm}|p{2,4cm}|}
@@ -1297,7 +1295,7 @@ con almeno un modulo software previsto nel documento
  C2VN-4.6&-    \\ \hline
  C2VN-4.7&-  \\ \hline
 
-\caption{Check sulla presenza requisiti - componenti v. 0.24}
+\caption{Check sulla presenza requisiti - componenti v. 0.21}
 \end{longtable}
 \end{footnotesize}
 
@@ -1307,95 +1305,142 @@ quelli non tracciabili sono segnati con un trattino.
 
 \subsection*{Individuazione di elementi progettuali superflui}
 Verifica che tutti i moduli software proposti in
-\emph{SpecificaTecnica-0.24.pdf} siano effettivamente richiesti dai requisiti
+\emph{SpecificaTecnica-0.21.pdf} siano effettivamente richiesti dai requisiti
 individuati in fase di analisi.
 
 \begin{footnotesize}
 \begin{longtable}{|p{2,4cm}|p{2,4cm}|}
 \hline
-\rowcolor{orange} \bo{Requisito}  & \bo{Componente} \\
+\rowcolor{orange} \bo{Componente}  & \bo{Requisito} \\
 \hline
 \endhead
 \endfoot
  
- Ccl0 & \\ \hline
- Ccl1 &  \\ \hline
- Ccl2 &  \\ \hline
- Ccl3 &  \\ \hline
- Cclmv0 &  \\ \hline
- Cclmv1 &  \\ \hline
- Cclmv2 &  \\ \hline
- Cclac0 &  \\ \hline
- Cclac1 &  \\ \hline
- Cclac2 &  \\ \hline
- Cclac3 &  \\ \hline
- Cclac4 &  \\ \hline
- Cclse0 &  \\ \hline
- Cclse1 &  \\ \hline
- Cclse2 &  \\ \hline
- Cclse3 &  \\ \hline
- Cclse4 &  \\ \hline
- Cclpl0 &  \\ \hline
- Cclpl1 &  \\ \hline
- Cclpl2 &  \\ \hline
- Cclpl3 &  \\ \hline
- Cclpl4 &  \\ \hline
- Cclui0 &  \\ \hline
- Cclui1 &  \\ \hline
- Cclui2 &  \\ \hline
- Cclui3 &  \\ \hline
- Cclui4 &  \\ \hline
- Cclap0 &  \\ \hline
- Csh0 &  \\ \hline
- Csh1 &  \\ \hline
- Csh2 &  \\ \hline
- Csh3 &  \\ \hline
- Csh4 &  \\ \hline
- Csh5 &  \\ \hline
- Csh6 &  \\ \hline
- Csh7 &  \\ \hline
- Csh8 &  \\ \hline
- Cshex0 &  \\ \hline
- Cshex1 &  \\ \hline
- Cshex2 &  \\ \hline
- Cshex3 &  \\ \hline
- Cshex4 &  \\ \hline
- Cshex5 &  \\ \hline
- Cshex6 &  \\ \hline
- Cse0 &  \\ \hline
- Cse1 &  \\ \hline
- Cse2 &  \\ \hline
- Cse3 &  \\ \hline
- Cse4 &  \\ \hline
- Cse5 &  \\ \hline
- Cse6 &  \\ \hline
- Cseut0 &  \\ \hline
- Cseut1 &  \\ \hline
- Cseut2 &  \\ \hline
- Cseut3 &  \\ \hline
- Csese0 &  \\ \hline
- Csese1 &  \\ \hline
- Csese2 &  \\ \hline
- Csese3 &  \\ \hline
- Csese4 &  \\ \hline
- Csepe0 &  \\ \hline
- Csepe1 &  \\ \hline
- Csepe2 &  \\ \hline
- Csepe3 &  \\ \hline
+ Ccl0 &X \\ \hline
+ Ccl1 &X  \\ \hline
+ Ccl2 &X  \\ \hline
+ Ccl3 &superfluo  \\ \hline
+ Cclmv0 &X  \\ \hline
+ Cclmv1 &X  \\ \hline
+ Cclmv2 &X  \\ \hline
+ Cclac0 &X  \\ \hline
+ Cclac1 &X  \\ \hline
+ Cclac2 &X  \\ \hline
+ Cclac3 &X  \\ \hline
+ Cclac4 &X  \\ \hline
+ Cclse0 &X  \\ \hline
+ Cclse1 &X  \\ \hline
+ Cclse2 &X  \\ \hline
+ Cclse3 &X  \\ \hline
+ Cclse4 &X  \\ \hline
+ Cclpl0 &X  \\ \hline
+ Cclpl1 &X  \\ \hline
+ Cclpl2 &X  \\ \hline
+ Cclpl3 &X  \\ \hline
+ Cclpl4 &X  \\ \hline
+ Cclui0 &X  \\ \hline
+ Cclui1 &X  \\ \hline
+ Cclui2 &X  \\ \hline
+ Cclui3 &X  \\ \hline
+ Cclui4 &X  \\ \hline
+ Cclap0 &X  \\ \hline
+ Csh0 &X  \\ \hline
+ Csh1 &X  \\ \hline
+ Csh2 &X  \\ \hline
+ Csh3 &X  \\ \hline
+ Csh4 &X  \\ \hline
+ Csh5 &X  \\ \hline
+ Csh6 &X  \\ \hline
+ Csh7 &X  \\ \hline
+ Csh8 &X  \\ \hline
+ Cshex0 &X  \\ \hline
+ Cshex1 &X  \\ \hline
+ Cshex2 &X  \\ \hline
+ Cshex3 &X  \\ \hline
+ Cshex4 &X  \\ \hline
+ Cshex5 &X  \\ \hline
+ Cshex6 &X  \\ \hline
+ Cse0 &X  \\ \hline
+ Cse1 &X  \\ \hline
+ Cse2 &X  \\ \hline
+ Cse3 &X  \\ \hline
+ Cse4 &X  \\ \hline
+ Cse5 &X  \\ \hline
+ Cse6 &X  \\ \hline
+ Cseut0 &X  \\ \hline
+ Cseut1 &X  \\ \hline
+ Cseut2 &superfluo  \\ \hline
+ Cseut3 &X  \\ \hline
+ Csese0 &X  \\ \hline
+ Csese1 &X  \\ \hline
+ Csese2 &X  \\ \hline
+ Csese3 &X  \\ \hline
+ Csese4 &X  \\ \hline
+ Csepe0 &X  \\ \hline
+ Csepe1 &X  \\ \hline
+ Csepe2 &X  \\ \hline
+ Csepe3 &X  \\ \hline
 
-\caption{Check sull'utilizzo dei moduli software v. 0.24}
+\caption{Check sull'utilizzo dei moduli software v. 0.21}
 \end{longtable}
 \end{footnotesize}
- ----->COMMENTO<----- Mettere una crocetta se effettivamente usato in qualche
- requisito
+
+Tra i moduli software proposti alcuni non sono presenti nel tracciamento
+diretto con i requisiti ma questa assenza \`e motivata dall'aderenza a dei
+design pattern che richiedono un'architettura standard per l'implementazione
+delle funzionalit\`a ricercate da NetMus. \\
+Ne sono stati individuati invece due che non trovano corrispondenza nei
+requisiti derivanti dall'analisi. \\\\ 
+Successivamente ad una consultazione con i progettisti Federico Baron, Cosimo
+Caputo, Andrea Mandolo e Simone Daminato sono state rivalutate le scelte
+progettuali che hanno portato all'individuazione delle due componenti in
+questione ed \`e stato deciso di mantenerle entrambe invariate per le seguenti
+motivazioni:
+\begin{itemize}
+  \item{\bo{Ccl3}: \co{ClientFactory} \`e un'interfaccia che sfrutta la tecnica
+  di GWT \underline{deferred binding} permettendo la configurazione dei
+  parametri adeguati al tipo di client che accede al sistema NetMus. Nei
+  requisiti non \`e stata ancora prevista una distinzione tra i client che
+  utilizzeranno la nostra applicazione (es. mobile client) ma riteniamo che
+  un'architettura di questo genere arrechi una spesa minima per la realizzazione
+  e garantisca concreti benefici in termini di estendibilit\`a e manutenibilit\`a.}
+  \item{\bo{Cseut2}: la classe \co{Utils} \`e stata progettata per raccogliere
+  tutte quelle funzioni e procedure che vengono utilizzate pi\`u volte negli
+  algoritmi eseguiti lato server ma che non appartengono a nessuna delle entit\`a
+  individuate. \`E quindi buona pratica includere \co{Utils} nella progettazione
+  anche se non direttamente tracciabile con i requisiti.}
+\end{itemize}
 
 
-\subsection*{Corretta corrispondenza e tracciabilit\`a tra i requisiti e  i\\
-moduli software} 
+\subsection*{Corretta corrispondenza e tracciabilit\`a tra i requisiti e  i
+moduli software} Le funzioni dei singoli componenti descritte in
+\emph{SpecificaTecnica-0.21.pdf} soddisfano le richieste dei requisiti ad essi
+tracciati. Si \`e riscontrata solamente un'imprecisione in \emph{client.ui}
+(Cclui0) e in \co{ProfileView} (Cclui2) le cui descrizioni sono troppo vaghe
+rispetto ai requisiti che si propongono di soddisfare. 
+\subsection*{Corretta corrispondenza e tracciabilit\`a tra i requisiti e  i
+moduli software in \emph{SpecificaTecnica-0.24.pdf} a fronte delle correzioni
+apportate alla versione 0.21.} 
+Le funzioni di tutti i singoli componenti descritte in
+\emph{SpecificaTecnica-0.24.pdf} soddisfano le richieste dei requisiti ad essi
+tracciati. requisiti che si propongono di soddisfare.
 
 \subsection*{Flessibilit\`a e manutenibilit\`a}
-
-
+Le componenti individuate nella progettazione ad alto livello sono 64 ed hanno
+lo scopo di soddisfare le richieste di 41 requisiti funzionali. Il rapporto \`e
+circa di 1:1 poich\'e alcune componenti hanno una funzione solamente ausiliaria e
+quindi non direttamente legata ai requisiti. \\\\
+Viene registrato un sovraccarico delle funzionalit\`a richieste al modulo
+\emph{client.applet} ma \`e giustificato dal fatto che questo modulo descrive
+una componente indipendente del sistema. La componente di recupero delle
+informazioni, infatti, ha un funzionamento molto semplice ed \`e quasi
+completamente priva di interfaccia utente ma costituisce l'oggetto di buona
+parte delle funzioni richieste dal capitolato d'appalto. La distribuzione dei
+requisiti sugli altri moduli \`e equilibrata.\\\\
+All'interno dell'architettura di alto livello presentata in
+\emph{SpecificaTecnica-0.21.pdf} sono individuati un buon numero di design
+patterns che aumentano di molto le prospettive di estendibilit\`a e manutenibilit\`a
+del sistema NetMus.
 
 \section{Dettaglio delle verifiche tramite prove (test)}
 Non \`e ancora stata eseguita nessuna verifica tramite test.
@@ -1479,7 +1524,7 @@ Il collaudo consister\`a in due fasi:
   Il compito di questi soggetti esterni e di valutarne la fruibilit\`a e l'accessibilit\`a.
 \end{itemize}
 
-Una volta che il prodotto sarà completato, tutti i requisiti dovranno essere
+Una volta che il prodotto sar\`a completato, tutti i requisiti dovranno essere
 stati soddisfatti.\\
 \\
 Di seguito riportiamo una tabella che riporta requisiti tracciati e metodi per
@@ -1505,13 +1550,13 @@ l'utilizzo della GUI con rispettivi controlli sul Database per
 verificare che le modifiche effettuate siano state registrate correttamente.
 \\\hline \bo{C1FD-1.3.2, C1FN-1.4.3} & Questi requisiti
 potranno essere verificati tramite il solo controllo del Database. \\ \hline
-\bo{C1FO-1.8.1} & Il requisito potrà essere verificato qualora l'esportazione e
+\bo{C1FO-1.8.1} & Il requisito potr\`a essere verificato qualora l'esportazione e
 la creazione del PDF abbiano successo. \\\hline 
 \bo{C1FD-1.10, C2FD-2} & Tali requisiti potranno essere verificati nel momento
-in cui la periferica USB risulterà aggiornata. \\\hline
+in cui la periferica USB risulter\`a aggiornata. \\\hline
 \bo{C2FN-1, C2FN-1.1, C2FN-1.2, C2FD-1.4, C2FN-1.5, C2FN-3, C2FN-3.1}& Questi
-requisiti riguardano la componente C2. La loro verifica consisterà nell'apparizione di un popup di avviso
-che l'operazione è andata a buon fine.\\\hline
+requisiti riguardano la componente C2. La loro verifica consister\`a nell'apparizione di un popup di avviso
+che l'operazione \`e andata a buon fine.\\\hline
 \end{tabular}
 \caption{Requisiti e rispettivi metodi di verifica in fase di collaudo}
 \end{center}
