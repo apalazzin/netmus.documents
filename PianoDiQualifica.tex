@@ -1401,25 +1401,22 @@ individuati in fase di analisi.
 \end{longtable}
 \end{footnotesize}
 
-Tra i moduli software proposti alcuni non sono presenti nel tracciamento
-diretto con i requisiti ma questa assenza \`e motivata dall'aderenza a dei
-design pattern che richiedono un'architettura standard per l'implementazione
-delle funzionalit\`a ricercate da NetMus. \\
-Ne sono stati individuati invece due che non trovano corrispondenza nei
+Sono stati individuati due componenti che non trovano corrispondenza nei
 requisiti derivanti dall'analisi. \\\\ 
 Successivamente ad una consultazione con i progettisti Federico Baron, Cosimo
 Caputo, Andrea Mandolo e Simone Daminato sono state rivalutate le scelte
 progettuali che hanno portato all'individuazione delle due componenti in
-questione ed \`e stato deciso di mantenerle entrambe invariate per le seguenti
-motivazioni:
+questione ed \`e stato deciso di mantenere Cseut2 tra le componenti anche se non
+tracciata mentre Ccl3 è stata tracciata per le seguenti motivazioni:
 \begin{itemize}
-  \item{\bo{Ccl3}: \co{ClientFactory} \`e un'interfaccia che sfrutta la tecnica
-  di GWT \underline{deferred binding} permettendo la configurazione dei
-  parametri adeguati al tipo di client che accede al sistema NetMus. Nei
-  requisiti non \`e stata ancora prevista una distinzione tra i client che
-  utilizzeranno la nostra applicazione (es. mobile client) ma riteniamo che
-  un'architettura di questo genere arrechi una spesa minima per la realizzazione
-  e garantisca concreti benefici in termini di estendibilit\`a e manutenibilit\`a.}
+  \item{\bo{Ccl3}: \`e stata tracciata con il requisito
+  C1QN-2.3 Portabilit\`a poich\'e \co{ClientFactory} \`e un'interfaccia che
+  sfrutta la tecnica di GWT \underline{deferred binding} permettendo la
+  configurazione dei parametri adeguati al tipo di client che accede al sistema
+  NetMus. Nei requisiti non \`e stata ancora prevista una distinzione tra i
+  client che utilizzeranno la nostra applicazione (es. mobile client) ma
+  riteniamo che un'architettura di questo genere arrechi una spesa minima per la
+  realizzazione e garantisca concreti benefici in termini di portabilit\`a.}
   \item{\bo{Cseut2}: la classe \co{Utils} \`e stata progettata per raccogliere
   tutte quelle funzioni e procedure che vengono utilizzate pi\`u volte negli
   algoritmi eseguiti lato server ma che non appartengono a nessuna delle entit\`a
@@ -1441,11 +1438,10 @@ Le funzioni di tutti i singoli componenti descritte in
 \emph{SpecificaTecnica-0.24.pdf} soddisfano le richieste dei requisiti ad essi
 tracciati. requisiti che si propongono di soddisfare.
 
-\subsection*{Flessibilit\`a e manutenibilit\`a}
-Le componenti individuate nella progettazione ad alto livello sono 64 ed hanno
-lo scopo di soddisfare le richieste di 41 requisiti funzionali. Il rapporto \`e
-circa di 1:1 poich\'e alcune componenti hanno una funzione solamente ausiliaria e
-quindi non direttamente legata ai requisiti. \\\\
+\subsection*{Flessibilit\`a e manutenibilit\`a} Le componenti individuate nella
+progettazione ad alto livello sono 64 ed hanno lo scopo di soddisfare le
+richieste di 41 requisiti funzionali. Il rapporto di
+è considerato soddisfacente. \\\\ 
 Viene registrato un sovraccarico delle funzionalit\`a richieste al modulo
 \emph{client.applet} ma \`e giustificato dal fatto che questo modulo descrive
 una componente indipendente del sistema. La componente di recupero delle
@@ -1455,8 +1451,8 @@ parte delle funzioni richieste dal capitolato d'appalto. La distribuzione dei
 requisiti sugli altri moduli \`e equilibrata.\\\\
 All'interno dell'architettura di alto livello presentata in
 \emph{SpecificaTecnica-0.21.pdf} sono individuati un buon numero di design
-patterns che aumentano di molto le prospettive di estendibilit\`a e manutenibilit\`a
-del sistema NetMus.
+patterns che aumentano di molto le prospettive di estendibilit\`a e
+manutenibilit\`a del sistema NetMus.
 
 \section{Dettaglio delle verifiche tramite prove (test)}
 Non \`e ancora stata eseguita nessuna verifica tramite test.
