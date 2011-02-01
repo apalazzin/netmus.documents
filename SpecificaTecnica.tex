@@ -1495,7 +1495,8 @@ Il client, come risposta dell'invio dei brani, avr\`a un reindirizzamento alla
 \co{EditSongsView}, la quale mostrer\`a a video la sua lista dei brani
 aggiornata e modificabile.
 
-\chapter{Tracciamento della relazione componenti - requisiti}
+\chapter{Tracciamento}
+\section{Assegnazione codici identificativi}
 
 \begin{footnotesize}
 \centering
@@ -1578,6 +1579,7 @@ server.persistent.Song & Csepe3\\\hline
 \end{longtable}
 \end{footnotesize}
 
+\section{Tracciamento requisiti - componenti}
 \begin{footnotesize}
 \centering
 \begin{longtable}[!h]{|l|l|}
@@ -1695,7 +1697,8 @@ C2QD-4.3 Supporto multi-lingua & Cclap0\\ \hline
 \end{longtable}
 \end{footnotesize}
 
-I seguenti componenti non sono risultati tracciabili, in quanto appartengono ad
+\subsection{Requisiti non tracciati}
+I seguenti requisiti non sono risultati tracciabili, in quanto appartengono ad
 una delle seguenti categorie:
 \begin{itemize}
   \item vincoli;
@@ -1738,6 +1741,89 @@ C2VD-4.5 Meno disturbo possibile \\ \hline
 C2VN-4.6 Norme legali \\ \hline
 C2VN-4.7 Open source \\ \hline
 \caption{Requisiti non tracciati}
+\end{longtable}
+\end{footnotesize}
+
+\section{Tracciamento componenti - requisiti}
+
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Componente} & \sca{Codice}\\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+Ccl0 - client &  \\\hline
+Ccl1 - client.Netmus &  \\\hline
+Ccl2 - client.ClientFactory &  \\\hline
+Ccl3 - client.ClientFactoryImpl &  \\\hline
+Cclmv0 - client.mvp &  \\\hline
+Cclmv1 - client.mvp.NetmusActivityMapper &  \\\hline
+Cclmv2 - client.mvp.NetmusPlaceHistoryMapper &  \\\hline
+Cclac0 - client.activity &  \\\hline
+Cclac1 - client.activity.LoginActivity &  \\\hline
+Cclac2 - client.activity.ProfileActivity &  \\\hline
+Cclac3 - client.activity.EditUserActivity &  \\\hline
+Cclac4 - client.activity.EditSongsActivity &  \\\hline
+Cclse0 - client.service &  \\\hline
+Cclse1 - client.service.LoginService &  \\\hline
+Cclse2 - client.service.UsersService &  \\\hline
+Cclse3 - client.service.SongsService &  \\\hline
+Cclse4 - client.service.LibraryService &  \\\hline
+Cclpl0 - client.place &  \\\hline
+Cclpl1 - client.place.LoginPlace &  \\\hline
+Cclpl2 - client.place.ProfilePlace &  \\\hline
+Cclpl3 - client.place.EditUserPlace &  \\\hline
+Cclpl4 - client.place.EditSongsPlace &  \\\hline
+Cclui0 - client.ui &  \\\hline
+Cclui1 - client.ui.LoginView &  \\\hline
+Cclui2 - client.ui.ProfileView &  \\\hline
+Cclui3 - client.ui.EditUserView &  \\\hline
+Cclui4 - client.ui.EditSongsView &  \\\hline
+Cclap0 - client.applet &  \\\hline
+Csh0 - shared &  \\\hline
+Csh1 - shared.GenericDTO &  \\\hline
+Csh2 - shared.SongSummaryDTO &  \\\hline
+Csh3 - shared.SongDTO &  \\\hline
+Csh4 - shared.LoginDTO &  \\\hline
+Csh5 - shared.MusicLibraryDTO &  \\\hline
+Csh6 - shared.UserSummaryDTO &  \\\hline
+Csh7 - shared.UserDTO &  \\\hline
+Csh8 - shared.UserCompleteDTO &  \\\hline
+Cshex0 - shared.exception &  \\\hline
+Cshex1 - shared.exception.NetMusException &  \\\hline
+Cshex2 - shared.exception.LoginException &  \\\hline
+Cshex3 - shared.exception.WrongLoginException &  \\\hline
+Cshex4 - shared.exception.RegistrationException &  \\\hline
+Cshex5 - shared.exception.NickNotFreeException &  \\\hline
+Cshex6 - shared.exception.DuplicateEmailException &  \\\hline
+Cse0 - server &  \\\hline
+Cse1 - server.PMF &  \\\hline
+Cse2 - server.LoginHelper &  \\\hline
+Cse3 - server.SongsServiceImpl &  \\\hline
+Cse4 - server.LoginServiceImpl &  \\\hline
+Cse5 - server.UserServiceImpl &  \\\hline
+Cse6 - server.LibraryServiceImpl &  \\\hline
+Cseut0 - server.utils &  \\\hline
+Cseut1 - server.utils.AuthenticationProvider &  \\\hline
+Cseut2 - server.utils.Utils &  \\\hline
+Cseut3 - server.utils.ServletUtils &  \\\hline
+Csese0 - server.servlet &  \\\hline
+Csese1 - server.servlet.LoginSuperServlet &  \\\hline
+Csese2 - server.servlet.LoginGoogleServlet &  \\\hline
+Csese3 - server.servlet.LoginGoogleCallbackServlet &  \\\hline
+Csese4 - server.servlet.YouTubeServlet &  \\\hline
+Csepe0 - server.persistent &  \\\hline
+Csepe1 - server.persistent.UserAccount &  \\\hline
+Csepe2 - server.persistent.MusicLibrary &  \\\hline
+Csepe3 - server.persistent.Song &  \\\hline
+\caption{Tracciamento Componenti - Requisiti}
 \end{longtable}
 \end{footnotesize}
 
