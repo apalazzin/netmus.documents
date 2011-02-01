@@ -3,6 +3,7 @@
 \newcommand{\versione}{1.0}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
+\newcommand{\versioneAR}{2.0}
 \newcommand{\nomefile}{SpecificaTecnica-\versione.pdf}
 \newcommand{\datacreazione}{21 Gennaio 2011}
 \newcommand{\datamodifica}{1 Febbraio 2011}
@@ -114,7 +115,7 @@ metodi utilizzati per l'identificazione delle principali componenti, alla loro
 struttura, funzione e alle relazioni d'uso. Vengono infine presentati una stima
 della fattibilit\`a e delle risorse necessarie e il tracciamento delle
 componenti sui requisiti, descritti in dettaglio nel documento
-\emph{Analisi dei requisiti (ver. 2.0)}.
+\emph{AnalisiDeiRequisiti-\versioneAR.pdf}.
 
 
 \thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
@@ -150,7 +151,8 @@ base dell'architettura realizzata.
 \\\\
 Per le norme riguardanti il tracciamento delle componenti con i requisiti e le
 regole generali di stesura dei documenti e tecnologie utilizzate si fa
-riferimento al documento \emph{Norme di progetto (ver. 2.0)} ai capitoli 3 e 4.
+riferimento al documento \emph{NormeDiProgetto-\versionenormeprogetto.pdf} ai
+capitoli 3 e 4.
 
 \section{Presentazione dell'architettura generale del sistema.}
 
@@ -305,7 +307,7 @@ La struttura sar\`a quindi formata dai seguenti packages:
 \begin{figure}[h]
   \centering
   \includegraphics[width=16cm]{img/ST/PackageGeneric.png}
-\caption{Diagramma dei package principali di Netmus.}
+\caption{Diagramma dei package principali di Netmus}
 \end{figure}
 
 \begin{itemize}
@@ -333,7 +335,7 @@ La struttura sar\`a quindi formata dai seguenti packages:
     ricezione dei dati estratti dall'\underline{Applet} precompilata;
     %-------------------------------------------------------
   \end {itemize}
-  \item Package \emph{server} : rappresenta la parte server di Netmus;
+  \item Package \emph{server} : rappresenta la parte server di Netmus
   \begin{itemize}
     \item Package \emph{server.persistent} : comprende tutte le classi che
     rappresentano un entit\`a JDO (Java Data Object), usate per lo scambio dati tra
@@ -366,7 +368,7 @@ seguente:
 \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/client.png}
-\caption{Diagramma delle classi del package client.}
+\caption{Diagramma delle classi del package client}
 \end{figure}
 \newpage
 \subsubsection{Decomposizione architetturale - lato server}
@@ -382,14 +384,14 @@ individuate durante la progettazione \`e il seguente:
 \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/Server&Shared.png}
-\caption{Diagramma delle classi dei packages server e shared.}
+\caption{Diagramma delle classi dei packages server e shared}
 \end{figure}
 
 \subsubsection{Decomposizione architetturale - diagrammi delle attivit\`a}
-Nella realizzazione di un'\underline{applicazione web} l'efficienza e la
+Nella realizzazione di un'\underline{applicazione web}, l'efficienza e la
 \underline{qualit\`a} della visualizzazione dei contenuti assumono grande
 importanza e buona parte della struttura di NetMus lavorer\`a
-al fine di garantire queste caratteristiche. \\
+al fine di garantire queste caratteristiche. \\ \\
 Di seguito viene illustrato un diagramma UML delle attivit\`a che descrive il
 procedimento di visualizzazione della pagina di profilo utente a partire
 dall'accesso all'applicazione, procedimento che si ripete in modo del tutto
@@ -398,23 +400,23 @@ analogo per la visualizzazione delle altre UI previste in NetMus.
   \centering
   \includegraphics[width=16.5cm]{img/ST/profile.png}
 \caption{Diagramma delle classi che descrive il procedimento di
-visualizzazione della pagina di profilo utente.}
+visualizzazione della pagina di profilo utente}
 \end{figure}
 \\\\\\Come possiamo vedere all'avvio dell'applicazione \`e sempre necessario
 effettuare il login e per visualizzare la pagina di profilo utente bisogna accedervi
 richiedendo l'URL corrispondente (rappresentato dalla classe \co{ProfilePlace}),
 vi sar\`a anche un reindirizzamento automatico alla fine della procedura di
-login.\\ 
+login.\\  \\
 Una volta richiesta la pagina avverranno in sequenza le seguenti attivit\`a:
 \begin{itemize}
   \item i dati di login dell'utente vengono inviati da \co{ProfileActivity},
   tramite \co{ProfileService} che li incapsula in oggetti DTO (\co{LoginDTO}),
-  al server
+  al server;
   \item viene cercato nel database il catalogo multimediale e tutti
-  gli altri dati relativi all'utente proprietario del login ricevuto
+  gli altri dati relativi all'utente proprietario del login ricevuto;
   \item le informazioni ed il catalogo dell'utente, o un nuovo catalogo vuoto se
   l'utente non lo aveva ancora creato, vengono restituito al client sempre
-  incapsulate in una classe DTO (\co{UserCompleteDTO})
+  incapsulate in una classe DTO (\co{UserCompleteDTO});
   \item La UI \co{ProfileView} inserisce i dati presenti in \co{UserCompleteDTO}
   nei propri moduli grafici, la pagina \`e pronta e completa di tutti i suoi
   contenuti.
@@ -426,20 +428,20 @@ delle attivit\`a.
   \centering
   \includegraphics[width=15cm]{img/ST/login.png}
 \caption{Diagramma delle attivit\`a che descrive in dettaglio la
-sotto-attivit\`a di login.}
+sotto-attivit\`a di login}
 \end{figure}
 \\
 I sistemi di login offerti sono due, quello di Google ed uno specifico
 dell'applicazione NetMus e la sequenza di attivit\`a svolte durante il
 procedimento di login \`e la seguente:
 \begin{itemize}
-  \item verifica che l'utente non sia gi\`a autenticato
+  \item verifica che l'utente non sia gi\`a autenticato;
   \item visualizzazione della UI \co{LoginView} che prevede la possibilit\`a di
-  scegliere tra le due modalit\`a di login
-  \item ricezione dei dati di login immessi dall'utente (in entrambi i casi)
+  scegliere tra le due modalit\`a di login;
+  \item ricezione dei dati di login immessi dall'utente (in entrambi i casi);
   \item verifica della correttezza dei dati inserti (nel database interno per
   autenticazione NetMus e facendo una richiesta esterna tramite
-  \co{LoginGoogleServlet} nel caso di autenticazione Google).
+  \co{LoginGoogleServlet} nel caso di autenticazione Google);
   \item Fine del login se i dati sono corretti, ritorno a \co{LoginView} con la
   possibilit\`a di effettuare la registrazione altrimenti.
 \end{itemize}
@@ -612,7 +614,7 @@ rimozione di informazioni non influenza i dati che Netmus salva sul database.
 Questo package contiene le classi Activity che corrispondono in pratica alla
 componente Presenter del pattern MVP originale. la Activity sono avviate e
 terminate da un ActivityManager associato con un contenitore Widget. Un activity
-può inoltre visualizzare automaticamente un avviso quando sta per essere
+pu\`o inoltre visualizzare automaticamente un avviso quando sta per essere
 terminata (in pi\`u l'ActivityManager ci avvisa quando la finestra sta per
 essere chiusa).
 
@@ -657,7 +659,7 @@ Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
 un Place di tipo \co{ProfilePlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
-creazione ed interazione con l'utente della pagina principale come: la
+creazione ed interazione con l'utente della pagina principale come la
 richiesta dei dati utente dettagliati, della lista dei brani, del dettaglio di
 un brano, ecc.
 
@@ -782,7 +784,7 @@ La classe utilizza istanze di classi appartenenti al package
 \emph{client.place} e crea istanze di classi appartenenti al package
 \emph{client.activity}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre
-componenti} Nessuna
+componenti} Nessuna.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Tramite un riferimento ad un Place crea e restituisce un oggetto activity.
 
@@ -790,7 +792,7 @@ Tramite un riferimento ad un Place crea e restituisce un oggetto activity.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Dichiara e riferisce tutti i places che saranno utilizzati da Netmus.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza i PlaceTokenizer
+Utilizza i PlaceTokenizer.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Il PlaceHistoryHandler utilizza la classe per la sincronizzazione del URL.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -803,9 +805,9 @@ browser con i vari Place.
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \co{service} \`e costituito da tutte le interfacce dei servizi remoti
 offerti dal server. Le funzionalit\`a delle classi in esso contenute saranno
-divise in base al tipo di servizio offerto.  Per ognuno di questi sar\`a
-presente un'interfaccia normale (che estende \co{RemoteService}) e un
-interfaccia \bo{asincrona}.
+divise in base al tipo di servizio offerto. Per ognuno di questi sar\`a
+presente un'interfaccia normale (che estende \co{RemoteService}) e
+un'interfaccia \bo{asincrona}.
 
 \subsection*{Relazioni d'uso di altre componenti}
 Queste interfacce vengono implementate su \emph{server}, perci\`o non
@@ -865,7 +867,7 @@ binding e verr\`a utilizzata da \co{EditUserActivity} e \co{ProfileActivity}.
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere o
 modificare (quando possibile) qualsiasi tipo di informazione riguardante gli
 utenti del sistema e utilizzer\`a dati di tipo \co{UserDTO}, \co{UserSummaryDTO}
-e\\\co{UserCompleteDTO}.
+e \co{UserCompleteDTO}.
 
 \subsection{Interfaccia LibraryService (e LibraryServiceAsync)}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -908,7 +910,7 @@ permetteranno il logout dell'utente.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
-\co{UserDTO}, \co{UserSummaryDTO} e \bo{UserCompleteDTO}.
+\co{UserDTO}, \co{UserSummaryDTO} e \co{UserCompleteDTO}.
 
 
 %--------------- FORSE -------------------------------
@@ -921,14 +923,14 @@ automatica dei tag dei file musicali Mp3, presenti nei dispositivi di
 archiviazione di massa che vengono collegati alla macchina dell'utente.\\
 Per comunicare con tale applet sono state valutate due possibili metodologie
 d'implementazione: l'uso di una libreria che crea un sistema proxy tra la applet
-e GWT; oppure l'utilizzo di \underline{JSNI} (JavaScript Native Interface) che
+e GWT oppure l'utilizzo di \underline{JSNI} (JavaScript Native Interface) che
 sostanzialmente ci permetterebbe di fare chiamate da JavaScript al codice
-\underline{Java} e vice versa.
+\underline{Java} e viceversa.
 
 \subsection*{Meccanismo di lavoro del componente}
 Una volta ricevuta una richiesta da parte della applet, verr\`a gestita da un
 Service che si occuper\`a di elaborare i dati col supporto del server, per poi
-notificare all'utente l'avvenuta estrazione, e fargliela valutare e accettare.
+notificare all'utente l'avvenuta estrazione e fargliela valutare e accettare.
 Una volta accettata la lista brani, si richiede la memorizzazione nel DataStore
 tramite \co{SongsService}.
 
@@ -939,7 +941,7 @@ tramite \co{SongsService}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=10cm]{img/ST/Server.png}
-\caption{Diagramma delle classi del package server.}
+\caption{Diagramma delle classi del package server}
 \end{figure}
 
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
@@ -1057,9 +1059,9 @@ gi\`a loggato.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{PMF} \`e una classe final che segue il pattern Singleton, illustrato
 nell'introduzione. Ha la funzione di creare un'unica istanza del
-\co{PersistentManagerFactory} (\emph{javax.jdo})e di restituirla a qualunque
-oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il DataStore, inviando
-query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
+\co{PersistentManagerFactory} (\emph{javax.jdo}) e di restituirla a qualunque
+oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il
+DataStore, inviando query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
 tramite semplici metodi.
 
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -1177,14 +1179,14 @@ Utilizzata per il login tramite l'account Google.
 
 \subsubsection*{Relazioni d'uso di altre componenti}
 Concretizza il \co{LoginSuperServlet} ed implementa il metodo \emph{doGet} il
-quale utilizza \\\co{HttpSerletRequest} e \co{HttpSerletResponse}.
+quale utilizza \co{HttpSerletRequest} e \co{HttpSerletResponse}.
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Predispone il servizio e reindirizza l'utente al servizio di login di Google.
 Google, dopo che l'utente avr\`a effettuato l'accesso, lo reindizzer\`a nuovamente
-al nostro programma, trasmettendo a \co{LoginGoogleCallbackServlet} tutte le
+al nostro programma trasmettendo a \co{LoginGoogleCallbackServlet} tutte le
 informazioni del caso.
 
 
@@ -1265,7 +1267,7 @@ esterni.
 Varie funzioni utili e generiche, utilizzate da svariati package all'interno di
 \emph{server}.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene utilizzato dalle classi del package \emph{server}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1276,11 +1278,11 @@ Varie.
 \begin{figure}[h]
   \centering
   \includegraphics[width=7cm]{img/ST/Shared.png}
-\caption{Diagramma delle classi del package shared.}
+\caption{Diagramma delle classi del package shared}
 \end{figure}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{shared} contiene le classi degli oggetti che vengono
-scambiati tra client e server; in particolare, troviamo presenti le classi che
+scambiati tra client e server; in particolare sono presenti le classi che
 aderiscono al pattern DTO.
 \subsection*{Relazioni d'uso di altre componenti}
 Tutte le classi di questo package implementano l'interfaccia
@@ -1331,7 +1333,7 @@ Funge da contenitore per i dati dettagliati di un utente.
 \subsection{Classe UserCompleteDTO}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta tutti i dati di un utente, a partire da quelli
-visualizzati sul profilo, a quelli interni del sistema.
+visualizzati sul profilo fino a quelli interni del sistema.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Estende la classe \co{UserDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -1403,18 +1405,18 @@ NetMus.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Generica eccezione del nostro programma.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{Exception}
+Estende la classe \co{Exception}.
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Rappresenta una generica eccezione usata all'interno del sistema NetMus.
-Tutte le altre eccezioni estendono questa.
+Rappresenta una generica eccezione usata all'interno del sistema NetMus. Tutte
+le altre eccezioni estendono questa.
 
 \subsection{Classe LoginException}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica un generico errore rilevato durante il tentativo di login.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{NetMusException}
+Estende la classe \co{NetMusException}.
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1424,7 +1426,7 @@ Nessuna.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica dei dati errati di login.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{LoginException}
+Estende la classe \co{LoginException}.
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1434,7 +1436,7 @@ Indica che \underline{username} e/o password sono errati.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica un generico errore rilevato durante la registrazione di un nuovo utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{NetMusException}
+Estende la classe \co{NetMusException}.
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1444,7 +1446,7 @@ Nessuna.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica che il login richiesto durante la registrazione \`e gi\`a in uso.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{RegistrationException}
+Estende la classe \co{RegistrationException}.
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1455,7 +1457,7 @@ utente \`e gi\`a utilizzato.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica che l'email inserita durante la registrazione \`e gi\`a in uso.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{RegistrationException}
+Estende la classe \co{RegistrationException}.
 \subsubsection*{Interfacce con altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -1475,7 +1477,7 @@ provocati dall'inserimento di una periferica USB. Questa applet verr\`a inserita
 nella pagina web in maniera dinamica dalle nostre View, e sar\`a l'utente a
 decidere se tenerla attiva o meno tramite un piccolo tasto on/off presente nella
 pagina. Di default questa applet sar\`a integrata e attiva nella
-\co{ProfileView} ed \co{EditSongsView}.\\
+\co{ProfileView} ed \co{EditSongsView}.\\ \\
 L'applet verr\`a pre-compilata come una componente indipendente ed utilizzata
 mediante l'inserimento di uno script HTML all'interno della pagina.\\
 \\
@@ -1490,8 +1492,8 @@ risultare corrotto o vuoto, verr\`a ignorato il brano.\\
 Una volta inviate al server tali informazioni, verranno cercate le
 corrispondenze con eventuali brani gi\`a presenti nel nostro DataStore: se un
 brano risulta presente verr\`a semplicemente associato all'utente aggiornando la
-sua MusicLibrary; se non \`e ancora presente allora verr\`a integrato e corretto
-tramite un servizio esterno. Verr\`a per questo implementato un algoritmo
+sua MusicLibrary, mentre se non \`e ancora presente allora verr\`a integrato e
+corretto tramite un servizio esterno. Verr\`a per questo implementato un algoritmo
 decisionale per stabilire che livello di corrispondenza deve avere il brano per
 essere considerato attendibile o meno.\\
 \\
