@@ -1874,73 +1874,254 @@ C2VN-4.7 Open source \\ \hline
 \hline
 \endfoot
 \endlastfoot
-Ccl0 - client &  \\\hline
-Ccl1 - client.Netmus &  \\\hline
-Ccl2 - client.ClientFactory &  \\\hline
-Ccl3 - client.ClientFactoryImpl &  \\\hline
-Cclmv0 - client.mvp &  \\\hline
-Cclmv1 - client.mvp.NetmusActivityMapper &  \\\hline
-Cclmv2 - client.mvp.NetmusPlaceHistoryMapper &  \\\hline
-Cclac0 - client.activity &  \\\hline
-Cclac1 - client.activity.LoginActivity &  \\\hline
-Cclac2 - client.activity.ProfileActivity &  \\\hline
-Cclac3 - client.activity.EditUserActivity &  \\\hline
-Cclac4 - client.activity.EditSongsActivity &  \\\hline
-Cclse0 - client.service &  \\\hline
-Cclse1 - client.service.LoginService &  \\\hline
-Cclse2 - client.service.UsersService &  \\\hline
-Cclse3 - client.service.SongsService &  \\\hline
-Cclse4 - client.service.LibraryService &  \\\hline
-Cclpl0 - client.place &  \\\hline
-Cclpl1 - client.place.LoginPlace &  \\\hline
-Cclpl2 - client.place.ProfilePlace &  \\\hline
-Cclpl3 - client.place.EditUserPlace &  \\\hline
-Cclpl4 - client.place.EditSongsPlace &  \\\hline
-Cclui0 - client.ui &  \\\hline
-Cclui1 - client.ui.LoginView &  \\\hline
-Cclui2 - client.ui.ProfileView &  \\\hline
-Cclui3 - client.ui.EditUserView &  \\\hline
-Cclui4 - client.ui.EditSongsView &  \\\hline
-Cclap0 - client.applet &  \\\hline
-Csh0 - shared &  \\\hline
-Csh1 - shared.GenericDTO &  \\\hline
-Csh2 - shared.SongSummaryDTO &  \\\hline
-Csh3 - shared.SongDTO &  \\\hline
-Csh4 - shared.LoginDTO &  \\\hline
-Csh5 - shared.MusicLibraryDTO &  \\\hline
-Csh6 - shared.UserSummaryDTO &  \\\hline
-Csh7 - shared.UserDTO &  \\\hline
-Csh8 - shared.UserCompleteDTO &  \\\hline
-Cshex0 - shared.exception &  \\\hline
-Cshex1 - shared.exception.NetMusException &  \\\hline
-Cshex2 - shared.exception.LoginException &  \\\hline
-Cshex3 - shared.exception.WrongLoginException &  \\\hline
-Cshex4 - shared.exception.RegistrationException &  \\\hline
-Cshex5 - shared.exception.NickNotFreeException &  \\\hline
-Cshex6 - shared.exception.DuplicateEmailException &  \\\hline
-Cse0 - server &  \\\hline
-Cse1 - server.PMF &  \\\hline
-Cse2 - server.LoginHelper &  \\\hline
-Cse3 - server.SongsServiceImpl &  \\\hline
-Cse4 - server.LoginServiceImpl &  \\\hline
-Cse5 - server.UserServiceImpl &  \\\hline
-Cse6 - server.LibraryServiceImpl &  \\\hline
-Cseut0 - server.utils &  \\\hline
-Cseut1 - server.utils.AuthenticationProvider &  \\\hline
-Cseut2 - server.utils.Utils &  \\\hline
-Cseut3 - server.utils.ServletUtils &  \\\hline
-Csese0 - server.servlet &  \\\hline
-Csese1 - server.servlet.LoginSuperServlet &  \\\hline
-Csese2 - server.servlet.LoginGoogleServlet &  \\\hline
-Csese3 - server.servlet.LoginGoogleCallbackServlet &  \\\hline
-Csese4 - server.servlet.YouTubeServlet &  \\\hline
-Csepe0 - server.persistent &  \\\hline
-Csepe1 - server.persistent.UserAccount &  \\\hline
-Csepe2 - server.persistent.MusicLibrary &  \\\hline
-Csepe3 - server.persistent.Song &  \\\hline
-\caption{Tracciamento Componenti - Requisiti}
+Ccl0 - client & C1FN-1 \\
+& C1FD-1.10 \\
+& C2FN-3 \\\hline
+Ccl1 - client.Netmus & C1FN-1 \\
+& C1QO-2.1 \\
+& C1QD-2.4 \\\hline
+Ccl2 - client.ClientFactory & C1QN-2.3 \\\hline
+Ccl3 - client.ClientFactoryImpl & C1QO-2.1 \\\hline
+Cclmv0 - client.mvp & C1FN-1 \\\hline
+Cclmv1 - client.mvp.NetmusActivityMapper & C1FN-1 \\\hline
+Cclmv2 - client.mvp.NetmusPlaceHistoryMapper & C1FN-1 \\\hline
+Cclac0 - client.activity & C1FN-1 \\\hline
+Cclac1 - client.activity.LoginActivity & C1FN-1.2 \\\hline
+Cclac2 - client.activity.ProfileActivity & C1FN-1.1.1 \\
+& C1FN-1.1.3 \\
+& C1FO-1.2.3 \\
+& C1FD-1.5 \\
+& C1FD-1.7 \\
+& C1FD-1.7.1 \\
+& C1FD-1.7.2 \\\hline
+Cclac3 - client.activity.EditUserActivity & C1FD-1.4.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\
+& C1FN-1.4 \\\hline
+Cclac4 - client.activity.EditSongsActivity & C1FD-1.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3.2 \\
+& C1FD-1.3.3 \\\hline
+Cclse0 - client.service & C2QN-3.2 \\
+& C1QN-1.9.6 \\\hline
+Cclse1 - client.service.LoginService & C1FN-1.2 \\\hline
+Cclse2 - client.service.UsersService & C1FD-1.8 \\
+& C1FD-1.4.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\
+& C1FN-1.4 \\\hline
+Cclse3 - client.service.SongsService & C1FN-1.1.3 \\
+& C1FD-1.3.2 \\
+& C1FD-1.5 \\
+& C1FD-1.8 \\
+& C1FD-1.10 \\
+& C1FN-1.9 \\
+& C1FN-1.9.1 \\\
+& C1FN-1.9.5 \\
+& C2FD-2 \\
+& C2FN-3.1 \\\hline
+Cclse4 - client.service.LibraryService & C1FD-1.8 \\
+& C1FD-1.10 \\
+& C1FO-1.8.1 \\
+& C1FO-1.3.4 \\
+& C1FO-1.3.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3 \\
+& C1FN-1.1.1 \\\hline
+Cclpl0 - client.place & C1FN-1 \\\hline
+Cclpl1 - client.place.LoginPlace & C1FN-1.2 \\\hline
+Cclpl2 - client.place.ProfilePlace & C1FO-1.7.2 \\
+& C1FD-1.7.1 \\
+& C1FD-1.7 \\
+& C1FD-1.5 \\
+& C1FO-1.3.4 \\
+& C1FN-1.1.3 \\
+& C1FN-1.1.1 \\\hline
+Cclpl3 - client.place.EditUserPlace & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\
+& C1FD-1.4.4 \\\hline
+Cclpl4 - client.place.EditSongsPlace & C1FO-1.3.3 \\
+& C1FD-1.3.2 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3 \\ \hline
+Cclui0 - client.ui & C1FN-1 \\
+& C1FN-1.1 \\
+& C1FN-1.2 \\
+& C1QN-2 \\
+& C1QO-2.1 \\
+& C1QD-2.4 \\\hline
+Cclui1 - client.ui.LoginView & C1FO-1.2.1 \\
+& C1FN-1.2 \\ \hline
+Cclui2 - client.ui.ProfileView & C1FN-1.1.1 \\
+& C1FN-1.1.3 \\
+& C1FD-1.1.4 \\
+& C1FO-1.3.4 \\
+& C1FD-1.5 \\
+& C1FD-1.7 \\
+& C1FD-1.7.1 \\
+& C1FO-1.7.2 \\\hline
+Cclui3 - client.ui.EditUserView & C1FD-1.4.4 \\
+& C1FN-1.4.3 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4 \\\hline
+Cclui4 - client.ui.EditSongsView & C1FD-1.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3.2 \\
+& C1FO-1.3.3 \\\hline
+Cclap0 - client.applet & C2QD-4.3 \\
+& C2QN-4 \\
+& C2FN-3.1 \\
+& C2FD-2 \\
+& C2QD-1.7 \\
+& C2FO-1.6 \\
+& C2FN-1.5 \\
+& C2FD-1.4 \\
+& C2F0-1.3 \\
+& C2FN-1.2 \\
+& C2FN-1.1 \\
+& C2FN-1 \\
+& C1FD-1.10 \\\hline
+Csh0 - shared & C1FN-1 \\
+& C1FN-1.9.5 \\\hline
+Csh1 - shared.GenericDTO & C1FN-1 \\\hline
+Csh2 - shared.SongSummaryDTO & C1FN-1.1.3 \\
+& C1FD-1.3.2 \\
+& C1FD-1.5 \\\hline
+Csh3 - shared.SongDTO & C1FD-1.5 \\
+& C1FD-1.3.2 \\
+& C1FN-1.1.3 \\\hline
+Csh4 - shared.LoginDTO & C1FN-1.2 \\\hline
+Csh5 - shared.MusicLibraryDTO & C1FO-1.3.4 \\
+& C1FO-1.3.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3 \\
+& C1FN-1.1.1 \\\hline
+Csh6 - shared.UserSummaryDTO & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\
+& C1FD-1.4.4 \\\hline
+Csh7 - shared.UserDTO & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\
+& C1FD-1.4.4 \\\hline
+Csh8 - shared.UserCompleteDTO & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\
+& C1FD-1.4.4 \\\hline
+Cshex0 - shared.exception & C1QN-1.7 \\\hline
+Cshex1 - shared.exception.NetMusException & C1QN-1.7 \\\hline
+Cshex2 - shared.exception.LoginException & C1QN-1.7 \\\hline
+Cshex3 - shared.exception.WrongLoginException & C1QN-1.7 \\\hline
+Cshex4 - shared.exception.RegistrationException & C1QN-1.7 \\\hline
+Cshex5 - shared.exception.NickNotFreeException & C1QN-1.7 \\\hline
+Cshex6 - shared.exception.DuplicateEmailException & C1QN-1.7 \\\hline
+Cse0 - server & C1QN-1.9.6 \\
+&  C1FN-1 \\\hline
+Cse1 - server.PMF & C1FN-1 \\\hline
+Cse2 - server.LoginHelper & C1FN-1.2 \\\hline
+Cse3 - server.SongsServiceImpl & C1FN-1.1.3 \\
+& C1FD-1.3.2 \\
+& C1FD-1.5 \\
+& C1FD-1.10 \\
+& C1FD-1.8 \\
+& C1FN-1.9 \\
+& C1FN-1.9.1 \\
+& C1FN-1.9.2 \\
+& C1FO-1.9.3 \\
+& C1FN-1.9.5 \\
+& C2FD-2 \\
+& C2FN-3.1 \\\hline
+Cse4 - server.LoginServiceImpl & C1FO-1.8.1 \\
+& C1FN-1.2 \\\hline
+Cse5 - server.UserServiceImpl & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\
+& C1FD-1.4.4 \\
+& C1FD-1.8 \\\hline
+Cse6 - server.LibraryServiceImpl & C1FD-1.8 \\
+& C1FD-1.10 \\
+& C1FO-1.3.4 \\
+& C1FO-1.3.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3 \\
+& C1FN-1.1.1 \\\hline
+Cseut0 - server.utils & C1FN-1.9 \\
+& C1FN-1.9.2 \\
+& C1QN-1.9.4 \\\hline
+Cseut1 - server.utils.AuthenticationProvider & C1FO-1.2.1 \\\hline
+Cseut3 - server.utils.ServletUtils & C1QN-1.5.1 \\
+& C1VD-1.5.2 \\\hline
+Csese0 - server.servlet & C1FO-1.9.3 \\
+& C1FN-1.9 \\\hline
+Csese1 - server.servlet.LoginSuperServlet &  C1FO-1.2.1 \\\hline
+Csese2 - server.servlet.LoginGoogleServlet & C1FO-1.2.1 \\\hline
+Csese3 - server.servlet.LoginGoogleCallbackServlet & C1FO-1.2.1 \\\hline
+Csese4 - server.servlet.YouTubeServlet & C1VD-1.5.2 \\
+& C1QN-1.5.1 \\
+& C1FD-1.5 \\\hline
+Csepe0 - server.persistent & C1FN-1.9.5 \\
+& C1QN-1.9.6 \\
+& C1FN-1.13 \\
+& C1VN-1.13.1 \\\hline
+Csepe1 - server.persistent.UserAccount & C1FD-1.8 \\
+& C1FD-1.4.4 \\
+& C1FN-1.4.3 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4 \\
+& C1FN-1.2 \\\hline
+Csepe2 - server.persistent.MusicLibrary &  C1FN-1.1.1 \\
+& C1FD-1.3 \\
+& C1FD-1.3.1 \\
+& C1FO-1.3.3 \\
+& C1FO-1.3.4 \\
+& C1FD-1.8 \\\hline
+Csepe3 - server.persistent.Song & C1FO-1.9.3 \\
+& C1FN-1.9.2 \\
+& C1FN-1.9 \\
+& C1FD-1.8 \\
+& C1FD-1.5 \\
+& C1FD-1.3.2 \\
+& C1FD-1.1.3 \\\hline
+\caption{Tracciamento componenti - requisiti}
 \end{longtable}
 \end{footnotesize}
+
+\subsection{Componenti non tracciate}
+La classe \co{Utils} \`e stata progettata per raccogliere
+  tutte quelle funzioni e procedure che vengono utilizzate pi\`u volte negli
+  algoritmi eseguiti lato server ma che non appartengono a nessuna delle entit\`a
+  individuate. \`E quindi buona pratica includere \co{Utils} nella progettazione
+  anche se non direttamente tracciabile con i requisiti.
+
+%non tracciati
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Componente non tracciata} \\
+\hline
+\endhead
+\hline
+\multicolumn{1}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+Cseut2 - server.utils.Utils \\\hline
+\caption{Componente non tracciata}
+\end{longtable}
+\end{footnotesize}
+
 
 \chapter{Stime di fattibilit\`a e di bisogno di risorse}
 Successivamente alla prima revisione e con l'avanzamento del processo di
