@@ -1,17 +1,17 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
-\newcommand{\versione}{1.20}
+\newcommand{\versione}{2.0}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\versioneAR}{2.0}
 \newcommand{\nomefile}{PianoDiQualifica-\versione.pdf}
 \newcommand{\datacreazione}{3 Dicembre 2010}
-\newcommand{\datamodifica}{1 Febbraio 2011}
+\newcommand{\datamodifica}{31 Gennaio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Trezzi Giovanni}
-\newcommand{\verifica}{Caputo Cosimo}
-\newcommand{\approvazione}{Baron Federico}
+\newcommand{\verifica}{Palazzin Alberto}
+\newcommand{\approvazione}{Lovato Daniele}
 \newcommand{\distribuzione}{ 
 VT.G \\
 & Prof. Vardanega Tullio\\
@@ -36,28 +36,25 @@ VT.G \\
 
 01/02/2011 & 2.0 & Baron Federico & Validazione per consegna RP.\\
 \hline
-01/02/2011 & 1.21 & Cosimo Caputo & Verificato.\\
-31/01/2011 & 1.20 & Daminato Simone & Correzione errori grammaticali e
-sintattici.\\
+31/01/2011 & 1.20 & Caputo Cosimo & Verificato intero documento.\\
+\hline
 31/01/2011 & 1.19 & Mandolo Andrea & Inseriti Esiti di Verifica sulla
 Progettazione ad Alto Livello. Corretti tutti gli errori segnalati.\\
 \hline
+30/01/2011 & 1.18 & Caputo Cosimo & Verificato intero documento.\\
 \hline
-31/01/2011 & 1.18 & Palazzin Alberto & Aggiunta sezione 4.4 ``Dettaglio
-dell'esito nel test di valutazione sul processo di lavoro''.\\
-\hline
-31/01/2011 & 1.17 & Palazzin Alberto & Aggiunto paragrafo ``Soddisfacimento di
+30/01/2011 & 1.17 & Palazzin Alberto & Aggiunto paragrafo ``Soddisfacimento di
 tutti i requisiti individuati'' in 4.2.2.\\
 \hline
-29/01/2011 & 1.16 & Lovato Daniele & Aggiunta Tabella Tracciamento requisiti e
+30/01/2011 & 1.16 & Lovato Daniele & Aggiunta Tabella Tracciamento requisiti e
 metodi di verifica in fase di collaudo.\\
 \hline
 29/01/2011 & 1.15 & Palazzin Alberto & Tolto paragrafo ``Principi e linee
 guida''.\\
 \hline
 29/01/2011 & 1.14 & Mandolo Andrea & Aggiunta la verifica dei requisiti di
-analisi v.1.7 e indicati come modificati a fronte della precedente verifica
-sulla versione 1.6.\\
+analisi v.1.8 e indicati come modificati a fronte della precedente verifica
+su AR versione 1.6.\\
 \hline
 28/01/2011 & 1.13 & Lovato Daniele & Sistemata Sezione 3.1 e 3.2.
 Perfezionata sezione 5.1.\\
@@ -214,11 +211,11 @@ Nel presente capitolo verranno definite le esigenze di misurazione che si
 ritengono necessarie ai fini della qualit\`a, ovvero verr\`a indicato cosa per ogni
 singola fase del progetto sar\`a necessario verificare. Verranno indicati gli
 strumenti con i quali effettuare la verifica e verranno indicate le metriche con
-le quali misurare le propriet\`a di ci\`o che si sta verificando. Verranno
-infine indicate le tecniche con le quali procedere. Una volta volta terminata
-l'attivit\`a di verifica e la conseguente attivit\`a di misurazione, si proceder\`a con il
-riportare l'esito nel capitolo 4 del presente documento. Dopodich\`e, terminata
-l'attivit\`a di misurazione, sulla base dei risultati si valuteranno eventuali
+le quali misurare le propriet\`a di ci\`o che si sta verificando. Verranno indicate
+infine le tecniche con le quali procedere. Una volta volta terminata l'attivit\`a
+di verifica e la conseguente attivit\`a di misurazione, si proceder\`a con il
+riportare l'esito nel capitolo 4 del presente documento. Una volta terminata
+l'attivit\`a di misurazione sulla base dei risultati si valuteranno eventuali
 decisioni, manovre correttive o l'accettazione del prodotto verificato secondo
 le misure e i criteri stabiliti.
 
@@ -314,8 +311,8 @@ sar\`a dovere del verificatore contattare il programmatore responsabile della
 relativa porzione di codice.
 
 Inoltre, per favorire l'attivit\`a di verifica, ogni programmatore sar\`a tenuto
-ad eseguire attivit\`a di rilevazione degli errori sul codice per cercare di
-diminuire le possibilit\`a d'errore.
+ad eseguire attivit\`a di debugging sul codice per cercare di diminuire le
+possibilit\`a d'errore.
 
 \subsection{Validazione}
 
@@ -333,7 +330,7 @@ presente documento. Sono necessarie inoltre risorse di tipo logistico quali
 programmi per le attivit\`a di tracciamento tra i requisiti e i moduli software,
 un \underline{framework} per i test specifici di unit\`a del codice, un
 applicativo software per la gestione e la risoluzione delle anomalie, un ambiente di sviluppo
-adeguato con possibilit\`a per i programmatori di rilevare gli errori.
+adeguato con possibilit\`a di effettuare debugging da parte dei programmatori.
 
 
 \section{Strumenti}
@@ -353,9 +350,9 @@ programmazione \underline{Java} (per informazioni
 \item Emma: per il calcolo della copertura del codice (per informazioni
 \url{http://emma.sourceforge.net/});
 
-\item Eclipse + \underline{GWT}: per le funzionalit\`a di individuazione e
-correzione degli errori di Eclipse su codice Java mentre l'applicazione da
-testare verr\`a eseguita in hosted mode tramite GWT (per informazioni \url{http://www.eclipse.org/} e
+\item Eclipse + \underline{GWT}: per le funzionalit\`a di debug di Eclipse su
+codice Java mentre l'applicazione da testare verr\`a eseguita in hosted mode
+tramite GWT (per informazioni \url{http://www.eclipse.org/} e
 \url{http://code.google.com/webtoolkit/});
 
 \item Google Project Hosting: per la funzionalit\`a issue-tracker
@@ -485,14 +482,14 @@ queste due tecniche verranno approfondite nei successivi paragrafi.
 
 \subsection{Analisi Statica}
 Questa forma d'analisi non richiede esecuzione del programma.
-Il motivo di ci\`o \`e che eseguire un programma ha un costo che in molti casi
-pu\`o portare a preferire controlli basati sulla sola analisi del codice. Si
-basa su metodi di lettura, che vengono utilizzati per prodotti semplici, e risulta pi\`u economica poich\'e
-l'uso di risorse informatiche \`e limitato.\\ 
+Il motivo di ci\`o \`e che eseguire un programma ha un costo che in molti casi pu\`o preferire 
+controlli basati sulla sola analisi del codice. Si basa su metodi di lettura, 
+che vengono utilizzati per prodotti semplici, e risulta pi\`u economica poich\'e
+l'uso di risorse informatiche \`e limitato.\\ \\
 Di seguito un elenco dei metodi che abbiamo adottato:
 
 
-\vspace{1cm}
+
 \begin{table}[h]
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -538,7 +535,7 @@ di rivelare eventuali difetti.
 \subsubsection{Inspection}
 
 Questa tecnica consiste in una verifica mirata dei dati rispettivamente a
-determinate metriche con lo scopo di trovare dei tipi precisi di errori.
+determinate metriche con il preciso scopo di trovare determinati tipi di errori.
 Prevede la preparazione preliminare del gruppo prima dell'incontro: ogni membro esamina il prodotto, eventualmente applicando tecniche analitiche.
 
 \subsubsection{Analisi flusso di controllo}
@@ -546,8 +543,7 @@ Prevede la preparazione preliminare del gruppo prima dell'incontro: ogni membro 
 Quest'analisi controlla il codice con lo scopo di determinare se \`e scritto in
 modo strutturato e se esegue nel modo desiderato. Controlla inoltre che non ci
 sia codice sintatticamente irraggiungibile e cerca parti del codice che possono
-portare a terminazioni non desiderate o a cicli infiniti, come chiamate
-ricorsive e/o iterazioni.
+portare a terminazioni non desiderate, come chiamate ricorsive e/o iterazioni.
 
 \subsubsection{Analisi del flusso di dati}
 
@@ -782,8 +778,8 @@ efficacemente tutte le specifiche del modello FURPS.
 \subsubsection{Scheduling}
 
 Quantificare il numero di Function Point e sulla base di questi calcolare una
-stima della dimensione in LOC del codice. Da questa elaborare una proiezione dei
-tempi di programmazione necessari alla realizzazione del software, tenendo in
+stima della dimensione in LOC del codice. Da questa elaborare una proiezioni dei
+tempi di programmazione necessari alla realizzazione del software. Tenere in
 considerazione che una persona in media si stima riesca ad implementare 12
 requisiti funzionali al mese. Per quantificare le linee di codice
 rispetto al numero di requisiti funzionali utilizzare come riferimento la
@@ -851,7 +847,7 @@ favorito anche dall'utilizzo di un buon numero di pattern.
 Tecniche: IN.
 
 
-\subsection{Progettazione nel dettaglio}
+\subsection{Progettazione nel Dettaglio}
 
 Per la verifica della progettazione nel dettaglio si cercher\`a di elaborare 
 metodi di misura mirati a rilevare i difetti all'interno dello sviluppo delle
@@ -1098,7 +1094,7 @@ Verifica dei requisiti proposti nel documento \emph{AnalisiDeiRequisiti-1.8.pdf}
 \end{footnotesize}
 
 Dall'analisi dei requisiti indicati risultano corretti i problemi
-d'incosistenza emersi precedentemente. 
+d'inconsistenza emersi precedentemente. 
 
 
 \subsection*{Completezza dei requisiti rispetto al modello FURPS}
@@ -1481,8 +1477,9 @@ le seguenti modifiche:
   i riferimenti normativi e informativi;
   \item Norme di Progetto: aggiunte le norme riguardanti le varie fasi di
   progetto (pianificazione, analisi, progettazione e codifica) e i corrispondenti strumenti;
-  \item Analisi dei Requisiti: riscritti tutti gli Use-Case, sistemate pre-condizioni e scenari,
-  inserite delle descrizioni pi\`u dettagliate nelle figure;
+  \item Analisi dei Requisiti: riscritti tutti gli Use-Case, sistemati le
+  pre-condizioni e gli scenari, inserite delle descrizioni pi\`u dettagliate
+  nelle figure;
   \item Piano di Progetto: riscritta tutta la pianificazione, corretta l'analisi
   dei rischi;
   \item Piano di Qualifica: aggiunte le tecniche, le metriche e le procedure per
@@ -1503,7 +1500,7 @@ Non si conosce ancora la data precisa dell'esito di questa revisione.
 
 \section{Dettaglio dell'esito nel test di valutazione sul\\ processo di lavoro}
 I dati raccolti in questa fase di progetto rispetto agli ambiti ricoperti
-(lavoro svolto, interazione con gli altri, strumenti utilizzati, tempo
+(lavoro svolto, iterazione con gli altri, strumenti utilizzati, tempo
 impiegato), sono stati rappresentati in quattro grafici e riportati di seguito.
 Nei grafici sono stati riportati in ascissa il ``Numero del Ticket'' (per avere
 informazioni dettagliate sul ticket corrispondente riferirsi al link
@@ -1518,8 +1515,8 @@ informazioni dettagliate sul ticket corrispondente riferirsi al link
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[height=4.1cm]{GraficiFeedbackTicket/InterazioneConGliAltri.png}
-\caption{Feedback processo di lavoro - Interazione con gli altri}
+  \includegraphics[height=4.1cm]{GraficiFeedbackTicket/IterazioneConGliAltri.png}
+\caption{Feedback processo di lavoro - Iterazione con gli altri}
 \end{figure}
 
 \begin{figure}[htbp]
@@ -1602,24 +1599,24 @@ la verifica nel prodotto finale.
 \hline
 
 
-\bo{C1FN-1.1, C1FN-1.1.2, C1FN-1.1.3, C1FD-1.1.4,
-C1FN-1.3, C1FO-1.3.3, C1FO-1.3.4, C1FD-1.4.4, C1FD-1.5,
+\bo{C1FN-1.1, C1FN-1.1.1, C1FN-1.1.2, C1FN-1.1.3, C1FD-1.1.4,
+C1FN-1.3, C1FN-1.3.1, C1FD-1.3.2, C1FO-1.3.3, C1FO-1.3.4, C1FD-1.4.4, C1FD-1.5,
 C1FD-1.7, C1FD-1.7.1, C1FO-1.7.2 } & Questi
 requisiti potranno essere verificati tramite l'utilizzo della GUI messa a
 disposizione dell'utente. \\ \hline
-\bo{C1FN-1.2, C1FN-1.2.1, C1FN-1.3.1,
-C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2}   & Tali requisiti saranno verificati tramite
-l'utilizzo della GUI con rispettivi controlli sul Database per
+\bo{C1FN-1.2, C1FN-1.2.1, C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2, C1FN-1.4.3}   & Tali
+requisiti saranno verificati tramite l'utilizzo della GUI con rispettivi controlli sul Database per
 verificare che le modifiche effettuate siano state registrate correttamente.
-\\\hline \bo{C1FD-1.3.2, C1FN-1.4.3} & Questi requisiti
-potranno essere verificati tramite il solo controllo del Database. \\ \hline
+\\\hline
 \bo{C1FO-1.8.1} & Il requisito potr\`a essere verificato qualora l'esportazione e
 la creazione del PDF abbiano successo. \\\hline 
 \bo{C1FD-1.10, C2FD-2} & Tali requisiti potranno essere verificati nel momento
 in cui la periferica USB risulter\`a aggiornata. \\\hline
 \bo{C2FN-1, C2FN-1.1, C2FN-1.2, C2FD-1.4, C2FN-1.5, C2FN-3, C2FN-3.1}& Questi
 requisiti riguardano la componente C2. La loro verifica consister\`a
-nell'apparizione di un pop-up di avviso che l'operazione \`e andata a buon fine.\\\hline
+nell'apparizione di messaggio di avviso che l'operazione \`e andata a buon
+fine e di un reindirizzamento alla pagina di music list aggiornata
+correttamente.\\\hline
 \end{tabular}
 \caption{Requisiti e rispettivi metodi di verifica in fase di collaudo}
 \end{center}
