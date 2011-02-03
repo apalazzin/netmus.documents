@@ -1,0 +1,80 @@
+
+\newcommand{\nomedoc}{Definizione Del Prodotto}
+\newcommand{\versione}{0.1}
+\newcommand{\versioneglossario}{3.0}
+\newcommand{\versionenormeprogetto}{3.0}
+\newcommand{\nomefile}{DefinizioneDelProdotto-\versione.pdf}
+\newcommand{\datacreazione}{3 Febbraio 2011}
+\newcommand{\datamodifica}{3 Febbraio 2011}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{esterno}
+\newcommand{\redazione}{---}
+\newcommand{\verifica}{---}
+\newcommand{\approvazione}{---}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+
+\begin{longtable}{|p{0.13\textwidth}|c|p{0.2\textwidth}|p{0.46\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Data} & \bo{Versione} & \bo{Autore} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\endfoot
+
+03/02/2011 & 0.1 & Mandolo Andrea & Creazione documento iniziale.\\
+
+\end{longtable}
+
+% INDICE
+\tableofcontents
+
+\chapter*{Sommario}
+--- Da scrivere ---
+
+
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+\addcontentsline{toc}{chapter}{Sommario}
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+
+\section{Scopo del documento}
+--- Da scrivere ---
+
+\input{parte_comune.tex}
+
+\chapter{Standard di progetto}
+\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
+
+\section{Standard di progettazione architetturale}
+\section{Standard di documentazione del codice}
+\section{Standard di denominazione di entità e relazioni}
+\section{Standard di programmazione}
+\section{Strumenti di lavoro}
+
+\chapter{Specifica delle componenti}
+\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
+Raffinamento a livello di progettazione di dettaglio della specifica fornita in
+sezione §3 della Specifica Tecnica.
+
+\appendix\chapter{Codice Sorgente}
+\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
+
+\chapter{Tracciamento componenti - requisiti}
+\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
+
+\end{document}
