@@ -1,0 +1,554 @@
+\newcommand{\nomedoc}{Norme Di Progetto}
+\newcommand{\versione}{2.0}
+\newcommand{\versioneNP}{2.0}
+\newcommand{\versioneGL}{2.0}
+\newcommand{\versionePP}{2.0}
+\newcommand{\versionePQ}{2.0}
+\newcommand{\versioneAR}{2.0}
+\newcommand{\versioneST}{1.0}
+\newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
+\newcommand{\datacreazione}{7 Dicembre 2010}
+\newcommand{\datamodifica}{30 Gennaio 2011}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{interno}
+\newcommand{\redazione}{Baron Federico\\&Palazzin Alberto}
+\newcommand{\verifica}{Daminato Simone}
+\newcommand{\approvazione}{Lovato Daniele}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+
+\begin{longtable}{|p{0.13\textwidth}|c|p{0.2\textwidth}|p{0.46\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Data} & \bo{Versione} & \bo{Autore} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\endfoot
+
+31/01/2011 & 2.0 & Baron Federico & Validazione per consegna RP.\\
+\hline
+30/01/2011 & 1.7 & Mandolo Andrea & Verificate modifiche e nuove sezioni.\\
+\hline
+30/01/2011 & 1.6 & Caputo Cosimo & Aggiunta sezione 6.2 ``Tracciamento dei
+requisiti - componenti''.\\
+\hline
+30/01/2011 & 1.5 & Caputo Cosimo & Correzione errori grammaticali e
+semantici in tutto il documento.\\
+\hline
+22/01/2011 & 1.4 & Caputo Cosimo & Sistemati capitoli 3, 5 e 10.\\
+\hline
+21/01/2011 & 1.3 & Mandolo Andrea & Corretti Riferimenti.\\
+\hline
+19/01/2011 & 1.2 & Palazzin Alberto & Aggiunto e redatto capitolo
+``Analisi e Progettazione'' e ``Norme di codifica''.\\
+\hline
+12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
+modifiche.\\
+\hline
+19/12/2010 & 1.0 & Lovato Daniele & Validazione per consegna RR.\\
+\hline
+19/12/2010 & 0.6 & Daminato Simone & Verificato l'intero documento.\\
+\hline
+15/12/2010 & 0.5 & Baron Federico & Correzione ortografica e sintattica
+generale.\\
+\hline
+11/12/2010 & 0.4 & Palazzin Alberto & Sistemazione dei Capitoli 5, 6, 7 e 8.\\
+\hline
+10/12/2010 & 0.3 & Palazzin Alberto & Sistemazione dei Capitoli 2, 3, 4, 9 e
+10.\\
+\hline
+09/12/2010 & 0.2 & Baron Federico & Aggiunto il capitolo 7.\\
+\hline
+ 07/12/2010 & 0.1 & Baron Federico & Prima stesura del documento.
+\end{longtable}
+
+
+% INDICE
+\tableofcontents
+
+
+\chapter*{Sommario}
+\thispagestyle{fancy}
+Questo documento contiene un elenco di norme, approvate da
+tutti i membri del gruppo VT.G e applicate su l'intero progetto; riguardano in
+particolare le convenzioni di comunicazione interne ed esterne, riunioni tra i componenti del team e
+documentazioni del progetto. Inoltre sono definiti alcuni aspetti
+dell'amministrazione di progetto particolarmente importanti per lavorare con strumenti e tecnologie
+comuni.
+
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+\addcontentsline{toc}{chapter}{Sommario}
+
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+
+\section{Scopo del documento}
+Il presente documento viene stilato al fine di descrivere le norme che il gruppo
+deve seguire per regolare le proprie attivit\`a di lavoro.
+
+\input{parte_comune.tex}
+
+\chapter{Comunicazioni}
+\thispagestyle{fancy}
+Le comunicazioni si dividono in interne ed esterne al gruppo, e vengono gestite
+nei modi di seguito riportati.
+
+\section{Interne}
+Le comunicazioni interne tra i membri del team si svolgono attraverso gli
+strumenti offerti da \underline{Google Groups} nel profilo Valter Texas Group e
+le e-mail personali. Nello specifico si utilizzano: un forum per le discussioni
+(sezione ``Discussioni''), dei documenti condivisi \underline{Google Docs} per
+alcune note (sezione ``Documenti'') e degli avvisi tramite e-mail. 
+Queste comunicazioni sono protette e visibili soltanto ai membri del gruppo.
+
+
+\section{Esterne}
+Le comunicazioni esterne sono gestite con un'e-mail di gruppo
+\url{valtertexasgroup@googlegroups.com}, fornita da Google Groups. I messaggi
+ricevuti a questo indirizzo di posta elettronica sono inoltrati automaticamente alle e-mail personali dei componenti del team e pubblicati nella
+sezione ``Discussioni'' del forum interno.
+
+
+\chapter{Norme per la stesura dei documenti}
+\thispagestyle{fancy}
+Per scrivere i documenti si utilizzer\`a il linguaggio di markup
+\underline{LaTeX} in quanto permette di dedicarsi meglio al contenuto da
+scrivere rispetto alla formattazione, che una volta impostata \`e automatica (per maggiori dettagli
+vedi sezione 4.8 e 4.9).
+
+\section{Nomenclatura}
+Tutti i nomi dei file devono cominciare con la lettera maiuscola e
+indicare in maniera univoca il loro contenuto. Il nome deve essere seguito da un
+trattino (-) e due cifre separate da un punto che indicano la versione del
+documento (esempio: \emph{NormeDiProgetto-2.0.pdf}).
+
+\section{Contenuto}
+Tutti i documenti devono contenere: 
+\begin{itemize}
+\item {una pagina iniziale con il logo e il nome del gruppo;}
+\item {il contatto del gruppo;}
+\item {il nome del documento;}
+\item {la versione del documento;}
+\item {la data di creazione;}
+\item {la data di ultima modifica;}
+\item {lo stato del documento (formale o informale);}
+\item {l'uso del documento (esterno o interno);}
+\item {la redazione;}
+\item {la \underline{verifica};}
+\item {l'approvazione;}
+\item {la distribuzione;}
+\item {un registro delle modifiche;}
+\item {un indice del documento;}
+\item {un sommario contenente un breve riassunto del documento;}
+\item {l'indice delle tabelle (se presenta almeno una tabella nel documento);}
+\item {l'indice delle figure (se presente almeno una figura nel documento).}
+\end{itemize} 
+
+\section{Norme tipografiche}
+Il font da utilizzare \`e Knuth's Computer Modern (di default in
+\underline{LateX}), la dimensione del capitolo e del sottocapitolo \`e quella di
+default in LateX, la dimensione del testo \`e 12pt e la codifica per i caratteri
+\`e ISO-8859-1. In ogni documento si deve utilizzare la \underline{sottolineatura} per marcare i termini presenti nel glossario (solo
+alla prima occorrenza), l'\emph{italic} per evidenziare i nomi di file che
+fanno riferimento ad altri documenti e l'\url{url} per indicare gli indirizzi
+web.
+
+\section{Norme di stile}
+Ogni capitolo deve essere identificato da un numero mentre ogni sottocapitolo
+deve essere identificato da due numeri separati da un punto (il primo indica il
+capitolo e il secondo il sottocapitolo). Tra un capitolo/sottocapitolo e
+l'altro, si deve utilizzare un'interlinea come separatore.
+
+\section{Figure e tabelle}
+Qualsiasi figura di contenuto (grafici, schemi) e tabella deve essere
+accompagnata da un numero progressivo all'interno del documento, preceduto da
+numeri che ne identificano il capitolo e il numero progressivo relativo al capitolo (esempio: immagine 1.3
+\`e l'immagine 3 all'interno del capitolo 1) e da una
+didascalia che ne dia una breve spiegazione.
+
+\section{Acronimi e abbreviazioni}
+Le diverse revisioni sono indicate con:
+\begin{itemize}
+\item {RR: Revisione dei Requisiti;}
+\item {RP: Revisione di Progettazione; }
+\item {RQ: Revisione di Qualifica;}
+\item {RA: Revisione di Accettazione.}
+\end{itemize}
+Si utilizza l'acronimo VT.G (Valter Texas Group) per qualsiasi riferimento al
+nostro gruppo di progetto.
+
+
+
+\chapter{Strumenti e tecnologie da utilizzare}
+\thispagestyle{fancy}
+Si impone a tutti i membri di VT.G di utilizzare gli stessi strumenti e
+configurazioni per qualsiasi attivit\`a di lavoro. Qui di seguito vengono
+riportati i dettagli relativi ad ogni strumento.
+
+\section{IDE}
+Eclipse for \underline{Java} Developers (versione $\geq$ Helios 3.6).
+\\
+Scarica e installa dal link\\
+\url{http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/heliossr1}.
+ 
+\section{Repository}
+\underline{Google Code} Project Hosting.
+\\
+All'interno del progetto (\url{http://code.google.com/p/netmus/}) vengono
+utilizzati due \underline{repository}: ``default'' per il progetto
+(\url{https://netmus.googlecode.com/hg/}) e ``documents'' per i documenti
+(\url{https://documents.netmus.googlecode.com/hg/}).\\
+Per facilitare il lavoro simultaneo tra i membri, nel repository documents \`e
+stato aperto un \underline{branch} per ogni documento da redarre. In prossimit\`a di una
+revisione vengono fatti convergere in un nuovo branch relativo ad essa.
+
+\section{Sistema di versionamento}
+\underline{Mercurial}  (versione $\geq$ 1.6). 
+\\
+Scarica e installa dal link
+\url{http://mercurial.selenic.com/}.
+
+\section{Plugin Mercurial per Eclipse}
+MercurialEclipse (versione $\geq$ 1.7). 
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://cbes.javaforge.com/update};}
+\item {selezionare ``Mercurial Eclipse'' dalla lista comparsa e deselezionare
+``\underline{Windows} Binaries for Mercurial'' se non si usa un ambiente Windows
+(se richiede una login e una password, andare al link
+\url{http://www.javaforge.com/createUser.spr}, registrarsi al sito e poi
+utilizzare queste credenziali per continuare l'istallazione del plugin);}
+\item {installare.}
+\end{itemize}
+
+\section{Plugin e SDKs di GAE e GWT per Eclipse}
+\underline{Google App Engine} (versione $\geq$ 1.4.0) e \underline{Google Web
+Toolkit} (versione $\geq$ 2.1.1).
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://dl.google.com/eclipse/plugin/3.6};}
+\item {selezionare Plugin (Google Plugin 1.4.2 for Eclipse 3.6) e SDKs (Google
+App Engine Java SDK 1.4.0 e Google Web Toolkit SDK 2.1.1) dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
+
+\section{JavaFX}
+JavaFX SDK (versione 1.2.1).
+\\
+Scarica e installa la versione 1.2.1 dal link \\
+\url{http://www.oracle.com/technetwork/java/javafx/downloads/previous-jsp-137062.html}.
+
+\section{Plugin JavaFX per Eclipse}
+JavaFX Feature (versione 1.2.1).
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://javafx.com/downloads/eclipse-plugin};}
+\item {selezionare l'unico file dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
+
+\section{LateX}
+\begin{itemize}
+\item {Per \underline{Linux}: TeX Live (versione 2010). 
+\\
+Scarica e installa dal link
+\url{http://www.tug.org/texlive/}.}
+\item {Per \underline{MacOSX}: MacTeX (versione 2010). 
+\\
+Scarica e installa dal link
+\url{http://www.tug.org/mactex/}.}
+\item {Per Windows: MiKTeX (versione 2.9). 
+\\
+Scarica e installa dal link
+\url{http://miktex.org/}.}
+\end{itemize}
+
+\section{Plugin LateX per Ecplise}
+TeXlipse (versione $\geq$ 1.4.0). 
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://texlipse.sourceforge.net};}
+\item {selezionare l'unico file dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
+
+\section{Plugin UML per Eclipse}
+Papyrus (versione $\geq$ 0.7.2). 
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire} \\
+{\url{http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/helios};}
+\item {selezionare ``Papyrus \underline{UML} MDT'' dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
+
+\section{Gantt}
+GanttProject (versione $\geq$ 2.0.10). 
+\\
+Scarica e installa dal link
+\url{http://www.ganttproject.biz/download}.
+
+
+\chapter{Pianificazione, ticketing e \\time-tracking}
+\thispagestyle{fancy}
+Per fare pianificazione verranno utilizzati i \underline{diagrammi di Gantt} e
+nello specifico lo strumento GanttProject (per maggiori dettagli vedi sezione 4.11). 
+\\ \\
+Il tracciamento delle ore di lavoro per ogni componente verr\`a eseguito
+tramite un progetto di GanttProject appositamente condiviso e accessibile da ognuno (non concorrentemente). Questo permetter\`a anche un comodo confronto con la
+gestione delle risorse pianificata nel \emph{PianoDiQualifica-\versionePQ.pdf}.
+\\ \\
+Il \underline{ticketing} sar\`a utilizzato tramite gli appositi strumenti
+forniti da Google Code al link
+\\\url{http://code.google.com/p/netmus/issues/list}. \\Al link
+\url{http://code.google.com/p/support/wiki/IssueTracker} si pu\`o trovare un tutorial che spiega come usare questo strumento.\\
+Chi si \`e preso in carico il ticket, alla sua chiusura dovr\`a
+compilare un form al link
+\url{https://spreadsheets.google.com/viewform?formkey=dFpYYUdtWTB4c3BsbzdXY0JZaGFDZUE6MQ}.
+\\Questo form sar\`a utile per il miglioramento dei processi di lavoro (per
+maggiori dettagli vedi documento \emph{PianoDiQualifica-\versionePQ.pdf}).
+
+
+\chapter{Analisi e Progettazione}
+\thispagestyle{fancy} 
+
+Per l'analisi dei requisiti e per la progettazione si utilizzer\`a il linguaggio
+UML 2.0 perch\'e adottato come standard nella modellazione e
+scrittura dei diagrammi: Use case, di flusso, dei package, delle classi, degli
+oggetti, di attivit\`a e di sequenza. 
+\\
+La tecnologia e gli strumenti utilizzati per la scrittura in UML
+sono specificati chiaramente nella sezione 4.10.
+
+\section{Individuazione e tracciamento dei requisiti - use case}
+L'individuazione e il tracciamento dei requisiti - use case si effettueranno
+analizzando a fondo i requisiti esposti nel capitolato d'appalto e quelli emersi nell'incontro effettuato con il proponente (vedi documento \emph{Verbale-1.0.pdf}).
+\\
+Per identificare in modo univoco e significativo ognuno dei requisiti software
+estratti dall'analisi, gli viene assegnato un codice.
+Tale lista sar\`a presente solamente nel documento
+\emph{AnalisiDeiRequisiti-\versioneAR.pdf} mentre in tutti gli altri verranno
+riferiti tramite il codice suddetto.
+\\
+\\
+\bo{(C1/C2)(F/Q/I/V)(N/D/O)-n1.n2.n3...nx}\\
+\bo{C1} = componente 1 (componente di persistenza e visualizzazione)\\
+\bo{C2} = componente 2 (componente di recupero delle informazioni dei brani
+musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
+\bo{F} = funzionale\\
+\bo{Q} = qualit\`a\\
+\bo{I} = interfacciamento\\
+\bo{V} = vincolo\\
+\bo{N} = obbligatorio (necessario)\\
+\bo{D} = desiderabile\\
+\bo{O} = opzionale\\
+\bo{nx} = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di
+un requisito avranno una cifra in pi\`u del genitore.
+
+\newpage
+\section{Tracciamento dei requisiti - componenti}
+Per identificare in modo univoco e significativo ognuno dei componenti software
+estratti dalla progettazione, gli viene assegnato un codice.
+Tale lista sar\`a presente solamente nel documento
+\emph{SpecificaTecnica-\versioneST.pdf} mentre in tutti gli altri verranno
+riferiti tramite il codice suddetto.
+\\
+\\
+\bo{C(pc)(sc)n}\\
+\bo{C} = componente\\
+\bo{pc} = due lettere per identificare il package\\
+\bo{sc} = due lettere per identificare il sottopackage\\
+\bo{n} = numero incrementale che indica il package stesso se uguale a 0, la
+classe contenuta nel package se maggiore di 0\\ \\
+Esempi:
+\begin{itemize}
+  \item \bo{Cclmv0} = il package stesso client.mvp
+  \item \bo{Cclmv1} = la classe NetMus del package client.mvp
+\end{itemize}
+
+
+\chapter{Norme di Codifica}
+\thispagestyle{fancy} 
+Per la fase di codifica del progetto \`e stato scelto innanzitutto l'ambiente
+integrato di sviluppo Eclipse perch\'e supporta sia la programmazione Java
+sia la possibilit\`a  di installare eventuali plugin per interfacciarsi con
+altre tecnologie (per maggiori dettagli vedi sezione 4.1).\\
+Per la componente di visualizzazione del Catalogo
+Multimediale sono stati scelti i plugin di GAE e di GWT oltre i relativi SDKs
+(per maggiori dettagli vedi sezione 4.5).\\ 
+Per la codifica della componente di estrazione delle informazioni \`e stata
+scelta la tecnologia JavaFX. Questa tecnologia \`e stata sia suggerita dal
+proponente nel capitolato d'appalto sia risultata una delle tecnologie migliori
+per lo sviluppo delle \underline{RIA} (per maggiori dettagli vedi sezione 4.6 e
+4.7). \\ \\
+Per cercare di semplificare la verificabilit\`a, migliorare la
+manutenibilit\`a e massimizzare la portabilit\`a si deve rendere il codice
+scritto pi\`u leggibile possibile.\\
+Per fare questo nel codice si dovr\`a utilizzare un tool automatico gi\`a
+installato dentro Eclipse che genera documentazione API in HTML a partire da
+\underline{codice sorgente} Java e pi\`u precisamente usando il comando
+``Generate Javadoc''; mentre nel progetto si dovranno strutturare nella maniera pi\`u semplice e coerente i moduli, i
+file, le directory, ecc.\\
+Inoltre si dovr\`a cercare di scrivere meno linee di codice possibile e non
+usare l'identazione con il TAB (poco portabile) ma utilizzare gli spazi.
+\\ \\
+
+Le classi, i metodi e le variabili Java dovranno avere la seguente nomenclatura:
+\begin{itemize}
+  \item {tutti i nomi indicare in maniera univoca il loro contenuto ed essere
+  scritti in lingua inglese;}
+  \item {le classi iniziare con la lettera maiuscola\\ 
+  (es. ``class Example'');}
+  \item {i metodi iniziare con la lettera minuscola e senza spazi\\ 
+  (es. ``void exampleOfMethod()'');}
+  \item {le variabili non costanti con tutte le lettere minuscole e gli
+  underscore \\
+  (es. ``example\_of\_variable'');}
+  \item {le variabili costanti con tutte le lettere maiuscole e gli underscore\\
+  (es. ``EXAMPLE\_OF\_CONSTANT\_VARIABLE'').}
+\end{itemize} 
+
+\newpage
+Ogni classe Java dovr\`a avere la sua intestazione contenente:
+\begin{itemize}
+  \item {Dati dell'unit\`a: tipo, contenuto, posizione;}
+  \item {Responsabilit\`a: autore, reparto, organizzazione;}
+  \item {Copyright / copyleft: licenze, visibilit\`a;}
+  \item {Avvertenze: limiti di uso e di garanzia;}
+  \item {Registro modifiche: storia, spiegazione, versione.} \\
+\end{itemize}
+Ogni programmatore dovr\`a:
+\begin{itemize}
+  \item{consegnare codice che compila senza errori fatali o
+potenziali (warning);} 
+  \item{aver utilizzato con chiarezza e coerenza i costrutti del
+linguaggio;}
+  \item{aver utilizzato un sottoinsieme appropriato del linguaggio
+(preferire i costrutti di maggiore robustezza, verificabilit\`a e leggibilit\`a
+rispetto quelli di maggiore potenza espressa e velocit\`a).}
+\end{itemize}
+
+\chapter{Repository e Versionamento}
+\thispagestyle{fancy}
+Come servizio di hosting per mantenere online i repository
+viene utilizzato Google Code Project Hosting
+(\url{http://code.google.com/hosting/}). Questo offre un buon
+servizio di ticketing e una comoda e completa interfaccia web per
+la visualizzazione e gestione dei dati caricati. In tale spazio sono
+stati creati due repository: uno per i documenti e uno per il codice sorgente
+(per maggiori dettagli vedi sezione 4.2). 
+\\ \\
+Come sistema di
+\underline{versionamento} per tali repository viene utilizzato Mercurial,
+strumento che deve essere installato nel sistema di ogni componente del gruppo
+(per maggiori dettagli vedi sezione 4.3).
+\\ \\
+Poich\'e durante l'intero sviluppo verr\`a usato principalmente l'ambiente
+Eclipse, si utilizzer\`a il comodo plugin Mercurial Eclipse che consente di accedere
+graficamente a tutte le funzionalit\`a di Mercurial (per maggiori dettagli vedi
+sezione 4.4). 
+\\
+Per scaricare localmente un repository con le ultime versioni dei
+file si deve eseguire un ``\underline{Pull}'' all'interno del progetto
+selezionato. Una volta effettuate delle modifiche, aggiunte o rimozioni viene
+utilizzato il relativo ``\underline{Commit}'' per descrivere l'avanzamento di
+versione e poi viene ultimato il ``\underline{Push}'' per caricare tale versione
+nel repository. Mercurial con i ``\underline{Merge}'' riesce a gestire in maniera efficiente i vari conflitti
+che potrebbero esserci in ``Push'' simultanei nello stesso branch.\\ 
+\\
+In ogni ``Commit'' viene adottata tale convenzione: 
+``Operazione NomeDelFile Descrizione''
+\begin{itemize}
+\item {Operazione: \`e l'operazione fatta su un determinato file (ADD, NEW, FIX,
+DEL) e nello specifico}
+\begin {itemize}
+\item {ADD: \`e stato aggiunto qualcosa di nuovo ad un file gi\`a esistente;}
+\item {NEW: \`e stato creato qualcosa di nuovo, quindi un nuovo file;} 
+\item {FIX: \`e stato modificato un contenuto presente in un file gi\`a
+esistente;} 
+\item {DEL: \`e stato totalmente eliminato qualcosa;}
+\end {itemize}
+\item {NomeDelFile: \`e il nome del file in questione;}
+\item {Descrizione: \`e una breve descrizione dell'operazione eseguita.}
+\end{itemize}
+Riguardo al versionamento di un documento, ogni modifica apportata a questo
+determina un incremento dell'indice minore (esempio: da 0.1 a 0.2) mentre ogni
+rilascio pubblico determina un incremento dell'indice maggiore (esempio in
+previsione della RR: da 0.4 a 1.0).
+
+
+\chapter{Registro delle modifiche}
+\thispagestyle{fancy}
+Per agevolare la comprensione e tracciare uno storico delle modifiche
+effettuate, all'interno di ciascun documento dovr\`a essere sempre
+presente un registro dettagliato delle modifiche (a partire da
+pagina II prima dell'indice). Questo permetter\`a di evidenziare la data
+d'introduzione della modifica, il numero di versione raggiunto, l'autore e una
+breve descrizione di tale modifica.
+
+
+\chapter{Riunioni e incontri}
+\thispagestyle{fancy}
+Tutte le riunioni e gli incontri ufficiali vengono svolti nelle seguenti sedi:
+
+\begin{itemize}
+\item Residenza Messori, in via Manin 31 a Padova (sede principale);
+\item Laboratorio di Informatica, in via Paolotti a Padova.
+\end{itemize}
+
+Prima di ogni riunione il responsabile dovr\`a scrivere il documento
+``Ordine del giorno'', un documento interno e informale che specifica quali saranno gli
+argomenti discussi e in che sequenza affrontati. Dovr\`a essere inserito nella
+sezione ``Discussioni'' del forum dei VT.G. \\ \\
+A fine riunione il responsabile dovr\`a scrivere il ``Verbale riunione'', un
+documento interno e informale in cui si riportano le decisioni e le scelte
+discusse rispetto ai punti dell'``Ordine del giorno''. Dovr\`a essere inserito
+nella sezione ``Discussioni'' del forum dei VT.G.
+
+\chapter{Consegna}
+\thispagestyle{fancy}
+Per ciascuna revisione, il gruppo VT.G si impegna a consegnare i documenti
+tramite l'e-mail del gruppo in un unico file compresso ``.zip''. Al suo interno i
+file saranno suddivisi in base all'uso, interno o esterno.
+
+
+\end{document}
