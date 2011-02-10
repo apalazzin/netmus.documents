@@ -33,6 +33,10 @@ VT.G \\
 \hline
 \endfoot
 
+10/02/2011 & 2.1 & Baron Federico & Correzione in seguito a esiti RP. Aggiunti
+UC1.1.5 e UC1.1.6.
+\\
+\hline
 24/01/2011 & 2.0 & Daminato Simone & Validazione per consegna RP.
 \\
 \hline
@@ -227,10 +231,12 @@ componente di persistenza e visualizzazione.}
 \vspace*{0.5cm}
 \bo{Use case UC1: Sistema NetMus, componente di persistenza e visualizzazione}\\\\ 
 \bo{Attori primari:} Utente. \\\\
-\bo{Pre-condizioni:} Il portale \`e attivo e l'utente, connesso ad internet, vi
-accede tramite un browser. \\\\ 
+\bo{Pre-condizioni:} Il portale \`e attivo e l'utente, connesso ad internet,
+vi accede tramite un browser. Netmus, per l'utente che ha appena effettuato
+l'accesso, si trova nello stato di partenza di default . \\\\
 \bo{Post-condizioni:} Il portale NetMus \`e attivo, ha soddisfatto tutte le
-richieste dell'utente ed \`e pronto a soddisfarne altre. \\\\ 
+richieste dell'utente ed \`e pronto a soddisfarne altre. Il sistema si trova
+in uno degli stati possibili dopo aver effettuato il login. \\\\
 \bo{Scenario principale:} 
 \begin{enumerate}
   \item L'utente effettua l'autenticazione (UC1.4).
@@ -252,7 +258,7 @@ richieste dell'utente ed \`e pronto a soddisfarne altre. \\\\
 \end{itemize}
 \newpage
 
-\section{UC2 - Sistema NetMus, componente di recupero delle informazioni}
+\section{UC2 - Sistema NetMus, recupero delle informazioni}
 
 \begin{figure}[h]
   \centering
@@ -262,7 +268,7 @@ componente di recupero delle informazioni.}
 \end{figure}
 
 \vspace*{0.5cm}
-\bo{Use case UC2: Sistema NetMus, componente di recupero delle informazioni}\\\\
+\bo{Use case UC2: Sistema NetMus, recupero delle informazioni}\\\\
 \bo{Attori primari:} Utente \\\\
 \bo{Pre-condizioni:} Il portale \`e attivo e l'utente, connesso ad internet, vi
 accede tramite un browser. \\\\ 
@@ -341,20 +347,20 @@ all'utente per quanto riguarda la gestione del proprio profilo personale.}
 \vspace*{0.5cm}
 \bo{Use case UC1.1: Gestione del profilo personale} \\\\
 \bo{Attori primari:} Utente. \\\\
-\bo{Pre-condizioni:} Il portale \`e attivo ed ha in memoria, pronti all'utilizzo,
-i dati relativi all'utente che si \`e autenticato.  \\\\ 
-\bo{Post-condizioni:} L'utente ha effettuato tutte le operazioni desiderate con
-successo. Il sistema ha salvato tutte le modifiche richieste. \\\\
+\bo{Pre-condizioni:} Il portale \`e attivo e si trova nella pagina di
+gestione profilo richiesta dall'utente che si \`e autenticato. \\\\
+\bo{Post-condizioni:} L'utente ha effettuato tutte le operazioni desiderate con successo. Il sistema ha salvato tutte le modifiche richieste. \\\\
 \bo{Scenario principale:} 
 \begin{enumerate}
   \item L'utente naviga all'interno della pagina di gestione del proprio profilo
   (UC1.1) in cui pu\`o accedere a tutte le informazioni personali salvate da
   NetMus che lo riguardano.
   \item L'utente fa alcune operazioni consentite come modificare alcuni
-  dati (UC1.1.3), rendere visibile a tutti il proprio profilo e di conseguenza
-  il proprio catalogo (UC1.1.2) oppure ha la possibilit\`a di cancellare la
-  propria registrazione e rinunciare al servizio offerto da NetMus perdendo le
-  informazioni raccolte fino a quel momento (UC1.1.1, UC1.1.4).
+  dati (UC1.1.3), rendere visibile a tutti o ad alcuni utenti selezionati il
+  proprio profilo e di conseguenza il proprio catalogo (UC1.1.2, UC1.1.5,
+  UC1.1.6) oppure ha la possibilit\`a di cancellare la propria registrazione e
+  rinunciare al servizio offerto da NetMus perdendo le informazioni raccolte
+  fino a quel momento (UC1.1.1, UC1.1.4).
   \item Tutte le operazioni richieste dall'utente vengono eseguite in tempo
   utile dal server.
 \end{enumerate}
@@ -483,8 +489,8 @@ database di NetMus.}
 \vspace*{0.5cm}
 \bo{Use case UC2.2: Inviare nuovi brani}\\\\
 \bo{Attori primari:} Utente. \\\\ 
-\bo{Pre-condizioni:} La componente 2 del sistema NetMus \`e attiva poich\'e acceduta
-dall'utente, quest'ultimo \`e autenticato. \\\\
+\bo{Pre-condizioni:} La componente 2 del sistema NetMus \`e attiva poich\'e
+attivata dall'utente, quest'ultimo \`e autenticato. \\\\
 \bo{Post-condizioni:} La componente 2 \`e ancora attiva e l'utente \`e pronto a
 compiere qualsiasi altra operazione consentita dal sistema. Le nuove
 informazioni reperite sono state tutte inviate al database di NetMus.\\\\
@@ -666,8 +672,9 @@ permanente eliminando dal database ogni sua informazione.
 \bo{Richiesta:} desiderabile \\
 \bo{Fonte:} interna \\
 Per interagire con gli altri sar\`a necessario pubblicare il proprio profilo e
-di conseguenza la propria libreria di canzoni rendendo visibile a tutti ci\`o che
-contengono.
+di conseguenza la propria libreria di canzoni rendendo visibile ad altri
+utenti ci\`o che contengono. Per garantire un livello di privacy basilare sar\`a
+possibile decidere a quali utenti rendere visibile il profilo.
 
 \subsubsection*{Riproduzione tracce in streaming}
 \bo{Id:} C1FD-1.5 \\
@@ -1491,7 +1498,9 @@ C1FN-1.4.2 Cambio password & UC1.1.3 - Modificare informazioni
 profilo \\ \hline
 C1FN-1.4.3 Cancellazione del proprio account & UC1.1.1 - Cancellare profilo \\
 & UC1.1.4 - Cancellare catalogo \\ \hline
-C1FD-1.4.4 Pubblicazione & UC1.1.2 - Pubblicare profilo \\ \hline
+C1FD-1.4.4 Pubblicazione profilo & UC1.1.2 - Pubblicare profilo \\
+& UC1.1.5 - Pubblicare a tutti \\
+& UC1.1.6 - Pubblicare a selezione \\ \hline
 C1FD-1.5 Riproduzione tracce in streaming & UC1.3.3.2 - Player YouTube \\ \hline
 C1FD-1.7 Interazione con altri utenti & UC1.2 - Interagire con altri cataloghi
 \\ \hline 
@@ -1539,7 +1548,9 @@ UC1.1 - Gestire profilo personale & C1FN-1.4 Gestione profilo personale \\
 \hline
 UC1.1.1 - Cancellare profilo & C1FN-1.4.3 Cancellazione del proprio account \\
 \hline
-UC1.1.2 - Pubblicare profilo & C1FD-1.4.4 Pubblicazione \\ \hline
+UC1.1.2 - Pubblicare profilo & C1FD-1.4.4 Pubblicare profilo \\ \hline
+UC1.1.5 - Pubblicare a tutti & C1FD-1.4.4 Pubblicare profilo \\ \hline
+UC1.1.6 - Pubblicare a selezione & C1FD-1.4.4 Pubblicare profilo \\ \hline
 UC1.1.3 - Modificare informazioni profilo & C1FN-1.4.1 Modifica informazioni
 personali \\ 
 & C1FN-1.4.2 Cambio password \\ \hline
