@@ -757,6 +757,111 @@ In questa fase, la maggior parte delle risorse economiche sono state consumate
 dai progettisti e dai verificatori, seguiti dagli analisti che hanno ultimato il
 loro lavoro.
 
+\subsection{Rivisitazione Preventivo Fase RP-RQ}
+
+In base al consuntivo ottenuto dalla fase precedente, \`e stato rivisitato il
+preventivo per la fase successiva di lavoro, cos\`i da poter riorganizzare le
+ore in modo adeguato senza uscire dai limiti orari e di budget impostati nel
+preventivo originario.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|}
+\hline
+& \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
+\bo{Anl.}\cellcolor{orange} & \bo{Proget.}\cellcolor{orange} &
+\bo{Program.}\cellcolor{orange} & \bo{Verif.}\cellcolor{orange} & \bo{Ore
+Totali}\cellcolor{orange} \\ \hline
+
+\bo{Baron}\cellcolor{orange}    &   &    &    & 10 & 10 & 30 & 50 \\ \hline
+\bo{Caputo}\cellcolor{orange}   &   &    &    & 15 & 20 & 16 & 51 \\ \hline
+\bo{Daminato}\cellcolor{orange} &   &   4&    & 15 & 16 & 12 & 51 \\ \hline
+\bo{Lovato}\cellcolor{orange}   &   &   9&    & 15 & 10 & 17 & 51 \\ \hline
+\bo{Mandolo}\cellcolor{orange}  &  5&    &    & 12 & 16 & 16 & 51 \\ \hline
+\bo{Palazzin}\cellcolor{orange} &   &    &    & 20 & 15 & 15 & 50 \\ \hline
+\bo{Trezzi}\cellcolor{orange}   &  8&    &    & 15 & 15 & 13 & 51 \\  \hline
+\bo{TOTALE}\cellcolor{orange} & 13 & 13 & & 102 & 102 & 119 & 349 \\ \hline
+
+\end{tabular}
+\caption{Pianificazione oraria RP-RQ Riorganizzata}
+\end{center}
+\end{table}
+\vspace{0.5cm}
+
+\bo{Ore totali:} 349.\\
+
+Come si pu\` notare dal grafico le ore sono state ripartite in modo diverso
+rispetto al preventivo originario, anche se le differenze sono esigue. Sono
+Le ore totali sono ridotte a 349, ossia 6 ore di lavoro in meno, che sono
+quelle consumate nella fase precendente. Inoltre le ore di progettazione sono
+state aumentate, diretta conseguenza dell'esperienza fatta con la progettazione
+nella fase RR-RP. Le ore di codifica sono diminuite, prevedendo che una buona e
+dettagliata progettazione richieda meno ore di codifica. Il resto \`e rimasto
+invariato.
+
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{|p{0.17\textwidth}|c|c|c|c|c|}
+\hline
+& \bo{Resp.}\cellcolor{orange} & \bo{Amm.}\cellcolor{orange} &
+\bo{Proget.}\cellcolor{orange} & \bo{Program.}\cellcolor{orange} &
+\bo{Verif.}\cellcolor{orange} \\ \hline
+
+\cellcolor{orange}&&&Baron(10) &&\\
+\bo{Progettazione}\cellcolor{orange}&&&Daminato(15) &&\\
+\bo{di Dettaglio 1}\cellcolor{orange}&&&Lovato(15) &&\\
+\cellcolor{orange}&&&Palazzin(5) &&\\
+\cellcolor{orange}&&&Trezzi(15)&&\\ \hline
+
+\cellcolor{orange}&&&&Caputo(15) &\\
+\cellcolor{orange}&&&&Daminato(11) &\\
+\bo{Codifica 1}\cellcolor{orange}&&&&Mandolo(3)&\\
+\cellcolor{orange}&&&& Palazzin(10) &\\
+\cellcolor{orange}&&&&Trezzi(15)&\\ \hline
+
+\bo{Progettazione}\cellcolor{orange}&&&Caputo(15) &&\\
+\bo{di Dettaglio 2}\cellcolor{orange}&&&Mandolo(12) &&\\
+\cellcolor{orange}&&&Palazzin(10)&&\\ \hline
+
+\cellcolor{orange}&&&&Baron(5) &\\
+\bo{Codifica 2}\cellcolor{orange}&&&&Lovato(10)&\\
+\cellcolor{orange}&&&& Mandolo(13)&\\ \hline
+
+\bo{Inizio Test}\cellcolor{orange}&&&&&Baron(15) \\
+\bo{di Qualifica}\cellcolor{orange}&&&&&Lovato(17) \\
+\cellcolor{orange}&&&&&Trezzi(13)\\ \hline
+
+\bo{Agg. PP (v3)}\cellcolor{orange}  & Trezzi(8) & Daminato(4) &  & & \\ \hline
+\bo{Agg. PQ (v3)}\cellcolor{orange}  &  &  &  & &Daminato(6) \\ \hline
+\bo{Agg. PQ (v4)}\cellcolor{orange}  &  &  &  & &Caputo(8) \\ \hline
+
+\cellcolor{orange}&&&&Baron(5)&\\
+\bo{Manuale}\cellcolor{orange}&&&& Caputo(5) &\\
+\bo{Utente (v1)}\cellcolor{orange}&&&&Daminato(5) &\\
+\cellcolor{orange}&&&&Palazzin(5)&\\ \hline
+
+\bo{Correzione}\cellcolor{orange}&&&Palazzin(5)&&Mandolo(5)\\
+\bo{docum. RP}\cellcolor{orange}&&&&&\\\hline
+
+\cellcolor{orange}&&&&&Baron(15)\\
+\cellcolor{orange}&&&&& Caputo(8) \\
+\bo{Verifica}\cellcolor{orange}&&&&&Daminato(6) \\
+\cellcolor{orange}&&&&&Mandolo(11) \\
+\cellcolor{orange}&&&&&Palazzin(15)\\ \hline
+
+\bo{Controllo e}\cellcolor{orange}&Mandolo(5)&&&&\\
+\bo{Gestione}\cellcolor{orange}&&&&&\\ \hline
+
+\bo{Gestione}\cellcolor{orange}&&Lovato(9)&&&\\
+\bo{strumentaz.}\cellcolor{orange}&&&&&\\ \hline
+
+\end{tabular}
+\caption{Ripartizione ruoli e attivit\`a RP-RQ Riorganizzata}
+\end{center}
+\end{table}
+
+
+
 \chapter{Analisi e gestione dei rischi}
 \thispagestyle{fancy}
 
