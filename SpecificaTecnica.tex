@@ -198,10 +198,13 @@ tre importantissime componenti riducendo l'accoppiamento e facilitando i process
 \caption{Architettura tipica di MVP utilizzando Google Web Toolkit}
 \end{figure}
 
-Nel nostro caso questo design pattern sar\`a implementato con il framework MVP con
-Activities e Places offerto da GWT 2.1 che semplifica la gestione di alcuni
-aspetti consolidati di MVP. In questo framework le Activities svolgono il ruolo
-di Presenter e i Places rappresentano gli stati della \underline{UI}.
+Questo design pattern sar\`a utilizzato per definire
+l'architettura della componente di persistenza e visualizzazione e
+nel nostro caso sar\`a implementato con il framework MVP con Activities e Places
+offerto da GWT 2.1 che semplifica la gestione di alcuni aspetti consolidati di
+MVP. In questo framework le Activities svolgono il ruolo di Presenter e i Places
+rappresentano gli stati della \underline{UI}.
+
 \begin{itemize}
   \item{\bo{Activity} }
   \`e l'analogo di presenter in MVP tradizionale. Non contiene alcun componente
@@ -228,21 +231,24 @@ di Presenter e i Places rappresentano gli stati della \underline{UI}.
 \caption{Diagramma UML delle classi che descrive la struttura dell'utilizzo
 simultaneo dei patterns DAO e DTO}
 \end{figure}
-Questi patterns vengono introdotti all'interno della componente model di MVP e
-riguardano gli oggetti utilizzati per l'incapsulamento dei dati nelle
-comunicazioni tra client, server e database. 
+Questi patterns vengono introdotti rispettivamente all'interno della componente
+model (DAO) e presenter (DTO) di MVP e riguardano gli oggetti utilizzati per
+l'incapsulamento dei dati nelle comunicazioni tra client, server e database. 
 Il DAO (Data Access Object) \`e un pattern semplice ma fondamentale per
 stratificare ed isolare gli accessi al database dalla parte logica
-dell'applicazione, nel nostro caso le Activity di MVP. L'implementazione \`e
-fondamentalmente una classe che rappresenta un'entit\`a tabellare di un database.
-Questi oggetti estratti dal database in alcuni casi possono essere utilizzati
-per la comunicazione con i clients ma hanno pesanti restrizioni dovute alla
-grande quantit\`a di informazioni e procedure che contengono, per questo motivo
-abbiamo deciso di affiancare a DAO anche il pattern Data Transfer Object. Gli
-oggetti DTO saranno quelli che verranno scambiati nella comunicazione tra client
-e server con il vantaggio di essere pi\`u essenziali dei DAO e la possibilit\`a di
-costituire dei pacchetti su misura per la comunicazione. La logica del
-tracciamento tra DAO e DTO sar\`a a carico degli oggetti DAO.
+dell'applicazione, nel nostro caso le Activity di MVP. In Netmus definisce la
+struttura delle classi \co{MusicLibrary}, \co{UserAccount} e \co{Song} contenute nel
+package \emph{persistent}. L'implementazione \`e fondamentalmente una classe che
+rappresenta un'entit\`a tabellare di un database. Questi oggetti estratti dal
+database in alcuni casi possono essere utilizzati per la comunicazione con i
+clients ma hanno pesanti restrizioni dovute alla grande quantit\`a di
+informazioni e procedure che contengono, per questo motivo abbiamo deciso di
+affiancare a DAO anche il pattern Data Transfer Object. Gli oggetti DTO,
+contenuti nel package \emph{shared}, verranno scambiati nella comunicazione tra
+client e server con il vantaggio di essere pi\`u essenziali dei DAO e si
+esserre costruiti su misura per la comunicazione (in seguito sarà illustrata
+la struttura gerarchica che utilizza questo pattern). La logica del tracciamento
+tra DAO e DTO sar\`a a carico degli oggetti DAO.
 \\
 Per questo scopo GWT 2.1 propone un potente framework per gestire la
 comunicazione tra client e server, Request Factory, che implementa i patterns
@@ -300,8 +306,8 @@ accordo con il framework \emph{MVP con Activities e Places} precedentemente
 presentato, sono il model, che riguarda le parti di \underline{business logic} e
 \underline{business data}, la view, che contiene l'intera parte grafica del
 sistema (UI) con i relativi stati (Places) e il presenter che costituisce il collegamento tra view
-e model attraverso le Activities.
-\\\\
+e model attraverso le Activity, le interfacce Service e i DTO del package
+\emph{shared}. \\\\
 La struttura sar\`a quindi formata dai seguenti packages:
 \begin{figure}[h]
   \centering
@@ -353,36 +359,46 @@ La struttura sar\`a quindi formata dai seguenti packages:
 
 \newpage
 \subsubsection{Decomposizione architetturale - lato client}
-Per soddisfare i requisiti funzionali del sistema NetMus sono state individuate
-4 componenti che implementano altrettante UI con la relativa logica di
-attivazione delle Activities. Queste sono Login, User, EditProfile e EditSongs
-che, grazie all'interazione tra le loro parti view, place e activity,
-garantiscono all'utente tutte le funzionalit\`a attese.\\
-Le interfacce Service invece rappresentano il punto di collegamento con il model
-la cui implementazione \`e sviluppata principalmente lato server. Queste
-interfacce, infatti, vengono accedute dalle Activities poich\'e forniscono tutti i
-metodi riguardanti la business logic. \\\\ 
-L'intero schema delle classi individuate durante la progettazione \`e il
-seguente: 
-\begin{figure}[h]
+Nel package \emph{client} troviamo la classe \co{Netmus} che rappresenta
+l'entry point, occupandosi di generare tutte le componenti e di renderle
+visibili. Nel sottopackage \emph{mvp} sono contenute le classi
+\co{NetmusActivityMapper} e \co{NetmusPlaceHistoryMapper} funzionali al
+meccanismo delle Activity e dei Place. Per soddisfare i requisiti funzionali del
+sistema NetMus sono state individuate 4 componenti che implementano altrettante
+UI con la relativa logica di attivazione delle Activities. Queste sono Login,
+User, EditProfile e EditSongs che, grazie all'interazione tra le loro parti
+view, place e activity, garantiscono all'utente tutte le funzionalit\`a
+attese.\\ Le interfacce Service invece rappresentano il punto di collegamento
+con il model la cui implementazione \`e sviluppata lato server. Queste
+interfacce, infatti, vengono accedute dalle Activities poich\'e forniscono tutti
+i metodi riguardanti la business logic. \\\\ L'intero schema delle classi
+individuate durante la progettazione \`e il seguente: \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/client.png}
 \caption{Diagramma delle classi del package client}
 \end{figure}
 \newpage
 \subsubsection{Decomposizione architetturale - lato server}
-Nella parte server si trovano le implementazioni dei Service che hanno
-la possibilit\`a di accedere alle informazioni presenti nel database grazie alle
-classi DAO presenti nel package \emph{persistent}.
-Grande importanza viene data alle classi presenti nel package \emph{shared}
-poich\'e rendono allo stesso tempo semplice ed efficiente il passaggio di
-informazioni tra il server e i clients incapsulando gli oggetti di
-persistenza DAO e rimuovendone la parte logica, nel rispetto del design pattern
-DTO. \\\\ L'intero schema delle classi
-individuate durante la progettazione \`e il seguente: 
+Nella parte server si trovano le implementazioni dei Service e i package
+\emph{servlet}, \emph{persistent} e \emph{utils}. I Service hanno la
+possibilit\`a di accedere alle informazioni contenute nel database grazie alle
+classi DAO presenti nel package \emph{persistent}, le classi di \emph{servlet}
+interfacciano il sistema con i servizi esterni (autenticazione Google, servizi
+di tagging, Youtube) mentre in \emph{utils} sono contenute le classi di
+utilit\`a generali del server. Grande importanza viene data al package
+\emph{shared} poich\'e contiene il sottopackage \emph{exception} e la gerarchia
+di classi che rende allo stesso tempo semplice ed efficiente il passaggio di
+informazioni tra il server e i clients incapsulando gli oggetti di persistenza
+DAO e rimuovendone la parte logica, nel rispetto del design pattern DTO. Lato
+server compaiono inoltre le classi \co{PMF}, che si occupa di creare l'istanza
+della classe \co{PersistanceManagerFactory} per la gestione della persistenza e
+la comunicazione con il DataStore, e \co{loginHelper}, per le gestione delle
+sessioni http.\\\\ L'intero schema delle classi individuate durante la
+progettazione \`e il seguente:
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=16.5cm]{img/ST/Server&Shared.png}
+  \includegraphics[width=16.5cm]{img/ST/Server_Shared.png}
 \caption{Diagramma delle classi dei packages server e shared}
 \end{figure}
 
@@ -398,7 +414,7 @@ analogo per la visualizzazione delle altre UI previste in NetMus.
 \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/profile.png}
-\caption{Diagramma delle classi che descrive il procedimento di
+\caption{Diagramma delle attivit\`a che descrive il procedimento di
 visualizzazione della pagina di profilo utente}
 \end{figure}
 \\\\\\Come possiamo vedere all'avvio dell'applicazione \`e sempre necessario
