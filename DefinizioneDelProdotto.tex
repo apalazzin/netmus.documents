@@ -60,14 +60,416 @@ VT.G \\
 
 \section{Standard di progettazione architetturale}
 \section{Standard di documentazione del codice}
-\section{Standard di denominazione di entità e relazioni}
+\section{Standard di denominazione di entit\`a e relazioni}
 \section{Standard di programmazione}
 \section{Strumenti di lavoro}
 
-\chapter{Specifica delle componenti}
+\chapter{Specifica delle componenti in progettazione di dettaglio 1}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
-Raffinamento a livello di progettazione di dettaglio della specifica fornita in
-sezione §3 della Specifica Tecnica.
+Il ciclo di vita da noi impiegato prevede due diverse fasi di progettazione di
+dettaglio, come meglio specificato nel capitolo 3 del Piano di progetto (v
+3.0). La specifica delle componenti individuate nel primo incremento ha
+l'obiettivo di soddisfare i requisiti obbligatori dell'analisi e la codifica di
+queste fornisce una prima versione funzionante e stabile di NetMus. 
+\section*{Requisiti obbligatori}
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Requisiti obbligatori}\\
+\hline
+\endhead
+\hline
+\multicolumn{1}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+C1FN-1 Web Application Netmus \\ \hline
+C1FN-1.1 Grafica simile ad iTunes \\ \hline
+C1FN-1.1.1 Brani elencati opportunamente \\ \hline
+C1FN-1.1.2 Menu laterali \\ \hline
+C1FN-1.1.3 Visualiz. info dettagliate dei brani \\ \hline  
+C1FN-1.4 Gestione profilo personale \\ \hline
+C1FN-1.4.1 Modifica informazioni personali \\ \hline      
+C1FN-1.4.3 Cancellazione del proprio account \\ \hline                   
+C1FN-1.9 Ricezione ed elaborazione dei brani \\ \hline            
+C1FN-1.9.1 Controllo di validit\`a dei dati \\ \hline              
+C1FN-1.9.2 Completamento info da database interno \\ \hline                                                        
+C1FN-1.9.5 Inserimento nel Database \\ \hline                            
+C1FN-1.13 Gestione Database \\ \hline
+C1QN-1.6 Scalabilit\`a \\ \hline 
+C1QN-1.6.2 Scalabilit\`a massa di utenza \\ \hline
+C1QN-1.9.4 Identificazione dati ridondanti \\ \hline                         
+C1QN-1.9.6 Gestione concorrenza \\ \hline                         
+C1QN-2.3 Portabilit\`a \\ \hline             
+C1QN-2.7 Gestione errori \\ \hline      
+C1QN-3.1 Manuale utente \\ \hline
+
+C1VN-1.12 Deve utilizzare tecnologie GAE e GWT \\ \hline 
+C1VN-1.13.1 Deve utilizzare Google Data Store \\ \hline
+C1VN-1.11 Deve utilizzare il cloud computing \\ \hline
+C1VN-2.2 Open source \\ \hline
+C1VN-2.5 Semplicit\`a di utilizzo \\ \hline
+C1QN-1.6 Scalabilit\`a \\ \hline
+C1QN-1.6.1 Scalabilit\`a interfaccia grafica \\ \hline
+C1QN-1.6.2 Scalabilit\`a massa di utenza \\ \hline
+C1VN-1.11 Deve utilizzare il cloud computing \\ \hline
+C1VN-1.12 Tecnologie GAE e GWT \\ \hline
+C1VN-2.2 \underline{Open source} \\ \hline
+C1VN-2.5 Semplicit\`a di utilizzo \\ \hline
+C1QN-2.6 Manutenibilit\`a \\ \hline
+C1QN-3.1 Manuale utente \\ \hline
+C2QN-4.4 Manutenibilit\`a \\ \hline
+C2VN-4.6 Norme legali \\ \hline
+C2VN-4.7 Open source \\ \hline
+\caption{Tabella riassuntiva dei requisiti coinvolti in progettazione di
+dettaglio 1}
+\end{longtable}
+\end{footnotesize}
+
+\section{Tracciamento componenti dettaglio 1 - requisiti obbligatori}
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Componente} & \sca{Codice}\\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+Ccl0 - client & C1FN-1 \\
+& C2FN-3 \\\hline
+Ccl1 - client.Netmus & C1FN-1 \\ \hline
+Ccl2 - client.ClientFactory & C1QN-2.3 \\\hline
+Cclmv0 - client.mvp & C1FN-1 \\\hline
+Cclmv1 - client.mvp.NetmusActivityMapper & C1FN-1 \\\hline
+Cclmv2 - client.mvp.NetmusPlaceHistoryMapper & C1FN-1 \\\hline
+Cclac0 - client.activity & C1FN-1 \\\hline
+Cclac1 - client.activity.LoginActivity & C1FN-1.2 \\\hline
+Cclac2 - client.activity.ProfileActivity & C1FN-1.1.1 \\
+& C1FN-1.1.3 \\ \hline
+Cclac3 - client.activity.EditUserActivity & C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\
+& C1FN-1.4 \\\hline
+Cclse0 - client.service & C2QN-3.2 \\
+& C1QN-1.9.6 \\\hline
+Cclse1 - client.service.LoginService & C1FN-1.2 \\\hline
+Cclse2 - client.service.UsersService & C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\
+& C1FN-1.4 \\\hline
+Cclse3 - client.service.SongsService & C1FN-1.1.3 \\
+& C1FN-1.9 \\
+& C1FN-1.9.1 \\\
+& C1FN-1.9.5 \\
+& C2FN-3.1 \\\hline
+Cclse4 - client.service.LibraryService & C1FN-1.1.1 \\\hline
+Cclpl0 - client.place & C1FN-1 \\\hline
+Cclpl1 - client.place.LoginPlace & C1FN-1.2 \\\hline
+Cclpl2 - client.place.ProfilePlace & C1FN-1.1.3 \\
+& C1FN-1.1.1 \\\hline
+Cclpl3 - client.place.EditUserPlace & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\\hline
+Cclui0 - client.ui & C1FN-1 \\
+& C1FN-1.1 \\
+& C1FN-1.2 \\
+& C1QN-2 \\\hline
+Cclui1 - client.ui.LoginView & C1FN-1.2 \\ \hline
+Cclui2 - client.ui.ProfileView & C1FN-1.1.1 \\
+& C1FN-1.1.3 \\\hline
+Cclui3 - client.ui.EditUserView & C1FN-1.4.3 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4 \\\hline
+Cclap0 - client.applet & C2QN-4 \\
+& C2FN-3.1 \\
+& C2FN-1.5 \\
+& C2FN-1.2 \\
+& C2FN-1.1 \\
+& C2FN-1 \\\hline
+Csh0 - shared & C1FN-1 \\
+& C1FN-1.9.5 \\\hline
+Csh1 - shared.GenericDTO & C1FN-1 \\\hline
+Csh2 - shared.SongSummaryDTO & C1FN-1.1.3 \\\hline
+Csh3 - shared.SongDTO & C1FN-1.1.3 \\\hline
+Csh4 - shared.LoginDTO & C1FN-1.2 \\\hline
+Csh5 - shared.MusicLibraryDTO & C1FN-1.1.1 \\\hline
+Csh6 - shared.UserSummaryDTO & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\\hline
+Csh7 - shared.UserDTO & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\\hline
+Csh8 - shared.UserCompleteDTO & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\\hline
+Cshex0 - shared.exception & C1QN-1.7 \\\hline
+Cshex1 - shared.exception.NetMusException & C1QN-1.7 \\\hline
+Cshex2 - shared.exception.LoginException & C1QN-1.7 \\\hline
+Cshex3 - shared.exception.WrongLoginException & C1QN-1.7 \\\hline
+Cshex4 - shared.exception.RegistrationException & C1QN-1.7 \\\hline
+Cshex5 - shared.exception.NickNotFreeException & C1QN-1.7 \\\hline
+Cshex6 - shared.exception.DuplicateEmailException & C1QN-1.7 \\\hline
+Cse0 - server & C1QN-1.9.6 \\
+&  C1FN-1 \\\hline
+Cse1 - server.PMF & C1FN-1 \\\hline
+Cse2 - server.LoginHelper & C1FN-1.2 \\\hline
+Cse3 - server.SongsServiceImpl & C1FN-1.1.3 \\
+& C1FN-1.9 \\
+& C1FN-1.9.1 \\
+& C1FN-1.9.2 \\
+& C1FN-1.9.5 \\
+& C2FN-3.1 \\\hline
+Cse4 - server.LoginServiceImpl & C1FN-1.2 \\\hline
+Cse5 - server.UserServiceImpl & C1FN-1.4 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.3 \\\hline
+Cse6 - server.LibraryServiceImpl & C1FN-1.1.1 \\\hline
+Cseut0 - server.utils & C1FN-1.9 \\
+& C1FN-1.9.2 \\
+& C1QN-1.9.4 \\\hline
+Cseut3 - server.utils.ServletUtils & C1QN-1.5.1 \\\hline
+Csese0 - server.servlet & C1FN-1.9 \\\hline
+Csese4 - server.servlet.YouTubeServlet & C1QN-1.5.1 \\\hline
+Csepe0 - server.persistent & C1FN-1.9.5 \\
+& C1QN-1.9.6 \\
+& C1FN-1.13 \\
+& C1VN-1.13.1 \\\hline
+Csepe1 - server.persistent.UserAccount & C1FN-1.4.3 \\
+& C1FN-1.4.2 \\
+& C1FN-1.4.1 \\
+& C1FN-1.4 \\
+& C1FN-1.2 \\\hline
+Csepe2 - server.persistent.MusicLibrary &  C1FN-1.1.1 \\\hline
+Csepe3 - server.persistent.Song & C1FN-1.9.2 \\
+& C1FN-1.9 \\\hline
+\caption{Tabella di tracciamento tra componenti dettaglio 1 e requisiti
+obbligatori}
+\end{longtable}
+\end{footnotesize}
+
+\chapter{Specifica delle componenti in progettazione di dettaglio 2}
+\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
+Il ciclo di vita da noi impiegato prevede due diverse fasi di progettazione di
+dettaglio, come meglio specificato nel capitolo 3 del Piano di progetto (v
+3.0). Le componenti, o parti di esse, specificate nella progettazione di
+dettaglio 2 si riferiscono a requisiti desiderabili ed opzionali e sono state
+aggiunte al sistema solo in un secondo momento. 
+\section*{Requisiti desiderabili ed opzionali}
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Requisiti desiderabili ed opzionali}\\
+\hline
+\endhead
+\hline
+\multicolumn{1}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+C1FD-1.1.4 Visualizza player YouTube\\\hline
+C1FO-1.2.1 Pagina login indipendente\\\hline
+C1FD-1.3 Personalizzazione del catalogo\\\hline
+C1FD-1.3.1 Cancellazione brano\\\hline
+C1FD-1.3.2 Modifica informazioni brano\\\hline  
+C1FO-1.3.3 Creazione playlist\\\hline
+C1FO-1.3.4 Ranking brani\\\hline
+C1FD-1.4.4 Pubblicazione\\\hline
+C1FD-1.5 Riproduzione tracce in streaming\\\hline
+C1FD-1.7 Interazione con altri utenti\\\hline
+C1FD-1.7.1 Visualizzazione altri profili\\\hline
+C1FO-1.7.2 Lasciare commenti su profilo\\\hline
+C1FO-1.8.1 Esportazione \underline{PDF}\\\hline
+C1FD-1.10 Invio nuove informazioni a C2\\\hline
+C1VD-1.5.2 Quote YouTube\\\hline
+C1FD-1.8 Elaborazione dati utente\\\hline
+C1FO-1.9.3 Completamento info da servizio esterno\\\hline
+C1QO-2.1 Accessibilit\`a\\\hline
+C1QD-2.4 Supporto multi-lingua\\\hline
+C2FO-1.3 Informazioni senza connessione\\ \hline
+C2FD-1.4 Informazioni dall'hard disk\\\hline
+C2FO-1.6 Indicazioni file ignorati\\ \hline
+C2QD-1.7 Ottimizzazione memoria cache\\ \hline 
+C2FD-2 Aggiornamento e completamento informazioni\\\hline
+C2QD-4.3 Supporto multi-lingua\\\hline
+
+C1VD-1.5.3 YouTube Terms of Services \\ \hline
+C1QD-3.1.1 Manuale utente inglese \\\hline
+C2QD-4.1 Portabilit\`a \\ \hline
+C2QD-4.2 Semplicit\`a di utilizzo \\ \hline
+C2VD-4.5 Meno disturbo possibile \\ \hline
+\caption{Tabella riassuntiva dei requisiti coinvolti in progettazione di
+dettaglio 2}
+\end{longtable}
+\end{footnotesize}
+
+\section{Componenti aggiunte in progettazione di dettaglio 2}
+Queste componenti sono state progettate interamente per la realizzazione di
+requisiti non obbligatori ed aggiunte al sistema solamente al termine del
+secondo incremento della progettazione di dettaglio.
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Componente} \\
+\hline
+\endhead
+\hline
+\multicolumn{1}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+Ccl3 - client.ClientFactoryImpl \\\hline
+Cclac4 - client.activity.EditSongsActivity \\\hline
+Cclpl4 - client.place.EditSongsPlace \\\hline
+Cclui4 - client.ui.EditSongsView \\\hline
+Cseut1 - server.utils.AuthenticationProvider \\\hline
+Csese1 - server.servlet.LoginSuperServlet \\\hline
+Csese2 - server.servlet.LoginGoogleServlet \\\hline
+Csese3 - server.servlet.LoginGoogleCallbackServlet \\\hline
+\caption{Tabella delle componenti aggiunte in progettazione di dettaglio 2}
+\end{longtable}
+\end{footnotesize}
+
+\section{Tracciamento componenti dettaglio 2 - requisiti desiderabili ed
+opzionali}
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Componente} & \sca{Codice}\\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+Ccl0 - client & C1FD-1.10 \\\hline
+Ccl1 - client.Netmus & C1QO-2.1 \\
+& C1QD-2.4 \\\hline
+Ccl3 - client.ClientFactoryImpl & C1QO-2.1 \\\hline
+Cclac2 - client.activity.ProfileActivity & C1FO-1.2.3 \\
+& C1FD-1.5 \\
+& C1FD-1.7 \\
+& C1FD-1.7.1 \\
+& C1FD-1.7.2 \\\hline
+Cclac3 - client.activity.EditUserActivity & C1FD-1.4.4 \\\hline
+Cclac4 - client.activity.EditSongsActivity & C1FD-1.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3.2 \\
+& C1FD-1.3.3 \\\hline
+Cclse2 - client.service.UsersService & C1FD-1.8 \\
+& C1FD-1.4.4 \\\hline
+Cclse3 - client.service.SongsService & C1FD-1.3.2 \\
+& C1FD-1.5 \\
+& C1FD-1.8 \\
+& C1FD-1.10 \\
+& C2FD-2 \\\hline
+Cclse4 - client.service.LibraryService & C1FD-1.8 \\
+& C1FD-1.10 \\
+& C1FO-1.8.1 \\
+& C1FO-1.3.4 \\
+& C1FO-1.3.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3 \\\hline
+Cclpl2 - client.place.ProfilePlace & C1FO-1.7.2 \\
+& C1FD-1.7.1 \\
+& C1FD-1.7 \\
+& C1FD-1.5 \\
+& C1FO-1.3.4 \\\hline
+Cclpl3 - client.place.EditUserPlace & C1FD-1.4.4 \\\hline
+Cclpl4 - client.place.EditSongsPlace & C1FO-1.3.3 \\
+& C1FD-1.3.2 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3 \\ \hline
+Cclui0 - client.ui & C1QO-2.1 \\
+& C1QD-2.4 \\\hline
+Cclui1 - client.ui.LoginView & C1FO-1.2.1 \\\hline
+Cclui2 - client.ui.ProfileView & C1FD-1.1.4 \\
+& C1FO-1.3.4 \\
+& C1FD-1.5 \\
+& C1FD-1.7 \\
+& C1FD-1.7.1 \\
+& C1FO-1.7.2 \\\hline
+Cclui3 - client.ui.EditUserView & C1FD-1.4.4 \\\hline
+Cclui4 - client.ui.EditSongsView & C1FD-1.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3.2 \\
+& C1FO-1.3.3 \\\hline
+Cclap0 - client.applet & C2QD-4.3 \\
+& C2FD-2 \\
+& C2QD-1.7 \\
+& C2FO-1.6 \\
+& C2FD-1.4 \\
+& C2FO-1.3 \\\
+& C1FD-1.10 \\\hline
+Csh2 - shared.SongSummaryDTO & C1FD-1.3.2 \\
+& C1FD-1.5 \\\hline
+Csh3 - shared.SongDTO & C1FD-1.5 \\
+& C1FD-1.3.2 \\\hline
+Csh5 - shared.MusicLibraryDTO & C1FO-1.3.4 \\
+& C1FO-1.3.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3 \\\hline
+Csh6 - shared.UserSummaryDTO & C1FD-1.4.4 \\\hline
+Csh7 - shared.UserDTO & C1FD-1.4.4 \\\hline
+Csh8 - shared.UserCompleteDTO & C1FD-1.4.4 \\\hline
+Cse3 - server.SongsServiceImpl & C1FD-1.3.2 \\
+& C1FD-1.5 \\
+& C1FD-1.10 \\
+& C1FD-1.8 \\
+& C1FO-1.9.3 \\
+& C2FD-2 \\\hline
+Cse4 - server.LoginServiceImpl & C1FO-1.8.1 \\\hline
+Cse5 - server.UserServiceImpl & C1FD-1.4.4 \\
+& C1FD-1.8 \\\hline
+Cse6 - server.LibraryServiceImpl & C1FD-1.8 \\
+& C1FD-1.10 \\
+& C1FO-1.3.4 \\
+& C1FO-1.3.3 \\
+& C1FD-1.3.1 \\
+& C1FD-1.3 \\\hline
+Cseut1 - server.utils.AuthenticationProvider & C1FO-1.2.1 \\\hline
+Cseut3 - server.utils.ServletUtils & C1VD-1.5.2 \\\hline
+Csese0 - server.servlet & C1FO-1.9.3 \\\hline
+Csese1 - server.servlet.LoginSuperServlet &  C1FO-1.2.1 \\\hline
+Csese2 - server.servlet.LoginGoogleServlet & C1FO-1.2.1 \\\hline
+Csese3 - server.servlet.LoginGoogleCallbackServlet & C1FO-1.2.1 \\\hline
+Csese4 - server.servlet.YouTubeServlet & C1VD-1.5.2 \\
+& C1FD-1.5 \\\hline
+Csepe1 - server.persistent.UserAccount & C1FD-1.8 \\
+& C1FD-1.4.4 \\\hline
+Csepe2 - server.persistent.MusicLibrary & C1FD-1.3 \\
+& C1FD-1.3.1 \\
+& C1FO-1.3.3 \\
+& C1FO-1.3.4 \\
+& C1FD-1.8 \\\hline
+Csepe3 - server.persistent.Song & C1FO-1.9.3 \\
+& C1FD-1.8 \\
+& C1FD-1.5 \\
+& C1FD-1.3.2 \\
+& C1FD-1.1.3 \\\hline
+\caption{Tabella di tracciamento tra componenti dettaglio 2 e requisiti
+desiderabili/opzionali}
+\end{longtable}
+\end{footnotesize}
 
 \appendix\chapter{Codice Sorgente}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
