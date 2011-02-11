@@ -263,7 +263,7 @@ implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
   \item \underline{public boolean sendLogin(in LoginDTO) throws  LoginException}
   : invia al server il login inserito dall'utente e ritorna \emph{true} solamente se viene
   verificato, altrimenti ritorna \emph{false} con la relitava eccezione.
-  \item \underline{public void sendRegistration(in LoginDTO) throws
+  \item \underline{public boolean sendRegistration(in LoginDTO) throws
   RegistrationException} : invia al server i dati di registrazione inseriti
   dall'utente e ritorna \emph{true} se sono stati inseriti con successo nel database.
   \item \underline{public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION\}} :
@@ -410,17 +410,60 @@ client.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe sar\`a di tipo \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{LoginView} e richiede al \co{clientFactory} di implementarela.
- 
+interno alla \co{LoginView}.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Invoca i servizi di autenticazione forniti da \co{LoginService} e utilizza
-le relative classi \co{LoginPlace} e \co{LoginView}.
+Invoca i servizi di autenticazione forniti da \co{LoginService}.\\
+Si occupa di recuperare i dati da \co{LoginPLace} e trasferirli alla
+\co{LoginView}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti} 
 Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
 un Place di tipo \co{LoginPlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Questa classe gestir\`a, assieme a \co{LoginService}, le richieste di login,
-logout, registrazione solo a Netmus, registrazione tramite Google.
+Questa classe ha il compito di settare gli attributi della pagina di login
+adeguatamente allo stato rappresentato dal \co{LoginPlace} che l'ha originata e
+deve fornire inoltre l'implementazione dei metodi dichiarati dalla view
+all'interno dell'interfaccia \co{Presenter}.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+- user: String & Username inserito dall'utente nello stato corrente, sar\`a
+inizializzato con il valore ricevuto dal \co{LoginPlace} nel
+costruttore.\\\hline 
+- password: String & Password inserita dall'utente nello stato corrente, sar\`a
+inizializzata con il valore ricevuto dal \co{LoginPlace} nel
+costruttore.\\\hline 
+- error: String & Errore pi\`u rilevante occorso nello stato
+corrente, sar\`a inizializzato con il valore ricevuto dal \co{LoginPlace} nel
+costruttore.\\\hline
+- loginType: LoginType & Tipologia di login o registrazione che si sta
+effettuando nello stato corrente, sar\`a
+inizializzato con il valore ricevuto dal \co{LoginPlace} nel
+costruttore.\\\hline
++ LoginType NETMUSLOGIN, NETMUSREGISTRATION: enum & attributo ereditato
+da \co{LoginView.Presenter}\\\hline
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
++ start(AcceptsOneWidget, EventBus) & Invocato da \co{ActivityManager}
+per avviare una nuova \co{LoginActivity}\\\hline 
++ goTo(in Place) & Permette di
+spostarsi in un place differente anche relativo ad un'altra view. Ad esempio per aprire la pagina di
+\co{ProfileView} una volta verificato il login. Verr\`a quindi
+richiamato sempre al termine dei metodi \co{sendLogin} e
+\co{sendRegistration}\\\hline 
++ sendLogin(in LoginDTO) : boolean & Invia al
+server il login inserito dall'utente e ritorna \emph{true} solamente se viene
+verificato, altrimenti ritorna \emph{false} con la relitava eccezione.
+Utilizza i servizi di autenticazione definiti in \co{LoginService}.\\\hline 
++ sendRegistration(in LoginDTO) : boolean & Invia al server i dati di
+registrazione inseriti dall'utente e ritorna \emph{true} se sono stati inseriti
+con successo nel database. Utilizza i servizi di autenticazione definiti in
+\co{LoginService}.\\\hline
+\end{longtable}
+
 
 \subsection{Classe ProfileActivity}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -444,6 +487,7 @@ Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
 creazione ed interazione con l'utente della pagina principale come la
 richiesta dei dati utente dettagliati, della lista dei brani, del dettaglio di
 un brano, ecc.
+
 
 \subsection{Classe EditUserActivity}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -476,14 +520,19 @@ modifica delle informazioni personali visualizzate nel profilo.
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package contiene le classi di tipo Place. I Place sono indispensabili
-per far s\`i che la corrispondente Activity sia accessibile via URL.
-\subsection*{Relazioni d'uso di altre componenti}
-A questo package appartengono le classi \co{LoginPlace}, \co{ProfilePlace},
-\co{EditUserPlace}, \\\co{EditSongsPlace}.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
- I suoi elementi vengono utilizzati dal package \emph{mvp}.
-\subsection*{Attivit\`a svolte e dati trattati}
-Organizza i Places.
+per far s\`i che la corrispondente Activity sia accessibile via URL e per
+memorizzare i dati relativi allo stato corrente del sistema in modo che siano
+rapidamente recuperabili. 
+\subsection*{Relazioni d'uso di altre componenti} A
+questo package appartengono le classi \co{LoginPlace}, \co{ProfilePlace},
+\co{EditUserPlace}, \\\co{EditSongsPlace}.\\
+In ognuna di queste classi \`e presente una sottoclasse \co{Tokenizer} che
+permette di serializzare lo stato del Place in un simbolo (token) URL e che non
+\`e implmentata da noi ma dal framework che utlizziamo, per questo non sar\`a
+specificata nelle liste di attributi delle classi di questo package.
+\subsection*{Interfacce con
+e relazioni d'uso da altre componenti} I suoi elementi vengono utilizzati dal package \emph{mvp}. 
+\subsection*{Attivit\`a svolte e dati trattati} Organizza i Places.
 
 \subsection{Classe LoginPlace}
 \subsubsection*{Requisiti obbligatori soddisfatti}
