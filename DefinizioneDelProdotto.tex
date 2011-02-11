@@ -1,11 +1,11 @@
 
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.1}
+\newcommand{\versione}{0.3}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\nomefile}{DefinizioneDelProdotto-\versione.pdf}
 \newcommand{\datacreazione}{3 Febbraio 2011}
-\newcommand{\datamodifica}{3 Febbraio 2011}
+\newcommand{\datamodifica}{5 Febbraio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{---}
@@ -38,6 +38,13 @@ VT.G \\
 \hline
 \endfoot
 
+05/02/2011 & 0.3 & Baron Federico & Aggiunta la definizione delle componenti
+\co{LoginView} e \co{LoginPlace}.\\
+\hline
+04/02/2011 & 0.2 & Baron Federico & Inserita la struttura di base del
+documento con divisione tra progettazione di dettaglio 1 e progettazione di
+dettaglio 2.\\
+\hline
 03/02/2011 & 0.1 & Mandolo Andrea & Creazione documento iniziale.\\
 
 \end{longtable}
@@ -245,9 +252,10 @@ permettendo l'utilizzo di UiBinder per la disposizione dei widget e la gestione
 degli handler. 
 \subsubsection*{Relazioni d'uso di altre componenti} Le azioni invocabili
 sono tutte definite nell'interfaccia interna
-\co{Presenter} e saranno utilizzate all'interno dei metodi handler. \\
-I contratti dei metodi (che vengono implementati in \co{LoginActivity}) in
-questione sono: 
+\co{Presenter} e saranno utilizzate all'interno dei metodi handler. Viene
+definito un \emph{enum} rigurdante la tipologia di login che viene utilizzato
+anche da \co{LoginActivity} e \co{LoginPlace}. \\ I contratti dei metodi (che vengono
+implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
 \begin{itemize}
   \item \underline{public void goTo(in Place)} : permette di spostarsi in un
   place differente anche relativo ad un'altra view. Ad esempio per aprire la pagina di
@@ -258,6 +266,8 @@ questione sono:
   \item \underline{public void sendRegistration(in LoginDTO) throws
   RegistrationException} : invia al server i dati di registrazione inseriti
   dall'utente e ritorna \emph{true} se sono stati inseriti con successo nel database.
+  \item \underline{public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION\}} :
+  Definisce le tipologie di login e registrazione possibili.
 \end{itemize}
 Per permettere all'utente di cambiare pagina o stato della finestra la classe
 pu\`o istanziare oggetti di tipo \co{LoginPlace}. Il form di login e quello di
@@ -293,8 +303,6 @@ della password di conferma.\\\hline
 password di conferma.\\\hline 
 @UiField error: Label & Etichetta che contiene il testo di eventuali
 errori avvenuti durante il login o la registrazione.\\\hline 
-\# LoginType NETMUSLOGIN, NETMUSREGISTRATION: enum & Possibili tipologie di
-login e registrazione.\\\hline
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
@@ -486,14 +494,42 @@ Organizza i Places.
 \co{LoginPlace} estende la classe \co{Place} messa a disposizione da GWT. La
 classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
+Ha la funzione di contenre i dati dello stato corrente della pagina di login.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-La classe \`e creata da \co{LoginView} utilizzata da \co{LoginActivity}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Il compito della classe \`e quello di indicizzare gli stati di
-\co{LoginActivity} in modo da rendere accessibili le funzionalit\`a di history e
-bookmarking del browser.
+La classe \`e creata da \co{LoginView} quando viene effettuato un qualsiasi
+tentativo di login o registrazione ed \`e utilizzata nella creazione della
+conseguente \co{LoginActivity}. 
+\subsubsection*{Attivit\`a svolte e dati trattati} Il compito della classe \`e
+quello di indicizzare gli stati della pagina di login e mantenerne i dati
+finch\'e l'applicazione \`e attiva. Questo permette inoltre di rendere
+accessibili le funzionalit\`a di history e bookmarking del browser.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+- user: String & Username inserito dall'utente nello stato corrente, sar\`a
+diverso da \emph{null} solo nel caso vi si acceda in seguito ad un errore o
+dalla history.\\\hline 
+- password: String & Password inserita dall'utente nello stato corrente, sar\`a
+diversa da \emph{null} solo nel caso vi si acceda in seguito ad un errore o
+dalla history.\\\hline 
+- error: String & Errore pi\`u rilevante occorso nello stato
+corrente, sar\`a diverso da \emph{null} solo nel caso sia avvenuto un
+errore nel tentativo di login/registrazione precendete.\\\hline
+- loginType: LoginType & Tipologia di login o registrazione che si sta
+effettuando nello stato corrente, di default \`e NETMUSLOGIN.\\\hline
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
++ getUser() : String & Getter dell'attributo \co{user}\\\hline
++ getPassword() : String & Getter dell'attributo \co{password}\\\hline
++ getError() : String & Getter dell'attributo \co{error}\\\hline
++ getLoginType() : LoginType & Getter dell'attributo \co{loginType}\\\hline
+\end{longtable}
 
 \subsection{Classe ProfilePlace}
 \subsubsection*{Requisiti obbligatori soddisfatti}
