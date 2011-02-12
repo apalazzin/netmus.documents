@@ -792,25 +792,27 @@ tipo \co{MusicLibraryDTO}.
 	\item C1FN-1.2 Registrazione
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
+Questa classe consente alle componenti Activity di \emph{client} di inviare
 richieste di vario tipo a \emph{server} riguardanti la fase di autenticazione e
-logout degli utenti. Sar\`a presente anche \co{LoginServiceAsync}, che gestir\`a
+logout degli utenti. \`E presente anche \co{LoginServiceAsync}, che gestisce
 il ritorno dai metodi in maniera asincrona.
 
 \subsubsection*{Relazioni d'uso di altre componenti}
-Queste interfacce verranno implementate su \emph{server}, perci\`o non
-avranno relazioni d'uso definite, se non con oggetti \co{LoginDTO} che
+Queste interfacce vengono implementate su \emph{server}, perci\`o non
+hanno relazioni d'uso definite, se non con oggetti \co{LoginDTO} che
 vengono utilizzati per il trasferimento client-server.
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
-binding e verr\`a utilizzata \\\co{LoginActivity} e dalle altre Activity che
-permetteranno il logout dell'utente.
+binding e viene utilizzata \\\co{LoginActivity} e dalle altre Activity che
+permetteranno il login ed il logout dell'utente.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
-di informazione riguardante gli utenti del sistema e utilizzer\`a dati di tipo
-\co{UserDTO}, \co{UserSummaryDTO} e \co{UserCompleteDTO}.
+Questa interfaccia fornisce l'accesso a servizi per richiedere qualsiasi tipo
+di informazione riguardante l'autenticazione dell'utente al sistema
+e utilizza dati di tipo \co{LoginDTO}.
+Gli attributi e i metodi di questa interfaccia verranno descritti nel
+dettaglio nella classe \co{LoginServiceImpl} che li implementa. 
 
 \newpage
 %--------------- FORSE -------------------------------
@@ -913,7 +915,6 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{LoginService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Utilizzer\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
 gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
@@ -921,13 +922,26 @@ Verranno utilizzate funzionalit\`a interne di gestione login definite in
 \co{LoginHelper}. Potranno essere usate opportune classi \emph{servlet} per
 andare ad utilizzare servizi di login e reperimento informazioni utente esterni
 (Google Account).
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LoginService}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+$\sim$ insertRegistration(LoginDTO): boolean &\\\hline
+$\sim$ verifyLogin(LoginDTO): boolean &\\\hline
+$\sim$ getLoggedInUserDTO(): UserSummaryDTO &\\\hline
+$\sim$ logout() &\\\hline
+\end{longtable}
 
 \subsection{Classe LibraryServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
