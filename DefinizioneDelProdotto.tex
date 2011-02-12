@@ -130,6 +130,12 @@ C1VN-2.2 \underline{Open source} \\ \hline
 C1VN-2.5 Semplicit\`a di utilizzo \\ \hline
 C1QN-2.6 Manutenibilit\`a \\ \hline
 C1QN-3.1 Manuale utente \\ \hline
+C2FN-1 Recupero delle informazioni \\ \hline
+C2FN-1.1 Recupero automatico \\ \hline
+C2FN-1.2 Recupero manuale \\ \hline
+C2FN-1.5 File ignorati \\ \hline
+C2FN-3.1 Invio delle informazioni \\ \hline
+C2QN-4 Utilizzo \\ \hline
 C2QN-4.4 Manutenibilit\`a \\ \hline
 C2VN-4.6 Norme legali \\ \hline
 C2VN-4.7 Open source \\ \hline
@@ -817,6 +823,15 @@ dettaglio nella classe \co{LoginServiceImpl} che li implementa.
 \newpage
 %--------------- FORSE -------------------------------
 \section{Package client.applet} % LASCIARE WARNING
+\subsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+	\item C2QN-4 Utilizzo
+	\item C2FN-3.1 Invio delle informazioni
+	\item C2FN-1.5 File ignorati
+	\item C2FN-1.2 Recupero manuale
+	\item C2FN-1.1 Recupero automatico
+	\item C2FN-1 Recupero delle informazioni
+\end{itemize}
 \subsection*{Obiettivo e funzione del componente}
 Questo package conterr\`a le classi necessarie a gestire richieste e segnali
 provenienti dalla applet precompilata, che andremo ad inserire nel programma.
@@ -838,6 +853,13 @@ tramite \co{SongsService}.
 
 %-----------------------------------------------------
 
+\newpage
+\section{Package server}
+\subsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+	\item C1FN-1 WEB Application NetMus
+	\item C1QN-1.9.6 Gestione concorrenza
+\end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
 Questo package racchiude tutte le classi che collaborano al fine di gestire la
 business logic del sistema, ovvero tutte quelle operazioni che potranno essere
@@ -929,18 +951,21 @@ utilizzando l'interfaccia \co{LoginService}.
 Descritte nell'interfaccia lato \emph{client}.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
-\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
-\hline
-
-\end{longtable}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
-$\sim$ insertRegistration(LoginDTO): boolean &\\\hline
-$\sim$ verifyLogin(LoginDTO): boolean &\\\hline
-$\sim$ getLoggedInUserDTO(): UserSummaryDTO &\\\hline
-$\sim$ logout() &\\\hline
++ insertRegistration(LoginDTO): boolean & Inserisce i dati di login
+relativi alla registrazione di un nuovo utente nel database. Pu\`o
+lanciare eccezioni di tipo \co{LoginException}.\\\hline 
++ verifyLogin(LoginDTO): boolean & Metodo fondamentale per l'utenticazione
+che confronta i dati in input con quelli presenti nel database per verificare se
+il login \`e valido.\\\hline
++ startLogin(LoginDTO) & Inizia la sessione dell'utente che si \`e autenticato
+aggiornando anche i suoi attributi in \co{UserAccount}.\\\hline  
++ getLoggedInUserDTO(): UserSummaryDTO & Esegue una ricerca della sessione
+corrente utilizzando i metodi di \co{LoginHelper} e ritorna, se presenti, le
+informazioni di base (\co{UserSummaryDTO}) dell'utente loggato\\\hline 
++ logout() & Invalida l'autenticazione dell'utente che viene rimandato alla
+pagina di login.\\\hline
 \end{longtable}
 
 \subsection{Classe LibraryServiceImpl}
@@ -969,22 +994,46 @@ Descritte nell'interfaccia lato \emph{client}.
 	\item C1FN-1.2 Registrazione
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-La classe \co{LoginHelper} \`e stata pensata per offrire funzionalit\`a statiche
-per gestire le sessioni HTML, utili a \co{LoginServiceImpl} ed a \emph{servlet}.
+La classe \co{LoginHelper} offre funzionalit\`a statiche
+per gestire le sessioni HTML, utili a \co{LoginServiceImpl} ed a
+\emph{servlet}.
 
 \subsubsection*{Relazioni d'uso di altre componenti}
 User\`a al suo interno le classi di utilit\`a per i servlet definite in
 \emph{utils} e l'oggetto di persistenza \co{UserAccount}.
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa classe viene utilizzata da \co{LoginServiceImpl} e nel package
-\emph{servlet} dalle classi dedicate al Login.
+Questa classe viene utilizzata da \co{LoginServiceImpl} nei metodi \co{logout},
+\co{getLoggedInUserDTO} e \co{startLogin} poich\'e agiscono sulle sessioni HTML.
+Viene utilizzata anche da \co{LoginFilter}.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Le funzionalit\`a che metter\`a a disposizione sono quelle di individuare se
-l'utente corrente \`e gi\`a loggato o meno, e di riprendere la
-sessione restituendo un \emph{persistent} \co{UserAccount} nel caso esso sia
-gi\`a loggato.
+Questa classe ha il compito esclusivo di intergaire con le
+sessioni HTML, deve quindi occuparsi di reperire i dati utili
+dalla sessione corrente e di impostarne una nuova. Fornisce inoltre il
+controllo necessario al filtro \co{LoginFilter} per verificare se
+l'utente che accede ad una pagina \`e gi\`a loggato oppure no.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+- NUM\_RETRIES: int = 5 & Numero di tentativi di accesso al database con
+JDO e con controllo delle transazioni.\\\hline
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
++ getLoggedInUser(HttpSession session,
+PersistenceManager pm): UserAccount & Legge dal database le informazioni
+relative all'utente specificato nella \co{HttpSession} e resitituisce il
+DAO \co{UserAccount}.\\\hline 
++ isLoggedIn(HttpServletRequest req): boolean & Verifica se l'utente che
+ha effettuato una certa richiesta \`e loggato oppure no.\\\hline 
++ loginStarts(HttpSession session, UserAccount user): UserAccount &
+Imposta una nuova sessione per l'utente in input e ne aggiorna i dati
+nel database (per esempio l'attributo \co{lastLogin}).\\\hline
+\end{longtable}
 
 \subsection{Classe PMF (Singleton)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1121,6 +1170,43 @@ Queste classi vengono usati da \emph{server} per integrare al suo interno
 altri servizi esterni.
 \subsection*{Attivit\`a svolte e dati trattati}
 Gestisce lo scambio di dati con servizi esterni.
+
+\subsection{Classe LoginFilter}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+	\item C1FN-1.9 Ricezione ed elaborazione dei brani
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe estende \co{javax.servlet.Filter} ed \`e quindi una classe filtro
+che si occupa di esaminare una particolare richiesta (HTTP in questo caso) e di
+restituire una risposta (sempre HTTP).
+Ogni \co{Filter} pu\`o accedere ad un \co{FilterConfig} dal quale prendere le
+informazioni necessarie all'inizializzazione.
+\subsubsection*{Relazioni d'uso di altre
+componenti}
+Vengono utilizzati i metodi statici di \co{LoginHelper} per intervenire sulle
+sessioni HTTP. 
+\subsubsection*{Interfacce con e relazioni d'uso da
+altre componenti}
+Nessuna.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Questo filtro viene mappato all'interno del file \emph{web.xml} con tutte le
+pagine diverse da quella di login e ne vengono invocati i metodi ogni qualvolta
+l'utente tenta di accedere ad una di queste pagine. Si occupa di verificare
+l'autenticazione dell'utente che cerca di accedere e, in caso negativo, lo
+reindirizza alla pagina di login.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
++ init(FilterConfig arg0) & Metodo di configurazione che viene chiamato
+ogni quando il filtro viene attivato.\\\hline 
++ doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+& Svolge le funzioni effettive del filtro analizzando la richiesta HTTP
+e attivando la risposta HTTP opportuna.\\\hline 
++ destroy() & Metodo di
+terminazione che viene chiamato ogni quando il filtro viene disattivato.\\\hline
+\end{longtable}
 
 \newpage
 \section{Package server.utils} % LASCIARE WARNING
@@ -1404,7 +1490,15 @@ registrazione di un nuovo utente.
 
 \newpage
 \section{Applet di estrazione brani}
-
+\subsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+	\item C2QN-4 Utilizzo
+	\item C2FN-3.1 Invio delle informazioni
+	\item C2FN-1.5 File ignorati
+	\item C2FN-1.2 Recupero manuale
+	\item C2FN-1.1 Recupero automatico
+	\item C2FN-1 Recupero delle informazioni
+\end{itemize}
 
 \section{Tracciamento componenti dettaglio 1 - requisiti obbligatori}
 \begin{footnotesize}
