@@ -6,6 +6,7 @@
 \newcommand{\versionePQ}{2.0}
 \newcommand{\versioneAR}{2.0}
 \newcommand{\versioneST}{1.0}
+\newcommand{\versioneDP}{1.0}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
 \newcommand{\datamodifica}{30 Gennaio 2011}
@@ -399,6 +400,20 @@ Esempi:
 \begin{itemize}
   \item \bo{Cclmv0} = il package stesso client.mvp
   \item \bo{Cclmv1} = la classe NetmusActivityMapper del package client.mvp
+\end{itemize}
+
+\section{Norme per la Definizione di Prodotto}
+Nella stesura del documento \emph{DefinizioneDiProdotto-\versioneDP.pdf} \`e
+stata adottata la seguente notazione UML per le operazioni e gli attributi
+dei diagrammi delle classi :
+\begin{itemize}
+  \item in generale visibilit\`a (+,-,\#) mentre in UiBinder @UiFiled e
+  @UiHandler;
+  \item nome del metodo/attributo;
+  \item parametri specificati (esempio: in/out);
+  \item ``:'' per il tipo di ritorno se presente;
+  \item spazio;
+  \item lista di altri tag (final, static, ecc.).
 \end{itemize}
 
 
