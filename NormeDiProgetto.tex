@@ -422,20 +422,19 @@ la seguente notazione per descrivere i metodi e gli attributi delle classi:
 Per la fase di codifica del progetto \`e stato scelto innanzitutto l'ambiente
 integrato di sviluppo Eclipse perch\'e supporta sia la programmazione Java
 sia la possibilit\`a  di installare eventuali plugin per interfacciarsi con
-altre tecnologie (per maggiori dettagli vedi sezione 4.1).\\
+altre tecnologie (per maggiori dettagli vedi sezione 4.1).\\ \\
 Per la componente di visualizzazione del Catalogo
 Multimediale sono stati scelti i plugin di GAE e di GWT oltre i relativi SDKs
-(per maggiori dettagli vedi sezione 4.5).\\ 
+(per maggiori dettagli vedi sezione 4.5). 
 Per la codifica della componente di estrazione delle informazioni \`e stata
 scelta la tecnologia JavaFX. Questa tecnologia \`e stata sia suggerita dal
 proponente nel capitolato d'appalto sia risultata una delle tecnologie migliori
 per lo sviluppo delle \underline{RIA} (per maggiori dettagli vedi sezione 4.6 e
 4.7). \\ \\
-
 Per cercare di semplificare la verificabilit\`a, migliorare la
 manutenibilit\`a e massimizzare la portabilit\`a si deve rendere il codice
-scritto pi\`u leggibile possibile.\\
-Per fare questo nel codice si dovr\`a utilizzare un tool automatico gi\`a
+scritto pi\`u leggibile possibile.
+Inoltre si deve utilizzare un tool automatico gi\`a
 installato dentro Eclipse che genera documentazione API in HTML a partire da
 \underline{codice sorgente} Java e pi\`u precisamente usando il comando
 ``Generate Javadoc''; mentre nel progetto si dovranno strutturare nella maniera pi\`u semplice e coerente i moduli, i
@@ -502,7 +501,7 @@ romperla seguendo questi principi:
   \item a capo riga prima di un operatore, esempio: \\
   \hspace*{0.5cm} \co{longName1 = longName2 * (longName3 + longName4 -
   longName5)} \\
-  \hspace*{2.5cm} \co{+ 4 * longname6} \\ ;
+  \hspace*{2.5cm} \co{+ 4 * longname6;} \\ ;
   \item preferire le interruzioni di livello superiore a rotture di livello
   inferiore (vedi l'esempio precedente: la rottura si verifica al
   di fuori dell'espressione tra parentesi, che è ad un livello superiore);
@@ -515,30 +514,100 @@ romperla seguendo questi principi:
   \hspace*{0.5cm} \co{\}} \\.
 \end{itemize}
 
-
 \subsection{Commenti}
 
 \subsection{Dichiarazioni}
+\`E consigliata una dichiarazione per riga, per incoraggiare la scrittura dei
+commenti. Cercare di inizializzare le variabili locali dove sono dichiarate.
+Mettere le dichiarazioni all'inizio di un blocco, ad eccezione degli indici dei
+cicli (esempio: \co{for (int i = 0; i <maxLoops; i + +) \{...\}}). Evitare
+dichiarazioni locali che posso nascondere le dichiarazioni a livelli
+superiori.\\ \\ Quando si scrivono delle classi/interfacce Java bisogna seguire
+queste regole:
+\begin{itemize}
+  \item nessun spazio tra il nome del metodo e la parentesi ``('' di inizio
+  lista dei parametri;
+  \item la parentesi ``\{'' va alla fine e nella stessa riga del blocco di
+  dichiarazione;
+  \item la parentesi ``\}'' va in una nuova riga e rientrata in
+  corrispondenza del blocco di dichiarazione (se il blocco \`e nulla ``\}''
+  segue subito ``\{``);
+  \item i metodi sono separati da una riga vuota;
+  \item esempio riassuntivo:\\
+    \hspace*{0.5cm}\co{class Sample extends Object \{} \\
+    \hspace*{1.5cm}\co{    int ivar1;} \\
+    \hspace*{1.5cm}\co{    int ivar2;} \\
+    \\
+    \hspace*{1.5cm}\co{    Sample(int i, int j) \{} \\
+    \hspace*{2.5cm}\co{        ivar1 = i;} \\
+    \hspace*{2.5cm}\co{        ivar2 = j;} \\
+    \hspace*{1.5cm}\co{    \}} \\
+    \\
+    \hspace*{1.5cm}\co{    int emptyMethod() \{\}} \\
+    \\
+    \hspace*{1.5cm}\co{    ...} \\
+    \hspace*{0.5cm}\co{\}} 
+    \\.
+\end{itemize}
 
-\subsection{Cicli}
+\subsection{Istruzioni}
 
-\subsection{Spazi vuoti}
+\subsection{Righe vuote}
+Due righe vuote devono essere utilizzate nelle seguenti circostanze:
+\begin{itemize}
+  \item tra le sezioni di un file sorgente; 
+  \item tra le definizioni di classe e di interfaccia.  
+\end{itemize} 
+Una riga vuota deve essere utilizzata nelle seguenti circostanze:
+\begin{itemize}
+  \item tra i metodi; 
+  \item tra le variabili locali in un metodo e la sua prima dichiarazione;
+  \item prima di un blocco o una linea singola di commento;
+  \item tra sezioni logiche all'interno di un metodo per migliorare la
+  leggibilit\`a.
+\end{itemize}
+Gli spazi vuoti devono essere utilizzati nelle seguenti circostanze:
+\begin{itemize}
+  \item una parola chiave seguita da una parentesi devono essere separati da uno
+  spazio \\(esempio: \co{while (true) \{\ldots\}});
+  \item uno spazio vuoto deve esserci dopo le virgole in liste di
+  argomenti;
+  \item tutti gli operatori binari tranne il ``\co{.}'' devono essere separati
+  dai loro operandi tramite spazi. Invece gli spazi vuoti non dovranno mai
+  separare gli operatori unari (es: \co{++}) dai loro operandi;
+  \item le espressioni in un'istruzione \emph{for} devono essere separate da
+  spazi vuoti \\(esempio: \co{for (expr1; expr2; expr3)});
+  \item i Cast devono essere seguiti da uno spazio.
+\end{itemize} 
 
 \subsection{Convenzione sui nomi}
-Le classi, i metodi e le variabili Java dovranno avere la seguente nomenclatura:
+Le convenzioni di denominazione rendono i programmi pi\`u comprensibili,
+rendendoli pi\`u facili da leggere. Essi possono inoltre fornire informazioni
+sulla funzione dell'identificatore, ad esempio, se \`e una costante, un
+pacchetto o una classe, che pu\`o essere utile nella comprensione del codice.
 \begin{itemize}
-  \item {tutti i nomi indicare in maniera univoca il loro contenuto ed essere
-  scritti in lingua inglese;}
-  \item {le classi iniziare con la lettera maiuscola\\ 
-  (es. ``class Example'');}
-  \item {i metodi iniziare con la lettera minuscola e senza spazi\\ 
-  (es. ``void exampleOfMethod()'');}
-  \item {le variabili non costanti con tutte le lettere minuscole e gli
-  underscore \\
-  (es. ``example\_of\_variable'');}
-  \item {le variabili costanti con tutte le lettere maiuscole e gli underscore\\
-  (es. ``EXAMPLE\_OF\_CONSTANT\_VARIABLE'').}
-\end{itemize} 
+  \item \bo{Package}: il prefisso del nome di un package deve essere sempre
+  scritto in lettere minuscole ed essere uno dei nomi di dominio di primo
+  livello (esempio: \co{it}).
+  Poi i componenti del nome del package devono seguire delle
+  convenzioni interne del gruppo (esempio: \co{it.unipd.netmus.client});
+  \item \bo{Classi/Interfacce}: i nomi delle classi/interfacce devono essere
+  sostantivi, indicare in maniera univoca il loro contenuto, essere scritti in
+  lingua inglese e avere la prima lettera di ogni parola in maiuscolo (esempio:
+  \co{class ExampleOne};);
+  \item \bo{Metodi}: i nomi dei metodi devono essere verbi, essere scritti in
+  inglese e nel caso in cui sono composti, la prima lettera va in
+  minuscolo mentre la prima lettera di ogni parola interna in maiuscolo
+  (esempio: \co{runFast();});
+  \item \bo{Variabili}: i nomi delle variabili non costanti devono essere
+  scritti con la prima e tutte lettere in minuscolo a parte la prima lettera di
+  ogni parola in maiuscolo nel caso in cui il nome \`e composto (esempio:
+  \co{String exampleOfVariable;});
+  \item \bo{Costanti}: i nomi delle variabili costanti devono essere
+  scritti con tutte le lettere in maiuscolo e l'underscore ``\_'' per dividere
+  le parole nel caso in cui il nome \`e composto (esempio:
+  \co{static final int MIN\_WIDTH = 4;}).
+\end{itemize}
 
 \subsection{Pratiche di programmazione}
 Ogni programmatore dovr\`a:
