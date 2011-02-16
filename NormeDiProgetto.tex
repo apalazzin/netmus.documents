@@ -431,6 +431,7 @@ scelta la tecnologia JavaFX. Questa tecnologia \`e stata sia suggerita dal
 proponente nel capitolato d'appalto sia risultata una delle tecnologie migliori
 per lo sviluppo delle \underline{RIA} (per maggiori dettagli vedi sezione 4.6 e
 4.7). \\ \\
+
 Per cercare di semplificare la verificabilit\`a, migliorare la
 manutenibilit\`a e massimizzare la portabilit\`a si deve rendere il codice
 scritto pi\`u leggibile possibile.\\
@@ -439,14 +440,91 @@ installato dentro Eclipse che genera documentazione API in HTML a partire da
 \underline{codice sorgente} Java e pi\`u precisamente usando il comando
 ``Generate Javadoc''; mentre nel progetto si dovranno strutturare nella maniera pi\`u semplice e coerente i moduli, i
 file, le directory, ecc.\\
-Inoltre si dovr\`a cercare di scrivere meno linee di codice possibile e non
-usare l'identazione con il TAB (poco portabile) ma utilizzare gli spazi (4); per
-quest'ultimo caso si pu\`o continuare ad usare il TAB andando per\`o ad
+ 
+\section{Convenzioni sul codice per il linguaggio di \\programmazione Java}
+Si \`e deciso di seguire le convenzioni standard sul codice per il linguaggio
+Java perch\'e oltre ad essere consigliate dalla stessa Sun Microsystems, sono
+ottime dato che l'80\% del costo vita di un pezzo di software va in
+manutenzione, che quasi nessun software è mantenuto per tutta la sua vita
+dall'autore originale e che queste convenzioni migliorano la leggibilità
+del software consentendo ai progettisti di comprendere il nuovo codice più
+rapidamente e accuratamente.
+Il documento su tali convenzioni \`e stato rivisto e aggiornato il 20 aprile
+1999, e si trova al seguente link
+\url{http://www.oracle.com/technetwork/java/codeconv-138413.html}.
+
+\subsection{Nomi dei file}
+Ogni file Java avr\`a suffisso:
+\begin{itemize}
+  \item ``.java'' se il tipo \`e un sorgente Java;
+  \item ``.class'' se il tipo \`e un bytecode Java.
+\end{itemize}
+
+\subsection{Organizzazione dei file}
+Un file è costituito da sezioni che dovrebbero essere separate da linee vuote e
+un commento opzionale che identifica ogni sezione. I file più di 2000 linee sono
+ingombranti e dovrebbero essere evitati.
+Ogni file sorgente Java contiene una singola classe/interfaccia pubblica.
+Quando classi/interfacce private sono associate a una classe pubblica,
+è possibile inserirle nello stesso file della classe pubblica.
+\\ \\
+Il file sorgente Java deve seguire quest'ordine:
+\begin{itemize}
+  \item l'intestazione, esempio: \\
+  \hspace*{0.5cm} \co{//} \\
+  \hspace*{0.5cm} \co{// Nome della classe/interfaccia} \\
+  \hspace*{0.5cm} \co{//} \\
+  \hspace*{0.5cm} \co{// Autore} \\
+  \hspace*{0.5cm} \co{//} \\
+  \hspace*{0.5cm} \co{// Licenza copyright/copyleft} \\
+  \hspace*{0.5cm} \co{//} \\
+  ;
+  \item le dichiarazioni del package seguite da quelle di importazione;
+  \item la dichiarazione della classe/interfaccia.
+\end{itemize}
+
+\subsection{Identazione}
+Per l'identazione si devono utilizzare 4 spazi e non il TAB perch\'e
+poco portabile; si pu\`o continuare ad usare il TAB andando per\`o ad
 impostare Eclipse nel seguente modo: ``Preferenze'' $\Rightarrow$ ``Java''
 $\Rightarrow$ ``Codes Style'' $\Rightarrow$ ``Formatter''$\Rightarrow$ ``Edit''
-$\Rightarrow$ inserire un nuovo nome in ``Profile Name'', inserire 4 in ``Tab Size'' e selezionare ``Use spaces to indent wrapped lines''.
-\\\
+$\Rightarrow$ inserire un nuovo nome in ``Profile Name'', inserire 4 in ``Tab
+Size'' e selezionare ``Use spaces to indent wrapped lines''. \\
+Evitare le linee più lunghe di 80 caratteri, dal momento che non sono gestite
+bene da molti terminali e strumenti.\\ \\
+Quando un'espressione non pu\`o stare su una sola riga, bisogna
+romperla seguendo questi principi:
+\begin{itemize}
+  \item a capo riga dopo una virgola, esempio: \\
+  \hspace*{0.5cm} \co{someMethod(longExpression1, longExpression2,
+  longExpression3,\\ 
+  \hspace*{2.5cm} longExpression4, longExpression5);} \\ ;
+  \item a capo riga prima di un operatore, esempio: \\
+  \hspace*{0.5cm} \co{longName1 = longName2 * (longName3 + longName4 -
+  longName5)} \\
+  \hspace*{2.5cm} \co{+ 4 * longname6} \\ ;
+  \item preferire le interruzioni di livello superiore a rotture di livello
+  inferiore (vedi l'esempio precedente: la rottura si verifica al
+  di fuori dell'espressione tra parentesi, che è ad un livello superiore);
+  \item allineare la nuova linea con l'inizio dell'espressione allo stesso
+  livello della linea precedente, esempio: \\
+  \hspace*{0.5cm} \co{if ((condition1 \&\& condition2) || (condition3 \&\&
+  condition4)} \\
+  \hspace*{2.5cm} \co{||!(condition5 \&\& condition6)) \{} \\
+  \hspace*{1.5cm} \co{doSomethingAboutIt();} \\
+  \hspace*{0.5cm} \co{\}} \\.
+\end{itemize}
 
+
+\subsection{Commenti}
+
+\subsection{Dichiarazioni}
+
+\subsection{Cicli}
+
+\subsection{Spazi vuoti}
+
+\subsection{Convenzione sui nomi}
 Le classi, i metodi e le variabili Java dovranno avere la seguente nomenclatura:
 \begin{itemize}
   \item {tutti i nomi indicare in maniera univoca il loro contenuto ed essere
@@ -462,15 +540,7 @@ Le classi, i metodi e le variabili Java dovranno avere la seguente nomenclatura:
   (es. ``EXAMPLE\_OF\_CONSTANT\_VARIABLE'').}
 \end{itemize} 
 
-\newpage
-Ogni classe Java dovr\`a avere la sua intestazione contenente:
-\begin{itemize}
-  \item {Dati dell'unit\`a: tipo, contenuto, posizione;}
-  \item {Responsabilit\`a: autore, reparto, organizzazione;}
-  \item {Copyright / copyleft: licenze, visibilit\`a;}
-  \item {Avvertenze: limiti di uso e di garanzia;}
-  \item {Registro modifiche: storia, spiegazione, versione.} \\
-\end{itemize}
+\subsection{Pratiche di programmazione}
 Ogni programmatore dovr\`a:
 \begin{itemize}
   \item{consegnare codice che compila senza errori fatali o
@@ -481,6 +551,7 @@ linguaggio;}
 (preferire i costrutti di maggiore robustezza, verificabilit\`a e leggibilit\`a
 rispetto quelli di maggiore potenza espressa e velocit\`a).}
 \end{itemize}
+
 
 \chapter{Repository e Versionamento}
 \thispagestyle{fancy}
