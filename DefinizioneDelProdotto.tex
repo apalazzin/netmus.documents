@@ -74,6 +74,45 @@ dettaglio 2.\\
 \section{Standard di programmazione}
 \section{Strumenti di lavoro}
 
+
+\newpage
+\chapter{Dettagli architetturali non introdotti nella Specifica tecnica}
+\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
+Durante l'attivit\`a di progettazione di dettaglio sono stati definiti alcuni
+aspetti dell'architettura di NetMus che nella Specifica tecnica non sono
+trattati o lo sono solo in parte.\\ Per una maggiore comprensione del documento,
+in particolare della specifica delle componenti, elenchiamo di seguito queste
+importanti decisioni architetturali con una breve descrizione.
+.
+\begin{itemize}
+  \item \bo{Applet} : la componente di recupero delle informazioni (C2) risiede
+  in una applet Java precompilata indipendente da GWT ed \`e integrata con
+  quest'ultimo grazie ai metodi nativi JSNI. L'applet \`e inoltre visibile
+  (indirettamente) all'utente con una piccola interfaccia grafica di GWT
+  presente in tutte le pagine di Netmus da cui \`e possibile attivarla e
+  disattivarla.\\ Le informazioni reperite nel file system sono trasferite
+  a GWT tramite file XML.
+  
+  \item \bo{Twig-persist} : Per la gestione della persistenza e quindi del
+  Datastore abbiamo deciso di utilizzate il framework twig-persist poich\'e
+  fornisce una libreria molto efficace e facilmente configurabile
+  rispetto a JDO. Un altro vantaggio acquisito dall'utilizzo di questa
+  tecnologia \`e quello di poter gestire in modo asincrono (parallelo) le
+  operazioni sul Datastore. Questo framework si interfaccia al sistema NetMus
+  nelle componenti di persistenza \co{UserAccount}, \co{Song} e
+  \co{MusicLibrary} e nella classe singleton \co{ODF} (Object Datastore
+  Factory).
+  
+  \item \bo{Internalizzazione} : GWT mette a disposizione un insieme di
+  strumenti molto flessibili per la gestione dell'internazionalizzazione di
+  un'applicazione.\\ Per soddisfare il requisito di avere un sistema
+  multi-lingua utilizziamo lo strumento \emph{Static String
+  Internationalization} che grazie al deferred binding ci permette di avere la
+  lingue sono mappate durante la compilazione. Questa componente risiede nella
+  massima efficenza a runtime poich\'e le impostazioni relative alle diverse
+  classe \co{MyConstants}.
+\end{itemize}
+
 \chapter{Specifica delle componenti in progettazione di dettaglio 1}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 Il ciclo di vita da noi impiegato prevede due diverse fasi di progettazione di
@@ -151,19 +190,49 @@ dettaglio 1}
 	\item C1FN-1 Web Application Netmus
 	\item C2FN-3 Comunicazione con C1
 \end{itemize}
+\subsection*{Schema delle dipendenze architetturali}
+Utilizzeremo le classi impegnate nelle procedure di autenticazione per spiegare
+nel dattaglio le dipendenze presenti tra le componenti del package
+\emph{client}. 
+Queste dipendenze aderiscono al pattern MVP ed in particolare sono introdotte
+dal framework MVP con Place e Activity.\\
+Questo schema si ripete anche per gli altri gruppi funzionali di componenti:
+profile e edit user.\\\\
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16cm]{img/DP/package.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package client.}
+\end{figure}
+Come possiamo vedere dal diagramma delle classi, la dichiarazione dei metodi
+necessari alla comunicazione tra view e model viene fatta nell'interfaccia 
+\co{Presenter} innestata nell'interfaccia \co{LoginView}. Cos\`i \co{LoginView}
+si prende carico della definizione del presenter, anche se l'implementazione sta
+nella classe \co{LoginActivity}, creando una forte dipendenza tra le componenti view e
+presenter ma con il vantaggio di rimuovere qualsiasi tipo di collegamento
+diretto dell'interfaccia grafica con il model.\\
+La parte di visualizzazione vera e propria dei dati risiede in
+\co{LoginViewImpl} che viene caricata con il deferred binding all'avvio
+dell'applicazione garantendo buona separazione tra parte grafica e parte logica
+e di conseguenza buona estendibilit\`a.\\
+Questo schema di classi gestisce
+anche la funzione di mantenimento dello stato lato client grazie a
+\co{LoginPlace}. La classe Place mantiene alcune informazioni per definire lo
+stato corrente e le rende disponibili, fornendo metodi \emph{get}, ad ogni
+Activity che fa avviare. L'Activity a sua volta pu\`o inviarle, chiamando i
+metodi \emph{set}, alla View che completa cos\`i il ciclo necessario al
+manetnimento dello stato in ogni componente impeigata per la costruzione delle pagine.
+
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
 Il package \emph{client} rappresenta la parte del sistema con la quale l'utente
 pu\`o interagire. Tutte le sue classi ed i suoi sottopackage saranno compilati in
 JavaScript da GWT, prima che il sistema venga depositato nel dominio
 \emph{appspot.com} di Google. Contiene la classe \underline{Entry Point}
 \co{Netmus}.
-
 \subsection*{Relazioni d'uso di altre componenti}
 Il package \emph{client} utilizza i DTO nel package \emph{shared}.
-
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Nessuna.
-
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
@@ -269,10 +338,10 @@ implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
   \item \underline{public void goTo(in Place)} : permette di spostarsi in un
   place differente anche relativo ad un'altra view. Ad esempio per aprire la pagina di
   \co{ProfileView} una volta verificato il login.
-  \item \underline{public boolean sendLogin(in LoginDTO) throws  LoginException}
+  \item \underline{public void sendLogin(in LoginDTO) throws  LoginException}
   : invia al server il login inserito dall'utente e ritorna \emph{true} solamente se viene
   verificato, altrimenti ritorna \emph{false} con la relitava eccezione.
-  \item \underline{public boolean sendRegistration(in LoginDTO) throws
+  \item \underline{public void sendRegistration(in LoginDTO) throws
   RegistrationException} : invia al server i dati di registrazione inseriti
   dall'utente e ritorna \emph{true} se sono stati inseriti con successo nel database.
   \item \underline{public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION\}} :
@@ -296,19 +365,21 @@ implmentati con UiBinder in LoginViewImpl.
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
 \hline
-- listener: Presenter & Presenter associato a questa pagina.\\\hline
++ myConstants: MyConstants & Gestore dell'internazionalizzazione associato a
+questa pagina.\\\hline 
+- listener: Presenter & Presenter associato a questa
+pagina.\\\hline 
 - type: LoginType & Tipologia di accesso che si sta effetuando.\\\hline
+@UiField container: HTMLPanel & Finestra che contiene l'intera pagina.\\\hline
 @UiField login: Label & Etichetta che se cliccata invia i dati e avvia
 la procedura di login o di registrazione.\\\hline 
 @UiField register: Label & Etichetta che se cliccata apre la
 visualizzazione del form di registrazione.\\\hline 
 @UiField account: Label &
-Etichetta che descruve i campi di inserimento login e password.\\\hline
-@UiField confirmAccount: Label & Etichetta che descrive il campo di inserimento
-della password di conferma.\\\hline 
+Etichetta che descrive i campi di inserimento login e password.\\\hline
 @UiField user: TextBox & Campo per l'iserimento del login.\\\hline
 @UiField password: TextBox & Campo per l'inserimento della password.\\\hline
-@UiField confirmPassword: TextBox & Campo per l'inserimento della
+@UiField c\_password: TextBox & Campo per l'inserimento della
 password di conferma.\\\hline 
 @UiField error: Label & Etichetta che contiene il testo di eventuali
 errori avvenuti durante il login o la registrazione.\\\hline 
@@ -335,8 +406,11 @@ registrazione che si sta effettuando.\\\hline
 registrazione.\\\hline 
 @UiHandler(``login'') handleClick(in ClickEvent) & Invia all'activity
 associata la richiesta di login o registrazione.\\\hline
-@UiHandler(``register'') handleClick(in ClickEvent) & Richiama il metodo
-\co{goRegistrView}.\\\hline
+@UiHandler(``register'') handleClick(in ClickEvent) & Se la pagina si
+trova nello stato \co{LoginType.LOGINNETMUS} ridispone gli elementi in
+modo da visualizzare il form intero per la registrazione, altrimenti
+nasconde i campi per registrazione lasciando solamente quelli per il
+login.\\\hline
 \end{longtable}
 
 \subsection{Classe ProfileView}
@@ -368,6 +442,70 @@ per navigare tra i cataloghi musicali.
 	\item C1FN-1.4.1 Modifica informazioni personali
 	\item C1FN-1.4.2 Cambio password
 	\item C1FN-1.4.3 Cancellazione del proprio account
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per la
+modifica delle informazi\subsection{Classe ProfileView}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C1FN-1.1.1 Brani elencati opportunamente
+   \item C1FN-1.1.3 Visualiz. info dettagliate dei brani
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per la visualizzazione del profilo e
+dei brani di un generico utente registrato e per la riproduzione dalla musica
+tramite un player streaming. La classe \co{ProfileViewImpl} implementa
+l'interfaccia \co{ProfileView} che estende \co{isWidget} (interfaccia introdotta
+da GWT 2.1).
+\subsubsection*{Relazioni d'uso di altre componenti} 
+La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
+attuali della vista.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+ La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+ \co{ProfileActivity}.
+ \subsubsection*{Attivit\`a svolte e dati trattati}
+Contiene la lista dei profili che l'utente pu\`o visualizzare e gli strumenti
+per navigare tra i cataloghi musicali.
+
+\subsection{Classe EditUserView}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C1FN-1.4 Gestio\subsection{Classe ProfileView}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C1FN-1.1.1 Brani elencati opportunamente
+   \item C1FN-1.1.3 Visualiz. info dettagliate dei brani
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per la visualizzazione del profilo e
+dei brani di un generico utente registrato e per la riproduzione dalla musica
+tramite un player streaming. La classe \co{ProfileViewImpl} implementa
+l'interfaccia \co{ProfileView} che estende \co{isWidget} (interfaccia introdotta
+da GWT 2.1).
+\subsubsection*{Relazioni d'uso di altre componenti} 
+La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
+attuali della vista.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+ La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+ \co{ProfileActivity}.
+ \subsubsection*{Attivit\`a svolte e dati trattati}
+Contiene la lista dei profili che l'utente pu\`o visualizzare e gli strumenti
+per navigare tra i cataloghi musicali.
+
+\subsection{Classe EditUserView}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C1FN-1.4 Gestione profilo personale
+   \item C1FN-1.4.1 Modifica informazioni personali
+   \item C1FN-1.4.2 Cambio password
+   \item C1FN-1.4.3 Cancellazione del proprio account
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per la
+modifica delle informazine profilo personale
+   \item C1FN-1.4.1 Modifica informazioni personali
+   \item C1FN-1.4.2 Cambio password
+   \item C1FN-1.4.3 Cancellazione del proprio account
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la
@@ -418,12 +556,12 @@ client.
 	\item C1FN-1.2 Registrazione
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe sar\`a di tipo \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{LoginView}.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Invoca i servizi di autenticazione forniti da \co{LoginService}.\\
-Si occupa di recuperare i dati da \co{LoginPLace} e trasferirli alla
-\co{LoginView}. 
+Questa classe \`e di tipo \co{AbstractActivity}, implementa il \co{Presenter}
+interno alla \co{LoginView} rappresentando quindi il collegamento tra la parte
+grafica presente nel client ed il modello che risiede nel server.
+\subsubsection*{Relazioni d'uso di altre componenti} Invoca i servizi
+asincroni di autenticazione forniti da \co{LoginService}.\\ Si occupa di
+recuperare i dati da \co{LoginPLace} e trasferirli alla \co{LoginView}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti} 
 Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
 un Place di tipo \co{LoginPlace}.
@@ -463,14 +601,23 @@ spostarsi in un place differente anche relativo ad un'altra view. Ad esempio per
 \co{ProfileView} una volta verificato il login. Verr\`a quindi
 richiamato sempre al termine dei metodi \co{sendLogin} e
 \co{sendRegistration}\\\hline 
-+ sendLogin(in LoginDTO) : boolean & Invia al
-server il login inserito dall'utente e ritorna \emph{true} solamente se viene
-verificato, altrimenti ritorna \emph{false} con la relitava eccezione.
-Utilizza i servizi di autenticazione definiti in \co{LoginService}.\\\hline 
-+ sendRegistration(in LoginDTO) : boolean & Invia al server i dati di
-registrazione inseriti dall'utente e ritorna \emph{true} se sono stati inseriti
-con successo nel database. Utilizza i servizi di autenticazione definiti in
-\co{LoginService}.\\\hline
++ sendLogin(in LoginDTO) & Invia al
+server il login inserito dall'utente dopo averne controllato la validit\`a
+(e-mail valida, password sufficentemente lunga). Se la richiesta di
+autenticazione al server ha successo il metodo avvia la sessione HTTP ed apre la
+pagina principale \co{ProfileView}, se invece la comunicazione col
+server fallisce o non sono stati superati i controlli di validit\`a del
+login il metodo apre un'altra finestra di login con il messaggio di
+errore adeguato. Gli errori lato server vengono gestiti con eccezioni di
+tipo \co{LoginException}.\\\hline 
++ sendRegistration(in LoginDTO) & Invia al
+server i dati di registrazione inseriti dall'utente dopo averne controllato la
+correttezza (e-mail valida, password sufficentemente lunga). Se la
+risposta del server è affermativa ed i dati sono stati inseriti con
+successo l'utente viene indirizzaro alla pagina di \co{ProfileView},
+altrimenti il metodo apre un'altra finestra di login con il messaggio di
+errore adeguato. Gli errori lato server vengono gestiti con eccezioni di
+tipo \co{RegistrationException}.\\\hline
 \end{longtable}
 
 
@@ -686,11 +833,13 @@ browser con i vari Place.
 	\item C1QN-1.9.6 Gestione concorrenza
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
-Il package \co{service} \`e costituito da tutte le interfacce dei servizi remoti
-offerti dal server. Le funzionalit\`a delle classi in esso contenute saranno
-divise in base al tipo di servizio offerto. Per ognuno di questi sar\`a
-presente un'interfaccia normale (che estende \co{RemoteService}) e
-un'interfaccia \bo{asincrona}.
+Il contenuto di questo package \`e di fondamentale importanza poich\'e
+rappresenta la parte client del framework RPC che viene utilizzato per scambio
+di oggetti tra client e server. \co{client.service} \`e costituito da tutte
+le interfacce dei servizi remoti offerti dal server. Le funzionalit\`a delle
+classi in esso contenute saranno divise in base al tipo di servizio offerto. Per
+ognuno di questi sar\`a presente un'interfaccia normale (che estende
+\co{RemoteService}) e un'interfaccia \bo{asincrona}.
 
 \subsection*{Relazioni d'uso di altre componenti}
 Queste interfacce vengono implementate su \emph{server}, perci\`o non
@@ -798,10 +947,11 @@ tipo \co{MusicLibraryDTO}.
 	\item C1FN-1.2 Registrazione
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe consente alle componenti Activity di \emph{client} di inviare
-richieste di vario tipo a \emph{server} riguardanti la fase di autenticazione e
-logout degli utenti. \`E presente anche \co{LoginServiceAsync}, che gestisce
-il ritorno dai metodi in maniera asincrona.
+\co{LoginService} mette a disposizione metodi
+che soddisfano le possibili richieste verso la parte model riguardanti l'autenticazione degli utenti.
+Questi metodi si occupano inoltre di gestire la parte relativa alle sessioni HTTP. 
+\`E presente anche \co{LoginServiceAsync}, che gestisce il ritorno dai
+metodi in maniera asincrona.
 
 \subsubsection*{Relazioni d'uso di altre componenti}
 Queste interfacce vengono implementate su \emph{server}, perci\`o non
@@ -941,31 +1091,36 @@ Questa classe corrisponde all'implementazione del \co{LoginService} (di
 Utilizzer\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
 gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
 Verranno utilizzate funzionalit\`a interne di gestione login definite in
-\co{LoginHelper}. Potranno essere usate opportune classi \emph{servlet} per
-andare ad utilizzare servizi di login e reperimento informazioni utente esterni
-(Google Account).
+\co{LoginHelper}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LoginService}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Descritte nell'interfaccia lato \emph{client}.
+Implmenta la parte server delle procedure di login come la verifica della
+correttezza della password e l'adeguata
+impostazione delle sessioni HTTP.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
-+ insertRegistration(LoginDTO): boolean & Inserisce i dati di login
++ insertRegistration(LoginDTO) & Inserisce i dati di login
 relativi alla registrazione di un nuovo utente nel database. Pu\`o
-lanciare eccezioni di tipo \co{LoginException}.\\\hline 
-+ verifyLogin(LoginDTO): boolean & Metodo fondamentale per l'utenticazione
-che confronta i dati in input con quelli presenti nel database per verificare se
-il login \`e valido.\\\hline
-+ startLogin(LoginDTO) & Inizia la sessione dell'utente che si \`e autenticato
-aggiornando anche i suoi attributi in \co{UserAccount}.\\\hline  
-+ getLoggedInUserDTO(): UserSummaryDTO & Esegue una ricerca della sessione
-corrente utilizzando i metodi di \co{LoginHelper} e ritorna, se presenti, le
-informazioni di base (\co{UserSummaryDTO}) dell'utente loggato\\\hline 
-+ logout() & Invalida l'autenticazione dell'utente che viene rimandato alla
-pagina di login.\\\hline
+lanciare eccezioni di tipo \textless= \co{RegistrationException} in caso vi
+siano problemi nell'inserimento.\\\hline 
++ verifyLogin(LoginDTO) & Metodo
+fondamentale per l'utenticazione che confronta i dati in input con quelli presenti nel database per verificare se
+il login \`e valido. Pu\`o
+lanciare eccezioni di tipo \textless= \co{LoginException} in caso il controllo
+non vada a buon fine.\\\hline 
++ startLogin(LoginDTO) & Racchiude tutte i passi di autenticazione
+dell'utente. Utilizza \co{verifyLogin} e si occupa di iniziare la sessione
+dell'utente che si \`e autenticato aggiornando anche l'attributo
+\co{lastLogin} in \co{UserAccount}.\\\hline 
++ getLoggedInUserDTO():
+UserSummaryDTO & Esegue una ricerca della sessione corrente utilizzando i metodi
+di \co{LoginHelper} e ritorna, se presenti, le informazioni di base
+(\co{UserSummaryDTO}) dell'utente loggato\\\hline 
++ logout() & Invalida l'autenticazione dell'utente che viene rimandato alla pagina di login.\\\hline
 \end{longtable}
 
 \subsection{Classe LibraryServiceImpl}
@@ -1015,17 +1170,9 @@ controllo necessario al filtro \co{LoginFilter} per verificare se
 l'utente che accede ad una pagina \`e gi\`a loggato oppure no.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
-\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
-\hline
-- NUM\_RETRIES: int = 5 & Numero di tentativi di accesso al database con
-JDO e con controllo delle transazioni.\\\hline
-\end{longtable}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
-+ getLoggedInUser(HttpSession session,
-PersistenceManager pm): UserAccount & Legge dal database le informazioni
++ getLoggedInUser(HttpSession session): UserAccount & Legge dal database le informazioni
 relative all'utente specificato nella \co{HttpSession} e resitituisce il
 DAO \co{UserAccount}.\\\hline 
 + isLoggedIn(HttpServletRequest req): boolean & Verifica se l'utente che
@@ -1035,32 +1182,46 @@ Imposta una nuova sessione per l'utente in input e ne aggiorna i dati
 nel database (per esempio l'attributo \co{lastLogin}).\\\hline
 \end{longtable}
 
-\subsection{Classe PMF (Singleton)}
+\subsection{Classe ODF (Singleton)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1 WEB Application NetMus
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\co{PMF} \`e una classe final che segue il pattern Singleton, illustrato
-nell'introduzione. Ha la funzione di creare un'unica istanza del
-\co{PersistentManagerFactory} (\emph{javax.jdo}) e di restituirla a qualunque
-oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il
-DataStore, inviando query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
-tramite semplici metodi.
-
+\co{ODF} (Object Datastore Factory) \`e una classe final che segue il pattern
+Singleton illustrato in \emph{SpecificaTecnica v3.0}. Ha la funzione di creare un'unica istanza del
+\co{ObjectDatastore} fornito dal framework twig-persist e di restituirla a
+qualunque oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il DataStore, inviando query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
+tramite semplici metodi. L'oggetto datastore restituito \`e di tipo
+\co{AnnotationObjectDatastore} che di default salva gli attributi degli oggetti
+persistenti in modo non indicizzanto rendendo il satastore pi\`u rapido.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Vengono usate le classi di \emph{javax.jdo} \co{PersistentManager},
-\co{PersistentManagerFactory}\\ e \co{JDOHelper}.
-
+Vengono usate le classi della libreria twig-persist1.0,4 per la crezione di
+\co{AnnotationObjectDatastore}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa classe pu\`o essere utilizzata da qualunque classe di \emph{server}, ogni
-qualvolta ci sia bisogno di avere il \co{PersistentManager} per interagire col
+qualvolta ci sia bisogno di avere l' \co{ObjectDatastore} per interagire col
 DataStore.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Crea un'unica istanza del \co{PersistentManagerFactory} e tramite un metodo
-statico \emph{get()} la passa alle classi, in maniera da dargli la possibilit\`a
+Crea un'unica istanza di \co{ObjectDatastore} e tramite un metodo
+statico \emph{get()} la passa alle classi, in maniera di dargli la possibilit\`a
 di usare il database.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+- datastoreIstance: DatastoreObject \emph{static, final} & Unica istanza dell'
+\co{ObjectDatastore} che viene inizializzata alla creazione della classe
+con un \co{AnnotationObjectDatastore}.\\\hline
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
++ get(): ObjectDatastore \emph{static} & Ritorna l'istanza
+dell' \co{ObjectDatastore}.\\\hline
+\end{longtable}
+
 
 \newpage
 \section{Package server.persistent} % LASCIARE WARNING
@@ -1100,18 +1261,56 @@ relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e
 	\item C1FN-1.4.3 Cancellazione del proprio account
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\co{UserAccount} contiene le informazioni relative ad un utente.
+\co{UserAccount} utilizza il design pattern DAO poich\'e contiene tutte le
+informazioni relative ad un utente cos\`i come viene salvato all'interno del
+Datastore. La classe \`e implementata come POJO poich\'e twig-persist lo
+supporta senza bisogno di configurazioni aggiuntive. Vengono usate solamente
+alcune annotazioni (@Key e @Index) aggiuntive per gestire alcuni dettagli
+riguardanti la persistenza. 
 \subsubsection*{Relazioni d'uso di altre componenti}
-La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione uno-a-uno
-che la lega a questa classe. Vengono inoltre utilizzate le classi
-\co{UserSummaryDTO}, \co{UserDTO} e \co{UserCompleteDTO} come input ed
-output in gran parte dei metodi. 
+La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione
+uno-a-uno che la lega a questa classe. Vengono inoltre utilizzate le classi
+\co{UserSummaryDTO}, \co{UserDTO} e \co{UserCompleteDTO} come input ed output in
+gran parte dei metodi. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Tutte le classi logiche Service presenti nel package \emph{server} ne fanno uso
-qual'ora abbiano bisogno di informazioni riguardanti un utente del sistema.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Gestisce la logica di persistenza di tutti i dati relativi ad un utente del
-sistema NetMus.
+\co{UserAccount} \`e una classe molto utilizzata nel sistema, tutte le classi
+Service presenti nel package \emph{server} ne fanno uso qual'ora abbiano bisogno
+di informazioni riguardanti un utente. 
+\subsubsection*{Attivit\`a svolte e dati
+trattati} Gestisce la logica di persistenza di tutti i dati relativi ad un
+utente del sistema NetMus.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+ - user: String \emph{@Key} & \\\hline
+ - password: String & Contiene l'hash della password dell'utente
+ ottenuto utilizzando l'algoritmo BCrypt.\\\hline 
+ - nickName: String & \\\hline 
+ - firstName: String & \\\hline
+ - lastName: String & \\\hline
+ - gender: char & \\\hline
+ - nationality: String & \\\hline
+ - avatar: Image \emph{@Type(Blob.class)} & \\\hline
+ - aboutMe: String \emph{@Type(Text.class)} & \\\hline
+ - birthDate: Date & \\\hline
+ - registrationDate: Date & \\\hline
+ - lastLogin: Date & \\\hline
+ - lastImport: Date & \\\hline
+ - musicLibrary: MusicLibrary \emph{@Child} & \\\hline
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
++ findUser(in String): UserAccount & \\\hline
++ toUserSummaryDTO(): UserSummaryDTO & \\\hline
++ toUserDTO(): UserDTO & \\\hline
++ toUserCompleteDTO(): UserCompleteDTO & \\\hline
++ getters() & \\\hline
++ setters() & \\\hline
+\end{longtable}
+
 
 \subsection{Classe MusicLibrary}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1708,6 +1907,7 @@ secondo incremento della progettazione di dettaglio.
 Cclac4 - client.activity.EditSongsActivity \\\hline
 Cclpl4 - client.place.EditSongsPlace \\\hline
 Cclui4 - client.ui.EditSongsView \\\hline
+Cclui5 - client.ui.myConstants \\\hline
 Cseut1 - server.utils.AuthenticationProvider \\\hline
 Cseut3 - server.utils.ServletUtils \\\hline
 Csese1 - server.servlet.LoginSuperServlet \\\hline
@@ -1772,8 +1972,7 @@ Cclpl4 - client.place.EditSongsPlace & C1FO-1.3.3 \\
 & C1FD-1.3.2 \\
 & C1FD-1.3.1 \\
 & C1FD-1.3 \\ \hline
-Cclui0 - client.ui & C1QO-2.1 \\
-& C1QD-2.4 \\\hline
+Cclui0 - client.ui & C1QO-2.1 \\\hline
 Cclui1 - client.ui.LoginView & C1FO-1.2.1 \\\hline
 Cclui2 - client.ui.ProfileView & C1FD-1.1.4 \\
 & C1FO-1.3.4 \\
@@ -1786,6 +1985,7 @@ Cclui4 - client.ui.EditSongsView & C1FD-1.3 \\
 & C1FD-1.3.1 \\
 & C1FD-1.3.2 \\
 & C1FO-1.3.3 \\\hline
+Cclui5 - client.ui.MyConstants & C1QD-2.4 \\\hline
 Cclap0 - client.applet & C2QD-4.3 \\
 & C2FD-2 \\
 & C2QD-1.7 \\
@@ -1826,7 +2026,7 @@ Csese0 - server.servlet & C1FO-1.9.3 \\\hline
 Csese1 - server.servlet.LoginSuperServlet &  C1FO-1.2.1 \\\hline
 Csese2 - server.servlet.LoginGoogleServlet & C1FO-1.2.1 \\\hline
 Csese3 - server.servlet.LoginGoogleCallbackServlet & C1FO-1.2.1 \\\hline
-Csese4 - server.servlet.YouTubeServlet & C1VD-1.5.2 \\
+Csese4 - server.servlet.YouTubeServlet & C1VD-1.5.2 \\\hline
 Csese5 - server.servlet.TaggingServlet & C1FO-1.9.3 \\
 & C1FD-1.5 \\\hline
 Csepe1 - server.persistent.UserAccount & C1FD-1.8 \\
