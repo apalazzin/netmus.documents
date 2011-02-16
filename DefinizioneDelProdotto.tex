@@ -1283,32 +1283,56 @@ utente del sistema NetMus.
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
- - user: String \emph{@Key} & \\\hline
- - password: String & Contiene l'hash della password dell'utente
- ottenuto utilizzando l'algoritmo BCrypt.\\\hline 
- - nickName: String & \\\hline 
- - firstName: String & \\\hline
- - lastName: String & \\\hline
- - gender: char & \\\hline
- - nationality: String & \\\hline
- - avatar: Image \emph{@Type(Blob.class)} & \\\hline
- - aboutMe: String \emph{@Type(Text.class)} & \\\hline
- - birthDate: Date & \\\hline
- - registrationDate: Date & \\\hline
- - lastLogin: Date & \\\hline
- - lastImport: Date & \\\hline
- - musicLibrary: MusicLibrary \emph{@Child} & \\\hline
+ - user: String \emph{@Key} & Rappresenta il nome di login unico
+ dell'utente e nello stesso tempo la sua e-mail (valida). Viene
+ impiegato come chiave dell'entit\`a nel Datastore.\\\hline
+  - password: String & Contiene l'hash della password dell'utente ottenuto
+  utilizzando l'algoritmo BCrypt.\\\hline
+ - nickName: String & Nickname di un utente visibile anche agli altri.\\\hline
+ - firstName: String & Nome proprio dell'utente.\\\hline
+ - lastName: String & Cognome dell'utente.\\\hline
+ - gender: char & Sesso, sono validi i valori 'F' (femmina) e 'M'
+ (maschio).\\\hline
+ - nationality: String & Nazione di provenienza dell'utente.\\\hline
+ - avatar: Image \emph{@Type(Blob.class)} & Immagine a scleta caricata
+ dall'utente visibile anche agli altri.\\\hline
+ - aboutMe: String \emph{@Type(Text.class)} & Informazioni aggiuntive su
+ di se inserite dall'utente.\\\hline
+ - birthDate: Date & Data di nascita dell'utente. \\\hline
+ - registrationDate: Date & Data di registrazione dell'utente.\\\hline
+ - lastLogin: Date & Data dell'ultimo accesso a Netmus.\\\hline
+ - lastImport: Date & Data dell'ultimo inserimento di brani da parte
+ dell'utente.\\\hline
+ - musicLibrary: MusicLibrary \emph{@Child} & Intera libreria musicale
+ dell'utente, non sempre verr\`a caricata dal Datastore insieme alle
+ informazioni dell'utente.\\\hline
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
-+ findUser(in String): UserAccount & \\\hline
-+ toUserSummaryDTO(): UserSummaryDTO & \\\hline
-+ toUserDTO(): UserDTO & \\\hline
-+ toUserCompleteDTO(): UserCompleteDTO & \\\hline
-+ getters() & \\\hline
-+ setters() & \\\hline
++ loadUserWithLibrary(in String): UserAccount \emph{static}& Cerca nel database
+e restituisce tutti i dati relativi ad un username/e-mail dato come input. \\\hline
++ loadUserWithoutLibrary(in String): UserAccount \emph{static}& Cerca nel
+database e restituisce i dati, ma non il catalogo musicale, relativi ad un username/e-mail dato come
+input.\\\hline
+
+%DA VALUTARE SE HA SENSO, RALLENTA L'INTERO DATASTORE PERCHE' RICHIEDE
+% INDICIZZAZIONE DI TUTTI GLI ATTRIBUTI
+%+ findUser(in String, in String): List\textless UserAccount\textgreater &
+%Dato un attributo ed un valore associato ad esso restituisce tutti gli
+%utenti che lo possiedono.\\\hline
+
+ + toUserSummaryDTO(): UserSummaryDTO & Genera un oggetto UserSummaryDTO
+contenente le informazioni basilari riguardanti l'utente.\\\hline
+ + toUserDTO(): UserDTO & Genera un oggetto UserSummaryDTO
+contenente buona parte delle informazioni riguardanti l'utente.\\\hline
+ + toUserCompleteDTO(): UserCompleteDTO & Genera un oggetto UserSummaryDTO
+contenente tutte le informazioni riguardanti l'utente.\\\hline
+ + getters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{get}.\\\hline
+ + setters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{set}.\\\hline
 \end{longtable}
 
 
@@ -1435,33 +1459,22 @@ Varie.
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{shared} contiene le classi degli oggetti che vengono
 scambiati tra client e server; in particolare sono presenti le classi che
-aderiscono al pattern DTO.
-\subsection*{Relazioni d'uso di altre componenti}
-Tutte le classi di questo package implementano l'interfaccia
-\co{java.io.Serializable} per poter essere serializzate e quindi inviate
-attraverso la rete. 
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene utilizzata dalle classi dei package \emph{client} e \emph{server} per
-lo scambio di dati e/o informazioni.
+aderiscono al pattern DTO. L'insieme di queste classi rappresenta tutti i
+dati contenuti nelle entit\`a del Datastore opportunamente organizzati in modo
+da essere raggruppabili in componenti minori e prive di parte logica.
+\`E qui contenuta anche la gerarchia delle eccezioni del sistema Netmus
+fondamentale nelle comunicazioni asincrone tra client e server.
+\subsection*{Relazioni d'uso di altre componenti} Tutte le classi di questo
+package implementano l'interfaccia \co{java.io.Serializable} per poter essere
+serializzate e quindi inviate attraverso la rete. 
+\subsection*{Interfacce con e relazioni d'uso da altre componenti} Viene
+utilizzata da gra parte delle classi dei package \emph{client} e \emph{server}
+per lo scambio di dati e/o informazioni. 
 \subsection*{Attivit\`a svolte e dati trattati}
-In generale, le classi di questo package si occupano di inglobare e trasportare
-le informazioni attraverso la rete, per le comunicazioni tra server e client.
+Le classi di questo package si occupano di inglobare e trasportare
+le informazioni attraverso la rete, per le comunicazioni tra server e client,
+in particolare i dati relativi alle entit\`a del Datastore ed alle eccezioni.
 Vengono qui di seguito descritte pi\`u in dettaglio.
-
-\subsection{Interfaccia GenericDTO}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-	\item C1FN-1 WEB Application NetMus
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Interfaccia comune per le classi DTO. Definisce una generica classe che potr\`a
-essere usata come contenitore dei dati di una DAO.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Vedere la descrizione del package.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene implementata dalle classi del package \emph{shared}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Nessuna. 
 
 \subsection{Classe UserSummaryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1473,14 +1486,34 @@ Nessuna.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta i dati pi\`u comunemente utilizzati di un utente, ovvero
-quelli che vengono visualizzati in un profilo.
+quelli di login e quelli che vengono visualizzati nel profilo. 
 \subsubsection*{Relazioni d'uso di altre componenti}
-Implementa l'interfaccia \co{GenericDTO}.
+Vedere la descrizione del package \co{shared}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
+Vedere la descrizione del package \co{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per i dati pi\`u comunemente utilizzati dell'utente, come
-per esempio nick ed email.
+per esempio username di login e nickname.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+ - user: String & Rappresenta il nome di login unico
+ dell'utente e nello stesso tempo la sua e-mail (valida).\\\hline
+ - nickName: String & Nickname dell'utente.\\\hline
+ - avatar: Image & Indirizzo relativo all'immagine rappresentativa
+ dall'utente.\\\hline
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+ + getters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{get}.\\\hline
+ + setters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{set}.\\\hline
+\end{longtable}
+
 
 \subsection{Classe UserDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1492,13 +1525,40 @@ per esempio nick ed email.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta la maggior parte dei dati di un utente, pi\`u
-precisamente quelli richiesti alla registrazione.
+precisamente quelli che ci si aspetta che ogni utente abbia inserito.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Estende la classe \co{UserSummaryDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
+Vedere la descrizione del package \co{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Funge da contenitore per i dati dettagliati di un utente.
+Funge da contenitore per i dati richiesti di un utente.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+ - firstName: String & Nome proprio dell'utente.\\\hline
+ - lastName: String & Cognome dell'utente.\\\hline
+ - gender: char & Sesso, sono validi i valori 'F' (femmina) e 'M'
+ (maschio).\\\hline
+ - nationality: String & Nazione di provenienza dell'utente.\\\hline
+ - aboutMe: String & Informazioni aggiuntive su
+ di se inserite dall'utente.\\\hline
+ - birthDate: Date & Data di nascita dell'utente. \\\hline
+ - registrationDate: Date & Data di registrazione dell'utente.\\\hline
+ - lastLogin: Date & Data dell'ultimo accesso a Netmus.\\\hline
+ - lastImport: Date & Data dell'ultimo inserimento di brani da parte
+ dell'utente.\\\hline
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+ + getters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{get}.\\\hline
+ + setters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{set}.\\\hline
+\end{longtable}
+
 
 \subsection{Classe UserCompleteDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1510,14 +1570,31 @@ Funge da contenitore per i dati dettagliati di un utente.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta tutti i dati di un utente, a partire da quelli
-visualizzati sul profilo fino a quelli interni del sistema.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{UserDTO}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
+visualizzati sul profilo fino a quelli interni del sistema. In particolare
+contiene la libreria musicale dell'utente. 
+\subsubsection*{Relazioni d'uso di
+altre componenti} Estende la classe \co{UserDTO} e mantiene al suo interno un campo di tipo
+\co{MusicLibraryDTO}. 
+\subsubsection*{Interfacce con e relazioni d'uso da altre
+componenti} Vedere la descrizione del package \co{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Funge da contenitore per tutti dati dell'utente, dal nick al numero di
-registrazione.
+Funge da contenitore per tutti dati dell'utente.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+ - musicLibrary: MusicLibraryDTO & Oggetto DTO che rappresenta il
+ catalogo multimediale dell'utente.\\\hline
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+ + getters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{get}.\\\hline
+ + setters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{set}.\\\hline
+\end{longtable}
 
 \subsection{Classe SongSummaryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1559,11 +1636,30 @@ identificativo del brano.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta i dati di login di un utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Implementa l'interfaccia \co{GenericDTO}.
+Vedere la descrizione del package \co{shared}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
+Vedere la descrizione del package \co{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Trasporta nome utente e password dal client al server per l'autenticazione.
+Trasporta nome utente e password dal client al server per
+tutte le procedure legate all'autenticazione.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+ - user: String & Rappresenta il nome di login unico
+dell'utente e nello stesso tempo la sua e-mail (valida).\\\hline
+ - password: String & Contiene l'hash della password dell'utente ottenuto
+utilizzando l'algoritmo BCrypt.\\\hline
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+ + getters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{get}.\\\hline
+ + setters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{set}.\\\hline
+\end{longtable}
 
 \subsection{Classe MusicLibraryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
