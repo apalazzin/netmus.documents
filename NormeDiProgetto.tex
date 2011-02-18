@@ -411,9 +411,9 @@ la seguente notazione per descrivere i metodi e gli attributi delle classi:
   package);
   \item ``\bo{@UiFiled, @UiHandler}'' per \underline{UiBinder};
   \item ``\bo{nome}'' del metodo/attributo;
-  \item ``\bo{(parametri specificati)}'' per esempio in/out;
+  \item ``\bo{(parametri specificati)}'' ad esempio in/out;
   \item ``\bo{: tipo di ritorno}'' se presente;
-  \item ``\bo{lista di tag}'' per esempio \emph{final/static}, se presenti.
+  \item ``\bo{lista di tag}'' ad esempio \emph{final/static}, se presenti.
 \end{itemize}
 
 
@@ -482,15 +482,14 @@ Il file sorgente Java deve seguire quest'ordine:
   \item la dichiarazione della classe/interfaccia.
 \end{itemize}
 
-\subsection{Identazione}
-Per l'identazione si devono utilizzare 4 spazi e non il TAB perch\'e
+\subsection{Indentazione}
+Per l'indentazione si devono utilizzare 4 spazi e non il TAB perch\'e
 poco portabile; si pu\`o continuare ad usare il TAB andando per\`o ad
 impostare Eclipse nel seguente modo: ``Preferenze'' $\Rightarrow$ ``Java''
 $\Rightarrow$ ``Codes Style'' $\Rightarrow$ ``Formatter''$\Rightarrow$ ``Edit''
-$\Rightarrow$ inserire un nuovo nome in ``Profile Name'', inserire 4 in ``Tab
-Size'' e selezionare ``Use spaces to indent wrapped lines''. \\
-Evitare le linee più lunghe di 80 caratteri, dal momento che non sono gestite
-bene da molti terminali e strumenti.\\ \\
+$\Rightarrow$ inserire un nuovo nome in ``Profile name'', selezionare
+``Spaces only'' in ``Tab policy'', inserire 4 in ``Indentation'' e 4 in ``Tab
+size''. \\ Evitare le linee più lunghe di 80 caratteri, dal momento che non sono gestite bene da molti terminali e strumenti.\\ \\
 Quando un'espressione non pu\`o stare su una sola riga, bisogna
 romperla seguendo questi principi:
 \begin{itemize}
@@ -515,6 +514,16 @@ romperla seguendo questi principi:
 \end{itemize}
 
 \subsection{Commenti}
+I programmi Java possono avere due tipi di commenti: 
+\begin{itemize}
+  \item di Implementazione, pensati per commentare il codice o
+  una particolare implementazione e delimitati da \co{/*  */} oppure
+  \co{//};
+  \item di Documentazione (Doc), solo di Java, con lo scopo di descrivere le
+  specifiche del codice, delimitati da \co{/**  */} ed estraibili in file HTML
+  utilizzando lo strumento Javadoc (per maggiori dettagli vai al seguente link
+  \url{http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html}).
+\end{itemize}
 
 \subsection{Dichiarazioni}
 \`E consigliata una dichiarazione per riga, per incoraggiare la scrittura dei
@@ -551,6 +560,60 @@ queste regole:
 \end{itemize}
 
 \subsection{Istruzioni}
+I vari tipi di istruzioni sono:
+\begin{itemize}
+  \item \bo{semplici}, ogni linea pu\`o contenere al massimo un'istruzione,
+  esempio:\\ 
+  \hspace*{0.5cm} \co{argv++;}\\
+  \hspace*{0.5cm} \co{argc--;}\\ ;
+  \item \bo{composte}, contengono elenchi di istruzioni racchiuse tra parentesi
+  graffe ``\{\ldots\}'' che devono rientrare di un livello rispetto la
+  dichiarazione del blocco, la parentesi d'apertura ``\{'' deve essere alla fine
+  della riga dove inizia il blocco e quella di chiusura ``\}'' deve essere su
+  una nuova riga con la stessa rientranza della dichiarazione del blocco;
+  \item \bo{return}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{return myDisk.size();}\\ ;
+  \item \bo{if-else}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{if (condition) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\} else \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{for}, avere la seguente forma:\\
+  \hspace*{0.5cm} \co{for (initialization; condition; update) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{while}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{while (condition) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{do-while}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{do \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\} while (condition) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{switch}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{switch (condition) \{}\\ 
+  \hspace*{0.5cm} \co{case ABC:}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{1.5cm} \co{break;}\\
+  \hspace*{0.5cm} \co{case XYZ:}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{1.5cm} \co{break;}\\
+  \hspace*{0.5cm} \co{default:}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{1.5cm} \co{break;}\\
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{try-catch-finally}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{try \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\} catch (Exception e) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{0.5cm} \co{\} finally \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{0.5cm} \co{\}}\\ .
+\end{itemize}
 
 \subsection{Righe vuote}
 Due righe vuote devono essere utilizzate nelle seguenti circostanze:
