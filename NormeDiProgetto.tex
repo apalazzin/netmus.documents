@@ -9,7 +9,7 @@
 \newcommand{\versioneDP}{1.0}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
-\newcommand{\datamodifica}{30 Gennaio 2011}
+\newcommand{\datamodifica}{18 Febbraio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Baron Federico\\&Palazzin Alberto}
@@ -46,7 +46,11 @@ comuni.
 \endhead
 \hline
 \endfoot
-
+18/02/2011 & 2.2 & Palazzin Alberto & Sistemazione cap. 5 e 6 dopo la RP. \\
+\hline
+14/02/2011 & 2.1 & Palazzin Alberto & Sistemazione cap. 7 e inserimento sezione
+7.1. \\
+\hline
 31/01/2011 & 2.0 & Baron Federico & Validazione per consegna RP.\\
 \hline
 30/01/2011 & 1.7 & Mandolo Andrea & Verificate modifiche e nuove sezioni.\\
@@ -348,10 +352,18 @@ maggiori dettagli vedi documento \emph{PianoDiQualifica-\versionePQ.pdf}).
 \chapter{Analisi e Progettazione}
 \thispagestyle{fancy} 
 
-Per l'analisi dei requisiti e per la progettazione si utilizzer\`a il linguaggio
-UML 2.0 perch\'e adottato come standard nella modellazione e
-scrittura dei diagrammi: Use case, di flusso, dei package, delle classi, degli
-oggetti, di attivit\`a e di sequenza. 
+\section{Analisi dei requisiti}
+L'analisi dei requisiti \`e un'attivit\`a che ha come obiettivi la comprensione
+del dominio all'interno del quale deve essere sviluppato un sistema software e
+la definizione dei requisiti che tale sistema deve soddisfare. 
+
+\subsection{}
+
+
+Per l'analisi dei
+requisiti e per la progettazione si utilizzer\`a il linguaggio UML 2.0 perch\'e
+adottato come standard nella modellazione e scrittura dei diagrammi: Use case,
+di flusso, dei package, delle classi, degli oggetti, di attivit\`a e di sequenza.
 \\
 La tecnologia e gli strumenti utilizzati per la scrittura in UML
 sono specificati chiaramente nella sezione 4.10.
@@ -444,9 +456,9 @@ file, le directory, ecc.\\
 Si \`e deciso di seguire le convenzioni standard sul codice per il linguaggio
 Java perch\'e oltre ad essere consigliate dalla stessa Sun Microsystems, sono
 ottime dato che l'80\% del costo vita di un pezzo di software va in
-manutenzione, che quasi nessun software è mantenuto per tutta la sua vita
-dall'autore originale e che queste convenzioni migliorano la leggibilità
-del software consentendo ai progettisti di comprendere il nuovo codice più
+manutenzione, che quasi nessun software \`e mantenuto per tutta la sua vita
+dall'autore originale e che queste convenzioni migliorano la leggibilit\`a
+del software consentendo ai progettisti di comprendere il nuovo codice pi\`u
 rapidamente e accuratamente.
 Il documento su tali convenzioni \`e stato rivisto e aggiornato il 20 aprile
 1999, e si trova al seguente link
@@ -460,12 +472,12 @@ Ogni file Java avr\`a suffisso:
 \end{itemize}
 
 \subsection{Organizzazione dei file}
-Un file è costituito da sezioni che dovrebbero essere separate da linee vuote e
-un commento opzionale che identifica ogni sezione. I file più di 2000 linee sono
+Un file \`e costituito da sezioni che dovrebbero essere separate da linee vuote e
+un commento opzionale che identifica ogni sezione. I file pi\`u di 2000 linee sono
 ingombranti e dovrebbero essere evitati.
 Ogni file sorgente Java contiene una singola classe/interfaccia pubblica.
 Quando classi/interfacce private sono associate a una classe pubblica,
-è possibile inserirle nello stesso file della classe pubblica.
+\`e possibile inserirle nello stesso file della classe pubblica.
 \\ \\
 Il file sorgente Java deve seguire quest'ordine:
 \begin{itemize}
@@ -489,7 +501,7 @@ impostare Eclipse nel seguente modo: ``Preferenze'' $\Rightarrow$ ``Java''
 $\Rightarrow$ ``Codes Style'' $\Rightarrow$ ``Formatter''$\Rightarrow$ ``Edit''
 $\Rightarrow$ inserire un nuovo nome in ``Profile name'', selezionare
 ``Spaces only'' in ``Tab policy'', inserire 4 in ``Indentation'' e 4 in ``Tab
-size''. \\ Evitare le linee più lunghe di 80 caratteri, dal momento che non sono gestite bene da molti terminali e strumenti.\\ \\
+size''. \\ Evitare le linee pi\`u lunghe di 80 caratteri, dal momento che non sono gestite bene da molti terminali e strumenti.\\ \\
 Quando un'espressione non pu\`o stare su una sola riga, bisogna
 romperla seguendo questi principi:
 \begin{itemize}
@@ -503,7 +515,7 @@ romperla seguendo questi principi:
   \hspace*{2.5cm} \co{+ 4 * longname6;} \\ ;
   \item preferire le interruzioni di livello superiore a rotture di livello
   inferiore (vedi l'esempio precedente: la rottura si verifica al
-  di fuori dell'espressione tra parentesi, che è ad un livello superiore);
+  di fuori dell'espressione tra parentesi, che \`e ad un livello superiore);
   \item allineare la nuova linea con l'inizio dell'espressione allo stesso
   livello della linea precedente, esempio: \\
   \hspace*{0.5cm} \co{if ((condition1 \&\& condition2) || (condition3 \&\&
