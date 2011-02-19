@@ -1,15 +1,15 @@
 \newcommand{\nomedoc}{Norme Di Progetto}
-\newcommand{\versione}{2.0}
-\newcommand{\versioneNP}{2.0}
-\newcommand{\versioneGL}{2.0}
-\newcommand{\versionePP}{2.0}
-\newcommand{\versionePQ}{2.0}
-\newcommand{\versioneAR}{2.0}
-\newcommand{\versioneST}{1.0}
+\newcommand{\versione}{3.0}
+\newcommand{\versioneNP}{3.0}
+\newcommand{\versioneGL}{3.0}
+\newcommand{\versionePP}{3.0}
+\newcommand{\versionePQ}{3.0}
+\newcommand{\versioneAR}{3.0}
+\newcommand{\versioneST}{2.0}
 \newcommand{\versioneDP}{1.0}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
-\newcommand{\datamodifica}{18 Febbraio 2011}
+\newcommand{\datamodifica}{19 Febbraio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Baron Federico\\&Palazzin Alberto}
@@ -46,7 +46,9 @@ comuni.
 \endhead
 \hline
 \endfoot
-18/02/2011 & 2.2 & Palazzin Alberto & Sistemazione cap. 5 e 6 dopo la RP. \\
+19/02/2011 & 2.2 & Palazzin Alberto & Correzione errori grammaticali. \\
+\hline
+18/02/2011 & 2.2 & Palazzin Alberto & Sistemazione cap. 6 dopo la RP. \\
 \hline
 14/02/2011 & 2.1 & Palazzin Alberto & Sistemazione cap. 7 e inserimento sezione
 7.1. \\
@@ -376,7 +378,7 @@ Il processo di analisi dei requisiti si divide in:
   esistenti), devono sviluppare una proprio comprensione del dominio
   applicativo;
   \item \bo{raccolta dei requisiti}, interagire con i contraenti per
-  indentificare i loro requisiti;
+  identificare i loro requisiti;
   \item \bo{classificazione}, prendere la collezione non strutturata dei
   requisiti ed organizzarli innanzitutto distinguendoli in base a
   caratteristiche generali di qualit\`a a cui possono essere riferiti,
@@ -393,7 +395,7 @@ Il processo di analisi dei requisiti si divide in:
 \end{itemize}
 Per semplificare la determinazione dei requisiti, si pu\`o decomporre l'uso
 del sistema in casi distinti, ciascuno dei quali facile da
-descrivere opure decomponibile a sua volta.
+descrivere oppure decomponibile a sua volta.
 Utile \`e utilizzare un modello di casi d'uso, che \`e una descrizione di
 requisiti funzionali composto di:
 \begin{itemize}
@@ -424,6 +426,7 @@ musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
 \bo{nx} = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di
 un requisito avranno una cifra in pi\`u del genitore.
 
+\newpage
 \section{Progettazione}
 Dopo la definizione dei requisiti in cui vengono descritte le funzionalit\`a del
 sistema e i vincoli operativi, si procede con la specifica dei requisiti dove
@@ -432,19 +435,19 @@ funzionalit\`a e vincoli. Quindi la specifica dei requisiti aggiunge dettagli
 alla definizione dei requisiti e serve per comunicare agli sviluppatori cosa
 deve fare il sistema. 
 Gli obiettivi della progettazione sono soddisfare tutti i requisiti di qualit\`a
-cercando una soluzione archichetturale del prodotto che impieghi dei componenti
+cercando una soluzione architetturale del prodotto che impieghi dei componenti
 con specifica chiara e coesa, che realizzi il sistema rispettando i tempi e i costi
 fissati, e che la struttura sia gi\`a predisposta per eventuali cambiamenti
 futuri. \\ \\
 L'attivit\`a del processo di sviluppo, procedendo dall'analisi dei requisiti,
-produce una descrizione dela struttura interna e dell'organizzazione del sistema
+produce una descrizione della struttura interna e dell'organizzazione del sistema
 che \`e la base della realizzazione, e l'architettura software organizzando il
 sistema per decomposizione in componenti e interfacce, e dando una prima visione
 logica e poi di dettaglio.
 Per semplificare la determinazione dell'architettura, prima ad un
 livello logico e poi ad un livello di dettaglio, cercando una decomposizione sia
-funzionale sia ad oggetti si possono utilizzare i diagrammi UML dei package,
-delle classi, degli oggetti, di attivit\`a e di sequenza. \\ \\
+funzionale sia ad oggetti, si possono utilizzare i diagrammi UML dei package,
+delle classi, degli oggetti, di attivit\`a, di flusso e di sequenza. \\ \\
 La Specifica Tecnica
 deve delineare, per ogni componente del sistema, la funzione che svolge, quali
 sono i dati in ingresso e in uscita a tale componente, e calcolare le risorse
@@ -452,7 +455,7 @@ logiche e fisiche necessarie al suo funzionamento.\\ \\
 La Definizione del Prodotto procede dall'architettura logica, consentendo lo
 sviluppo parallelo e indipendente dei componenti di basso livello, consentendo
 di stimare costo e tempi di realizzazione e cercando la qualit\`a voluta tramite
-precise metriche (coesione, accomppiamento, utilit\`a, dipendenza,
+precise metriche (coesione, accoppiamento, utilit\`a, dipendenza,
 complessit\`a).
 
 \subsubsection{Tracciamento dei requisiti - componenti}
@@ -533,8 +536,8 @@ Ogni file Java avr\`a suffisso:
 \end{itemize}
 
 \subsection{Organizzazione dei file}
-Un file \`e costituito da sezioni che dovrebbero essere separate da linee vuote e
-un commento opzionale che identifica ogni sezione. I file pi\`u di 2000 linee sono
+Un file \`e costituito da sezioni che dovrebbero essere separate da righe vuote
+e un commento opzionale che identifica ogni sezione. I file pi\`u di 2000 linee sono
 ingombranti e dovrebbero essere evitati.
 Ogni file sorgente Java contiene una singola classe/interfaccia pubblica.
 Quando classi/interfacce private sono associate a una classe pubblica,
@@ -548,11 +551,11 @@ Il file sorgente Java deve seguire quest'ordine:
   \hspace*{0.5cm} \co{//} \\
   \hspace*{0.5cm} \co{// Autore} \\
   \hspace*{0.5cm} \co{//} \\
+  \hspace*{0.5cm} \co{// Licenza copyright/copyleft} \\
+  \hspace*{0.5cm} \co{//} \\
   \hspace*{0.5cm} \co{// Data di creazione} \\
   \hspace*{0.5cm} \co{//} \\
   \hspace*{0.5cm} \co{// Registro delle modifiche} \\
-  \hspace*{0.5cm} \co{//} \\
-  \hspace*{0.5cm} \co{// Licenza copyright/copyleft} \\
   \hspace*{0.5cm} \co{//} \\
   ;
   \item le dichiarazioni del package seguite da quelle di importazione;
@@ -739,13 +742,13 @@ pacchetto o una classe, che pu\`o essere utile nella comprensione del codice.
   inglese e nel caso in cui sono composti, la prima lettera va in
   minuscolo mentre la prima lettera di ogni parola interna in maiuscolo
   (esempio: \co{runFast();});
-  \item \bo{Variabili}: i nomi delle variabili non costanti devono essere
-  scritti con la prima e tutte lettere in minuscolo a parte la prima lettera di
-  ogni parola in maiuscolo nel caso in cui il nome \`e composto (esempio:
+  \item \bo{Variabili}: i nomi delle variabili non costanti devono essere scritti in
+  inglese e nel caso in cui sono composti, la prima lettera va in
+  minuscolo mentre la prima lettera di ogni parola interna in maiuscolo (esempio:
   \co{String exampleOfVariable;});
   \item \bo{Costanti}: i nomi delle variabili costanti devono essere
-  scritti con tutte le lettere in maiuscolo e l'underscore ``\_'' per dividere
-  le parole nel caso in cui il nome \`e composto (esempio:
+  scritti in inglese, con tutte le lettere in maiuscolo e l'underscore ``\_''
+  per dividere le parole interne nel caso in cui il nome \`e composto (esempio:
   \co{static final int MIN\_WIDTH = 4;}).
 \end{itemize}
 
