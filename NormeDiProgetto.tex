@@ -351,15 +351,6 @@ maggiori dettagli vedi documento \emph{PianoDiQualifica-\versionePQ.pdf}).
 
 \chapter{Analisi e Progettazione}
 \thispagestyle{fancy} 
-
-\section{Analisi dei requisiti}
-L'analisi dei requisiti \`e un'attivit\`a che ha come obiettivi la comprensione
-del dominio all'interno del quale deve essere sviluppato un sistema software e
-la definizione dei requisiti che tale sistema deve soddisfare. 
-
-\subsection{}
-
-
 Per l'analisi dei
 requisiti e per la progettazione si utilizzer\`a il linguaggio UML 2.0 perch\'e
 adottato come standard nella modellazione e scrittura dei diagrammi: Use case,
@@ -368,10 +359,50 @@ di flusso, dei package, delle classi, degli oggetti, di attivit\`a e di sequenza
 La tecnologia e gli strumenti utilizzati per la scrittura in UML
 sono specificati chiaramente nella sezione 4.10.
 
-\section{Individuazione e tracciamento dei requisiti - use case}
-L'individuazione e il tracciamento dei requisiti - use case si effettueranno
-analizzando a fondo i requisiti esposti nel capitolato d'appalto e quelli emersi nell'incontro effettuato con il proponente (vedi documento \emph{Verbale-1.0.pdf}).
-\\
+\section{Analisi}
+L'analisi dei requisiti \`e un'attivit\`a che ha come obiettivi la comprensione
+del dominio all'interno del quale deve essere sviluppato un sistema software e
+la definizione dei requisiti che tale sistema deve soddisfare.\\ 
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=6cm]{img/NP/ProcessoAR.png}
+\caption{Processo di Analisi dei Requisiti}
+\end{figure}\\
+Il processo di analisi dei requisiti si divide in:
+\begin{itemize}
+  \item \bo{comprensione del dominio}, gli analisti partendo dall'enunciazione
+  del problema fino all'acquisizione delle competenze (documentazione
+  preesistente, interviste agli utenti potenziali e studio delle soluzioni
+  esistenti), devono sviluppare una proprio comprensione del dominio
+  applicativo;
+  \item \bo{raccolta dei requisiti}, interagire con i contraenti per
+  indentificare i loro requisiti;
+  \item \bo{classificazione}, prendere la collezione non strutturata dei
+  requisiti ed organizzarli innanzitutto distinguendoli in base a
+  caratteristiche generali di qualit\`a a cui possono essere riferiti,
+  successivamente dividendoli tra requisiti funzionali e non funzionali, e
+  infine controllare che siano verificabili;
+  \item \bo{risoluzione dei conflitti}, nel caso in cui sorgano conflitti nei
+  requisiti, bisogna individuarli e risolverli;
+  \item \bo{attribuzione delle priorit\`a}, i requisiti vanno divisi ed
+  etichettati (obbligatorio, desiderabile, opzionale) in base alla diversa
+  importanza;
+  \item \bo{validazione dei requisiti}, controllare i requisiti per capire se
+  sono completi, consistenti e in accordo con ci\`o che i contraenti vogliono
+  dal sistema.
+\end{itemize}
+Per semplificare la determinazione dei requisiti, si pu\`o decomporre l'uso
+del sistema in casi distinti, ciascuno dei quali facile da
+descrivere opure decomponibile a sua volta.
+Utile \`e utilizzare un modello di casi d'uso, che \`e una descrizione di
+requisiti funzionali composto di:
+\begin{itemize}
+  \item diagrammi di casi d'uso;
+  \item scenari delle interazioni tra il sistema e gli attori che vi
+  intervengono, per ciascuno Use case.
+\end{itemize}
+
+\subsubsection{Tracciamento dei requisiti - Use case}
 Per identificare in modo univoco e significativo ognuno dei requisiti software
 estratti dall'analisi, gli viene assegnato un codice.
 Tale lista sar\`a presente solamente nel documento
@@ -393,8 +424,38 @@ musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
 \bo{nx} = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di
 un requisito avranno una cifra in pi\`u del genitore.
 
-\newpage
-\section{Tracciamento dei requisiti - componenti}
+\section{Progettazione}
+Dopo la definizione dei requisiti in cui vengono descritte le funzionalit\`a del
+sistema e i vincoli operativi, si procede con la specifica dei requisiti dove
+vengono descritte in maniera pi\`u precisa e dettagliata tali
+funzionalit\`a e vincoli. Quindi la specifica dei requisiti aggiunge dettagli
+alla definizione dei requisiti e serve per comunicare agli sviluppatori cosa
+deve fare il sistema. 
+Gli obiettivi della progettazione sono soddisfare tutti i requisiti di qualit\`a
+cercando una soluzione archichetturale del prodotto che impieghi dei componenti
+con specifica chiara e coesa, che realizzi il sistema rispettando i tempi e i costi
+fissati, e che la struttura sia gi\`a predisposta per eventuali cambiamenti
+futuri. \\ \\
+L'attivit\`a del processo di sviluppo, procedendo dall'analisi dei requisiti,
+produce una descrizione dela struttura interna e dell'organizzazione del sistema
+che \`e la base della realizzazione, e l'architettura software organizzando il
+sistema per decomposizione in componenti e interfacce, e dando una prima visione
+logica e poi di dettaglio.
+Per semplificare la determinazione dell'architettura, prima ad un
+livello logico e poi ad un livello di dettaglio, cercando una decomposizione sia
+funzionale sia ad oggetti si possono utilizzare i diagrammi UML dei package,
+delle classi, degli oggetti, di attivit\`a e di sequenza. \\ \\
+La Specifica Tecnica
+deve delineare, per ogni componente del sistema, la funzione che svolge, quali
+sono i dati in ingresso e in uscita a tale componente, e calcolare le risorse
+logiche e fisiche necessarie al suo funzionamento.\\ \\
+La Definizione del Prodotto procede dall'architettura logica, consentendo lo
+sviluppo parallelo e indipendente dei componenti di basso livello, consentendo
+di stimare costo e tempi di realizzazione e cercando la qualit\`a voluta tramite
+precise metriche (coesione, accomppiamento, utilit\`a, dipendenza,
+complessit\`a).
+
+\subsubsection{Tracciamento dei requisiti - componenti}
 Per identificare in modo univoco e significativo ognuno dei componenti software
 estratti dalla progettazione, gli viene assegnato un codice.
 Tale lista sar\`a presente solamente nel documento
@@ -414,7 +475,7 @@ Esempi:
   \item \bo{Cclmv1} = la classe NetmusActivityMapper del package client.mvp
 \end{itemize}
 
-\section{Norme per la Definizione del Prodotto}
+\subsubsection{Norme per la Definizione del Prodotto}
 Nella stesura del documento \emph{DefinizioneDelProdotto-\versioneDP.pdf}, in
 dettaglio nella specifica delle componenti in progettazione, \`e stata adottata
 la seguente notazione per descrivere i metodi e gli attributi delle classi:
@@ -486,6 +547,10 @@ Il file sorgente Java deve seguire quest'ordine:
   \hspace*{0.5cm} \co{// Nome della classe/interfaccia} \\
   \hspace*{0.5cm} \co{//} \\
   \hspace*{0.5cm} \co{// Autore} \\
+  \hspace*{0.5cm} \co{//} \\
+  \hspace*{0.5cm} \co{// Data di creazione} \\
+  \hspace*{0.5cm} \co{//} \\
+  \hspace*{0.5cm} \co{// Registro delle modifiche} \\
   \hspace*{0.5cm} \co{//} \\
   \hspace*{0.5cm} \co{// Licenza copyright/copyleft} \\
   \hspace*{0.5cm} \co{//} \\
@@ -780,5 +845,8 @@ Per ciascuna revisione, il gruppo VT.G si impegna a consegnare i documenti
 tramite l'e-mail del gruppo in un unico file compresso ``.zip''. Al suo interno i
 file saranno suddivisi in base all'uso, interno o esterno.
 
-
+\listoftables
+\addcontentsline{toc}{chapter}{Indice Tabelle}
+\listoffigures
+\addcontentsline{toc}{chapter}{Indice Figure}
 \end{document}
