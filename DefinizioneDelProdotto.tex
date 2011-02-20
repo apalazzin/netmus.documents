@@ -109,7 +109,7 @@ importanti decisioni architetturali con una breve descrizione.
   multi-lingua utilizziamo lo strumento \emph{Static String
   Internationalization} che grazie al deferred binding ci permette di avere la
   lingue sono mappate durante la compilazione. Questa componente risiede nella
-  massima efficenza a runtime poich\'e le impostazioni relative alle diverse
+  massima efficienza a runtime poich\'e le impostazioni relative alle diverse
   classe \co{MyConstants}.
 \end{itemize}
 
@@ -192,7 +192,7 @@ dettaglio 1}
 \end{itemize}
 \subsection*{Schema delle dipendenze architetturali}
 Utilizzeremo le classi impegnate nelle procedure di autenticazione per spiegare
-nel dattaglio le dipendenze presenti tra le componenti del package
+nel dettaglio le dipendenze presenti tra le componenti del package
 \emph{client}. 
 Queste dipendenze aderiscono al pattern MVP ed in particolare sono introdotte
 dal framework MVP con Place e Activity.\\
@@ -221,7 +221,7 @@ anche la funzione di mantenimento dello stato lato client grazie a
 stato corrente e le rende disponibili, fornendo metodi \emph{get}, ad ogni
 Activity che fa avviare. L'Activity a sua volta pu\`o inviarle, chiamando i
 metodi \emph{set}, alla View che completa cos\`i il ciclo necessario al
-manetnimento dello stato in ogni componente impeigata per la costruzione delle pagine.
+mantenimento dello stato in ogni componente impiegata per la costruzione delle pagine.
 
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
 Il package \emph{client} rappresenta la parte del sistema con la quale l'utente
@@ -331,7 +331,7 @@ degli handler.
 \subsubsection*{Relazioni d'uso di altre componenti} Le azioni invocabili
 sono tutte definite nell'interfaccia interna
 \co{Presenter} e saranno utilizzate all'interno dei metodi handler. Viene
-definito un \emph{enum} rigurdante la tipologia di login che viene utilizzato
+definito un \emph{enum} riguardante la tipologia di login che viene utilizzato
 anche da \co{LoginActivity} e \co{LoginPlace}. \\ I contratti dei metodi (che vengono
 implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
 \begin{itemize}
@@ -340,7 +340,7 @@ implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
   \co{ProfileView} una volta verificato il login.
   \item \underline{public void sendLogin(in LoginDTO) throws  LoginException}
   : invia al server il login inserito dall'utente e ritorna \emph{true} solamente se viene
-  verificato, altrimenti ritorna \emph{false} con la relitava eccezione.
+  verificato, altrimenti ritorna \emph{false} con la relativa eccezione.
   \item \underline{public void sendRegistration(in LoginDTO) throws
   RegistrationException} : invia al server i dati di registrazione inseriti
   dall'utente e ritorna \emph{true} se sono stati inseriti con successo nel database.
@@ -360,7 +360,7 @@ un'interfaccia grafica accattivante e di semplice utilizzo, contiene una form
 per l'inserimento password e nome utente e pu\`o visualizzare warning se i dati
 inseriti non sono corretti. \\
 Tra gli attributi ed i metodi presentati sono anche i widget e gli handler
-implmentati con UiBinder in LoginViewImpl.
+implementati con UiBinder in LoginViewImpl.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -369,7 +369,7 @@ implmentati con UiBinder in LoginViewImpl.
 questa pagina.\\\hline 
 - listener: Presenter & Presenter associato a questa
 pagina.\\\hline 
-- type: LoginType & Tipologia di accesso che si sta effetuando.\\\hline
+- type: LoginType & Tipologia di accesso che si sta effettuando.\\\hline
 @UiField container: HTMLPanel & Finestra che contiene l'intera pagina.\\\hline
 @UiField login: Label & Etichetta che se cliccata invia i dati e avvia
 la procedura di login o di registrazione.\\\hline 
@@ -377,7 +377,7 @@ la procedura di login o di registrazione.\\\hline
 visualizzazione del form di registrazione.\\\hline 
 @UiField account: Label &
 Etichetta che descrive i campi di inserimento login e password.\\\hline
-@UiField user: TextBox & Campo per l'iserimento del login.\\\hline
+@UiField user: TextBox & Campo per l'inserimento del login.\\\hline
 @UiField password: TextBox & Campo per l'inserimento della password.\\\hline
 @UiField c\_password: TextBox & Campo per l'inserimento della
 password di conferma.\\\hline 
@@ -389,7 +389,7 @@ errori avvenuti durante il login o la registrazione.\\\hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
 + setPresenter(in Presenter) & Questo metodo viene usato da
-\co{LoginActivity} per impostare una sua istanza come implmentazione
+\co{LoginActivity} per impostare una sua istanza come implementazione
 del presenter di \co{LoginView}.\\\hline 
 + setUser(in String) & Questo metodo viene usato da
 \co{LoginActivity} per impostare l'username inserito nel precedente
@@ -445,7 +445,7 @@ per navigare tra i cataloghi musicali.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la
-modifica delle informazi\subsection{Classe ProfileView}
+modifica delle informazioni \subsection{Classe ProfileView}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
    \item C1FN-1.1.1 Brani elencati opportunamente
@@ -470,7 +470,7 @@ per navigare tra i cataloghi musicali.
 \subsection{Classe EditUserView}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-   \item C1FN-1.4 Gestio\subsection{Classe ProfileView}
+   \item C1FN-1.4 Gestione \subsection{Classe ProfileView}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
    \item C1FN-1.1.1 Brani elencati opportunamente
@@ -502,7 +502,7 @@ per navigare tra i cataloghi musicali.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la
-modifica delle informazine profilo personale
+modifica delle informazione profilo personale
    \item C1FN-1.4.1 Modifica informazioni personali
    \item C1FN-1.4.2 Cambio password
    \item C1FN-1.4.3 Cancellazione del proprio account
@@ -603,7 +603,7 @@ richiamato sempre al termine dei metodi \co{sendLogin} e
 \co{sendRegistration}\\\hline 
 + sendLogin(in LoginDTO) & Invia al
 server il login inserito dall'utente dopo averne controllato la validit\`a
-(e-mail valida, password sufficentemente lunga). Se la richiesta di
+(e-mail valida, password sufficientemente lunga). Se la richiesta di
 autenticazione al server ha successo il metodo avvia la sessione HTTP ed apre la
 pagina principale \co{ProfileView}, se invece la comunicazione col
 server fallisce o non sono stati superati i controlli di validit\`a del
@@ -612,9 +612,9 @@ errore adeguato. Gli errori lato server vengono gestiti con eccezioni di
 tipo \co{LoginException}.\\\hline 
 + sendRegistration(in LoginDTO) & Invia al
 server i dati di registrazione inseriti dall'utente dopo averne controllato la
-correttezza (e-mail valida, password sufficentemente lunga). Se la
+correttezza (e-mail valida, password sufficientemente lunga). Se la
 risposta del server è affermativa ed i dati sono stati inseriti con
-successo l'utente viene indirizzaro alla pagina di \co{ProfileView},
+successo l'utente viene indirizzato alla pagina di \co{ProfileView},
 altrimenti il metodo apre un'altra finestra di login con il messaggio di
 errore adeguato. Gli errori lato server vengono gestiti con eccezioni di
 tipo \co{RegistrationException}.\\\hline
@@ -684,7 +684,7 @@ questo package appartengono le classi \co{LoginPlace}, \co{ProfilePlace},
 \co{EditUserPlace}, \\\co{EditSongsPlace}.\\
 In ognuna di queste classi \`e presente una sottoclasse \co{Tokenizer} che
 permette di serializzare lo stato del Place in un simbolo (token) URL e che non
-\`e implmentata da noi ma dal framework che utlizziamo, per questo non sar\`a
+\`e implementata da noi ma dal framework che utilizziamo, per questo non sar\`a
 specificata nelle liste di attributi delle classi di questo package.
 \subsection*{Interfacce con
 e relazioni d'uso da altre componenti} I suoi elementi vengono utilizzati dal package \emph{mvp}. 
@@ -699,7 +699,7 @@ e relazioni d'uso da altre componenti} I suoi elementi vengono utilizzati dal pa
 \co{LoginPlace} estende la classe \co{Place} messa a disposizione da GWT. La
 classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
-Ha la funzione di contenre i dati dello stato corrente della pagina di login.
+Ha la funzione di contenere i dati dello stato corrente della pagina di login.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -722,7 +722,7 @@ diversa da \emph{null} solo nel caso vi si acceda in seguito ad un errore o
 dalla history.\\\hline 
 - error: String & Errore pi\`u rilevante occorso nello stato
 corrente, sar\`a diverso da \emph{null} solo nel caso sia avvenuto un
-errore nel tentativo di login/registrazione precendete.\\\hline
+errore nel tentativo di login/registrazione precedente.\\\hline
 - loginType: LoginType & Tipologia di login o registrazione che si sta
 effettuando nello stato corrente, di default \`e NETMUSLOGIN.\\\hline
 \end{longtable}
@@ -1096,7 +1096,7 @@ Verranno utilizzate funzionalit\`a interne di gestione login definite in
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LoginService}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Implmenta la parte server delle procedure di login come la verifica della
+Implementa la parte server delle procedure di login come la verifica della
 correttezza della password e l'adeguata
 impostazione delle sessioni HTTP.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -1108,8 +1108,8 @@ relativi alla registrazione di un nuovo utente nel database. Pu\`o
 lanciare eccezioni di tipo \textless= \co{RegistrationException} in caso vi
 siano problemi nell'inserimento.\\\hline 
 + verifyLogin(LoginDTO) & Metodo
-fondamentale per l'utenticazione che confronta i dati in input con quelli presenti nel database per verificare se
-il login \`e valido. Pu\`o
+fondamentale per l'autenticazione che confronta i dati in input con quelli
+presenti nel database per verificare se il login \`e valido. Pu\`o
 lanciare eccezioni di tipo \textless= \co{LoginException} in caso il controllo
 non vada a buon fine.\\\hline 
 + startLogin(LoginDTO) & Racchiude tutte i passi di autenticazione
@@ -1163,7 +1163,7 @@ Questa classe viene utilizzata da \co{LoginServiceImpl} nei metodi \co{logout},
 Viene utilizzata anche da \co{LoginFilter}.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Questa classe ha il compito esclusivo di intergaire con le
+Questa classe ha il compito esclusivo di interagire con le
 sessioni HTML, deve quindi occuparsi di reperire i dati utili
 dalla sessione corrente e di impostarne una nuova. Fornisce inoltre il
 controllo necessario al filtro \co{LoginFilter} per verificare se
@@ -1173,7 +1173,7 @@ l'utente che accede ad una pagina \`e gi\`a loggato oppure no.
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
 + getLoggedInUser(HttpSession session): UserAccount & Legge dal database le informazioni
-relative all'utente specificato nella \co{HttpSession} e resitituisce il
+relative all'utente specificato nella \co{HttpSession} e restituisce il
 DAO \co{UserAccount}.\\\hline 
 + isLoggedIn(HttpServletRequest req): boolean & Verifica se l'utente che
 ha effettuato una certa richiesta \`e loggato oppure no.\\\hline 
@@ -1194,9 +1194,9 @@ Singleton illustrato in \emph{SpecificaTecnica v3.0}. Ha la funzione di creare u
 qualunque oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il DataStore, inviando query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
 tramite semplici metodi. L'oggetto datastore restituito \`e di tipo
 \co{AnnotationObjectDatastore} che di default salva gli attributi degli oggetti
-persistenti in modo non indicizzanto rendendo il satastore pi\`u rapido.
+persistenti in modo non indicizzato rendendo il datastore pi\`u rapido.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Vengono usate le classi della libreria twig-persist1.0,4 per la crezione di
+Vengono usate le classi della libreria twig-persist1.0,4 per la creazione di
 \co{AnnotationObjectDatastore}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa classe pu\`o essere utilizzata da qualunque classe di \emph{server}, ogni
@@ -1294,7 +1294,7 @@ utente del sistema NetMus.
  - gender: char & Sesso, sono validi i valori 'F' (femmina) e 'M'
  (maschio).\\\hline
  - nationality: String & Nazione di provenienza dell'utente.\\\hline
- - avatar: Image \emph{@Type(Blob.class)} & Immagine a scleta caricata
+ - avatar: Image \emph{@Type(Blob.class)} & Immagine a scelta caricata
  dall'utente visibile anche agli altri.\\\hline
  - aboutMe: String \emph{@Type(Text.class)} & Informazioni aggiuntive su
  di se inserite dall'utente.\\\hline
@@ -1468,7 +1468,7 @@ fondamentale nelle comunicazioni asincrone tra client e server.
 package implementano l'interfaccia \co{java.io.Serializable} per poter essere
 serializzate e quindi inviate attraverso la rete. 
 \subsection*{Interfacce con e relazioni d'uso da altre componenti} Viene
-utilizzata da gra parte delle classi dei package \emph{client} e \emph{server}
+utilizzata da gran parte delle classi dei package \emph{client} e \emph{server}
 per lo scambio di dati e/o informazioni. 
 \subsection*{Attivit\`a svolte e dati trattati}
 Le classi di questo package si occupano di inglobare e trasportare
