@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{1.0}
+\newcommand{\versione}{1.1}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\versioneAR}{2.0}
@@ -45,6 +45,9 @@ componenti sui requisiti, descritti in dettaglio nel documento
 \hline
 \endfoot 
 
+01/02/2011 & 1.1 & Caputo Cosimo & Apportate modifiche in base alla
+correzione e alla progettazione di dettaglio.\\
+\hline
 01/02/2011 & 1.0 & Daminato Simone & Validazione per consegna RP.\\
 \hline
 31/01/2011 & 0.25 & Lovato Daniele & Verificato intero documento.\\
@@ -578,7 +581,11 @@ Il sistema mette a disposizione una vista per la visualizzazione del profilo e
 dei brani di un generico utente registrato e per la riproduzione dalla musica
 tramite un player streaming. La classe \co{ProfileViewImpl} implementa
 l'interfaccia \co{ProfileView} che estende \co{isWidget} (interfaccia introdotta
-da GWT 2.1).
+da GWT 2.1). In seguito alla progettazione di dettaglio sono state incorporate
+in questa view le funzionalit\`a di modifica delle informazioni personali
+dell'utente e di modifica del catalogo brani, precedentemente svolte da
+ \co{EditUserView} e \co{EditSongsView} (ora escluse dall'architettura).
+
 \subsubsection*{Relazioni d'uso di altre componenti} 
 La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
 attuali della vista.
@@ -591,10 +598,12 @@ per navigare tra i cataloghi musicali.
 
 \subsection{Classe EditUserView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Il sistema mette a disposizione una vista per la
-modifica delle informazioni personali dell'utente registrato. La classe
-\co{EditUserViewImpl} implementa l'interfaccia \co{EditUserView} che estende
-\co{isWidget} (interfaccia introdotta da GWT 2.1).
+In seguito alla progettazione di dettaglio si \`e scelto di non utilizzare
+pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfileView}.\\\\
+{\color{Removed_Grey}Il sistema mette a disposizione una vista per la modifica
+delle informazioni personali dell'utente registrato. La classe \co{EditUserViewImpl} implementa
+l'interfaccia \co{EditUserView} che estende \co{isWidget} (interfaccia
+introdotta da GWT 2.1).
 
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe istanzia oggetti di tipo \co{EditUserPlace} che definiscono gli stati
@@ -606,11 +615,14 @@ La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
 Mette a disposizione gli strumenti per la modifica delle informazioni personali
 dell'utente registrato (cambio password, cancellazione account,
 pubblicazione catalogo)
+}
  
 \subsection{Classe EditSongsView}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Il sistema mette a disposizione una vista per visualizzazione e la modifica del
-catalogo brani utente. La classe \co{EditSongsViewImpl} implementa l'interfaccia
+In seguito alla progettazione di dettaglio si \`e scelto di non utilizzare
+pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfileView}.\\\\
+{\color{Removed_Grey}Il sistema mette a disposizione una vista per
+visualizzazione e la modifica del catalogo brani utente. La classe \co{EditSongsViewImpl} implementa l'interfaccia
 \co{EditSongsView} che estende \co{isWidget} (interfaccia introdotta da GWT
 2.1).
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -623,7 +635,7 @@ La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
 Permette di visualizzare e aggiungere, rimuovere o modificare manualmente brani
 nella propria libreria musicale e di creare playlist personalizzate. La
 rimozione di informazioni non influenza i dati che Netmus salva sul database.
-
+}
 \newpage
 \section{Package client.activity} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
