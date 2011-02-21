@@ -27,11 +27,14 @@ VT.G \\
 \thispagestyle{fancy}
 In questo documento verr\`a definito l'intero prodotto nel dettaglio, andando a
 descrivere i metodi e i campi dati di ogni classe che verr\`a implementata nel
-sistema. Verranno suddivise le componenti in maniera da distinguere quelle
-definite durante la progettazione di dettaglio 1 e quelle da integrare durante
-la progettazione di dettaglio 2. Dopo ogni processo di progettazione di
-dettaglio verr\`a effettuata la relativa codifica, delle quali verr\`a
-allegato il codice sorgente.
+sistema. Le componenti definite durante la progettazione di dettaglio 1 e quelle da integrare durante
+la progettazione di dettaglio 2 saranno unite all'interno del documento per
+rendere pi\`u comprensibile l'archiettura completa del sistema Netmus. Il
+tracciamento con i requisiti invece sar\`a separato in progettazione di
+dettaglio 1 e progettazione di dettaglio 2 mappati rispettivamente con requisiti
+obbligatori e requisiti desiderabili ed opzionali\\Dopo ogni attivit\`adi
+progettazione di dettaglio verr\`a effettuata la relativa codifica, delle quali
+verr\`a allegato il codice sorgente.
 
 \newpage
 % REGISTRO MODIFICHE
@@ -130,7 +133,6 @@ aspetti dell'architettura di NetMus che nella Specifica tecnica non sono
 trattati o lo sono solo in parte.\\ Per una maggiore comprensione del documento,
 in particolare della specifica delle componenti, elenchiamo di seguito queste
 importanti decisioni architetturali con una breve descrizione.
-.
 \begin{itemize}
   \item \bo{Applet} : la componente di recupero delle informazioni (C2) risiede
   in una applet Java precompilata indipendente da GWT ed \`e integrata con
@@ -163,7 +165,7 @@ importanti decisioni architetturali con una breve descrizione.
   classe \co{MyConstants}.
 \end{itemize}
 
-\section{Codici assegnati a nuove componenti}
+\section{Codici assegnati alle nuove componenti}
 In relazione alle modifiche apportate all'architettura del sistema ed al
 maggiore dettaglio della progettazione sono state individuate delle aggiunte e
 delle rimozioni alle componenti indviduate in Specifica tecnica. In seguito sono
@@ -205,8 +207,13 @@ Il ciclo di vita da noi impiegato prevede due diverse fasi di progettazione di
 dettaglio, come meglio specificato nel capitolo 3 del Piano di progetto (v
 3.0). La specifica delle componenti individuate nel primo incremento ha
 l'obiettivo di soddisfare i requisiti obbligatori dell'analisi e la codifica di
-queste fornisce una prima versione funzionante e stabile di NetMus. 
-\section*{Requisiti obbligatori}
+queste fornisce una prima versione funzionante e stabile di NetMus. \\
+La progettazione di dettaglio 2 si occupa invece di definire a basso livello le
+componenti, o parti di esse, che servono a soddisfare i requisiti desiderabili e
+quelli opzionali.\\\\
+Le componenti presentate di seguito sono complete delle due diverse attivit\`a
+di progettazione di dettaglio e contengono quindi l'architettura completa del
+progetto Nemus. \section*{Requisiti obbligatori}
 \begin{footnotesize}
 \centering
 \begin{longtable}[!h]{|l|}
@@ -317,6 +324,10 @@ dettaglio 2}
 	\item C1FN-1 Web Application Netmus
 	\item C2FN-3 Comunicazione con C1
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno.
+\end{itemize}
 \subsection*{Schema delle dipendenze architetturali}
 Utilizzeremo le classi impegnate nelle procedure di autenticazione per spiegare
 nel dettaglio le dipendenze presenti tra le componenti del package
@@ -368,6 +379,10 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 \begin{itemize}
 	\item C1FN-1 Web Application Netmus
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+  \item Nessuno.
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe rappresenta l'Entry Point di GWT che genera tutte le altre
 componenti e rende disponibile e visibile l'intero sistema.\\
@@ -375,14 +390,11 @@ In particolare andr\`a a creare dinamicamente il \co{ClientFactoryImpl} adatto,
 nel caso ce ne fossero diversi, e lo aggancia insieme all'EventBus al nostro
 \co{NetmusPlaceHistoryMapper} ed al \co{NetmusActivityMapper}.
 Inoltre allaccia al body Html il widget principale dell'applicazione.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe \co{Netmus} utilizza le classi \co{ClientFactory},
 \co{NetmusActivityMapper} e \\\co{NetmusPlaceHistoryMapper}.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Nessuna.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 \co{Netmus} praticamente si occupa di avviare il sistema e portare l'utente alla
 pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
@@ -390,15 +402,18 @@ pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
 \subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
+    \item C1FN-1 Web Application Netmus
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
 	\item C1QN-2.3 Portabilit\`a
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 In Netmus \`e disponibile un'unica implementazione dell'interfaccia
-\co{ClientFactory}, poich\'e per il momento non \`e contemplato un utilizzo di
-alternative all'interfaccia utente desktop.
-Nella classe si definiscono le propriet\`a di un vista (desktop) del
-sistema.
-
+\co{ClientFactory}, poich\'e per il momento la portabilit\`a richiesta per i
+pricipali browser in circolazione \`e gia soddisfatta e non verranno
+implementate interfacce alternative. Nella classe si definiscono
+le propriet\`a di un vista (desktop) del sistema.
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe utilizza \co{EventBus}, \co{PlaceController}, \co{LoginView},
 \co{ProfileView}, \co{EditUserView} e
@@ -423,16 +438,25 @@ l'utente prima del passaggio ad uno stato differente.
 	\item C1FN-1.2 Registrazione
 	\item C1QN-2 Utilizzo
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
+\end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{ui} contiene le interfacce e le implementazioni delle View del
 sistema. Le View generano gli ambienti grafici (assimilabili all'interfaccia
 utente di iTunes) con cui gli utenti possono interagire e si occupano di
-catturare gli eventi da essi prodotti.
-\subsection*{Relazioni d'uso di altre componenti}
-Questo package utilizza \emph{place} per creare istanze dei vari Place quando
-richiesto.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene utilizzato dal package \emph{activity}.
+catturare gli eventi da essi prodotti. \\
+L'implementazione della grafica sar\`a eseguita con l'utilizzo del framework
+UiBinder ed il conseguente utilizzo del linguaggio CSS3 per la formattazione
+che garantir\`a dei buoni livelli di accessibilit\`a.
+\subsection*{Relazioni
+d'uso di altre componenti} Questo package utilizza \emph{place} per creare istanze dei vari Place quando richiesto.
+Tutte le classi qui contenute inoltre fanno uso della classe \co{MyConstants}
+per la gestione del multi-lingua. 
+\subsection*{Interfacce con e relazioni d'uso
+da altre componenti} Viene utilizzato dal package \emph{activity}.
 \subsection*{Attivit\`a svolte e dati trattati}
 In sostanza svolge il compito di organizzare le informazioni del model in un
 interfaccia accessibile dall'utente.
@@ -441,6 +465,12 @@ interfaccia accessibile dall'utente.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.2 Registrazione
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 La classe \co{LoginView} rappresenta la finestra di login fornita all'utente
@@ -461,28 +491,40 @@ implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
   \item \underline{public void goTo(in Place)} : permette di spostarsi in un
   place differente anche relativo ad un'altra view. Ad esempio per aprire la pagina di
   \co{ProfileView} una volta verificato il login.
-  \item \underline{public void sendLogin(in LoginDTO) throws  LoginException}
-  : invia al server il login inserito dall'utente e ritorna \emph{true} solamente se viene
-  verificato, altrimenti ritorna \emph{false} con la relativa eccezione.
-  \item \underline{public void sendRegistration(in LoginDTO) throws
-  RegistrationException} : invia al server i dati di registrazione inseriti
-  dall'utente e ritorna \emph{true} se sono stati inseriti con successo nel database.
-  \item \underline{public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION\}} :
-  Definisce le tipologie di login e registrazione possibili.
+  \item \underline{public void sendLogin(in String, in String) throws  LoginException}
+  : invia al server i dati di login inseriti
+  dall'utente. Viene inviata la richiesta di verifica del login con i dati
+  presenti nel Datastore tramite una chiamata asincrona ad un metodo di
+  \co{LoginService}. La chiamata RPC pu\`o lanciare eventi di tipo
+  \co{LoginException}.
+  \item \underline{public void sendGoogleLogin(in String, in String)
+  throws LoginException} : apre una pagina del sistema che richiama la servlet
+  \co{LoginGoogleServlet}.
+  \item \underline{public void sendRegistration(in String, in String, in String)
+  throws RegistrationException} : invia al server i dati di registrazione inseriti
+  dall'utente. Viene fatto un primo controllo sulla validit\`a dei dati e de
+  positivo viene inviata la richiesta di inserimento dell'utente nel database
+  tramite una chiamata asincrona ad un metodo di \co{LoginService}. La chiamata
+  RPC pu\`o lanciare eventi di tipo \co{RegistrationException}.
+  \item \underline{public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION,
+  GOOGLELOGIN\}} : Definisce le tipologie di login e registrazione possibili.
 \end{itemize}
 Per permettere all'utente di cambiare pagina o stato della finestra la classe
 pu\`o istanziare oggetti di tipo \co{LoginPlace}. Il form di login e quello di
 registrazione appartengono ad uno stesso stato quindi i \co{LoginPlace}
 istanziati saranno relativi a situazioni di errore o di login effettuato con successo. 
+Tutte le classi qui contenute inoltre fanno uso della classe \co{MyConstants}
+per la gestione del multi-lingua. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti} La vista
 viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
 \co{LoginActivity}. 
 \subsubsection*{Attivit\`a svolte e dati trattati} La classe permette all'utente
-di scegliere se effettuare il login oppure la registrazione attraverso
-un'interfaccia grafica accattivante e di semplice utilizzo, contiene una form
+di scegliere se effettuare il login tramite Netmus o Google oppure la
+registrazione attraverso un'interfaccia grafica accattivante e di semplice utilizzo, contiene una form
 per l'inserimento password e nome utente e pu\`o visualizzare warning se i dati
 inseriti non sono corretti. \\
-Tra gli attributi ed i metodi presentati sono anche i widget e gli handler
+La pagina \`e disponibile in due lingue: italiano ed inglese.\\
+Tra gli attributi ed i metodi presentati vi sono anche i widget e gli handler
 implementati con UiBinder in LoginViewImpl.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
@@ -506,6 +548,10 @@ Etichetta che descrive i campi di inserimento login e password.\\\hline
 password di conferma.\\\hline 
 @UiField error: Label & Etichetta che contiene il testo di eventuali
 errori avvenuti durante il login o la registrazione.\\\hline 
+@UiField check\_google: RadioButton & Bottone di selezione del tipo di
+login.\\\hline 
+@UiField check\_netmus: RadioButton & Bottone di selezione del tipo di
+login.\\\hline
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
@@ -525,15 +571,23 @@ tentativo di login o registrazione.\\\hline
 precedente tentativo di login o registrazione.\\\hline
 + setLoginType(in LoginType) & Serve ad impostare il tipo di login o
 registrazione che si sta effettuando.\\\hline 
-\# goRegisterView() & Visualizza i form aggiuntivi necessari alla
-registrazione.\\\hline 
-@UiHandler(``login'') handleClick(in ClickEvent) & Invia all'activity
-associata la richiesta di login o registrazione.\\\hline
-@UiHandler(``register'') handleClick(in ClickEvent) & Se la pagina si
++ setLayout() & Aggiunta il layout all'avvio.\\\hline
+@UiHandler(``login'') handleClickLogin(in ClickEvent) & Quando viene
+premuto il bottone di login invia all'activity associata la richiesta di login o
+registrazione.\\\hline @UiHandler(value=\{``user'', ``password'', ``c\_password''\})
+handlePressEnterPassword(in KeyPressEvent) & Quando viene premuto in tasto
+``enter" invia all'activity associata la richiesta di login o
+registrazione.\\\hline @UiHandler(``register'') handleClickRegister(in ClickEvent) & Se la pagina si
 trova nello stato \co{LoginType.LOGINNETMUS} ridispone gli elementi in
 modo da visualizzare il form intero per la registrazione, altrimenti
 nasconde i campi per registrazione lasciando solamente quelli per il
 login.\\\hline
+@UiHandler(``check\_google'') handleClickGoogle(in ClickEvent) & Viene
+avviato quando l'utente seleziona Google come tipologia di login e
+aggiorna l'attributo \co{type}. \\\hline @UiHandler(``check\_netmus'')
+handleClickNetmus(in ClickEvent) & Viene
+avviato quando l'utente seleziona Netmus come tipologia di login e
+aggiorna l'attributo \co{type}.\\\hline
 \end{longtable}
 
 \subsection{Classe ProfileView}
@@ -541,6 +595,17 @@ login.\\\hline
 \begin{itemize}
 	\item C1FN-1.1.1 Brani elencati opportunamente
 	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1FO-1.3.4 Ranking brani
+    \item C1FD-1.5 Riproduzione tracce in streaming
+    \item C1FD-1.7 Interazione con altri utenti
+    \item C1FD-1.7.1 Visualizzazione altri profili
+    \item C1FO-1.7.2 Lasciare commenti su profilo
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la visualizzazione del profilo e
@@ -2405,8 +2470,6 @@ opzionali}
 \endfoot
 \endlastfoot
 Ccl0 - client & C1FD-1.10 \\\hline
-Ccl1 - client.Netmus & C1QO-2.1 \\
-& C1QD-2.4 \\\hline
 Ccl3 - client.ClientFactoryImpl & C1QO-2.1 \\\hline
 Cclac2 - client.activity.ProfileActivity & C1FO-1.2.3 \\
 & C1FD-1.5 \\
@@ -2442,14 +2505,19 @@ Cclpl4 - client.place.EditSongsPlace & C1FO-1.3.3 \\
 & C1FD-1.3.2 \\
 & C1FD-1.3.1 \\
 & C1FD-1.3 \\ \hline
-Cclui0 - client.ui & C1QO-2.1 \\\hline
-Cclui1 - client.ui.LoginView & C1FO-1.2.1 \\\hline
+Cclui0 - client.ui & C1QO-2.1 \\
+& C1QD-2.4 \\\hline
+Cclui1 - client.ui.LoginView & C1FO-1.2.1 \\
+& C1QO-2.1 \\
+& C1QD-2.4 \\\hline
 Cclui2 - client.ui.ProfileView & C1FD-1.1.4 \\
 & C1FO-1.3.4 \\
 & C1FD-1.5 \\
 & C1FD-1.7 \\
 & C1FD-1.7.1 \\
-& C1FO-1.7.2 \\\hline
+& C1FO-1.7.2 \\
+& C1QO-2.1 \\
+& C1QD-2.4 \\\hline
 Cclui3 - client.ui.EditUserView & C1FD-1.4.4 \\\hline
 Cclui4 - client.ui.EditSongsView & C1FD-1.3 \\
 & C1FD-1.3.1 \\
@@ -2519,6 +2587,11 @@ Csepe3 - server.persistent.Song & C1FO-1.9.3 \\
 progettazione di dettaglio 2 e requisiti desiderabili/opzionali}
 \end{longtable}
 \end{footnotesize}
+
+\chapter{REQUISITI DELLA VERGONA}
+C1FD-1.10 Invio nuove informazioni a C2\ldots bisogna imboscarlo in qualche
+modo!\\
+
 
 
 \appendix\chapter{Codice Sorgente}
