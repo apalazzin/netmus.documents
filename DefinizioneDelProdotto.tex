@@ -1834,13 +1834,255 @@ registrazione di un nuovo utente.
 \section{Applet di estrazione brani}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C2QN-4 Utilizzo
-	\item C2FN-3.1 Invio delle informazioni
-	\item C2FN-1.5 File ignorati
-	\item C2FN-1.2 Recupero manuale
-	\item C2FN-1.1 Recupero automatico
 	\item C2FN-1 Recupero delle informazioni
+	\item C2FN-1.1 Recupero automatico
+	\item C2FN-1.2 Recupero manuale
+	\item C2FN-1.5 File ignorati
+	\item C2FN-3.1 Invio delle informazioni
 \end{itemize}
+\subsection*{Tipo, obiettivo e funzione del componente}
+L'applet di estrazione brani verr\`a sviluppata come componente
+Java indipendente. In seguito sar\`a compilata ed esportata in un file JAR, il
+quale verr\`a inserito nel sistema NetMus per essere caricato dinamicamente
+dalla classe \co{AppletBar.java} come elemento HTML di tipo \emph{applet}.\\
+Una volta caricata nella Profile View di un utente loggato, richieder\`a
+l'accettazione di una firma digitale, per avere l'accesso in lettura/scrittura
+sul File System del client. In tal modo potr\`a cominciare a monitorare le
+periferiche di archiviazione di massa che verranno collegate da quel momento in
+poi.
+ 
+\subsection*{Relazioni d'uso di altre componenti}
+Per entrare in funzione \`e necessario che nel client sia installata una JRE e
+che questa sia utilizzabile dal browser, attraverso un plugin adatto.\\
+Grazie a delle chiamate JavaScript appropriate, potr\`a chiamare i metodi nativi
+(JSNI) appositamente creati e pubblicati nella classe \co{AppletBar.java}.
+
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a utilizzata dal package \emph{client.applet} tramite dei metodi nativi
+JavaScript (JSNI) che andranno ad invocare direttamente dei metodi pubblici
+interni  all'applet.
+
+\subsection*{Attivit\`a svolte e dati trattati}
+L'applet deve monitorare le periferiche presenti nella macchina client e,
+all'inserimento di un nuovo device visibile come periferica di archiviazione di
+massa, andr\`a a scansionarlo interamente estraendo tutti i Tag informativi dei
+brani Mp3 presenti. Verr\`a creato un file di log interno al device con lo scopo
+di tenere traccia, in una scansione futura, dei file che son gi\`a stati
+analizzati. Tutti i Tag analizzati verranno tradotti in un elemento XML, infine
+spedito alla classe \co{AppletBar.java} sotto forma di stringa.\\
+
+
+\subsection{Classe NetmusApplet}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C2FN-1 Recupero delle informazioni
+   \item C2FN-1.1 Recupero automatico
+   \item C2FN-1.2 Recupero manuale
+   \item C2FN-3.1 Invio delle informazioni
+\end{itemize}
+
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe sar\`a di tipo \co{JApplet} e si occuper\`a di avviare l'applet
+quando caricata in una pagina Web. Quando viene creata invier\`a una notifica a
+GWT, il quale andr\`a ad avviare effettivamente lo scansionamento dell'applet,
+passandogli il nome utente e lo stato di attivazione scelto in precedenza
+dall'utente. Di default sar\`a attiva ma pu\`o essere disattivata manualmente.
+Quando sar\`a disattivata il thread \co{scanner} viene messo a dormire e verr\`a
+svegliato in seguito ad una richiesta dell'utente, tramite il metodo
+\co{setState} che andr\`a ad invocare un \co{notify()} sull'oggetto di lock su
+cui \co{scanner} si \`e addormentato.
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+Questa componente utilizzer\`a la classe \co{DeviceScanner} per
+avviare, attivare e disattivare la scansione. Comunicher\`a con GWT tramite
+invocazione di metodi nativi in \co{AppletBar}.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La classe verr\`a avviata in automatico, tramite creazione e invocazione del
+metodo \co{start()}, da parte della JVM quando caricata nella pagina Web.
+I suoi metodi pubblici \co{letsGo} e \co{setState} possono essere invocati
+tramite JSNI da GWT.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Svolge la funzione di avviare l'applet associandola all'utente e con lo
+stato da lui impostato. Non ha un'interfaccia grafica sua, ma verr\`a graficata
+in \co{AppletBar} da GWT all'interno di una ``barra di estrazione''.\\
+\\
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- is\_active: bool & Stato del thread scanner.\\\hline
+- logged\_user: String & Nome dell'utente loggato attuale.\\\hline
+- scanner: DeviceScanner & Thread di scansione devices.\\\hline
+\# app\_context: AppletContext & Context nel quale \`e inserita
+l'applet.\\\hline
+\caption{Campi dati di NetmusApplet}
+\end{longtable}
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ start(): void & Metodo ereditato da \co{JApplet} invocato in automatico quando
+viene caricata la classe nel browser.\\\hline
++ letsGO(in String, in boolean): void & Metodo invocato da GWT tramite
+JSNI che va a settare il nome utente e fa partire il monitoraggio
+del File System da parte di \co{scanner}.\\\hline
++ setState(in boolean): void & Metodo per cambiare lo stato del
+monitoraggio dello \co{scanner}.\\\hline
+\caption{Metodi di NetmusApplet}
+\end{longtable}
+
+
+\subsection{Classe DeviceScanner}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C2FN-1 Recupero delle informazioni
+   \item C2FN-1.1 Recupero automatico
+   \item C2FN-1.2 Recupero manuale
+   \item C2FN-3.1 Invio delle informazioni
+\end{itemize}
+
+\subsubsection*{Tipo, obiettivo e funzione del componente} La classe
+\co{DeviceScanner} sa\`a di tipo \co{Thread} e si occuper\`a di monitorare il
+File System nei tipici punti di mount dei dipositivi di archiviazione di massa.
+Quando verr\`a creato un oggetto di questo tipo, si dovr\`a individuare il tipo
+di sistema operativo della macchina client e quindi sar\`a nota la posizione di
+mount per le periferiche. L'azione di monitoraggio partir\`a al momento
+dell'invocazione del metodo \co{run()} ereditato da \co{Thread}, il quale
+inizializzer\`a l'applet individuando il Sistema Operativo e andr\`a ad avviare
+un ciclo infinito temporizzato di monitoraggio. Il monitoraggio consister\`a nel
+controllare le periferiche attualmente connesse e confrontare tale valore con
+quelle rilevate durante l'inizializzazione o il ciclo precedente. Se aumentato,
+perch\`e connesso un nuovo dispositivo, verranno scansionate tutte le cartelle
+al suo interno, andando ad estrarre per ogni file Mp3 il proprio Tag, grazie
+alle note Java ID3 Tag Library (versione 0.5.4) importate nel progetto. Dopo
+aver estratto il singolo Tag verr\`a utilizzata la classe \co{TranslateXML} che
+si occuper\`a della creazione del file XML da spedire al server a fine
+scansione. Verr\`a inoltre creato un file di log non intrusivo (legato
+all'account) nel dispositivo dell'utente, che servir\`a in una futura scansione
+per andare ad estrarre solo le informazioni dei nuovi file Mp3 e scartare quelli
+gi\`a scansionati. Se un utente vorr\`a estrarre nuovamente anche i file gi\`a
+scansionati in precedenza potr\`a avviare tale procedura da GWT con un click di
+un bottone presente dopo la scansione d'inserimento. Dovranno essere previste
+possibili scansioni avviate manualmente dall'utente in varie parti del File
+System. Alla fine di una scansione verr\`a spedito il file XML prodotto tramite
+un'istruzione JavaScript verso GWT.
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+Questa classe utilizza \co{TranslateXML} per creare il file XML e, per
+comunicare con l'applicazione principale, invoca metodi nativi pubblicati da
+AppletBar nello stesso contesto della pagina Web.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene creata, avviata e fermata in \co{NetmusApplet}.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Svolge la funzione di estrarre i Tag dagli Mp3 presenti nei dispositivi che
+vengono collegati alla macchina durante la sua esecuzione. Tali Tag vengono
+per\`o elaborati dalla classe \co{TranslateXML} che dovr\`a preparare il file
+XML che \co{scanner} dovr\`a infine spedire all'applicazione principale.\\
+\\
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- is\_active: bool & Stato del thread, settato da \co{NetmusApplet}.\\\hline
+- user: String & Nome dell'utente loggato attuale.\\\hline
+- fs: FileSystemView & Oggetto per l'accesso al File System.\\\hline
+- linux\_path: String & Punto di mount per Linux.\\\hline
+- mac\_path: String & Punto di mount per MacOS.\\\hline
+- default\_path: String & Punto di mount del OS rilevato.\\\hline
+- devices: List\textless File\textgreater & Device rilevati in punto di
+mount.\\\hline
+- num\_devices: int & Numero di device connessi alla macchina.\\\hline
+\# app\_context: AppletContext & Context nel quale \`e inserita
+l'applet.\\\hline
+\caption{Campi dati di DeviceScanner}
+\end{longtable}
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- initialize(): void & Metodo per memorizzare lo stato iniziale
+dell'applet.\\\hline
+- relativePath(in String, in String): String & Restituisce il path
+relativo, dato un path assouluto e il path della root del device.\\\hline
+- pathUnix(in String): String & Trasforma il path in ingresso in
+formato UNIX, slash invece che backslash.\\\hline
+- prepare(in String): String & Prepara la stringa per essere spedita
+via XML, gestendo eventuali apici singoli che potrebbero creare errori
+durante la spedizione tramite JavaScript.\\\hline
+- scanMedia(in File, in PrintWriter, in TranslateXML, in List\textless
+String\textgreater, in String, in int, in int): int & Metodo ricorsivo
+che va a scansionare tutte le cartelle del dispositivo ricorsivamente ed elabora
+tutti i file Mp3 rilevati, scartando quelli presenti nel log.\\\hline
+- countMedia(in File, in PrintWriter, in TranslateXML, in List\textless
+String\textgreater, in String, in int): int & Metodo ricorsivo che
+conta tutti i file Mp3 nuovi presenti nel dispositivo.\\\hline
+- readLog(in File): List\textless String\textgreater & Crea una lista
+con tutti i path degli Mp3 gi\`a scansionati presenti nel file di log.\\\hline
+- getTag(in File): AbstractMP3Tag & Metodo per gestire l'estrazione dei
+Tag Mp3 in maniera corretta, cercando di dare compatibilit\`a con tutti
+i formati di Tag Mp3 presenti in commercio.\\\hline
+- listenFileSystem(): void & Metodo che esegue il monitoraggio continuo
+del punto di mount del Sistema Operativo in uso, e che gestisce la
+scansione, la scrittura del file di log e l'invio dei dati
+all'applicazione principale.\\\hline
++ run(): void & Metodo ereditato da \co{Thread} che, gestendo i permessi per
+poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initialize()} e
+\co{listenFileSystem()}.\\\hline
+\caption{Metodi di DeviceScanner}
+\end{longtable}
+
+
+\subsection{Classe TranslateXML}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C2FN-1 Recupero delle informazioni
+   \item C2FN-1.5 File ignorati
+\end{itemize}
+
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+
 
 \section{Tracciamento componenti dettaglio 1 - requisiti obbligatori}
 \begin{footnotesize}
@@ -2195,4 +2437,9 @@ desiderabili/opzionali}
 \chapter{Tracciamento componenti - requisiti}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 
+
+\listoftables
+\addcontentsline{toc}{chapter}{Indice Tabelle}
+\listoffigures
+\addcontentsline{toc}{chapter}{Indice Figure}
 \end{document}
