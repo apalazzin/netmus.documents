@@ -162,9 +162,10 @@ importanti decisioni architetturali con una breve descrizione.
   un'applicazione.\\ Per soddisfare il requisito di avere un sistema
   multi-lingua utilizziamo lo strumento \emph{Static String
   Internationalization} che grazie al deferred binding ci permette di avere la
-  lingue sono mappate durante la compilazione. Questa componente risiede nella
-  massima efficienza a runtime poich\'e le impostazioni relative alle diverse
-  classe \co{MyConstants}.
+  massima efficienza a runtime poich\'e le lingue sono mappate durante la
+  compilazione. Questa componente con le impostazioni relative alle
+  diverse lingue risiede nella classe \co{MyConstants} e nei file
+  \emph{MyConstants} e \emph{MyConstants\_it.properties}.
 \end{itemize}
 
 \section{Codici assegnati alle nuove componenti}
@@ -621,7 +622,9 @@ aggiorna l'attributo \co{type}.\\\hline
     \item C1FD-1.5 Riproduzione tracce in streaming
     \item C1FD-1.7 Interazione con altri utenti
     \item C1FD-1.7.1 Visualizzazione altri profili
-    \item C1FO-1.7.2 Lasciare commenti su profilo
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FO-1.3.3 Creazione playlist
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la visualizzazione del profilo e
@@ -647,6 +650,12 @@ per navigare tra i cataloghi musicali.
 	\item C1FN-1.4.2 Cambio password
 	\item C1FN-1.4.3 Cancellazione del proprio account
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
+    \item C1FD-1.4.4 Pubblicazione
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la
 modifica delle informazioni personali dell'utente registrato. La classe
@@ -668,6 +677,12 @@ pubblicazione catalogo)
 \begin{itemize}
     \item Nessuno
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3.2 Modifica informazioni brano
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per visualizzazione e la modifica del
 catalogo brani utente. La classe \co{EditSongsViewImpl} implementa l'interfaccia
@@ -684,16 +699,47 @@ Permette di visualizzare e aggiungere, rimuovere o modificare manualmente brani
 nella propria libreria musicale e di creare playlist personalizzate. La
 rimozione di informazioni non influenza i dati che Netmus salva sul database.
 
-\subsection{Classe MyConstants}
+\subsection{Interfaccia MyConstants}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item Nessuno
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1QD-2.4 Supporto multi-lingua
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe contiene molti metodi senza implementazione che ritornano una
+stringa. Le stringhe ritornate da questi metodi insieme comprendono l'intero
+testo presente nelle interfacce grafiche e che deve essere presentato in italiano ed in inglese secondo le
+preferenze dell'utente. \\
+Le implementazioni delle due lingue vengono predisposte durante la compilazione
+e caricate tramite deferred binding rendendo il cambio di lingua molto efficente
+a run-time. 
 \subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+I testi sono prelevati dai file \emph{MyConstants.properties} e
+\emph{MyConstants\_it.properties}. 
+\subsubsection*{Interfacce con e relazioni
+d'uso da altre componenti}
+Tutte le classi del package \emph{ui} ne fanno uso.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-
+Permette il caricamento dei testi in diverse lingue tramite deferred binding
+configurabile nel file di progetto \emph{Netmus.gwt.xml}.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\# testi\_vari: String & Tutti i metodi presenti in questa classe sono di
+questo tipo e vengono invocati al posto dell'inserimento di un normale
+testo statico nelle classi view.\\\hline
+\caption{Metodi di MyConstants}
+\end{longtable}
 
 \newpage
 \section{Package client.activity} % LASCIARE WARNING
@@ -2957,12 +3003,14 @@ Cclui2 - client.ui.ProfileView & C1FD-1.1.4 \\
 & C1FD-1.7.1 \\
 & C1FO-1.7.2 \\
 & C1QO-2.1 \\
-& C1QD-2.4 \\\hline
-Cclui3 - client.ui.EditUserView & C1FD-1.4.4 \\\hline
-Cclui4 - client.ui.EditSongsView & C1FD-1.3 \\
+& C1QD-2.4 \\
+& C1FD-1.3 \\
 & C1FD-1.3.1 \\
-& C1FD-1.3.2 \\
 & C1FO-1.3.3 \\\hline
+Cclui3 - client.ui.EditUserView & C1FD-1.4.4 \\\hline
+Cclui4 - client.ui.EditSongsView & C1FD-1.3.2 \\
+& C1QO-2.1 \\
+& C1QD-2.4 \\\hline
 Cclui5 - client.ui.MyConstants & C1QD-2.4 \\\hline
 Cclap0 - client.applet & C2QD-4.3 \\
 & C2FD-2 \\
@@ -3031,6 +3079,8 @@ progettazione di dettaglio 2 e requisiti desiderabili/opzionali}
 \chapter{REQUISITI DELLA VERGONA}
 C1FD-1.10 Invio nuove informazioni a C2\ldots bisogna imboscarlo in qualche
 modo!\\
+C1FO-1.7.2 Lasciare commenti su profilo\ldots peccato era bello questo\ldots ma
+in figa a bobo anche i commenti! 
 
 
 
