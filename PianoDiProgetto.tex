@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano Di Progetto}
-\newcommand{\versione}{2.1}
+\newcommand{\versione}{2.2}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\versioneAR}{2.0}
@@ -42,6 +42,9 @@ relativa strategia preventiva su di essi.
 \endhead
 \hline
 \endfoot
+21/02/2011 & 2.2 & Lovato Daniele & Completato consuntivo e analisi dei rischi
+in fase RP-RQ.\\
+\hline
 10/02/2011 & 2.1 & Lovato Daniele & Sistemati errori evidenziati dalla
 revisione di progetto.\\
 \hline
@@ -793,7 +796,9 @@ quelle consumate nella fase precendente. Inoltre le ore di progettazione sono
 state aumentate, diretta conseguenza dell'esperienza fatta con la progettazione
 nella fase RR-RP. Le ore di codifica sono diminuite, prevedendo che una buona e
 dettagliata progettazione richieda meno ore di codifica. Il resto \`e rimasto
-invariato.
+invariato.\\
+\\Riportiamo di seguito il preventivo in dettaglio delle attivit\`a
+riorganizzato.
 
 \begin{table}[h!]
 \begin{center}
@@ -856,6 +861,110 @@ invariato.
 \end{center}
 \end{table}
 
+Anche in questo grafico, si può notare come siano variate, anche se di poco, le
+ore rispettivamente di progettazione fase 1 e fase 2, e di codifica fase 1 e
+fase 2. Come gi\`a accennato abbiamo stimato che ad una progettazione pi\`u
+dettagliata segua una codifica efficace e meno dispendiosa in termini di
+tempistiche.
+
+\newpage
+\section{Consuntivo in fase RP-RQ}
+
+Riportiamo di seguito una tabella con le ore preventivate per ogni attivit\`a
+in fase RP-RQ e le ore effettivamente utilizzate dagli sviluppatori.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|p{0.35\textwidth}|c|c|}
+\hline
+& \bo{Preventivo}\cellcolor{orange} &
+\bo{Consuntivo}\cellcolor{orange}
+\\
+\hline
+
+
+\bo{Progettazione di Dettaglio 1}\cellcolor{orange} & 60 & 69 \\\hline
+\bo{Progettazione di Dettaglio 2}\cellcolor{orange}    & 36 & 44 
+\\\hline
+\bo{Codifica 1}\cellcolor{orange}  & 54 & 49\\ \hline
+\bo{Codifica 2}\cellcolor{orange}  & 28 & 26\\\hline
+\bo{Agg. PP v3.0}\cellcolor{orange} & 12 & 10\\\hline
+\bo{Agg. PQ v3.0}\cellcolor{orange}& 6 & 4\\\hline
+\bo{Agg. PQ v4.0}\cellcolor{orange}& 8 & 8 \\\hline
+\bo{Manuale Utente (v1)}\cellcolor{orange}& 20 & 20\\\hline
+\bo{Correzione docum. RP}\cellcolor{orange}& 10 & 9\\\hline
+\bo{Verifica}\cellcolor{orange}& 55 & 58\\\hline
+\bo{Gestione e Controllo}\cellcolor{orange}& 5 & 4\\\hline
+\bo{Gestione Strumentazione}\cellcolor{orange}& 9 & 7\\\hline
+\bo{Inizio Test di Qualifica}\cellcolor{orange}& 45 & 39\\\hline
+\bo{Totale}& 348 & 347\\\hline 
+\end{tabular}
+\caption{Confronto Preventivo/Consuntivo in fase RP-RQ}
+\end{center}
+\end{table}
+
+
+
+Come si pu\`o notare dal grafico, le ore preventivate per ogni attivit\`a sono
+state rispettate. Notiamo un leggero aumento nelle ore di progettazione, che
+come scritto nel preventivo, hanno favorito una progettazione di dettaglio più
+completa e conseguentemente hanno permesso di occupare meno ore per la codifica.
+Vediamo inoltre che le attivit\`a svolte dal responsabile e dagli amministratori
+hanno occupato qualche ora in meno rispetto a quanto preventivato, e in totale
+tutto ci\`o ha portato ad guadagnare un ora di lavoro sul lavoro totale
+previsto.\`E stata anche stilata una versione preliminare del manuale utente.
+Insieme ai test di qualifica l'attivit\`a di verifica ha occupato anche in
+questa fase una cospicua parte delle ore di lavoro, ossia circa il 28\%.
+
+\newpage
+Riportiamo di seguito un grafico con un confronto tra le ore di lavoro
+preventivate, e le ore di lavoro effettive svolte in questa fase.
+
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=17.2cm, angle=0]{img/PP/ORE-RQ.png}
+\caption{Rapporto tra ore parziali e ore totali preventivate per membro.}
+\end{figure}
+\vspace{0.5cm}
+
+
+Come stimato, le ore di lavoro svolte in questa fase sono circa 50
+ore per ogni componente, che sommate a quelle della precedente fase fanno salire
+il monte ore totale a 80 ore circa per persona, pari al 78\% delle ore totali
+preventivate.
+
+\newpage
+Riportiamo ora un grafico che mostra le spese sostenute in questa
+fase in relazione al budget totale accordato con il committente per lo sviluppo del progetto.
+
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=11cm, angle=0]{img/PP/BUDGET-RQ.png}
+\caption{Stato del budget utilizzato fino a RQ}
+\end{figure}
+\vspace{0.5cm}
+
+
+Il Budget speso in questa fase \`e rimasto molto al di sotto della stima fatta
+nel preventivo. Infatti \`e stato consumato il 40\% del budget in questa fase
+(5.692 Euro spesi contro 6.250 E preventivati), per un totale di 10.704 Euro di
+budget speso finora.
+
+
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=13cm, angle=0]{img/PP/COSTI-RQ.png}
+\caption{Ripartizione dei costi per ruolo in fase RP-RQ}
+\end{figure}
+\vspace{0.5cm}
+
+
+Come fa chiaramente notare il grafico a torta, anche in questa fase la maggior
+parte dei liquidi sono stati consumati dall'attivit\`a svolta dal progettista,
+seguiti da programmatori e verificatori.
 
 
 \chapter{Analisi e gestione dei rischi}
@@ -978,19 +1087,42 @@ sul monte ore totali, infatti come si pu\`o vedere da questo Piano Di Progetto e
 stato previsto un ritorno sui documenti dopo l'ingresso in Revisione dei
 Requisiti. Perci\`o il rischio non \`e stato rilevato.\\
 \\
-Il grado di pericolosit\`a del rischio esposto al paragrafo 5.1.2 si \`e
+Il grado di pericolosit\`a del rischio esposto al paragrafo 6.1.2 si \`e
 ridotto. Ci\`o \`e dettato dal fatto che i membri hanno potuto avere una prima
 esperienza personale con i tutorial di GoogleAppEngine e con un corso tenuto su quest'ultimo dal 
 personale della Miriade SPA. La probabilit\`a di occorrenza del rischio \`e comunque alta.\\
 \\
 Il gruppo \`e riuscito a mitigare in questa fase la probabilit\`a di occorrenza del
-rischio esposto al paragrafo 5.1.1. Si \`e infatti deciso di svolgere la maggior
-parte del lavoro da casa, con comunicazioni effettuate via Skype ogni qualvolta fosse
+rischio esposto al paragrafo 6.1.1. Si \`e
+infatti deciso di svolgere la maggior parte del lavoro da casa, con comunicazioni effettuate via Skype ogni qualvolta fosse
 stato necessario. Gli incontri ufficiali sono stati quindi ridotti al minimo,
 con la conseguenza di aver ottenuto una partecipazione attiva e completa di
 tutti i membri.\\
 \\
 
+\subsection{Rischi nella fase RP - RQ}
+In questa fase,uno dei rischi maggiori che ha dovuto affrontare il gruppo \`e
+stato il dover riorganizzare il preventivo della stessa fase, per rientrare nel
+preventivo totale presentato, dato che nella fase precedente si era abusato di
+qualche ora in pi\`u rispetto alle previsioni e non era ammissibile sforare nel
+budget e nelle ore di lavoro contabilizzate all'inizio dello sviluppo del
+progetto. Questo rischio \`e stato affrontato attivamente, e ci\`o che ne \`e
+risultato \`e stato un investimento nelle ore di progettazione che ha portato ad
+un lavoro di codifica meno complesso del previsto, permettendoci quindi di
+rientrare nel preventivo.\\
+\\
+La condizione rischiosa del fattore alla sezione 6.1.2 \`e stata quasi
+completamente annullata, grazie allo studio massiccio e continuo e
+all'esperienza ottenuta lavorando su GAE e GWT.\\
+\\
+Il fattore rischioso alla sezione 6.1.5 si \`e abbassato notevolmente, dato che
+nello sviluppo del progetto abbiamo implementato la possibilit\`a di aggiungere
+o modificare le informazioni riguardanti un brano. Quindi ora ogni brano mp3 con
+informazioni parzialmente o del tutto mancanti potr\`a comunque essere
+completato nei suoi campi direttamente dall'utente. \`E comunque ancora un
+rischio ``attivo'' dato che il completamento delle informazioni, qualora il
+programma non riuscisse a reperire le informazioni dal database centrale, resta
+un compito che pu\`o svolgere solamente l'utente.
 \listoftables
 \addcontentsline{toc}{chapter}{Indice Tabelle}
 \listoffigures
