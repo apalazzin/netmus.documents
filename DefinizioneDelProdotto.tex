@@ -3,6 +3,7 @@
 \newcommand{\versione}{0.4}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
+\newcommand{\versionespecifica}{2.0}
 \newcommand{\nomefile}{DefinizioneDelProdotto-\versione.pdf}
 \newcommand{\datacreazione}{3 Febbraio 2011}
 \newcommand{\datamodifica}{5 Febbraio 2011}
@@ -24,7 +25,13 @@ VT.G \\
 
 \chapter*{Sommario}
 \thispagestyle{fancy}
---- Da scrivere ---
+In questo documento verr\`a definito l'intero prodotto nel dettaglio, andando a
+descrivere i metodi e i campi dati di ogni classe che verr\`a implementata nel
+sistema. Verranno suddivise le componenti in maniera da distinguere quelle
+definite durante la progettazione di dettaglio 1 e quelle da integrare durante
+la progettazione di dettaglio 2. Dopo ogni processo di progettazione di
+dettaglio verr\`a effettuata la relativa codifica, delle quali verr\`a
+allegato il codice sorgente.
 
 \newpage
 % REGISTRO MODIFICHE
@@ -38,6 +45,9 @@ VT.G \\
 \hline
 \endfoot
 
+07/02/2011 & 0.5 & Mandolo Andrea & Inseriti scopo del documento, sommario e
+standard di progetto.\\
+\hline
 05/02/2011 & 0.4 & Baron Federico & Aggiunta la definizione della componente
 \co{LoginActivity}.\\
 \hline
@@ -61,21 +71,58 @@ dettaglio 2.\\
 \rfoot{\thepage\ di \pageref{TotPages}}
 
 \section{Scopo del documento}
---- Da scrivere ---
+Lo scopo della Definizione Di Prodotto \`e quello di descrivere nel dettaglio i
+componenti funzionali presentati nel documento
+\emph{SpecificaTecnica-\versionespecifica.pdf} illustrando a basso livello i
+metodi e i campi dati che costituiscono le varie entit\`a, andando a definire
+cos\`\i\ il prodotto finale.
 
 \input{parte_comune.tex}
 
 \chapter{Standard di progetto}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
+Durante lo sviluppo del sistema NetMus verranno adottati standard,
+tecniche e strumenti descritti nel seguente capitolo.
 
 \section{Standard di progettazione architetturale}
+Come decritto dettagliatamente nel documento di Specifica Tecnica, la
+progettazione architetturale del sistema si basa sui seguenti principi:
+
+\begin{itemize}
+  \item \emph{utilizzo di pattern:} tale approccio ci permette di adottare
+  strategie per la risoluzione di problemi noti, considerate efficenti e affidabili;
+  \item \emph{utilizzo di framework:} questo ci permette di avere infrastrutture
+  gi\`a consolidate per gestire determinati problemi di basso livello, dandoci
+  la possibilit\`a di avere una visione pi\`u ad alto livello del problema,
+  quindi di poter concentrarci maggiormente sugli aspetti funzionali del nostro
+  sistema.
+  \item \emph{divisione in package:} cos\`\i\ facendo daremo un'organizzazione
+  logica alle classi, accorpandole a seconda del loro utilizzo ed del loro
+  scopo.
+  \item \emph{basso accoppiamento:} rendere il pi\`u possibile indipendenti le
+  varie componenti logiche \`e essenziale per un buon riuso ed una facile
+  manutenzione del codice.
+\end{itemize}
+
 \section{Standard di documentazione del codice}
+Per le regole di documentazione del codice si faccia riferimento al documento
+interno \emph{NormeDiProgetto-\versionenormeprogetto.pdf} in allegato.
+
 \section{Standard di denominazione di entit\`a e relazioni}
+Per quanto riguarda le norme per la nomenclatura delle varie entit\`a e delle
+loro relazioni si faccia riferimento al documento interno
+\emph{NormeDiProgetto-\versionenormeprogetto.pdf} in allegato.
+
 \section{Standard di programmazione}
+Le regole che seguiremo per la codifica del sistema sono esplicitate nel
+documento interno \emph{NormeDiProgetto-\versionenormeprogetto.pdf} in allegato.
+
 \section{Strumenti di lavoro}
+Gli strumenti di lavoro che verranno adottati per lo sviluppo sono descritti in
+dettaglio nel documento interno \emph{NormeDiProgetto-\versionenormeprogetto.pdf} in
+allegato.
 
 
-\newpage
 \chapter{Dettagli architetturali non introdotti nella Specifica tecnica}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 Durante l'attivit\`a di progettazione di dettaglio sono stati definiti alcuni
