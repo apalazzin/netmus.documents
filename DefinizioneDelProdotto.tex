@@ -1018,16 +1018,18 @@ Gli attributi e i metodi di questa interfaccia verranno descritti nel
 dettaglio nella classe \co{LoginServiceImpl} che li implementa. 
 
 \newpage
-%--------------- FORSE -------------------------------
+
 \section{Package client.applet} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C2QN-4 Utilizzo
 	\item C2FN-3.1 Invio delle informazioni
-	\item C2FN-1.5 File ignorati
 	\item C2FN-1.2 Recupero manuale
 	\item C2FN-1.1 Recupero automatico
 	\item C2FN-1 Recupero delle informazioni
+% da vedere ------------------------------------
+	\item C2QD-4.3 Supporto multi-lingua
+% ------------------------------------------------
 \end{itemize}
 \subsection*{Obiettivo e funzione del componente}
 Questo package conterr\`a le classi necessarie a gestire richieste e segnali
@@ -1038,17 +1040,100 @@ archiviazione di massa che vengono collegati alla macchina dell'utente.\\
 Per comunicare con tale applet sono state valutate due possibili metodologie
 d'implementazione: l'uso di una libreria che crea un sistema proxy tra la applet
 e GWT oppure l'utilizzo di \underline{JSNI} (JavaScript Native Interface) che
-sostanzialmente ci permetterebbe di fare chiamate da JavaScript al codice
-\underline{Java} e viceversa.
+sostanzialmente ci permette di effettuare chiamate di metodi da JavaScript al
+codice \underline{Java} e viceversa: abbiamo utilizzato quest'ultima opzione.
 
 \subsection*{Meccanismo di lavoro del componente}
 Una volta ricevuta una richiesta da parte della applet, verr\`a gestita da un
 Service che si occuper\`a di elaborare i dati col supporto del server, per poi
 notificare all'utente l'avvenuta estrazione e fargliela valutare e accettare.
 Una volta accettata la lista brani, si richiede la memorizzazione nel DataStore
-tramite \co{SongsService}.
+tramite \co{SongsService}.\\
+In particolare, lo scambio delle informazioni dei brani tra applet e questo
+package avviene utilizzando \underline{XML}, permettendo quindi di contenere
+tutte le informazioni necessarie all'interno di un'unica stringa, in maniera da
+aggirare molte difficolt\`a e limiti derivanti dall'utilizzo di JSNI.
 
-%-----------------------------------------------------
+\subsection*{Relazioni d'uso di altre componenti}
+Si fa utilizzo dei servizi offerti dalle classi presenti nel package
+\emph{server}.
+
+\subsection{Classe TranslateDTOXML}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+	\item C2FN-1 Recupero delle informazioni
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Si occupa di interpretare le informazioni in formato XML ricevute dall'applet,
+generando i relativi DTO contenenti le informazioni. Pu\`o effettuare anche
+l'operazione inversa, ovvero generare una stringa in formato XML che rappresenta
+le informazioni contenute nei DTO.
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+Utilizza \co{SongDTO} contenuta in \emph{shared}.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene usata da \co{AppletBar} per interpretare le informazioni provenienti
+dall'applet.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Interpretazione e traduzione delle informarzioni dei brani da XML a DTO e
+viceversa.
+
+\subsection{Classe AppletConstants}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+	\item C2QN-4 Utilizzo
+	\item C2QD-4.3 Supporto multi-lingua
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Gestisce la traduzione delle frasi e/o avvisi da mostrare all'utente, a seconda
+della lingua correntemente selezionata, utilizzando un meccanismo proprio di
+GWT.
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene usata da \co{AppletBar} per visualizzare in maniera corretta lo stato
+dell'applet all'utente.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Utilizza i file \co{.properties} presenti in questo package, ognuno dei quali
+definisce la traduzione corretta di ogni termine e/o frase in una determinata
+lingua.
+Una volta definita globalmente la lingua utilizzata, viene caricato
+automaticamente il file contenente le definizioni di quella lingua.
+
+\subsection{Classe AppletBar}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+	\item C2FN-3.1 Invio delle informazioni
+	\item C2FN-1.2 Recupero manuale
+	\item C2FN-1.1 Recupero automatico
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Si occupa di interfacciare utente, servizi ed applet tra loro: in particolare,
+comunica visivamente all'utente lo stato dell'applet, e utilizza i servizi del
+server per salvare le informazioni estratte da quest'ultima.
+Definisce i metodi JSNI per la comunicazione con l'applet.
+Utilizza il pattern Singleton.
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+Utilizza \co{AppletConstrants} per la traduzione dell'interfaccia con l'utente,
+\co{TranslateDTOXML} per la comunicazione con l'applet, e \emph{server} per
+salvare le informazioni.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene utilizzata da \co{ProfileActivity} per l'inserimento e la rimozione
+dell'applet dalla pagina web.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Si occupa di gestire l'applet all'interno del programma: questo prevede il
+caricamento del suo codice e la sua inizializzazione, la ricezione delle
+informazioni dei brani e l'invio degli stessi a \emph{server} una volta
+costruiti i relativi DTO, la visualizzazione dello stato all'utente e i
+controlli necessari ad influenzarne il comportamento.
 
 \newpage
 \section{Package server}
