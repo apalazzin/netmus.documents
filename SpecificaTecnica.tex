@@ -597,10 +597,11 @@ Contiene la lista dei profili che l'utente pu\`o visualizzare e gli strumenti
 per navigare tra i cataloghi musicali.
 
 \subsection{Classe EditUserView}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
 In seguito alla progettazione di dettaglio si \`e scelto di non utilizzare
-pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfileView}.\\\\
-{\color{Removed_Grey}Il sistema mette a disposizione una vista per la modifica
+pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfileView}.\\
+{\color{Removed_Grey}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per la modifica
 delle informazioni personali dell'utente registrato. La classe \co{EditUserViewImpl} implementa
 l'interfaccia \co{EditUserView} che estende \co{isWidget} (interfaccia
 introdotta da GWT 2.1).
@@ -618,13 +619,13 @@ pubblicazione catalogo)
 }
  
 \subsection{Classe EditSongsView}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
 In seguito alla progettazione di dettaglio si \`e scelto di non utilizzare
-pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfileView}.\\\\
-{\color{Removed_Grey}Il sistema mette a disposizione una vista per
-visualizzazione e la modifica del catalogo brani utente. La classe \co{EditSongsViewImpl} implementa l'interfaccia
-\co{EditSongsView} che estende \co{isWidget} (interfaccia introdotta da GWT
-2.1).
+pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfileView}.\\
+{\color{Removed_Grey}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per visualizzazione e la modifica del
+catalogo brani utente. La classe \co{EditSongsViewImpl} implementa l'interfaccia
+\co{EditSongsView} che estende \co{isWidget} (interfaccia introdotta da GWT 2.1).
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe istanzia oggetti di tipo \co{EditSongsPlace} che definiscono gli stati
 attuali della vista.
@@ -692,9 +693,12 @@ richiesta dei dati utente dettagliati, della lista dei brani, del dettaglio di
 un brano, ecc.
 
 \subsection{Classe EditUserActivity}
+In seguito alla progettazione di dettaglio si \`e scelto di non utilizzare
+pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfileActivity}.\\
+{\color{Removed_Grey}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{EditUserView} e richiede al \co{clientFactory} di
+Questa classe estende \co{AbstractActivity}, implementa il
+\co{Presenter} interno alla \co{EditUserView} e richiede al \co{clientFactory} di
 implementarela.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
@@ -705,12 +709,15 @@ Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
 un Place di tipo \co{EditUserPlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
-modifica delle informazioni personali visualizzate nel profilo.
+modifica delle informazioni personali visualizzate nel profilo.}
 
 \subsection{Classe EditSongsActivity}
+In seguito alla progettazione di dettaglio si \`e scelto di non utilizzare
+pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfileActivity}.\\
+{\color{Removed_Grey}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{EditSongsView} e richiede al \co{clientFactory} di
+Questa classe estende \co{AbstractActivity}, implementa il
+\co{Presenter} interno alla \co{EditSongsView} e richiede al \co{clientFactory} di
 implementarela.
 \subsubsection*{Relazioni d'uso di altre componenti} Invoca i servizi di
 interrogazione e modifica dei dati musicali forniti da \co{SongsService} e
@@ -720,8 +727,7 @@ Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
 un Place di tipo \co{EditSongsPlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa classe gestisce, assieme a \co{songsService}, le attivit\`a utili alla
-visualizzazione e modifica della libreria musicale personale.
-
+visualizzazione e modifica della libreria musicale personale.}
 \newpage
 \section{Package client.place} % LASCIARE WARNING
 \subsection*{Tipo, obiettivo e funzione del componente}
@@ -764,9 +770,12 @@ Il compito della classe \`e quello di indicizzare gli stati di
 e bookmarking del browser.
 
 \subsection{Classe EditUserPlace}
+In seguito alla progettazione di dettaglio si \`e scelto di non utilizzare
+pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfilePlace}.\\
+{\color{Removed_Grey}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\co{EditUserPlace} estende la classe \co{Place} messa a disposizione da GWT. La
-classe \`e associata alla classe interna \co{Tokenizer} che permette di
+\co{EditUserPlace} estende la classe \co{Place} messa a
+disposizione da GWT. La classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
@@ -775,12 +784,15 @@ La classe \`e creata da \co{EditUserView} utilizzata da \co{EditUserActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{EditUserActivity} in modo da rendere accessibili le funzionalit\`a di
-history e bookmarking del browser.
+history e bookmarking del browser.}
 
 \subsection{Classe EditSongsPlace}
+In seguito alla progettazione di dettaglio si \`e scelto di non utilizzare
+pi\`u questa classe. il suo ruolo verr\`a rivestito da \co{ProfilePlace}.\\
+{\color{Removed_Grey}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\co{EditSongsPlace} estende la classe \co{Place} messa a disposizione da GWT. La
-classe \`e associata alla classe interna \co{Tokenizer} che permette di
+\co{EditSongsPlace} estende la classe \co{Place} messa a
+disposizione da GWT. La classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
@@ -789,7 +801,7 @@ La classe \`e creata da \co{EditSongsView} utilizzata da \co{EditSongsActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{EditSongsActivity} in modo da rendere accessibili le funzionalit\`a di
-history e bookmarking del browser.
+history e bookmarking del browser.}
 
 \newpage
 \section{Package client.mvp} % LASCIARE WARNING
