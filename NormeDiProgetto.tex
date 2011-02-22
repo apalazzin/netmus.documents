@@ -9,7 +9,7 @@
 \newcommand{\versioneDP}{1.0}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
-\newcommand{\datamodifica}{19 Febbraio 2011}
+\newcommand{\datamodifica}{22 Febbraio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Baron Federico\\&Palazzin Alberto}
@@ -46,6 +46,10 @@ comuni.
 \endhead
 \hline
 \endfoot
+22/02/2011 & 2.2 & Palazzin Alberto & Aggiunto paragrafo ``Norme per i Test
+software''.
+\\
+\hline
 19/02/2011 & 2.2 & Palazzin Alberto & Correzione errori grammaticali. \\
 \hline
 18/02/2011 & 2.2 & Palazzin Alberto & Sistemazione cap. 6 dopo la RP. \\
@@ -404,7 +408,7 @@ requisiti funzionali composto di:
   intervengono, per ciascuno Use case.
 \end{itemize}
 
-\subsubsection{Tracciamento dei requisiti - Use case}
+\subsection{Tracciamento dei requisiti - Use case}
 Per identificare in modo univoco e significativo ognuno dei requisiti software
 estratti dall'analisi, gli viene assegnato un codice.
 Tale lista sar\`a presente solamente nel documento
@@ -458,7 +462,7 @@ di stimare costo e tempi di realizzazione e cercando la qualit\`a voluta tramite
 precise metriche (coesione, accoppiamento, utilit\`a, dipendenza,
 complessit\`a).
 
-\subsubsection{Tracciamento dei requisiti - componenti}
+\subsection{Tracciamento dei requisiti - componenti}
 Per identificare in modo univoco e significativo ognuno dei componenti software
 estratti dalla progettazione, gli viene assegnato un codice.
 Tale lista sar\`a presente solamente nel documento
@@ -478,7 +482,7 @@ Esempi:
   \item \bo{Cclmv1} = la classe NetmusActivityMapper del package client.mvp
 \end{itemize}
 
-\subsubsection{Norme per la Definizione del Prodotto}
+\subsection{Norme per la Definizione del Prodotto}
 Nella stesura del documento \emph{DefinizioneDelProdotto-\versioneDP.pdf}, in
 dettaglio nella specifica delle componenti in progettazione, \`e stata adottata
 la seguente notazione per descrivere i metodi e gli attributi delle classi:
@@ -744,8 +748,8 @@ pacchetto o una classe, che pu\`o essere utile nella comprensione del codice.
   (esempio: \co{runFast();});
   \item \bo{Variabili}: i nomi delle variabili non costanti devono essere scritti in
   inglese, tutti in minuscolo e nel caso in cui sono composti, le parole interne
-  devono essere separate da underscore ``_'' (esempio: \co{String
-  example_of_variable;});
+  devono essere separate da underscore ``\_'' (esempio: \co{String
+  example\_of\_variable;});
   \item \bo{Costanti}: i nomi delle variabili costanti devono essere
   scritti in inglese, con tutte le lettere in maiuscolo e l'underscore ``\_''
   per dividere le parole interne nel caso in cui il nome \`e composto (esempio:
@@ -762,6 +766,24 @@ linguaggio;}
   \item{aver utilizzato un sottoinsieme appropriato del linguaggio
 (preferire i costrutti di maggiore robustezza, verificabilit\`a e leggibilit\`a
 rispetto quelli di maggiore potenza espressa e velocit\`a).}
+\end{itemize}
+
+\subsection{Norme per i Test software}
+Per identificare in modo univoco e significativo ognuno dei test software creati
+per fare verifica su codice e presenti nel documento \emph{PianoDiQualifica.-\versionePQ.pdf}, gli viene assegnato un codice e in
+dettaglio:\\ \\
+\bo{TX-C(pc)(sc)n} \\
+\bo{T} = test \\
+\bo{X} = d'unit\`a \\
+\bo{C} = componente \\
+\bo{pc} = due lettere per identificare il package \\
+\bo{sc} = due lettere per identificare il sottopackage \\
+\bo{n} = numero incrementale che indica la classe contenuta nel package
+\\ \\
+Esempio:
+\begin{itemize}
+  \item \bo{TU-Cclap3} = test d'unit\`a per la classe TranslateDTOXML del
+  package client.applet
 \end{itemize}
 
 
