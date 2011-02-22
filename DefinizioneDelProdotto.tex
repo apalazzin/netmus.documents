@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.4}
+\newcommand{\versione}{0.7}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -27,11 +27,14 @@ VT.G \\
 \thispagestyle{fancy}
 In questo documento verr\`a definito l'intero prodotto nel dettaglio, andando a
 descrivere i metodi e i campi dati di ogni classe che verr\`a implementata nel
-sistema. Verranno suddivise le componenti in maniera da distinguere quelle
-definite durante la progettazione di dettaglio 1 e quelle da integrare durante
-la progettazione di dettaglio 2. Dopo ogni processo di progettazione di
-dettaglio verr\`a effettuata la relativa codifica, delle quali verr\`a
-allegato il codice sorgente.
+sistema. Le componenti definite durante la progettazione di dettaglio 1 e quelle da integrare durante
+la progettazione di dettaglio 2 saranno unite all'interno del documento per
+rendere pi\`u comprensibile l'archiettura completa del sistema Netmus. Il
+tracciamento con i requisiti invece sar\`a separato in progettazione di
+dettaglio 1 e progettazione di dettaglio 2 mappati rispettivamente con requisiti
+obbligatori e requisiti desiderabili ed opzionali\\Dopo ogni attivit\`adi
+progettazione di dettaglio verr\`a effettuata la relativa codifica, delle quali
+verr\`a allegato il codice sorgente.
 
 \newpage
 % REGISTRO MODIFICHE
@@ -45,6 +48,10 @@ allegato il codice sorgente.
 \hline
 \endfoot
 
+08/02/2011 & 0.7 & Daminato Simone & Inseriti capitolo su client.applet.\\
+\hline
+08/02/2011 & 0.6 & Mandolo Andrea & Inseriti capitolo su applet di estrazione.\\
+\hline
 07/02/2011 & 0.5 & Mandolo Andrea & Inseriti scopo del documento, sommario e
 standard di progetto.\\
 \hline
@@ -130,7 +137,6 @@ aspetti dell'architettura di NetMus che nella Specifica tecnica non sono
 trattati o lo sono solo in parte.\\ Per una maggiore comprensione del documento,
 in particolare della specifica delle componenti, elenchiamo di seguito queste
 importanti decisioni architetturali con una breve descrizione.
-.
 \begin{itemize}
   \item \bo{Applet} : la componente di recupero delle informazioni (C2) risiede
   in una applet Java precompilata indipendente da GWT ed \`e integrata con
@@ -146,28 +152,73 @@ importanti decisioni architetturali con una breve descrizione.
   rispetto a JDO. Un altro vantaggio acquisito dall'utilizzo di questa
   tecnologia \`e quello di poter gestire in modo asincrono (parallelo) le
   operazioni sul Datastore. Questo framework si interfaccia al sistema NetMus
-  nelle componenti di persistenza \co{UserAccount}, \co{Song} e
+  nelle componenti di persistenza DAO \co{UserAccount}, \co{Song} e
   \co{MusicLibrary} e nella classe singleton \co{ODF} (Object Datastore
-  Factory).
+  Factory). Quest'ultima è stata inserita nel package \emph{server.persistent}
+  per garantire un migliore information hiding. \\
+  La versione utilizzata del framework \`e l'ultima rilasciata: Twig-Persist 2.0
+  Beta 4.
   
   \item \bo{Internalizzazione} : GWT mette a disposizione un insieme di
   strumenti molto flessibili per la gestione dell'internazionalizzazione di
   un'applicazione.\\ Per soddisfare il requisito di avere un sistema
   multi-lingua utilizziamo lo strumento \emph{Static String
   Internationalization} che grazie al deferred binding ci permette di avere la
-  lingue sono mappate durante la compilazione. Questa componente risiede nella
-  massima efficienza a runtime poich\'e le impostazioni relative alle diverse
-  classe \co{MyConstants}.
+  massima efficienza a runtime poich\'e le lingue sono mappate durante la
+  compilazione. Questa componente con le impostazioni relative alle
+  diverse lingue risiede nella classe \co{MyConstants} e nei file
+  \emph{MyConstants} e \emph{MyConstants\_it.properties}.
 \end{itemize}
 
-\chapter{Specifica delle componenti in progettazione di dettaglio 1}
+\section{Codici assegnati alle nuove componenti}
+In relazione alle modifiche apportate all'architettura del sistema ed al
+maggiore dettaglio della progettazione sono state individuate delle aggiunte e
+delle rimozioni alle componenti indviduate in Specifica tecnica. In seguito sono
+elencate le componenti in questione con l'assegnamento dei nuovi codici
+identificativi.
+\begin{footnotesize}
+\begin{longtable}[!h]{|l|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Componente} & \sca{Codice}\\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+client.applet.ABF & Cclap1\\\hline
+client.applet.AppletBar & Cclap2\\\hline
+client.applet.TranslateDTOXML & Cclap3\\\hline
+client.applet.AppletConstants & Cclap4\\\hline
+client.ui.MyConstants & Cclui5\\\hline
+shared.GenericDTO & Rimosso (ex Csh1)\\\hline
+shared.MusicLibrarySummaryDTO & Csh9\\\hline
+shared.FieldVerifier & Csh10\\\hline
+shared.exception.DatastoreException & Cshex7\\\hline
+server.PMF & Rimosso (ex Cse1)\\\hline
+server.utils.ServletHelper & Cseut4\\\hline
+server.utils.BCrypt & Cseut5\\\hline
+server.persistent.ODF & Csepe4\\\hline
+\caption{Componenti e relativi codici.}
+\centering
+\end{longtable}
+\end{footnotesize}
+
+\chapter{Specifica delle componenti}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 Il ciclo di vita da noi impiegato prevede due diverse fasi di progettazione di
 dettaglio, come meglio specificato nel capitolo 3 del Piano di progetto (v
 3.0). La specifica delle componenti individuate nel primo incremento ha
 l'obiettivo di soddisfare i requisiti obbligatori dell'analisi e la codifica di
-queste fornisce una prima versione funzionante e stabile di NetMus. 
-\section*{Requisiti obbligatori}
+queste fornisce una prima versione funzionante e stabile di NetMus. \\
+La progettazione di dettaglio 2 si occupa invece di definire a basso livello le
+componenti, o parti di esse, che servono a soddisfare i requisiti desiderabili e
+quelli opzionali.\\\\
+Le componenti presentate di seguito sono complete delle due diverse attivit\`a
+di progettazione di dettaglio e contengono quindi l'architettura completa del
+progetto Nemus. \section*{Requisiti obbligatori}
 \begin{footnotesize}
 \centering
 \begin{longtable}[!h]{|l|}
@@ -195,26 +246,18 @@ C1FN-1.9.2 Completamento info da database interno \\ \hline
 C1FN-1.9.5 Inserimento nel Database \\ \hline                            
 C1FN-1.13 Gestione Database \\ \hline
 C1QN-1.6 Scalabilit\`a \\ \hline 
-C1QN-1.6.2 Scalabilit\`a massa di utenza \\ \hline
-C1QN-1.9.4 Identificazione dati ridondanti \\ \hline                         
-C1QN-1.9.6 Gestione concorrenza \\ \hline                         
-C1QN-2.3 Portabilit\`a \\ \hline             
-C1QN-2.7 Gestione errori \\ \hline      
-C1QN-3.1 Manuale utente \\ \hline
-
-C1VN-1.12 Deve utilizzare tecnologie GAE e GWT \\ \hline 
-C1VN-1.13.1 Deve utilizzare Google Data Store \\ \hline
-C1VN-1.11 Deve utilizzare il cloud computing \\ \hline
-C1VN-2.2 Open source \\ \hline
-C1VN-2.5 Semplicit\`a di utilizzo \\ \hline
-C1QN-1.6 Scalabilit\`a \\ \hline
 C1QN-1.6.1 Scalabilit\`a interfaccia grafica \\ \hline
 C1QN-1.6.2 Scalabilit\`a massa di utenza \\ \hline
+C1QN-1.9.4 Identificazione dati ridondanti \\ \hline                         
+C1QN-1.9.6 Gestione concorrenza \\ \hline
 C1VN-1.11 Deve utilizzare il cloud computing \\ \hline
 C1VN-1.12 Tecnologie GAE e GWT \\ \hline
-C1VN-2.2 \underline{Open source} \\ \hline
+C1VN-1.13.1 Deve utilizzare Google Data Store \\ \hline        
+C1VN-2.2 \underline{Open source} \\ \hline                 
+C1QN-2.3 Portabilit\`a \\ \hline
 C1VN-2.5 Semplicit\`a di utilizzo \\ \hline
-C1QN-2.6 Manutenibilit\`a \\ \hline
+C1QN-2.6 Manutenibilit\`a \\ \hline             
+C1QN-2.7 Gestione errori \\ \hline      
 C1QN-3.1 Manuale utente \\ \hline
 C2FN-1 Recupero delle informazioni \\ \hline
 C2FN-1.1 Recupero automatico \\ \hline
@@ -230,12 +273,65 @@ dettaglio 1}
 \end{longtable}
 \end{footnotesize}
 
+\section*{Requisiti desiderabili ed opzionali}
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Requisiti desiderabili ed opzionali}\\
+\hline
+\endhead
+\hline
+\multicolumn{1}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+C1FD-1.1.4 Visualizza player YouTube\\\hline
+C1FO-1.2.1 Pagina login indipendente\\\hline
+C1FD-1.3 Personalizzazione del catalogo\\\hline
+C1FD-1.3.1 Cancellazione brano\\\hline
+C1FD-1.3.2 Modifica informazioni brano\\\hline  
+C1FO-1.3.3 Creazione playlist\\\hline
+C1FO-1.3.4 Ranking brani\\\hline
+C1FD-1.4.4 Pubblicazione\\\hline
+C1FD-1.5 Riproduzione tracce in streaming\\\hline
+C1VD-1.5.2 Quote YouTube\\\hline
+C1VD-1.5.3 YouTube Terms of Services \\ \hline
+C1FD-1.7 Interazione con altri utenti\\\hline
+C1FD-1.7.1 Visualizzazione altri profili\\\hline
+C1FO-1.7.2 Lasciare commenti su profilo\\\hline
+C1FD-1.8 Elaborazione dati utente\\\hline
+C1FO-1.8.1 Esportazione \underline{PDF}\\\hline
+C1FO-1.9.3 Completamento info da servizio esterno\\\hline
+C1FD-1.10 Invio nuove informazioni a C2\\\hline
+C1QO-2.1 Accessibilit\`a\\\hline
+C1QD-2.4 Supporto multi-lingua\\\hline
+C1QD-3.1.1 Manuale utente inglese \\\hline
+C2FO-1.3 Informazioni senza connessione\\ \hline
+C2FD-1.4 Informazioni dall'hard disk\\\hline
+C2FO-1.6 Indicazioni file ignorati\\ \hline
+C2QD-1.7 Ottimizzazione memoria cache\\ \hline 
+C2FD-2 Aggiornamento e completamento informazioni\\\hline
+C2QD-4.1 Portabilit\`a \\ \hline
+C2QD-4.2 Semplicit\`a di utilizzo \\ \hline
+C2QD-4.3 Supporto multi-lingua\\\hline
+C2VD-4.5 Meno disturbo possibile \\ \hline
+\caption{Tabella riassuntiva dei requisiti coinvolti in progettazione di
+dettaglio 2}
+\end{longtable}
+\end{footnotesize}
+
 \newpage
 \section{Package client}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1 Web Application Netmus
 	\item C2FN-3 Comunicazione con C1
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno.
 \end{itemize}
 \subsection*{Schema delle dipendenze architetturali}
 Utilizzeremo le classi impegnate nelle procedure di autenticazione per spiegare
@@ -288,6 +384,10 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 \begin{itemize}
 	\item C1FN-1 Web Application Netmus
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+  \item Nessuno.
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe rappresenta l'Entry Point di GWT che genera tutte le altre
 componenti e rende disponibile e visibile l'intero sistema.\\
@@ -295,14 +395,11 @@ In particolare andr\`a a creare dinamicamente il \co{ClientFactoryImpl} adatto,
 nel caso ce ne fossero diversi, e lo aggancia insieme all'EventBus al nostro
 \co{NetmusPlaceHistoryMapper} ed al \co{NetmusActivityMapper}.
 Inoltre allaccia al body Html il widget principale dell'applicazione.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe \co{Netmus} utilizza le classi \co{ClientFactory},
 \co{NetmusActivityMapper} e \\\co{NetmusPlaceHistoryMapper}.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Nessuna.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 \co{Netmus} praticamente si occupa di avviare il sistema e portare l'utente alla
 pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
@@ -310,15 +407,18 @@ pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
 \subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
+    \item C1FN-1 Web Application Netmus
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
 	\item C1QN-2.3 Portabilit\`a
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 In Netmus \`e disponibile un'unica implementazione dell'interfaccia
-\co{ClientFactory}, poich\'e per il momento non \`e contemplato un utilizzo di
-alternative all'interfaccia utente desktop.
-Nella classe si definiscono le propriet\`a di un vista (desktop) del
-sistema.
-
+\co{ClientFactory}, poich\'e per il momento la portabilit\`a richiesta per i
+pricipali browser in circolazione \`e gia soddisfatta e non verranno
+implementate interfacce alternative. Nella classe si definiscono
+le propriet\`a di un vista (desktop) del sistema.
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe utilizza \co{EventBus}, \co{PlaceController}, \co{LoginView},
 \co{ProfileView}, \co{EditUserView} e
@@ -343,20 +443,25 @@ l'utente prima del passaggio ad uno stato differente.
 	\item C1FN-1.2 Registrazione
 	\item C1QN-2 Utilizzo
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
+\end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{ui} contiene le interfacce e le implementazioni delle View del
 sistema. Le View generano gli ambienti grafici (assimilabili all'interfaccia
 utente di iTunes) con cui gli utenti possono interagire e si occupano di
-catturare gli eventi da essi prodotti.
-
-
-\subsection*{Relazioni d'uso di altre componenti}
-Questo package utilizza \emph{place} per creare istanze dei vari Place quando
-richiesto.
-
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene utilizzato dal package \emph{activity}.
-
+catturare gli eventi da essi prodotti. \\
+L'implementazione della grafica sar\`a eseguita con l'utilizzo del framework
+UiBinder ed il conseguente utilizzo del linguaggio CSS3 per la formattazione
+che garantir\`a dei buoni livelli di accessibilit\`a.
+\subsection*{Relazioni
+d'uso di altre componenti} Questo package utilizza \emph{place} per creare istanze dei vari Place quando richiesto.
+Tutte le classi qui contenute inoltre fanno uso della classe \co{MyConstants}
+per la gestione del multi-lingua. 
+\subsection*{Interfacce con e relazioni d'uso
+da altre componenti} Viene utilizzato dal package \emph{activity}.
 \subsection*{Attivit\`a svolte e dati trattati}
 In sostanza svolge il compito di organizzare le informazioni del model in un
 interfaccia accessibile dall'utente.
@@ -365,6 +470,12 @@ interfaccia accessibile dall'utente.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.2 Registrazione
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 La classe \co{LoginView} rappresenta la finestra di login fornita all'utente
@@ -385,33 +496,51 @@ implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
   \item \underline{public void goTo(in Place)} : permette di spostarsi in un
   place differente anche relativo ad un'altra view. Ad esempio per aprire la pagina di
   \co{ProfileView} una volta verificato il login.
-  \item \underline{public void sendLogin(in LoginDTO) throws  LoginException}
-  : invia al server il login inserito dall'utente e ritorna \emph{true} solamente se viene
-  verificato, altrimenti ritorna \emph{false} con la relativa eccezione.
-  \item \underline{public void sendRegistration(in LoginDTO) throws
-  RegistrationException} : invia al server i dati di registrazione inseriti
-  dall'utente e ritorna \emph{true} se sono stati inseriti con successo nel database.
-  \item \underline{public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION\}} :
-  Definisce le tipologie di login e registrazione possibili.
+  \item \underline{public void sendLogin(in String, in String) throws  LoginException}
+  : invia al server i dati di login inseriti
+  dall'utente. Viene inviata la richiesta di verifica del login con i dati
+  presenti nel Datastore tramite una chiamata asincrona ad un metodo di
+  \co{LoginService}. La chiamata RPC pu\`o lanciare eventi di tipo
+  \co{LoginException}.
+  \item \underline{public void sendGoogleLogin(in String, in String)
+  throws LoginException} : apre una pagina del sistema che richiama la servlet
+  \co{LoginGoogleServlet}.
+  \item \underline{public void sendRegistration(in String, in String, in String)
+  throws RegistrationException} : invia al server i dati di registrazione inseriti
+  dall'utente. Viene fatto un primo controllo sulla validit\`a dei dati e de
+  positivo viene inviata la richiesta di inserimento dell'utente nel database
+  tramite una chiamata asincrona ad un metodo di \co{LoginService}. La chiamata
+  RPC pu\`o lanciare eventi di tipo \co{RegistrationException}.
+  \item \underline{public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION,
+  GOOGLELOGIN\}} : Definisce le tipologie di login e registrazione possibili.
 \end{itemize}
 Per permettere all'utente di cambiare pagina o stato della finestra la classe
 pu\`o istanziare oggetti di tipo \co{LoginPlace}. Il form di login e quello di
 registrazione appartengono ad uno stesso stato quindi i \co{LoginPlace}
 istanziati saranno relativi a situazioni di errore o di login effettuato con successo. 
+Tutte le classi qui contenute inoltre fanno uso della classe \co{MyConstants}
+per la gestione del multi-lingua. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti} La vista
 viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
 \co{LoginActivity}. 
 \subsubsection*{Attivit\`a svolte e dati trattati} La classe permette all'utente
-di scegliere se effettuare il login oppure la registrazione attraverso
-un'interfaccia grafica accattivante e di semplice utilizzo, contiene una form
+di scegliere se effettuare il login tramite Netmus o Google oppure la
+registrazione attraverso un'interfaccia grafica accattivante e di semplice utilizzo, contiene una form
 per l'inserimento password e nome utente e pu\`o visualizzare warning se i dati
 inseriti non sono corretti. \\
-Tra gli attributi ed i metodi presentati sono anche i widget e gli handler
+La pagina \`e disponibile in due lingue: italiano ed inglese.\\
+Tra gli attributi ed i metodi presentati vi sono anche i widget e gli handler
 implementati con UiBinder in LoginViewImpl.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
 + myConstants: MyConstants & Gestore dell'internazionalizzazione associato a
 questa pagina.\\\hline 
 - listener: Presenter & Presenter associato a questa
@@ -430,11 +559,22 @@ Etichetta che descrive i campi di inserimento login e password.\\\hline
 password di conferma.\\\hline 
 @UiField error: Label & Etichetta che contiene il testo di eventuali
 errori avvenuti durante il login o la registrazione.\\\hline 
+@UiField check\_google: RadioButton & Bottone di selezione del tipo di
+login.\\\hline 
+@UiField check\_netmus: RadioButton & Bottone di selezione del tipo di
+login.\\\hline
+\caption{Campi dati di LoginView}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
 + setPresenter(in Presenter) & Questo metodo viene usato da
 \co{LoginActivity} per impostare una sua istanza come implementazione
 del presenter di \co{LoginView}.\\\hline 
@@ -449,15 +589,24 @@ tentativo di login o registrazione.\\\hline
 precedente tentativo di login o registrazione.\\\hline
 + setLoginType(in LoginType) & Serve ad impostare il tipo di login o
 registrazione che si sta effettuando.\\\hline 
-\# goRegisterView() & Visualizza i form aggiuntivi necessari alla
-registrazione.\\\hline 
-@UiHandler(``login'') handleClick(in ClickEvent) & Invia all'activity
-associata la richiesta di login o registrazione.\\\hline
-@UiHandler(``register'') handleClick(in ClickEvent) & Se la pagina si
++ setLayout() & Aggiunta il layout all'avvio.\\\hline
+@UiHandler(``login'') handleClickLogin(in ClickEvent) & Quando viene
+premuto il bottone di login invia all'activity associata la richiesta di login o
+registrazione.\\\hline @UiHandler(value=\{``user'', ``password'', ``c\_password''\})
+handlePressEnterPassword(in KeyPressEvent) & Quando viene premuto in tasto
+``enter" invia all'activity associata la richiesta di login o
+registrazione.\\\hline @UiHandler(``register'') handleClickRegister(in ClickEvent) & Se la pagina si
 trova nello stato \co{LoginType.LOGINNETMUS} ridispone gli elementi in
 modo da visualizzare il form intero per la registrazione, altrimenti
 nasconde i campi per registrazione lasciando solamente quelli per il
 login.\\\hline
+@UiHandler(``check\_google'') handleClickGoogle(in ClickEvent) & Viene
+avviato quando l'utente seleziona Google come tipologia di login e
+aggiorna l'attributo \co{type}. \\\hline @UiHandler(``check\_netmus'')
+handleClickNetmus(in ClickEvent) & Viene
+avviato quando l'utente seleziona Netmus come tipologia di login e
+aggiorna l'attributo \co{type}.\\\hline
+\caption{Metodi di LoginView}
 \end{longtable}
 
 \subsection{Classe ProfileView}
@@ -465,6 +614,19 @@ login.\\\hline
 \begin{itemize}
 	\item C1FN-1.1.1 Brani elencati opportunamente
 	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1FO-1.3.4 Ranking brani
+    \item C1FD-1.5 Riproduzione tracce in streaming
+    \item C1FD-1.7 Interazione con altri utenti
+    \item C1FD-1.7.1 Visualizzazione altri profili
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FO-1.3.3 Creazione playlist
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la visualizzazione del profilo e
@@ -490,76 +652,17 @@ per navigare tra i cataloghi musicali.
 	\item C1FN-1.4.2 Cambio password
 	\item C1FN-1.4.3 Cancellazione del proprio account
 \end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Il sistema mette a disposizione una vista per la
-modifica delle informazioni \subsection{Classe ProfileView}
-\subsubsection*{Requisiti obbligatori soddisfatti}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-   \item C1FN-1.1.1 Brani elencati opportunamente
-   \item C1FN-1.1.3 Visualiz. info dettagliate dei brani
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Il sistema mette a disposizione una vista per la visualizzazione del profilo e
-dei brani di un generico utente registrato e per la riproduzione dalla musica
-tramite un player streaming. La classe \co{ProfileViewImpl} implementa
-l'interfaccia \co{ProfileView} che estende \co{isWidget} (interfaccia introdotta
-da GWT 2.1).
-\subsubsection*{Relazioni d'uso di altre componenti} 
-La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
-attuali della vista.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
- La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
- \co{ProfileActivity}.
- \subsubsection*{Attivit\`a svolte e dati trattati}
-Contiene la lista dei profili che l'utente pu\`o visualizzare e gli strumenti
-per navigare tra i cataloghi musicali.
-
-\subsection{Classe EditUserView}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-   \item C1FN-1.4 Gestione \subsection{Classe ProfileView}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-   \item C1FN-1.1.1 Brani elencati opportunamente
-   \item C1FN-1.1.3 Visualiz. info dettagliate dei brani
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Il sistema mette a disposizione una vista per la visualizzazione del profilo e
-dei brani di un generico utente registrato e per la riproduzione dalla musica
-tramite un player streaming. La classe \co{ProfileViewImpl} implementa
-l'interfaccia \co{ProfileView} che estende \co{isWidget} (interfaccia introdotta
-da GWT 2.1).
-\subsubsection*{Relazioni d'uso di altre componenti} 
-La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
-attuali della vista.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
- La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
- \co{ProfileActivity}.
- \subsubsection*{Attivit\`a svolte e dati trattati}
-Contiene la lista dei profili che l'utente pu\`o visualizzare e gli strumenti
-per navigare tra i cataloghi musicali.
-
-\subsection{Classe EditUserView}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-   \item C1FN-1.4 Gestione profilo personale
-   \item C1FN-1.4.1 Modifica informazioni personali
-   \item C1FN-1.4.2 Cambio password
-   \item C1FN-1.4.3 Cancellazione del proprio account
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Il sistema mette a disposizione una vista per la
-modifica delle informazione profilo personale
-   \item C1FN-1.4.1 Modifica informazioni personali
-   \item C1FN-1.4.2 Cambio password
-   \item C1FN-1.4.3 Cancellazione del proprio account
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
+    \item C1FD-1.4.4 Pubblicazione
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la
 modifica delle informazioni personali dell'utente registrato. La classe
 \co{EditUserViewImpl} implementa l'interfaccia \co{EditUserView} che estende
 \co{isWidget} (interfaccia introdotta da GWT 2.1).
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe istanzia oggetti di tipo \co{EditUserPlace} che definiscono gli stati
 attuali della vista.
@@ -570,6 +673,75 @@ La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
 Mette a disposizione gli strumenti per la modifica delle informazioni personali
 dell'utente registrato (cambio password, cancellazione account,
 pubblicazione catalogo)
+
+\subsection{Classe EditSongsView}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3.2 Modifica informazioni brano
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C1QO-2.1 Accessibilit\`a
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Il sistema mette a disposizione una vista per visualizzazione e la modifica del
+catalogo brani utente. La classe \co{EditSongsViewImpl} implementa l'interfaccia
+\co{EditSongsView} che estende \co{isWidget} (interfaccia introdotta da GWT
+2.1).
+\subsubsection*{Relazioni d'uso di altre componenti}
+La classe istanzia oggetti di tipo \co{EditSongsPlace} che definiscono gli stati
+attuali della vista.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
+\co{EditSongsActivity}.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Permette di visualizzare e aggiungere, rimuovere o modificare manualmente brani
+nella propria libreria musicale e di creare playlist personalizzate. La
+rimozione di informazioni non influenza i dati che Netmus salva sul database.
+
+\subsection{Interfaccia MyConstants}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1QD-2.4 Supporto multi-lingua
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe contiene molti metodi senza implementazione che ritornano una
+stringa. Le stringhe ritornate da questi metodi insieme comprendono l'intero
+testo presente nelle interfacce grafiche e che deve essere presentato in italiano ed in inglese secondo le
+preferenze dell'utente. \\
+Le implementazioni delle due lingue vengono predisposte durante la compilazione
+e caricate tramite deferred binding rendendo il cambio di lingua molto efficente
+a run-time. 
+\subsubsection*{Relazioni d'uso di altre componenti}
+I testi sono prelevati dai file \emph{MyConstants.properties} e
+\emph{MyConstants\_it.properties}. 
+\subsubsection*{Interfacce con e relazioni
+d'uso da altre componenti}
+Tutte le classi del package \emph{ui} ne fanno uso.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Permette il caricamento dei testi in diverse lingue tramite deferred binding
+configurabile nel file di progetto \emph{Netmus.gwt.xml}.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\# testi\_vari: String & Tutti i metodi presenti in questa classe sono di
+questo tipo e vengono invocati al posto dell'inserimento di un normale
+testo statico nelle classi view.\\\hline
+\caption{Metodi di MyConstants}
+\end{longtable}
 
 \newpage
 \section{Package client.activity} % LASCIARE WARNING
@@ -621,6 +793,12 @@ all'interno dell'interfaccia \co{Presenter}.
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
 - user: String & Username inserito dall'utente nello stato corrente, sar\`a
 inizializzato con il valore ricevuto dal \co{LoginPlace} nel
 costruttore.\\\hline 
@@ -636,11 +814,18 @@ inizializzato con il valore ricevuto dal \co{LoginPlace} nel
 costruttore.\\\hline
 + LoginType NETMUSLOGIN, NETMUSREGISTRATION: enum & attributo ereditato
 da \co{LoginView.Presenter}\\\hline
+\caption{Campi dati di LoginActivity}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
 + start(AcceptsOneWidget, EventBus) & Invocato da \co{ActivityManager}
 per avviare una nuova \co{LoginActivity}\\\hline 
 + goTo(in Place) & Permette di
@@ -665,6 +850,7 @@ successo l'utente viene indirizzato alla pagina di \co{ProfileView},
 altrimenti il metodo apre un'altra finestra di login con il messaggio di
 errore adeguato. Gli errori lato server vengono gestiti con eccezioni di
 tipo \co{RegistrationException}.\\\hline
+\caption{Metodi di LoginActivity}
 \end{longtable}
 
 
@@ -715,6 +901,26 @@ un Place di tipo \co{EditUserPlace}.
 Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
 modifica delle informazioni personali visualizzate nel profilo.
 
+\subsection{Classe EditSongsActivity}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
+interno alla \co{EditSongsView} e richiede al \co{clientFactory} di
+implementarela.
+\subsubsection*{Relazioni d'uso di altre componenti} Invoca i servizi di
+interrogazione e modifica dei dati musicali forniti da \co{SongsService} e
+utilizza le relative classi \co{EditSongsPlace} e \co{EditSongsView}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
+un Place di tipo \co{EditSongsPlace}.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Questa classe gestisce, assieme a \co{songsService}, le attivit\`a utili alla
+visualizzazione e modifica della libreria musicale personale.
+
+
 \newpage
 \section{Package client.place} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
@@ -761,6 +967,12 @@ accessibili le funzionalit\`a di history e bookmarking del browser.
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
 - user: String & Username inserito dall'utente nello stato corrente, sar\`a
 diverso da \emph{null} solo nel caso vi si acceda in seguito ad un errore o
 dalla history.\\\hline 
@@ -772,15 +984,23 @@ corrente, sar\`a diverso da \emph{null} solo nel caso sia avvenuto un
 errore nel tentativo di login/registrazione precedente.\\\hline
 - loginType: LoginType & Tipologia di login o registrazione che si sta
 effettuando nello stato corrente, di default \`e NETMUSLOGIN.\\\hline
+\caption{Campi dati di LoginPlace}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
 + getUser() : String & Getter dell'attributo \co{user}\\\hline
 + getPassword() : String & Getter dell'attributo \co{password}\\\hline
 + getError() : String & Getter dell'attributo \co{error}\\\hline
 + getLoginType() : LoginType & Getter dell'attributo \co{loginType}\\\hline
+\caption{Metodi di LoginPlace}
 \end{longtable}
 
 \subsection{Classe ProfilePlace}
@@ -822,6 +1042,25 @@ La classe \`e creata da \co{EditUserView} utilizzata da \co{EditUserActivity}.
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{EditUserActivity} in modo da rendere accessibili le funzionalit\`a di
 history e bookmarking del browser.
+
+\subsection{Classe EditSongsPlace}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\co{EditSongsPlace} estende la classe \co{Place} messa a disposizione da GWT. La
+classe \`e associata alla classe interna \co{Tokenizer} che permette di
+serializzare lo stato del Place in un simbolo (token) URL.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La classe \`e creata da \co{EditSongsView} utilizzata da \co{EditSongsActivity}.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Il compito della classe \`e quello di indicizzare gli stati di
+\co{EditSongsActivity} in modo da rendere accessibili le funzionalit\`a di
+history e bookmarking del browser.
+
 
 \newpage
 \section{Package client.mvp} % LASCIARE WARNING
@@ -1128,6 +1367,17 @@ salvare le informazioni.
 Viene utilizzata da \co{ProfileActivity} per l'inserimento e la rimozione
 dell'applet dalla pagina web.
 
+\subsection{Classe AppletConstants}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Si occupa di gestire l'applet all'interno del programma: questo prevede il
 caricamento del suo codice e la sua inizializzazione, la ricezione delle
@@ -1145,11 +1395,12 @@ controlli necessari ad influenzarne il comportamento.
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
 Questo package racchiude tutte le classi che collaborano al fine di gestire la
 business logic del sistema, ovvero tutte quelle operazioni che potranno essere
-compiute sui dati raccolti. Contiene inoltre delle classi di interfacciamento
-con il DataStore stesso che consentono il controllo sulla persistenza dei dati.
+compiute sui dati raccolti.
 
 \subsection*{Relazioni d'uso di altre componenti}
-Si fa utilizzo delle classi presenti nel package \emph{shared} in cui vengono
+Per quanto riguarda l'interfacciamento con il database vengono utilizzati i
+servizi offerti dalle classi DAO presenti in \emph{persistent}. Si fa utilizzo
+inoltre delle classi presenti nel package \emph{shared} in cui vengono
 incapsulati tutti i dati in uscita del server.
 
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -1223,7 +1474,8 @@ Questa classe corrisponde all'implementazione del \co{LoginService} (di
 Utilizzer\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
 gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
 Verranno utilizzate funzionalit\`a interne di gestione login definite in
-\co{LoginHelper}. 
+\co{LoginHelper}. \\
+La comunicazione con il Datastore avviene tramite \co{UserAccount}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LoginService}.
@@ -1235,6 +1487,12 @@ impostazione delle sessioni HTTP.
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
 + insertRegistration(LoginDTO) & Inserisce i dati di login
 relativi alla registrazione di un nuovo utente nel database. Pu\`o
 lanciare eccezioni di tipo \textless= \co{RegistrationException} in caso vi
@@ -1253,6 +1511,7 @@ UserSummaryDTO & Esegue una ricerca della sessione corrente utilizzando i metodi
 di \co{LoginHelper} e ritorna, se presenti, le informazioni di base
 (\co{UserSummaryDTO}) dell'utente loggato\\\hline 
 + logout() & Invalida l'autenticazione dell'utente che viene rimandato alla pagina di login.\\\hline
+\caption{Metodi di LoginServiceImpl}
 \end{longtable}
 
 \subsection{Classe LibraryServiceImpl}
@@ -1304,6 +1563,12 @@ l'utente che accede ad una pagina \`e gi\`a loggato oppure no.
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
 + getLoggedInUser(HttpSession session): UserAccount & Legge dal database le informazioni
 relative all'utente specificato nella \co{HttpSession} e restituisce il
 DAO \co{UserAccount}.\\\hline 
@@ -1312,46 +1577,7 @@ ha effettuato una certa richiesta \`e loggato oppure no.\\\hline
 + loginStarts(HttpSession session, UserAccount user): UserAccount &
 Imposta una nuova sessione per l'utente in input e ne aggiorna i dati
 nel database (per esempio l'attributo \co{lastLogin}).\\\hline
-\end{longtable}
-
-\subsection{Classe ODF (Singleton)}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-	\item C1FN-1 WEB Application NetMus
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\co{ODF} (Object Datastore Factory) \`e una classe final che segue il pattern
-Singleton illustrato in \emph{SpecificaTecnica v3.0}. Ha la funzione di creare un'unica istanza del
-\co{ObjectDatastore} fornito dal framework twig-persist e di restituirla a
-qualunque oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il DataStore, inviando query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
-tramite semplici metodi. L'oggetto datastore restituito \`e di tipo
-\co{AnnotationObjectDatastore} che di default salva gli attributi degli oggetti
-persistenti in modo non indicizzato rendendo il datastore pi\`u rapido.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Vengono usate le classi della libreria twig-persist1.0,4 per la creazione di
-\co{AnnotationObjectDatastore}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa classe pu\`o essere utilizzata da qualunque classe di \emph{server}, ogni
-qualvolta ci sia bisogno di avere l' \co{ObjectDatastore} per interagire col
-DataStore.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Crea un'unica istanza di \co{ObjectDatastore} e tramite un metodo
-statico \emph{get()} la passa alle classi, in maniera di dargli la possibilit\`a
-di usare il database.
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-- datastoreIstance: DatastoreObject \emph{static, final} & Unica istanza dell'
-\co{ObjectDatastore} che viene inizializzata alla creazione della classe
-con un \co{AnnotationObjectDatastore}.\\\hline
-\end{longtable}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-+ get(): ObjectDatastore \emph{static} & Ritorna l'istanza
-dell' \co{ObjectDatastore}.\\\hline
+\caption{Metodi di LoginHelper}
 \end{longtable}
 
 
@@ -1368,12 +1594,36 @@ dell' \co{ObjectDatastore}.\\\hline
 Il package \emph{server.persistent} contiene le classi di persistenza che
 implementano il design pattern \emph{Data Access Object (DAO)} che hanno lo
 scopo di interfacciare il sistema con il database nascondendo cos\`i ogni
-dettaglio sulla struttura del database all'esterno. 
-\subsection*{Relazioni d'uso di altre componenti}
-Vengono utilizzate le classi DTO presenti nel package \emph{shared} per
-impacchettare i dati in uscita dal database. 
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questo package \`e di fondamentale importanza per il resto del sistema poich\'e
+dettaglio sulla struttura del database all'esterno.\
+I DAO sono implementati con l'utilizzo del framework \emph{Twig-persist}
+introdotto nel capitolo 3, la notazione utilizzata contiene alcuni elementi
+introdotti dal framework per gestirne la configurazione: 
+\begin{itemize}
+  \item \bo{@Id}: L'attributo definito con questa annotazione rappresenta la
+  chiave identificativa dell'entit\`a che deve essere unica all'interno del
+  Datastore. Definirla nel DAO ci permette di gestire questa chiave a nostro
+  piacimento.
+  \item \bo{@Index}: Serve ad indicizzare un particolare attributo poich\'e di
+  default il datastore che viene utilizzato indicizza solo la chiave. Questa
+  annotazione deve essere utilizzata su tutti gli attributi che sono soggetti a
+  ricerca o ordinamento.
+  \item \bo{@Child}: Assegna la relazione di ``figlio'' ad un attributo
+  che ha come tipo un'altra entit\`a del Datastore, in particolare nella chiave
+  dell'entit\`a figlia sar\`a presente anche quella del padre in modo che sia
+  associata a nessun'altro oggetto.
+  \item \bo{@Parent}: Come descritto sopra viene utilizzata per convenienza
+  insieme all'annotazione @Child per avere un riferimento all'entit\`a padre
+  nell'entit\`a filgia.
+  \item \bo{@Type(Type.class)}: Questa annotazione dice esplicitamente alla
+  classe di twig-persist \co{ObjectFieldTraslator} come tradurre il tipo dell'attributo
+  nel tipo effettivo nel Datastore.
+\end{itemize}
+Per avere l'istanza del Datastore su cui lavorare si
+utilizza la classe con visibilit\`a \emph{package} \co{ODF}. \subsection*{Relazioni d'uso di altre componenti} Vengono utilizzate le classi
+DTO presenti nel package \emph{shared} per impacchettare i dati in uscita dal
+database o per gestire i dati in entrata. 
+\subsection*{Interfacce con e
+relazioni d'uso da altre componenti} Questo package \`e di fondamentale importanza per il resto del sistema poich\'e
 rappresenta l'unica via di accesso ai dati persistenti, le classi contenute
 vengono quindi utilizzate in modo massiccio dalle classi logiche Service nel
 package \emph{server}.
@@ -1382,6 +1632,61 @@ Le classi DAO gestiscono i dati del sistema garantendone la persistenza e si
 occupano anche di implementare la parte logica di salvataggio, recupero e
 relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e il
 \underline{database} utilizzato \`e \underline{non-relazionale}.
+
+\subsection{Classe ODF (Singleton)}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item C1FN-1 WEB Application NetMus
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\co{ODF} (Object Datastore Factory) \`e una classe \emph{final} che segue il
+pattern Singleton illustrato in \emph{SpecificaTecnica v3.0}. Ha la funzione di creare un'unica istanza del
+\co{ObjectDatastore} fornito dal framework twig-persist e di restituirla a
+qualunque oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il DataStore, inviando query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
+tramite semplici metodi. L'oggetto datastore restituito \`e di tipo
+\co{AnnotationObjectDatastore} che di default salva gli attributi degli oggetti
+persistenti in modo non indicizzato rendendo il datastore pi\`u rapido.\\
+Questa classe \`e visibile solamente all'interno del package \emph{persistent}.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Vengono usate le classi della libreria twig-persist2.0 per la creazione di
+\co{AnnotationObjectDatastore}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa classe pu\`o essere utilizzata da qualunque classe di \emph{persistent},
+ogni qualvolta ci sia bisogno di avere l' \co{ObjectDatastore} per interagire col
+Datastore.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Crea un'unica istanza di \co{ObjectDatastore} e tramite un metodo
+statico \emph{get()} la passa alle classi, in maniera di dargli la possibilit\`a
+di usare il database.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- datastoreIstance: DatastoreObject \emph{static, final} & Unica istanza dell'
+\co{ObjectDatastore} che viene inizializzata alla creazione della classe
+con un \co{AnnotationObjectDatastore}.\\\hline
+\caption{Campi dati di ODF}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ get(): ObjectDatastore \emph{static} & Ritorna l'istanza
+dell' \co{ObjectDatastore}.\\\hline
+\caption{Metodi dati di ODF}
+\end{longtable}
 
 \subsection{Classe UserAccount}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1392,18 +1697,23 @@ relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e
 	\item C1FN-1.4.2 Cambio password
 	\item C1FN-1.4.3 Cancellazione del proprio account
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.8 Elaborazione dati utente
+    \item C1FD-1.4.4 Pubblicazione
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{UserAccount} utilizza il design pattern DAO poich\'e contiene tutte le
 informazioni relative ad un utente cos\`i come viene salvato all'interno del
 Datastore. La classe \`e implementata come POJO poich\'e twig-persist lo
 supporta senza bisogno di configurazioni aggiuntive. Vengono usate solamente
-alcune annotazioni (@Key e @Index) aggiuntive per gestire alcuni dettagli
-riguardanti la persistenza. 
-\subsubsection*{Relazioni d'uso di altre componenti}
-La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione
-uno-a-uno che la lega a questa classe. Vengono inoltre utilizzate le classi
-\co{UserSummaryDTO}, \co{UserDTO} e \co{UserCompleteDTO} come input ed output in
-gran parte dei metodi. 
+le annotazioni \emph{@Key} e \emph{@Index} per gestire l'indicizzazione
+deigli oggetti nel datastore.\\
+\subsubsection*{Relazioni d'uso di altre componenti} La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione
+uno-a-uno che la lega a questa entit\`a. Vengono inoltre utilizzate le classi
+\co{LoginDTO}, \co{UserSummaryDTO}, \co{UserDTO} e \co{UserCompleteDTO} come
+input ed output in gran parte dei metodi.\\
+Per interfacciarsi al database utilizza \co{ODF}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \co{UserAccount} \`e una classe molto utilizzata nel sistema, tutte le classi
 Service presenti nel package \emph{server} ne fanno uso qual'ora abbiano bisogno
@@ -1413,12 +1723,18 @@ trattati} Gestisce la logica di persistenza di tutti i dati relativi ad un
 utente del sistema NetMus.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
  - user: String \emph{@Key} & Rappresenta il nome di login unico
  dell'utente e nello stesso tempo la sua e-mail (valida). Viene
  impiegato come chiave dell'entit\`a nel Datastore.\\\hline
-  - password: String & Contiene l'hash della password dell'utente ottenuto
+ - passwordHash: String & Contiene l'hash della password dell'utente ottenuto
   utilizzando l'algoritmo BCrypt.\\\hline
  - nickName: String & Nickname di un utente visibile anche agli altri.\\\hline
  - firstName: String & Nome proprio dell'utente.\\\hline
@@ -1435,36 +1751,48 @@ utente del sistema NetMus.
  - lastLogin: Date & Data dell'ultimo accesso a Netmus.\\\hline
  - lastImport: Date & Data dell'ultimo inserimento di brani da parte
  dell'utente.\\\hline
+ - lastSessionId: String \emph{@Index} & Codice identificativo dell'ultima
+ sessione di autenticazione dell'utente. Campo necessario per l'utilizzo dei
+ cookies per mantenere la sessione anche quando viene chiuso il browser.\\\hline
  - musicLibrary: MusicLibrary \emph{@Child} & Intera libreria musicale
- dell'utente, non sempre verr\`a caricata dal Datastore insieme alle
- informazioni dell'utente.\\\hline
+ dell'utente, non sempre verr\`a caricata dal Datastore insieme alle informazioni dell'utente.\\\hline
+\caption{Campi dati di UserAccount}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
-+ loadUserWithLibrary(in String): UserAccount \emph{static}& Cerca nel database
-e restituisce tutti i dati relativi ad un username/e-mail dato come input. \\\hline
-+ loadUserWithoutLibrary(in String): UserAccount \emph{static}& Cerca nel
-database e restituisce i dati, ma non il catalogo musicale, relativi ad un username/e-mail dato come
-input.\\\hline
-
-%DA VALUTARE SE HA SENSO, RALLENTA L'INTERO DATASTORE PERCHE' RICHIEDE
-% INDICIZZAZIONE DI TUTTI GLI ATTRIBUTI
-%+ findUser(in String, in String): List\textless UserAccount\textgreater &
-%Dato un attributo ed un valore associato ad esso restituisce tutti gli
-%utenti che lo possiedono.\\\hline
-
- + toUserSummaryDTO(): UserSummaryDTO & Genera un oggetto UserSummaryDTO
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + store() & Inserisce nel database per la prima volta l'utente. Se
+ esiste gi\`a un utente con lo stesso id lancia un'eccezione di tipo
+ \co{IllegalStateException} \\\hline
+ + update() & Aggiorna o inserisce i dati dell'utente nel datastore.\\\hline
+ + load(in String): UserAccount
+ \emph{static}& Cerca nel database e restituisce tutti i dati relativi ad un username/e-mail dato come input. \\\hline
+ + deleteUser(in UserAccount) \emph{static} & Rimuove completamente dal database
+ l'utente dato in input. Le cazoni realtive a quell'utente vengono per\`o
+ mantenute per non perdere infromazioni importanti. \\\hline
+ + toLoginDTO(): LoginDTO &
+ Genera un oggetto LoginDTO contenente le informazioni di autenticazione dell'utente.\\\hline + toUserSummaryDTO(): UserSummaryDTO & Genera un oggetto UserSummaryDTO
 contenente le informazioni basilari riguardanti l'utente.\\\hline
  + toUserDTO(): UserDTO & Genera un oggetto UserSummaryDTO
 contenente buona parte delle informazioni riguardanti l'utente.\\\hline
  + toUserCompleteDTO(): UserCompleteDTO & Genera un oggetto UserSummaryDTO
 contenente tutte le informazioni riguardanti l'utente.\\\hline
- + getters() & Tutti gli attributi privati di questa classe hanno i
-relativi metodi \emph{get}.\\\hline
- + setters() & Tutti gli attributi privati di questa classe hanno i
-relativi metodi \emph{set}.\\\hline
+ + findSessionUser(in String): UserAccount \emph{static} & Cerca nel database e
+ ritorna i dati realivi ad un utente che come lastSessionId ha l'id si sessione
+ HTTP dato in input.\\\hline
+ + getters() & Tutti gli attributi privati di questa
+ classe hanno i relativi metodi \emph{get}.\\\hline 
+ + setters() & Tutti gli attributi privati di questa classe hanno i relativi
+ metodi \emph{set}. Tutti questi metodi si occupano anche di chiamare
+ \co{update()} per aggiornare i dati del Datastore.\\\hline
+ \caption{Metodi di UserAccount}
 \end{longtable}
 
 
@@ -1473,18 +1801,94 @@ relativi metodi \emph{set}.\\\hline
 \begin{itemize}
 	\item C1FN-1.1.1 Brani elencati opportunamente
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FO-1.3.3 Creazione playlist 
+    \item C1FO-1.3.4 Ranking brani
+    \item C1FD-1.8 Elaborazione dati utente
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} \co{MusicLibrary}
-contiene tutte le informazioni relative ad un catalogo multimediale.
-\subsubsection*{Relazioni d'uso di altre componenti} Alla luce della relazione
-di tipo uno-a-molti che la lega a \co{Song} e quella uno-a-uno con
-\co{UserAccount} queste due classi DAO sono necessarie. Viene utilizzata la
-classe \co{MusicLibraryDTO} come input ed output in gran parte dei metodi.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Tutte le
-classi logiche Service presenti nel package \emph{server} ne fanno uso qual'ora
-abbiano bisogno di informazioni riguardanti un catalogo multimediale.
-\subsubsection*{Attivit\`a svolte e dati trattati} Gestisce la logica di
-persistenza di tutti i dati relativi ad un catalogo multimediale del sistema
+contiene tutte le informazioni relative ad un catalogo multimediale, ovvero
+il proprietario e la lista delle canzoni. La funzione principale per\`o \`e
+quella di fornire dei servizi comodi ed efficenti per la gestione del catalogo
+stesso.\\
+La lista di canzoni \`e mantenuta come lista di codici identificativi (strighe)
+per una questione di efficenza con twig-persist, questo comporta per\`o uno
+svantaggio nelle operazioni di ricerca degli utenti che possiedo una certa
+canzone a partire da quest'ultima. 
+\subsubsection*{Relazioni d'uso di altre componenti}
+Alla luce della relazione di tipo molti-a-molti che la lega a \co{Song} e quella
+uno-a-uno con \co{UserAccount} queste due classi DAO sono necessarie. Vengono
+utilizzate le classi \co{MusicLibrarySummaryDTO}, \co{MusicLibraryDTO},
+\co{SongSummaryDTO} e \co{SongDTO} come input ed output in alcuni metodi.\\ Per interfacciarsi al database utilizza \co{ODF}.
+\subsubsection*{Interfacce con e relazioni d'uso da
+altre componenti} Tutte le classi logiche Service presenti nel package
+\emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
+un catalogo multimediale. Chiaramente anche \co{UserAccount} ne fa utilizzo.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Gestisce la logica di persistenza e le procedure di reperimento delle
+informazioni di tutti i dati relativi ad un catalogo multimediale del sistema
 NetMus.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ - owner: UserAccount \emph{@Id @Parent} & L'utente a cui \`e associata
+ questa libreria. \\\hline
+ - songList: List\textless String\textgreater \emph{@Index} & Lista ordinata
+ delle canzoni che fanno parte del catalogo.\\\hline
+\caption{Campi dati di MusicLibrary}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + store() & Inserisce nel database per la prima volta la libreria musicale. Se
+ esiste gi\`a una libreria per quel dato utente utente lancia
+ un'eccezione di tipo \co{IllegalStateException} \\\hline
+ + update() & Aggiorna o inserisce i dati della libreria nel datastore.\\\hline
+ \# deleteMusicLibrary(in MusicLibrary) \emph{static} & Rimuove completamente
+ dal database la libreria data in input. Le cazoni realtive a quella libraria
+ vengono per\`o mantenute per non perdere infromazioni importanti. \\\hline
+ + toMusicLibrarySummaryDTO(): MusicLibrarySummaryDTO &
+ Genera un oggetto \co{MusicLibrarySummaryDTO} contenente le informazioni
+ della libreria e quelle essenziali riguardanti le canzoni in essa
+ contenute.\\\hline
+ + toMusicLibraryDTO(): MusicLibraryDTO &
+ Genera un oggetto \co{MusicLibraryDTO} contenente le informazioni
+ della libreria e tutte quelle riguardanti le canzoni in essa
+ contenute.\\\hline
+ + addSong(in Song): boolean & Associa una canzone data in
+ input alla libreria aggiungendola in coda. Ritorna \emph{true} se
+ l'inserimento ha avuto successo, \emph{false} altriementi.\\\hline 
+ + removeSong(in Song): boolean & Rimuove una canzone data in input dalla
+ libreria, la canzone rimossa rimane in database anche se non posseduta da alcun
+ utente. Ritorna \emph{true} se
+ la rimozione ha avuto successo, \emph{false} altriementi.\\\hline 
+ + allSongs(): List\textless Song\textgreater & Ritorna la lista ordinata di
+ canzoni presenti nel catalogo.\\\hline
+ + getters() & Tutti gli attributi
+ privati di questa classe hanno i relativi metodi \emph{get}.\\\hline 
+ + setters() & Tutti gli attributi privati di questa classe hanno i relativi
+ metodi \emph{set}. Tutti questi metodi si occupano anche di chiamare
+ \co{update()} per aggiornare i dati del Datastore.\\\hline
+\caption{Metodi di MusicLibrary}
+\end{longtable}
+
 
 \subsection{Classe Song}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1492,19 +1896,105 @@ NetMus.
 	\item C1FN-1.9 Ricezione ed elaborazione dei brani
 	\item C1FN-1.9.2 Completamento info da database interno
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.9.3 Completamento info da servizio esterno
+    \item C1FD-1.8 Elaborazione dati utente
+    \item C1FD-1.5 Riproduzione tracce in streaming
+    \item C1FD-1.3.2 Modifica informazioni brano
+    \item C1FD-1.1.3 Visualizzazione info dettagliate dei brani
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} Contiene le
-informazioni relative ad un brano musicale. 
-\subsubsection*{Relazioni d'uso di
-altre componenti} Essendo in relazione con \co{MusicLibrary} ne fa uso. Vengono
-utilizzate le classi \co{SongDTO} e \co{SongSummaryDTO} come input ed output
-in gran parte dei metodi. 
-\subsubsection*{Interfacce con e relazioni d'uso da
-altre componenti} Tutte le classi logiche Service presenti nel package
+informazioni relative ad un brano musicale, in particolare ogni canzone \`e
+identificata da una chiave univoca composta dal titolo, un separatore di default
+e l'artista. Dei brani condivisi da pi\`u utenti viene salvata una sola istanza
+per ottimizzare la quantit\`a di spazio utilizzato.
+\subsubsection*{Relazioni d'uso di altre componenti} Questa classe fa uso degli
+oggetti \co{SongDTO} e \co{SongSummaryDTO} del package \emph{shared}. 
+\subsubsection*{Interfacce con e
+relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
 \emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
-un brano musicale. 
-\subsubsection*{Attivit\`a svolte e dati trattati} Gestisce
-la logica di persistenza di tutti i dati relativi ad un brano musicale del
+un brano musicale. Largo uso ne fa la classe \co{MusicLibrary} che gestisce al
+suo interno una lista di brani. 
+\subsubsection*{Attivit\`a svolte e dati
+trattati} Gestisce la logica di persistenza di tutti i dati relativi ad un brano musicale del
 sistema NetMus.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ - id: String \emph{@Id} & Chiave univoca della canzone, \`e composta dal
+ titolo, il separatore di default e l'artista. \\\hline 
+ - title: String \emph{@Index} & Titolo del brano.\\\hline 
+ - artist: String \emph{@Index} & Nome della band o del cantante autore
+ della canzone.\\\hline 
+ - genre: String \emph{@Index} & Genere musicale associato alla
+ canzone.\\\hline 
+ - numOwners: int \emph{@Index} & Numero di utenti che possiedono la
+ canzone nel proprio catalogo.\\\hline 
+ - album:String & Album a cui appartiene il brano..\\\hline 
+ - alcumCover: FitImage \emph{@Type(Blob.class)} &
+ Immagine della copertina dell'album a cui appartiene il brano.\\\hline 
+ - year: String & Anno di pubblicazione del brano.\\\hline 
+ - composer: String & Nome del compositore della canzone.\\\hline
+ - trackNumber: String & Numero della canzone all'interno dell'album.\\\hline
+ - file: String & Nome del file da cui sono state estratte le
+ informazioni del brano.\\\hline 
+ - SEPARATOR: String \emph{static final default = '-vt.g-'} & Stringa
+ di separazione necessaria nella creazione dell'\co{id} del brano.\\\hline
+\caption{Campi dati di Song}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + store() & Inserisce nel database per la prima volta la canzone. Se
+ esiste gi\`a un brano con lo stesso \co{id} lancia
+ un'eccezione di tipo \co{IllegalStateException} \\\hline
+ + update() & Aggiorna o inserisce i dati della canzone nel Datastore.\\\hline
+ \# deleteSong(in Song) \emph{static} & Rimuove completamente dal
+ database la canzone. \\\hline
+ + toSongSummaryDTO(): SongSummaryDTO &
+ Genera un oggetto \co{SongSummaryDTO} contenente le informazioni
+ essenziali del brano.\\\hline
+ + toSongDTO(): SongDTO &
+ Genera un oggetto \co{SongDTO} contenente tutte le informazioni
+ riguardanti la canzone.\\\hline 
+ + storeOrUpdateFromDTO(in SongDTO): Song \emph{static} & Recupera le
+ informazioni da un oggetto \co{SongDTO} e le salva nel modo pi\`u
+ opportuno nel Datastore.\\\hline 
+ + changeArtist(in String): Song & Modifica l'attributo \co{artist}
+ inserendo, se valido, la stringa in input. Se la modifica trasforma la
+ canzone in un brano gi\`a presente nel Datastore viene ritornato il
+ brano gi\`a salvato.\\\hline
+ + changeTitle(in String): Song & Modifica l'attributo \co{title}
+ inserendo, se valido, la stringa in input. Se la modifica trasforma la
+ canzone in un brano gi\`a presente nel Datastore viene ritornato il
+ brano gi\`a salvato.\\\hline
+ \# newOwner() & Incrementa il contatore dei possessori di questo brano,
+ ha visibilit\`a package poich\'e la sua modifica deve avvenire solo
+ all'interno della logica di persistenza nei DAO.\\\hline 
+ \# deleteOwner() & Decrementa il contatore dei possessori di questo brano,
+ ha visibilit\`a package poich\'e la sua modifica deve avvenire solo
+ all'interno della logica di persistenza nei DAO.\\\hline 
+ + getters() & Tutti gli attributi privati di questa classe hanno i relativi metodi \emph{get}.\\\hline 
+ + setters() & Tutti gli attributi privati di questa classe hanno i relativi
+ metodi. Tutti questi metodi si occupano anche di chiamare
+ \co{update()} per aggiornare i dati del Datastore. \emph{set}.\\\hline
+\caption{Metodi di Song}
+\end{longtable}
 
 \newpage
 \section{Package server.servlet}
@@ -1515,53 +2005,100 @@ sistema NetMus.
 \subsection*{Tipo, obiettivo e funzione del componente}
 Package del server che contiene le classi utilizzate per interfacciarsi a
 servizi esterni, come il login utilizzando l'account Google, o come YouTube.
-
 \subsection*{Relazioni d'uso di altre componenti}
 Verranno utilizzati alcuni \emph{persistent} e classi di \emph{utils}, ma
 si vedr\`a pi\`u in dettaglio nelle classi.
-
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Queste classi vengono usati da \emph{server} per integrare al suo interno
 altri servizi esterni.
 \subsection*{Attivit\`a svolte e dati trattati}
 Gestisce lo scambio di dati con servizi esterni.
 
-\subsection{Classe LoginFilter}
+\subsection{Classe LoginSuperServlet}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.9 Ricezione ed elaborazione dei brani
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe estende \co{javax.servlet.Filter} ed \`e quindi una classe filtro
-che si occupa di esaminare una particolare richiesta (HTTP in questo caso) e di
-restituire una risposta (sempre HTTP).
-Ogni \co{Filter} pu\`o accedere ad un \co{FilterConfig} dal quale prendere le
-informazioni necessarie all'inizializzazione.
-\subsubsection*{Relazioni d'uso di altre
-componenti}
-Vengono utilizzati i metodi statici di \co{LoginHelper} per intervenire sulle
-sessioni HTTP. 
-\subsubsection*{Interfacce con e relazioni d'uso da
-altre componenti}
+\`E una classe astratta che estende \co{HttpServlet} ed ha lo scopo di
+implementare il metodo di creazione dell'indirizzo di ritorno del richiedente.
+\subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a concretizzata da \co{LoginGoogleServlet}.s
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Questo filtro viene mappato all'interno del file \emph{web.xml} con tutte le
-pagine diverse da quella di login e ne vengono invocati i metodi ogni qualvolta
-l'utente tenta di accedere ad una di queste pagine. Si occupa di verificare
-l'autenticazione dell'utente che cerca di accedere e, in caso negativo, lo
-reindirizza alla pagina di login.
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-+ init(FilterConfig arg0) & Metodo di configurazione che viene chiamato
-ogni quando il filtro viene attivato.\\\hline 
-+ doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-& Svolge le funzioni effettive del filtro analizzando la richiesta HTTP
-e attivando la risposta HTTP opportuna.\\\hline 
-+ destroy() & Metodo di
-terminazione che viene chiamato ogni quando il filtro viene disattivato.\\\hline
-\end{longtable}
+Crea semplicemente l'URL di Callback per far tornare una risposta HTTP al
+client in seguito ad una sua richiesta di login.
+
+\subsection{Classe LoginGoogleServlet}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Utilizzata per il login tramite l'account Google.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Concretizza il \co{LoginSuperServlet} ed implementa il metodo \emph{doGet} il
+quale utilizza \co{HttpSerletRequest} e \co{HttpSerletResponse}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Predispone il servizio e reindirizza l'utente al servizio di login di Google.
+Google, dopo che l'utente avr\`a effettuato l'accesso, lo reindizzer\`a nuovamente
+al nostro programma trasmettendo a \co{LoginGoogleCallbackServlet} tutte le
+informazioni del caso.
+
+\subsection{Classe LoginGoogleCallbackServlet}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Utilizzata per il login tramite l'account Google.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Riceve i dati dell'account dell'utente dopo che quest'ultimo ha effettuato
+l'accesso tramite il Google account.
+
+\subsection{Classe YouTubeServlet}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe si occuper\`a di dialogare con il servizio di ricerca offerto
+dalle API di YouTube e sar\`a di tipo \co{HttpServlet}.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a utilizzato da un \co{SongService} al momento della memorizzazione nel
+DataStore di un nuovo brano.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Lo scopo sar\`a quello di fornire ad un nuovo brano
+da memorizzare anche un link al relativo streaming audio/video.
+
+\subsection{Classe TaggingServlet}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe si occuper\`a di dialogare con un servizio web che possa fornirci
+un Tag Mp3 completo, passandogli solo qualche informazione del brano (es.
+solo titolo e artista, titolo e album).
+\subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a utilizzata questa classe da \co{SongService} quando dovr\`a memorizzare
+un nuovo brano e non avr\`a sufficienti informazioni.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Cercare di fornire pi\`u informazioni ad un brano, il cui Tag al momento
+dell'estrazione risultava scarso di dati, prima di memorizzarlo sul
+DataStore.
+
 
 \newpage
 \section{Package server.utils} % LASCIARE WARNING
@@ -1580,6 +2117,46 @@ Nessuna.
 Viene utilizzato dalle classi del package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Varie.
+
+\subsection{Classe AuthenticationProvider}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Funzioni utili alla gestione dell'autenticazione.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Usata dalle classi \co{LoginHelper} e \co{LoginServiceImpl}. 
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Funzioni utili e comuni per la gestione del login e dei relativi dati, in
+particolare per tracciare il servizio esterno di login a cui appoggiarsi.
+
+\subsection{Classe ServletUtils}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Funzioni utili per l'utilizzo dei servizi esterni.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Usata dal package \emph{Servlet}.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Funzioni utili e comuni per la gestione e l'interfacciamento con i servizi
+esterni.
+
+\subsection{Classe ServletHelper}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
 
 \newpage
 \section{Package shared}
@@ -1630,20 +2207,34 @@ per esempio username di login e nickname.
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
  - user: String & Rappresenta il nome di login unico
  dell'utente e nello stesso tempo la sua e-mail (valida).\\\hline
  - nickName: String & Nickname dell'utente.\\\hline
  - avatar: Image & Indirizzo relativo all'immagine rappresentativa
  dall'utente.\\\hline
+ \caption{Campi dati di UserSummaryDTO}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
  + getters() & Tutti gli attributi privati di questa classe hanno i
 relativi metodi \emph{get}.\\\hline
  + setters() & Tutti gli attributi privati di questa classe hanno i
 relativi metodi \emph{set}.\\\hline
+ \caption{Metodi di UserSummaryDTO}
 \end{longtable}
 
 
@@ -1668,6 +2259,12 @@ Funge da contenitore per i dati richiesti di un utente.
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
  - firstName: String & Nome proprio dell'utente.\\\hline
  - lastName: String & Cognome dell'utente.\\\hline
  - gender: char & Sesso, sono validi i valori 'F' (femmina) e 'M'
@@ -1680,15 +2277,23 @@ Funge da contenitore per i dati richiesti di un utente.
  - lastLogin: Date & Data dell'ultimo accesso a Netmus.\\\hline
  - lastImport: Date & Data dell'ultimo inserimento di brani da parte
  dell'utente.\\\hline
+\caption{Campi dati di UserDTO}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
  + getters() & Tutti gli attributi privati di questa classe hanno i
 relativi metodi \emph{get}.\\\hline
  + setters() & Tutti gli attributi privati di questa classe hanno i
 relativi metodi \emph{set}.\\\hline
+\caption{Metodi di UserDTO}
 \end{longtable}
 
 
@@ -1715,17 +2320,31 @@ Funge da contenitore per tutti dati dell'utente.
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
  - musicLibrary: MusicLibraryDTO & Oggetto DTO che rappresenta il
  catalogo multimediale dell'utente.\\\hline
+\caption{Campi dati di UserCompleteDTO}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
  + getters() & Tutti gli attributi privati di questa classe hanno i
 relativi metodi \emph{get}.\\\hline
  + setters() & Tutti gli attributi privati di questa classe hanno i
 relativi metodi \emph{set}.\\\hline
+\caption{Metodi di UserCompleteDTO}
 \end{longtable}
 
 \subsection{Classe SongSummaryDTO}
@@ -1776,37 +2395,134 @@ Trasporta nome utente e password dal client al server per
 tutte le procedure legate all'autenticazione.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
  - user: String & Rappresenta il nome di login unico
 dell'utente e nello stesso tempo la sua e-mail (valida).\\\hline
  - password: String & Contiene l'hash della password dell'utente ottenuto
 utilizzando l'algoritmo BCrypt.\\\hline
+\caption{Campi dati di LoginDTO}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
  + getters() & Tutti gli attributi privati di questa classe hanno i
 relativi metodi \emph{get}.\\\hline
  + setters() & Tutti gli attributi privati di questa classe hanno i
 relativi metodi \emph{set}.\\\hline
+\caption{Metodi di LoginDTO}
 \end{longtable}
 
-\subsection{Classe MusicLibraryDTO}
+\subsection{Classe MusicLibrarySummaryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.1.1 Brani elencati opportunamente
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene le informazioni relative ad un catalogo multimediali compresa la lista
-di canzoni di cui \`e composto. 
+di canzoni di cui \`e composto. Le canzoni presenti nella lista sono incapsulate
+in oggetti di tipo \co{SongSummaryDTO} e contengono solamente le infomrazioni
+basilari quali artista e titolo. 
+\subsubsection*{Relazioni d'uso di altre
+componenti} \co{SongSummaryDTO}. 
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vedere la descrizione del package.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Fa da contenitore per tutti dati di un catalogo multimediale fornendo solo le
+informazioni essenziali per le canzoni.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ - owner: UserSummaryDTO & Dati essenziali relativi all'utente
+ associato a questo catalogo.\\\hline 
+ - songs: List\textless SongSummaryDTO\textgreater & Lista delle
+ canzoni (dati essenziali) presenti nel catalogo.\\\hline
+\caption{Campi dati di MusicLibrarySummaryDTO}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + getters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{get}.\\\hline
+ + setters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{set}.\\\hline
+\caption{Metodi di MusicLibrarySummaryDTO}
+\end{longtable}
+
+\subsection{Classe MusicLibraryDTO}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item C1FN-1.1.1 Brani elencati opportunamente
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Contiene le informazioni relative ad un catalogo multimediali compresa la lista
+di canzoni di cui \`e composto. Le canzoni presenti nella lista sono incapsulate
+in oggetti di tipo \co{SongDTO}.
 \subsubsection*{Relazioni d'uso di altre componenti} 
-Nessuna.
+\co{SongDTO}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Fa da contenitore per tutti dati di un catalogo multimediale.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ - owner: UserSummaryDTO & Dati essenziali relativi all'utente
+ associato a questo catalogo.\\\hline 
+ - songs: List\textless SongDTO\textgreater & Lista delle
+ canzoni presenti nel catalogo.\\\hline
+\caption{Campi dati di MusicLibraryDTO}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + getters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{get}.\\\hline
+ + setters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{set}.\\\hline
+\caption{Metodi di MusicLibraryDTO}
+\end{longtable}
 
 \newpage
 \section{Package shared.exception}
@@ -1919,13 +2635,255 @@ registrazione di un nuovo utente.
 \section{Applet di estrazione brani}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C2QN-4 Utilizzo
-	\item C2FN-3.1 Invio delle informazioni
-	\item C2FN-1.5 File ignorati
-	\item C2FN-1.2 Recupero manuale
-	\item C2FN-1.1 Recupero automatico
 	\item C2FN-1 Recupero delle informazioni
+	\item C2FN-1.1 Recupero automatico
+	\item C2FN-1.2 Recupero manuale
+	\item C2FN-1.5 File ignorati
+	\item C2FN-3.1 Invio delle informazioni
 \end{itemize}
+\subsection*{Tipo, obiettivo e funzione del componente}
+L'applet di estrazione brani verr\`a sviluppata come componente
+Java indipendente. In seguito sar\`a compilata ed esportata in un file JAR, il
+quale verr\`a inserito nel sistema NetMus per essere caricato dinamicamente
+dalla classe \co{AppletBar.java} come elemento HTML di tipo \emph{applet}.\\
+Una volta caricata nella Profile View di un utente loggato, richieder\`a
+l'accettazione di una firma digitale, per avere l'accesso in lettura/scrittura
+sul File System del client. In tal modo potr\`a cominciare a monitorare le
+periferiche di archiviazione di massa che verranno collegate da quel momento in
+poi.
+ 
+\subsection*{Relazioni d'uso di altre componenti}
+Per entrare in funzione \`e necessario che nel client sia installata una JRE e
+che questa sia utilizzabile dal browser, attraverso un plugin adatto.\\
+Grazie a delle chiamate JavaScript appropriate, potr\`a chiamare i metodi nativi
+(JSNI) appositamente creati e pubblicati nella classe \co{AppletBar.java}.
+
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a utilizzata dal package \emph{client.applet} tramite dei metodi nativi
+JavaScript (JSNI) che andranno ad invocare direttamente dei metodi pubblici
+interni  all'applet.
+
+\subsection*{Attivit\`a svolte e dati trattati}
+L'applet deve monitorare le periferiche presenti nella macchina client e,
+all'inserimento di un nuovo device visibile come periferica di archiviazione di
+massa, andr\`a a scansionarlo interamente estraendo tutti i Tag informativi dei
+brani Mp3 presenti. Verr\`a creato un file di log interno al device con lo scopo
+di tenere traccia, in una scansione futura, dei file che son gi\`a stati
+analizzati. Tutti i Tag analizzati verranno tradotti in un elemento XML, infine
+spedito alla classe \co{AppletBar.java} sotto forma di stringa.\\
+
+
+\subsection{Classe NetmusApplet}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C2FN-1 Recupero delle informazioni
+   \item C2FN-1.1 Recupero automatico
+   \item C2FN-1.2 Recupero manuale
+   \item C2FN-3.1 Invio delle informazioni
+\end{itemize}
+
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe sar\`a di tipo \co{JApplet} e si occuper\`a di avviare l'applet
+quando caricata in una pagina Web. Quando viene creata invier\`a una notifica a
+GWT, il quale andr\`a ad avviare effettivamente lo scansionamento dell'applet,
+passandogli il nome utente e lo stato di attivazione scelto in precedenza
+dall'utente. Di default sar\`a attiva ma pu\`o essere disattivata manualmente.
+Quando sar\`a disattivata il thread \co{scanner} viene messo a dormire e verr\`a
+svegliato in seguito ad una richiesta dell'utente, tramite il metodo
+\co{setState} che andr\`a ad invocare un \co{notify()} sull'oggetto di lock su
+cui \co{scanner} si \`e addormentato.
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+Questa componente utilizzer\`a la classe \co{DeviceScanner} per
+avviare, attivare e disattivare la scansione. Comunicher\`a con GWT tramite
+invocazione di metodi nativi in \co{AppletBar}.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+La classe verr\`a avviata in automatico, tramite creazione e invocazione del
+metodo \co{start()}, da parte della JVM quando caricata nella pagina Web.
+I suoi metodi pubblici \co{letsGo} e \co{setState} possono essere invocati
+tramite JSNI da GWT.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Svolge la funzione di avviare l'applet associandola all'utente e con lo
+stato da lui impostato. Non ha un'interfaccia grafica sua, ma verr\`a graficata
+in \co{AppletBar} da GWT all'interno di una ``barra di estrazione''.\\
+\\
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- is\_active: bool & Stato del thread scanner.\\\hline
+- logged\_user: String & Nome dell'utente loggato attuale.\\\hline
+- scanner: DeviceScanner & Thread di scansione devices.\\\hline
+\# app\_context: AppletContext & Context nel quale \`e inserita
+l'applet.\\\hline
+\caption{Campi dati di NetmusApplet}
+\end{longtable}
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ start(): void & Metodo ereditato da \co{JApplet} invocato in automatico quando
+viene caricata la classe nel browser.\\\hline
++ letsGO(in String, in boolean): void & Metodo invocato da GWT tramite
+JSNI che va a settare il nome utente e fa partire il monitoraggio
+del File System da parte di \co{scanner}.\\\hline
++ setState(in boolean): void & Metodo per cambiare lo stato del
+monitoraggio dello \co{scanner}.\\\hline
+\caption{Metodi di NetmusApplet}
+\end{longtable}
+
+
+\subsection{Classe DeviceScanner}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C2FN-1 Recupero delle informazioni
+   \item C2FN-1.1 Recupero automatico
+   \item C2FN-1.2 Recupero manuale
+   \item C2FN-3.1 Invio delle informazioni
+\end{itemize}
+
+\subsubsection*{Tipo, obiettivo e funzione del componente} La classe
+\co{DeviceScanner} sa\`a di tipo \co{Thread} e si occuper\`a di monitorare il
+File System nei tipici punti di mount dei dipositivi di archiviazione di massa.
+Quando verr\`a creato un oggetto di questo tipo, si dovr\`a individuare il tipo
+di sistema operativo della macchina client e quindi sar\`a nota la posizione di
+mount per le periferiche. L'azione di monitoraggio partir\`a al momento
+dell'invocazione del metodo \co{run()} ereditato da \co{Thread}, il quale
+inizializzer\`a l'applet individuando il Sistema Operativo e andr\`a ad avviare
+un ciclo infinito temporizzato di monitoraggio. Il monitoraggio consister\`a nel
+controllare le periferiche attualmente connesse e confrontare tale valore con
+quelle rilevate durante l'inizializzazione o il ciclo precedente. Se aumentato,
+perch\`e connesso un nuovo dispositivo, verranno scansionate tutte le cartelle
+al suo interno, andando ad estrarre per ogni file Mp3 il proprio Tag, grazie
+alle note Java ID3 Tag Library (versione 0.5.4) importate nel progetto. Dopo
+aver estratto il singolo Tag verr\`a utilizzata la classe \co{TranslateXML} che
+si occuper\`a della creazione del file XML da spedire al server a fine
+scansione. Verr\`a inoltre creato un file di log non intrusivo (legato
+all'account) nel dispositivo dell'utente, che servir\`a in una futura scansione
+per andare ad estrarre solo le informazioni dei nuovi file Mp3 e scartare quelli
+gi\`a scansionati. Se un utente vorr\`a estrarre nuovamente anche i file gi\`a
+scansionati in precedenza potr\`a avviare tale procedura da GWT con un click di
+un bottone presente dopo la scansione d'inserimento. Dovranno essere previste
+possibili scansioni avviate manualmente dall'utente in varie parti del File
+System. Alla fine di una scansione verr\`a spedito il file XML prodotto tramite
+un'istruzione JavaScript verso GWT.
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+Questa classe utilizza \co{TranslateXML} per creare il file XML e, per
+comunicare con l'applicazione principale, invoca metodi nativi pubblicati da
+AppletBar nello stesso contesto della pagina Web.
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene creata, avviata e fermata in \co{NetmusApplet}.
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Svolge la funzione di estrarre i Tag dagli Mp3 presenti nei dispositivi che
+vengono collegati alla macchina durante la sua esecuzione. Tali Tag vengono
+per\`o elaborati dalla classe \co{TranslateXML} che dovr\`a preparare il file
+XML che \co{scanner} dovr\`a infine spedire all'applicazione principale.\\
+\\
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- is\_active: bool & Stato del thread, settato da \co{NetmusApplet}.\\\hline
+- user: String & Nome dell'utente loggato attuale.\\\hline
+- fs: FileSystemView & Oggetto per l'accesso al File System.\\\hline
+- linux\_path: String & Punto di mount per Linux.\\\hline
+- mac\_path: String & Punto di mount per MacOS.\\\hline
+- default\_path: String & Punto di mount del OS rilevato.\\\hline
+- devices: List\textless File\textgreater & Device rilevati in punto di
+mount.\\\hline
+- num\_devices: int & Numero di device connessi alla macchina.\\\hline
+\# app\_context: AppletContext & Context nel quale \`e inserita
+l'applet.\\\hline
+\caption{Campi dati di DeviceScanner}
+\end{longtable}
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- initialize(): void & Metodo per memorizzare lo stato iniziale
+dell'applet.\\\hline
+- relativePath(in String, in String): String & Restituisce il path
+relativo, dato un path assouluto e il path della root del device.\\\hline
+- pathUnix(in String): String & Trasforma il path in ingresso in
+formato UNIX, slash invece che backslash.\\\hline
+- prepare(in String): String & Prepara la stringa per essere spedita
+via XML, gestendo eventuali apici singoli che potrebbero creare errori
+durante la spedizione tramite JavaScript.\\\hline
+- scanMedia(in File, in PrintWriter, in TranslateXML, in List\textless
+String\textgreater, in String, in int, in int): int & Metodo ricorsivo
+che va a scansionare tutte le cartelle del dispositivo ricorsivamente ed elabora
+tutti i file Mp3 rilevati, scartando quelli presenti nel log.\\\hline
+- countMedia(in File, in PrintWriter, in TranslateXML, in List\textless
+String\textgreater, in String, in int): int & Metodo ricorsivo che
+conta tutti i file Mp3 nuovi presenti nel dispositivo.\\\hline
+- readLog(in File): List\textless String\textgreater & Crea una lista
+con tutti i path degli Mp3 gi\`a scansionati presenti nel file di log.\\\hline
+- getTag(in File): AbstractMP3Tag & Metodo per gestire l'estrazione dei
+Tag Mp3 in maniera corretta, cercando di dare compatibilit\`a con tutti
+i formati di Tag Mp3 presenti in commercio.\\\hline
+- listenFileSystem(): void & Metodo che esegue il monitoraggio continuo
+del punto di mount del Sistema Operativo in uso, e che gestisce la
+scansione, la scrittura del file di log e l'invio dei dati
+all'applicazione principale.\\\hline
++ run(): void & Metodo ereditato da \co{Thread} che, gestendo i permessi per
+poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initialize()} e
+\co{listenFileSystem()}.\\\hline
+\caption{Metodi di DeviceScanner}
+\end{longtable}
+
+
+\subsection{Classe TranslateXML}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+   \item C2FN-1 Recupero delle informazioni
+   \item C2FN-1.5 File ignorati
+\end{itemize}
+
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+
+
+\subsubsection*{Relazioni d'uso di altre componenti}
+
+
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+
+
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+
 
 \section{Tracciamento componenti dettaglio 1 - requisiti obbligatori}
 \begin{footnotesize}
@@ -1995,9 +2953,14 @@ Cclap0 - client.applet & C2QN-4 \\
 & C2FN-1.2 \\
 & C2FN-1.1 \\
 & C2FN-1 \\\hline
+Cclap1 - client.applet.ABF & C2FN-1.1 \\\hline
+Cclap2 - client.applet.AppletBar & C2QN-4 \\
+& C2FN-3.1 \\
+& C2FN-1.2 \\
+& C2FN-1.1 \\\hline
+Cclap3 - client.applet.TranslateDTOXML & C2FN-3.1 \\\hline
 Csh0 - shared & C1FN-1 \\
 & C1FN-1.9.5 \\\hline
-Csh1 - shared.GenericDTO & C1FN-1 \\\hline
 Csh2 - shared.SongSummaryDTO & C1FN-1.1.3 \\\hline
 Csh3 - shared.SongDTO & C1FN-1.1.3 \\\hline
 Csh4 - shared.LoginDTO & C1FN-1.2 \\\hline
@@ -2014,6 +2977,8 @@ Csh8 - shared.UserCompleteDTO & C1FN-1.4 \\
 & C1FN-1.4.1 \\
 & C1FN-1.4.2 \\
 & C1FN-1.4.3 \\\hline
+Csh9 - shared.MusicLibrarySummaryDTO &  C1FN-1.1.1 \\\hline
+Csh10 - shared.FieldVerifier & C1FN-1.9.1 \\\hline
 Cshex0 - shared.exception & C1QN-2.7 \\\hline
 Cshex1 - shared.exception.NetMusException & C1QN-2.7 \\\hline
 Cshex2 - shared.exception.LoginException & C1QN-2.7 \\\hline
@@ -2021,9 +2986,9 @@ Cshex3 - shared.exception.WrongLoginException & C1QN-2.7 \\\hline
 Cshex4 - shared.exception.RegistrationException & C1QN-2.7 \\\hline
 Cshex5 - shared.exception.NickNotFreeException & C1QN-2.7 \\\hline
 Cshex6 - shared.exception.DuplicateEmailException & C1QN-2.7 \\\hline
+Cshex7 - shared.exception.DatastoreException & C1QN-2.7 \\\hline
 Cse0 - server & C1QN-1.9.6 \\
 &  C1FN-1 \\\hline
-Cse1 - server.PMF & C1FN-1 \\\hline
 Cse2 - server.LoginHelper & C1FN-1.2 \\\hline
 Cse3 - server.SongsServiceImpl & C1FN-1.1.3 \\
 & C1FN-1.9 \\
@@ -2040,6 +3005,7 @@ Cse6 - server.LibraryServiceImpl & C1FN-1.1.1 \\\hline
 Cseut0 - server.utils & C1FN-1.9 \\
 & C1FN-1.9.2 \\
 & C1QN-1.9.4 \\\hline
+Cseut5 - server.utils.BCrypt & C1FN-1.2 \\\hline
 Csese0 - server.servlet & C1FN-1.9 \\\hline
 Csepe0 - server.persistent & C1FN-1.9.5 \\
 & C1QN-1.9.6 \\
@@ -2053,97 +3019,11 @@ Csepe1 - server.persistent.UserAccount & C1FN-1.4.3 \\
 Csepe2 - server.persistent.MusicLibrary &  C1FN-1.1.1 \\\hline
 Csepe3 - server.persistent.Song & C1FN-1.9.2 \\
 & C1FN-1.9 \\\hline
-\caption{Tabella di tracciamento tra componenti dettaglio 1 e requisiti
-obbligatori}
-\end{longtable}
-\end{footnotesize}
-
-\chapter{Specifica delle componenti in progettazione di dettaglio 2}
-\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
-Il ciclo di vita da noi impiegato prevede due diverse fasi di progettazione di
-dettaglio, come meglio specificato nel capitolo 3 del Piano di progetto (v
-3.0). Le componenti, o parti di esse, specificate nella progettazione di
-dettaglio 2 si riferiscono a requisiti desiderabili ed opzionali e sono state
-aggiunte al sistema solo in un secondo momento. 
-\section*{Requisiti desiderabili ed opzionali}
-\begin{footnotesize}
-\centering
-\begin{longtable}[!h]{|l|}
-\hline
-\rowcolor{orange}                         
-\sca{Requisiti desiderabili ed opzionali}\\
-\hline
-\endhead
-\hline
-\multicolumn{1}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
-C1FD-1.1.4 Visualizza player YouTube\\\hline
-C1FO-1.2.1 Pagina login indipendente\\\hline
-C1FD-1.3 Personalizzazione del catalogo\\\hline
-C1FD-1.3.1 Cancellazione brano\\\hline
-C1FD-1.3.2 Modifica informazioni brano\\\hline  
-C1FO-1.3.3 Creazione playlist\\\hline
-C1FO-1.3.4 Ranking brani\\\hline
-C1FD-1.4.4 Pubblicazione\\\hline
-C1FD-1.5 Riproduzione tracce in streaming\\\hline
-C1FD-1.7 Interazione con altri utenti\\\hline
-C1FD-1.7.1 Visualizzazione altri profili\\\hline
-C1FO-1.7.2 Lasciare commenti su profilo\\\hline
-C1FO-1.8.1 Esportazione \underline{PDF}\\\hline
-C1FD-1.10 Invio nuove informazioni a C2\\\hline
-C1VD-1.5.2 Quote YouTube\\\hline
-C1FD-1.8 Elaborazione dati utente\\\hline
-C1FO-1.9.3 Completamento info da servizio esterno\\\hline
-C1QO-2.1 Accessibilit\`a\\\hline
-C1QD-2.4 Supporto multi-lingua\\\hline
-C2FO-1.3 Informazioni senza connessione\\ \hline
-C2FD-1.4 Informazioni dall'hard disk\\\hline
-C2FO-1.6 Indicazioni file ignorati\\ \hline
-C2QD-1.7 Ottimizzazione memoria cache\\ \hline 
-C2FD-2 Aggiornamento e completamento informazioni\\\hline
-C2QD-4.3 Supporto multi-lingua\\\hline
-
-C1VD-1.5.3 YouTube Terms of Services \\ \hline
-C1QD-3.1.1 Manuale utente inglese \\\hline
-C2QD-4.1 Portabilit\`a \\ \hline
-C2QD-4.2 Semplicit\`a di utilizzo \\ \hline
-C2VD-4.5 Meno disturbo possibile \\ \hline
-\caption{Tabella riassuntiva dei requisiti coinvolti in progettazione di
-dettaglio 2}
-\end{longtable}
-\end{footnotesize}
-
-\section{Componenti aggiunte in progettazione di dettaglio 2}
-Queste componenti sono state progettate interamente per la realizzazione di
-requisiti non obbligatori ed aggiunte al sistema solamente al termine del
-secondo incremento della progettazione di dettaglio.
-\begin{footnotesize}
-\centering
-\begin{longtable}[!h]{|l|}
-\hline
-\rowcolor{orange}                         
-\sca{Componente} \\
-\hline
-\endhead
-\hline
-\multicolumn{1}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
-Cclac4 - client.activity.EditSongsActivity \\\hline
-Cclpl4 - client.place.EditSongsPlace \\\hline
-Cclui4 - client.ui.EditSongsView \\\hline
-Cclui5 - client.ui.myConstants \\\hline
-Cseut1 - server.utils.AuthenticationProvider \\\hline
-Cseut3 - server.utils.ServletUtils \\\hline
-Csese1 - server.servlet.LoginSuperServlet \\\hline
-Csese2 - server.servlet.LoginGoogleServlet \\\hline
-Csese3 - server.servlet.LoginGoogleCallbackServlet \\\hline
-Csese4 - server.servlet.YouTubeServlet \\\hline
-Csese5 - server.servlet.TaggingServlet \\\hline
-\caption{Tabella delle componenti aggiunte in progettazione di dettaglio 2}
+Csepe4 - server.persistent.ODF & C1FN-1.9.5 \\
+& C1FN-1.13 \\
+& C1VN-1.13.1 \\\hline
+\caption{Tabella di tracciamento tra componenti individuate dopo
+progettazione di dettaglio 1 e requisiti obbligatori}
 \end{longtable}
 \end{footnotesize}
 
@@ -2163,8 +3043,6 @@ opzionali}
 \endfoot
 \endlastfoot
 Ccl0 - client & C1FD-1.10 \\\hline
-Ccl1 - client.Netmus & C1QO-2.1 \\
-& C1QD-2.4 \\\hline
 Ccl3 - client.ClientFactoryImpl & C1QO-2.1 \\\hline
 Cclac2 - client.activity.ProfileActivity & C1FO-1.2.3 \\
 & C1FD-1.5 \\
@@ -2200,19 +3078,26 @@ Cclpl4 - client.place.EditSongsPlace & C1FO-1.3.3 \\
 & C1FD-1.3.2 \\
 & C1FD-1.3.1 \\
 & C1FD-1.3 \\ \hline
-Cclui0 - client.ui & C1QO-2.1 \\\hline
-Cclui1 - client.ui.LoginView & C1FO-1.2.1 \\\hline
+Cclui0 - client.ui & C1QO-2.1 \\
+& C1QD-2.4 \\\hline
+Cclui1 - client.ui.LoginView & C1FO-1.2.1 \\
+& C1QO-2.1 \\
+& C1QD-2.4 \\\hline
 Cclui2 - client.ui.ProfileView & C1FD-1.1.4 \\
 & C1FO-1.3.4 \\
 & C1FD-1.5 \\
 & C1FD-1.7 \\
 & C1FD-1.7.1 \\
-& C1FO-1.7.2 \\\hline
-Cclui3 - client.ui.EditUserView & C1FD-1.4.4 \\\hline
-Cclui4 - client.ui.EditSongsView & C1FD-1.3 \\
+& C1FO-1.7.2 \\
+& C1QO-2.1 \\
+& C1QD-2.4 \\
+& C1FD-1.3 \\
 & C1FD-1.3.1 \\
-& C1FD-1.3.2 \\
 & C1FO-1.3.3 \\\hline
+Cclui3 - client.ui.EditUserView & C1FD-1.4.4 \\\hline
+Cclui4 - client.ui.EditSongsView & C1FD-1.3.2 \\
+& C1QO-2.1 \\
+& C1QD-2.4 \\\hline
 Cclui5 - client.ui.MyConstants & C1QD-2.4 \\\hline
 Cclap0 - client.applet & C2QD-4.3 \\
 & C2FD-2 \\
@@ -2221,6 +3106,10 @@ Cclap0 - client.applet & C2QD-4.3 \\
 & C2FD-1.4 \\
 & C2FO-1.3 \\\
 & C1FD-1.10 \\\hline
+Cclap2 - client.applet.AppletBar & C2VD-4.5\\
+& C2QD-4.2 \\
+& C2FD-1.4 \\\hline
+Cclap4 - client.applet.AppletConstants & C2QD-4.3 \\\hline
 Csh2 - shared.SongSummaryDTO & C1FD-1.3.2 \\
 & C1FD-1.5 \\\hline
 Csh3 - shared.SongDTO & C1FD-1.5 \\
@@ -2269,10 +3158,18 @@ Csepe3 - server.persistent.Song & C1FO-1.9.3 \\
 & C1FD-1.5 \\
 & C1FD-1.3.2 \\
 & C1FD-1.1.3 \\\hline
-\caption{Tabella di tracciamento tra componenti dettaglio 2 e requisiti
-desiderabili/opzionali}
+\caption{Tabella di tracciamento tra componenti individuate dopo
+progettazione di dettaglio 2 e requisiti desiderabili/opzionali}
 \end{longtable}
 \end{footnotesize}
+
+\chapter{REQUISITI DELLA VERGONA}
+C1FD-1.10 Invio nuove informazioni a C2\ldots bisogna imboscarlo in qualche
+modo!\\
+C1FO-1.7.2 Lasciare commenti su profilo\ldots peccato era bello questo\ldots ma
+in figa a bobo anche i commenti! 
+
+
 
 \appendix\chapter{Codice Sorgente}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
@@ -2280,4 +3177,9 @@ desiderabili/opzionali}
 \chapter{Tracciamento componenti - requisiti}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 
+
+\listoftables
+\addcontentsline{toc}{chapter}{Indice Tabelle}
+\listoffigures
+\addcontentsline{toc}{chapter}{Indice Figure}
 \end{document}
