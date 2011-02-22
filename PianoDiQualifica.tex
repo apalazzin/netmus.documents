@@ -965,7 +965,224 @@ rafforzare il metodo di lavoro.
 
 
 
-% INIZIO CAPITOLO 4
+
+% INIZIO CAPITOLO 5
+
+\chapter{Pianificazione ed esecuzione del \\collaudo}
+\thispagestyle{fancy} % per lo stile di header e footer
+
+\section{Specifica della campagna di validazione \\(collaudo incluso)}
+Si effettueranno tre tipi di test:
+
+\begin{itemize}
+	\item test di unit\`a: effettuato al termine del disegno di dettaglio ed eseguito
+in modo strutturale (white-box) o funzionale (black-box) su ciascuna unit\`a; diverr\`a completo quando avr\`a provato tutte le unit\`a definite entro le
+componenti del progetto architetturale;
+	\item test di integrazione: applicato alle componenti del progetto
+architetturale;
+	\item test di sistema: effettuato per verificare se il comportamento dinamico
+del software aderisce ai requisiti. Esso pu\`o aver inizio solamente al
+completamento del test di integrazione.
+\end{itemize}
+
+Durante la fase di collaudo, si attuer\`a un procedimento per individuare carenze
+relative alla correttezza, alla completezza e all'affidabilit\`a delle componenti 
+software create rispetto ai requisiti definiti durante la fase di analisi.\\ \\
+Il collaudo consister\`a in due fasi: 
+
+\begin{itemize}
+  \item collaudo interno(alpha test): viene effettuato prima del rilascio
+  del prodotto internamente al gruppo e consiste in verifica finale del tracciamento 
+  e in prove di esecuzione, anche se quest'ultime non sono da considerarsi tecniche di
+  ricerca e risoluzione di errori.
+  \item collaudo esterno(beta test): viene effettuato una volta superato il
+  collaudo interno. Durante questo test il prodotto viene rilasciato a
+  pochi utenti esterni i quali vengono avvertiti che il prodotto potrebbe non essere 
+  di qualit\`a elevata e avere bisogno di ulteriori correzioni. 
+  Il compito di questi soggetti esterni e di valutarne la fruibilit\`a e l'accessibilit\`a.
+\end{itemize}
+
+Una volta che il prodotto sar\`a completato, tutti i requisiti dovranno essere
+stati soddisfatti.\\
+\\
+Di seguito riportiamo una tabella che riporta requisiti tracciati e metodi per
+la verifica nel prodotto finale.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|p{0.32\textwidth}|p{0.30\textwidth}|}
+\hline
+\bo{Requisito}\cellcolor{orange}& \bo{Metodo di Verifica}\cellcolor{orange} 
+\\
+\hline
+
+
+\bo{C1FN-1.1, C1FN-1.1.2, C1FN-1.1.3, C1FD-1.1.4,
+C1FN-1.3, C1FO-1.3.3, C1FO-1.3.4, C1FD-1.4.4, C1FD-1.5,
+C1FD-1.7, C1FD-1.7.1, C1FO-1.7.2 } & Questi
+requisiti potranno essere verificati tramite l'utilizzo della GUI messa a
+disposizione dell'utente. \\ \hline
+\bo{C1FN-1.2, C1FN-1.2.1, C1FN-1.3.1,
+C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2}   & Tali requisiti saranno verificati tramite
+l'utilizzo della GUI con rispettivi controlli sul Database per
+verificare che le modifiche effettuate siano state registrate correttamente.
+\\\hline \bo{C1FD-1.3.2, C1FN-1.4.3} & Questi requisiti
+potranno essere verificati tramite il solo controllo del Database. \\ \hline
+\bo{C1FO-1.8.1} & Il requisito potr\`a essere verificato qualora l'esportazione e
+la creazione del PDF abbiano successo. \\\hline 
+\bo{C1FD-1.10, C2FD-2} & Tali requisiti potranno essere verificati nel momento
+in cui la periferica USB risulter\`a aggiornata. \\\hline
+\bo{C2FN-1, C2FN-1.1, C2FN-1.2, C2FD-1.4, C2FN-1.5, C2FN-3, C2FN-3.1}& Questi
+requisiti riguardano la componente C2. La loro verifica consister\`a
+nell'apparizione di un pop-up di avviso che l'operazione \`e andata a buon fine.\\\hline
+\end{tabular}
+\caption{Requisiti e rispettivi metodi di verifica in fase di collaudo}
+\end{center}
+\end{table}
+
+\section{Dettaglio dell'esito della campagna di validazione}
+La campagna di validazione non \`e stata ancora eseguita.
+
+\listoftables
+\addcontentsline{toc}{chapter}{Indice Tabelle}
+\listoffigures
+\addcontentsline{toc}{chapter}{Indice Figure}
+
+
+
+\appendix
+\chapter{Tabella per la verifica dei documenti}
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|p{5cm}|p{4cm}|p{6cm}|}
+\hline
+\rowcolor{orange}
+\bo{Tipo di errore}  & \bo{Posizione}  & \bo{Note e commenti} \\
+\hline 
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+ &  & \\ \hline
+
+
+\end{tabular}
+\caption{Tabella per la verifica dei documenti}
+\end{center}
+\end{table}
+
+\subsubsection{Tipi di errori:}
+
+\begin{itemize}
+\item Semantico grammaticale;
+\item Chiarezza;
+\item Concetto Generico;
+\item Concetto Scorretto;
+\item Concetto Incompleto.
+\end{itemize}
+
+\chapter{Tabella per il check dei requisiti}
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|p{2cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|}
+\hline
+\rowcolor{orange}
+\bo{Requisito}  & \bo{Corr.}  & \bo{Comp.}  & \bo{Ambi.}  & \bo{Veri.}  &
+\bo{Cons.}  & \bo{Trac.} \\
+\hline 
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+ &  &  &  &  &  & \\ \hline
+\end{tabular}
+\caption{Tabella per il check dei requisiti}
+\end{center}
+\end{table}
+
+
+\chapter{Tabella per il modello FURPS}
+
+\vspace{1cm}
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|p{2cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|}
+\hline
+\rowcolor{orange}
+\bo{Requisito}  & \bo{F.}  & \bo{U.}  & \bo{R.}  & \bo{P.}  &
+\bo{S.}\\
+\hline 
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ &  &  &  &  & \\ \hline
+ TOTALE&  &  &  &  & \\ \hline
+
+\end{tabular}
+\caption{Tabella per il modello FURPS}
+\end{center}
+\end{table}
 
 \chapter{Resoconto delle attivit\`a di verifica}
 \thispagestyle{fancy} % per lo stile di header e footer
@@ -1544,224 +1761,6 @@ per:
 Questi risultati verranno confrontati con le valutazioni che si riceveranno
 nella revisione RP e potranno fornire interessanti spunti su come correggere o
 rafforzare il metodo di lavoro.
-% INIZIO CAPITOLO 5
-
-\chapter{Pianificazione ed esecuzione del \\collaudo}
-\thispagestyle{fancy} % per lo stile di header e footer
-
-\section{Specifica della campagna di validazione \\(collaudo incluso)}
-Si effettueranno tre tipi di test:
-
-\begin{itemize}
-	\item test di unit\`a: effettuato al termine del disegno di dettaglio ed eseguito
-in modo strutturale (white-box) o funzionale (black-box) su ciascuna unit\`a; diverr\`a completo quando avr\`a provato tutte le unit\`a definite entro le
-componenti del progetto architetturale;
-	\item test di integrazione: applicato alle componenti del progetto
-architetturale;
-	\item test di sistema: effettuato per verificare se il comportamento dinamico
-del software aderisce ai requisiti. Esso pu\`o aver inizio solamente al
-completamento del test di integrazione.
-\end{itemize}
-
-Durante la fase di collaudo, si attuer\`a un procedimento per individuare carenze
-relative alla correttezza, alla completezza e all'affidabilit\`a delle componenti 
-software create rispetto ai requisiti definiti durante la fase di analisi.\\ \\
-Il collaudo consister\`a in due fasi: 
-
-\begin{itemize}
-  \item collaudo interno(alpha test): viene effettuato prima del rilascio
-  del prodotto internamente al gruppo e consiste in verifica finale del tracciamento 
-  e in prove di esecuzione, anche se quest'ultime non sono da considerarsi tecniche di
-  ricerca e risoluzione di errori.
-  \item collaudo esterno(beta test): viene effettuato una volta superato il
-  collaudo interno. Durante questo test il prodotto viene rilasciato a
-  pochi utenti esterni i quali vengono avvertiti che il prodotto potrebbe non essere 
-  di qualit\`a elevata e avere bisogno di ulteriori correzioni. 
-  Il compito di questi soggetti esterni e di valutarne la fruibilit\`a e l'accessibilit\`a.
-\end{itemize}
-
-Una volta che il prodotto sar\`a completato, tutti i requisiti dovranno essere
-stati soddisfatti.\\
-\\
-Di seguito riportiamo una tabella che riporta requisiti tracciati e metodi per
-la verifica nel prodotto finale.
-
-\begin{table}
-\begin{center}
-\begin{tabular}{|p{0.32\textwidth}|p{0.30\textwidth}|}
-\hline
-\bo{Requisito}\cellcolor{orange}& \bo{Metodo di Verifica}\cellcolor{orange} 
-\\
-\hline
-
-
-\bo{C1FN-1.1, C1FN-1.1.2, C1FN-1.1.3, C1FD-1.1.4,
-C1FN-1.3, C1FO-1.3.3, C1FO-1.3.4, C1FD-1.4.4, C1FD-1.5,
-C1FD-1.7, C1FD-1.7.1, C1FO-1.7.2 } & Questi
-requisiti potranno essere verificati tramite l'utilizzo della GUI messa a
-disposizione dell'utente. \\ \hline
-\bo{C1FN-1.2, C1FN-1.2.1, C1FN-1.3.1,
-C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2}   & Tali requisiti saranno verificati tramite
-l'utilizzo della GUI con rispettivi controlli sul Database per
-verificare che le modifiche effettuate siano state registrate correttamente.
-\\\hline \bo{C1FD-1.3.2, C1FN-1.4.3} & Questi requisiti
-potranno essere verificati tramite il solo controllo del Database. \\ \hline
-\bo{C1FO-1.8.1} & Il requisito potr\`a essere verificato qualora l'esportazione e
-la creazione del PDF abbiano successo. \\\hline 
-\bo{C1FD-1.10, C2FD-2} & Tali requisiti potranno essere verificati nel momento
-in cui la periferica USB risulter\`a aggiornata. \\\hline
-\bo{C2FN-1, C2FN-1.1, C2FN-1.2, C2FD-1.4, C2FN-1.5, C2FN-3, C2FN-3.1}& Questi
-requisiti riguardano la componente C2. La loro verifica consister\`a
-nell'apparizione di un pop-up di avviso che l'operazione \`e andata a buon fine.\\\hline
-\end{tabular}
-\caption{Requisiti e rispettivi metodi di verifica in fase di collaudo}
-\end{center}
-\end{table}
-
-\section{Dettaglio dell'esito della campagna di validazione}
-La campagna di validazione non \`e stata ancora eseguita.
-
-\listoftables
-\addcontentsline{toc}{chapter}{Indice Tabelle}
-\listoffigures
-\addcontentsline{toc}{chapter}{Indice Figure}
-
-
-
-\appendix
-\chapter{Tabella per la verifica dei documenti}
-
-\vspace{1cm}
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|p{5cm}|p{4cm}|p{6cm}|}
-\hline
-\rowcolor{orange}
-\bo{Tipo di errore}  & \bo{Posizione}  & \bo{Note e commenti} \\
-\hline 
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
- &  & \\ \hline
-
-
-\end{tabular}
-\caption{Tabella per la verifica dei documenti}
-\end{center}
-\end{table}
-
-\subsubsection{Tipi di errori:}
-
-\begin{itemize}
-\item Semantico grammaticale;
-\item Chiarezza;
-\item Concetto Generico;
-\item Concetto Scorretto;
-\item Concetto Incompleto.
-\end{itemize}
-
-\chapter{Tabella per il check dei requisiti}
-
-\vspace{1cm}
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|p{2cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|}
-\hline
-\rowcolor{orange}
-\bo{Requisito}  & \bo{Corr.}  & \bo{Comp.}  & \bo{Ambi.}  & \bo{Veri.}  &
-\bo{Cons.}  & \bo{Trac.} \\
-\hline 
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
- &  &  &  &  &  & \\ \hline
-\end{tabular}
-\caption{Tabella per il check dei requisiti}
-\end{center}
-\end{table}
-
-
-\chapter{Tabella per il modello FURPS}
-
-\vspace{1cm}
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|p{2cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|p{1,3cm}|}
-\hline
-\rowcolor{orange}
-\bo{Requisito}  & \bo{F.}  & \bo{U.}  & \bo{R.}  & \bo{P.}  &
-\bo{S.}\\
-\hline 
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- &  &  &  &  & \\ \hline
- TOTALE&  &  &  &  & \\ \hline
-
-\end{tabular}
-\caption{Tabella per il modello FURPS}
-\end{center}
-\end{table}
-
 
 \end{document}
 
