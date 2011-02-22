@@ -3,7 +3,8 @@
 \newcommand{\versione}{2.0}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
-\newcommand{\versioneAR}{2.0}
+\newcommand{\versioneAR}{3.0}
+\newcommand{\versioneST}{2.0}
 \newcommand{\nomefile}{PianoDiQualifica-\versione.pdf}
 \newcommand{\datacreazione}{3 Dicembre 2010}
 \newcommand{\datamodifica}{1 Febbraio 2011}
@@ -365,7 +366,7 @@ sorgente Java al fine di trovare errori comuni (per informazioni
 \item Metrics: per calcolare la misura di varie metriche del
 codice sorgente durante la fase di compilazione in modo da tenere continuamente
 sotto controllo lo stato del codice stesso (per informazioni
-\url{http://metrics.sourceforge.net/});
+\url{http://metrics2.sourceforge.net/});
 
 \item Cobertura: per misurare la carenza di test di unit\`a
 all'interno di un progetto (misurare la percentuale di linee di codice che
@@ -846,11 +847,15 @@ favorito anche dall'utilizzo di un buon numero di pattern.
 Tecniche: IN.
 
 
-\subsection{Progettazione nel dettaglio}
+\subsection{Progettazione nel Dettaglio}
 
-Per la verifica della progettazione nel dettaglio si cercher\`a di elaborare 
-metodi di misura mirati a rilevare i difetti all'interno dello sviluppo delle
-singole componenti cercando di rilevarne le propriet\`a di coesione e di
+Nel caso in cui per motivi implementativi ci siano dei
+cambiamenti, aggiunta o modifica o eliminazione di qualche modulo, rispetto ai
+moduli software preventivati nella \emph{SpecificaTecnica-\versioneST.pdf}, si
+dovr\`a rifare tutta la verifica specificata nel paragrafo 2.6.3 di questo
+documento, oltre a quella descritta di seguito. \\ \\
+Per la verifica
+della progettazione nel dettaglio si cercher\`a di elaborare metodi di misura mirati a rilevare i difetti all'interno dello sviluppo delle singole componenti cercando di rilevarne le propriet\`a di coesione e di
 accoppiamento. Si analizzeranno inoltre tutte quelle metriche gi\`a introdotte o
 da introdurre, comprese quelle per i linguaggi ad oggetti, al fine di
 ottimizzare la progettazione nel dettaglio per una efficace successiva fase di
