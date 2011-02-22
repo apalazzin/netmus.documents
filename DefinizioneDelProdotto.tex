@@ -749,6 +749,10 @@ testo statico nelle classi view.\\\hline
 \begin{itemize}
 	\item C1FN-1 WEB Application NetMus
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Questo package contiene le classi Activity che corrispondono in pratica alla
 componente Presenter del pattern MVP originale. la Activity sono avviate e
@@ -756,7 +760,6 @@ terminate da un ActivityManager associato con un contenitore Widget. Un activity
 pu\`o inoltre visualizzare automaticamente un avviso quando sta per essere
 terminata (in pi\`u l'ActivityManager ci avvisa quando la finestra sta per
 essere chiusa).
-
 \subsection*{Relazioni d'uso di altre componenti} Il package usa gli oggetti
 View di \emph{ui} e Place di \emph{place} per gestire informazioni di stato o
 modificatori della vista, ma quando serve pu\`o utilizzare servizi forniti da
@@ -773,6 +776,10 @@ client.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.2 Registrazione
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe \`e di tipo \co{AbstractActivity}, implementa il \co{Presenter}
@@ -860,6 +867,20 @@ tipo \co{RegistrationException}.\\\hline
 	\item C1FN-1.1.1 Brani elencati opportunamente
 	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.3.3 Creazione playlist
+    \item C1FD-1.5 Riproduzione tracce in streaming
+    \item C1FD-1.7 Interazione con altri utenti
+    \item C1FD-1.7.1 Visualizzazione altri profili
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1FO-1.3.4 Ranking brani
+    \item C1FD-1.5 Riproduzione tracce in streaming
+    \item C1FD-1.7 Interazione con altri utenti
+    \item C1FD-1.7.1 Visualizzazione altri profili
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
 interno alla \co{ProfileView} e richiede al \co{clientFactory} di
@@ -886,6 +907,10 @@ un brano, ecc.
 	\item C1FN-1.4.2 Cambio password
 	\item C1FN-1.4.3 Cancellazione del proprio account
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.4.4 Pubblicazione
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
 interno alla \co{EditUserView} e richiede al \co{clientFactory} di
@@ -905,6 +930,12 @@ modifica delle informazioni personali visualizzate nel profilo.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FD-1.3.2 Modifica informazioni brano
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
@@ -1270,6 +1301,13 @@ dettaglio nella classe \co{LoginServiceImpl} che li implementa.
 	\item C2QD-4.3 Supporto multi-lingua
 % ------------------------------------------------
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C2QD-4.3 Supporto multi-lingua
+    \item C2FD-2 Aggiornamento e completamento informazioni
+    \item C2FD-1.4 Informazioni dall'hard disk
+    \item C2FO-1.6 Indicazioni file ignorati
+\end{itemize}
 \subsection*{Obiettivo e funzione del componente}
 Questo package conterr\`a le classi necessarie a gestire richieste e segnali
 provenienti dalla applet precompilata, che andremo ad inserire nel programma.
@@ -1281,7 +1319,6 @@ d'implementazione: l'uso di una libreria che crea un sistema proxy tra la applet
 e GWT oppure l'utilizzo di \underline{JSNI} (JavaScript Native Interface) che
 sostanzialmente ci permette di effettuare chiamate di metodi da JavaScript al
 codice \underline{Java} e viceversa: abbiamo utilizzato quest'ultima opzione.
-
 \subsection*{Meccanismo di lavoro del componente}
 Una volta ricevuta una richiesta da parte della applet, verr\`a gestita da un
 Service che si occuper\`a di elaborare i dati col supporto del server, per poi
@@ -1292,7 +1329,6 @@ In particolare, lo scambio delle informazioni dei brani tra applet e questo
 package avviene utilizzando \underline{XML}, permettendo quindi di contenere
 tutte le informazioni necessarie all'interno di un'unica stringa, in maniera da
 aggirare molte difficolt\`a e limiti derivanti dall'utilizzo di JSNI.
-
 \subsection*{Relazioni d'uso di altre componenti}
 Si fa utilizzo dei servizi offerti dalle classi presenti nel package
 \emph{server}.
@@ -1302,22 +1338,67 @@ Si fa utilizzo dei servizi offerti dalle classi presenti nel package
 \begin{itemize}
 	\item C2FN-1 Recupero delle informazioni
 \end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Si occupa di interpretare le informazioni in formato XML ricevute dall'applet,
 generando i relativi DTO contenenti le informazioni. Pu\`o effettuare anche
 l'operazione inversa, ovvero generare una stringa in formato XML che rappresenta
 le informazioni contenute nei DTO.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Utilizza \co{SongDTO} contenuta in \emph{shared}.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata da \co{AppletBar} per interpretare le informazioni provenienti
 dall'applet.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Interpretazione e traduzione delle informarzioni dei brani da XML a DTO e
 viceversa.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- ROOT\_NAME: String \emph{final static default = ``Library''} & \\\hline
+- SONG\_NAME: String \emph{final static default = ``Song''} & \\\hline
+- ALBUMTITLE\_NAME: String \emph{final static default = ``AlbumTitle''} &
+\\\hline - AUTHORCOMPOSER\_NAME: String \emph{final static default =
+``AuthorComposer''} & \\\hline 
+- LEADARTIST\_NAME: String \emph{final static default = ``LeadArtist''} &
+\\\hline 
+- SONGGENRE\_NAME: String \emph{final static default = ``SongGenre''} &
+\\\hline 
+- SONGTITLE\_NAME: String \emph{final static default = ``SongTitle''} & \\\hline
+- TRACKNUMBER\_NAME: String \emph{final static default = ``Year''} & \\\hline
+- YEAR\_NAME: String \emph{final static default = ``Year''} & \\\hline
+- FILE\_NAME: String \emph{final static default = ``File''} & \\\hline
+- document: Document & \\\hline
+- root: Element & \\\hline
+\caption{Campi dati di TranslateDTOXML}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ reset() & \\\hline
++ DTOtoXML(in SongDTO) & \\\hline
++ generateXML(): String & \\\hline
++ generateDTO(in Element): SongDTO & \\\hline
++ XMLToDTO(in String): List\textless SongDTO\textgreater & \\\hline
+\caption{Metodi di TranslateDTOXML}
+\end{longtable}
 
 \subsection{Classe AppletConstants}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1329,20 +1410,32 @@ viceversa.
 Gestisce la traduzione delle frasi e/o avvisi da mostrare all'utente, a seconda
 della lingua correntemente selezionata, utilizzando un meccanismo proprio di
 GWT.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata da \co{AppletBar} per visualizzare in maniera corretta lo stato
 dell'applet all'utente.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Utilizza i file \co{.properties} presenti in questo package, ognuno dei quali
 definisce la traduzione corretta di ogni termine e/o frase in una determinata
 lingua.
 Una volta definita globalmente la lingua utilizzata, viene caricato
 automaticamente il file contenente le definizioni di quella lingua.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\# testi\_vari: String & Tutti i metodi presenti in questa classe sono di
+questo tipo e vengono invocati al posto dell'inserimento di un normale
+testo statico nelle classi di \emph{applet}.\\\hline
+\caption{Metodi di AppletConstants}
+\end{longtable}
 
 \subsection{Classe AppletBar}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1351,39 +1444,79 @@ automaticamente il file contenente le definizioni di quella lingua.
 	\item C2FN-1.2 Recupero manuale
 	\item C2FN-1.1 Recupero automatico
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C2VD-4.5 Meno disturbo possibile
+    \item C2QD-4.2 Semplicit\`a di utilizzo
+    \item C2FD-1.4 Informazioni dall'hard disk
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Si occupa di interfacciare utente, servizi ed applet tra loro: in particolare,
 comunica visivamente all'utente lo stato dell'applet, e utilizza i servizi del
 server per salvare le informazioni estratte da quest'ultima.
 Definisce i metodi JSNI per la comunicazione con l'applet.
 Utilizza il pattern Singleton.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Utilizza \co{AppletConstrants} per la traduzione dell'interfaccia con l'utente,
 \co{TranslateDTOXML} per la comunicazione con l'applet, e \emph{server} per
 salvare le informazioni.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene utilizzata da \co{ProfileActivity} per l'inserimento e la rimozione
 dell'applet dalla pagina web.
-
-\subsection{Classe AppletConstants}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
-
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Si occupa di gestire l'applet all'interno del programma: questo prevede il
 caricamento del suo codice e la sua inizializzazione, la ricezione delle
 informazioni dei brani e l'invio degli stessi a \emph{server} una volta
 costruiti i relativi DTO, la visualizzazione dello stato all'utente e i
 controlli necessari ad influenzarne il comportamento.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- APPLET\_BAR: AppletBar \emph{static} & \\\hline
+- visible: boolean & \\\hline
+- constants: AppletConstants & \\\hline
+- title: Label & \\\hline
+- on\_off: Anchor & \\\hline
+- rescan: Anchor & \\\hline
+- status: TextBox & \\\hline
+- applet: HTML & \\\hline
+- user: String & \\\hline
+- original\_user: String & \\\hline
+- state: boolean & \\\hline
+- translator: TranslateDTOXML & \\\hline
+- library\_service: LibraryServiceAsync  & \\\hline
+\caption{Campi dati di AppletBar}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ get(in String, in boolean): AppletBar \emph{static} & \\\hline
++ appletBarON() & \\\hline
++ appletBarOFF() & \\\hline
++ changeState() & \\\hline
++ reScanAll() & \\\hline
++ sendStarts() & \\\hline
++ sendStartsJSNI(in String, in boolean) \emph{native} & \\\hline
++ scanningStatus(in int, in int) & \\\hline
++ showStatus(in String) & \\\hline
++ translateXML(in String) & \\\hline
++ makeNativeFunction(in AppletBar) \emph{native} & \\\hline
+\caption{Metodi di AppletBar}
+\end{longtable}
 
 \newpage
 \section{Package server}
@@ -3052,8 +3185,7 @@ Cclac2 - client.activity.ProfileActivity & C1FO-1.2.3 \\
 Cclac3 - client.activity.EditUserActivity & C1FD-1.4.4 \\\hline
 Cclac4 - client.activity.EditSongsActivity & C1FD-1.3 \\
 & C1FD-1.3.1 \\
-& C1FD-1.3.2 \\
-& C1FD-1.3.3 \\\hline
+& C1FD-1.3.2 \\\hline
 Cclse2 - client.service.UsersService & C1FD-1.8 \\
 & C1FD-1.4.4 \\\hline
 Cclse3 - client.service.SongsService & C1FD-1.3.2 \\
@@ -3163,12 +3295,14 @@ progettazione di dettaglio 2 e requisiti desiderabili/opzionali}
 \end{longtable}
 \end{footnotesize}
 
-\chapter{REQUISITI DELLA VERGONA}
+\chapter{REQUISITI DELLA VERGOGNA}
 C1FD-1.10 Invio nuove informazioni a C2\ldots bisogna imboscarlo in qualche
 modo!\\
 C1FO-1.7.2 Lasciare commenti su profilo\ldots peccato era bello questo\ldots ma
-in figa a bobo anche i commenti! 
-
+in figa a bobo anche i commenti! \\
+C2QD-1.7 Ottimizzazione memoria cache\\
+C2FO-1.3 Informazioni senza connessione\\
+C1FD-1.10 Invio nuove informazioni a C2 \\
 
 
 \appendix\chapter{Codice Sorgente}
