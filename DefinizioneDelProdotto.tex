@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.7}
+\newcommand{\versione}{0.8}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -47,6 +47,10 @@ verr\`a allegato il codice sorgente.
 \endhead
 \hline
 \endfoot
+
+23/02/2011 & 0.8 & Caputo Cosimo & Agginti diagrammi delle classi per il
+package server e i relativi sotto-package.\\
+\hline
 
 08/02/2011 & 0.7 & Daminato Simone & Inseriti capitolo su client.applet.\\
 \hline
@@ -1411,6 +1415,14 @@ questo e con la presenza del package \emph{service} si interfaccia anche con
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_server.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server}.}
+\end{figure}
+
 \subsection{Classe SongsServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -1632,6 +1644,14 @@ Le classi DAO gestiscono i dati del sistema garantendone la persistenza e si
 occupano anche di implementare la parte logica di salvataggio, recupero e
 relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e il
 \underline{database} utilizzato \`e \underline{non-relazionale}.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_server_persistent.jpg}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server.persistent}.}
+\end{figure}
 
 \subsection{Classe ODF (Singleton)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2014,6 +2034,14 @@ altri servizi esterni.
 \subsection*{Attivit\`a svolte e dati trattati}
 Gestisce lo scambio di dati con servizi esterni.
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_servlet.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server.servlet}.}
+\end{figure}
+
 \subsection{Classe LoginSuperServlet}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -2118,6 +2146,14 @@ Viene utilizzato dalle classi del package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Varie.
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_utils.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server.utils}.}
+\end{figure}
+
 \subsection{Classe AuthenticationProvider}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -2184,6 +2220,14 @@ Le classi di questo package si occupano di inglobare e trasportare
 le informazioni attraverso la rete, per le comunicazioni tra server e client,
 in particolare i dati relativi alle entit\`a del Datastore ed alle eccezioni.
 Vengono qui di seguito descritte pi\`u in dettaglio.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_shared.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.shared}.}
+\end{figure}
 
 \subsection{Classe UserSummaryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2542,6 +2586,14 @@ interno posso essere utilizzate da qualsiasi altro componente.
 \subsection*{Attivit\`a svolte e dati trattati}
 Fornisce tutte le possibili eccezioni che possono essere lanciate dal sistema
 NetMus.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_shared_exception.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.shared.exception}.}
+\end{figure}
 
 \subsection{Classe NetMusException}
 \subsubsection*{Requisiti obbligatori soddisfatti}
