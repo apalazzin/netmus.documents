@@ -1575,21 +1575,28 @@ viceversa.
 \hline
 \endfoot
 \endlastfoot
-- ROOT\_NAME: String \emph{final static default = ``Library''} & \\\hline
-- SONG\_NAME: String \emph{final static default = ``Song''} & \\\hline
-- ALBUMTITLE\_NAME: String \emph{final static default = ``AlbumTitle''} &
-\\\hline - AUTHORCOMPOSER\_NAME: String \emph{final static default =
-``AuthorComposer''} & \\\hline 
-- LEADARTIST\_NAME: String \emph{final static default = ``LeadArtist''} &
-\\\hline 
-- SONGGENRE\_NAME: String \emph{final static default = ``SongGenre''} &
-\\\hline 
-- SONGTITLE\_NAME: String \emph{final static default = ``SongTitle''} & \\\hline
-- TRACKNUMBER\_NAME: String \emph{final static default = ``Year''} & \\\hline
-- YEAR\_NAME: String \emph{final static default = ``Year''} & \\\hline
-- FILE\_NAME: String \emph{final static default = ``File''} & \\\hline
-- document: Document & \\\hline
-- root: Element & \\\hline
+- ROOT\_NAME: String \emph{static final default = ``Library''} & Nome del nodo
+principale nel documento XML.\\\hline
+- SONG\_NAME: String \emph{static final default = ``Song''} & Nome del nodo nel
+documento XML riguardante una singola canzone.\\\hline
+- ALBUMTITLE\_NAME: String \emph{static final default = ``AlbumTitle''} & Nome
+del nodo nel documento XML riguardante il titolo dell'album.\\\hline
+- AUTHORCOMPOSER\_NAME: String \emph{static final default = ``AuthorComposer''}
+& Nome del nodo nel documento XML riguardante il compositore.\\\hline
+- LEADARTIST\_NAME: String \emph{static final default = ``LeadArtist''} & Nome
+del nodo nel documento XML riguardante l'artista.\\\hline
+- SONGGENRE\_NAME: String \emph{static final default = ``SongGenre''} & Nome del
+nodo nel documento XML riguardante il genere musicale del brano.\\\hline
+- SONGTITLE\_NAME: String \emph{static final default = ``SongTitle''} & Nome del
+nodo nel documento XML riguardante il titolo del brano.\\\hline
+- TRACKNUMBER\_NAME: String \emph{static final default = ``TrackNumber''} & Nome
+del nodo nel documento XML riguardante il numero della traccia all'interno dell'album.\\\hline
+- YEAR\_NAME: String \emph{static final default = ``Year''} & Nome del nodo nel
+documento XML riguardante l'anno di uscita del brano.\\\hline
+- FILE\_NAME: String \emph{static final default = ``File''} & Nome del nodo nel
+documento XML riguardante il file MP3.\\\hline
+- document: Document & The DOM document element.\\\hline
+- root: Element & The root node of the document.\\\hline
 \caption{Campi dati di TranslateDTOXML}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -1602,11 +1609,16 @@ viceversa.
 \hline
 \endfoot
 \endlastfoot
-+ reset() & \\\hline
-+ DTOtoXML(in SongDTO) & \\\hline
-+ generateXML(): String & \\\hline
-+ generateDTO(in Element): SongDTO & \\\hline
-+ XMLToDTO(in String): List\textless SongDTO\textgreater & \\\hline
+% non utilizzate, non è il caso di metterle nella documentazione
+%+ reset() & \\\hline
+%+ DTOtoXML(in SongDTO) & \\\hline
+%+ generateXML(): String & \\\hline
+%-------------------------------------------
+- generateDTO(in Element): SongDTO & Da un nodo Song crea un nuovo \co{SongDTO}
+che ne rispecchia le informazioni.\\\hline 
++ XMLToDTO(in String): List\textless SongDTO\textgreater & Da una
+stringa contenente un documento XML, genera una lista di \co{songDTO}
+utilizzando il metodo \co{GenerateDTO}.\\\hline
 \caption{Metodi di TranslateDTOXML}
 \end{longtable}
 
@@ -1689,19 +1701,24 @@ controlli necessari ad influenzarne il comportamento.
 \hline
 \endfoot
 \endlastfoot
-- APPLET\_BAR: AppletBar \emph{static} & \\\hline
-- visible: boolean & \\\hline
-- constants: AppletConstants & \\\hline
-- title: Label & \\\hline
-- on\_off: Anchor & \\\hline
-- rescan: Anchor & \\\hline
-- status: TextBox & \\\hline
-- applet: HTML & \\\hline
-- user: String & \\\hline
-- original\_user: String & \\\hline
-- state: boolean & \\\hline
-- translator: TranslateDTOXML & \\\hline
-- library\_service: LibraryServiceAsync  & \\\hline
+- APPLET\_BAR: AppletBar \emph{static} & Istanza attuale di AppletBar.\\\hline
+- visible: boolean & Indica se \`e visibile all'utente o no.\\\hline
+- constants: AppletConstants & Classe utilizzata per la traduzione nella
+lingua corretta.\\\hline 
+- title: Label & Elemento grafico contenente il nome della barra da
+visualizzare.\\\hline 
+- on\_off: Anchor & Link per attivare/disattivare l'applet.\\\hline
+- rescan: Anchor & Link per comunicare all'applet di riscansionare
+l'ultimo device.\\\hline 
+- status: TextBox & Elemento grafico che visualizza lo stato attuale.\\\hline
+- applet: HTML & Elemento HTML che contiene l'applet.\\\hline
+- user: String & Nome utente.\\\hline
+- original\_user: String & Utente completo (email).\\\hline
+- state: boolean & Indica se la scansione automatica \`e attivata o no.\\\hline
+- translator: TranslateDTOXML & Oggetto utilizzato per la traduzione da
+XML a DTO\\\hline
+- library\_service: LibraryServiceAsync & Riferimento al service del
+server.\\\hline
 \caption{Campi dati di AppletBar}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -1714,17 +1731,25 @@ controlli necessari ad influenzarne il comportamento.
 \hline
 \endfoot
 \endlastfoot
-+ get(in String, in boolean): AppletBar \emph{static} & \\\hline
-+ appletBarON() & \\\hline
-+ appletBarOFF() & \\\hline
-+ changeState() & \\\hline
-+ reScanAll() & \\\hline
-+ sendStarts() & \\\hline
-+ sendStartsJSNI(in String, in boolean) \emph{native} & \\\hline
-+ scanningStatus(in int, in int) & \\\hline
-+ showStatus(in String) & \\\hline
-+ translateXML(in String) & \\\hline
-+ makeNativeFunction(in AppletBar) \emph{native} & \\\hline
++ get(in String, in boolean): AppletBar \emph{static} & Nel caso non
+esista, crea un'istanza di AppletBar. Imposta il nome utente corretto, e
+restituisce l'istanza dell'oggetto.\\\hline
++ appletBarON() & Se non \`e gi\`a stato fatto, carica l'applet nel codice
+HTML.\\\hline
++ appletBarOFF() & Rimuove l'applet dal codice HTML.\\\hline
+- changeState() & Attiva/disattiva la scansione automatica.\\\hline 
+- reScanAll() & Indica all'applet di riscansionare l'ultimo device.\\\hline
+- sendStarts() & Inizializza l'applet (richiamando il metodo
+\co{sendStartsJSNI}.\\\hline 
+- sendStartsJSNI(in String, in boolean) \emph{native} & Invia all'applet
+i parametri per l'inizializzazione.\\\hline
+- scanningStatus(in int, in int) & Mostra graficamente lo stato di avanzamento
+della scansione.\\\hline 
++ showStatus(in String) & Mostra graficamente lo stato dell'applet.\\\hline
++ translateXML(in String) & Elabora il risultato della scansione.\\\hline
++ makeNativeFunction(in AppletBar) \emph{native} & Effettua il
+collegamento dei metodi in JSNI in modo da renderli utilizzabili
+dall'applet.\\\hline
 \caption{Metodi di AppletBar}
 \end{longtable}
 
@@ -3241,26 +3266,26 @@ rappresentato tramite un codice numerico) se necessario.
 \hline
 \endfoot
 \endlastfoot
-- ROOT\_NAME: String \emph{static final} & Nome del nodo principale nel
-documento XML.\\\hline
-- SONG\_NAME: String \emph{static final} & Nome del nodo nel documento XML
-riguardante una singola canzone.\\\hline
-- ALBUMTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
-riguardante il titolo dell'album.\\\hline
-- AUTHORCOMPOSER\_NAME: String \emph{static final} & Nome del nodo nel documento
-XML riguardante il compositore.\\\hline
-- LEADARTIST\_NAME: String \emph{static final} & Nome del nodo nel documento XML
-riguardante l'artista.\\\hline
-- SONGGENRE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
-riguardante il genere musicale del brano.\\\hline
-- SONGTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
-riguardante il titolo del brano.\\\hline
-- TRACKNUMBER\_NAME: String \emph{static final} & Nome del nodo nel documento
-XML riguardante il numero della traccia all'interno dell'album.\\\hline
-- YEAR\_NAME: String \emph{static final} & Nome del nodo nel documento XML
-riguardante l'anno di uscita del brano.\\\hline
-- FILE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
-riguardante il file MP3.\\\hline
+- ROOT\_NAME: String \emph{static final default = ``Library''} & Nome del nodo
+principale nel documento XML.\\\hline
+- SONG\_NAME: String \emph{static final default = ``Song''} & Nome del nodo nel
+documento XML riguardante una singola canzone.\\\hline
+- ALBUMTITLE\_NAME: String \emph{static final default = ``AlbumTitle''} & Nome
+del nodo nel documento XML riguardante il titolo dell'album.\\\hline
+- AUTHORCOMPOSER\_NAME: String \emph{static final default = ``AuthorComposer''}
+& Nome del nodo nel documento XML riguardante il compositore.\\\hline
+- LEADARTIST\_NAME: String \emph{static final default = ``LeadArtist''} & Nome
+del nodo nel documento XML riguardante l'artista.\\\hline
+- SONGGENRE\_NAME: String \emph{static final default = ``SongGenre''} & Nome del
+nodo nel documento XML riguardante il genere musicale del brano.\\\hline
+- SONGTITLE\_NAME: String \emph{static final default = ``SongTitle''} & Nome del
+nodo nel documento XML riguardante il titolo del brano.\\\hline
+- TRACKNUMBER\_NAME: String \emph{static final default = ``TrackNumber''} & Nome
+del nodo nel documento XML riguardante il numero della traccia all'interno dell'album.\\\hline
+- YEAR\_NAME: String \emph{static final default = ``Year''} & Nome del nodo nel
+documento XML riguardante l'anno di uscita del brano.\\\hline
+- FILE\_NAME: String \emph{static final default = ``File''} & Nome del nodo nel
+documento XML riguardante il file MP3.\\\hline
 - documentBuilder: javax.xml.parsers.DocumentBuilder & Utilizzato per
 la creazione di un nuovo documento XML.\\\hline
 - document: org.w3c.dom.Document & Documento corrente sul quale si sta
