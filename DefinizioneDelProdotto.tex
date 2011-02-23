@@ -456,6 +456,18 @@ catturare gli eventi da essi prodotti. \\
 L'implementazione della grafica sar\`a eseguita con l'utilizzo del framework
 UiBinder ed il conseguente utilizzo del linguaggio CSS3 per la formattazione
 che garantir\`a dei buoni livelli di accessibilit\`a.
+Le annotazioni utilizzate all'interno del codice Java per interagire con i file
+xml previsti da UiBinder saranno:
+\begin{itemize}
+  \item \bo{@UiField}: gli attributi marcati in questo modo hanno lo stesso nome
+  di un elemento del file .xml a cui possono accedere successivamente alla
+  chiamata \emph{uiBinder.createAndBindUi(this)} che associa all'attributo Java
+  l'istanza appropriata di \co{SpanElement}. Questi attributi avranno
+  visibilit\`a \emph{package}.
+  \item \bo{@UiHandler("name\_of\_uifield")}: permette di scrivere dei metodi
+  che gestiscono gli eventi scatenati dal parametro UiField senza
+  dover dichiarare le classi handler previste da Java.
+\end{itemize}  
 \subsection*{Relazioni
 d'uso di altre componenti} Questo package utilizza \emph{place} per creare istanze dei vari Place quando richiesto.
 Tutte le classi qui contenute inoltre fanno uso della classe \co{MyConstants}
@@ -485,35 +497,36 @@ selezionando l'apposita sezione ed inserendo un nuovo username ed una password
 con le relative conferme. La classe \co{LoginViewImpl} implementa l'interfaccia
 \co{LoginView} che estende \co{isWidget} (interfaccia introdotta da GWT 2.1)
 permettendo l'utilizzo di UiBinder per la disposizione dei widget e la gestione
-degli handler. 
-\subsubsection*{Relazioni d'uso di altre componenti} Le azioni invocabili
+degli handler. \\
+Le azioni invocabili
 sono tutte definite nell'interfaccia interna
 \co{Presenter} e saranno utilizzate all'interno dei metodi handler. Viene
 definito un \emph{enum} riguardante la tipologia di login che viene utilizzato
 anche da \co{LoginActivity} e \co{LoginPlace}. \\ I contratti dei metodi (che vengono
 implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
 \begin{itemize}
-  \item \underline{public void goTo(in Place)} : permette di spostarsi in un
+  \item public void goTo(in Place) : permette di spostarsi in un
   place differente anche relativo ad un'altra view. Ad esempio per aprire la pagina di
   \co{ProfileView} una volta verificato il login.
-  \item \underline{public void sendLogin(in String, in String) throws  LoginException}
+  \item public void sendLogin(in String, in String) throws  LoginException
   : invia al server i dati di login inseriti
   dall'utente. Viene inviata la richiesta di verifica del login con i dati
   presenti nel Datastore tramite una chiamata asincrona ad un metodo di
   \co{LoginService}. La chiamata RPC pu\`o lanciare eventi di tipo
   \co{LoginException}.
-  \item \underline{public void sendGoogleLogin(in String, in String)
-  throws LoginException} : apre una pagina del sistema che richiama la servlet
+  \item public void sendGoogleLogin(in String, in String)
+  throws LoginException : apre una pagina del sistema che richiama la servlet
   \co{LoginGoogleServlet}.
-  \item \underline{public void sendRegistration(in String, in String, in String)
-  throws RegistrationException} : invia al server i dati di registrazione inseriti
+  \item public void sendRegistration(in String, in String, in String)
+  throws RegistrationException : invia al server i dati di registrazione inseriti
   dall'utente. Viene fatto un primo controllo sulla validit\`a dei dati e de
   positivo viene inviata la richiesta di inserimento dell'utente nel database
   tramite una chiamata asincrona ad un metodo di \co{LoginService}. La chiamata
   RPC pu\`o lanciare eventi di tipo \co{RegistrationException}.
-  \item \underline{public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION,
-  GOOGLELOGIN\}} : Definisce le tipologie di login e registrazione possibili.
+  \item public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION,
+  GOOGLELOGIN\} : Definisce le tipologie di login e registrazione possibili.
 \end{itemize}
+\subsubsection*{Relazioni d'uso di altre componenti}
 Per permettere all'utente di cambiare pagina o stato della finestra la classe
 pu\`o istanziare oggetti di tipo \co{LoginPlace}. Il form di login e quello di
 registrazione appartengono ad uno stesso stato quindi i \co{LoginPlace}
@@ -633,16 +646,149 @@ Il sistema mette a disposizione una vista per la visualizzazione del profilo e
 dei brani di un generico utente registrato e per la riproduzione dalla musica
 tramite un player streaming. La classe \co{ProfileViewImpl} implementa
 l'interfaccia \co{ProfileView} che estende \co{isWidget} (interfaccia introdotta
-da GWT 2.1).
-\subsubsection*{Relazioni d'uso di altre componenti} 
+da GWT 2.1). \\
+Le azioni invocabili dai metodi handler sono tutte definite nell'interfaccia
+interna \co{Presenter} ma l'implementazione risieder\`a in \co{ProfileActivity}
+e comprender\`a chiamate asincrone al server attraverso i metodi di
+\co{LoginService}, \co{LibraryService}, \co{SongsService} e \co{UsersService}.\\
+I metodi in questione sono:
+\begin{itemize}
+    \item void logout(): effettua la deautenticazione dell'utente chiudendo la
+    sessione HTTP corrente e rimuovendo il cookie relativo. Una volta effettuate
+    queste operazioni viene aperta la pagina di \co{LoginView}.
+    \item void goTo(Place place) : permette di spostarsi in un place differente
+    anche relativo ad un'altra view. Ad esempio per aprire la pagina di
+    \co{LoginView} dopo aver effettuato il logout.
+    \item void setUser(): ricerca ed imposta l'username dell'utente del quale
+    si vuole visualizzare il profilo, lo stato di default prevede la
+    visualizzazione del profilo dell'utente che ha richiesto la
+    pagina.
+    \item void setPlaylistList(): imposta la lista dei
+    titoli delle singole playlist dell'utente impostato precedentemente.
+    \item void setFriendList(): imposta la lista degli
+    utenti affini su Netmus all'utente impostato precedentemente.
+    \item void setSongInfo(): imposta il titolo della canzone in
+    ascolto.
+    \item void setPlaylistSongs(String titoloPlaylist): imposta le canzoni
+    con i relativi album dato il nome di una playlist in input.
+    \item void setSongs(): fornisce tutte le canzoni legate alla libraria
+    musicale dell'utente sotto forma di \co{SongDTO}.
+    \item void playYouTube(): dopo aver effettuato una ricerca su YouTube grazie
+    alle classi del package \emph{server.youtube} fornisce il link youtube della
+    canzone selezionata.
+    \item void addPlaylist(String title): crea una nuova playlist a
+    disposizione dell'utente che sta visualizzando la propria pagina.
+    \item void addToPLaylist(String playlist, String autore, String titolo,
+    String album): aggiunge la canzone in input alla playlist desiderata e
+    restituisce \emph{true} in caso di successo.
+    \item void removeFromPLaylist(String playlist, String autore, String titolo,
+    String album): rimuove la canzone in input dalla playlist desiderata e
+    restituisce \emph{true} in caso di successo.
+\end{itemize}
+\subsubsection*{Relazioni d'uso di altre componenti}
 La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
 attuali della vista.
+Tutte le classi qui contenute inoltre fanno uso della classe \co{MyConstants}
+per la gestione del multi-lingua. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
  La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
  \co{ProfileActivity}.
  \subsubsection*{Attivit\`a svolte e dati trattati}
 Contiene la lista dei profili che l'utente pu\`o visualizzare e gli strumenti
 per navigare tra i cataloghi musicali.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ myConstants: MyConstants & Gestore dell'internazionalizzazione associato a
+questa pagina.\\\hline 
+- listener: Presenter & \\\hline
+- name: String & \\\hline
+- vertical\_offset: int \emph{degault = 65} & \\\hline
+- vertical\_semioffset: int \emph{default = 275} & \\\hline
+- lista\_canzoni: CellTable\textless Song\textgreater & \\\hline;
+@UiField logout: Anchor & \\\hline
+@UiField utente, numero\_brani, titolo\_playlist, info\_youtube\_link,
+brano\_aggiungere, brano\_rimuovere: Label & \\\hline
+@UiField(provided=true) catalogo: CellTable\textless Song\textgreater & \\\hline 
+@UiField container, catalogo\_container,
+playlist\_container, playlist\_contenuto, playlist\_songs, song\_container,
+song\_contenuto, main\_panel, left\_panel, playlists, friends,
+friends\_titolo, info, search, youtube, classifica,
+info\_youtube, youtube\_appendice: HTMLPanel & \\\hline
+@UiField play, play\_youtube, forward, rewind, cover,
+edit\_button, account\_button, social\_button, star1, star2, star3, star4,
+star5, chiudi\_playlist, chiudi\_song, logo\_youtube,
+chiudi\_youtube, aggiungi\_branoplaylist, rimuovi\_branoplaylist,
+aggiungi\_playlist: Image & \\\hline 
+- playlist\_opened: boolean & \\\hline 
+- song\_opened: Image & \\\hline 
+- selected\_song: Song & \\\hline 
+- selected\_song\_playlist: Song & \\\hline
+- canzoni\_catalogo: List\textless Song\textgreater & \\\hline 
+- canzoni\_playlist: List\textless Song\textgreater & \\\hline
+- dataProvider\_playlist: ListDataProvider\textless Song\textgreater & \\\hline 
+- dataProvider\_catalogo: ListDataProvider\textless Song\textgreater & \\\hline
+\caption{Campi dati di ProfileView}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ setPresenter(in Presenter) & Questo metodo viene usato da
+\co{ProfileActivity} per impostare una sua istanza come implementazione
+del presenter di \co{ProfileView}.\\\hline 
++ setName(in String): & Questo metodo viene usato da
+\co{ProfileActivity} per fornire il nome del profilo alla crezione della
+\co{ProfileView}. \\\hline 
++ setNumeroBrani(in int) & Questo metodo viene usato da
+\co{ProfileActivity} per fornire il numero di brani alla crezione della
+\co{ProfileView}.\\\hline 
++ setUser(in String) & Questo metodo viene usato da
+\co{ProfileActivity} per fornire l'username dell'utente alla crezione della
+\co{ProfileView}.\\\hline
++ paintCatalogo(in List\textless String\textgreater) & Riempie il
+catalogo\\\hline 
++ paintPlaylist(in String[]) & Riempie la lista delle playlist.\\\hline
++ paintPlaylistSongs(List\textless String\textgreater) &
+Riempie la singola playlist delle sue canzoni.\\\hline 
++ paintFriendlist(in String[]) & Riempie la lista dei contatti.\\\hline
++ setInfo(in String) & Imposta la finestra informativa.\\\hline
++ viewPlaylist(in String) & Visualizza la playlist scelta.\\\hline
++ closePlaylist() & Chiude il gestore della playlist.\\\hline
++ playYouTube(in String) & Apre il player youtube sulla relativa
+canzone.\\\hline 
++ closeYouTube() & Chiude il player youtube.\\\hline
++ setBranoCatalogo(in Song) & Imposta il brano selezionato sul catalogo.\\\hline
++ setBranoPlaylist(in Song) & Imposta il brano selezionato sulla
+playlist.\\\hline 
++ addToPLaylist(in String, in String, in String) & Aggiungi il brano del
+catalogo alla playlist .\\\hline 
++ removeFromPlaylist(in String, in String, in String) & Rimuovi il brano dalla
+playlist.\\\hline 
++ setLayout() & Inizializza il layout.\\\hline
++ addToPlaylists(in String) & Aggiunge una nuova playlist.\\\hline 
++ viewSong(in Song) & Visulaizza la scheda della canzone.\\\hline
++ closeSong() & Chiude la scheda della canzone.\\\hline
+@UiHandlers handler(in Event) & \\\hline
+\caption{Metodi di ProfileView}
+\end{longtable}
+
+
+
+
 
 \subsection{Classe EditUserView}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1099,6 +1245,10 @@ history e bookmarking del browser.
 \begin{itemize}
 	\item C1FN-1 WEB Application NetMus
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package contiene le classi funzionali al meccanismo delle Activity e dei
 Places.
@@ -1115,6 +1265,10 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 \begin{itemize}
 	\item C1FN-1 WEB Application NetMus
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe si occupa di mappare ogni attivit\`a con il corrispondente Place.
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -1125,11 +1279,48 @@ La classe utilizza istanze di classi appartenenti al package
 componenti} Nessuna.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Tramite un riferimento ad un Place crea e restituisce un oggetto activity.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- clientFactory: ClientFactory & Factory che deve essere passata a tutte
+le attivit\`a instanziate in questa classe. \\\hline
+\caption{Campi dati di NetmusActivityMapper}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ getActivity(in Place): Activity & Mappa e istanzia l'activity adeguata
+in base al tipo del place dato in input.\\
+& \co{LoginPlace}-\co{LoginActivity}\\ 
+& \co{ProfilePlace}-\co{ProfileActivity}\\
+& \co{EditSongsPlace}-\co{EditSongsActivity}\\
+& \co{EditProfilePlace}-\co{EditProfileActivity}\\\hline
+\caption{Metodi di NetmusActivityMapper}
+\end{longtable}
+
 
 \subsection{Classe NetmusPlaceHistoryMapper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1 WEB Application NetMus
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Dichiara e riferisce tutti i places che saranno utilizzati da Netmus.
@@ -1141,6 +1332,25 @@ Il PlaceHistoryHandler utilizza la classe per la sincronizzazione del URL.
 Funge da connessione tra i PlaceTokenizer (classe interna ad ogni Place) e il
 PlaceHistoryHandler (messo a disposizione da GWT) che sincronizza l'URL del
 browser con i vari Place.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+@WithTokenizers (\{LoginPlace.Tokenizer.class, ProfilePlace.Tokenizer.class,
+EditUserPlace.Tokenizer.class, EditSongsPlace.Tokenizer.class\}) &
+Questa annotazione che precede la definizione dell'interfaccia permette
+di associare ogni place al \co{PlaceHistoryHandler} e quindi risparmia
+la dichiarazione esplicita di attributi e metodi per l'implmentazione
+di un \co{TokenizerFactory} separato.\\\hline
+\caption{Metodi di NetmusPlaceHistoryMapper}
+\end{longtable}
+
 
 \newpage
 \section{Package client.service} % LASCIARE WARNING
