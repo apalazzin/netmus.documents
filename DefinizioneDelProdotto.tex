@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.7}
+\newcommand{\versione}{0.8}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -48,9 +48,13 @@ verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
-08/02/2011 & 0.7 & Daminato Simone & Inserito capitolo su client.applet.\\
+23/02/2011 & 0.8 & Caputo Cosimo & Agginti diagrammi delle classi per il
+package server e i relativi sotto-package.\\
 \hline
-08/02/2011 & 0.6 & Mandolo Andrea & Inserito capitolo su applet di estrazione.\\
+
+08/02/2011 & 0.7 & Daminato Simone & Inseriti capitolo su client.applet.\\
+\hline
+08/02/2011 & 0.6 & Mandolo Andrea & Inseriti capitolo su applet di estrazione.\\
 \hline
 07/02/2011 & 0.5 & Mandolo Andrea & Inseriti scopo del documento, sommario e
 standard di progetto.\\
@@ -1575,28 +1579,21 @@ viceversa.
 \hline
 \endfoot
 \endlastfoot
-- ROOT\_NAME: String \emph{static final default = ``Library''} & Nome del nodo
-principale nel documento XML.\\\hline
-- SONG\_NAME: String \emph{static final default = ``Song''} & Nome del nodo nel
-documento XML riguardante una singola canzone.\\\hline
-- ALBUMTITLE\_NAME: String \emph{static final default = ``AlbumTitle''} & Nome
-del nodo nel documento XML riguardante il titolo dell'album.\\\hline
-- AUTHORCOMPOSER\_NAME: String \emph{static final default = ``AuthorComposer''}
-& Nome del nodo nel documento XML riguardante il compositore.\\\hline
-- LEADARTIST\_NAME: String \emph{static final default = ``LeadArtist''} & Nome
-del nodo nel documento XML riguardante l'artista.\\\hline
-- SONGGENRE\_NAME: String \emph{static final default = ``SongGenre''} & Nome del
-nodo nel documento XML riguardante il genere musicale del brano.\\\hline
-- SONGTITLE\_NAME: String \emph{static final default = ``SongTitle''} & Nome del
-nodo nel documento XML riguardante il titolo del brano.\\\hline
-- TRACKNUMBER\_NAME: String \emph{static final default = ``TrackNumber''} & Nome
-del nodo nel documento XML riguardante il numero della traccia all'interno dell'album.\\\hline
-- YEAR\_NAME: String \emph{static final default = ``Year''} & Nome del nodo nel
-documento XML riguardante l'anno di uscita del brano.\\\hline
-- FILE\_NAME: String \emph{static final default = ``File''} & Nome del nodo nel
-documento XML riguardante il file MP3.\\\hline
-- document: Document & The DOM document element.\\\hline
-- root: Element & The root node of the document.\\\hline
+- ROOT\_NAME: String \emph{final static default = ``Library''} & \\\hline
+- SONG\_NAME: String \emph{final static default = ``Song''} & \\\hline
+- ALBUMTITLE\_NAME: String \emph{final static default = ``AlbumTitle''} &
+\\\hline - AUTHORCOMPOSER\_NAME: String \emph{final static default =
+``AuthorComposer''} & \\\hline 
+- LEADARTIST\_NAME: String \emph{final static default = ``LeadArtist''} &
+\\\hline 
+- SONGGENRE\_NAME: String \emph{final static default = ``SongGenre''} &
+\\\hline 
+- SONGTITLE\_NAME: String \emph{final static default = ``SongTitle''} & \\\hline
+- TRACKNUMBER\_NAME: String \emph{final static default = ``Year''} & \\\hline
+- YEAR\_NAME: String \emph{final static default = ``Year''} & \\\hline
+- FILE\_NAME: String \emph{final static default = ``File''} & \\\hline
+- document: Document & \\\hline
+- root: Element & \\\hline
 \caption{Campi dati di TranslateDTOXML}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -1609,16 +1606,11 @@ documento XML riguardante il file MP3.\\\hline
 \hline
 \endfoot
 \endlastfoot
-% non utilizzate, non è il caso di metterle nella documentazione
-%+ reset() & \\\hline
-%+ DTOtoXML(in SongDTO) & \\\hline
-%+ generateXML(): String & \\\hline
-%-------------------------------------------
-- generateDTO(in Element): SongDTO & Da un nodo Song crea un nuovo \co{SongDTO}
-che ne rispecchia le informazioni.\\\hline 
-+ XMLToDTO(in String): List\textless SongDTO\textgreater & Da una
-stringa contenente un documento XML, genera una lista di \co{songDTO}
-utilizzando il metodo \co{GenerateDTO}.\\\hline
++ reset() & \\\hline
++ DTOtoXML(in SongDTO) & \\\hline
++ generateXML(): String & \\\hline
++ generateDTO(in Element): SongDTO & \\\hline
++ XMLToDTO(in String): List\textless SongDTO\textgreater & \\\hline
 \caption{Metodi di TranslateDTOXML}
 \end{longtable}
 
@@ -1701,24 +1693,19 @@ controlli necessari ad influenzarne il comportamento.
 \hline
 \endfoot
 \endlastfoot
-- APPLET\_BAR: AppletBar \emph{static} & Istanza attuale di AppletBar.\\\hline
-- visible: boolean & Indica se \`e visibile all'utente o no.\\\hline
-- constants: AppletConstants & Classe utilizzata per la traduzione nella
-lingua corretta.\\\hline 
-- title: Label & Elemento grafico contenente il nome della barra da
-visualizzare.\\\hline 
-- on\_off: Anchor & Link per attivare/disattivare l'applet.\\\hline
-- rescan: Anchor & Link per comunicare all'applet di riscansionare
-l'ultimo device.\\\hline 
-- status: TextBox & Elemento grafico che visualizza lo stato attuale.\\\hline
-- applet: HTML & Elemento HTML che contiene l'applet.\\\hline
-- user: String & Nome utente.\\\hline
-- original\_user: String & Utente completo (email).\\\hline
-- state: boolean & Indica se la scansione automatica \`e attivata o no.\\\hline
-- translator: TranslateDTOXML & Oggetto utilizzato per la traduzione da
-XML a DTO\\\hline
-- library\_service: LibraryServiceAsync & Riferimento al service del
-server.\\\hline
+- APPLET\_BAR: AppletBar \emph{static} & \\\hline
+- visible: boolean & \\\hline
+- constants: AppletConstants & \\\hline
+- title: Label & \\\hline
+- on\_off: Anchor & \\\hline
+- rescan: Anchor & \\\hline
+- status: TextBox & \\\hline
+- applet: HTML & \\\hline
+- user: String & \\\hline
+- original\_user: String & \\\hline
+- state: boolean & \\\hline
+- translator: TranslateDTOXML & \\\hline
+- library\_service: LibraryServiceAsync  & \\\hline
 \caption{Campi dati di AppletBar}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -1731,25 +1718,17 @@ server.\\\hline
 \hline
 \endfoot
 \endlastfoot
-+ get(in String, in boolean): AppletBar \emph{static} & Nel caso non
-esista, crea un'istanza di AppletBar. Imposta il nome utente corretto, e
-restituisce l'istanza dell'oggetto.\\\hline
-+ appletBarON() & Se non \`e gi\`a stato fatto, carica l'applet nel codice
-HTML.\\\hline
-+ appletBarOFF() & Rimuove l'applet dal codice HTML.\\\hline
-- changeState() & Attiva/disattiva la scansione automatica.\\\hline 
-- reScanAll() & Indica all'applet di riscansionare l'ultimo device.\\\hline
-- sendStarts() & Inizializza l'applet (richiamando il metodo
-\co{sendStartsJSNI}.\\\hline 
-- sendStartsJSNI(in String, in boolean) \emph{native} & Invia all'applet
-i parametri per l'inizializzazione.\\\hline
-- scanningStatus(in int, in int) & Mostra graficamente lo stato di avanzamento
-della scansione.\\\hline 
-+ showStatus(in String) & Mostra graficamente lo stato dell'applet.\\\hline
-+ translateXML(in String) & Elabora il risultato della scansione.\\\hline
-+ makeNativeFunction(in AppletBar) \emph{native} & Effettua il
-collegamento dei metodi in JSNI in modo da renderli utilizzabili
-dall'applet.\\\hline
++ get(in String, in boolean): AppletBar \emph{static} & \\\hline
++ appletBarON() & \\\hline
++ appletBarOFF() & \\\hline
++ changeState() & \\\hline
++ reScanAll() & \\\hline
++ sendStarts() & \\\hline
++ sendStartsJSNI(in String, in boolean) \emph{native} & \\\hline
++ scanningStatus(in int, in int) & \\\hline
++ showStatus(in String) & \\\hline
++ translateXML(in String) & \\\hline
++ makeNativeFunction(in AppletBar) \emph{native} & \\\hline
 \caption{Metodi di AppletBar}
 \end{longtable}
 
@@ -1778,6 +1757,14 @@ questo e con la presenza del package \emph{service} si interfaccia anche con
 
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_server.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server}.}
+\end{figure}
 
 \subsection{Classe SongsServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2000,6 +1987,14 @@ Le classi DAO gestiscono i dati del sistema garantendone la persistenza e si
 occupano anche di implementare la parte logica di salvataggio, recupero e
 relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e il
 \underline{database} utilizzato \`e \underline{non-relazionale}.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_server_persistent.jpg}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server.persistent}.}
+\end{figure}
 
 \subsection{Classe ODF (Singleton)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2382,6 +2377,14 @@ altri servizi esterni.
 \subsection*{Attivit\`a svolte e dati trattati}
 Gestisce lo scambio di dati con servizi esterni.
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_servlet.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server.servlet}.}
+\end{figure}
+
 \subsection{Classe LoginSuperServlet}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -2486,6 +2489,14 @@ Viene utilizzato dalle classi del package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Varie.
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_utils.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server.utils}.}
+\end{figure}
+
 \subsection{Classe AuthenticationProvider}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -2552,6 +2563,14 @@ Le classi di questo package si occupano di inglobare e trasportare
 le informazioni attraverso la rete, per le comunicazioni tra server e client,
 in particolare i dati relativi alle entit\`a del Datastore ed alle eccezioni.
 Vengono qui di seguito descritte pi\`u in dettaglio.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_shared.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.shared}.}
+\end{figure}
 
 \subsection{Classe UserSummaryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2911,6 +2930,14 @@ interno posso essere utilizzate da qualsiasi altro componente.
 Fornisce tutte le possibili eccezioni che possono essere lanciate dal sistema
 NetMus.
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_shared_exception.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.shared.exception}.}
+\end{figure}
+
 \subsection{Classe NetMusException}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -3006,6 +3033,7 @@ registrazione di un nuovo utente.
 	\item C2FN-1 Recupero delle informazioni
 	\item C2FN-1.1 Recupero automatico
 	\item C2FN-1.2 Recupero manuale
+	\item C2FN-1.5 File ignorati
 	\item C2FN-3.1 Invio delle informazioni
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
@@ -3236,88 +3264,21 @@ poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initial
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
    \item C2FN-1 Recupero delle informazioni
+   \item C2FN-1.5 File ignorati
 \end{itemize}
 
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Rappresentare le informazioni disponibili dei brani utilizzando XML.
+
 
 \subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
+
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Utilizzata da \co{DeviceScanner}.
+
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Riceve i tag dei file mp3 e genera una stringa XML che ne rappresenta le
-informazioni, da inviare a GWT.
-Si occupa anche di rimuovere eventuali simboli non validi derivanti dalla
-diverse codifiche utilizzate nei meta-dati, e di tradurre il genere (di solito
-rappresentato tramite un codice numerico) se necessario.
-\\
-\\
 
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
-- ROOT\_NAME: String \emph{static final default = ``Library''} & Nome del nodo
-principale nel documento XML.\\\hline
-- SONG\_NAME: String \emph{static final default = ``Song''} & Nome del nodo nel
-documento XML riguardante una singola canzone.\\\hline
-- ALBUMTITLE\_NAME: String \emph{static final default = ``AlbumTitle''} & Nome
-del nodo nel documento XML riguardante il titolo dell'album.\\\hline
-- AUTHORCOMPOSER\_NAME: String \emph{static final default = ``AuthorComposer''}
-& Nome del nodo nel documento XML riguardante il compositore.\\\hline
-- LEADARTIST\_NAME: String \emph{static final default = ``LeadArtist''} & Nome
-del nodo nel documento XML riguardante l'artista.\\\hline
-- SONGGENRE\_NAME: String \emph{static final default = ``SongGenre''} & Nome del
-nodo nel documento XML riguardante il genere musicale del brano.\\\hline
-- SONGTITLE\_NAME: String \emph{static final default = ``SongTitle''} & Nome del
-nodo nel documento XML riguardante il titolo del brano.\\\hline
-- TRACKNUMBER\_NAME: String \emph{static final default = ``TrackNumber''} & Nome
-del nodo nel documento XML riguardante il numero della traccia all'interno dell'album.\\\hline
-- YEAR\_NAME: String \emph{static final default = ``Year''} & Nome del nodo nel
-documento XML riguardante l'anno di uscita del brano.\\\hline
-- FILE\_NAME: String \emph{static final default = ``File''} & Nome del nodo nel
-documento XML riguardante il file MP3.\\\hline
-- documentBuilder: javax.xml.parsers.DocumentBuilder & Utilizzato per
-la creazione di un nuovo documento XML.\\\hline
-- document: org.w3c.dom.Document & Documento corrente sul quale si sta
-generando l'XML.\\\hline
-- root: org.w3c.dom.Element & Elemento (nodo) principale del documento,
-che contiene tutti gli altri.\\\hline
-\caption{Campi dati di TranslateXML}
-\end{longtable}
 
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
-- clean(in String): String & Pulisce una stringa dai caratteri non voluti,
-generati dalle diverse codifiche.\\\hline
-- getGenreCode(in String): String & Se la stringa contiene un codice numerico,
-ignora tutto il resto e restituisce il genere corrispondente, altrimenti
-restituisce la stessa stringa di ingresso.\\\hline
-+ newMP3List(): void & Crea un nuovo documento vuoto.\\\hline 
-+ addMP3(in AbstractMP3Tag, in String): void & Crea un nuovo
-nodo contenente le informazioni del brano (usando anche \co{getGenreCode} per
-tradurre l'eventuale codice), e se questo non viene scartato dal metodo
-\co{isValid}, lo inserisce all'interno del documento.\\\hline 
-+ toString(): String & Dal documento attuale, genera la stringa XML.\\\hline
-\caption{Metodi di TranslateXML}
-\end{longtable}
 
 \section{Tracciamento componenti dettaglio 1 - requisiti obbligatori}
 \begin{footnotesize}
@@ -3604,7 +3565,6 @@ in figa a bobo anche i commenti! \\
 C2QD-1.7 Ottimizzazione memoria cache\\
 C2FO-1.3 Informazioni senza connessione\\
 C1FD-1.10 Invio nuove informazioni a C2 \\
-C2FN-1.5 File ignorati\ldots da spostare su server. \\ 
 
 
 \appendix\chapter{Codice Sorgente}
