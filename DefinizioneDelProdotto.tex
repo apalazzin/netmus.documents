@@ -48,9 +48,9 @@ verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
-08/02/2011 & 0.7 & Daminato Simone & Inseriti capitolo su client.applet.\\
+08/02/2011 & 0.7 & Daminato Simone & Inserito capitolo su client.applet.\\
 \hline
-08/02/2011 & 0.6 & Mandolo Andrea & Inseriti capitolo su applet di estrazione.\\
+08/02/2011 & 0.6 & Mandolo Andrea & Inserito capitolo su applet di estrazione.\\
 \hline
 07/02/2011 & 0.5 & Mandolo Andrea & Inseriti scopo del documento, sommario e
 standard di progetto.\\
@@ -2981,7 +2981,6 @@ registrazione di un nuovo utente.
 	\item C2FN-1 Recupero delle informazioni
 	\item C2FN-1.1 Recupero automatico
 	\item C2FN-1.2 Recupero manuale
-	\item C2FN-1.5 File ignorati
 	\item C2FN-3.1 Invio delle informazioni
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
@@ -3212,21 +3211,88 @@ poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initial
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
    \item C2FN-1 Recupero delle informazioni
-   \item C2FN-1.5 File ignorati
 \end{itemize}
 
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-
+Rappresentare le informazioni disponibili dei brani utilizzando XML.
 
 \subsubsection*{Relazioni d'uso di altre componenti}
-
+Nessuna.
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-
+Utilizzata da \co{DeviceScanner}.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Riceve i tag dei file mp3 e genera una stringa XML che ne rappresenta le
+informazioni, da inviare a GWT.
+Si occupa anche di rimuovere eventuali simboli non validi derivanti dalla
+diverse codifiche utilizzate nei meta-dati, e di tradurre il genere (di solito
+rappresentato tramite un codice numerico) se necessario.
+\\
+\\
 
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- ROOT\_NAME: String \emph{static final} & Nome del nodo principale nel
+documento XML.\\\hline
+- SONG\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante una singola canzone.\\\hline
+- ALBUMTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il titolo dell'album.\\\hline
+- AUTHORCOMPOSER\_NAME: String \emph{static final} & Nome del nodo nel documento
+XML riguardante il compositore.\\\hline
+- LEADARTIST\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante l'artista.\\\hline
+- SONGGENRE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il genere musicale del brano.\\\hline
+- SONGTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il titolo del brano.\\\hline
+- TRACKNUMBER\_NAME: String \emph{static final} & Nome del nodo nel documento
+XML riguardante il numero della traccia all'interno dell'album.\\\hline
+- YEAR\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante l'anno di uscita del brano.\\\hline
+- FILE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il file MP3.\\\hline
+- documentBuilder: javax.xml.parsers.DocumentBuilder & Utilizzato per
+la creazione di un nuovo documento XML.\\\hline
+- document: org.w3c.dom.Document & Documento corrente sul quale si sta
+generando l'XML.\\\hline
+- root: org.w3c.dom.Element & Elemento (nodo) principale del documento,
+che contiene tutti gli altri.\\\hline
+\caption{Campi dati di TranslateXML}
+\end{longtable}
 
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- clean(in String): String & Pulisce una stringa dai caratteri non voluti,
+generati dalle diverse codifiche.\\\hline
+- getGenreCode(in String): String & Se la stringa contiene un codice numerico,
+ignora tutto il resto e restituisce il genere corrispondente, altrimenti
+restituisce la stessa stringa di ingresso.\\\hline
++ newMP3List(): void & Crea un nuovo documento vuoto.\\\hline 
++ addMP3(in AbstractMP3Tag, in String): void & Crea un nuovo
+nodo contenente le informazioni del brano (usando anche \co{getGenreCode} per
+tradurre l'eventuale codice), e se questo non viene scartato dal metodo
+\co{isValid}, lo inserisce all'interno del documento.\\\hline 
++ toString(): String & Dal documento attuale, genera la stringa XML.\\\hline
+\caption{Metodi di TranslateXML}
+\end{longtable}
 
 \section{Tracciamento componenti dettaglio 1 - requisiti obbligatori}
 \begin{footnotesize}
@@ -3513,6 +3579,7 @@ in figa a bobo anche i commenti! \\
 C2QD-1.7 Ottimizzazione memoria cache\\
 C2FO-1.3 Informazioni senza connessione\\
 C1FD-1.10 Invio nuove informazioni a C2 \\
+C2FN-1.5 File ignorati\ldots da spostare su server. \\ 
 
 
 \appendix\chapter{Codice Sorgente}
