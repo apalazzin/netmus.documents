@@ -630,8 +630,8 @@ La verifica del codice adotter\`a 2 modelli:
   un sistema di test a scatola chiusa, ossia partendo dalla conoscenza della struttura interna del 
 prodotto, verranno controllati ed accertati che gli output di ogni unit\`a siano  conformi 
 a quelli attesi, testandoli in qualunque condizione possibile si possa trovare la singola 
-unit\`a. Questi test fanno riferimento alla specifica dell'unit\`a e utilizza dati in input 
-capaci di provocare in output i dati attesi;
+unit\`a. Questi test fanno riferimento alla specifica dell'unit\`a e utilizza
+dati in input capaci di provocare in output i dati attesi;
   \item verifica strutturale (White Box): questo modello parte dalla conoscenza 
   delle specifiche del progetto, e come in un sistema a scatola trasparente si analizzano i 
 comportamenti specifici dell'unit\`a e dei rispettivi metodi per verificarne la logica 
@@ -877,211 +877,186 @@ all'interno di questo paragrafo.
 
 \begin{itemize}
 \item TU-Cclap3:  TranslateDTOXML\\
-metodo: XMLToDTO\\
-Obbiettivo del Test: questo metodo riceve in input una stringa XML che
+\textbf{metodo}: XMLToDTO\\
+\textbf{Obbiettivo del Test}: questo metodo riceve in input una stringa XML che
 contiene le informazioni di ogni brano estratto da un dispositivo ne estrae i
 dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO\\ 
-Dati in input: verrà creata una stringa xml con una notevole quantità di brani
-e rispettive informazioni. \\
-Output Attesi: Il metodo dovrà ritornare una lista di DTO di tutti i brani\\
-rilevati senza saltarne alcuno e con tutte le infomazioni memorizzate nel
+\textbf{Dati in input}: verrà creata una stringa xml con una notevole quantità
+di brani e rispettive informazioni. \\
+\textbf{Output Attesi}: Il metodo dovrà ritornare una lista di DTO di tutti i
+brani\\ rilevati senza saltarne alcuno e con tutte le infomazioni memorizzate nel
 rispettivo campo.
-Output Ottenuti: \\
-Maulfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
 \item TU-Cclac2:  ProfileActivity\\
-metodo: setPlaylistList/getPlaylistList\\
-Obbiettivo del Test: Verificare che avvenga con successo l'estrazione dal DB
+\textbf{metodo}: setPlaylistList/getPlaylistList\\
+\textbf{Obbiettivo del Test}: Verificare che avvenga con successo l'estrazione dal DB
 delle playlist e che vengano correttamente inserite nella view anche con una
 notevole quantità di brani.\\
-Dati in input: viene creato una lista fittizia di playlist.\\
-Output attesi:  lista di String di playlist effettivamente memorizzate nel DB
+\textbf{Dati in input}: viene creato una lista fittizia di playlist.\\
+\textbf{Output Attesi}:  lista di String di playlist effettivamente memorizzate nel DB
 dell'utente. \\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-metodo: setFirendList/getFriendList\\
-Obbiettivo del test: verificare la lettura dal DB della lista di amici di un
+\textbf{metodo}: setFirendList/getFriendList\\
+\textbf{Obbiettivo del Test}: verificare la lettura dal DB della lista di amici di un
 utente, e verificare la corretta importazione e visualizzazione sulla view\\ 
-Dati in input: lista fittizia in nomi degli amici dell'utente\\
-Output attesi: la lista di Stringhe degli amici per quando riguarda il getter\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Dati in input}: lista fittizia in nomi degli amici dell'utente\\
+\textbf{Output Attesi}: la lista di Stringhe degli amici per quando riguarda il getter\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-metodo: setSongInfo/getSongInfo\\
-Obbiettivo del test: verificare la corretta estrazione delle info di un brano
+\textbf{metodo}: setSongInfo/getSongInfo\\
+\textbf{Obbiettivo del Test}: verificare la corretta estrazione delle info di un brano
 dal DB e la visualizzazione sulla view\\ 
-Dati in input: un SongDTO con I dati estratti dal DB\\
-Output attesi: Stringa con le info di un brano\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Dati in input}: un SongDTO con I dati estratti dal DB\\
+\textbf{Output Attesi}: Stringa con le info di un brano\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-metodo: setPlaylistSongs/getPlaylistSongs\\
-Obbiettivo del test: verificare la corretta estrazione e visualizzazione dei
-dati dal DB alla view dei brani di una playlist\\ 
-Dati in input: una stringa contentente il titolo di una playlist\\
-Output attesi: una lista di stringhe contententi le informazioni corrette
-riguardanti I brani della corretta playlist per il getter, una corretta
-visualizzazione per il setter\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{metodo}: rateSelectedSong\\
+\textbf{Obbiettivo del Test}: verificare la registrazione di un voto per il
+brano corretto e la sua visualizzazione sulla view\\
+\textbf{Dati in input}: stringhe contententi artista, titolo e album del
+brano, intero con il rating dato al brano\\
+\textbf{Output Attesi}: tipo di ritorno vuoto, corretta visualizzazione sulla
+view e registrazione sul DB\\ 
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-metodo: playYouTube/getYouTubeLink\\
-Obbiettivo del test: verificare che il programma sia in grado di ottenere e
+\textbf{metodo}: playYouTube\\
+\textbf{Obbiettivo del Test}: verificare che il programma sia in grado di ottenere e
 successivamente di impostare e visualizzare una canzone in streaming tramite
 player di youtube\\
-Dati in input: Stringhe con autore, titolo e album del brano che si vuole
+\textbf{Dati in input}: Stringhe con autore, titolo e album del brano che si vuole
 ascoltare\\ 
-Output attesi: la ricerca deve ottenere il brano corretto da youtube in base
+\textbf{Output Attesi}: la ricerca deve ottenere il brano corretto da youtube in base
 alla canzone selezionata e deve aggiornare la view con la visualizzazione di
 tale canzone in ascolto \\
-Output Ottenuti: \\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-metodo: setSongs/getSongs\\
-Obbiettivo del test: verificare la corretta estrazione e visualizzazione del
+\textbf{metodo}: setSongs/getSongs\\
+\textbf{Obbiettivo del Test}: verificare la corretta estrazione e visualizzazione del
 catalogo brani, qualora un utente sia loggato\\ 
-Dati in input: un MusicLibrarySummaryDTO per quanto riguarda il getter\\
-Output attesi: Una lista di stringhe contenenti autore,titolo ed album\\
+\textbf{Dati in input}: un MusicLibrarySummaryDTO per quanto riguarda il getter\\
+\textbf{Output Attesi}: Una lista di stringhe contenenti autore,titolo ed album\\
 corretti di ogni canzone della libreria dell'utente, e la corretta
 visualizzazione di tali informazioni sulla view\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-metodo: addToPlayList\\
-Obbiettivo del test: si vuole verificare che venga inserito correttamente un
-nuovo brano ad una playlist nella view.\\ 
-Dati in input: Stringhe di informazioni del brano da inserire\\
-Output attesi: Una view ben formattata con all'interno della view una playlist
-col brano giusto inserito \\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
 
-metodo: removeFromPlaylist\\
-Obbiettivo del test: verificare la rimozione di un brano da una playlist\\
-Dati in input: stringhe di informazioni del brano da inserire\\
-Output attesi: Una view ben formattata con la rimozione del brano effettuata\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{metodo}: removeFromPlaylist\\
+\textbf{Obbiettivo del Test}: verificare la rimozione di un brano da una playlist\\
+\textbf{Dati in input}: stringhe di informazioni del brano da inserire\\
+\textbf{Output Attesi}: Una view ben formattata con la rimozione del brano effettuata\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-metodo: addPlaylist\\
-Obbiettivo del test: verificare che una volta che l'inserimento nel DB della
-playlist ha successo, venga correttamente inserita e visualizzata nella view\\ 
-Dati in input:titolo della playlist\\
-Output attesi: corretta visualizzazione della playlist\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
-
-metodo: removePlaylist\\
-Obbiettivo del test:\\
-Dati in input:\\
-Output attesi:\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
 
 \item TU-Cse5:  UserServiceImpl\\
-metodo:\\
-Obbiettivo del test:\\ 
-Dati in input:\\
-Output attesi:\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{metodo}:\\
+\textbf{Obbiettivo del Test}:\\ 
+\textbf{Dati in input}:\\
+\textbf{Output Attesi}:\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
 \item TU-Cse3: SongServiceImpl\\
-metodo:\\
-Obbiettivo del test:\\
-Dati in input:\\
-Output attesi:\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{metodo}: rateSong\\
+\textbf{Obbiettivo del Test}: verificare che la valutazione di un brano venga registrata nel DB per la canzone corretta\\
+\textbf{Dati in input}:Stringa con nome dell'utente, un oggetto SongSummaryDTO per le
+informazioni sulla canzone, un intero che rappresenta il voto \\ 
+\textbf{Output Attesi}: un double che rappresenta il rating aggiornato col nuovo voto\\ 
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
 \item TU-Cse6: LibraryServiceImpl\\
-metodo:  loadLibrary\\
-Obbiettivo del test: verificare l'estrazione della libreria dei brani
+\textbf{metodo}:  loadLibrary\\
+\textbf{Obbiettivo del Test}: verificare l'estrazione della libreria dei brani
 dell'utente dal DB \\
-Dati in input: Username e password dell'utente\\
-Output attesi: Un MusicLibraryDTO che contiene le informazione esatte della
+\textbf{Dati in input}: Username e password dell'utente\\
+\textbf{Output Attesi}: Un MusicLibraryDTO che contiene le informazione esatte della
 libreria musicale dell'utente \\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-metodo: addSong\\
-Obbiettivo del test: verificare la registrazione di un nuovo brano nella
+\textbf{metodo}: addSong\\
+\textbf{Obbiettivo del Test}: verificare la registrazione di un nuovo brano nella
 libreria dell'utente all'interno del database\\ 
-Dati in input: un SongDTO con le informazione complete o incomplete
+\textbf{Dati in input}: un SongDTO con le informazione complete o incomplete
 riguardanti il brano \\
-Output attesi: memorizzazione sul database del brano corretto\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Output Attesi}: memorizzazione sul database del brano corretto\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-
-metodo: sendUserNewMusic\\
-Obbiettivo del test: Verificare l'invio e la memorizzazione di una lista di
+\textbf{metodo}: sendUserNewMusic\\
+\textbf{Obbiettivo del Test}: Verificare l'invio e la memorizzazione di una lista di
 brani nuovi rilevati dal dispositivo dell'utente\\ 
-Dati in input: Stringa nome utente e lista di SongDTO\\
-Output attesi: corretta memorizzazione all'interno del db dell'utente di tutti
+\textbf{Dati in input}: Stringa nome utente e lista di SongDTO\\
+\textbf{Output Attesi}: corretta memorizzazione all'interno del db dell'utente di tutti
 i nuovi brani rilevati\\ 
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
 
-metodo: getLibrary\\
-Obbiettivo del test: verificare la corretta creazioe del DTO che contiene le
+\textbf{metodo}: getLibrary\\
+\textbf{Obbiettivo del Test}: verificare la corretta creazioe del DTO che contiene le
 informazioni riguardanti la libreria musicale dell'utente\\ 
-Dati in input: Stringa contenente il nome dell'utente\\
-Output attesi: un MusicLibrarySummaryDTO contenente le informazioni corrette
+\textbf{Dati in input}: Stringa contenente il nome dell'utente\\
+\textbf{Output Attesi}: un MusicLibrarySummaryDTO contenente le informazioni corrette
 riguardanti l'utente indicato\\ 
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
 \item TU-Csepe5: UserAccount\\
-metodo: findSessionUser
-Obbiettivo del test: verificare che il funzionamento delle sezioni attraverso il
+\textbf{metodo}: findSessionUser\\
+\textbf{Obbiettivo del Test}: verificare che il funzionamento delle sezioni attraverso il
 ritorno dell'user account corretto a partire dall'ID della sessione\\
-Dati in input: Stringa con ID di sessione\\
-Output attesi: un oggetto di tipo userAccount dell'utente esatto\\
-Output Ottenuti:\\
-Malfunzionamento Rilevati:\\
-Costi e Rischi:\\
+\textbf{Dati in input}: Stringa con ID di sessione\\
+\textbf{Output Attesi}: un oggetto di tipo userAccount dell'utente esatto\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
-metodo: deleteUser\\
-Obbiettivo del test: verificare l'effettiva e corretta cancellazione di un
+\textbf{metodo}: deleteUser\\
+\textbf{Obbiettivo del Test}: verificare l'effettiva e corretta cancellazione di un
 account dal DB e quindi dal sistema NetMus\\
-Dati in input: Stringa col nome dell'utente\\
-Output attesi: tipo di ritorno void, ma ciò che si aspetta è che l'account
+\textbf{Dati in input}: Stringa col nome dell'utente\\
+\textbf{Output Attesi}: tipo di ritorno void, ma ciò che si aspetta è che l'account
 dell'utente corretto venga eliminato dal DB\\
-Output ottenuti:\\
-Malfunzionamenti Rilevati:\\
-Costi e Rischi:\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
 \item TU-Csepe2: MusicLibrary\\
-metodo: removeSong\\
-Obbiettivo del test: verificare la corretta rimozione del riferimento ad una
+\textbf{metodo}: removeSong\\
+\textbf{Obbiettivo del Test}: verificare la corretta rimozione del riferimento ad una
 canzone dalla libreria nel DB di un utente\\
-Dati in input: un oggetto Song che rappresenta la canzone da rimuovere e un
+\textbf{Dati in input}: un oggetto Song che rappresenta la canzone da rimuovere e un
 booleano update\\
-Output attesi: un booleano con true o false a seconda se la rimozione ha avuto
+\textbf{Output Attesi}: un booleano con true o false a seconda se la rimozione ha avuto
 successo oppure no\\
-Output ottenuti: \\
-Malfunzionamenti rilevati:\\
-Costi e Rischi:\\
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\
+\textbf{Costi e Rischi}:\\
 
 \end{itemize}
 % INIZIO CAPITOLO 3
