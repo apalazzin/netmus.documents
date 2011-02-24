@@ -873,6 +873,178 @@ determinare affidabilit\`a, efficienza, portabilit\`a e manutenibilit\`a del cod
 I verificatori potranno trovare i metodi di verifica per la fase di codifica
 all'interno di questo paragrafo.
 
+\subparagraph{Test di Unit\`a previsti}
+
+\begin{itemize}
+\item TU-Cclap3:  TranslateDTOXML
+\\metodo: XMLToDTO
+\\Obbiettivo del Test: questo metodo riceve in input una stringa XML che
+contiene le informazioni di ogni brano estratto da un dispositivo ne estrae i dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO 
+\\Dati in input: verrà creata una stringa xml con una notevole quantità di brani
+e rispettive informazioni. \\Output Attesi: Il metodo dovrà ritornare una lista di DTO di tutti i brani
+rilevati senza saltarne alcuno e con tutte le infomazioni memorizzate nel
+rispettivo campo.
+\\Output Ottenuti: 
+\\Maulfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\item TU-Cclac2:  ProfileActivity
+\\metodo: setPlaylistList/getPlaylistList
+\\Obbiettivo del Test: Verificare che avvenga con successo l'estrazione dal DB
+delle playlist e che vengano correttamente inserite nella view anche con una notevole quantità di brani.
+\\Dati in input: viene creato una lista fittizia di playlist.
+\\Output attesi:  lista di String di playlist effettivamente memorizzate nel DB
+dell'utente. 
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: setFirendList/getFriendList
+\\Obbiettivo del test: verificare la lettura dal DB della lista di amici di un
+utente, e verificare la corretta importazione e visualizzazione sulla view 
+\\Dati in input: lista fittizia in nomi degli amici dell'utente
+\\Output attesi: la lista di Stringhe degli amici per quando riguarda il getter
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: setSongInfo/getSongInfo
+\\Obbiettivo del test: verificare la corretta estrazione delle info di un brano
+dal DB e la visualizzazione sulla view 
+\\Dati in input: un SongDTO con I dati estratti dal DB
+\\Output attesi: Stringa con le info di un brano
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: setPlaylistSongs/getPlaylistSongs
+\\Obbiettivo del test: verificare la corretta estrazione e visualizzazione dei
+dati dal DB alla view dei brani di una playlist 
+\\Dati in input: una stringa contentente il titolo di una playlist
+\\Output attesi: una lista di stringhe contententi le informazioni corrette
+riguardanti I brani della corretta playlist per il getter, una corretta visualizzazione per il setter 
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: playYouTube/getYouTubeLink
+\\Obbiettivo del test: verificare che il programma sia in grado di ottenere e
+successivamente di impostare e visualizzare una canzone in streaming tramite player di youtube 
+\\Dati in input: Stringhe con autore, titolo e album del brano che si vuole
+ascoltare 
+\\Output attesi: la ricerca deve ottenere il brano corretto da youtube in base
+alla canzone selezionata e deve aggiornare la view con la visualizzazione di
+tale canzone in ascolto 
+\\Output Ottenuti: 
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: setSongs/getSongs
+\\Obbiettivo del test: verificare la corretta estrazione e visualizzazione del
+catalogo brani, qualora un utente sia loggato 
+\\Dati in input: un MusicLibrarySummaryDTO per quanto riguarda il getter
+\\Output attesi: Una lista di stringhe contenenti autore,titolo ed album
+corretti di ogni canzone della libreria dell'utente, e la corretta visualizzazione di tali informazioni sulla view 
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: addToPlayList
+\\Obbiettivo del test: si vuole verificare che venga inserito correttamente un
+nuovo brano ad una playlist nella view. 
+\\Dati in input: Stringhe di informazioni del brano da inserire
+\\Output attesi: Una view ben formattata con all'interno della view una playlist
+col brano giusto inserito 
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: removeFromPlaylist
+\\Obbiettivo del test: verificare la rimozione di un brano da una playlist
+\\Dati in input: stringhe di informazioni del brano da inserire
+\\Output attesi: Una view ben formattata con la rimozione del brano effettuata
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: addPlaylist
+\\Obbiettivo del test: verificare che una volta che l'inserimento nel DB della
+playlist ha successo, venga correttamente inserita e visualizzata nella view 
+\\Dati in input:titolo della playlist
+\\Output attesi: corretta visualizzazione della playlist
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: removePlaylist
+\\Obbiettivo del test:
+\\Dati in input:
+\\Output attesi:
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\item TU-Cse5:  UserServiceImpl
+\\metodo:
+\\Obbiettivo del test: 
+\\Dati in input:
+\\Output attesi:
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\item TU-Cse3: SongServiceImpl
+\\metodo:
+\\Obbiettivo del test:
+\\Dati in input:
+\\Output attesi:
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\item TU-Cse6: LibraryServiceImpl
+\\metodo:  loadLibrary
+\\Obbiettivo del test: verificare l'estrazione della libreria dei brani
+dell'utente dal DB 
+\\Dati in input: Username e password dell'utente
+\\Output attesi: Un MusicLibraryDTO che contiene le informazione esatte della
+libreria musicale dell'utente 
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+\\metodo: addSong
+\\Obbiettivo del test: verificare la registrazione di un nuovo brano nella
+libreria dell'utente all'interno del database 
+\\Dati in input: un SongDTO con le informazione complete o incomplete
+riguardanti il brano 
+\\Output attesi: memorizzazione sul database del brano corretto
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+
+\\metodo: sendUserNewMusic
+\\Obbiettivo del test: Verificare l'invio e la memorizzazione di una lista di
+brani nuovi rilevati dal dispositivo dell'utente 
+\\Dati in input: Stringa nome utente e lista di SongDTO
+\\Output attesi: corretta memorizzazione all'interno del db dell'utente di tutti
+i nuovi brani rilevati 
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+
+
+\\metodo: getLibrary
+\\Obbiettivo del test: verificare la corretta creazioe del DTO che contiene le
+informazioni riguardanti la libreria musicale dell'utente 
+\\Dati in input: Stringa contenente il nome dell'utente
+\\Output attesi: un MusicLibrarySummaryDTO contenente le informazioni corrette
+riguardanti l'utente indicato 
+\\Output Ottenuti:
+\\Malfunzionamento Rilevati:
+\\Costi e Rischi:
+\end{itemize}
 % INIZIO CAPITOLO 3
 
 \chapter{Gestione amministrativa della \\revisione}
