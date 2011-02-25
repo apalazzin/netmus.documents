@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Specifica Tecnica}
-\newcommand{\versione}{1.1}
+\newcommand{\versione}{1.2}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\versioneAR}{2.0}
@@ -45,7 +45,13 @@ componenti sui requisiti, descritti in dettaglio nel documento
 \hline
 \endfoot 
 
-01/02/2011 & 1.1 & Caputo Cosimo & Apportate modifiche in base alla
+
+25/02/2011 & 1.2 & Caputo Cosimo & Apportate modifiche in base alla
+verifica preliminare.\\
+\hline
+19/02/2011 & 1.1 & Alberto Palazzin & Verifica preliminare del documento.\\
+\hline
+17/02/2011 & 1.1 & Caputo Cosimo & Apportate modifiche in base alla
 correzione e alla progettazione di dettaglio.\\
 \hline
 01/02/2011 & 1.0 & Daminato Simone & Validazione per consegna RP.\\
@@ -362,6 +368,15 @@ La struttura sar\`a quindi formata dai seguenti packages:
 
 \newpage
 \subsubsection{Decomposizione architetturale - lato client}
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16.5cm]{img/ST/client.png}
+\caption{Diagramma delle classi del package client}
+\end{figure}
+
+
 Nel package \emph{client} troviamo la classe \co{Netmus} che rappresenta
 l'entry point, occupandosi di generare tutte le componenti e di renderle
 visibili. Nel sottopackage \emph{mvp} sono contenute le classi
@@ -374,14 +389,16 @@ view, place e activity, garantiscono all'utente tutte le funzionalit\`a
 attese.\\ Le interfacce Service invece rappresentano il punto di collegamento
 con il model la cui implementazione \`e sviluppata lato server. Queste
 interfacce, infatti, vengono accedute dalle Activities poich\'e forniscono tutti
-i metodi riguardanti la business logic. \\\\ L'intero schema delle classi
-individuate durante la progettazione \`e il seguente: \begin{figure}[h]
-  \centering
-  \includegraphics[width=16.5cm]{img/ST/client.png}
-\caption{Diagramma delle classi del package client}
-\end{figure}
-\newpage
+i metodi riguardanti la business logic.\\\\
+
 \subsubsection{Decomposizione architetturale - lato server}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=16.5cm]{img/ST/Server_Shared.png}
+\caption{Diagramma delle classi dei packages server e shared}
+\end{figure}
+
 Nella parte server si trovano le implementazioni dei Service e i package
 \emph{servlet}, \emph{persistent} e \emph{utils}. I Service hanno la
 possibilit\`a di accedere alle informazioni contenute nel database grazie alle
@@ -396,14 +413,7 @@ DAO e rimuovendone la parte logica, nel rispetto del design pattern DTO. Lato
 server compaiono inoltre le classi \co{PMF}, che si occupa di creare l'istanza
 della classe \co{PersistanceManagerFactory} per la gestione della persistenza e
 la comunicazione con il DataStore, e \co{loginHelper}, per le gestione delle
-sessioni http.\\\\ L'intero schema delle classi individuate durante la
-progettazione \`e il seguente:
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=16.5cm]{img/ST/Server_Shared.png}
-\caption{Diagramma delle classi dei packages server e shared}
-\end{figure}
+sessioni http.
 
 \subsubsection{Decomposizione architetturale - diagrammi delle attivit\`a}
 Nella realizzazione di un'\underline{applicazione web}, l'efficienza e la
@@ -414,13 +424,15 @@ Di seguito viene illustrato un diagramma UML delle attivit\`a che descrive il
 procedimento di visualizzazione della pagina di profilo utente a partire
 dall'accesso all'applicazione, procedimento che si ripete in modo del tutto
 analogo per la visualizzazione delle altre UI previste in NetMus.
+
 \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/profile.png}
 \caption{Diagramma delle attivit\`a che descrive il procedimento di
 visualizzazione della pagina di profilo utente}
 \end{figure}
-\\\\\\Come possiamo vedere all'avvio dell'applicazione \`e sempre necessario
+
+Come possiamo vedere all'avvio dell'applicazione \`e sempre necessario
 effettuare il login e per visualizzare la pagina di profilo utente bisogna accedervi
 richiedendo l'URL corrispondente (rappresentato dalla classe \co{ProfilePlace}),
 vi sar\`a anche un reindirizzamento automatico alla fine della procedura di
@@ -442,7 +454,7 @@ Una volta richiesta la pagina avverranno in sequenza le seguenti attivit\`a:
 
 La sotto-attivit\`a di login sopra citata viene dettagliata dal prossimo diagramma
 delle attivit\`a.
-\begin{figure}[!h]
+\begin{figure}[h]
   \centering
   \includegraphics[width=15cm]{img/ST/login.png}
 \caption{Diagramma delle attivit\`a che descrive in dettaglio la
@@ -467,8 +479,9 @@ procedimento di login \`e la seguente:
 \vspace{1cm}
 Con il seguente diagramma di sequenza possiamo vedere in dettaglio come le
 classi che fanno parte dell'architettura di NetMus si relazionano fra di loro
-durante l'attivit\`a di login:
-
+durante l'attivit\`a di login, focalizzando sulla classe \co{LoginActivity}, che
+svolge le centrali funzioni di richiedere e ricevere informazioni e servizi dal
+server, e di creare e comunicare con i \co{ProfilePlace} :
 \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/seq-login.png}
@@ -1855,8 +1868,9 @@ C2QD-4.3 Supporto multi-lingua & Cclap0\\ \hline
 \end{footnotesize}
 
 \subsection{Requisiti non tracciati}
-I seguenti requisiti non sono risultati tracciabili, in quanto appartengono ad
-una delle seguenti categorie:
+I seguenti requisiti sono risultati non tracciabili, in quanto non legati ad
+una specifica componente strutturale, e appartengono alle seguenti
+categorie:
 \begin{itemize}
   \item vincoli;
   \item requisiti di qualit\`a generici;
