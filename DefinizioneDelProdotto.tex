@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.14}
+\newcommand{\versione}{0.15}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -48,10 +48,13 @@ verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
-23/02/2011 & 0.14 & Caputo Cosimo & Agginti diagrammi delle classi per il
+23/02/2011 & 0.15 & Caputo Cosimo & Agginti diagrammi delle classi per il
 package server e i relativi sotto-package.\\
 \hline
-18/02/2011 & 0.13 & Baron Federico & Aggiornamento finale del capitolo 3 in
+19/02/2011 & 0.14 & Baron Federico & Assegnazione nuovi codici per le componenti
+dell'applet in capitolo 2.\\
+\hline
+18/02/2011 & 0.13 & Baron Federico & Aggiornamento finale del capitolo 2 in
 seguito a fine progettazione di dettaglio.\\
 \hline
 18/02/2011 & 0.12 & Baron Federico & Aggiunta la definizione delle componenti
@@ -195,8 +198,17 @@ importanti decisioni architetturali con una breve descrizione.
 In relazione alle modifiche apportate all'architettura del sistema ed al
 maggiore dettaglio della progettazione sono state individuate delle aggiunte e
 delle rimozioni alle componenti indviduate in Specifica tecnica. In seguito sono
-elencate le componenti in questione con l'assegnamento dei nuovi codici
-identificativi.
+elencate le componenti con l'assegnamento dei nuovi codici
+identificativi.\\
+Le modfiche apportate sono dovute principalmente al maggior dettaglio
+dell'attivit\`a di progettazione, per quanto riguarda i package
+\emph{client.applet} e \emph{server.persistent} invece si \`e reso necessario
+l'adattamento alle nuove scelte archietturali introdotte nel paragrafo
+precedente. Infine la struttura dell'applet di estrazione dei brani \`e definita
+in qeusto documento per la prima volta.\\
+Per ulteriori chiarimenti sulle scelte progettuali operate si rimanda
+alla descrizione specifica delle componenti presentata nel
+capitolo 3.
 \begin{footnotesize}
 \begin{longtable}[h]{|l|l|l|}
 \hline
@@ -222,8 +234,8 @@ identificativi.
 & client.activity  &  Cclac0 \\\hline 
 & client.activity.LoginActivity  &  Cclac1 \\\hline 
 & client.activity.ProfileActivity  &  Cclac2 \\\hline 
-\bo{--} & client.activity.EditUserActivity  &  Cclac3 \\\hline
-\bo{--} & client.activity.EditSongsActivity  &  Cclac4 \\\hline 
+\bo{--} & client.activity.EditUserActivity  &  ex Cclac3 \\\hline
+\bo{--} & client.activity.EditSongsActivity  &  ex Cclac4 \\\hline 
 & client.service  &  Cclse0 \\\hline 
 & client.service.LoginService  &  Cclse1 \\\hline 
 & client.service.UsersService  &  Cclse2 \\\hline 
@@ -232,25 +244,25 @@ identificativi.
 & client.place  &  Cclpl0 \\\hline 
 & client.place.LoginPlace  &  Cclpl1 \\\hline 
 & client.place.ProfilePlace  &  Cclpl2 \\\hline 
-\bo{--} & client.place.EditUserPlace  &  Cclpl3 \\\hline 
-\bo{--} & client.place.EditSongsPlace  &  Cclpl4 \\\hline 
+\bo{--} & client.place.EditUserPlace  &  ex Cclpl3 \\\hline 
+\bo{--} & client.place.EditSongsPlace  &  ex Cclpl4 \\\hline 
 & client.ui  &  Cclui0 \\\hline 
 & client.ui.LoginView  &  Cclui1 \\\hline 
 & client.ui.ProfileView  &  Cclui2 \\\hline 
-\bo{--} & client.ui.EditUserView  &  Cclui3 \\\hline 
-\bo{--} & client.ui.EditSongsView  &  Cclui4 \\\hline 
+\bo{--} & client.ui.EditUserView  &  ex Cclui3 \\\hline 
+\bo{--} & client.ui.EditSongsView  &  ex Cclui4 \\\hline 
 \bo{+} & client.ui.MyConstants  &  Cclui5 \\\hline  
 & client.applet  &  Cclap0  \\\hline 
 \bo{+} & AppletBar (??) &  \\\hline 
 \bo{+} & AppletConstants  &  Cclap1 \\\hline 
 \bo{+} & TranslateDTOXML  &  Cclap2  \\\hline 
 & shared  &  Csh0 \\\hline 
-\bo{--} & shared.GenericDTO  &  Csh1 \\\hline 
+\bo{--} & shared.GenericDTO  &  ex Csh1 \\\hline 
 & shared.SongSummaryDTO  &  Csh2 \\\hline 
 & shared.SongDTO  &  Csh3 \\\hline 
 & shared.LoginDTO  &  Csh4 \\\hline 
 & shared.MusicLibraryDTO  &  Csh5 \\\hline 
-\bo{--} & shared.UserSummaryDTO  &  Csh6 \\\hline 
+\bo{--} & shared.UserSummaryDTO  &  ex Csh6 \\\hline 
 & shared.UserDTO  &  Csh7 \\\hline 
 & shared.UserCompleteDTO  &  Csh8 \\\hline 
 \bo{+} & shared.MusicLibrarySummaryDTO  &  Csh9 \\\hline 
@@ -258,19 +270,19 @@ identificativi.
 & shared.exception  &  Cshex0 \\\hline 
 & shared.exception.NetMusException  &  Cshex1 \\\hline 
 & shared.exception.LoginException  &  Cshex2 \\\hline 
-\bo{--} & shared.exception.WrongLoginException  &  Cshex3 \\\hline 
+\bo{--} & shared.exception.WrongLoginException  &  ex Cshex3 \\\hline 
 & shared.exception.RegistrationException  &  Cshex4 \\\hline 
-\bo{--} & shared.exception.NickNotFreeException  &  Cshex5 \\\hline 
-\bo{--} & shared.exception.DuplicateEmailException  &  Cshex6 \\\hline 
+\bo{--} & shared.exception.NickNotFreeException  &  ex Cshex5 \\\hline 
+\bo{--} & shared.exception.DuplicateEmailException  &  ex Cshex6 \\\hline 
 & server  &  Cse0 \\\hline 
-\bo{--} & server.PMF  &  Cse1 \\\hline 
+\bo{--} & server.PMF  &  ex Cse1 \\\hline 
 & server.LoginHelper  &  Cse2 \\\hline 
 & server.SongsServiceImpl  &  Cse3 \\\hline 
 & server.LoginServiceImpl  &  Cse4 \\\hline 
 & server.UserServiceImpl  &  Cse5 \\\hline 
 & server.LibraryServiceImpl  &  Cse6 \\\hline 
 & server.utils  &  Cseut0 \\\hline 
-\bo{--} & server.utils.AuthenticationProvider  &  Cseut1 \\\hline 
+\bo{--} & server.utils.AuthenticationProvider  &  ex Cseut1 \\\hline 
 & server.utils.Utils  &  Cseut2 \\\hline 
 & server.utils.ServletUtils  &  Cseut3 \\\hline  
 \bo{+} & server.utils.AppEngineCache  &  Cseut4 \\\hline
@@ -283,12 +295,17 @@ identificativi.
 & server.servlet.LoginSuperServlet  &  Csese1 \\\hline 
 & server.servlet.LoginGoogleServlet  &  Csese2 \\\hline 
 & server.servlet.LoginGoogleCallbackServlet  &  Csese3 \\\hline 
-\bo{--} & server.servlet.YouTubeServlet  &  Csese4 \\\hline 
+\bo{--} & server.servlet.YouTubeServlet  &  ex Csese4 \\\hline 
 & server.persistent  &  Csepe0 \\\hline 
 & server.persistent.UserAccount  &  Csepe1 \\\hline 
 & server.persistent.MusicLibrary  &  Csepe2 \\\hline 
 & server.persistent.Song  &  Csepe3 \\\hline 
 \bo{+} & server.persistent.ODF  &  Csepe4 \\\hline 
+&&\\\hline
+\bo{+} & applet  &  C2ap0 \\\hline
+\bo{+} & applet.DeviceScanner  &  C2ap1 \\\hline
+\bo{+} & applet.NetmusApplet  &  C2ap2 \\\hline
+\bo{+} & applet.TranslateXML  &  C2ap3 \\\hline
 \caption{Componenti e relativi codici.}
 \centering
 \end{longtable}
