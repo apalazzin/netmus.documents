@@ -416,9 +416,7 @@ codice);
   
 \item Numero di moduli in uno schema di progettazione;
 \item livello di coesione tra i moduli;
-\item livello di accoppiamento (copuling) tra moduli;
-\item complessit\`a di flusso (quantit\`a di informazioni in entrata ed uscita da
-una funzione in ragione della lunghezza in LOC).
+\item livello di accoppiamento (copuling) tra moduli.
 
 \end{itemize}
 
@@ -848,21 +846,25 @@ Tecniche: IN.
 
 
 \subsection{Progettazione nel Dettaglio}
-
 Nel caso in cui per motivi implementativi ci siano dei
 cambiamenti, aggiunta o modifica o eliminazione di qualche modulo, rispetto ai
 moduli software preventivati nella \emph{SpecificaTecnica-\versioneST.pdf}, si
 dovr\`a rifare tutta la verifica specificata nel paragrafo 2.6.3 di questo
-documento, oltre a quella descritta di seguito. \\ \\
-Per la verifica
-della progettazione nel dettaglio si cercher\`a di elaborare metodi di misura mirati a rilevare i difetti all'interno dello sviluppo delle singole componenti cercando di rilevarne le propriet\`a di coesione e di
-accoppiamento. Si analizzeranno inoltre tutte quelle metriche gi\`a introdotte o
-da introdurre, comprese quelle per i linguaggi ad oggetti, al fine di
-ottimizzare la progettazione nel dettaglio per una efficace successiva fase di
-codifica.
-\\\\
-I verificatori potranno trovare i metodi di verifica della
-progettazione nel dettaglio all'interno di questo paragrafo.
+documento, oltre a quella descritta di seguito. 
+\subsubsection{Complessit\`a e riuso}
+Calcolare il numero di collaborazioni di ogni classe, ovvero con quante classi
+\`e accoppiata. L'accoppiamento pu\`o avvenire a seguito di una lettura/modifica
+di attributi, di una chiamata di metodi, di una instanziazione di oggetti. \\ \\
+Inoltre calcolare la coesione di ogni metodo, propriet\`a di un metodo di
+accedere in maniera esclusiva ad attributi della classe. Se ogni attributo è acceduto da
+un solo metodo allora c'\`e massima coesione dei metodi, se i metodi vanno ad
+operare sugli stessi attributi allora c'\`e bassa coesione ed \`e difficile
+controllare tutte le interazioni tra i metodi dovuti all'uso degli attributi comuni.
+\\ \\
+Esito atteso: ci si aspetta di trovare un basso accoppiamento tra le classi per
+migliorare la modularit\`a e semplificare il riuso, e un alto livello di
+coesione dei metodi per semplificare l'architettura delle classi. \\ \\ 
+Tecniche: IN.
 
 \subsection{Codifica}
 
