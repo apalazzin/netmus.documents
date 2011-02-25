@@ -48,10 +48,26 @@ verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
-23/02/2011 & 0.8 & Caputo Cosimo & Agginti diagrammi delle classi per il
+23/02/2011 & 0.14 & Caputo Cosimo & Agginti diagrammi delle classi per il
 package server e i relativi sotto-package.\\
 \hline
-
+18/02/2011 & 0.13 & Baron Federico & Aggiornamento finale del capitolo 3 in
+seguito a fine progettazione di dettaglio.\\
+\hline
+18/02/2011 & 0.12 & Baron Federico & Aggiunta la definizione delle componenti
+\co{Song}, \co{UserAccount}, \co{MusicLibrary} e \co{ODF}.\\
+\hline
+17/02/2011 & 0.11 & Palazzin Alberto & Redatti i capitoli sulle componenti
+\co{PrifleView}, \co{ProfilePlace} e \co{ProfileActivity}.\\
+\hline
+16/02/2011 & 0.10 & Palazzin Alberto & Redatti i capitoli sulle componenti
+del package \emph{server.shared}.\\
+\hline
+13/02/2011 & 0.9 & Baron Federico & Aggiunto il package \emph{client.event}
+\\\hline 
+13/02/2011 & 0.8 & Palazzin Alberto & Agginto il package
+\emph{server.youtube}.\\
+\hline
 08/02/2011 & 0.7 & Daminato Simone & Inseriti capitolo su client.applet.\\
 \hline
 08/02/2011 & 0.6 & Mandolo Andrea & Inseriti capitolo su applet di estrazione.\\
@@ -174,37 +190,105 @@ importanti decisioni architetturali con una breve descrizione.
   \emph{MyConstants} e \emph{MyConstants\_it.properties}.
 \end{itemize}
 
-\section{Codici assegnati alle nuove componenti}
+\newpage
+\section{Lista delle componenti in progettazione di dettaglio}
 In relazione alle modifiche apportate all'architettura del sistema ed al
 maggiore dettaglio della progettazione sono state individuate delle aggiunte e
 delle rimozioni alle componenti indviduate in Specifica tecnica. In seguito sono
 elencate le componenti in questione con l'assegnamento dei nuovi codici
 identificativi.
 \begin{footnotesize}
-\begin{longtable}[!h]{|l|l|}
+\begin{longtable}[h]{|l|l|l|}
 \hline
 \rowcolor{orange}                         
-\sca{Componente} & \sca{Codice}\\
+ & \sca{Componente} & \sca{Codice}\\
 \hline
 \endhead
 \hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\multicolumn{3}{|c|}{\textit{continua alla pagina successiva}}\\
 \hline
-\endfoot
+\endfoot 
 \endlastfoot
-client.applet.ABF & Cclap1\\\hline
-client.applet.AppletBar & Cclap2\\\hline
-client.applet.TranslateDTOXML & Cclap3\\\hline
-client.applet.AppletConstants & Cclap4\\\hline
-client.ui.MyConstants & Cclui5\\\hline
-shared.GenericDTO & Rimosso (ex Csh1)\\\hline
-shared.MusicLibrarySummaryDTO & Csh9\\\hline
-shared.FieldVerifier & Csh10\\\hline
-shared.exception.DatastoreException & Cshex7\\\hline
-server.PMF & Rimosso (ex Cse1)\\\hline
-server.utils.ServletHelper & Cseut4\\\hline
-server.utils.BCrypt & Cseut5\\\hline
-server.persistent.ODF & Csepe4\\\hline
+& client &  Ccl0 \\\hline 
+& client.Netmus  &  Ccl1 \\\hline 
+& client.ClientFactory  &  Ccl2 \\\hline 
+& client.ClientFactoryImpl  &  Ccl3 \\\hline 
+& client.mvp  &  Cclmv0 \\\hline 
+& client.mvp.NetmusActivityMapper  &  Cclmv1 \\\hline 
+& client.mvp.NetmusPlaceHistoryMapper  &  Cclmv2 \\\hline 
+\bo{+} & client.event  &  Cclev0 \\\hline
+\bo{+} & client.event.DeviceScannedEvent  &  Cclev1 \\\hline 
+\bo{+} & client.event.DeviceScannedEventHandler  &  Cclev2 \\\hline 
+& client.activity  &  Cclac0 \\\hline 
+& client.activity.LoginActivity  &  Cclac1 \\\hline 
+& client.activity.ProfileActivity  &  Cclac2 \\\hline 
+\bo{--} & client.activity.EditUserActivity  &  Cclac3 \\\hline
+\bo{--} & client.activity.EditSongsActivity  &  Cclac4 \\\hline 
+& client.service  &  Cclse0 \\\hline 
+& client.service.LoginService  &  Cclse1 \\\hline 
+& client.service.UsersService  &  Cclse2 \\\hline 
+& client.service.SongsService  &  Cclse3 \\\hline 
+& client.service.LibraryService  &  Cclse4 \\\hline 
+& client.place  &  Cclpl0 \\\hline 
+& client.place.LoginPlace  &  Cclpl1 \\\hline 
+& client.place.ProfilePlace  &  Cclpl2 \\\hline 
+\bo{--} & client.place.EditUserPlace  &  Cclpl3 \\\hline 
+\bo{--} & client.place.EditSongsPlace  &  Cclpl4 \\\hline 
+& client.ui  &  Cclui0 \\\hline 
+& client.ui.LoginView  &  Cclui1 \\\hline 
+& client.ui.ProfileView  &  Cclui2 \\\hline 
+\bo{--} & client.ui.EditUserView  &  Cclui3 \\\hline 
+\bo{--} & client.ui.EditSongsView  &  Cclui4 \\\hline 
+\bo{+} & client.ui.MyConstants  &  Cclui5 \\\hline  
+& client.applet  &  Cclap0  \\\hline 
+\bo{+} & AppletBar (??) &  \\\hline 
+\bo{+} & AppletConstants  &  Cclap1 \\\hline 
+\bo{+} & TranslateDTOXML  &  Cclap2  \\\hline 
+& shared  &  Csh0 \\\hline 
+\bo{--} & shared.GenericDTO  &  Csh1 \\\hline 
+& shared.SongSummaryDTO  &  Csh2 \\\hline 
+& shared.SongDTO  &  Csh3 \\\hline 
+& shared.LoginDTO  &  Csh4 \\\hline 
+& shared.MusicLibraryDTO  &  Csh5 \\\hline 
+\bo{--} & shared.UserSummaryDTO  &  Csh6 \\\hline 
+& shared.UserDTO  &  Csh7 \\\hline 
+& shared.UserCompleteDTO  &  Csh8 \\\hline 
+\bo{+} & shared.MusicLibrarySummaryDTO  &  Csh9 \\\hline 
+\bo{+} & shared.FieldVerifier  &  Csh10 \\\hline 
+& shared.exception  &  Cshex0 \\\hline 
+& shared.exception.NetMusException  &  Cshex1 \\\hline 
+& shared.exception.LoginException  &  Cshex2 \\\hline 
+\bo{--} & shared.exception.WrongLoginException  &  Cshex3 \\\hline 
+& shared.exception.RegistrationException  &  Cshex4 \\\hline 
+\bo{--} & shared.exception.NickNotFreeException  &  Cshex5 \\\hline 
+\bo{--} & shared.exception.DuplicateEmailException  &  Cshex6 \\\hline 
+& server  &  Cse0 \\\hline 
+\bo{--} & server.PMF  &  Cse1 \\\hline 
+& server.LoginHelper  &  Cse2 \\\hline 
+& server.SongsServiceImpl  &  Cse3 \\\hline 
+& server.LoginServiceImpl  &  Cse4 \\\hline 
+& server.UserServiceImpl  &  Cse5 \\\hline 
+& server.LibraryServiceImpl  &  Cse6 \\\hline 
+& server.utils  &  Cseut0 \\\hline 
+\bo{--} & server.utils.AuthenticationProvider  &  Cseut1 \\\hline 
+& server.utils.Utils  &  Cseut2 \\\hline 
+& server.utils.ServletUtils  &  Cseut3 \\\hline  
+\bo{+} & server.utils.AppEngineCache  &  Cseut4 \\\hline
+\bo{+} & server.utils.BCrypt  &  Cseut5 \\\hline
+\bo{+} & server.youtube  &  Cseyo0 \\\hline
+\bo{+} & server.youtube.YouTubeManager  &  Cseyo1 \\\hline
+\bo{+} & server.youtube.YouTubeMedia  &  Cseyo2 \\\hline
+\bo{+} & server.youtube.YouTubeVideo  &  Cseyo3 \\\hline
+& server.servlet  &  Csese0 \\\hline 
+& server.servlet.LoginSuperServlet  &  Csese1 \\\hline 
+& server.servlet.LoginGoogleServlet  &  Csese2 \\\hline 
+& server.servlet.LoginGoogleCallbackServlet  &  Csese3 \\\hline 
+\bo{--} & server.servlet.YouTubeServlet  &  Csese4 \\\hline 
+& server.persistent  &  Csepe0 \\\hline 
+& server.persistent.UserAccount  &  Csepe1 \\\hline 
+& server.persistent.MusicLibrary  &  Csepe2 \\\hline 
+& server.persistent.Song  &  Csepe3 \\\hline 
+\bo{+} & server.persistent.ODF  &  Csepe4 \\\hline 
 \caption{Componenti e relativi codici.}
 \centering
 \end{longtable}
@@ -227,7 +311,7 @@ progetto Nemus. \section*{Requisiti obbligatori}
 \centering
 \begin{longtable}[!h]{|l|}
 \hline
-\rowcolor{orange}                         
+\rowcolor{orange}                   
 \sca{Requisiti obbligatori}\\
 \hline
 \endhead
@@ -408,6 +492,7 @@ Nessuna.
 \co{Netmus} praticamente si occupa di avviare il sistema e portare l'utente alla
 pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
 
+
 \subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -482,7 +567,8 @@ da altre componenti} Viene utilizzato dal package \emph{activity}.
 In sostanza svolge il compito di organizzare le informazioni del model in un
 interfaccia accessibile dall'utente.
 
-\subsection{Classe LoginView}
+
+\subsection{Interfaccia LoginView / Classe LoginViewImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.2 Registrazione
@@ -626,7 +712,7 @@ aggiorna l'attributo \co{type}.\\\hline
 \caption{Metodi di LoginView}
 \end{longtable}
 
-\subsection{Classe ProfileView}
+\subsection{Interfaccia ProfileView / Classe ProfileViewImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.1.1 Brani elencati opportunamente
@@ -789,67 +875,6 @@ playlist.\\\hline
 @UiHandlers handler(in Event) & \\\hline
 \caption{Metodi di ProfileView}
 \end{longtable}
-
-
-
-
-
-\subsection{Classe EditUserView}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-	\item C1FN-1.4 Gestione profilo personale
-	\item C1FN-1.4.1 Modifica informazioni personali
-	\item C1FN-1.4.2 Cambio password
-	\item C1FN-1.4.3 Cancellazione del proprio account
-\end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item C1QD-2.4 Supporto multi-lingua
-    \item C1QO-2.1 Accessibilit\`a
-    \item C1FD-1.4.4 Pubblicazione
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Il sistema mette a disposizione una vista per la
-modifica delle informazioni personali dell'utente registrato. La classe
-\co{EditUserViewImpl} implementa l'interfaccia \co{EditUserView} che estende
-\co{isWidget} (interfaccia introdotta da GWT 2.1).
-\subsubsection*{Relazioni d'uso di altre componenti}
-La classe istanzia oggetti di tipo \co{EditUserPlace} che definiscono gli stati
-attuali della vista.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
-\co{EditUserActivity}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Mette a disposizione gli strumenti per la modifica delle informazioni personali
-dell'utente registrato (cambio password, cancellazione account,
-pubblicazione catalogo)
-
-\subsection{Classe EditSongsView}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item C1FD-1.3.2 Modifica informazioni brano
-    \item C1QD-2.4 Supporto multi-lingua
-    \item C1QO-2.1 Accessibilit\`a
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Il sistema mette a disposizione una vista per visualizzazione e la modifica del
-catalogo brani utente. La classe \co{EditSongsViewImpl} implementa l'interfaccia
-\co{EditSongsView} che estende \co{isWidget} (interfaccia introdotta da GWT
-2.1).
-\subsubsection*{Relazioni d'uso di altre componenti}
-La classe istanzia oggetti di tipo \co{EditSongsPlace} che definiscono gli stati
-attuali della vista.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
-\co{EditSongsActivity}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Permette di visualizzare e aggiungere, rimuovere o modificare manualmente brani
-nella propria libreria musicale e di creare playlist personalizzate. La
-rimozione di informazioni non influenza i dati che Netmus salva sul database.
 
 \subsection{Interfaccia MyConstants}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1048,60 +1073,6 @@ creazione ed interazione con l'utente della pagina principale come la
 richiesta dei dati utente dettagliati, della lista dei brani, del dettaglio di
 un brano, ecc.
 
-
-\subsection{Classe EditUserActivity}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-	\item C1FN-1.4 Gestione profilo personale
-	\item C1FN-1.4.1 Modifica informazioni personali
-	\item C1FN-1.4.2 Cambio password
-	\item C1FN-1.4.3 Cancellazione del proprio account
-\end{itemize}
-\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item C1FD-1.4.4 Pubblicazione
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{EditUserView} e richiede al \co{clientFactory} di
-implementarela.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
-\co{UsersService} e utilizza le relative classi \co{EditUserPlace} e
-\co{EditUserView}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
-un Place di tipo \co{EditUserPlace}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
-modifica delle informazioni personali visualizzate nel profilo.
-
-\subsection{Classe EditSongsActivity}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item C1FD-1.3 Personalizzazione del catalogo
-    \item C1FD-1.3.1 Cancellazione brano
-    \item C1FD-1.3.2 Modifica informazioni brano
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
-interno alla \co{EditSongsView} e richiede al \co{clientFactory} di
-implementarela.
-\subsubsection*{Relazioni d'uso di altre componenti} Invoca i servizi di
-interrogazione e modifica dei dati musicali forniti da \co{SongsService} e
-utilizza le relative classi \co{EditSongsPlace} e \co{EditSongsView}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
-un Place di tipo \co{EditSongsPlace}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Questa classe gestisce, assieme a \co{songsService}, le attivit\`a utili alla
-visualizzazione e modifica della libreria musicale personale.
-
-
 \newpage
 \section{Package client.place} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
@@ -1203,66 +1174,22 @@ Il compito della classe \`e quello di indicizzare gli stati di
 \co{ProfileActivity} in modo da rendere accessibili le funzionalit\`a di history
 e bookmarking del browser.
 
-\subsection{Classe EditUserPlace}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-	\item C1FN-1.4 Gestione profilo personale
-	\item C1FN-1.4.1 Modifica informazioni personali
-	\item C1FN-1.4.2 Cambio password
-	\item C1FN-1.4.3 Cancellazione del proprio account
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\co{EditUserPlace} estende la classe \co{Place} messa a disposizione da GWT. La
-classe \`e associata alla classe interna \co{Tokenizer} che permette di
-serializzare lo stato del Place in un simbolo (token) URL.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-La classe \`e creata da \co{EditUserView} utilizzata da \co{EditUserActivity}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Il compito della classe \`e quello di indicizzare gli stati di
-\co{EditUserActivity} in modo da rendere accessibili le funzionalit\`a di
-history e bookmarking del browser.
-
-\subsection{Classe EditSongsPlace}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\co{EditSongsPlace} estende la classe \co{Place} messa a disposizione da GWT. La
-classe \`e associata alla classe interna \co{Tokenizer} che permette di
-serializzare lo stato del Place in un simbolo (token) URL.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-La classe \`e creata da \co{EditSongsView} utilizzata da \co{EditSongsActivity}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Il compito della classe \`e quello di indicizzare gli stati di
-\co{EditSongsActivity} in modo da rendere accessibili le funzionalit\`a di
-history e bookmarking del browser.
 
 
 \newpage
-\section{Package client.mvp} % LASCIARE WARNING
+\section{Package client.mvp}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1 WEB Application NetMus
+    \item 
 \end{itemize}
-\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item Nessuno
+    \item 
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
-Il package contiene le classi funzionali al meccanismo delle Activity e dei
-Places.
 \subsection*{Relazioni d'uso di altre componenti}
-Fanno parte di questo package le classi \co{NetmusHistoryMapper} e
-\co{NetmusActivityMapper}.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Nessuna.
 \subsection*{Attivit\`a svolte e dati trattati}
-Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
 \subsection{Classe NetmusActivityMapper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1401,17 +1328,14 @@ Questa classe dovr\`a consentire alle componenti Activity di \emph{client} di
 inviare richieste di vario tipo a \emph{server} riguardanti informazioni sui
 brani musicali. Sar\`a presente anche \co{SongServiceAsync}, che gestir\`a il ritorno
 dai metodi in maniera asincrona.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Queste interfacce verranno implementate su \emph{server}, perci\`o non
 avranno relazioni d'uso definite, se non con gli oggetti DTO
 (\co{UserDTO, SongDTO}, \co{SongSummaryDTO}, \co{MusicLibraryDTO}) che verranno
 utilizzati per il trasferimento client-server.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
 binding e verr\`a utilizzata da \co{ProfileActivity} ed \co{EditSongsActivity}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante i brani musicali e utilizzer\`a dati di tipo SongDTO
@@ -1430,17 +1354,14 @@ Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
 richieste di vario tipo a \emph{server} riguardanti le informazioni personali
 dell'utente da mostrare  nell'interfaccia grafica. Sar\`a presente anche
 \co{UsersServiceAsync}, che gestir\`a il ritorno dai metodi in maniera asincrona.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Queste interfacce verranno implementate su \emph{server}, perci\`o non
 avranno relazioni d'uso definite, se non con gli oggetti DTO (\co{UserDTO},
 \co{UserSummaryDTO}, \co{UserCompleteDTO}) che verranno utilizzati per il
 trasferimento client-server.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
 binding e verr\`a utilizzata da \co{EditUserActivity} e \co{ProfileActivity}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere o
 modificare (quando possibile) qualsiasi tipo di informazione riguardante gli
@@ -1483,17 +1404,14 @@ che soddisfano le possibili richieste verso la parte model riguardanti l'autenti
 Questi metodi si occupano inoltre di gestire la parte relativa alle sessioni HTTP. 
 \`E presente anche \co{LoginServiceAsync}, che gestisce il ritorno dai
 metodi in maniera asincrona.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Queste interfacce vengono implementate su \emph{server}, perci\`o non
 hanno relazioni d'uso definite, se non con oggetti \co{LoginDTO} che
 vengono utilizzati per il trasferimento client-server.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
 binding e viene utilizzata \\\co{LoginActivity} e dalle altre Activity che
 permetteranno il login ed il logout dell'utente.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornisce l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante l'autenticazione dell'utente al sistema
@@ -1501,8 +1419,8 @@ e utilizza dati di tipo \co{LoginDTO}.
 Gli attributi e i metodi di questa interfaccia verranno descritti nel
 dettaglio nella classe \co{LoginServiceImpl} che li implementa. 
 
-\newpage
 
+\newpage
 \section{Package client.applet} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -1511,9 +1429,7 @@ dettaglio nella classe \co{LoginServiceImpl} che li implementa.
 	\item C2FN-1.2 Recupero manuale
 	\item C2FN-1.1 Recupero automatico
 	\item C2FN-1 Recupero delle informazioni
-% da vedere ------------------------------------
 	\item C2QD-4.3 Supporto multi-lingua
-% ------------------------------------------------
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -1732,6 +1648,54 @@ controlli necessari ad influenzarne il comportamento.
 \caption{Metodi di AppletBar}
 \end{longtable}
 
+
+\newpage
+\section{Package event}
+\subsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+
+\subsection{Classe DeviceScannedEvent}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+
+\subsection{Classe DeviceScannedEventHandler}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+
+
 \newpage
 \section{Package server}
 \subsection*{Requisiti obbligatori soddisfatti}
@@ -1743,18 +1707,15 @@ controlli necessari ad influenzarne il comportamento.
 Questo package racchiude tutte le classi che collaborano al fine di gestire la
 business logic del sistema, ovvero tutte quelle operazioni che potranno essere
 compiute sui dati raccolti.
-
 \subsection*{Relazioni d'uso di altre componenti}
 Per quanto riguarda l'interfacciamento con il database vengono utilizzati i
 servizi offerti dalle classi DAO presenti in \emph{persistent}. Si fa utilizzo
 inoltre delle classi presenti nel package \emph{shared} in cui vengono
 incapsulati tutti i dati in uscita del server.
-
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Il package \emph{server} si interfaccia direttamente con \emph{shared} e tramite
 questo e con la presenza del package \emph{service} si interfaccia anche con
 \emph{client}.
-
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
@@ -1779,20 +1740,18 @@ fondamentali presenti all'interno del package
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{SongsService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
 immagazzinati oppure usati i relativi oggetti \emph{persistent}.
 Potranno essere usati opportuni servizi \emph{servlet} per andare a prelevare
 informazioni sui brani da servizi esterni oppure per cercare il corrispettivo
 link di streaming audio-video (tipo YouTube).
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{SongsService}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
+
 
 \subsection{Classe UsersServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1805,17 +1764,15 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{UsersService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
 immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{UsersService}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
+
 
 \subsection{Classe LoginServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1869,6 +1826,7 @@ di \co{LoginHelper} e ritorna, se presenti, le informazioni di base
 \caption{Metodi di LoginServiceImpl}
 \end{longtable}
 
+
 \subsection{Classe LibraryServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -1877,17 +1835,15 @@ di \co{LoginHelper} e ritorna, se presenti, le informazioni di base
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{LibraryService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
 immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
 utilizzando l'interfaccia \co{LibraryService}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Descritte nell'interfaccia lato \emph{client}.
+
 
 \subsection{Classe LoginHelper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1898,16 +1854,13 @@ Descritte nell'interfaccia lato \emph{client}.
 La classe \co{LoginHelper} offre funzionalit\`a statiche
 per gestire le sessioni HTML, utili a \co{LoginServiceImpl} ed a
 \emph{servlet}.
-
 \subsubsection*{Relazioni d'uso di altre componenti}
 User\`a al suo interno le classi di utilit\`a per i servlet definite in
 \emph{utils} e l'oggetto di persistenza \co{UserAccount}.
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa classe viene utilizzata da \co{LoginServiceImpl} nei metodi \co{logout},
 \co{getLoggedInUserDTO} e \co{startLogin} poich\'e agiscono sulle sessioni HTML.
 Viene utilizzata anche da \co{LoginFilter}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa classe ha il compito esclusivo di interagire con le
 sessioni HTML, deve quindi occuparsi di reperire i dati utili
@@ -2050,6 +2003,7 @@ con un \co{AnnotationObjectDatastore}.\\\hline
 dell' \co{ObjectDatastore}.\\\hline
 \caption{Metodi dati di ODF}
 \end{longtable}
+
 
 \subsection{Classe UserAccount}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2359,6 +2313,7 @@ sistema NetMus.
 \caption{Metodi di Song}
 \end{longtable}
 
+
 \newpage
 \section{Package server.servlet}
 \subsection*{Requisiti obbligatori soddisfatti}
@@ -2434,42 +2389,6 @@ Vedere la descrizione del package.
 Riceve i dati dell'account dell'utente dopo che quest'ultimo ha effettuato
 l'accesso tramite il Google account.
 
-\subsection{Classe YouTubeServlet}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe si occuper\`a di dialogare con il servizio di ricerca offerto
-dalle API di YouTube e sar\`a di tipo \co{HttpServlet}.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Verr\`a utilizzato da un \co{SongService} al momento della memorizzazione nel
-DataStore di un nuovo brano.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Lo scopo sar\`a quello di fornire ad un nuovo brano
-da memorizzare anche un link al relativo streaming audio/video.
-
-\subsection{Classe TaggingServlet}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe si occuper\`a di dialogare con un servizio web che possa fornirci
-un Tag Mp3 completo, passandogli solo qualche informazione del brano (es.
-solo titolo e artista, titolo e album).
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Verr\`a utilizzata questa classe da \co{SongService} quando dovr\`a memorizzare
-un nuovo brano e non avr\`a sufficienti informazioni.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Cercare di fornire pi\`u informazioni ad un brano, il cui Tag al momento
-dell'estrazione risultava scarso di dati, prima di memorizzarlo sul
-DataStore.
-
 
 \newpage
 \section{Package server.utils} % LASCIARE WARNING
@@ -2497,20 +2416,47 @@ fondamentali presenti all'interno del package
 \emph{it.unipd.netmus.server.utils}.}
 \end{figure}
 
-\subsection{Classe AuthenticationProvider}
+\subsection{Classe AppEngineCache}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item Nessuno
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Funzioni utili alla gestione dell'autenticazione.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Usata dalle classi \co{LoginHelper} e \co{LoginServiceImpl}. 
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Funzioni utili e comuni per la gestione del login e dei relativi dati, in
-particolare per tracciare il servizio esterno di login a cui appoggiarsi.
+
+\subsection{Classe BCrypt}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe Utils}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
 
 \subsection{Classe ServletUtils}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2527,15 +2473,66 @@ Usata dal package \emph{Servlet}.
 Funzioni utili e comuni per la gestione e l'interfacciamento con i servizi
 esterni.
 
-\subsection{Classe ServletHelper}
+
+\newpage
+\section{Package server.youtube} % LASCIARE WARNING
+\subsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Relazioni d'uso di altre componenti}
+\subsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe YouTubeManager}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item Nessuno
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe YouTubeMedia}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe YouTubeVideo}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+
+
 
 \newpage
 \section{Package shared}
@@ -2571,59 +2568,6 @@ Vengono qui di seguito descritte pi\`u in dettaglio.
 fondamentali presenti all'interno del package
 \emph{it.unipd.netmus.shared}.}
 \end{figure}
-
-\subsection{Classe UserSummaryDTO}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-	\item C1FN-1.4 Gestione profilo personale
-	\item C1FN-1.4.1 Modifica informazioni personali
-	\item C1FN-1.4.2 Cambio password
-	\item C1FN-1.4.3 Cancellazione del proprio account
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Contiene e rappresenta i dati pi\`u comunemente utilizzati di un utente, ovvero
-quelli di login e quelli che vengono visualizzati nel profilo. 
-\subsubsection*{Relazioni d'uso di altre componenti}
-Vedere la descrizione del package \co{shared}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package \co{shared}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Funge da contenitore per i dati pi\`u comunemente utilizzati dell'utente, come
-per esempio username di login e nickname.
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
- - user: String & Rappresenta il nome di login unico
- dell'utente e nello stesso tempo la sua e-mail (valida).\\\hline
- - nickName: String & Nickname dell'utente.\\\hline
- - avatar: Image & Indirizzo relativo all'immagine rappresentativa
- dall'utente.\\\hline
- \caption{Campi dati di UserSummaryDTO}
-\end{longtable}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
- + getters() & Tutti gli attributi privati di questa classe hanno i
-relativi metodi \emph{get}.\\\hline
- + setters() & Tutti gli attributi privati di questa classe hanno i
-relativi metodi \emph{set}.\\\hline
- \caption{Metodi di UserSummaryDTO}
-\end{longtable}
-
 
 \subsection{Classe UserDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2911,6 +2855,22 @@ relativi metodi \emph{set}.\\\hline
 \caption{Metodi di MusicLibraryDTO}
 \end{longtable}
 
+\subsection{Classe FieldVerifier}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+
+
 \newpage
 \section{Package shared.exception}
 \subsection*{Requisiti obbligatori soddisfatti}
@@ -2967,20 +2927,6 @@ Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Nessuna.
 
-\subsection{Classe WrongLoginException}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-	\item C1QN-2.7 Gestione errori
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Indica dei dati errati di login.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{LoginException}.
-\subsubsection*{Interfacce con altre componenti}
-Vedere la descrizione del package.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Indica che \underline{username} e/o password sono errati.
-
 \subsection{Classe RegistrationException}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -2995,36 +2941,6 @@ Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Nessuna.
 
-\subsection{Classe NickNotFreeException}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-	\item C1QN-2.7 Gestione errori
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Indica che il login richiesto durante la registrazione \`e gi\`a in uso.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{RegistrationException}.
-\subsubsection*{Interfacce con altre componenti}
-Vedere la descrizione del package.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Eccezione sollevata quando si rileva che il nome utente richiesto dal nuovo
-utente \`e gi\`a utilizzato.
-
-\subsection{Classe DuplicateEmailException}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-	\item C1QN-2.7 Gestione errori
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Indica che l'email inserita durante la registrazione \`e gi\`a in uso.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{RegistrationException}.
-\subsubsection*{Interfacce con altre componenti}
-Vedere la descrizione del package.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Eccezione sollevata quando si rileva che l'email inserita durante la
-registrazione \`e gi\`a in uso, e quindi non pu\`o essere utilizzata per la
-registrazione di un nuovo utente.
 
 \newpage
 \section{Applet di estrazione brani}
