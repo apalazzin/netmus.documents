@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
-\newcommand{\versione}{2.0}
+\newcommand{\versione}{2.1}
 \newcommand{\versioneglossario}{2.0}
 \newcommand{\versionenormeprogetto}{2.0}
 \newcommand{\versioneAR}{3.0}
@@ -45,7 +45,7 @@ le attivit\`a di verifica e validazione.
 \endhead
 \hline
 \endfoot
-
+05/02/2011 & 2.1 & Daminato Simone & Inseriti i test di integrazione.\\
 01/02/2011 & 2.0 & Baron Federico & Validazione per consegna RP.\\
 \hline
 31/01/2011 & 1.20 & Caputo Cosimo & Verificato intero documento.\\
@@ -1061,6 +1061,90 @@ successo oppure no\\
 \textbf{Costi e Rischi}:\\
 
 \end{itemize}
+
+\subparagraph{Test di integrazione previsti}
+
+\begin{itemize}
+
+\item TI-se1: server, server.persistent, shared\\
+\textbf{Classi coinvolte}: UserServiceImpl, SongsServiceImpl,
+LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
+MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
+\textbf{Obbiettivo del Test}: verificare l'integrazione tra le classi che
+forniscono un servizio al client e quelle che si interfacciano al database,
+controllando che i servizi vengano forniti correttamente.\\ 
+\textbf{Dati in input}: le informazioni di un nuovo utente, alcuni brani
+casuali, ed un paio di playlist. 
+\textbf{Output Attesi}: dalle chiamate ai servizi dovranno essere restituiti
+tutti i dati corretti dell'utente, le informazioni dei brani e delle playlist,
+equivalenti ai dati inseriti. 
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\ 
+\textbf{Costi e Rischi}:\\
+
+\item TI-se2: server, server.persistent, server.youtube, server.utils, shared\\
+\textbf{Classi coinvolte}: UserServiceImpl, SongsServiceImpl,
+LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
+YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
+ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
+\textbf{Obbiettivo del Test}: verificare il funzionamento e
+l'interfacciamento coi servizi esterni.\\
+\textbf{Dati in input}: le informazioni di un nuovo utente, alcuni brani
+predefiniti con informazioni incomplete.
+\textbf{Output Attesi}: dalle chiamate ai servizi dovranno essere
+restituiti i brani con i dati completi, come immagine dell'album e link al
+video youtube.
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\ 
+\textbf{Costi e Rischi}:\\
+
+\item TI-cl1: client, client.activity, client.mvp, client.service.\\ 
+\textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
+NetmusActivityMapper, LibraryService, SongsService, UsersService.\\
+\textbf{Obbiettivo del Test}: verificare il corretto funzionamento della
+parte logica del client: vengono simulate alcune operazioni effettuate
+dall'utente, e osservate le reazioni.\\
+\item 
+\textbf{Dati in input}: MusicLibrary, vari eventi. 
+\textbf{Output Attesi}: Richieste dei dettagli dei brani, inserimento dei brani
+nello stub della view.
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\ 
+\textbf{Costi e Rischi}:\\
+
+\item TI-cl2: client, client.activity, client.mvp, client.service,
+client.applet, server, server.persistent, server.youtube, server.utils,
+shared.\\ 
+\textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
+NetmusActivityMapper, LibraryService, SongsService, UsersService, AppletBar,
+TranslateDTOXML.\\ 
+\textbf{Obbiettivo del Test}: verificare l'integrazione dell'applet.\\
+\textbf{Dati in input}: documento XML contenente dei brani. 
+\textbf{Output Attesi}: lista dei nuovi brani e loro visualizzazione.
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\ 
+\textbf{Costi e Rischi}:\\
+
+\item TI-gl1: client, client.activity, client.mvp, client.service,
+client.applet.\\ 
+\textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
+NetmusActivityMapper, LibraryService, SongsService, UsersService, AppletBar,
+TranslateDTOXML, UserServiceImpl, SongsServiceImpl,
+LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
+YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
+ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
+\textbf{Obbiettivo del Test}: verificare l'integrazione della componente
+server e quella client.\\
+\textbf{Dati in input}: documento XML contenente dei
+brani. 
+\textbf{Output Attesi}: lista dei nuovi brani con le informazioni complete e
+loro visualizzazione. 
+\textbf{Output Ottenuti}:\\
+\textbf{Malfunzionamento Rilevati}:\\ 
+\textbf{Costi e Rischi}:\\
+
+\end{itemize}
+
 % INIZIO CAPITOLO 3
 
 \chapter{Gestione amministrativa della \\revisione}
