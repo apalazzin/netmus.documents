@@ -1643,8 +1643,8 @@ GWT.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene usata da \co{AppletBar} per visualizzare in maniera corretta lo stato
-dell'applet all'utente.
+Viene usata da \co{AppletBar} e da \co{AppletBarView} per visualizzare in
+maniera corretta lo stato dell'applet all'utente.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Utilizza i file \co{.properties} presenti in questo package, ognuno dei quali
 definisce la traduzione corretta di ogni termine e/o frase in una determinata
@@ -1678,17 +1678,17 @@ testo statico nelle classi di \emph{applet}.\\\hline
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item Nessuno
+    \item Nessuno.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Si occupa di interfacciare utente, servizi ed applet tra loro: in particolare,
-comunica visivamente all'utente lo stato dell'applet, e utilizza i servizi del
-server per salvare le informazioni estratte da quest'ultima.
-Definisce i metodi JSNI per la comunicazione con l'applet.
-Utilizza il pattern Singleton.
+comunica visivamente all'utente lo stato dell'applet tramite \co{AppletBarView},
+e utilizza i servizi del server per salvare le informazioni estratte da quest'ultima.
+Definisce i metodi JSNI per la comunicazione con l'applet utilizzando
+\co{AppletConnector}. Utilizza il pattern Singleton.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza \co{AppletConstrants} per la traduzione dell'interfaccia con l'utente,
-\co{TranslateDTOXML} per la comunicazione con l'applet, e \emph{server} per
+Utilizza \co{AppletConstrants} per la traduzione di alcuni messaggi,
+\co{TranslateDTOXML} per la ricezione dei brani dall'applet, e \emph{server} per
 salvare le informazioni.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Viene utilizzata da \co{ProfileActivity} per l'inserimento e la rimozione
@@ -1709,19 +1709,18 @@ controlli necessari ad influenzarne il comportamento.
 \hline
 \endfoot
 \endlastfoot
-- APPLET\_BAR: AppletBar \emph{static} & \\\hline
-- visible: boolean & \\\hline
-- constants: AppletConstants & \\\hline
-- title: Label & \\\hline
-- on\_off: Anchor & \\\hline
-- rescan: Anchor & \\\hline
-- status: TextBox & \\\hline
-- applet: HTML & \\\hline
-- user: String & \\\hline
-- original\_user: String & \\\hline
-- state: boolean & \\\hline
-- translator: TranslateDTOXML & \\\hline
-- library\_service: LibraryServiceAsync  & \\\hline
+\# APPLET\_BAR: AppletBar \emph{static} & Istanza corrente di AppletBar.\\\hline
+- visible: boolean & Indica se l'applet \`e caricata o no.\\\hline
+- user: String & Identificativo dell'utente.\\\hline
+- state: boolean & Indica se la scansione automatica \`e attiva o no.\\\hline
+- client\_factory: ClientFactory & Istanza di ClientFactory usata per accedere
+all'EventBus.\\\hline
+- libraryService: LibraryServiceAsync & Servizio del server utilizzato per
+caricare i nuovi brani.\\\hline 
+- constants: AppletConstants \emph{static} & Utilizzato per la
+traduzione in pi\`u lingue.\\\hline
+- translator: TranslateDTOXML & Utilizzato per tradurre un documento XML
+in una lista di SongDTO.\\\hline
 \caption{Campi dati di AppletBar}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -1734,17 +1733,22 @@ controlli necessari ad influenzarne il comportamento.
 \hline
 \endfoot
 \endlastfoot
-+ get(in String, in boolean): AppletBar \emph{static} & \\\hline
-+ appletBarON() & \\\hline
-+ appletBarOFF() & \\\hline
-+ changeState() & \\\hline
-+ reScanAll() & \\\hline
-+ sendStarts() & \\\hline
-+ sendStartsJSNI(in String, in boolean) \emph{native} & \\\hline
-+ scanningStatus(in int, in int) & \\\hline
-+ showStatus(in String) & \\\hline
-+ translateXML(in String) & \\\hline
-+ makeNativeFunction(in AppletBar) \emph{native} & \\\hline
++ get(in String): AppletBar \emph{static} & Se non esiste gi\`a, crea una nuova
+istanza di AppletBar e la salva nel relativo campo statico. Restituisce
+l'istanza dopo aver aggiornato l'utente.\\\hline 
+- AppletBar(in String) & Costruttore di AppletBar, inizializza view e
+funzioni.\\\hline 
+- setUser(in String) & Aggiorna l'attributo user.\\\hline
++ appletBarON() & Crea il men\`u laterale.\\\hline 
++ appletBarOFF() & Elimina il men\`u laterale.\\\hline
+\# changeState() & Attiva/disattiva la scansione automatica, e aggiorna
+view e applet di conseguenza.\\\hline 
+\# reScanAll() & Indica all'applet di riscansionare l'ultimo device.\\\hline
+\# showChooser() & Indica all'applet di effettuare una scansione
+manuale.\\\hline 
+\# sendStarts() & Inizializza l'applet.\\\hline 
+\# translateXML(in String) & Dall'XML ricevuto dall'applet estrae le
+canzoni e le invia al server.\\\hline
 \caption{Metodi di AppletBar}
 \end{longtable}
 
@@ -1763,9 +1767,67 @@ controlli necessari ad influenzarne il comportamento.
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Interfaccia grafica: si occupa dell'interazione con l'utente.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Utilizza \co{AppletBar} e \co{AppletConstants}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Utilizzata da \co{AppletBar}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Mostra all'utente lo stato dell'applet, e gli fornisce gli elementi per
+interagire con essa.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- constants: AppletConstants \emph{static} & Oggetto utilizzato per la
+traduzione nella lingua corretta.\\\hline 
+- title: Label \emph{static} & Visualizza il nome del men\`u laterale.\\\hline 
+- on\_off: Label \emph{static} & Visualizza se la scansione automatica
+\`e attivata o no, e di cambiare questa opzione.\\\hline 
+- rescan: Button \emph{static} & Permette di far riscansionare l'ultimo
+device: \`e visibile solo dopo una scansione.\\\hline 
+- button\_container: HTMLPanel \emph{static} & Contenitore per i pulsanti
+.\\\hline 
+- chooser: Button \emph{static} & Permette all'utente di far
+scansionare una cartella specifica.\\\hline
+- status: TextBox \emph{static} & Mostra visivamente lo stato
+dell'applet.\\\hline
+- applet: HTML \emph{static} & Contiene l'applet.\\\hline
+- main: HTMLPanel \emph{static} & Contiene tutta questa view.\\\hline
+
+\caption{Campi dati di AppletBarView}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\# createView() \emph{static} & Inizializza e crea la view.\\\hline
+\# showBar() \emph{static} & Rende visibile la view e carica il codice
+dell'applet.\\\hline 
+\# hideBar() \emph{static} & Rende non visibile la view e toglie il codice
+dell'applet.\\\hline 
+\# setOnOffButton(in boolean) \emph{static} & Cambia lo stato del pulsante
+on\_off.\\\hline 
+\# rescanNotVisible() \emph{static} & Nasconde il pulsante rescan.\\\hline 
+\# rescanVisible() \emph{static} & Visualizza il pulsante rescan.\\\hline 
+\# showStatus(in String) \emph{static} & Visualizza lo stato
+dell'applet.\\\hline 
+\# scanningStatus(in int,in int) \emph{static} & Visualizza lo stato
+della scansione: scansionati m su n.\\\hline
+\caption{Metodi di AppletBarViews}
+\end{longtable}
 
 \subsection{Classe AppletBarConnector}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1778,10 +1840,40 @@ controlli necessari ad influenzarne il comportamento.
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Effettua l'interfacciamento tra l'applet e AppletBar, utilizzando JSNI.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Utilizzata da \co{AppletBar}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-
+Dichiara dei metodi globali in JavaScript che hanno il compito di reindirizzare
+le chiamate dell'applet all'istanza di \co{AppletBar}.
+D'altro canto, implementa anche i metodi nativi per permettere ad \co{AppletBar}
+di richiamare metodi sull'applet.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\# sendStartsJSNI(in String, in boolean) \emph{static native} &
+Inizializza l'applet.\\\hline 
+\# setState(in boolean) \emph{static native} & Attiva/disattiva la scansione
+automatica\\\hline 
+\# sendRescan() \emph{static native} & Indica all'applet di fare una
+scansione completa dell'ultimo device utilizato.\\\hline 
+\# showChooser() \emph{static native} & Indica all'applet di fare una
+scansione manuale di una cartella indicata dall'utente. Si occupa
+l'applet di chiedere quale.\\\hline 
+\# makeNativeFunction(in AppletBar) \emph{static native} & Crea delle
+funzioni JavaScript utilizzabili dall'applet, che richiamano i metodi
+relativi di AppletBar.\\\hline
+\caption{Metodi di AppletConnector}
+\end{longtable}
 
 \newpage
 \section{Package event}
