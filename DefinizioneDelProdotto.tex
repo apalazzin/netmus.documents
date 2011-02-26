@@ -18,6 +18,7 @@ VT.G \\
 & Prof. Cardin Riccardo }
 
 \input{preambolo.tex}
+\usepackage{amsfonts}
 
 \begin{document}
 
@@ -1339,10 +1340,11 @@ browser con i vari Place.
 \hline
 \endfoot
 \endlastfoot
-@WithTokenizers (\{LoginPlace.Tokenizer.class, ProfilePlace.Tokenizer.class,
-EditUserPlace.Tokenizer.class, EditSongsPlace.Tokenizer.class\}) &
-Questa annotazione che precede la definizione dell'interfaccia permette
-di associare ogni place al \co{PlaceHistoryHandler} e quindi risparmia
+@WithTokenizers \begin{verbatim}(LoginPlace.Tokenizer.class,
+ProfilePlace.Tokenizer.class,
+EditUserPlace.Tokenizer.class,
+EditSongsPlace.Tokenizer.class)\end{verbatim} & Questa annotazione che precede
+la definizione dell'interfaccia permette di associare ogni place al \co{PlaceHistoryHandler} e quindi risparmia
 la dichiarazione esplicita di attributi e metodi per l'implmentazione
 di un \co{TokenizerFactory} separato.\\\hline
 \caption{Metodi di NetmusPlaceHistoryMapper}
@@ -1524,7 +1526,7 @@ dettaglio nella classe \co{LoginServiceImpl} che li implementa.
     \item C1FN-1.9 Ricezione ed elaborazione dei brani
     \item C2FN-3 Comunicazione con C1
     \item C2QN-4.4 Utilizzo
-    \itwm C2VN-4.6 Norme legali
+    \item C2VN-4.6 Norme legali
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -3954,7 +3956,7 @@ C1QN-2.3 Portabilit\`a & Cclui0\\
 & Cclap4\\
 & Ccl2\\\hline   
 C1QD-2.4 Supporto multilingua & Cclui5\\    
-& Cclap1\
+& Cclap1\\
 & Cclui0\\\hline                
 C1VN-2.5 Semplicit\`a di utilizzo & Cclui1\\
 & Cclui2\\
