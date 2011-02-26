@@ -1001,7 +1001,7 @@ equivalenti ai dati inseriti.
 \textbf{Malfunzionamento Rilevati}:\\ 
 \textbf{Costi e Rischi}:\\
 
-\item TI-se2: server, server.persistent, server.youtube, server.utils, shared\\
+\item TI-se2: server, server.persistent, server.youtube, server.utils, shared.\\
 \textbf{Classi coinvolte}: UserServiceImpl, SongsServiceImpl,
 LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
 YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
@@ -1017,9 +1017,10 @@ video youtube.
 \textbf{Malfunzionamento Rilevati}:\\ 
 \textbf{Costi e Rischi}:\\
 
-\item TI-cl1: client, client.activity, client.mvp, client.service.\\ 
+\item TI-cl1: client, client.activity, client.mvp, client.service, shared.\\ 
 \textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
-NetmusActivityMapper, LibraryService, SongsService, UsersService.\\
+NetmusActivityMapper, LibraryService, SongsService, UsersService,
+MusicLibraryDTO, SongDTO, UserCompleteDTO.\\
 \textbf{Obbiettivo del Test}: verificare il corretto funzionamento della
 parte logica del client: vengono simulate alcune operazioni effettuate
 dall'utente, e osservate le reazioni.\\
@@ -1032,11 +1033,10 @@ nello stub della view.
 \textbf{Costi e Rischi}:\\
 
 \item TI-cl2: client, client.activity, client.mvp, client.service,
-client.applet, server, server.persistent, server.youtube, server.utils,
-shared.\\ 
+client.applet, shared.\\ 
 \textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
 NetmusActivityMapper, LibraryService, SongsService, UsersService, AppletBar,
-TranslateDTOXML.\\ 
+TranslateDTOXML, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
 \textbf{Obbiettivo del Test}: verificare l'integrazione dell'applet.\\
 \textbf{Dati in input}: documento XML contenente dei brani. 
 \textbf{Output Attesi}: lista dei nuovi brani e loro visualizzazione.
@@ -1045,7 +1045,7 @@ TranslateDTOXML.\\
 \textbf{Costi e Rischi}:\\
 
 \item TI-gl1: client, client.activity, client.mvp, client.service,
-client.applet.\\ 
+client.applet, server, server.persistent, server.youtube, server.utils, shared.\\ 
 \textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
 NetmusActivityMapper, LibraryService, SongsService, UsersService, AppletBar,
 TranslateDTOXML, UserServiceImpl, SongsServiceImpl,
