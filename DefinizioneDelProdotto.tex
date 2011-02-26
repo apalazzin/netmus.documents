@@ -253,11 +253,13 @@ capitolo 3.
 \bo{--} & client.ui.EditSongsView  &  ex Cclui4 \\\hline 
 \bo{+} & client.ui.MyConstants  &  Cclui5 \\\hline  
 & client.applet  &  Cclap0  \\\hline 
-\bo{+} & AppletBar (??) &  \\\hline 
-\bo{+} & AppletConstants  &  Cclap1 \\\hline 
-\bo{+} & TranslateDTOXML  &  Cclap2  \\\hline 
+\bo{+} & client.applet.AppletConstants  &  Cclap1 \\\hline 
+\bo{+} & client.applet.TranslateDTOXML  &  Cclap2  \\\hline 
+\bo{+} & client.applet.AppletBar  &  Cclap3  \\\hline 
+\bo{+} & client.applet.AppletBarView  &  Cclap4  \\\hline 
+\bo{+} & client.applet.AppletBarConnector  &  Cclap5  \\\hline 
 & shared  &  Csh0 \\\hline 
-\bo{--} & shared.GenericDTO  &  ex Csh1 \\\hline 
+\bo{--} shared.GenericDTO  &  ex Csh1 \\\hline 
 & shared.SongSummaryDTO  &  Csh2 \\\hline 
 & shared.SongDTO  &  Csh3 \\\hline 
 & shared.LoginDTO  &  Csh4 \\\hline 
@@ -343,7 +345,8 @@ C1FN-1.1.1 Brani elencati opportunamente \\ \hline
 C1FN-1.1.2 Menu laterali \\ \hline
 C1FN-1.1.3 Visualiz. info dettagliate dei brani \\ \hline  
 C1FN-1.4 Gestione profilo personale \\ \hline
-C1FN-1.4.1 Modifica informazioni personali \\ \hline      
+C1FN-1.4.1 Modifica informazioni personali \\ \hline     
+C1FN-1.4.2 Cambio password  \\ \hline 
 C1FN-1.4.3 Cancellazione del proprio account \\ \hline                   
 C1FN-1.9 Ricezione ed elaborazione dei brani \\ \hline            
 C1FN-1.9.1 Controllo di validit\`a dei dati \\ \hline              
@@ -357,7 +360,8 @@ C1QN-1.9.4 Identificazione dati ridondanti \\ \hline
 C1QN-1.9.6 Gestione concorrenza \\ \hline
 C1VN-1.11 Deve utilizzare il cloud computing \\ \hline
 C1VN-1.12 Tecnologie GAE e GWT \\ \hline
-C1VN-1.13.1 Deve utilizzare Google Data Store \\ \hline        
+C1VN-1.13.1 Deve utilizzare Google Data Store \\ \hline  
+C1QN-2 Utilizzo \\\hline  
 C1VN-2.2 \underline{Open source} \\ \hline                 
 C1QN-2.3 Portabilit\`a \\ \hline
 C1VN-2.5 Semplicit\`a di utilizzo \\ \hline
@@ -432,7 +436,7 @@ dettaglio 2}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1 Web Application Netmus
-	\item C2FN-3 Comunicazione con C1
+	\item C1QN-2.6 Manutenibilit\`a
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -488,6 +492,7 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1 Web Application Netmus
+	\item C1VN-1.12 Deve utilizzare tecnologie GAE e GWT
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -514,10 +519,13 @@ pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item C1FN-1 Web Application Netmus
+    \item C1QO-2.1 Accessibilit\`a
+    \item C1QN-2.3 Portabilit\`a
+    \item C1QN-2.6 Manutenibilit\`a
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-	\item C1QN-2.3 Portabilit\`a
+	\item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 In Netmus \`e disponibile un'unica implementazione dell'interfaccia
@@ -546,11 +554,12 @@ l'utente prima del passaggio ad uno stato differente.
 \begin{itemize}
 	\item C1FN-1 Web Application Netmus
 	\item C1FN-1.1 Grafica simile ad iTunes
-	\item C1FN-1.2 Registrazione
+	\item C1QN-2.3 Portabilit\`a
 	\item C1QN-2 Utilizzo
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
+    \item C1QD-1.6.1 Scalabilit\`a interfaccia grafica
     \item C1QD-2.4 Supporto multi-lingua
     \item C1QO-2.1 Accessibilit\`a
 \end{itemize}
@@ -588,12 +597,16 @@ interfaccia accessibile dall'utente.
 \subsection{Interfaccia LoginView / Classe LoginViewImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
+    \item C1FN-1.1 Grafica simile ad iTunes
 	\item C1FN-1.2 Registrazione
+	\item C1QN-2 Utilizzo
+	\item C1QN-2.3 Portabilit\`a
+	\item C1VN-2.5 Semplicit\`a di utilizzo
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
+    \item C1QD-1.6.1 Scalabilit\`a interfaccia grafica
     \item C1FO-1.2.1 Pagina login indipendente
-    \item C1QD-2.4 Supporto multi-lingua
     \item C1QO-2.1 Accessibilit\`a
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -732,21 +745,32 @@ aggiorna l'attributo \co{type}.\\\hline
 \subsection{Interfaccia ProfileView / Classe ProfileViewImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
+    \item C1FN-1.1 Grafica simile ad iTunes
 	\item C1FN-1.1.1 Brani elencati opportunamente
+	\item C1FN-1.1.2 Menu laterali
 	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
+    \item C1FN-1.4 Gestione profilo personale
+    \item C1FN-1.4.1 Modifica informazioni personali
+    \item C1FN-1.4.2 Cambio password
+    \item C1FN-1.4.3 Cancellazione del proprio account
+    \item C1QN-2 Utilizzo
+    \item C1QN-2.3 Portabilit\`a
+    \item C1VN-2.5 Semplicit\`a di utilizzo
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item C1QD-2.4 Supporto multi-lingua
-    \item C1QO-2.1 Accessibilit\`a
     \item C1FD-1.1.4 Visualizza player YouTube
-    \item C1FO-1.3.4 Ranking brani
-    \item C1FD-1.5 Riproduzione tracce in streaming
+    \item C1FD-1.3 Personalizzazione del catalogo 
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FD-1.3.2 Modifica informazioni brano
+    \item C1FO-1.3.3 Creazione playlist  
+    \item C1FO-1.3.4 Ranking brani  
+    \item C1FD-1.4.4 Pubblicazione
+    \item C1QD-1.6.1 Scalabilit\`a interfaccia grafica
     \item C1FD-1.7 Interazione con altri utenti
     \item C1FD-1.7.1 Visualizzazione altri profili
-    \item C1FD-1.3 Personalizzazione del catalogo
-    \item C1FD-1.3.1 Cancellazione brano
-    \item C1FO-1.3.3 Creazione playlist
+    \item C1FO-1.8.1 Esportazione PDF
+    \item C1QO-2.1 Accessibilit\`a
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la visualizzazione del profilo e
@@ -900,6 +924,7 @@ playlist.\\\hline
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
+    \item C1QO-2.1 Accessibilit\`a
     \item C1QD-2.4 Supporto multi-lingua
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -939,7 +964,8 @@ testo statico nelle classi view.\\\hline
 \section{Package client.activity} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1 WEB Application NetMus
+	\item C1QN-1.6.2 Scalabilit\`a massa di utenza
+	\item C1QN-2.6 Manutenibilit\`a
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -968,10 +994,11 @@ client.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.2 Registrazione
+	\item C1QN-1.6.2 Scalabilit\`a massa di utenza
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item Nessuno
+    \item C1FO-1.2.1 Pagina login indipendente
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe \`e di tipo \co{AbstractActivity}, implementa il \co{Presenter}
@@ -1056,22 +1083,24 @@ tipo \co{RegistrationException}.\\\hline
 \subsection{Classe ProfileActivity}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.1 Brani elencati opportunamente
 	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
+	\item C1FN-1.4 Gestione profilo personale
+	\item C1FN-1.4.1 Modifica informazioni personali
+	\item C1FN-1.4.2 Cambio password
+	\item C1FN-1.4.3 Cancellazione del proprio account
+	\item C1QN-1.6.2 Scalabilit\`a massa di utenza
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item C1FO-1.3.3 Creazione playlist
-    \item C1FD-1.5 Riproduzione tracce in streaming
-    \item C1FD-1.7 Interazione con altri utenti
-    \item C1FD-1.7.1 Visualizzazione altri profili
     \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1FD-1.3 Personalizzazione del catalogo 
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FD-1.3.2 Modifica informazioni brano
+    \item C1FO-1.3.3 Creazione playlist
     \item C1FO-1.3.4 Ranking brani
     \item C1FD-1.5 Riproduzione tracce in streaming
     \item C1FD-1.7 Interazione con altri utenti
     \item C1FD-1.7.1 Visualizzazione altri profili
-    \item C1FD-1.3 Personalizzazione del catalogo
-    \item C1FD-1.3.1 Cancellazione brano
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
@@ -1094,7 +1123,14 @@ un brano, ecc.
 \section{Package client.place} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1 WEB Application NetMus
+	\item C1QN-1.6.2 Scalabilit\`a massa di utenza
+	\item C1QN-2 Utilizzo
+	\item C1VN-2.5 Semplicit\`a di utilizzo
+	\item C1QN-2.6 Manutenibilit\`a
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package contiene le classi di tipo Place. I Place sono indispensabili
@@ -1115,7 +1151,13 @@ e relazioni d'uso da altre componenti} I suoi elementi vengono utilizzati dal pa
 \subsection{Classe LoginPlace}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.2 Registrazione
+	\item C1QN-1.6.2 Scalabilit\`a massa di utenza
+	\item C1QN-2 Utilizzo
+	\item C1VN-2.5 Semplicit\`a di utilizzo
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{LoginPlace} estende la classe \co{Place} messa a disposizione da GWT. La
@@ -1175,8 +1217,13 @@ effettuando nello stato corrente, di default \`e NETMUSLOGIN.\\\hline
 \subsection{Classe ProfilePlace}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.1 Brani elencati opportunamente
-	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
+    \item C1QN-1.6.2 Scalabilit\`a massa di utenza
+    \item C1QN-2 Utilizzo
+    \item C1VN-2.5 Semplicit\`a di utilizzo
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{ProfilePlace} estende la classe \co{Place} messa a disposizione da GWT. La
@@ -1197,11 +1244,11 @@ e bookmarking del browser.
 \section{Package client.mvp}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1QN-2.6 Manutenibilit\`a
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
@@ -1211,7 +1258,8 @@ e bookmarking del browser.
 \subsection{Classe NetmusActivityMapper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1 WEB Application NetMus
+	\item C1QN-2 Utilizzo
+	\item C1QN-2.6 Manutenibilit\`a
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -1264,7 +1312,8 @@ in base al tipo del place dato in input.\\
 \subsection{Classe NetmusPlaceHistoryMapper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1 WEB Application NetMus
+    \item C1QN-2 Utilizzo
+    \item C1QN-2.6 Manutenibilit\`a
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -1304,8 +1353,14 @@ di un \co{TokenizerFactory} separato.\\\hline
 \section{Package client.service} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C2QN-3.2 Utilizzo della connessione
-	\item C1QN-1.9.6 Gestione concorrenza
+    \item C1FN-1 Web Application Netmus
+    \item C1VN-1.11 Deve utilizzare il cloud computing
+    \item C1VN-1.12 Deve utilizzare tecnologie GAE e GWT
+    \item C1QN-2.6 Manutenibilit\`a
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il contenuto di questo package \`e di fondamentale importanza poich\'e
@@ -1315,18 +1370,15 @@ le interfacce dei servizi remoti offerti dal server. Le funzionalit\`a delle
 classi in esso contenute saranno divise in base al tipo di servizio offerto. Per
 ognuno di questi sar\`a presente un'interfaccia normale (che estende
 \co{RemoteService}) e un'interfaccia \bo{asincrona}.
-
 \subsection*{Relazioni d'uso di altre componenti}
 Queste interfacce vengono implementate su \emph{server}, perci\`o non
 hanno relazioni d'uso definite. Verranno sempre usati oggetti DTO (definiti in
 \emph{shared}) come pacchetti di scambio nei servizi tra \emph{client} e
 \emph{server}.
-
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Verranno istanziati degli oggetti di \emph{service} col metodo del
 \emph{deferred binding} dalla classe di Entry Point \co{Netmus}, pur avendo
 visibilit\`a solamente delle interfacce. Verranno poi usati dalle varie Activity.
-
 \subsection*{Attivit\`a svolte e dati trattati}
 Vengono forniti tutti i servizi che il server sar\`a in grado di dare, i dati
 trattati saranno i DTO definiti nel package \emph{shared}.
@@ -1334,11 +1386,16 @@ trattati saranno i DTO definiti nel package \emph{shared}.
 \subsection{Interfaccia SongsService (e SongServiceAsync)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
-	\item C1FN-1.9 Ricezione ed elaborazione dei brani
-	\item C1FN-1.9.1 Controllo di validit\`a dei dati
-	\item C1FN-1.9.5 Inserimento nel Database
-	\item C2FN-3.1 Invio delle informazioni
+	\item C1QN-1.6 Scalabilia\`a
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FD-1.3.2 Modifica informazioni brano
+    \item C1FO-1.3.4 Ranking brani
+    \item C1QD-1.5.1 Ottimizzazione della ricerca su YouTube
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe dovr\`a consentire alle componenti Activity di \emph{client} di
@@ -1365,6 +1422,13 @@ e SongSummaryDTO.
 	\item C1FN-1.4.1 Modifica informazioni personali
 	\item C1FN-1.4.2 Cambio password
 	\item C1FN-1.4.3 Cancellazione del proprio account
+    \item C1QN-1.6 Scalabilia\`a
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.7 Interazione con altri utenti
+    \item C1FD-1.7.1 Visualizzazione altri profili
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
@@ -1388,7 +1452,18 @@ e \co{UserCompleteDTO}.
 \subsection{Interfaccia LibraryService (e LibraryServiceAsync)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.1 Brani elencati opportunamente
+    \item C1QN-1.6 Scalabilia\`a
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
+    \item C1FN-1.9.1 Controllo di validit`a dei dati
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FO-1.3.3 Creazione playlist
+    \item C1FO-1.3.4 Ranking brani
+    \item C1FD-1.8 Elaborazione dati utente
+    \item C1FO-1.8.1 Esportazione PDF
+    \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
@@ -1414,6 +1489,11 @@ tipo \co{MusicLibraryDTO}.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.2 Registrazione
+	\item C1QN-1.6 Scalabilia\`a
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{LoginService} mette a disposizione metodi
@@ -1441,19 +1521,14 @@ dettaglio nella classe \co{LoginServiceImpl} che li implementa.
 \section{Package client.applet} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C2QN-4 Utilizzo
-	\item C2FN-3.1 Invio delle informazioni
-	\item C2FN-1.2 Recupero manuale
-	\item C2FN-1.1 Recupero automatico
-	\item C2FN-1 Recupero delle informazioni
-	\item C2QD-4.3 Supporto multi-lingua
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
+    \item C2FN-3 Comunicazione con C1
+    \item C2QN-4.4 Utilizzo
+    \itwm C2VN-4.6 Norme legali
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item C2QD-4.3 Supporto multi-lingua
-    \item C2FD-2 Aggiornamento e completamento informazioni
-    \item C2FD-1.4 Informazioni dall'hard disk
-    \item C2FO-1.6 Indicazioni file ignorati
+    \item Nessuno
 \end{itemize}
 \subsection*{Obiettivo e funzione del componente}
 Questo package conterr\`a le classi necessarie a gestire richieste e segnali
@@ -1483,7 +1558,9 @@ Si fa utilizzo dei servizi offerti dalle classi presenti nel package
 \subsection{Classe TranslateDTOXML}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C2FN-1 Recupero delle informazioni
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
+    \item C1FN-1.9.5 Inserimento nel Database
+    \item C2FN-3 Comunicazione con C1
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -1550,8 +1627,12 @@ viceversa.
 \subsection{Classe AppletConstants}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C2QN-4 Utilizzo
-	\item C2QD-4.3 Supporto multi-lingua
+    \item C2QN-4 Utilizzo
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1QD-2.4 Supporto multi-lingua
+    \item C2QD-4.3 Supporto multi-lingua
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Gestisce la traduzione delle frasi e/o avvisi da mostrare all'utente, a seconda
@@ -1587,15 +1668,15 @@ testo statico nelle classi di \emph{applet}.\\\hline
 \subsection{Classe AppletBar}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C2FN-3.1 Invio delle informazioni
-	\item C2FN-1.2 Recupero manuale
-	\item C2FN-1.1 Recupero automatico
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
+    \item C1FN-1.9.1 Controllo di validit`a dei dati
+    \item C1QN-2 Utilizzo
+    \item C2FN-1.2 Recupero manuale
+    \item C2FN-3 Comunicazione con C1
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item C2VD-4.5 Meno disturbo possibile
-    \item C2QD-4.2 Semplicit\`a di utilizzo
-    \item C2FD-1.4 Informazioni dall'hard disk
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Si occupa di interfacciare utente, servizi ed applet tra loro: in particolare,
@@ -1664,6 +1745,40 @@ controlli necessari ad influenzarne il comportamento.
 + makeNativeFunction(in AppletBar) \emph{native} & \\\hline
 \caption{Metodi di AppletBar}
 \end{longtable}
+
+\subsection{Classe AppletBarView}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize} 
+    \item C1FN-1.1.2 Menu laterali
+    \item C1QN-2 Utilizzo
+    \item C1QN-2.3 Portabilit\`a
+    \item C1VN-2.5 Semplicit\`a di utilizzo
+    \item C2FN-1.2 Recupero manuale
+    \item C2QN-4 Utilizzo
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+
+\subsection{Classe AppletBarConnector}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize} 
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
+    \item C1QN-2.6 Manutenibilit\`a
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Relazioni d'uso di altre componenti}
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+\subsubsection*{Attivit\`a svolte e dati trattati}
 
 
 \newpage
@@ -3199,21 +3314,19 @@ poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initial
    \item C2FN-1 Recupero delle informazioni
    \item C2FN-1.5 File ignorati
 \end{itemize}
-
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-
-
 \subsubsection*{Relazioni d'uso di altre componenti}
-
-
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+                                 %INIZIO TRACCIAMENTI%
 
-\section{Tracciamento componenti dettaglio 1 - requisiti obbligatori}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Tracciamento componenti progettazione di dettaglio 1 - requisiti
+obbligatori}
 \begin{footnotesize}
 \centering
 \begin{longtable}[!h]{|l|l|}
@@ -3227,136 +3340,197 @@ poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initial
 \hline
 \endfoot
 \endlastfoot
-Ccl0 - client & C1FN-1 \\
-& C2FN-3 \\\hline
-Ccl1 - client.Netmus & C1FN-1 \\ \hline
-Ccl2 - client.ClientFactory & C1QN-2.3 \\\hline
-Ccl3 - client.ClientFactoryImpl & C1QN-2.3 \\\hline
-Cclmv0 - client.mvp & C1FN-1 \\\hline
-Cclmv1 - client.mvp.NetmusActivityMapper & C1FN-1 \\\hline
-Cclmv2 - client.mvp.NetmusPlaceHistoryMapper & C1FN-1 \\\hline
-Cclac0 - client.activity & C1FN-1 \\\hline
-Cclac1 - client.activity.LoginActivity & C1FN-1.2 \\\hline
-Cclac2 - client.activity.ProfileActivity & C1FN-1.1.1 \\
-& C1FN-1.1.3 \\ \hline
-Cclac3 - client.activity.EditUserActivity & C1FN-1.4.1 \\
-& C1FN-1.4.2 \\
-& C1FN-1.4.3 \\
-& C1FN-1.4 \\\hline
-Cclse0 - client.service & C2QN-3.2 \\
-& C1QN-1.9.6 \\\hline
-Cclse1 - client.service.LoginService & C1FN-1.2 \\\hline
-Cclse2 - client.service.UsersService & C1FN-1.4.1 \\
-& C1FN-1.4.2 \\
-& C1FN-1.4.3 \\
-& C1FN-1.4 \\\hline
-Cclse3 - client.service.SongsService & C1FN-1.1.3 \\
-& C1FN-1.9 \\
-& C1FN-1.9.1 \\\
-& C1FN-1.9.5 \\
-& C2FN-3.1 \\\hline
-Cclse4 - client.service.LibraryService & C1FN-1.1.1 \\\hline
-Cclpl0 - client.place & C1FN-1 \\\hline
-Cclpl1 - client.place.LoginPlace & C1FN-1.2 \\\hline
-Cclpl2 - client.place.ProfilePlace & C1FN-1.1.3 \\
-& C1FN-1.1.1 \\\hline
-Cclpl3 - client.place.EditUserPlace & C1FN-1.4 \\
-& C1FN-1.4.1 \\
-& C1FN-1.4.2 \\
-& C1FN-1.4.3 \\\hline
-Cclui0 - client.ui & C1FN-1 \\
-& C1FN-1.1 \\
-& C1FN-1.2 \\
-& C1QN-2 \\\hline
-Cclui1 - client.ui.LoginView & C1FN-1.2 \\ \hline
-Cclui2 - client.ui.ProfileView & C1FN-1.1.1 \\
-& C1FN-1.1.3 \\\hline
-Cclui3 - client.ui.EditUserView & C1FN-1.4.3 \\
-& C1FN-1.4.2 \\
-& C1FN-1.4.1 \\
-& C1FN-1.4 \\\hline
-Cclap0 - client.applet & C2QN-4 \\
-& C2FN-3.1 \\
-& C2FN-1.5 \\
-& C2FN-1.2 \\
-& C2FN-1.1 \\
-& C2FN-1 \\\hline
-Cclap1 - client.applet.ABF & C2FN-1.1 \\\hline
-Cclap2 - client.applet.AppletBar & C2QN-4 \\
-& C2FN-3.1 \\
-& C2FN-1.2 \\
-& C2FN-1.1 \\\hline
-Cclap3 - client.applet.TranslateDTOXML & C2FN-3.1 \\\hline
-Csh0 - shared & C1FN-1 \\
-& C1FN-1.9.5 \\\hline
-Csh2 - shared.SongSummaryDTO & C1FN-1.1.3 \\\hline
-Csh3 - shared.SongDTO & C1FN-1.1.3 \\\hline
-Csh4 - shared.LoginDTO & C1FN-1.2 \\\hline
-Csh5 - shared.MusicLibraryDTO & C1FN-1.1.1 \\\hline
-Csh6 - shared.UserSummaryDTO & C1FN-1.4 \\
-& C1FN-1.4.1 \\
-& C1FN-1.4.2 \\
-& C1FN-1.4.3 \\\hline
-Csh7 - shared.UserDTO & C1FN-1.4 \\
-& C1FN-1.4.1 \\
-& C1FN-1.4.2 \\
-& C1FN-1.4.3 \\\hline
-Csh8 - shared.UserCompleteDTO & C1FN-1.4 \\
-& C1FN-1.4.1 \\
-& C1FN-1.4.2 \\
-& C1FN-1.4.3 \\\hline
-Csh9 - shared.MusicLibrarySummaryDTO &  C1FN-1.1.1 \\\hline
-Csh10 - shared.FieldVerifier & C1FN-1.9.1 \\\hline
-Cshex0 - shared.exception & C1QN-2.7 \\\hline
-Cshex1 - shared.exception.NetMusException & C1QN-2.7 \\\hline
-Cshex2 - shared.exception.LoginException & C1QN-2.7 \\\hline
-Cshex3 - shared.exception.WrongLoginException & C1QN-2.7 \\\hline
-Cshex4 - shared.exception.RegistrationException & C1QN-2.7 \\\hline
-Cshex5 - shared.exception.NickNotFreeException & C1QN-2.7 \\\hline
-Cshex6 - shared.exception.DuplicateEmailException & C1QN-2.7 \\\hline
-Cshex7 - shared.exception.DatastoreException & C1QN-2.7 \\\hline
-Cse0 - server & C1QN-1.9.6 \\
-&  C1FN-1 \\\hline
-Cse2 - server.LoginHelper & C1FN-1.2 \\\hline
-Cse3 - server.SongsServiceImpl & C1FN-1.1.3 \\
-& C1FN-1.9 \\
-& C1FN-1.9.1 \\
-& C1FN-1.9.2 \\
-& C1FN-1.9.5 \\
-& C2FN-3.1 \\\hline
-Cse4 - server.LoginServiceImpl & C1FN-1.2 \\\hline
-Cse5 - server.UserServiceImpl & C1FN-1.4 \\
-& C1FN-1.4.1 \\
-& C1FN-1.4.2 \\
-& C1FN-1.4.3 \\\hline
-Cse6 - server.LibraryServiceImpl & C1FN-1.1.1 \\\hline
-Cseut0 - server.utils & C1FN-1.9 \\
-& C1FN-1.9.2 \\
-& C1QN-1.9.4 \\\hline
-Cseut5 - server.utils.BCrypt & C1FN-1.2 \\\hline
-Csese0 - server.servlet & C1FN-1.9 \\\hline
-Csepe0 - server.persistent & C1FN-1.9.5 \\
-& C1QN-1.9.6 \\
-& C1FN-1.13 \\
-& C1VN-1.13.1 \\\hline
-Csepe1 - server.persistent.UserAccount & C1FN-1.4.3 \\
-& C1FN-1.4.2 \\
-& C1FN-1.4.1 \\
-& C1FN-1.4 \\
-& C1FN-1.2 \\\hline
-Csepe2 - server.persistent.MusicLibrary &  C1FN-1.1.1 \\\hline
-Csepe3 - server.persistent.Song & C1FN-1.9.2 \\
+client &  C1FN-1\\
+& C1QN-2.6\\ \hline
+client.Netmus  &  C1FN-1 \\
+& C1VN-1.12 \\\hline 
+client.ClientFactory  &  C1FN-1 \\
+& C1QN-2.6 \\\hline 
+client.ClientFactoryImpl  & C1QN-2.6 \\
+& C1QN-2.3\\\hline 
+client.mvp  &  C1QN-2.6 \\\hline 
+client.mvp.NetmusActivityMapper  &  C1QN-2\\
+& C1QN-2.6 \\\hline 
+client.mvp.NetmusPlaceHistoryMapper  &  C1QN-2\\
+& C1QN-2.6 \\\hline 
+client.event  &  C1FN-1.1 \\
+& C1FN-1.1.1\\
 & C1FN-1.9 \\\hline
-Csepe4 - server.persistent.ODF & C1FN-1.9.5 \\
+client.event.DeviceScannedEvent  &  C1FN-1.1 \\
+& C1FN-1.1.1\\
+& C1FN-1.9\\\hline 
+client.event.DeviceScannedEventHandler  &  C1FN-1.1 \\
+& C1FN-1.1.1\\ 
+& C1FN-1.9\\\hline
+client.activity  &  C1QN-1.6.2 \\
+& C1QN-2.6 \\\hline 
+client.activity.LoginActivity  &  C1FN-1.2\\
+& C1QN-1.6.2 \\\hline 
+client.activity.ProfileActivity  &  C1FN-1.1.3\\
+& C1FN-1.4\\
+& C1FN-1.4.1\\
+& C1FN-1.4.2\\
+& C1FN-1.4.3\\
+& C1QN-1.6.2\\\hline
+client.place  &  C1QN-1.6.2\\
+& C1QN-2 \\
+& C1VN-2.5\\
+& C1QN-2.6\\\hline 
+client.place.LoginPlace  &  C1QN-1.6.2\\
+& C1QN-2 \\
+& C1VN-2.5\\\hline 
+client.place.ProfilePlace  &  C1QN-1.6.2\\
+& C1QN-2\\
+& C1VN-2.5\\\hline
+client.service  &  C1FN-1\\
+& C1VN-1.12\\
+& C1VN-1.11\\
+& C1QN-2.6 \\\hline 
+client.service.LoginService  &  C1FN-1.2 \\\hline 
+client.service.UsersService  &  C1FN-1.4\\
+& C1FN-1.4.1\\
+& C1FN-1.4.2\\
+& C1FN-1.4.3\\\hline 
+client.ui  &  C1FN-1.1\\
+& C1QN-2.3\\
+& C1QD-2.4 Supporto multi-lingua\\\hline
+client.ui.LoginView  &  C1FN-1.1\\
+& C1FN-1.2\\
+& C1QN-2\\
+& C1QN-2.3\\
+& C1VN-2.5\\\hline 
+client.ui.ProfileView  & C1FN-1.1\\
+& C1FN-1.1.2\\
+& C1FN-1.1.3\\
+& C1FN-1.4\\
+& C1FN-1.4.1\\
+& C1FN-1.4.2\\
+& C1FN-1.4.3\\
+& C1QN-2\\
+& C1QN-2.3\\
+& C1VN-2.5\\\hline 
+client.applet  &  C1FN-1.9\\
+& C2FN-3\\
+& C2QN-4.4\\
+& C2VN-4.6\\\hline 
+client.applet.AppletConstants  &  C1FN-1.9 \\\hline 
+client.applet.TranslateDTOXML  &  C1FN-1.9\\
+& C1FN-1.9.5\\
+& C2FN-3\\\hline 
+client.applet.AppletBar  &  C1FN-1.9\\
+& C1FN-1.9.1\\
+& C1QN-2\\
+& C2FN-1.2\\
+& C2FN-3\\\hline 
+client.applet.AppletBarView  &  C1FN-1.1.2\\
+& C1QN-2\\
+& C1QN-2.3\\
+& C1VN-2.5\\
+& C2FN-1.2\\
+& C2QN-4\\\hline 
+client.applet.AppletBarConnector  &  C1FN-1.9  \\\hline 
+shared  &  C1QN-2.6 \\\hline 
+shared.LoginDTO  &  C1FN-1.2 \\\hline 
+shared.MusicLibraryDTO  & C1FN-1.9\\\hline 
+shared.UserDTO  & C1FN-1.4\\
+& C1FN-1.4.1\\
+& C1FN-1.4.2\\
+& C1FN-1.4.3\\\hline  
+shared.UserCompleteDTO  & C1FN-1.4\\
+& C1FN-1.4.1\\
+& C1FN-1.4.2\\
+& C1FN-1.4.3\\\hline 
+shared.MusicLibrarySummaryDTO  &  C1FN-1.9\\\hline 
+shared.FieldVerifier  & C1FN-1.2 \\\hline 
+shared.exception  &  C1QN-2.7 \\\hline 
+shared.exception.NetMusException  &  C1QN-2.7 \\\hline 
+shared.exception.LoginException  &  C1QN-2.7\\
+& C1FN-1.2 \\\hline 
+shared.exception.RegistrationException  &  C1QN-2.7\\ 
+& C1FN-1.2\\\hline 
+server  &  C1FN-1\\
+& C1VN-1.11\\
+& C1VN-1.12\\
+& C1QN-2.6\\\hline  
+server.LoginHelper  &  C1FN-1.2\\\hline 
+server.SongsServiceImpl  &  C1QN-1.6\\\hline 
+server.LoginServiceImpl  &  C1FN-1.2\\
+& C1QN-1.6\\\hline 
+server.UserServiceImpl  &  C1FN-1.4\\
+& C1FN-1.4.1\\
+& C1FN-1.4.2\\
+& C1FN-1.4.3\\
+& C1QN-1.6\\\hline 
+server.LibraryServiceImpl  &  C1QN-1.6 \\
+& C1FN-1.9\\
+& C1FN-1.9.1\\\hline 
+server.utils  &  C1QN-2.6 \\\hline  
+server.utils.Utils  & C1FN-1.9\\\hline  
+server.utils.AppEngineCache  &  C1FN-1.9\\\hline
+server.utils.BCrypt  &  C1FN-1.2 \\
+& C1FN-1.4.2\\\hline
+server.youtube  &  C1FN-1.9\\\hline
+server.youtube.YouTubeManager  &  C1FN-1.9 \\\hline
+server.youtube.YouTubeMedia  &  C1FN-1.9 \\\hline
+server.youtube.YouTubeVideo  &  C1FN-1.9 \\\hline
+server.persistent  &  C1FN-1 \\
+& C1QN-1.6\\
+& C1QN-1.6.2\\
+& C1FN-1.9.1\\
+& C1QN-1.9.6\\
+& C1VN-1.11\\
+& C1VN-1.12\\
+& C1FN-1.13\\
+& C1VN-1.13.1\\
+& C1QN-2.6\\\hline 
+server.persistent.UserAccount  &  C1FN-1.2\\
+& C1FN-1.4\\
+& C1FN-1.4.1\\
+& C1FN-1.4.2\\
+& C1FN-1.4.3\\
+& C1QN-1.6\\
+& C1QN-1.6.2\\ 
+& C1FN-1.9.1\\
+& C1FN-1.13\\\hline 
+server.persistent.MusicLibrary  & C1QN-1.6\\
+& C1QN-1.6.2\\
+& C1FN-1.9.1\\\
+& C1FN-1.9.5\\
+& C1FN-1.13\\\hline 
+server.persistent.Song  & C1QN-1.6\\
+& C1QN-1.6.2\\
+& C1FN-1.9\\
+& C1FN-1.9.1\\
+& C1FN-1.9.2\\
+& C1QN-1.9.4\\
+& C1FN-1.9.5\\
+& C1FN-1.13\\\hline 
+server.persistent.ODF  &  C1QN-1.6\\
+& C1QN-1.6.2\\
+& C1QN-1.9.6\\
 & C1FN-1.13 \\
-& C1VN-1.13.1 \\\hline
-\caption{Tabella di tracciamento tra componenti individuate dopo
-progettazione di dettaglio 1 e requisiti obbligatori}
+& C1VN-1.13.1\\\hline 
+applet  &  C2QN-4.4\\
+& C2VN-4.6 \\\hline
+applet.DeviceScanner  &  C2FN-1\\
+& C2FN-1.1\\
+& C2FN-1.2\\
+& C2FN-1.5\\\hline
+applet.NetmusApplet  & C2FN-3\\
+& C2FN-3.1\\
+& C2QN-3.2\\
+& C2QN-4\\\hline
+applet.TranslateXML  &  C2FN-1.5 \\
+& C2FN-3\\
+& C2FN-3.1\\
+& C2QN-3.2\\\hline
+\caption{Tabella di tracciamento tra le componenti individuate durante la
+progettazione di dettaglio 1 ed i requisiti obbligatori}
 \end{longtable}
 \end{footnotesize}
 
-\section{Tracciamento componenti dettaglio 2 - requisiti desiderabili ed
-opzionali}
+\section{Tracciamento componenti progettazione di dettaglio 2 - requisiti
+desiderabili e opzionali}
 \begin{footnotesize}
 \centering
 \begin{longtable}[!h]{|l|l|}
@@ -3370,141 +3544,531 @@ opzionali}
 \hline
 \endfoot
 \endlastfoot
-Ccl0 - client & C1FD-1.10 \\\hline
-Ccl3 - client.ClientFactoryImpl & C1QO-2.1 \\\hline
-Cclac2 - client.activity.ProfileActivity & C1FO-1.2.3 \\
-& C1FD-1.5 \\
-& C1FD-1.7 \\
-& C1FD-1.7.1 \\
-& C1FD-1.7.2 \\\hline
-Cclac3 - client.activity.EditUserActivity & C1FD-1.4.4 \\\hline
-Cclac4 - client.activity.EditSongsActivity & C1FD-1.3 \\
-& C1FD-1.3.1 \\
-& C1FD-1.3.2 \\\hline
-Cclse2 - client.service.UsersService & C1FD-1.8 \\
-& C1FD-1.4.4 \\\hline
-Cclse3 - client.service.SongsService & C1FD-1.3.2 \\
-& C1FD-1.5 \\
-& C1FD-1.8 \\
-& C1FD-1.10 \\
-& C2FD-2 \\\hline
-Cclse4 - client.service.LibraryService & C1FD-1.8 \\
-& C1FD-1.10 \\
-& C1FO-1.8.1 \\
-& C1FO-1.3.4 \\
-& C1FO-1.3.3 \\
-& C1FD-1.3.1 \\
-& C1FD-1.3 \\\hline
-Cclpl2 - client.place.ProfilePlace & C1FO-1.7.2 \\
-& C1FD-1.7.1 \\
-& C1FD-1.7 \\
-& C1FD-1.5 \\
-& C1FO-1.3.4 \\\hline
-Cclpl3 - client.place.EditUserPlace & C1FD-1.4.4 \\\hline
-Cclpl4 - client.place.EditSongsPlace & C1FO-1.3.3 \\
-& C1FD-1.3.2 \\
-& C1FD-1.3.1 \\
-& C1FD-1.3 \\ \hline
-Cclui0 - client.ui & C1QO-2.1 \\
-& C1QD-2.4 \\\hline
-Cclui1 - client.ui.LoginView & C1FO-1.2.1 \\
-& C1QO-2.1 \\
-& C1QD-2.4 \\\hline
-Cclui2 - client.ui.ProfileView & C1FD-1.1.4 \\
-& C1FO-1.3.4 \\
-& C1FD-1.5 \\
-& C1FD-1.7 \\
-& C1FD-1.7.1 \\
-& C1FO-1.7.2 \\
-& C1QO-2.1 \\
-& C1QD-2.4 \\
+client.ClientFactoryImpl  & C1QO-2.1\\\hline 
+client.activity.LoginActivity  & C1FO-1.2.1 \\\hline 
+client.activity.ProfileActivity & C1FD-1.1.4\\
 & C1FD-1.3 \\
-& C1FD-1.3.1 \\
-& C1FO-1.3.3 \\\hline
-Cclui3 - client.ui.EditUserView & C1FD-1.4.4 \\\hline
-Cclui4 - client.ui.EditSongsView & C1FD-1.3.2 \\
-& C1QO-2.1 \\
-& C1QD-2.4 \\\hline
-Cclui5 - client.ui.MyConstants & C1QD-2.4 \\\hline
-Cclap0 - client.applet & C2QD-4.3 \\
-& C2FD-2 \\
-& C2QD-1.7 \\
-& C2FO-1.6 \\
-& C2FD-1.4 \\
-& C2FO-1.3 \\\
-& C1FD-1.10 \\\hline
-Cclap2 - client.applet.AppletBar & C2VD-4.5\\
-& C2QD-4.2 \\
-& C2FD-1.4 \\\hline
-Cclap4 - client.applet.AppletConstants & C2QD-4.3 \\\hline
-Csh2 - shared.SongSummaryDTO & C1FD-1.3.2 \\
-& C1FD-1.5 \\\hline
-Csh3 - shared.SongDTO & C1FD-1.5 \\
-& C1FD-1.3.2 \\\hline
-Csh5 - shared.MusicLibraryDTO & C1FO-1.3.4 \\
-& C1FO-1.3.3 \\
-& C1FD-1.3.1 \\
-& C1FD-1.3 \\\hline
-Csh6 - shared.UserSummaryDTO & C1FD-1.4.4 \\\hline
-Csh7 - shared.UserDTO & C1FD-1.4.4 \\\hline
-Csh8 - shared.UserCompleteDTO & C1FD-1.4.4 \\\hline
-Cse3 - server.SongsServiceImpl & C1FD-1.3.2 \\
-& C1FD-1.5 \\
-& C1FD-1.10 \\
-& C1FD-1.8 \\
-& C1FO-1.9.3 \\
-& C2FD-2 \\\hline
-Cse4 - server.LoginServiceImpl & C1FO-1.8.1 \\\hline
-Cse5 - server.UserServiceImpl & C1FD-1.4.4 \\
-& C1FD-1.8 \\\hline
-Cse6 - server.LibraryServiceImpl & C1FD-1.8 \\
-& C1FD-1.10 \\
-& C1FO-1.3.4 \\
-& C1FO-1.3.3 \\
-& C1FD-1.3.1 \\
-& C1FD-1.3 \\\hline
-Cseut1 - server.utils.AuthenticationProvider & C1FO-1.2.1 \\\hline
-Cseut3 - server.utils.ServletUtils & C1VD-1.5.2 \\
-& C1QD-1.5.1 \\\hline
-Csese0 - server.servlet & C1FO-1.9.3 \\\hline
-Csese1 - server.servlet.LoginSuperServlet &  C1FO-1.2.1 \\\hline
-Csese2 - server.servlet.LoginGoogleServlet & C1FO-1.2.1 \\\hline
-Csese3 - server.servlet.LoginGoogleCallbackServlet & C1FO-1.2.1 \\\hline
-Csese4 - server.servlet.YouTubeServlet & C1VD-1.5.2 \\\hline
-Csese5 - server.servlet.TaggingServlet & C1FO-1.9.3 \\
-& C1FD-1.5 \\\hline
-Csepe1 - server.persistent.UserAccount & C1FD-1.8 \\
-& C1FD-1.4.4 \\\hline
-Csepe2 - server.persistent.MusicLibrary & C1FD-1.3 \\
-& C1FD-1.3.1 \\
-& C1FO-1.3.3 \\
-& C1FO-1.3.4 \\
-& C1FD-1.8 \\\hline
-Csepe3 - server.persistent.Song & C1FO-1.9.3 \\
-& C1FD-1.8 \\
-& C1FD-1.5 \\
-& C1FD-1.3.2 \\
-& C1FD-1.1.3 \\\hline
-\caption{Tabella di tracciamento tra componenti individuate dopo
-progettazione di dettaglio 2 e requisiti desiderabili/opzionali}
+& C1FD-1.3.1\\
+& C1FD-1.3.2\\
+& C1FO-1.3.3\\
+& C1FO-1.3.4\\
+& C1FD-1.7\\
+& C1FD-1.7.1\\\hline  
+client.service.LoginService  & C1FO-1.2.1\\\hline 
+client.service.UsersService  &  C1FD-1.3 \\
+& C1FD-1.7 \\
+& C1FD-1.7.1\\\hline 
+client.service.SongsService  &  C1FD-1.1.4\\
+& C1FD-1.3\\
+& C1FD-1.3.1\\ 
+& C1FD-1.3.2\\
+& C1FO-1.3.4\\\hline 
+client.service.LibraryService  &  C1FD-1.3 \\
+& C1FO-1.3.3\\
+& C1FO-1.3.4\\
+& C1FO-1.8.1\\\hline 
+client.ui  &  C1QD-1.6.1 \\
+& C1QO-2.1\\\hline 
+client.ui.LoginView  &  C1QD-1.6.1\\
+& C1FO-1.2.1\\
+& C1QO-2.1\\\hline 
+client.ui.ProfileView  &  C1FD-1.1.4\\
+& C1FD-1.3\\
+& C1FD-1.3.1\\ 
+& C1FD-1.3.2\\
+& C1FO-1.3.3\\
+& C1FO-1.3.4\\
+& C1FD-1.4.4\\
+& C1QD-1.6.1\\
+& C1FD-1.7\\
+& C1FD-1.7.1\\
+& C1FO-1.8.1\\
+& C1QO-2.1\\\hline 
+client.ui.MyConstants  &  C1QO-2.1 \\
+& C1QD-2.4 \\\hline  
+client.applet.AppletConstants  &  C1QD-2.4\\\hline 
+shared.SongSummaryDTO  &  C1FD-1.1.4\\
+& C1FD-1.3\\
+& C1FD-1.3.1\\
+& C1FD-1.3.2\\
+& C1FO-1.3.4\\\hline
+shared.SongDTO  &  C1FD-1.1.4\\
+& C1FD-1.3\\
+& C1FD-1.3.1\\
+& C1FD-1.3.2\\
+& C1FO-1.3.4\\\hline 
+shared.MusicLibraryDTO  &  C1FD-1.3\\
+& C1FO-1.3.3\\
+& C1FO-1.3.4\\
+& C1FO-1.9.3\\\hline 
+shared.UserDTO  &  C1FD-1.3 \\\hline  
+shared.UserCompleteDTO  &  C1FD-1.3 \\\hline 
+shared.MusicLibrarySummaryDTO  &  C1FD-1.3\\
+& C1FO-1.3.3\\
+& C1FO-1.3.4\\
+& C1FO-1.9.3\\\hline  
+server.LoginHelper  &  C1FO-1.2.1 \\\hline 
+server.SongsServiceImpl  &  C1FD-1.1.4\\
+& C1FD-1.3\\
+& C1QD-1.5.1\\
+& C1FD-1.3.1\\
+& C1FD-1.3.2\\
+& C1FO-1.3.4\\\hline 
+server.LoginServiceImpl  &  C1FO-1.2.1\\\hline 
+server.UserServiceImpl  &  C1FD-1.3 \\
+& C1FD-1.7\\
+& C1FD-1.7.1\\\hline 
+server.LibraryServiceImpl  &  C1FD-1.3\\
+& C1FO-1.3.3\\
+& C1FO-1.3.4\\
+& C1FD-1.8\\
+& C1FO-1.8.1\\
+& C1FO-1.9.3\\\hline  
+server.utils.Utils  & C1QD-1.5.1\\
+& C1VD-1.5.2\\
+& C1VD-1.5.3\\
+& C1FO-1.9.3\\\hline 
+server.utils.ServletUtils  &  C1FO-1.2.1 \\\hline  
+server.utils.AppEngineCache  &  C1FO-1.9.3\\\hline
+server.youtube  &  C1FD-1.1.4 \\\hline
+server.youtube.YouTubeManager  &  C1FD-1.1.4 \\
+& C1VD-1.5.2\\
+& C1VD-1.5.3\\\hline
+server.youtube.YouTubeMedia  &  C1FD-1.1.4 \\
+& C1VD-1.5.2\\
+& C1VD-1.5.3\\\hline
+server.youtube.YouTubeVideo  &  C1FD-1.1.4 \\
+& C1VD-1.5.2\\
+& C1VD-1.5.3\\\hline
+server.servlet  &  C1FO-1.2.1 \\\hline 
+server.servlet.LoginSuperServlet  &  C1FO-1.2.1 \\\hline 
+server.servlet.LoginGoogleServlet  &  C1FO-1.2.1 \\\hline 
+server.servlet.LoginGoogleCallbackServlet  &  C1FO-1.2.1 \\\hline  
+server.persistent.UserAccount  &  C1FD-1.3\\
+& C1FD-1.7\\
+& C1FD-1.7.1\\\hline 
+server.persistent.MusicLibrary  &  C1FD-1.3 \\
+& C1FO-1.3.3\\
+& C1FO-1.3.4\\
+& C1FD-1.8\\
+& C1FO-1.8.1\\\hline 
+server.persistent.Song  & C1FD-1.1.4 \\
+& C1FD-1.3\\
+& C1FD-1.3.1\\
+& C1FD-1.3.2\\
+& C1FO-1.3.4\\
+& C1FD-1.8\\
+& C1FO-1.9.3\\\hline 
+applet.DeviceScanner  &  C2FD-1.4\\
+& C2FO-1.6\\
+& C2QD-1.7\\
+& C2VD-4.5\\\hline
+applet.NetmusApplet  &  C2FD-1.4 \\
+& C2FD-1.4\\\hline
+applet.TranslateXML  &  C2QD-1.7\\\hline
+\caption{Tabella di tracciamento tra le componenti individuate durante la
+progettazione di dettaglio 2 ed i requisiti desiderabili o opzionali}
 \end{longtable}
 \end{footnotesize}
 
-\chapter{REQUISITI DELLA VERGOGNA}
-C1FD-1.10 Invio nuove informazioni a C2\ldots bisogna imboscarlo in qualche
-modo!\\
-C1FO-1.7.2 Lasciare commenti su profilo\ldots peccato era bello questo\ldots ma
-in figa a bobo anche i commenti! \\
-C2QD-1.7 Ottimizzazione memoria cache\\
-C2FO-1.3 Informazioni senza connessione\\
-C1FD-1.10 Invio nuove informazioni a C2 \\
 
+\section{Tracciamento requisiti - componenti progettazione di dettaglio}
+\begin{footnotesize}
+\centering
+\begin{longtable}[!h]{|l|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Componente} & \sca{Codice}\\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+C1FN-1 Web Application Netmus & Ccl0 \\   
+& Ccl1\\
+& Ccl2\\
+& Cclse0\\
+& Cse0\\
+& Csepe0\\\hline
+C1FN-1.1 Grafica simile ad iTunes & Cclui0\\
+& Cclui1\\
+& Cclui2\\
+& Cclev0\\
+& Cclev1\\
+& Cclev2\\\hline
+C1FN-1.1.1 Brani elencati opportunamente & Cclui2\\
+& Cclac2\\
+& Cclse4\\
+& Cse6\\
+& Csh5\\
+& Csh9\\
+& Csepe2\\
+& Cclev0\\
+& Cclev1\\
+& Cclev2\\\hline  
+C1FN-1.1.2 Menu laterali & Cclui2\\  
+& Cclap4\\\hline 
+C1FN-1.1.3 Visualiz. info dettagliate dei brani & Cclui2 \\
+& Cclac2  \\\hline  
+C1FD-1.1.4 Visualizza player YouTube & Cclui2 \\
+& Cclac2\\
+& Cclse3\\
+& Cse3\\
+& Csh2\\
+& Csh3\\
+& Csepe3\\
+& Cseyo0\\
+& Cseyo1\\
+& Cseyo2\\
+& Cseyo3\\\hline
+C1FN-1.2 Registrazione a Netmus & Cclui1\\
+& Cclac1\\
+& Cclse1\\
+& Cse4\\
+& Cse2\\
+& Csh4\\
+& Csh7\\
+& Cseut5\\
+& Csepe1\\\hline
+C1FO-1.2.1 Pagina login indipendente & Cclui1\\
+& Cclac1\\
+& Cclse1\\
+& Cse4\\
+& Cse2\\
+& Csese0\\
+& Csese1\\
+& Csese2\\
+& Csese3\\
+& Cseut3\\\hline
+C1FD-1.3 Personalizzazione del catalogo & Cclui2\\
+& Cclac2\\
+& Cclse2\\
+& Cclse3\\
+& Cclse4\\
+& Cse3\\
+& Csh2\\
+& Csh3\\
+& Cse5\\
+& Csh7\\
+& Csh8\\
+& Cse6\\
+& Csh5\\
+& Csh9\\
+& Csepe1\\
+& Csepe2\\
+& Csepe3\\\hline 
+C1FD-1.3.1 Cancellazione brano & Cclui2\\
+& Cclac2\\
+& Cclse3\\
+& Cse3\\
+& Csh2\\
+& Csh3\\
+& Csepe3\\\hline  
+C1FO-1.3.3 Creazione playlist & Cclui2\\
+& Cclac2\\
+& Cclse4\\
+& Cse6\\
+& Csh5\\
+& Csh9\\
+& Csepe2\\\hline  
+C1FO-1.3.4 Ranking brani & Cclui2\\
+& Cclac2\\
+& Cclse3\\
+& Cse3\\
+& Csh2\\
+& Csh3\\
+& Csepe3\\
+& Cclse4\\
+& Cse6\\
+& Csh5\\
+& Csh9\\
+& Csepe2  \\\hline          
+C1FD-1.3.2 Modifica informazioni brano & Cclui2\\
+& Cclac2\\
+& Cclse3\\
+& Cse3\\
+& Csh2\\
+& Csh3\\
+& Csepe3\\\hline      
+C1FN-1.4 Gestione profilo personale & Cclui2\\
+& Cclac2\\
+& Cclse2\\
+& Csh7\\
+& Cse5\\
+& Csh7\\
+& Csh8\\
+& Csepe1\\\hline 
+C1FN-1.4.1 Modifica informazioni personali & Cclui2\\
+& Cclac2\\
+& Cclse2\\
+& Csh7\\
+& Cse5\\
+& Csh7\\
+& Csh8\\
+& Csepe1\\\hline  
+C1FN-1.4.2 Cambio password & Cclui2 \\
+& Cclac2\\
+& Cclse2\\
+& Csh7\\
+& Cse5\\
+& Csh7\\
+& Csh8\\
+& Csepe1\\
+& Cseut5\\\hline  
+C1FN-1.4.3 Cancellazione del proprio account & Cclui2\\
+& Cclac2\\
+& Cclse2\\
+& Csh7\\
+& Cse5\\
+& Csh7\\
+& Csh8\\
+& Csepe1\\\hline  
+C1FD-1.4.4 Pubblicazione & Cclui2\\
+& Cclac2\\\hline 
+C1QD-1.5.1 Ottimizzazione della ricerca su YouTube & Cseut2\\
+& Cse3\\\hline 
+C1VD-1.5.2 Quote YouTube & Cseut2\\
+& Cseyo1\\
+& Cseyo2\\
+& Cseyo3\\\hline 
+C1VD-1.5.3 YouTube Terms of Services & Cseut2\\
+& Cseyo1\\
+& Cseyo2\\
+& Cseyo3\\\hline  
+C1QN-1.6 Scalabilia\`a & Csepe0\\
+& Csepe1\\
+& Csepe2\\
+& Csepe3\\
+& Csepe4\\
+& Cse3\\
+& Cse4\\
+& Cse5\\
+& Cse6\\\hline   
+C1QD-1.6.1 Scalabilit\`a interfaccia grafica  & Cclui0\\ 
+& Cclui1\\
+& Cclui2\\
+& Cclui3\\
+& Cclap4\\\hline 
+C1QN-1.6.2 Scalabilit\`a massa di utenza & Cclac0\\
+& Cclac1\\
+& Cclac2\\
+& Cclpl0\\
+& Cclpl1\\
+& Cclpl2\\
+& Csepe0\\
+& Csepe1\\
+& Csepe2\\
+& Csepe3\\
+& Csepe4\\\hline  
+C1FD-1.7 Interazione con altri utenti & Cclui2\\
+& Cclac2\\
+& Cclse2\\
+& Csh7\\
+& Cse5\\
+& Csepe1\\\hline     
+C1FD-1.7.1 Visualizzazione altri profili & Cclui2\\
+& Cclac2\\
+& Cclse2\\
+& Csh7\\
+& Cse5\\
+& Csepe1\\\hline  
+C1FD-1.8 Elaborazione dati utente & Cse6\\
+& Csepe2\\
+& Csepe3\\\hline   
+C1FO-1.8.1 Esportazione PDF & Cclui2\\
+& Cclac2\\
+& Cclse4\\
+& Cse6\\
+& Csepe2  \\\hline  
+C1FN-1.9 Ricezione ed elaborazione dei brani & Cse6\\
+& Csh5\\
+& Csh9\\
+& Csepe3\\
+& Cseut2\\
+& Cseut4\\
+& Cseyo0\\
+& Cseyo1\\
+& Cseyo2\\
+& Cseyo3\\
+& Cclap0\\
+& Cclap1\\
+& Cclap2\\
+& Cclap3\\
+& Cclap5\\
+& Cclev0\\
+& Cclev1\\
+& Cclev2\\\hline  
+C1FN-1.9.1 Controllo di validit`a dei dati & Cse6\\
+& Csepe0\\
+& Csepe1\\
+& Csepe2\\
+& Csepe3\\
+& Cclap3\\\hline 
+C1FN-1.9.2 Completamento info da database interno & Csepe3 \\\hline   
+C1FO-1.9.3 Completamento info da servizio esterno & Cse6\\
+& Cseut2\\
+& Cseut4\\
+& Csepe3\\\hline  
+C1QN-1.9.4 Identificazione dati ridondanti & Csepe3\\\hline                                                                                       
+C1FN-1.9.5 Inserimento nel Database & Cclap2\\
+& Csepe3\\
+& Csepe2\\\hline  
+C1QN-1.9.6 Gestione concorrenza & Csepe0\\
+& Csepe4\\\hline    
+C1VN-1.11 Deve utilizzare il cloud computing & Cclse0\\
+& Cse0\\
+& Csepe0\\\hline    
+C1VN-1.12 Deve utilizzare tecnologie GAE e GWT & Ccl1\\
+& Cclse0\\
+& Cse0\\
+& Csepe0\\\hline                                 
+C1FN-1.13 Gestione Database & Csepe0\\
+& Csepe1\\
+& Csepe2\\
+& Csepe3\\
+& Csepe4\\\hline   
+C1VN-1.13.1 Deve utilizzare Google Data Store & Csepe0\\
+& Csepe4\\\hline      
+C1QN-2 Utilizzo & Cclui0 \\
+Cclui1\\
+& Cclui2\\
+& Cclpl0\\
+& Cclpl1\\
+& Cclpl2\\
+& Cclap4\\
+& Cclap3\\
+& Cclmv1\\
+& Cclmv2\\\hline  
+C1QO-2.1 Accessibilit\`a & Cclui0\\
+& Cclui1\\
+& Cclui2\\
+& Cclui3\\
+& Cclui5\\
+& Ccl3\\\hline 
+C1QN-2.3 Portabilit\`a & Cclui0\\
+& Cclui1\\
+& Cclui2\\
+& Cclui3\\
+& Cclap4\\
+& Ccl2\\\hline   
+C1QD-2.4 Supporto multilingua & Cclui5\\    
+& Cclap1\
+& Cclui0\\\hline                
+C1VN-2.5 Semplicit\`a di utilizzo & Cclui1\\
+& Cclui2\\
+& Cclpl0\\
+& Cclpl1\\
+& Cclpl2\\
+& Cclap4\\\hline
+C1QN-2.6 Manutenibilit\`a & Ccl0\\
+& Ccl2\\
+& Ccl3\\
+& Clmv0\\
+& Cclac0\\
+& Cclpl0\\
+& Cclui0\\
+& Cclse0\\
+& Csh0\\
+& Cse0\\
+& Csepe0\\
+& Cclmv0\\
+& Cclmv1\\
+& Cclmv2\\
+& Cseut0\\\hline                    
+C1QN-2.7 Gestione errori  & Cshex0\\
+& Cshex1\\
+& Cshex2\\
+& Cshex4\\\hline     
+C2FN-1 Recupero delle informazioni & C2ap1 \\\hline  
+C2FN-1.1 Recupero automatico &  C2ap1 \\\hline
+C2FN-1.2 Recupero manuale &  C2ap1\\
+&  C2ap2 \\
+&  Cclap3\\
+&  Cclap4\\\hline  
+C2FD-1.4 Informazioni dall'hard disk & C2ap1 \\
+&  C2ap2\\\hline  
+C2FN-1.5 File ignorati &  C2ap1\\    
+&  C2ap3  \\\hline
+C2FO-1.6 Indicazioni file ignorati &  C2ap1\\\hline 
+C2QD-1.7 Ottimizzazione memoria cache &  C2ap1\\
+&  C2ap3\\\hline
+C2FN-3 Comunicazione con C1 &  C2ap2\\
+&  C2ap3\\
+&  Cclap0\\
+&  Cclap2\\
+&  Cclap3\\\hline      
+C2FN-3.1 Invio delle informazioni &  C2ap2\\
+&  C2ap3\\\hline
+C2QN-3.2 Utilizzo della connessione &  C2ap2\\
+&  C2ap3\\\hline   
+C2QN-4 Utilizzo &  C2ap2\\
+&  Cclap4 \\\hline  
+C2QD-4.1 Portabilit\`a &  Cclap4\\\hline   
+C2QD-4.2 Semplicit\`a di utilizzo  &  Cclap4\\\hline  
+C2QD-4.3 Supporto multi-lingua &  Cclap1\\\hline  
+C2QN-4.4 Manutenibilit\`a &  Cclap0\\
+&  C2ap0\\\hline 
+C2VD-4.5 Meno disturbo possibile  &  Cclap4 \\
+&  C2ap1 \\\hline                          
+C2VN-4.6 Norme legali &  Cclap0\\
+&  C2ap0\\\hline   
+\caption{Tabella di tracciamento tra i requisiti e le componenti individuate
+durante progettazione di dettaglio}
+\end{longtable}
+\end{footnotesize}
+
+\section{Requisiti non tracciati}
+I seguenti requisiti non sono associati ad alcuna componenete all'interno del
+sistema.\\ 
+I requisiti C1VN-2.2, C2VN-4.7, C1QN-3.1, C1QD-3.1.1 non sono presenti nel
+tracciamento poich\'e soddisfatti al di fuori del software: il manuale utente
+bilingue sar\`a in versione pdf stampabile su carta ed il software, sia la
+componente di persistenza e visualizzazione sia quella di recupero delle
+informazioni sono open source fin dall'inizio della scrittura del codice.\\
+I requisiti C1FD-1.5 e C1FO-1.7.2 richiedono uno studio aggiuntivo rispetto alla
+progettazione fatta finora e rappresentano funzionalit\`a ritenute secondo noi
+non fondamentali, ne \`e prevista la progettazione e l'implmentazione in futuro
+durante la fase di manutenzione nel ciclo di vita del software.\\
+I requisiti C1FD-1.10, C2FD-2 e C2FO-1.3 sono stati valutati attentamente ed
+\`e stata individuata in'incongruenza con l'effettivo funzionamento scelto per
+la componente di recupero delle infromazionni. Questi requisiti non saranno
+quindi soddisfatti entro un periodo certo, ma rimangono validi per uno sviluppo
+futuro.
+\begin{footnotesize}
+\begin{longtable}[!h]{|l|}
+\hline
+\rowcolor{orange}                         
+\sca{Requisiti non tracciati}\\
+\hline
+\endhead
+\hline
+\multicolumn{1}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+C1FD-1.5 Riproduzione tracce in streaming \\\hline 
+C1FO-1.7.2 Lasciare commenti su profilo \\\hline
+C1FD-1.10 Invio nuove informazioni a C2 \\\hline
+C1VN-2.2 Open source\\\hline
+C1QN-3.1 Manuale utente  \\\hline
+C1QD-3.1.1 Manuale utente inglese \\\hline  
+C2FO-1.3 Informazioni senza connessione \\\hline            
+C2FD-2 Aggiornamento e completamento informazioni \\\hline
+C2VN-4.7 Open source\\\hline
+\caption{Tabella dei requisiti che non sono stati tracciati con componenti
+durante la progettazione di dettaglio}
+\centering
+\end{longtable}
+\end{footnotesize}
 
 \appendix\chapter{Codice Sorgente}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 
 \chapter{Tracciamento componenti - requisiti}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
+
 
 
 \listoftables
