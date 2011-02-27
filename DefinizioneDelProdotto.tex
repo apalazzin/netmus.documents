@@ -28,14 +28,14 @@ VT.G \\
 \thispagestyle{fancy}
 In questo documento verr\`a definito l'intero prodotto nel dettaglio, andando a
 descrivere i metodi e i campi dati di ogni classe che verr\`a implementata nel
-sistema. Le componenti definite durante la progettazione di dettaglio 1 e quelle da integrare durante
-la progettazione di dettaglio 2 saranno unite all'interno del documento per
-rendere pi\`u comprensibile l'archiettura completa del sistema Netmus. Il
-tracciamento con i requisiti invece sar\`a separato in progettazione di
-dettaglio 1 e progettazione di dettaglio 2 mappati rispettivamente con requisiti
-obbligatori e requisiti desiderabili ed opzionali\\Dopo ogni attivit\`adi
-progettazione di dettaglio verr\`a effettuata la relativa codifica, delle quali
-verr\`a allegato il codice sorgente.
+sistema. Le componenti definite durante la progettazione di dettaglio 1 e quelle
+da integrare durante la progettazione di dettaglio 2 saranno unite all'interno
+del documento per rendere pi\`u comprensibile l'archiettura completa del sistema
+NetMus. Il tracciamento con i requisiti invece sar\`a separato in progettazione
+di dettaglio 1 e progettazione di dettaglio 2 mappati rispettivamente con
+requisiti obbligatori e requisiti desiderabili ed opzionali.\\
+Dopo ogni attivit\`adi progettazione di dettaglio verr\`a effettuata la relativa
+codifica, delle quali verr\`a allegato il codice sorgente.
 
 \newpage
 % REGISTRO MODIFICHE
@@ -155,23 +155,23 @@ allegato.
 
 
 \chapter{Dettagli architetturali non introdotti nella Specifica tecnica}
-\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
-Durante l'attivit\`a di progettazione di dettaglio sono stati definiti alcuni
-aspetti dell'architettura di NetMus che nella Specifica tecnica non sono
-trattati o lo sono solo in parte.\\ Per una maggiore comprensione del documento,
-in particolare della specifica delle componenti, elenchiamo di seguito queste
-importanti decisioni architetturali con una breve descrizione.
+\thispagestyle{fancy} %  header e footer in CHAPTER PAGE Durante l'attivit\`a di
+progettazione di dettaglio sono stati definiti alcuni aspetti dell'architettura
+di NetMus che nella Specifica Tecnica non sono trattati o lo sono solo in
+parte.\\ Per una maggiore comprensione del documento, in particolare della
+specifica delle componenti, elenchiamo di seguito queste importanti decisioni
+architetturali con una breve descrizione.
 \begin{itemize}
   \item \bo{Applet} : la componente di recupero delle informazioni (C2) risiede
-  in una applet Java precompilata indipendente da GWT ed \`e integrata con
+  in una applet \\Java precompilata indipendente da GWT ed \`e integrata con
   quest'ultimo grazie ai metodi nativi JSNI. L'applet \`e inoltre visibile
   (indirettamente) all'utente con una piccola interfaccia grafica di GWT
-  presente in tutte le pagine di Netmus da cui \`e possibile attivarla e
-  disattivarla.\\ Le informazioni reperite nel file system sono trasferite
-  a GWT tramite file XML.
+  presente quando l'utente e' loggato, da cui \`e possibile
+  attivarla e disattivarla, e dare altri comandi relativi la scansione.\\ Le
+  informazioni reperite nel file system sono trasferite a GWT tramite file XML.
   
-  \item \bo{Twig-persist} : Per la gestione della persistenza e quindi del
-  Datastore abbiamo deciso di utilizzate il framework twig-persist poich\'e
+  \item \bo{Twig-Persist} : Per la gestione della persistenza e quindi del
+  Datastore abbiamo deciso di utilizzate il framework Twig-Persist poich\'e
   fornisce una libreria molto efficace e facilmente configurabile
   rispetto a JDO. Un altro vantaggio acquisito dall'utilizzo di questa
   tecnologia \`e quello di poter gestire in modo asincrono (parallelo) le
@@ -183,7 +183,7 @@ importanti decisioni architetturali con una breve descrizione.
   La versione utilizzata del framework \`e l'ultima rilasciata: Twig-Persist 2.0
   Beta 4.
   
-  \item \bo{Internalizzazione} : GWT mette a disposizione un insieme di
+  \item \bo{Internazionalizzazione} : GWT mette a disposizione un insieme di
   strumenti molto flessibili per la gestione dell'internazionalizzazione di
   un'applicazione.\\ Per soddisfare il requisito di avere un sistema
   multi-lingua utilizziamo lo strumento \emph{Static String
@@ -191,25 +191,27 @@ importanti decisioni architetturali con una breve descrizione.
   massima efficienza a runtime poich\'e le lingue sono mappate durante la
   compilazione. Questa componente con le impostazioni relative alle
   diverse lingue risiede nella classe \co{MyConstants} e nei file
-  \emph{MyConstants} e \emph{MyConstants\_it.properties}.
+  \emph{MyConstants.properties} e \emph{MyConstants\_it.properties}. Per
+  permettere anche lo sviluppo multilingua dell'applet, ci sar\`a la classe
+  \co{AppletConstants} ed i relativi file \emph{AppletConstants.properties} e
+  \emph{AppletConstants\_it.properties}.
 \end{itemize}
 
 \newpage
 \section{Lista delle componenti in progettazione di dettaglio}
 In relazione alle modifiche apportate all'architettura del sistema ed al
 maggiore dettaglio della progettazione sono state individuate delle aggiunte e
-delle rimozioni alle componenti indviduate in Specifica tecnica. In seguito sono
-elencate le componenti con l'assegnamento dei nuovi codici
+delle rimozioni alle componenti individuate in Specifica Tecnica. In seguito
+sono elencate le componenti con l'assegnamento dei nuovi codici
 identificativi.\\
-Le modfiche apportate sono dovute principalmente al maggior dettaglio
+Le modifiche apportate sono dovute principalmente al maggior dettaglio
 dell'attivit\`a di progettazione, per quanto riguarda i package
 \emph{client.applet} e \emph{server.persistent} invece si \`e reso necessario
-l'adattamento alle nuove scelte archietturali introdotte nel paragrafo
+l'adattamento alle nuove scelte architetturali introdotte nel paragrafo
 precedente. Infine la struttura dell'applet di estrazione dei brani \`e definita
-in qeusto documento per la prima volta.\\
+in questo documento per la prima volta.\\
 Per ulteriori chiarimenti sulle scelte progettuali operate si rimanda
-alla descrizione specifica delle componenti presentata nel
-capitolo 3.
+alla descrizione specifica delle componenti presentata in questo capitolo.
 \begin{footnotesize}
 \begin{longtable}[h]{|l|l|l|}
 \hline
@@ -260,7 +262,7 @@ capitolo 3.
 \bo{+} & client.applet.AppletBarView  &  Cclap4  \\\hline 
 \bo{+} & client.applet.AppletBarConnector  &  Cclap5  \\\hline 
 & shared  &  Csh0 \\\hline 
-\bo{--} shared.GenericDTO  &  ex Csh1 \\\hline 
+\bo{--} & shared.GenericDTO  &  ex Csh1 \\\hline 
 & shared.SongSummaryDTO  &  Csh2 \\\hline 
 & shared.SongDTO  &  Csh3 \\\hline 
 & shared.LoginDTO  &  Csh4 \\\hline 
@@ -316,17 +318,19 @@ capitolo 3.
 
 \chapter{Specifica delle componenti}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
-Il ciclo di vita da noi impiegato prevede due diverse fasi di progettazione di
-dettaglio, come meglio specificato nel capitolo 3 del Piano di progetto (v
-3.0). La specifica delle componenti individuate nel primo incremento ha
-l'obiettivo di soddisfare i requisiti obbligatori dell'analisi e la codifica di
+Il ciclo di vita da noi impiegato prevede due diverse attivit\`a di
+progettazione di dettaglio, come meglio specificato nel capitolo 3 del Piano di progetto (v 3.0). La specifica
+delle componenti individuate nel primo incremento ha l'obiettivo di soddisfare i
+requisiti obbligatori dell'analisi e la codifica di
 queste fornisce una prima versione funzionante e stabile di NetMus. \\
 La progettazione di dettaglio 2 si occupa invece di definire a basso livello le
 componenti, o parti di esse, che servono a soddisfare i requisiti desiderabili e
 quelli opzionali.\\\\
 Le componenti presentate di seguito sono complete delle due diverse attivit\`a
 di progettazione di dettaglio e contengono quindi l'architettura completa del
-progetto Nemus. \section*{Requisiti obbligatori}
+progetto NetMus.
+
+\section*{Requisiti obbligatori}
 \begin{footnotesize}
 \centering
 \begin{longtable}[!h]{|l|}
@@ -340,7 +344,7 @@ progetto Nemus. \section*{Requisiti obbligatori}
 \hline
 \endfoot
 \endlastfoot
-C1FN-1 Web Application Netmus \\ \hline
+C1FN-1 Web Application NetMus \\ \hline
 C1FN-1.1 Grafica simile ad iTunes \\ \hline
 C1FN-1.1.1 Brani elencati opportunamente \\ \hline
 C1FN-1.1.2 Menu laterali \\ \hline
@@ -383,12 +387,13 @@ dettaglio 1}
 \end{longtable}
 \end{footnotesize}
 
+\newpage
 \section*{Requisiti desiderabili ed opzionali}
 \begin{footnotesize}
 \centering
 \begin{longtable}[!h]{|l|}
 \hline
-\rowcolor{orange}                         
+\rowcolor{orange}
 \sca{Requisiti desiderabili ed opzionali}\\
 \hline
 \endhead
@@ -450,13 +455,15 @@ nel dettaglio le dipendenze presenti tra le componenti del package
 Queste dipendenze aderiscono al pattern MVP ed in particolare sono introdotte
 dal framework MVP con Place e Activity.\\
 Questo schema si ripete anche per gli altri gruppi funzionali di componenti:
-profile e edit user.\\\\
-\begin{figure}[h]
+profile e edit user.
+
+\begin{figure}[!htpb]
   \centering
   \includegraphics[width=16cm]{img/DP/package.png}
 \caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del package client.}
+fondamentali presenti all'interno del package it.unipd.netmus.client}
 \end{figure}
+
 Come possiamo vedere dal diagramma delle classi, la dichiarazione dei metodi
 necessari alla comunicazione tra view e model viene fatta nell'interfaccia 
 \co{Presenter} innestata nell'interfaccia \co{LoginView}. Cos\`i \co{LoginView}
@@ -577,7 +584,7 @@ xml previsti da UiBinder saranno:
 \begin{itemize}
   \item \bo{@UiField}: gli attributi marcati in questo modo hanno lo stesso nome
   di un elemento del file .xml a cui possono accedere successivamente alla
-  chiamata \emph{uiBinder.createAndBindUi(this)} che associa all'attributo Java
+  chiamata \emph{uiBinder.createAndBindUi (this)} che associa all'attributo Java
   l'istanza appropriata di \co{SpanElement}. Questi attributi avranno
   visibilit\`a \emph{package}.
   \item \bo{@UiHandler("name\_of\_uifield")}: permette di scrivere dei metodi
@@ -1252,9 +1259,15 @@ e bookmarking del browser.
     \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
+Il package contiene le classi funzionali al meccanismo delle Activity e dei
+Places.
 \subsection*{Relazioni d'uso di altre componenti}
+Fanno parte di questo package le classi \co{NetmusHistoryMapper} e
+\co{NetmusActivityMapper}.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Nessuna.
 \subsection*{Attivit\`a svolte e dati trattati}
+Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
 \subsection{Classe NetmusActivityMapper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1876,7 +1889,7 @@ relativi di AppletBar.\\\hline
 \end{longtable}
 
 \newpage
-\section{Package event}
+\section{Package client.event}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item 
@@ -1886,10 +1899,18 @@ relativi di AppletBar.\\\hline
     \item 
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
+Questo package conterr\`a le classi che rappresenteranno i nostri eventi
+personalizzati, utilizzabili potenzailmente in tutto il \co{client}.
+Questi eventi potranno essere lanciati sull'EventBus ed essere catturati e
+gestiti in ogni classe avente accesso all'EventBus tramite \co{ClientFactory}.
 \subsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Potranno essere usati questi eventi da ogni classe del client che ne ha la
+necessit\`a.
 \subsection*{Attivit\`a svolte e dati trattati}
-
+Glie eventi svolgono la funzione di segnale, per dare l'input d'inizio ad un
+qualche procedimento.
 
 \subsection{Classe DeviceScannedEvent}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1901,12 +1922,55 @@ relativi di AppletBar.\\\hline
     \item 
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe rappresenta l'evento GWT che andremo a lanciare sull'Event Bus
+quando termina un processo di scansione di un dipositivo ed \`e terminata
+anche la memorizzazione nel DataStore e l'associazione dei brani all'utente che
+li ha caricati. 
 \subsubsection*{Relazioni d'uso di altre componenti}
+\`E associato alla classe \co{DeviceScannedEventHandler} che permetter\`a di
+controllare e gestire l'evento nelle altre classi.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Verr\`a lanciato in specifico da \co{AppletBar} quando avr\`a conferma dal
+server dell'avvenuto processo di memorizzazione dei nuovi Mp3 scansionati. Questo
+evento verr\`a poi catturato nella \co{ProfileActivity} che andr\`a ad
+aggiornare la lista canzoni presenti nel catalogo utente.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Nessuna. La classe \`e costruita basandosi su convenzioni GWT comuni a tutti gli
+eventi grafici.
 
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ TYPE: Type \textless DeviceScanned EventHandler\textgreater  \emph{static} &
+Oggetto Type GWT tipizzato per andare a definire il tipo di handler che
+andr\`a a catturare questo tipo di eventi.\\\hline
+\caption{Campi dati di DeviceScannedEvent}
+\end{longtable}
 
-\subsection{Classe DeviceScannedEventHandler}
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ getAssociatedType() & Restituisce il Type associato all'evento.\\\hline
+\# dispatch(in DeviceScannedEventHandler) & Metodo interno per gestire
+l'evento.\\\hline
+\caption{Metodi di DeviceScannedEvent}
+\end{longtable}
+
+\subsection{Interfaccia DeviceScannedEventHandler}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item 
@@ -1916,11 +1980,33 @@ relativi di AppletBar.\\\hline
     \item 
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Rappresenta l'interfaccia dell'handler che andr\`a a gestire gli eventi di tipo
+\co{DeviceScannedEvent}.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Estende l'interfaccia EventHandler di GWT per automatizzare il meccanismo di
+gestione degli eventi personali.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Nessuna.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Serve per dichiarare i metodi da implementare quando si costruisce un
+\co{EventHandler} per eventi di tipo \co{DeviceScannedEvent}.
+Il questo caso ci sar\`a solamente il metodo \co{onScanDevice(DeviceScannedEvent
+event)}.
 
-
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ onScanDevice(in DeviceScannedEvent) & Gestisce l'evento della fine
+della scansione di un dispositivo da parte dell'applet.\\\hline
+\caption{Metodi di DeviceScannedEventHandler}
+\end{longtable}
 
 \newpage
 \section{Package server}
@@ -2548,10 +2634,9 @@ sistema NetMus.
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Package del server che contiene le classi utilizzate per interfacciarsi a
-servizi esterni, come il login utilizzando l'account Google, o come YouTube.
+servizi esterni, come il login utilizzando l'account Google.
 \subsection*{Relazioni d'uso di altre componenti}
-Verranno utilizzati alcuni \emph{persistent} e classi di \emph{utils}, ma
-si vedr\`a pi\`u in dettaglio nelle classi.
+Verranno utilizzati i \emph{persistent} appropriati e classi di \emph{utils}.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Queste classi vengono usati da \emph{server} per integrare al suo interno
 altri servizi esterni.
@@ -2560,12 +2645,13 @@ Gestisce lo scambio di dati con servizi esterni.
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[width=15cm]{img/DP/classes_servlet.png}
+  \includegraphics[width=11cm]{img/DP/classes_servlet.png}
 \caption{Diagramma UML delle classi che descrive le dipendenze
 fondamentali presenti all'interno del package
 \emph{it.unipd.netmus.server.servlet}.}
 \end{figure}
 
+\newpage
 \subsection{Classe LoginSuperServlet}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -2577,11 +2663,27 @@ implementare il metodo di creazione dell'indirizzo di ritorno del richiedente.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Verr\`a concretizzata da \co{LoginGoogleServlet}.s
+Verr\`a concretizzata da \co{LoginGoogleServlet}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Crea semplicemente l'URL di Callback per far tornare una risposta HTTP al
 client in seguito ad una sua richiesta di login.
 
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ \# buildCallBackURL(in HttpServletRequest) & Crea l'indirizzo di ritorno del
+ richiedente, per la richiesta di login. \\\hline
+\caption{Metodi di LoginSuperServlet}
+\end{longtable}
+
+\newpage
 \subsection{Classe LoginGoogleServlet}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -2600,6 +2702,23 @@ Google, dopo che l'utente avr\`a effettuato l'accesso, lo reindizzer\`a nuovamen
 al nostro programma trasmettendo a \co{LoginGoogleCallbackServlet} tutte le
 informazioni del caso.
 
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ doGet(in HttpServletRequest, in HttpServletResponse) & Crea ed invia una
+richiesta al servizio di login Google per fargli mostrare la pagina di login
+predefinita per i Google Account. \\\hline
+\caption{Metodi di LoginGoogleServlet}
+\end{longtable}
+
+\newpage
 \subsection{Classe LoginGoogleCallbackServlet}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -2613,8 +2732,30 @@ Nessuna.
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Riceve i dati dell'account dell'utente dopo che quest'ultimo ha effettuato
-l'accesso tramite il Google account.
+l'accesso tramite il Google account. Se \`e la prima volta che l'utente entra in
+NetMus viene creato in automatico un account personale con lo stesso ID del
+Google Account. Se esiste gi\`a viene semplicemente autenticata la sessione
+corrente. Se esiste gi\`a un utente NetMus con lo stesso ID non potr\`a essere
+registrato tale utente Google, e quindi sar\`a reindirizzato alla pagina di
+Login.
 
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ doGet(in HttpServletRequest, in HttpServletResponse) & Gestisce l'arrivo di
+una risposta da Google, che porta l'utente loggato con Google Account. Se
+questo \`e null, allora non \`e andata a buon fine l'autenticazione google. Se
+invece \`e andata a buon fine viene associata all'utente la sessione corrente.
+\\\hline
+\caption{Metodi di LoginGoogleCallbackServlet}
+\end{longtable}
 
 \newpage
 \section{Package server.utils} % LASCIARE WARNING
