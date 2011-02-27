@@ -1,6 +1,5 @@
-
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.15}
+\newcommand{\versione}{0.16}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -48,8 +47,11 @@ verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
-23/02/2011 & 0.15 & Caputo Cosimo & Agginti diagrammi delle classi per il
+23/02/2011 & 0.16 & Caputo Cosimo & Agginti diagrammi delle classi per il
 package server e i relativi sotto-package.\\
+\hline
+23/02/2011 & 0.15 & Palazzin Alberto & Aggiunti i capitoli ralitivi al package
+\emph{client.mvp}.\\
 \hline
 19/02/2011 & 0.14 & Baron Federico & Assegnazione nuovi codici per le componenti
 dell'applet in capitolo 2.\\
@@ -1785,11 +1787,13 @@ controlli necessari ad influenzarne il comportamento.
 \section{Package event}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.1 Web Application Netmus
+    \item C1FN-1.1.1 Brani elencati opportunamente
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
@@ -1800,11 +1804,13 @@ controlli necessari ad influenzarne il comportamento.
 \subsection{Classe DeviceScannedEvent}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.1 Web Application Netmus
+    \item C1FN-1.1.1 Brani elencati opportunamente
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -1815,11 +1821,13 @@ controlli necessari ad influenzarne il comportamento.
 \subsection{Classe DeviceScannedEventHandler}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.1 Web Application Netmus
+    \item C1FN-1.1.1 Brani elencati opportunamente
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -1833,7 +1841,13 @@ controlli necessari ad influenzarne il comportamento.
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1 WEB Application NetMus
-	\item C1QN-1.9.6 Gestione concorrenza
+	\item C1VN-1.11 Deve utilizzare il cloud computing
+	\item C1VN-1.12 Deve utilizzare tecnologie GAE e GWT
+	\item C1QN-2.6 Manutenibilit\`a
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
 Questo package racchiude tutte le classi che collaborano al fine di gestire la
@@ -1862,12 +1876,16 @@ fondamentali presenti all'interno del package
 \subsection{Classe SongsServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
-	\item C1FN-1.9 Ricezione ed elaborazione dei brani
-	\item C1FN-1.9.1 Controllo di validit\`a dei dati
-	\item C1FN-1.9.2 Completamento info da database interno
-	\item C1FN-1.9.5 Inserimento nel Database
-	\item C2FN-3.1 Invio delle informazioni
+    \item C1QN-1.6 Scalabilia\`a
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FD-1.3.2 Modifica informazioni brano
+    \item C1FO-1.3.4 Ranking brani
+    \item C1QD-1.5.1 Ottimizzazione della ricerca su YouTube
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{SongsService} (di
@@ -1888,10 +1906,17 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsection{Classe UsersServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.4 Gestione profilo personale
-	\item C1FN-1.4.1 Modifica informazioni personali
-	\item C1FN-1.4.2 Cambio password
-	\item C1FN-1.4.3 Cancellazione del proprio account
+    \item C1FN-1.4 Gestione profilo personale
+    \item C1FN-1.4.1 Modifica informazioni personali
+    \item C1FN-1.4.2 Cambio password
+    \item C1FN-1.4.3 Cancellazione del proprio account
+    \item C1QN-1.6 Scalabilia\`a
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.7 Interazione con altri utenti
+    \item C1FD-1.7.1 Visualizzazione altri profili
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{UsersService} (di
@@ -1909,7 +1934,12 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsection{Classe LoginServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.2 Registrazione
+    \item C1FN-1.2 Registrazione
+    \item C1QN-1.6 Scalabilia\`a
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{LoginService} (di
@@ -1962,7 +1992,18 @@ di \co{LoginHelper} e ritorna, se presenti, le informazioni di base
 \subsection{Classe LibraryServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.1 Brani elencati opportunamente
+    \item C1QN-1.6 Scalabilia\`a
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
+    \item C1FN-1.9.1 Controllo di validit`a dei dati
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FO-1.3.3 Creazione playlist
+    \item C1FO-1.3.4 Ranking brani
+    \item C1FD-1.8 Elaborazione dati utente
+    \item C1FO-1.8.1 Esportazione PDF
+    \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{LibraryService} (di
@@ -1980,7 +2021,11 @@ Descritte nell'interfaccia lato \emph{client}.
 \subsection{Classe LoginHelper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.2 Registrazione
+    \item C1FN-1.2 Registrazione
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 La classe \co{LoginHelper} offre funzionalit\`a statiche
@@ -2025,10 +2070,21 @@ nel database (per esempio l'attributo \co{lastLogin}).\\\hline
 \section{Package server.persistent} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
+    \item C1FN-1 Web Application Netmus
+    \item C1QN-1.6 Scalabilia\`a
+    \item C1QN-1.6.2 Scalabilit\`a massa di utenza
+    \item C1FN-1.9.1 Controllo di validit`a dei dati
 	\item C1FN-1.9.5 Inserimento nel Database
 	\item C1QN-1.9.6 Gestione concorrenza
+	\item C1VN-1.11 Deve utilizzare il cloud computing
+	\item C1VN-1.12 Deve utilizzare tecnologie GAE e GWT
 	\item C1FN-1.13 Gestione Database
 	\item C1VN-1.13.1 Deve utilizzare Google Data Store
+	\item C1QN-2.6 Manutenibilit\`a
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{server.persistent} contiene le classi di persistenza che
@@ -2084,7 +2140,15 @@ fondamentali presenti all'interno del package
 \subsection{Classe ODF (Singleton)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1 WEB Application NetMus
+    \item C1QN-1.6 Scalabilia\`a
+    \item C1QN-1.6.2 Scalabilit\`a massa di utenza
+    \item C1QN-1.9.6 Gestione concorrenza
+    \item C1FN-1.13 Gestione Database
+    \item C1VN-1.13.1 Deve utilizzare Google Data Store
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{ODF} (Object Datastore Factory) \`e una classe \emph{final} che segue il
@@ -2140,16 +2204,21 @@ dell' \co{ObjectDatastore}.\\\hline
 \subsection{Classe UserAccount}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.2 Registrazione
-	\item C1FN-1.4 Gestione profilo personale
-	\item C1FN-1.4.1 Modifica informazioni personali
-	\item C1FN-1.4.2 Cambio password
-	\item C1FN-1.4.3 Cancellazione del proprio account
+    \item C1FN-1.2 Registrazione a Netmus
+    \item C1FN-1.4 Gestione profilo personale
+    \item C1FN-1.4.1 Modifica informazioni personali
+    \item C1FN-1.4.2 Cambio password
+    \item C1FN-1.4.3 Cancellazione del proprio account
+    \item C1QN-1.6 Scalabilia\`a
+    \item C1QN-1.6.2 Scalabilit\`a massa di utenza
+    \item C1FN-1.9.1 Controllo di validit`a dei dati
+    \item C1FN-1.13 Gestione Database
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item C1FD-1.8 Elaborazione dati utente
-    \item C1FD-1.4.4 Pubblicazione
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.7 Interazione con altri utenti
+    \item C1FD-1.7.1 Visualizzazione altri profili
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{UserAccount} utilizza il design pattern DAO poich\'e contiene tutte le
@@ -2248,15 +2317,19 @@ contenente tutte le informazioni riguardanti l'utente.\\\hline
 \subsection{Classe MusicLibrary}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.1 Brani elencati opportunamente
+	\item C1QN-1.6 Scalabilia\`a
+	\item C1QN-1.6.2 Scalabilit\`a massa di utenza
+	\item C1FN-1.9.1 Controllo di validit`a dei dati
+	\item C1FN-1.9.5 Inserimento nel Database
+	\item C1FN-1.13 Gestione Database
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
     \item C1FD-1.3 Personalizzazione del catalogo
-    \item C1FD-1.3.1 Cancellazione brano
     \item C1FO-1.3.3 Creazione playlist 
     \item C1FO-1.3.4 Ranking brani
     \item C1FD-1.8 Elaborazione dati utente
+    \item C1FO-1.8.1 Esportazione PDF
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} \co{MusicLibrary}
 contiene tutte le informazioni relative ad un catalogo multimediale, ovvero
@@ -2342,16 +2415,24 @@ NetMus.
 \subsection{Classe Song}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
+    \item C1QN-1.6 Scalabilia\`a
+    \item C1QN-1.6.2 Scalabilit\`a massa di utenza
 	\item C1FN-1.9 Ricezione ed elaborazione dei brani
+	\item C1FN-1.9.1 Controllo di validit`a dei dati
 	\item C1FN-1.9.2 Completamento info da database interno
+	\item C1QN-1.9.4 Identificazione dati ridondanti
+	\item C1FN-1.9.5 Inserimento nel Database
+	\item C1FN-1.13 Gestione Database
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item C1FO-1.9.3 Completamento info da servizio esterno
-    \item C1FD-1.8 Elaborazione dati utente
-    \item C1FD-1.5 Riproduzione tracce in streaming
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
     \item C1FD-1.3.2 Modifica informazioni brano
-    \item C1FD-1.1.3 Visualizzazione info dettagliate dei brani
+    \item C1FO-1.3.4 Ranking brani
+    \item C1FD-1.8 Elaborazione dati utente
+    \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} Contiene le
 informazioni relative ad un brano musicale, in particolare ogni canzone \`e
@@ -2450,7 +2531,11 @@ sistema NetMus.
 \section{Package server.servlet}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.9 Ricezione ed elaborazione dei brani
+	\item Nessuno
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Package del server che contiene le classi utilizzate per interfacciarsi a
@@ -2477,6 +2562,10 @@ fondamentali presenti all'interno del package
 \begin{itemize}
     \item Nessuno
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \`E una classe astratta che estende \co{HttpServlet} ed ha lo scopo di
 implementare il metodo di creazione dell'indirizzo di ritorno del richiedente.
@@ -2492,6 +2581,10 @@ client in seguito ad una sua richiesta di login.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Utilizzata per il login tramite l'account Google.
@@ -2511,6 +2604,10 @@ informazioni del caso.
 \begin{itemize}
     \item Nessuno
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Utilizzata per il login tramite l'account Google.
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -2526,9 +2623,11 @@ l'accesso tramite il Google account.
 \section{Package server.utils} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.9 Ricezione ed elaborazione dei brani
-	\item C1FN-1.9.2 Completamento info da database interno
-	\item C1QN-1.9.4 Identificazione dati ridondanti
+    \item C1QN-2.6 Manutenibilit\`a
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Contiene le classi che forniscono funzioni di utilit\`a comunemente utilizzate
@@ -2551,11 +2650,11 @@ fondamentali presenti all'interno del package
 \subsection{Classe AppEngineCache}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -2565,11 +2664,12 @@ fondamentali presenti all'interno del package
 \subsection{Classe BCrypt}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.2 Registrazione a Netmus
+    \item C1FN-1.4.2 Cambio password
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -2579,11 +2679,14 @@ fondamentali presenti all'interno del package
 \subsection{Classe Utils}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1QD-1.5.1 Ottimizzazione della ricerca su YouTube
+    \item C1VD-1.5.2 Quote YouTube
+    \item C1VD-1.5.3 YouTube Terms of Services
+    \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -2594,6 +2697,10 @@ fondamentali presenti all'interno del package
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.2.1 Pagina login indipendente
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Funzioni utili per l'utilizzo dei servizi esterni.
@@ -2610,11 +2717,13 @@ esterni.
 \section{Package server.youtube} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1VD-1.5.2 Quote YouTube
+    \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 \subsection*{Relazioni d'uso di altre componenti}
@@ -2624,11 +2733,13 @@ esterni.
 \subsection{Classe YouTubeManager}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1VD-1.5.2 Quote YouTube
+    \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -2638,11 +2749,13 @@ esterni.
 \subsection{Classe YouTubeMedia}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1VD-1.5.2 Quote YouTube
+    \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -2652,11 +2765,13 @@ esterni.
 \subsection{Classe YouTubeVideo}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1VD-1.5.2 Quote YouTube
+    \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -2670,8 +2785,11 @@ esterni.
 \section{Package shared}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-  	\item C1FN-1 WEB Application NetMus
-	\item C1FN-1.9.5 Inserimento nel Database
+  	\item C1QN-2.6 Manutenibilit\`a
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{shared} contiene le classi degli oggetti che vengono
@@ -2708,6 +2826,10 @@ fondamentali presenti all'interno del package
 	\item C1FN-1.4.1 Modifica informazioni personali
 	\item C1FN-1.4.2 Cambio password
 	\item C1FN-1.4.3 Cancellazione del proprio account
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta la maggior parte dei dati di un utente, pi\`u
@@ -2763,10 +2885,14 @@ relativi metodi \emph{set}.\\\hline
 \subsection{Classe UserCompleteDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.4 Gestione profilo personale
-	\item C1FN-1.4.1 Modifica informazioni personali
-	\item C1FN-1.4.2 Cambio password
-	\item C1FN-1.4.3 Cancellazione del proprio account
+    \item C1FN-1.4 Gestione profilo personale
+    \item C1FN-1.4.1 Modifica informazioni personali
+    \item C1FN-1.4.2 Cambio password
+    \item C1FN-1.4.3 Cancellazione del proprio account
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta tutti i dati di un utente, a partire da quelli
@@ -2813,7 +2939,15 @@ relativi metodi \emph{set}.\\\hline
 \subsection{Classe SongSummaryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FD-1.3.2 Modifica informazioni brano
+    \item C1FO-1.3.4 Ranking brani
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta i dati pi\`u comunemente utilizzati di un brano, ovvero
@@ -2829,7 +2963,15 @@ per esempio titolo ed autore.
 \subsection{Classe SongDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.3 Visualiz. info dettagliate dei brani
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FD-1.3.1 Cancellazione brano
+    \item C1FD-1.3.2 Modifica informazioni brano
+    \item C1FO-1.3.4 Ranking brani
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta tutti i dati di un brano, compresi quelli interni del
@@ -2846,6 +2988,10 @@ identificativo del brano.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.2 Registrazione
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta i dati di login di un utente.
@@ -2892,7 +3038,13 @@ relativi metodi \emph{set}.\\\hline
 \subsection{Classe MusicLibrarySummaryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1.1.1 Brani elencati opportunamente
+	\item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FO-1.3.3 Creazione playlist
+    \item C1FO-1.3.4 Ranking brani
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene le informazioni relative ad un catalogo multimediali compresa la lista
@@ -2942,7 +3094,13 @@ relativi metodi \emph{set}.\\\hline
 \subsection{Classe MusicLibraryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1.1.1 Brani elencati opportunamente
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.3 Personalizzazione del catalogo
+    \item C1FO-1.3.3 Creazione playlist
+    \item C1FO-1.3.4 Ranking brani
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene le informazioni relative ad un catalogo multimediali compresa la lista
@@ -2990,11 +3148,11 @@ relativi metodi \emph{set}.\\\hline
 \subsection{Classe FieldVerifier}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item 
+    \item C1FN-1.2 Registrazione a Netmus
 \end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
-    \item 
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -3008,6 +3166,10 @@ relativi metodi \emph{set}.\\\hline
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1QN-2.7 Gestione errori
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{shared.exception} raccoglie le classi che trattano
@@ -3035,6 +3197,10 @@ fondamentali presenti all'interno del package
 \begin{itemize}
 	\item C1QN-2.7 Gestione errori
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Generica eccezione del nostro programma.
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -3050,6 +3216,10 @@ le altre eccezioni estendono questa.
 \begin{itemize}
 	\item C1QN-2.7 Gestione errori
 \end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica un generico errore rilevato durante il tentativo di login.
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -3063,6 +3233,10 @@ Nessuna.
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1QN-2.7 Gestione errori
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica un generico errore rilevato durante la registrazione di un nuovo utente.
@@ -3078,11 +3252,12 @@ Nessuna.
 \section{Applet di estrazione brani}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C2FN-1 Recupero delle informazioni
-	\item C2FN-1.1 Recupero automatico
-	\item C2FN-1.2 Recupero manuale
-	\item C2FN-1.5 File ignorati
-	\item C2FN-3.1 Invio delle informazioni
+	\item C2QN-4.4 Manutenibilit\`a
+	\item C2VN-4.6 Norme legali
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
 L'applet di estrazione brani verr\`a sviluppata come componente
@@ -3094,18 +3269,15 @@ l'accettazione di una firma digitale, per avere l'accesso in lettura/scrittura
 sul File System del client. In tal modo potr\`a cominciare a monitorare le
 periferiche di archiviazione di massa che verranno collegate da quel momento in
 poi.
- 
 \subsection*{Relazioni d'uso di altre componenti}
 Per entrare in funzione \`e necessario che nel client sia installata una JRE e
 che questa sia utilizzabile dal browser, attraverso un plugin adatto.\\
 Grazie a delle chiamate JavaScript appropriate, potr\`a chiamare i metodi nativi
 (JSNI) appositamente creati e pubblicati nella classe \co{AppletBar.java}.
-
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Verr\`a utilizzata dal package \emph{client.applet} tramite dei metodi nativi
 JavaScript (JSNI) che andranno ad invocare direttamente dei metodi pubblici
 interni  all'applet.
-
 \subsection*{Attivit\`a svolte e dati trattati}
 L'applet deve monitorare le periferiche presenti nella macchina client e,
 all'inserimento di un nuovo device visibile come periferica di archiviazione di
@@ -3122,9 +3294,15 @@ spedito alla classe \co{AppletBar.java} sotto forma di stringa.\\
    \item C2FN-1 Recupero delle informazioni
    \item C2FN-1.1 Recupero automatico
    \item C2FN-1.2 Recupero manuale
+   \item C2FN-3 Comunicazione con C1
    \item C2FN-3.1 Invio delle informazioni
+   \item C2QN-3.2 Utilizzo della connessione
+   \item C2QN-4 Utilizzo
 \end{itemize}
-
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+   \item C2FD-1.4 Informazioni dall'hard disk
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe sar\`a di tipo \co{JApplet} e si occuper\`a di avviare l'applet
 quando caricata in una pagina Web. Quando viene creata invier\`a una notifica a
@@ -3198,9 +3376,16 @@ monitoraggio dello \co{scanner}.\\\hline
    \item C2FN-1 Recupero delle informazioni
    \item C2FN-1.1 Recupero automatico
    \item C2FN-1.2 Recupero manuale
+   \item C2FN-1.5 File ignorati
    \item C2FN-3.1 Invio delle informazioni
 \end{itemize}
-
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+   \item C2FD-1.4 Informazioni dall'hard disk
+   \item C2FO-1.6 Indicazioni file ignorati
+   \item C2QD-1.7 Ottimizzazione memoria cache
+   \item C2VD-4.5 Meno disturbo possibile
+\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} La classe
 \co{DeviceScanner} sa\`a di tipo \co{Thread} e si occuper\`a di monitorare il
 File System nei tipici punti di mount dei dipositivi di archiviazione di massa.
@@ -3313,6 +3498,13 @@ poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initial
 \begin{itemize}
    \item C2FN-1 Recupero delle informazioni
    \item C2FN-1.5 File ignorati
+   \item C2FN-3 Comunicazione con C1
+   \item C2FN-3.1 Invio delle informazioni
+   \item C2QN-3.2 Utilizzo della connessione
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+   \item C2QD-1.7 Ottimizzazione memoria cache
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \subsubsection*{Relazioni d'uso di altre componenti}
@@ -3431,7 +3623,6 @@ client.applet.AppletBarView  &  C1FN-1.1.2\\
 client.applet.AppletBarConnector  &  C1FN-1.9  \\\hline 
 shared  &  C1QN-2.6 \\\hline 
 shared.LoginDTO  &  C1FN-1.2 \\\hline 
-shared.MusicLibraryDTO  & C1FN-1.9\\\hline 
 shared.UserDTO  & C1FN-1.4\\
 & C1FN-1.4.1\\
 & C1FN-1.4.2\\
@@ -3440,7 +3631,6 @@ shared.UserCompleteDTO  & C1FN-1.4\\
 & C1FN-1.4.1\\
 & C1FN-1.4.2\\
 & C1FN-1.4.3\\\hline 
-shared.MusicLibrarySummaryDTO  &  C1FN-1.9\\\hline 
 shared.FieldVerifier  & C1FN-1.2 \\\hline 
 shared.exception  &  C1QN-2.7 \\\hline 
 shared.exception.NetMusException  &  C1QN-2.7 \\\hline 
@@ -3516,8 +3706,11 @@ applet.DeviceScanner  &  C2FN-1\\
 & C2FN-1.1\\
 & C2FN-1.2\\
 & C2FN-1.5\\\hline
-applet.NetmusApplet  & C2FN-3\\
-& C2FN-3.1\\
+applet.NetmusApplet  & C2FN-1 \\
+& C2FN-1.1 \\
+& C2FN-1.2 \\
+& C2FN-3.1 \\
+& C2FN-3\\
 & C2QN-3.2\\
 & C2QN-4\\\hline
 applet.TranslateXML  &  C2FN-1.5 \\
@@ -3599,14 +3792,12 @@ shared.SongDTO  &  C1FD-1.1.4\\
 & C1FO-1.3.4\\\hline 
 shared.MusicLibraryDTO  &  C1FD-1.3\\
 & C1FO-1.3.3\\
-& C1FO-1.3.4\\
-& C1FO-1.9.3\\\hline 
+& C1FO-1.3.4\\\hline 
 shared.UserDTO  &  C1FD-1.3 \\\hline  
 shared.UserCompleteDTO  &  C1FD-1.3 \\\hline 
 shared.MusicLibrarySummaryDTO  &  C1FD-1.3\\
 & C1FO-1.3.3\\
-& C1FO-1.3.4\\
-& C1FO-1.9.3\\\hline  
+& C1FO-1.3.4\\\hline  
 server.LoginHelper  &  C1FO-1.2.1 \\\hline 
 server.SongsServiceImpl  &  C1FD-1.1.4\\
 & C1FD-1.3\\
@@ -3766,6 +3957,13 @@ C1FD-1.3.1 Cancellazione brano & Cclui2\\
 & Csh2\\
 & Csh3\\
 & Csepe3\\\hline  
+C1FD-1.3.2 Modifica informazioni brano & Cclui2\\
+& Cclac2\\
+& Cclse3\\
+& Cse3\\
+& Csh2\\
+& Csh3\\
+& Csepe3\\\hline   
 C1FO-1.3.3 Creazione playlist & Cclui2\\
 & Cclac2\\
 & Cclse4\\
@@ -3784,14 +3982,7 @@ C1FO-1.3.4 Ranking brani & Cclui2\\
 & Cse6\\
 & Csh5\\
 & Csh9\\
-& Csepe2  \\\hline          
-C1FD-1.3.2 Modifica informazioni brano & Cclui2\\
-& Cclac2\\
-& Cclse3\\
-& Cse3\\
-& Csh2\\
-& Csh3\\
-& Csepe3\\\hline      
+& Csepe2  \\\hline             
 C1FN-1.4 Gestione profilo personale & Cclui2\\
 & Cclac2\\
 & Cclse2\\
@@ -3981,8 +4172,10 @@ C1QN-2.7 Gestione errori  & Cshex0\\
 & Cshex1\\
 & Cshex2\\
 & Cshex4\\\hline     
-C2FN-1 Recupero delle informazioni & C2ap1 \\\hline  
-C2FN-1.1 Recupero automatico &  C2ap1 \\\hline
+C2FN-1 Recupero delle informazioni & C2ap1 \\
+& C2ap2\\\hline  
+C2FN-1.1 Recupero automatico &  C2ap1 \\
+& C2ap2\\\hline
 C2FN-1.2 Recupero manuale &  C2ap1\\
 &  C2ap2 \\
 &  Cclap3\\
