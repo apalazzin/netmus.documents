@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.15}
+\newcommand{\versione}{0.16}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -48,6 +48,10 @@ verr\`a allegato il codice sorgente.
 \endhead
 \hline
 \endfoot
+
+26/02/2011 & 0.16 & Caputo Cosimo & Aggiunti diagrammi delle classi per applet
+e client.applet e riformattati diagrammi nel documento.\\
+\hline
 
 23/02/2011 & 0.15 & Caputo Cosimo & Agginti diagrammi delle classi per il
 package server e i relativi sotto-package.\\
@@ -434,6 +438,14 @@ dettaglio 2}
 
 \newpage
 \section{Package client}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=14cm]{img/DP/package.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package client.}
+\end{figure}
+
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1 Web Application Netmus
@@ -451,12 +463,7 @@ Queste dipendenze aderiscono al pattern MVP ed in particolare sono introdotte
 dal framework MVP con Place e Activity.\\
 Questo schema si ripete anche per gli altri gruppi funzionali di componenti:
 profile e edit user.\\\\
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=16cm]{img/DP/package.png}
-\caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del package client.}
-\end{figure}
+
 Come possiamo vedere dal diagramma delle classi, la dichiarazione dei metodi
 necessari alla comunicazione tra view e model viene fatta nell'interfaccia 
 \co{Presenter} innestata nell'interfaccia \co{LoginView}. Cos\`i \co{LoginView}
@@ -1521,6 +1528,16 @@ dettaglio nella classe \co{LoginServiceImpl} che li implementa.
 
 \newpage
 \section{Package client.applet} % LASCIARE WARNING
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm]{img/DP/netmus_client_applet.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.client.applet.}}
+\end{figure}
+
+
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item C1FN-1.9 Ricezione ed elaborazione dei brani
@@ -1830,6 +1847,15 @@ della scansione: scansionati m su n.\\\hline
 \end{longtable}
 
 \subsection{Classe AppletBarConnector}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=11cm]{img/DP/applet_gwt.png}
+\caption{Diagramma UML che descrive le dipendenze e i meccanismi di
+connessione tra l'applet e le classi Netmus.}
+\end{figure}
+
+
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize} 
     \item C1FN-1.9 Ricezione ed elaborazione dei brani
@@ -1924,6 +1950,16 @@ relativi di AppletBar.\\\hline
 
 \newpage
 \section{Package server}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_server.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server}.}
+\end{figure}
+
+
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1 WEB Application NetMus
@@ -1944,14 +1980,6 @@ questo e con la presenza del package \emph{service} si interfaccia anche con
 \emph{client}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=15cm]{img/DP/classes_server.png}
-\caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del package
-\emph{it.unipd.netmus.server}.}
-\end{figure}
 
 \subsection{Classe SongsServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2117,6 +2145,16 @@ nel database (per esempio l'attributo \co{lastLogin}).\\\hline
 
 \newpage
 \section{Package server.persistent} % LASCIARE WARNING
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/classes_server_persistent.jpg}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server.persistent}.}
+\end{figure}
+
+
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.9.5 Inserimento nel Database
@@ -2166,14 +2204,6 @@ Le classi DAO gestiscono i dati del sistema garantendone la persistenza e si
 occupano anche di implementare la parte logica di salvataggio, recupero e
 relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e il
 \underline{database} utilizzato \`e \underline{non-relazionale}.
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=15cm]{img/DP/classes_server_persistent.jpg}
-\caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del package
-\emph{it.unipd.netmus.server.persistent}.}
-\end{figure}
 
 \subsection{Classe ODF (Singleton)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2542,6 +2572,15 @@ sistema NetMus.
 
 \newpage
 \section{Package server.servlet}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=11cm]{img/DP/classes_servlet.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server.servlet}.}
+\end{figure}
+
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.9 Ricezione ed elaborazione dei brani
@@ -2558,13 +2597,6 @@ altri servizi esterni.
 \subsection*{Attivit\`a svolte e dati trattati}
 Gestisce lo scambio di dati con servizi esterni.
 
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=15cm]{img/DP/classes_servlet.png}
-\caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del package
-\emph{it.unipd.netmus.server.servlet}.}
-\end{figure}
 
 \subsection{Classe LoginSuperServlet}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2618,6 +2650,16 @@ l'accesso tramite il Google account.
 
 \newpage
 \section{Package server.utils} % LASCIARE WARNING
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=12cm]{img/DP/classes_server_utils.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.server.utils}.}
+\end{figure}
+
+
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.9 Ricezione ed elaborazione dei brani
@@ -2633,14 +2675,6 @@ Nessuna.
 Viene utilizzato dalle classi del package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Varie.
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=15cm]{img/DP/classes_server_utils.png}
-\caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del package
-\emph{it.unipd.netmus.server.utils}.}
-\end{figure}
 
 \subsection{Classe AppEngineCache}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2762,6 +2796,15 @@ esterni.
 
 \newpage
 \section{Package shared}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=15cm]{img/DP/classes_shared.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.shared}.}
+\end{figure}
+
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
   	\item C1FN-1 WEB Application NetMus
@@ -2786,14 +2829,6 @@ Le classi di questo package si occupano di inglobare e trasportare
 le informazioni attraverso la rete, per le comunicazioni tra server e client,
 in particolare i dati relativi alle entit\`a del Datastore ed alle eccezioni.
 Vengono qui di seguito descritte pi\`u in dettaglio.
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=15cm]{img/DP/classes_shared.png}
-\caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del package
-\emph{it.unipd.netmus.shared}.}
-\end{figure}
 
 \subsection{Classe UserDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3099,6 +3134,16 @@ relativi metodi \emph{set}.\\\hline
 
 \newpage
 \section{Package shared.exception}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=9cm]{img/DP/classes_shared_exception.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del package
+\emph{it.unipd.netmus.shared.exception}.}
+\end{figure}
+
+
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1QN-2.7 Gestione errori
@@ -3115,14 +3160,6 @@ interno posso essere utilizzate da qualsiasi altro componente.
 \subsection*{Attivit\`a svolte e dati trattati}
 Fornisce tutte le possibili eccezioni che possono essere lanciate dal sistema
 NetMus.
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=15cm]{img/DP/classes_shared_exception.png}
-\caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del package
-\emph{it.unipd.netmus.shared.exception}.}
-\end{figure}
 
 \subsection{Classe NetMusException}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3168,8 +3205,15 @@ Vedere la descrizione del package.
 Nessuna.
 
 
-\newpage
 \section{Applet di estrazione brani}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=9cm]{img/DP/applet.png}
+\caption{Diagramma UML delle classi che descrive le dipendenze
+fondamentali presenti all'interno del applet di estrazione dati.}
+\end{figure}
+
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C2FN-1 Recupero delle informazioni
@@ -3208,7 +3252,6 @@ brani Mp3 presenti. Verr\`a creato un file di log interno al device con lo scopo
 di tenere traccia, in una scansione futura, dei file che son gi\`a stati
 analizzati. Tutti i Tag analizzati verranno tradotti in un elemento XML, infine
 spedito alla classe \co{AppletBar.java} sotto forma di stringa.\\
-
 
 \subsection{Classe NetmusApplet}
 \subsubsection*{Requisiti obbligatori soddisfatti}
