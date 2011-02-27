@@ -1,13 +1,13 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
-\newcommand{\versione}{2.1}
-\newcommand{\versioneglossario}{2.0}
-\newcommand{\versionenormeprogetto}{2.0}
+\newcommand{\versione}{3.0}
+\newcommand{\versioneglossario}{3.0}
+\newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versioneAR}{3.0}
 \newcommand{\versioneST}{2.0}
 \newcommand{\nomefile}{PianoDiQualifica-\versione.pdf}
 \newcommand{\datacreazione}{3 Dicembre 2010}
-\newcommand{\datamodifica}{1 Febbraio 2011}
+\newcommand{\datamodifica}{27 Febbraio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Trezzi Giovanni}
@@ -45,7 +45,20 @@ le attivit\`a di verifica e validazione.
 \endhead
 \hline
 \endfoot
+27/02/2011 & 2.6 & Lovato Daniele & Inseriti esiti test di unit\`a.\\
+\hline
+20/02/2011 & 2.5 & Lovato Daniele & Inseriti altri test di unit\`a.\\
+\hline
+17/02/2011 & 2.4 & Palazzin Alberto & Inserita la sezione riguardanti i
+metodi per la verifica della ``Progettazione nel dettaglio'' e
+della ``Codifica''.\\
+\hline
+11/02/2011 & 2.3 & Lovato Daniele & Inseriti alcuni test di unit\`a.\\
+\hline
+09/02/2011 & 2.2 & Palazzin Alberto & Correzioni apportate a seguito della RP.\\
+\hline
 05/02/2011 & 2.1 & Daminato Simone & Inseriti i test di integrazione.\\
+\hline
 01/02/2011 & 2.0 & Baron Federico & Validazione per consegna RP.\\
 \hline
 31/01/2011 & 1.20 & Caputo Cosimo & Verificato intero documento.\\
@@ -363,6 +376,10 @@ per la gestione e creazione di ticket cos\`i come descritto nel documento
 sorgente Java al fine di trovare errori comuni (per informazioni
 \url{http://findbugs.sourceforge.net/});
 
+\item PMD \& CPD: per ricercare possibili bug, parti del codice non usate,
+espressioni inutili e codice duplicato (per informazioni
+\url{http://pmd.sourceforge.net/});
+
 \item Metrics: per calcolare la misura di varie metriche del
 codice sorgente durante la fase di compilazione in modo da tenere continuamente
 sotto controllo lo stato del codice stesso (per informazioni
@@ -501,7 +518,6 @@ AFD & Analisi del flusso di dati \\ \hline
 AFI & Analisi del flusso d'informazione \\ \hline
 VLC & Verifica corretta logica del codice \\ \hline
 VFC & Verifica formale del codice \\ \hline
-\hline
 \end{tabular}
 \caption{Tipi di Analisi Statica}
 \end{center}
@@ -847,10 +863,12 @@ coesione dei metodi per semplificare l'architettura delle classi. \\ \\
 Tecniche: IN.
 
 \subsection{Codifica}
+\setcounter{secnumdepth}{3}   % per numerare i subsubsection
+\setcounter{tocdepth}{3}      % per aggiungerli all'indice
 
 \subsubsection{Verifica Statica}
 
-\subsubsection{Correttezza dello stile}
+\subsubsection*{Correttezza delle convenzioni e dello stile}
 I verificatori dovranno fare un'attenta lettura del codice ed utilizzare
 l'apposito strumento CheckStyle per trovare eventuali errori di non
 conformit\`a allo stile, definito chiaramente nelle norme di codifica e
@@ -860,15 +878,16 @@ Esito atteso: lo stile del codice dovrebbe rispettare le norme stilate a
 riguardo e presenti in \emph{NormeDiProgetto-\versionenormeprogetto.pdf}.\\\\ 
 Tecniche: WT.
 
-\subsubsection{Stabilit\`a}
-Utilizzare lo strumento FindBugs per ricercare eventuali errori o bug comuni non
-scovati in precedenza. Ulteriori informazioni sullo strumento sono riportate
-nella sezione 2.3.\\\\
+\subsubsection*{Stabilit\`a}
+Utilizzare sia lo strumento FindBugs sia lo strumento PMD \& CPD per ricercare
+eventuali errori o bug comuni non scovati in precedenza, parti del codice non
+usate, cicli inutili e codice duplicato. Ulteriori informazioni sullo strumento
+sono riportate nella sezione 2.3.\\\\ 
 Esito atteso: ci si aspetta di avere codice pi\`u stabile risolvendo
-eventuali errori trovati.\\\\ 
-Tecniche: AFC, AFD, ----------.
+eventuali errori o elementi inutili trovati.\\\\ 
+Tecniche: quelle usate da FindBugs e da PMD \& CPD.
 
-\subsubsection{Controllare le metriche e gli indicatori sul codice}
+\subsubsection*{Controllo delle metriche e degli indicatori sul codice}
 Utilizzare lo strumento Metrics per misurare:
 \begin{itemize}
   \item nei package: il numero di classi presenti, il valore di fan-in e
@@ -877,12 +896,15 @@ Utilizzare lo strumento Metrics per misurare:
   codice, il grado di annidamento, la complessit\`a ciclomatica. 
 \end{itemize}
 Questo tool permette di evidenziare eventuali package o classi che
-potrebbero essere particolarmenti complicati, o scritti in modo confuso.\\\\ 
+potrebbero essere particolarmente complicati, o scritti in modo confuso.
+Ulteriori informazioni sullo strumento sono riportate nella sezione 2.3.\\\\ 
 Esito atteso: i valori misurati sia nei package sia nei metodi delle
-classi, dovrebbe essere nella norma.\\\\ 
-Tecniche:.
+classi, dovrebbero essere nella norma.\\\\ 
+Tecniche: quelle usate da Metrics.
 
-\subsubsection{Verifica Dinamica tramite Test di Unit\`a}
+\subsubsection{Verifica Dinamica}
+
+\subsubsection*{Test di Unit\`a}
 I Test di Unit\`a previsti sono:
 
 \begin{itemize}
@@ -914,7 +936,7 @@ visualizzazione\\
 \textbf{Obbiettivo del Test}: verificare la registrazione di un voto per il
 brano corretto e la sua visualizzazione sulla view\\
 \textbf{Aspettative}: il metodo deve permettere di registrare il voto di una
-canzone memorizzandolo sul DB della relativa canzone e di pasarlo alla view per
+canzone memorizzandolo sul DB della relativa canzone e di passarlo alla view per
 visualizzarlo\\
 
 \textbf{metodo}: playYouTube\\
@@ -1008,8 +1030,8 @@ effettivamente rimosso\\
 canzone sul DB\\
 \textbf{Aspettative}: il metodo deve ricercare nel DB la presenza della canzone
 che si sta cercando di aggiungere. In caso di match positivo, la canzone non
-viene aggiunta perch\`e gi\`a presente, in caso negativo viene regitrata e i
-campi corretti relativi alle infomazioni della libreria vengono aggiornati\\
+viene aggiunta perch\`e gi\`a presente, in caso negativo viene registrata e i
+campi corretti relativi alle informazioni della libreria vengono aggiornati\\
 
 \end{itemize}
 
