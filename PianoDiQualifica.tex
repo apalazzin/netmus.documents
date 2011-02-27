@@ -427,10 +427,9 @@ codice);
   
 \item LOC linee di codice;
 \item complessit\`a ciclomatica;
-\item misure di Halstead (1977, combinazione di 5 elementi);
+\item misure di fan-in e fan-out;
 \item misure di complessit\`a;
-\item misure object oriented;
-\item misure di coesione funzionale.
+\item misure object oriented.
 
 \end{itemize}
 
@@ -500,11 +499,8 @@ IN & Inspection \\ \hline
 AFC & Analisi flusso di controllo \\ \hline
 AFD & Analisi del flusso di dati \\ \hline
 AFI & Analisi del flusso d'informazione \\ \hline
-ES & Esecuzione simbolica \\ \hline
-VDC & Verifica consistenza dati e peso del codice \\ \hline
 VLC & Verifica corretta logica del codice \\ \hline
 VFC & Verifica formale del codice \\ \hline
-ATC & Analisi temporale del codice \\ 
 \hline
 \end{tabular}
 \caption{Tipi di Analisi Statica}
@@ -561,19 +557,6 @@ dipendenze sono da considerarsi errate. Consente inoltre di identificare
 eventuali effetti collaterali e pu\`o essere applicata a singoli moduli o a pi\`u
 moduli collegati o all'intero sistema.
 
-\subsubsection{Esecuzione simbolica}
-
-Unisce le tecniche di analisi di flusso di controllo, analisi di flusso dei dati
-e analisi di flusso d'informazione, verifica le propriet\`a del programma mediante
-la manipolazione algebrica del codice sorgente tramite ``sostituzioni inverse''.
-
-\subsubsection{Verifica consistenza dati e peso del codice}
-
-Verifica che i dati restino entro il limite del loro tipo e della precisione
-desiderata, considerando quindi gli arrotondamenti, il problema dell'overflow e
-la gestione dei valori di limite. Si occupa anche dell'analisi e di una corretta
-gestione dello heap.
-
 \subsubsection{Verifica corretta logica del codice}
 
 Si propone di accertare che il codice sia ben strutturato ed esegua nella
@@ -584,12 +567,6 @@ d'esecuzione del programma acceda a variabili prive di valore.
 
 Esplora tutte le esecuzioni possibili mediante prove statiche per rilevare
 difetti non sollevati dai test di unit\`a. Si riferisce all'intero sistema integrato.
-
-\subsubsection{Analisi temporale del codice}
-
-Si occupa di verificare che nell'esecuzione del sistema totale le funzioni pi\`u
-importanti e gli eventuali algoritmi usati eseguano in modo da dare la risposta
-attesa in proporzione al carico di informazioni in ingresso.
 
 \subsection{Analisi dinamica}
 \subsubsection{Test d'integrazione}
@@ -872,12 +849,38 @@ Tecniche: IN.
 \subsection{Codifica}
 
 \subsubsection{Verifica Statica}
-Per l'analisi del codice si elaboreranno metodi di verifica il cui scopo sar\`a
-quello di vagliare tutte le metriche gi\`a introdotte, o da introdurre, utili a
-determinare affidabilit\`a, efficienza, portabilit\`a e manutenibilit\`a del codice.
-\\\\
-I verificatori potranno trovare i metodi di verifica per la fase di codifica
-all'interno di questo paragrafo.
+
+\subsubsection{Correttezza dello stile}
+I verificatori dovranno fare un'attenta lettura del codice ed utilizzare
+l'apposito strumento CheckStyle per trovare eventuali errori di non
+conformit\`a allo stile, definito chiaramente nelle norme di codifica e
+presenti nell'omonima sezione del documento
+\emph{NormeDiProgetto-\versionenormeprogetto.pdf}\\\\
+Esito atteso: lo stile del codice dovrebbe rispettare le norme stilate a
+riguardo e presenti in \emph{NormeDiProgetto-\versionenormeprogetto.pdf}.\\\\ 
+Tecniche: WT.
+
+\subsubsection{Stabilit\`a}
+Utilizzare lo strumento FindBugs per ricercare eventuali errori o bug comuni non
+scovati in precedenza. Ulteriori informazioni sullo strumento sono riportate
+nella sezione 2.3.\\\\
+Esito atteso: ci si aspetta di avere codice pi\`u stabile risolvendo
+eventuali errori trovati.\\\\ 
+Tecniche: AfC, AFD, ----------.
+
+\subsubsection{Controllare le metriche e gli indicatori sul codice}
+Utilizzare lo strumento Metrics per misurare:
+\begin{itemize}
+  \item nei package: il numero di classi presenti, il valore di fan-in e
+  fan-out; 
+  \item nei metodi: il numero di parametri presenti, il numero di linee di
+  codice, il grado di annidamento, la complessit\`a ciclomatica. 
+\end{itemize}
+Questo tool permette di evidenziare eventuali package o classi che
+potrebbero essere particolarmenti complicati, o scritti in modo confuso.\\\\ 
+Esito atteso: i valori misurati sia nei package sia nei metodi delle
+classi, dovrebbe essere nella norma.\\\\ 
+Tecniche:.
 
 \subsubsection{Verifica Dinamica tramite Test di Unit\`a}
 I Test di Unit\`a previsti sono:
