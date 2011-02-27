@@ -213,7 +213,7 @@ strumenti con i quali effettuare la verifica e verranno indicate le metriche con
 le quali misurare le propriet\`a di ci\`o che si sta verificando. Verranno
 infine indicate le tecniche con le quali procedere. Una volta volta terminata
 l'attivit\`a di verifica e la conseguente attivit\`a di misurazione, si proceder\`a con il
-riportare l'esito nel capitolo 4 del presente documento. Dopodich\`e, terminata
+riportare l'esito nel capitolo 4 del presente documento. Dopodich\'e, terminata
 l'attivit\`a di misurazione, sulla base dei risultati si valuteranno eventuali
 decisioni, manovre correttive o l'accettazione del prodotto verificato secondo
 le misure e i criteri stabiliti.
@@ -859,7 +859,7 @@ Verificare il numero di collaborazioni di ogni classe, ovvero con quante classi
 \`e accoppiata. L'accoppiamento pu\`o avvenire a seguito di una lettura/modifica
 di attributi, di una chiamata di metodi, di una instanziazione di oggetti. \\ \\
 Inoltre verificare la coesione di ogni metodo, propriet\`a di un metodo di
-accedere in maniera esclusiva ad attributi della classe. Se ogni attributo è acceduto da
+accedere in maniera esclusiva ad attributi della classe. Se ogni attributo \`e acceduto da
 un solo metodo allora c'\`e massima coesione dei metodi, se i metodi vanno ad
 operare sugli stessi attributi allora c'\`e bassa coesione ed \`e difficile
 controllare tutte le interazioni tra i metodi dovuti all'uso degli attributi comuni.
@@ -886,15 +886,15 @@ all'interno di questo paragrafo.
 \textbf{Obbiettivo del Test}: questo metodo riceve in input una stringa XML che
 contiene le informazioni di ogni brano estratto da un dispositivo ne estrae i
 dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO\\ 
-\textbf{Aspettative}: Il metodo dovrà ritornare una lista di DTO di tutti i
-brani rilevati senza saltarne alcuno e con tutte le infomazioni memorizzate nel
+\textbf{Aspettative}: Il metodo dovr\`a ritornare una lista di DTO di tutti i
+brani rilevati senza saltarne alcuno e con tutte le informazioni memorizzate nel
 rispettivo campo.\\
 
 \item TU-Cclac2:  ProfileActivity\\
 \textbf{metodo}: setPlaylistList/getPlaylistList\\
 \textbf{Obbiettivo del Test}: Verificare che avvenga con successo l'estrazione dal DB
 delle playlist e che vengano correttamente inserite nella view anche con una
-notevole quantità di brani.\\
+notevole quantit\`a di brani.\\
 \textbf{Aspettative}:  lista di String di playlist effettivamente memorizzate
 nel DB dell'utente. \\
 
@@ -931,7 +931,7 @@ visualizzazione di tali informazioni sulla view\\
 
 \textbf{metodo}: removeFromPlaylist\\
 \textbf{Obbiettivo del Test}: verificare la rimozione di un brano da una playlist\\
-\textbf{Aspettativer}: Una view ben formattata con la rimozione del brano
+\textbf{Aspettative}: Una view ben formattata con la rimozione del brano
 effettuata\\
 
 \item TU-Cse5:  UserServiceImpl\\
@@ -968,7 +968,7 @@ sua sessione ripristinata restituendo un oggetto UserAccount\\
 \textbf{metodo}: deleteUser\\
 \textbf{Obbiettivo del Test}: verificare l'effettiva e corretta cancellazione di un
 account dal DB e quindi dal sistema NetMus\\
-\textbf{Aspettative}: l'account dell'utente deve venire eliminato dal DB così
+\textbf{Aspettative}: l'account dell'utente deve venire eliminato dal DB cos\`i
 come tutti i suoi dati e la sua libreria\\
 
 \item TU-Csepe2: MusicLibrary\\
@@ -1396,7 +1396,7 @@ Verifica dei requisiti proposti nel documento
 \begin{longtable}{|p{2,4cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|}
 \hline
 \rowcolor{orange} \bo{Requisito}  & \bo{Correttezza}  & \bo{Completezza}  &
-\bo{Ambiguità} & \bo{Verificabilità}  & \bo{Consistenza}  & \bo{Tracciabilità}
+\bo{Ambiguit\`a} & \bo{Verificabilit\`a}  & \bo{Consistenza}  & \bo{Tracciabilit\`a}
 \\
 \hline
 \endhead
@@ -1496,7 +1496,7 @@ Verifica dei requisiti proposti nel documento \emph{AnalisiDeiRequisiti-1.8.pdf}
 \begin{longtable}{|p{2,4cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|}
 \hline
 \rowcolor{orange} \bo{Requisito}  & \bo{Correttezza}  & \bo{Completezza}  &
-\bo{Ambiguità} & \bo{Verificabilità}  & \bo{Consistenza}  & \bo{Tracciabilità}
+\bo{Ambiguit\`a} & \bo{Verificabilit\`a}  & \bo{Consistenza}  & \bo{Tracciabilit\`a}
 \\
 \hline
 \endhead
@@ -1508,7 +1508,7 @@ Verifica dei requisiti proposti nel documento \emph{AnalisiDeiRequisiti-1.8.pdf}
 \end{footnotesize}
 
 Dall'analisi dei requisiti indicati risultano corretti i problemi
-d'incosistenza emersi precedentemente. 
+d'inconsistenza emersi precedentemente. 
 
 
 \subsection*{Completezza dei requisiti rispetto al modello FURPS}
@@ -1816,7 +1816,7 @@ Successivamente ad una consultazione con i progettisti Federico Baron, Cosimo
 Caputo, Andrea Mandolo e Simone Daminato sono state rivalutate le scelte
 progettuali che hanno portato all'individuazione delle due componenti in
 questione ed \`e stato deciso di mantenere Cseut2 tra le componenti anche se non
-tracciata mentre Ccl3 è stata tracciata per le seguenti motivazioni:
+tracciata mentre Ccl3 \`e stata tracciata per le seguenti motivazioni:
 \begin{itemize}
   \item{\bo{Ccl3}: \`e stata tracciata con il requisito
   C1QN-2.3 Portabilit\`a poich\'e \co{ClientFactory} \`e un'interfaccia che
@@ -1847,7 +1847,7 @@ apportate alla versione 0.21.
 \subsection*{Flessibilit\`a e manutenibilit\`a} Le componenti individuate nella
 progettazione ad alto livello sono 64 ed hanno lo scopo di soddisfare le
 richieste di 41 requisiti funzionali. Il rapporto di
-è considerato soddisfacente. \\\\ 
+\`e considerato soddisfacente. \\\\ 
 Viene registrato un sovraccarico delle funzionalit\`a richieste al modulo
 \emph{client.applet} ma \`e giustificato dal fatto che questo modulo descrive
 una componente indipendente del sistema. La componente di recupero delle
@@ -1909,7 +1909,7 @@ manutenibilit\`a del sistema NetMus.
   
   \item TU-Cse3: SongServiceImpl\\
   \textbf{metodo}: rateSong\\
-  \textbf{esito del test}: la valutazione del brano ricervuta in input viene
+  \textbf{esito del test}: la valutazione del brano ricevuta in input viene
   correttamente inviata al DB per essere memorizzata, e viene ritornata la
   media dei voti\\ 
   \textbf{malfunzionamenti rilevati}: nessuno\\
@@ -1922,7 +1922,7 @@ manutenibilit\`a del sistema NetMus.
   
   \item TU-Csepe5: UserAccount\\
   \textbf{metodo}: findSessionUser\\
-  \textbf{esito del test}: viene caricato e resituito l'utente corretto
+  \textbf{esito del test}: viene caricato e restituito l'utente corretto
   tramite tipo di ritorno userAccount\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
@@ -1987,15 +1987,17 @@ soddisfare le richieste del committente sono state apportate le seguenti modific
   in UC1, corretto titolo di UC2, sistemate pre-condizioni e aggiunta una forma
   di privacy in UC1.1, argomentata maggiormente UC2.2;
   \item Specifica Tecnica: sistemate tutte le descrizioni delle
-  tecnologie e dei design pattern, rifatte le fig. 2.6, 2.7, 2.8, 2.10,
-  aggiunte le relative legende e descrizioni esaustive, ----CONTROLLA ISSUE ST
-  ---
+  tecnologie e dei design pattern, rifatte le fig. 2.6, 2.7, 2.8, 2.10 e
+  aggiunte le relative legende e descrizioni esaustive, rifatti i diagrammi di
+  sequenza e aggiunte le relative descrizioni, sistemata la descrizione
+  della funzione profilePlace presente nella fig. 2.9, corretto il diagramma
+  delle attivit\`a fig. 3.3, aggiunta giustificazione esplicita dei requisiti
+  non tracciabili nella sezione 4.2.1;
   \item Piano di Progetto: sistemata la terminologia in base alla nomenclatura
   ISO/IEC 12207, inserita una riga di totale in tutte le tabelle e rivisitato il
   preventivo della fase RP-RQ per rientrare nel range del preventivo presentato in precedenza;
   \item Piano di Qualifica: il capitolo sul ``Resoconto delle attivit\`a di
-  verifica'' \`e stato messo in appendice, ---- SISTEMARE CONTENUTI 2.4 2.5
-  ------;
+  verifica'' \`e stato messo in appendice, sistemate le sezioni 2.4 e 2.5;
   \item Glossario:  sistemati i caratteri con codifica non ASCII.
 \end{itemize}
 
