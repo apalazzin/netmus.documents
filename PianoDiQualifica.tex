@@ -1493,7 +1493,7 @@ Verifica dei requisiti proposti nel documento
  C1QN-1.9.4&  OK&  OK&  OK&  OK&  OK& -\\ \hline
  C1QN-1.9.6&  OK&  OK&  OK&  OK&  OK& -\\ \hline
  C1QN-1.6&  OK&  OK&  OK&  OK&  OK& -\\ \hline
- C1QN-1.6.1&  OK&  OK&  OK&  OK&  OK& -\\ \hline
+ C1QD-1.6.1&  OK&  OK&  OK&  OK&  OK& -\\ \hline
  C1QN-1.6.2&  OK&  OK&  OK&  debole&  OK& -\\ \hline
  C1QN-2&  OK&  OK&  OK&  OK&  OK& -\\ \hline
  C1QO-2.1&  OPZ.&  OK&  OK&  OK&  OK& -\\ \hline
@@ -1531,7 +1531,7 @@ Verifica dei requisiti proposti nel documento
  C2VN-4.6&  OK&  OK&  OK&  OK&  OK& -\\ \hline
  C2VN-4.7&  OK&  OK&  OK&  OK&  OK& -\\ \hline
  
-\caption{Check sulla qualit\`a dei requisiti v. 1.6}
+\caption{Check sulla qualit\`a dei requisiti (AnalisiDeiRequisiti-1.6.pdf)}
 \end{longtable}
 \end{footnotesize}
 
@@ -1559,7 +1559,7 @@ Verifica dei requisiti proposti nel documento \emph{AnalisiDeiRequisiti-1.8.pdf}
 \endfoot
  C1FN-1.3&  OK&  OK&  OK&  OK&  OK & OK\\ \hline
  C2QD-4.2&  OK&  OK&  OK&  OK&  OK& -\\ \hline
-\caption{Check sulla qualit\`a dei requisiti v. 1.8}
+\caption{Check sulla qualit\`a dei requisiti (AnalisiDeiRequisiti-1.8.pdf)}
 \end{longtable}
 \end{footnotesize}
 
@@ -1617,7 +1617,7 @@ Verifica dei requisiti proposti nel documento
  C1QN-1.9.4& &  &  X&  &  \\ \hline
  C1QN-1.9.6& &  &  &  X&  X\\ \hline
  C1QN-1.6& &  &  &  X&  X\\ \hline
- C1QN-1.6.1& &  X&  &  X&  X\\ \hline
+ C1QD-1.6.1& &  X&  &  X&  X\\ \hline
  C1QN-1.6.2& &  &  &  X&  \\ \hline
  C1QN-2& &  X&  &  &  \\ \hline
  C1QO-2.1& &  X&  &  &  \\ \hline
@@ -1658,7 +1658,7 @@ Verifica dei requisiti proposti nel documento
  TOTALE C1& 31&  18&  8&  11&  8\\ \hline
  TOTALE C2& 10&  11&  5&  3&  2\\ \hline
  TOTALE& 41&  29&  13&  14&  10\\ \hline
-\caption{Check sul modello FURPS}
+\caption{Check sul modello FURPS (AnalisiDeiRequisiti-1.6.pdf)}
 \end{longtable}
 \end{footnotesize}
 
@@ -1738,7 +1738,7 @@ con almeno un modulo software previsto nel documento
  C1QN-1.9.4 &X  \\ \hline
  C1QN-1.9.6 &-  \\ \hline
  C1QN-1.6 &- \\ \hline
- C1QN-1.6.1&- \\ \hline
+ C1QD-1.6.1&- \\ \hline
  C1QN-1.6.2&-   \\ \hline
  C1QN-2&X \\ \hline
  C1QO-2.1&X \\ \hline
@@ -1776,11 +1776,12 @@ con almeno un modulo software previsto nel documento
  C2VN-4.6&-    \\ \hline
  C2VN-4.7&-  \\ \hline
 
-\caption{Check sulla presenza requisiti - componenti v. 0.21}
+\caption{Check sulla presenza requisiti - componenti
+(SpecificaTecnica-0.21.pdf)}
 \end{longtable}
 \end{footnotesize}
 
-Dalla tabella 4.4 non risultano problemi o inconsistenze. Tutti i requisiti sono
+Dalla tabella D.4 non risultano problemi o inconsistenze. Tutti i requisiti sono
 presenti, quelli tracciati da una componente sono segnati con una X mentre
 quelli non tracciabili sono segnati con un trattino.
 
@@ -1862,7 +1863,7 @@ individuati in fase di analisi.
  Csepe2 &X  \\ \hline
  Csepe3 &X  \\ \hline
 
-\caption{Check sull'utilizzo dei moduli software v. 0.21}
+\caption{Check sull'utilizzo dei moduli software (SpecificaTecnica-0.21.pdf)}
 \end{longtable}
 \end{footnotesize}
 
@@ -1891,7 +1892,8 @@ tracciata mentre Ccl3 \`e stata tracciata per le seguenti motivazioni:
 
 
 \subsubsection*{Corretta corrispondenza e tracciabilit\`a tra i requisiti e  i
-moduli software} Le funzioni dei singoli componenti descritte in
+moduli software} 
+Le funzioni dei singoli componenti descritte in
 \emph{SpecificaTecnica-0.21.pdf} soddisfano le richieste dei requisiti ad essi
 tracciati. Si \`e riscontrata solamente un'imprecisione in \emph{client.ui}
 (Cclui0) e in \co{ProfileView} (Cclui2) le cui descrizioni sono troppo vaghe
@@ -1900,10 +1902,11 @@ Corretta corrispondenza e tracciabilit\`a tra i requisiti e  i
 moduli software in \emph{SpecificaTecnica-0.24.pdf} a fronte delle correzioni
 apportate alla versione 0.21. 
 
-\subsubsection*{Flessibilit\`a e manutenibilit\`a} Le componenti individuate nella
+\subsubsection*{Flessibilit\`a e manutenibilit\`a} 
+Le componenti individuate nella
 progettazione ad alto livello sono 64 ed hanno lo scopo di soddisfare le
-richieste di 41 requisiti funzionali. Il rapporto di
-\`e considerato soddisfacente. \\\\ 
+richieste di 41 requisiti funzionali. Il rapporto tra componenti e requisiti
+funzionali \`e considerato soddisfacente. \\\\ 
 Viene registrato un sovraccarico delle funzionalit\`a richieste al modulo
 \emph{client.applet} ma \`e giustificato dal fatto che questo modulo descrive
 una componente indipendente del sistema. La componente di recupero delle
@@ -1917,6 +1920,221 @@ patterns che aumentano di molto le prospettive di estendibilit\`a e
 manutenibilit\`a del sistema NetMus.
 
 \subsection{Verifica sulla Progettazione nel Dettaglio}
+Per motivi implementativi sono state apportate delle modifiche all'insieme dei
+moduli scelti in precedenza e presenti nel documento
+\emph{AnalisiDeiRequisiti-2.0.pdf}. In dettaglio per motivi di
+inutilizzo sono stati tolti i seguenti moduli: Cclac3, Cclac4, Cclpl3, Cclpl4,
+Cclui3, Cclui4, Csh1, Csh6, Cshex3, Cshex5, Cshex6, Cse1, Cseut1, Csese4;
+per motivi invece di utilizzo sono stati aggiunti i seguenti moduli: Cclev0,
+Cclev1, Cclev2, Cclui5, Cclap1, Cclap2, Cclap3, Cclap4, Cclap5, Csh9, Csh10,
+Cseut4, Cseut5, Cseyo0, Cseyo1, Cseyo2, Cseyo3, Csepe4, C2ap0, C2ap1, C2ap2,
+C2ap3. La corrispondenza tra questi codici e le componenti relative \`e presente
+nel documento \emph{DefinizioneDelProdotto-0.16.pdf}.
+Quindi \`e necessario rieseguire anche tutta la verifica utilizzata per la
+Progettazione ad Alto Livello.
+
+\subsubsection*{Soddisfacimento di tutti i requisiti individuati}
+Verifica dei requisiti proposti nel documento \emph{AnalisiDeiRequisiti-2.0.pdf}
+con almeno un modulo software previsto nel documento
+\emph{DefinizioneDelProdotto-0.16.pdf}.
+
+\begin{footnotesize}
+\begin{longtable}{|p{2,4cm}|p{2,4cm}|}
+\hline
+\rowcolor{orange} \bo{Requisito}  & \bo{Componente} \\
+\hline
+\endhead
+\endfoot
+ 
+ C1FN-1 &X \\ \hline
+ C1FN-1.1 &X  \\ \hline
+ C1FN-1.1.1 &X  \\ \hline
+ C1FN-1.1.2  &X  \\ \hline
+ C1FN-1.1.3 &X  \\ \hline
+ C1FD-1.1.4  &X  \\ \hline
+ C1FN-1.2 &X  \\ \hline
+ C1FN-1.2.1 &X  \\ \hline
+ C1FN-1.3 &X  \\ \hline
+ C1FN-1.3.1  &X  \\ \hline
+ C1FD-1.3.2 &X  \\ \hline
+ C1FO-1.3.3 &X  \\ \hline
+ C1F0-1.3.4 &X  \\ \hline
+ C1FN-1.4 &X  \\ \hline
+ C1FN-1.4.1 &X  \\ \hline
+ C1FN-1.4.2 &X  \\ \hline
+ C1FN-1.4.3 &X  \\ \hline
+ C1FD-1.4.4 &X  \\ \hline
+ C1FD-1.5 &-  \\ \hline
+ C1FD-1.7 &X  \\ \hline
+ C1FD-1.7.1  &X  \\ \hline
+ C1F0-1.7.2 &-  \\ \hline
+ C1FD-1.8 &X  \\ \hline
+ C1F0-1.8.1 &X  \\ \hline
+ C1FN-1.9 &X  \\ \hline
+ C1FN-1.9.1  &X  \\ \hline
+ C1FN-1.9.2 &X  \\ \hline
+ C1FN-1.9.5 &X  \\ \hline
+ C1FO-1.9.3 &X  \\ \hline
+ C1FD-1.10 &-  \\ \hline
+ C1FN-1.13 &X  \\ \hline
+ C1QD-1.5.1 &X  \\ \hline
+ C1QN-1.9.4 &X  \\ \hline
+ C1QN-1.9.6 &X  \\ \hline
+ C1QN-1.6 &X \\ \hline
+ C1QD-1.6.1&X \\ \hline
+ C1QN-1.6.2&X   \\ \hline
+ C1QN-2&X \\ \hline
+ C1QO-2.1&X \\ \hline
+ C1QN-2.3&X  \\ \hline
+ C1QD-2.4&X  \\ \hline
+ C1QN-2.6&X  \\ \hline
+ C1QN-2.7&X    \\ \hline
+ C1QN-3.1&-   \\ \hline
+ C1QD-3.1.1&-    \\ \hline
+ C1VN-1.12&X \\ \hline
+ C1VN-1.13.1&X  \\ \hline
+ C1VN-1.11&X  \\ \hline
+ C1VD-1.5.2&X \\ \hline
+ C1VD-1.5.3&X   \\ \hline
+ C1VN-2.2&- \\ \hline
+ C1VN-2.5&X  \\ \hline
+ C2FN-1&X    \\ \hline
+ C2FN-1.1&X    \\ \hline
+ C2FN-1.2&X   \\ \hline
+ C2FO-1.3&-    \\ \hline
+ C2FD-1.4&X   \\ \hline
+ C2FN-1.5&X   \\ \hline
+ C2FO-1.6&X   \\ \hline
+ C2FD-2&-    \\ \hline
+ C2FN-3&X   \\ \hline
+ C2FN-3.1&X   \\ \hline
+ C2QD-1.7&X   \\ \hline
+ C2QN-3.2&X   \\ \hline
+ C2QN-4 &X  \\ \hline
+ C2QD-4.1&X    \\ \hline
+ C2QD-4.2&X   \\ \hline
+ C2QD-4.3&X   \\ \hline
+ C2QN-4.4&X  \\ \hline
+ C2VD-4.5&X   \\ \hline
+ C2VN-4.6&X    \\ \hline
+ C2VN-4.7&-  \\ \hline
+
+\caption{Check sulla presenza requisiti - componenti
+(DefinizioneDelProdotto-0.16.pdf)}
+\end{longtable}
+\end{footnotesize}
+
+Dalla tabella D.6 non risultano problemi o inconsistenze. Tutti i requisiti sono
+presenti, quelli tracciati da una componente sono segnati con una X mentre
+quelli non tracciabili sono segnati con un trattino.
+
+\subsubsection*{Individuazione di elementi progettuali superflui}
+
+Verifica che tutti i moduli software proposti in
+\emph{DefinizioneDelProdotto-0.16.pdf} siano effettivamente richiesti dai
+requisiti individuati in fase di analisi.
+
+\begin{footnotesize}
+\begin{longtable}{|p{2,4cm}|p{2,4cm}|}
+\hline
+\rowcolor{orange} \bo{Componente}  & \bo{Requisito} \\
+\hline
+\endhead
+\endfoot
+ 
+Ccl0 &X\\\hline 
+Ccl1 &X\\\hline 
+Ccl2 &X\\\hline 
+Ccl3 &X\\\hline 
+Cclmv0 &X\\\hline 
+Cclmv1 &X\\\hline 
+Cclmv2 &X\\\hline 
+Cclev0 &X\\\hline
+Cclev1 &X\\\hline 
+Cclev2 &X\\\hline 
+Cclac0 &X\\\hline 
+Cclac1 &X\\\hline 
+Cclac2 &X\\\hline 
+Cclse0 &X\\\hline 
+Cclse1 &X\\\hline 
+Cclse2 &X\\\hline 
+Cclse3 &X\\\hline 
+Cclse4 &X\\\hline 
+Cclpl0 &X\\\hline 
+Cclpl1 &X\\\hline 
+Cclpl2 &X\\\hline 
+Cclui0 &X\\\hline 
+Cclui1 &X\\\hline 
+Cclui2 &X\\\hline
+Cclui5 &X\\\hline  
+Cclap0  &X\\\hline 
+Cclap1 &X\\\hline 
+Cclap2  &X\\\hline 
+Cclap3 &X \\\hline 
+Cclap4 &X \\\hline 
+Cclap5 &X \\\hline 
+Csh0 &X\\\hline 
+Csh2 &X\\\hline 
+Csh3 &X\\\hline 
+Csh4 &X\\\hline 
+Csh5 &X\\\hline 
+Csh7 &X\\\hline 
+Csh8 &X\\\hline 
+Csh9 &X\\\hline 
+Csh10 &X\\\hline 
+Cshex0 &X\\\hline 
+Cshex1 &X\\\hline 
+Cshex2 &X\\\hline 
+Cshex4 &X\\\hline 
+Cse0 &X\\\hline 
+Cse2 &X\\\hline 
+Cse3 &X\\\hline 
+Cse4 &X\\\hline 
+Cse5 &X\\\hline 
+Cse6 &X\\\hline 
+Cseut0 &X\\\hline 
+Cseut2 &X\\\hline 
+Cseut3 &X\\\hline  
+Cseut4 &X\\\hline
+Cseut5 &X\\\hline
+Cseyo0 &X\\\hline
+Cseyo1 &X\\\hline
+Cseyo2 &X\\\hline
+Cseyo3 &X\\\hline
+Csese0 &X\\\hline 
+Csese1 &X\\\hline 
+Csese2 &X\\\hline 
+Csese3 &X\\\hline 
+Csepe0 &X\\\hline 
+Csepe1 &X\\\hline 
+Csepe2 &X\\\hline 
+Csepe3 &X\\\hline 
+Csepe4 &X\\\hline 
+C2ap0 &X\\\hline
+C2ap1 &X\\\hline
+C2ap2 &X\\\hline
+C2ap3 &X\\\hline
+
+\caption{Check sull'utilizzo dei moduli software
+(DefinizioneDelProdotto-0.16.pdf)}
+\end{longtable}
+\end{footnotesize}
+
+Tutti i componenti trovano corrispondenza nei requisiti derivanti dall'analisi.
+
+\subsubsection*{Corretta corrispondenza e tracciabilit\`a tra i requisiti e i
+moduli software} 
+Le funzioni dei singoli componenti descritte in DefinizioneDelProdotto-0.16.pdf
+soddisfano le richieste dei requisiti ad essi tracciati.
+
+\subsubsection*{Flessibilit\`a e manutenibilit\`a}
+Le componenti individuate nella progettazione nel dettaglio sono 72 ed
+hanno lo scopo di soddisfare le richieste di 72 requisiti totali, 41 funzionali,
+21 di qualit\`a e 10 di vincolo. Il
+rapporto tra componenti e requisiti funzionali \`e considerato soddisfacente.
+La distribuzione dei requisiti su tutti i moduli \`e equilibrata.
+
+\subsubsection*{Complessit\`a e riuso}
 
 \subsection{Verifica sulla Codifica}
 
