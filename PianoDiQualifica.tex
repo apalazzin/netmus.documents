@@ -886,7 +886,7 @@ I Test di Unit\`a previsti sono:
 \item TU-Cclap3:  TranslateDTOXML\\
 \textbf{metodo}: XMLToDTO\\
 \textbf{Obbiettivo del Test}: questo metodo riceve in input una stringa XML che
-contiene le informazioni di ogni brano estratto da un dispositivo ne estrae i
+contiene le informazioni di ogni brano estratto da un dispositivo. Estrae i
 dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO\\ 
 \textbf{Aspettative}: Il metodo dovr\`a ritornare una lista di DTO di tutti i
 brani rilevati senza saltarne alcuno e con tutte le informazioni memorizzate nel
@@ -895,54 +895,71 @@ rispettivo campo.\\
 \item TU-Cclac2:  ProfileActivity\\
 \textbf{metodo}: setPlaylistList/getPlaylistList\\
 \textbf{Obbiettivo del Test}: Verificare che avvenga con successo l'estrazione dal DB
-delle playlist e che vengano correttamente inserite nella view anche con una
-notevole quantit\`a di brani.\\
-\textbf{Aspettative}:  lista di String di playlist effettivamente memorizzate
-nel DB dell'utente. \\
+delle playlist e che vengano correttamente inserite nella view\\
+\textbf{Aspettative}:  anche con una notevole quantit\`a di playlist,
+l'estrazione e la visualizzazione non devono dare problemi\\
 
 \textbf{metodo}: setFirendList/getFriendList\\
 \textbf{Obbiettivo del Test}: verificare la lettura dal DB della lista di amici di un
 utente, e verificare la corretta importazione e visualizzazione sulla view\\ 
-\textbf{Aspettative}: la lista di Stringhe degli amici per quando riguarda il
-getter\\
+\textbf{Aspettative}: il getter deve restituire una lista di stringhe con i
+nomi degli amici e il setter deve inviarla correttamente alla view per la
+visualizzazione\\
 
 
 \textbf{metodo}: rateSong\\
 \textbf{Obbiettivo del Test}: verificare la registrazione di un voto per il
 brano corretto e la sua visualizzazione sulla view\\
-\textbf{Aspettative}: tipo di ritorno vuoto, corretta visualizzazione sulla
-view e registrazione sul DB\\
+\textbf{Aspettative}: il metodo deve permettere di registrare il voto di una
+canzone memorizzandolo sul DB della relativa canzone e di pasarlo alla view per
+visualizzarlo\\
 
 \textbf{metodo}: playYouTube\\
 \textbf{Obbiettivo del Test}: verificare che il programma sia in grado di ottenere e
 successivamente di impostare e visualizzare una canzone in streaming tramite
 player di youtube\\
-\textbf{Dati in input}: Stringhe con autore, titolo e album del brano che si vuole
-ascoltare\\ 
-\textbf{Output Attesi}: la ricerca deve ottenere il brano corretto da youtube in base
-alla canzone selezionata e deve aggiornare la view con la visualizzazione di
+\textbf{Output Attesi}: la ricerca deve ottenere il brano corretto da youtube in
+base alla canzone selezionata e deve aggiornare la view con la visualizzazione di
 tale canzone in ascolto \\
 
 \textbf{metodo}: setSongs/getSongs\\
 \textbf{Obbiettivo del Test}: verificare la corretta estrazione e visualizzazione del
 catalogo brani, qualora un utente sia loggato\\ 
-\textbf{Aspettative}: Una lista di stringhe contenenti autore,titolo ed album\\
-corretti di ogni canzone della libreria dell'utente, e la corretta
-visualizzazione di tali informazioni sulla view\\
+\textbf{Aspettative}: deve restituire una lista di stringhe contenenti
+autore,titolo ed album corretti di ogni canzone della libreria dell'utente, e
+deve permettere il corretto invio per la visualizzazione di tali informazioni
+sulla view\\
 
 
 \textbf{metodo}: removeFromPlaylist\\
 \textbf{Obbiettivo del Test}: verificare la rimozione di un brano da una playlist\\
-\textbf{Aspettative}: Una view ben formattata con la rimozione del brano
-effettuata\\
+\textbf{Aspettative}: il metodo richiama la rimozione del brano dalla playlist
+dell'utente sia dalla parte del DB che dalla parte della view\\
+
+\item TU-Cclap1: LoginActivity\\
+\textbf{metodo}: sendLogin\\
+\textbf{Obbiettivo del Test}: verificare che il metodo per l'invio delle
+informazioni del login funzioni correttamente in tutte le sue condizioni\\
+\textbf{Aspettative}: il metodo deve creare un loginDTO con le informazioni
+inserite dall'utente, inviarlo al server per verificare la validit\`a e in caso
+di successo aprire la pagina di profileView, in caso di insuccesso lanciare un
+messaggio di errore a seconda della causa (login incorretto o errore di
+sistema)\\
 
 \item TU-Cse5:  UserServiceImpl\\
-\textbf{metodo}:loadProfile\\
+\textbf{metodo}: loadProfile\\
 \textbf{Obbiettivo del Test}: verificare la corretta selezione dell'utente da
 caricare e la restituzione dell'esatto UserCompleteDTO con tutti i campi
 corretti\\
 \textbf{Aspettative}: la restituzione di un UserCompleteDTO corretto
 dell'utente selezionato\\
+
+\item TU-Cse6: LibraryServiceImpl\\
+\textbf{metodo}: sendUserNewMusic\\
+\textbf{Obbiettivo del Test}: Verificare l'invio e la memorizzazione di una lista di
+brani nuovi rilevati dal dispositivo dell'utente\\ 
+\textbf{Aspettative}: corretta memorizzazione all'interno del db dell'utente di
+tutti i nuovi brani rilevati\\
 
 \item TU-Cse3: SongServiceImpl\\
 \textbf{metodo}: rateSong\\
@@ -952,16 +969,18 @@ inoltre che venga passato alla view il voto, e che il metodo restituisca la
 media dei voti per quel brano\\
 
 
-\textbf{metodo}: sendUserNewMusic\\
-\textbf{Obbiettivo del Test}: Verificare l'invio e la memorizzazione di una lista di
-brani nuovi rilevati dal dispositivo dell'utente\\ 
-\textbf{Aspettative}: corretta memorizzazione all'interno del db dell'utente di
-tutti i nuovi brani rilevati\\
-
+\item TU-Cse4: LoginServiceImpl\\
+\textbf{metodo}: restartSession\\
+\textbf{Obbiettivo del Test}: verificare il corretto funzionamento durante il
+recupero di una sessione per un utente\\
+\textbf{Aspettative}: il metodo deve recuperare e confrontare se la sessione di
+lavoro \`e attiva per un utente, in caso non lo fosse verificare se i cookie
+sono settati per il recupero, in caso positivo recupera la sessione mentre in
+caso negativo lancia una loginException\\
 
 \item TU-Csepe5: UserAccount\\
 \textbf{metodo}: findSessionUser\\
-\textbf{Obbiettivo del Test}: verificare che il funzionamento delle sezioni attraverso il
+\textbf{Obbiettivo del Test}: verificare il funzionamento delle sezioni attraverso il
 ritorno dell'user account corretto a partire dall'ID della sessione\\
 \textbf{Aspettative}: l'utente viene caricato correttamente se loggato e la
 sua sessione ripristinata restituendo un oggetto UserAccount\\
@@ -980,6 +999,14 @@ canzone dalla libreria nel DB di un utente\\
 \textbf{Aspettative}: viene ritornato true qualora la cancellazione sia andata
 a buon fine, e che nella libreria dell'utente il brano sia stato
 effettivamente rimosso\\
+
+\textbf{metodo}: addSong\\
+\textbf{Obbiettivo del Test}: verificare la corretta registrazione di una nuova
+canzone sul DB\\
+\textbf{Aspettative}: il metodo deve ricercare nel DB la presenza della canzone
+che si sta cercando di aggiungere. In caso di match positivo, la canzone non
+viene aggiunta perch\`e gi\`a presente, in caso negativo viene regitrata e i
+campi corretti relativi alle infomazioni della libreria vengono aggiornati\\
 
 \end{itemize}
 
@@ -1026,7 +1053,8 @@ MusicLibraryDTO, SongDTO, UserCompleteDTO.\\
 \textbf{Obbiettivo del Test}: verificare il corretto funzionamento della
 parte logica del client: vengono simulate alcune operazioni effettuate
 dall'utente, e osservate le reazioni.\\
-\item 
+
+
 \textbf{Dati in input}: MusicLibrary, vari eventi. 
 \textbf{Output Attesi}: Richieste dei dettagli dei brani, inserimento dei brani
 nello stub della view.
@@ -1905,6 +1933,14 @@ manutenibilit\`a del sistema NetMus.
   richiedendo la rimozione del brano indicato\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
+  \item TU-Cclac1: LoginActivity\\
+  \textbf{metodo}: sendLogin\\
+  \textbf{esito del test}: la chiamata al DB viene effettuata correttamente, e
+  i diversi casi di esito positivo o negativo del login vengono gestiti senza
+  errori\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  
   \item TU-Cse5: UserServiceImpl\\
   \textbf{metodo}: loadProfile\\
   \textbf{esito del test}: viene richiesto e
@@ -1916,6 +1952,13 @@ manutenibilit\`a del sistema NetMus.
   \textbf{esito del test}: la valutazione del brano ricevuta in input viene
   correttamente inviata al DB per essere memorizzata, e viene ritornata la
   media dei voti\\ 
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TU-Cse4: LoginServiceImpl\\
+  \textbf{metodo}: restartSession\\
+  \textbf{esito del test}: le sessioni, qualora fossero valide per l'utente
+  passato al metodo, vengono ripristinate correttamente e le informazioni
+  recuperate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \item TU-Cse6: LibraryServiceImpl\\
@@ -1941,6 +1984,13 @@ manutenibilit\`a del sistema NetMus.
   canzone dalla libreria musicale dell'utente. La canzone resta tuttavia
   memorizzata nel DB centrale\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \textbf{metodo}: addSong\\
+  \textbf{esito del test}: il metodo registra correttamente canzone e
+  informazioni relative nel DB e conseguentemente nella libreria musicale
+  dell'utente\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
 \end{itemize}
 
 
