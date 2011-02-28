@@ -1,5 +1,5 @@
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.22}
+\newcommand{\versione}{0.23}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -48,6 +48,9 @@ codifica, delle quali verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
+25/02/2011 & 0.23 & Palazzin Alberto & Agginta la descrizione e le tabelle
+del package client.mvp.\\
+\hline
 24/02/2011 & 0.22 & Baron Federico & Agginta la descrizione e le tabelle
 delle classi ProfilePlace e FieldVerifier.\\
 \hline
@@ -1332,9 +1335,19 @@ rappresenta lo stato attuale della pagina.\\\hline
     \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
+Questo package racchiude le classi di gestione di Activity e Place implementate
+dal framework di GWT2.1 ``MVP with Activities and Places''. Questo package \`e
+fondamentale per le funzionalit\`a di gestione della history e del bookmarking
+da parte dei browser. 
 \subsection*{Relazioni d'uso di altre componenti}
+Fa riferimento a classi dei package \emph{client.place} e
+\emph{client.activity}. 
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Le classi di questo package vengono accedute automaticamente da componenti
+interne alle librerie di GWT. 
 \subsection*{Attivit\`a svolte e dati trattati}
+Gestisce il collegamento tra Place e Activity per abilitare le funzioni di
+history, bookmarking e mantenimento dello stato del client.
 
 \subsection{Classe NetmusActivityMapper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1403,7 +1416,7 @@ in base al tipo del place dato in input.\\
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Dichiara e riferisce tutti i places che saranno utilizzati da Netmus.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza i PlaceTokenizer.
+Utilizza i \co{PlaceTokenizer}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Il PlaceHistoryHandler utilizza la classe per la sincronizzazione del URL.
 \subsubsection*{Attivit\`a svolte e dati trattati}
