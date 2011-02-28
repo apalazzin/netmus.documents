@@ -546,6 +546,35 @@ Nessuna.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 \co{Netmus} praticamente si occupa di avviare il sistema e portare l'utente alla
 pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- default\_place: Place & ---.\\\hline
+- app\_widget: SimplePanel & ---.\\\hline
+- login\_service\_svc: LoginService Async & ---.\\\hline 
+\caption{Campi dati di Netmus}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ onModuleLoad() & ---.\\\hline 
++ startNetmus() &  ---.\\\hline
+\caption{Metodi di Netmus}
+\end{longtable}
 
 
 \subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
@@ -579,6 +608,37 @@ La classe si occupa di istanziare l'event bus, il place controller e le varie
 view. L'event bus gestisce le comunicazioni tra componenti, il place
 controller permette la navigazione tra i Place e si occupa di avvisare
 l'utente prima del passaggio ad uno stato differente.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- event\_bus: EventBus \emph{static final} & ---.\\\hline
+- place\_controller: PlaceController \emph{static final} & ---.\\\hline
+- login\_view: LoginView \emph{static final} & ---.\\\hline 
+- profile\_view: ProfileView \emph{static final} & ---.\\\hline 
+\caption{Campi dati di ClientFactoryImpl}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ getters() & Tutti gli attributi privati di questa
+classe hanno i relativi metodi \emph{get}.\\\hline 
+\caption{Metodi di ClientFactoryImpl}
+\end{longtable}
+
 
 
 \newpage
