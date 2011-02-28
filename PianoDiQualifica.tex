@@ -2274,6 +2274,23 @@ requisiti \`e considerato soddisfacente. La distribuzione dei
 requisiti su tutti i moduli \`e equilibrata.
 
 \subsubsection*{Complessit\`a e riuso}
+Per mantenere un alto livello di coesione sono stati stabiliti dei precisi
+compiti per i quali la classe (o un metodo) \`e stata disegnata, cercando di
+darle delle responsabilit\`a ristrette e facendole eseguire meno compiti
+possibili. Questo \`e evidenziato dal fatto che ogni requisito mediamente \`e
+tracciato da tante componenti che dovrebbero dividersi i compiti per
+soddisfarlo. In media c'\`e un rapporto di 1:5 tra requisito e componenti. \\\\
+L'uso di interfacce e la scomposizione di alcune classi hanno permesso di
+mantenere un basso accoppiamento, aiutando la comprensione del codice associato
+ad una classe senza doversi preoccupare di andare a reperire i dati delle altre
+classi coinvolte. Inoltre eventuali modifiche apportate ad una classe, avranno
+poche ripercussioni sulle altre classi con cui \`e instaurata una relazione di
+dipendenza. \\\\
+Infine l'utilizzo di svariati pattern ha consentito di avere un sistema ben
+strutturato e ben progettato, riuscendo ad avere anche un basso grado di
+accoppiamento che in concomitanza con un alto grado di coesione ha permesso di
+raggiungere gli obiettivi di alta leggibilit\`a e manutenibilit\`a, oltre ad un
+alto potenziale di riuso.
 
 \subsection{Verifica sulla Codifica}
 
