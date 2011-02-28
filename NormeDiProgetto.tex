@@ -54,8 +54,8 @@ utilizzate (capitolo 4).\\ \hline
 con particolare attenzione a capitoli 6 e 7.\\ \hline
 23/02/2011 & 2.5 & Palazzin Alberto &
 Inserimento di nuove norme stabilite per la codifica nel capitolo 7.\\\hline
-15/02/2011 & 2.4 & Lovato Daniele & Redazione del paragrafo 6.3: ``Tracciamento
-dei requisiti - componenti di progettazione di dettaglio``.\\\hline
+15/02/2011 & 2.4 & Lovato Daniele & Redazione del paragrafo 6.2.3:
+``Tracciamento dei requisiti - componenti di progettazione di dettaglio``.\\\hline
 15/02/2011 & 2.3 & Lovato Daniele & Divisione in
 paragrafi del capitolo 7 ``Nrome di codifica''.\\\hline
 14/02/2011 & 2.2 & Palazzin Alberto & Aggiornamento del
@@ -419,9 +419,7 @@ musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
 \bo{nx} = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di
 un requisito avranno una cifra in pi\`u del genitore.
 
-\section{Tracciamento dei requisiti - componenti di progettazione ad alto
-livello} Per identificare in modo univoco e significativo ognuno dei componenti
-software estratti dalla progettazione, gli viene assegnato un codice.
+
 \newpage
 \section{Progettazione}
 Dopo la definizione dei requisiti in cui vengono descritte le funzionalit\`a del
@@ -454,13 +452,13 @@ di stimare costo e tempi di realizzazione e cercando la qualit\`a voluta tramite
 precise metriche (coesione, accoppiamento, utilit\`a, dipendenza,
 complessit\`a).
 
-\subsection{Tracciamento dei requisiti - componenti}
-Per identificare in modo univoco e significativo ognuno dei componenti software
-estratti dalla progettazione, gli viene assegnato un codice.
+\subsection{Tracciamento dei requisiti - componenti di progettazione ad alto
+livello} Per identificare in modo univoco e significativo ognuno dei componenti
+software estratti dalla progettazione, gli viene assegnato un codice.
 Tale lista sar\`a presente solamente nel documento
 \emph{SpecificaTecnica-\versioneST.pdf} mentre in tutti gli altri verranno
 riferiti tramite il codice suddetto.
-\\
+\\ 
 \\
 \bo{C(pc)(sc)n}\\
 \bo{C} = (C = componente di persistenza e visualizzazione, C2 = componente di
@@ -480,8 +478,8 @@ propone di soddisfare ma anche vice-versa. Sar\`a dovere dei progettisti di alto
 livello descrivere le motivazioni precise riguardanti eventuali componenti o
 requisiti non tracciati.
 
-\section{Tracciamento dei requisiti - componenti di progettazione di dettaglio}
-I codici delle componenti saranno mantenuti dalla progettazione precedente, ed
+\subsection{Tracciamento dei requisiti - componenti di progettazione di
+dettaglio} I codici delle componenti saranno mantenuti dalla progettazione precedente, ed
 aggiunti con il dovuto incremento in caso dell'individuazione di nuove
 componenti.\\\\
 Il verificatore che si prender\`a carico del tracciamento dovr\`a separare il
@@ -505,11 +503,11 @@ la seguente notazione per descrivere i metodi e gli attributi delle classi:
   \item ``\bo{lista di tag}'' ad esempio \emph{final/static}, se presenti.
 \end{itemize}
 
-
+\newpage
 \chapter{Norme di Codifica}
-\thispagestyle{fancy} 
+\thispagestyle{fancy}
+ 
 \section{Ambiente di sviluppo}
-
 \subsection{Sistema operativo}
 Non sono stati posti vincoli ai membri di VT.G per quanto riguarda l'utilizzo di
 uno specifico sistema operativo poich\'e gli strumenti che utilizzeremo nella
@@ -532,144 +530,7 @@ identificata in una Java Applet, la piattaforma di sviluppo sar\`a Eclipse. Il
 formato utilizzato poi per l'inserimento nella componente di visualizzazione
 sar\`a un archivio auto-firmato con certificato generico .jar.sign.
 
-\section{Norme per la stesura dei file sorgente}
-Per cercare di semplificare la verificabilit\`a,
-migliorare la manutenibilit\`a e massimizzare la portabilit\`a si deve rendere il codice scritto pi\`u leggibile possibile.\\
-Per fare questo nel codice si dovranno strutturare nella maniera pi\`u semplice e coerente i moduli, i
-file, le directory, e prestare particolare attenzione alle norme di seguito
-descritte.
 
-\subsection{Convenzioni sui nomi}
-Le classi, i metodi e le variabili Java dovranno avere la seguente nomenclatura:
-\begin{itemize}
-  \item {tutti i nomi indicare in maniera univoca il loro contenuto ed essere
-  scritti in lingua inglese;}
-  \item {le classi iniziare con la lettera maiuscola\\ 
-  (es. ``class Example'');}
-  \item {i metodi iniziare con la lettera minuscola e senza spazi\\ 
-  (es. ``void exampleOfMethod()'');}
-  \item {le variabili non costanti con tutte le lettere minuscole e gli
-  underscore \\
-  (es. ``example\_of\_variable'');}
-  \item {le variabili costanti con tutte le lettere maiuscole e gli underscore\\
-  (es. ``EXAMPLE\_OF\_CONSTANT\_VARIABLE'');}
-  \item {le variabili usate temporaneamente devono avere nomi corti, variabili
-  usate pi\`u a lungo devono avere nomi pi\`u descrittivi;}
-  \item {quando si accede ad un attributo, si devono usare i prefissi ``get'' e
-  ``set'' per i metodi;}
-  \item {il prefisso ``is'' deve essere utilizzato per le variabili ed i metodi
-  booleani;}
-  \item {quando un metodo effettua una ricerca, si deve usare il termine
-  ``find'' all'interno del metodo;}
-  \item {usare il plurale quando una variabile rappresenta una collezione di
-  oggetti;}
-  \item {le eccezioni devono avere suffisso ``Exception'';}
-  \item {i metodi che ritornano un valore devono essere nominati a seconda di
-  cosa ritornano; i metodo che non ritornano un valore, devono essere nominati
-  in base a cosa fanno.}
-\end{itemize} 
-
-\subsection{Convenzioni per i files}
-All'interno di una file e quindi di una classe java dovranno essere sempre
-seguite le seguenti norme: 
-\begin{itemize}
-  \item ogni classe Java dovr\`a avere la sua intestazione contenente:
-    \begin{itemize}
-        \item {Nome del file}
-        \item {Autore}
-        \item {Licenza}
-        \item {Data creazione}
-    \end{itemize}
-  \item non usare ``TAB'' (carattere di tabulazione) per l'indentazione;
-  \item l'indentazione sar\`a eseguita con 4 spazi;
-  \item usare il seguente ordine all'interno delle classi per i modificatori
-  d'accesso:
-    \begin{itemize}
-        \item {Public}
-        \item {Protected}
-        \item {Package}
-        \item {Private}
-    \end{itemize}
-  \item si dovr\`a cercare di scrivere meno linee di codice possibile;
-\end{itemize}
-
-\subsection{Convenzioni sui commenti}
-Per favorire la comprensione del codice sorgente prodotto ogni programmatore \`e
-tenuto ad inserire sufficienti commenti al codice in linea con le seguenti
-norme:
-\begin{itemize}
-  \item parti di codice di difficile comprensione devono essere riscritte
-  piuttosto che commentate;
-  \item all'interno del corpo di un metodo usare sempre ``//'' per i commenti,
-  anche per quelli multi-riga;
-  \item indentare i commenti in base alla porzione di codice a cui si
-  riferiscono;
-  \item intestazioni di metodi e classi devono utilizzare il formalismo
-  ``javadoc'' con: ``/**'' ``*/'';
-\end{itemize}
-
-\subsection{Convenzioni generali per i programmatori}
-Ogni programmatore dovr\`a:
-\begin{itemize}
-  \item{consegnare codice che compila senza errori fatali o
-potenziali (warning);} 
-  \item{aver utilizzato con chiarezza e coerenza i costrutti del
-linguaggio;}
-  \item{aver utilizzato un sottoinsieme appropriato del linguaggio
-(preferire i costrutti di maggiore robustezza, verificabilit\`a e leggibilit\`a
-rispetto quelli di maggiore potenza espressa e velocit\`a).}
-\end{itemize}
-
-\subsection{Suggerimenti sull'utilizzo degli strumenti di Eclipse}
-Quelli riportati di seguito non sono regolamenti da rispettare necessariamente
-ma suggerimenti il cui utilizzo pu\`o portare beneficio alla chiarezza del
-codice ed al tempo impiegato dai programmatori per la stesura dello stesso.
-Tutte queste operazioni sono accessibili dal menu ``Source'' e configurabili da
-``Window->Prefernces'':
-\begin{itemize}
-  \item utilizzare ``Generate Element/Block Comment'' per impostare inizialmente
-  i commenti a classi e metodi;
-  \item utilizzare ``Organize Imports'' per ordinare le istruzioni di import in
-  testa al file;
-  \item utilizzare ``Sort Members'' per ordinare la dichiarazione di attributi e
-  metodi secondo la visibilit\`a come previsto dalle norme.
-  \item utilizzare ``Generate Getters and Setters'' una volta che si sono
-  definiti gli attributi privati in modo da generare automaticamente i metodi
-  ``get'', ``set'' e ``is'' relativi.
-\end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-Per la fase di codifica del progetto \`e stato scelto innanzitutto l'ambiente
-integrato di sviluppo Eclipse perch\'e supporta sia la programmazione Java
-sia la possibilit\`a  di installare eventuali plugin per interfacciarsi con
-altre tecnologie (per maggiori dettagli vedi sezione 4.1).\\ \\
-Per la componente di visualizzazione del Catalogo
-Multimediale sono stati scelti i plugin di GAE e di GWT oltre i relativi SDKs
-(per maggiori dettagli vedi sezione 4.5). 
-Per la codifica della componente di estrazione delle informazioni \`e stata
-scelta la tecnologia JavaFX. Questa tecnologia \`e stata sia suggerita dal
-proponente nel capitolato d'appalto sia risultata una delle tecnologie migliori
-per lo sviluppo delle \underline{RIA} (per maggiori dettagli vedi sezione 4.6 e
-4.7). \\ \\
-Per cercare di semplificare la verificabilit\`a, migliorare la
-manutenibilit\`a e massimizzare la portabilit\`a si deve rendere il codice
-scritto pi\`u leggibile possibile.
-Inoltre si deve utilizzare un tool automatico gi\`a
-installato dentro Eclipse che genera documentazione API in HTML a partire da
-\underline{codice sorgente} Java e pi\`u precisamente usando il comando
-``Generate Javadoc''; mentre nel progetto si dovranno strutturare nella maniera pi\`u semplice e coerente i moduli, i
-file, le directory, ecc.\\
- 
 \section{Convenzioni sul codice per il linguaggio di \\programmazione Java}
 Si \`e deciso di seguire le convenzioni standard sul codice per il linguaggio
 Java perch\'e oltre ad essere consigliate dalla stessa Sun Microsystems, sono
@@ -700,17 +561,15 @@ Quando classi/interfacce private sono associate a una classe pubblica,
 Il file sorgente Java deve seguire quest'ordine:
 \begin{itemize}
   \item l'intestazione, esempio: \\
-  \hspace*{0.5cm} \co{//} \\
-  \hspace*{0.5cm} \co{// Nome della classe/interfaccia} \\
-  \hspace*{0.5cm} \co{//} \\
-  \hspace*{0.5cm} \co{// Autore} \\
-  \hspace*{0.5cm} \co{//} \\
-  \hspace*{0.5cm} \co{// Licenza copyright/copyleft} \\
-  \hspace*{0.5cm} \co{//} \\
-  \hspace*{0.5cm} \co{// Data di creazione} \\
-  \hspace*{0.5cm} \co{//} \\
-  \hspace*{0.5cm} \co{// Registro delle modifiche} \\
-  \hspace*{0.5cm} \co{//} \\
+  \hspace*{0.5cm} \co{/**} \\
+  \hspace*{0.5cm} \co{ * Nome della classe/interfaccia} \\
+  \hspace*{0.5cm} \co{ *} \\
+  \hspace*{0.5cm} \co{ * Autore} \\
+  \hspace*{0.5cm} \co{ *} \\
+  \hspace*{0.5cm} \co{ * Licenza copyright/copyleft} \\
+  \hspace*{0.5cm} \co{ *} \\
+  \hspace*{0.5cm} \co{ * Data di creazione} \\
+  \hspace*{0.5cm} \co{ */} \\
   ;
   \item le dichiarazioni del package seguite da quelle di importazione;
   \item la dichiarazione della classe/interfaccia.
@@ -918,7 +777,26 @@ linguaggio;}
 rispetto quelli di maggiore potenza espressa e velocit\`a).}
 \end{itemize}
 
-\section{Norme per i Test software}
+\subsection{Suggerimenti sull'utilizzo degli strumenti di Eclipse}
+Quelli riportati di seguito non sono regolamenti da rispettare necessariamente
+ma suggerimenti il cui utilizzo pu\`o portare beneficio alla chiarezza del
+codice ed al tempo impiegato dai programmatori per la stesura dello stesso.
+Tutte queste operazioni sono accessibili dal menu ``Source'' e configurabili da
+``Window->Prefernces'':
+\begin{itemize}
+  \item utilizzare ``Generate Element/Block Comment'' per impostare inizialmente
+  i commenti a classi e metodi;
+  \item utilizzare ``Organize Imports'' per ordinare le istruzioni di import in
+  testa al file;
+  \item utilizzare ``Sort Members'' per ordinare la dichiarazione di attributi e
+  metodi secondo l'ordine di visibilit\`a public-protected-package-private.
+  \item utilizzare ``Generate Getters and Setters'' una volta che si sono
+  definiti gli attributi privati in modo da generare automaticamente i metodi
+  ``get'', ``set'' e ``is'' relativi.
+\end{itemize}
+
+\newpage
+\chapter{Norme per i Test software}
 Per identificare in modo univoco e significativo ognuno dei test software creati
 per fare verifica su codice e presenti nel documento \emph{PianoDiQualifica-\versionePQ.pdf}, gli viene assegnato un codice e in
 dettaglio:\\ \\
@@ -935,19 +813,6 @@ Esempio:
   \item \bo{TU-Cclap3} = test d'unit\`a per la classe TranslateDTOXML del
   package client.applet.
 \end{itemize}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \chapter{Repository e Versionamento}
 \thispagestyle{fancy}
