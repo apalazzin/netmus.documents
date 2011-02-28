@@ -2440,7 +2440,7 @@ le annotazioni \emph{@Key} e \emph{@Index} per gestire l'indicizzazione
 deigli oggetti nel datastore.\\
 \subsubsection*{Relazioni d'uso di altre componenti} La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione
 uno-a-uno che la lega a questa entit\`a. Vengono inoltre utilizzate le classi
-\co{LoginDTO}, \co{UserSummaryDTO}, \co{UserDTO} e \co{UserCompleteDTO} come
+\co{LoginDTO}, \co{UserDTO} e \co{UserCompleteDTO} come
 input ed output in gran parte dei metodi.\\
 Per interfacciarsi al database utilizza \co{ODF}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -2463,28 +2463,28 @@ utente del sistema NetMus.
  - user: String \emph{@Key} & Rappresenta il nome di login unico
  dell'utente e nello stesso tempo la sua e-mail (valida). Viene
  impiegato come chiave dell'entit\`a nel Datastore.\\\hline
- - passwordHash: String & Contiene l'hash della password dell'utente ottenuto
+ - password\_hash: String & Contiene l'hash della password dell'utente ottenuto
   utilizzando l'algoritmo BCrypt.\\\hline
- - nickName: String & Nickname di un utente visibile anche agli altri.\\\hline
- - firstName: String & Nome proprio dell'utente.\\\hline
- - lastName: String & Cognome dell'utente.\\\hline
+ - nick\_name: String & Nickname di un utente visibile anche agli
+ altri.\\\hline - first\_name: String & Nome proprio dell'utente.\\\hline
+ - last\_name: String & Cognome dell'utente.\\\hline
  - gender: char & Sesso, sono validi i valori 'F' (femmina) e 'M'
  (maschio).\\\hline
  - nationality: String & Nazione di provenienza dell'utente.\\\hline
- - avatar: Image \emph{@Type(Blob.class)} & Immagine a scelta caricata
- dall'utente visibile anche agli altri.\\\hline
- - aboutMe: String \emph{@Type(Text.class)} & Informazioni aggiuntive su
+ - about\_me: String \emph{@Type(Text.class)} & Informazioni aggiuntive su
  di se inserite dall'utente.\\\hline
- - birthDate: Date & Data di nascita dell'utente. \\\hline
- - registrationDate: Date & Data di registrazione dell'utente.\\\hline
- - lastLogin: Date & Data dell'ultimo accesso a Netmus.\\\hline
- - lastImport: Date & Data dell'ultimo inserimento di brani da parte
- dell'utente.\\\hline
- - lastSessionId: String \emph{@Index} & Codice identificativo dell'ultima
+ - birth\_date: Date & Data di nascita dell'utente. \\\hline
+ - last\_session\_id: String \emph{@Index} & Codice identificativo dell'ultima
  sessione di autenticazione dell'utente. Campo necessario per l'utilizzo dei
  cookies per mantenere la sessione anche quando viene chiuso il browser.\\\hline
- - musicLibrary: MusicLibrary \emph{@Child} & Intera libreria musicale
- dell'utente, non sempre verr\`a caricata dal Datastore insieme alle informazioni dell'utente.\\\hline
+ - is\_google\_user: boolean & Flag che indica se l'utente accede a
+ Netmus tramite un'account Google oppure no.\\\hline
+ - ispublic\_profile: boolean & Flag che indica se il profilo
+ dell'utente \`e visibile ad altri utenti oppure no.\\\hline 
+ - allowed\_users: List\textless String\textgreater & Lista deggli username
+ degli utenti che possono visualizzare questo profilo ed il relativo catalogo.\\\hline
+ - music\_library:
+ MusicLibrary \emph{@Child} & Intera libreria musicale dell'utente, non sempre verr\`a caricata dal Datastore insieme alle informazioni dell'utente.\\\hline
 \caption{Campi dati di UserAccount}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -2507,8 +2507,7 @@ utente del sistema NetMus.
  l'utente dato in input. Le cazoni realtive a quell'utente vengono per\`o
  mantenute per non perdere infromazioni importanti. \\\hline
  + toLoginDTO(): LoginDTO &
- Genera un oggetto LoginDTO contenente le informazioni di autenticazione dell'utente.\\\hline + toUserSummaryDTO(): UserSummaryDTO & Genera un oggetto UserSummaryDTO
-contenente le informazioni basilari riguardanti l'utente.\\\hline
+ Genera un oggetto LoginDTO contenente le informazioni di autenticazione dell'utente.\\\hline
  + toUserDTO(): UserDTO & Genera un oggetto UserSummaryDTO
 contenente buona parte delle informazioni riguardanti l'utente.\\\hline
  + toUserCompleteDTO(): UserCompleteDTO & Genera un oggetto UserSummaryDTO
@@ -2546,18 +2545,19 @@ contenente tutte le informazioni riguardanti l'utente.\\\hline
 contiene tutte le informazioni relative ad un catalogo multimediale, ovvero
 il proprietario e la lista delle canzoni. La funzione principale per\`o \`e
 quella di fornire dei servizi comodi ed efficenti per la gestione del catalogo
-stesso.\\
-La lista di canzoni \`e mantenuta come lista di codici identificativi (strighe)
-per una questione di efficenza con twig-persist, questo comporta per\`o uno
-svantaggio nelle operazioni di ricerca degli utenti che possiedo una certa
-canzone a partire da quest'ultima. 
+stesso e le entit\`a interne ad esso associate.\\
+La lista di brani \`e mantenuta
+come lista di codici identificativi (strighe) per una questione di efficenza con twig-persist. 
 \subsubsection*{Relazioni d'uso di altre componenti}
 Alla luce della relazione di tipo molti-a-molti che la lega a \co{Song} e quella
 uno-a-uno con \co{UserAccount} queste due classi DAO sono necessarie. Vengono
 utilizzate le classi \co{MusicLibrarySummaryDTO}, \co{MusicLibraryDTO},
-\co{SongSummaryDTO} e \co{SongDTO} come input ed output in alcuni metodi.\\ Per interfacciarsi al database utilizza \co{ODF}.
-\subsubsection*{Interfacce con e relazioni d'uso da
-altre componenti} Tutte le classi logiche Service presenti nel package
+\co{SongSummaryDTO} e \co{SongDTO} come input ed output in alcuni metodi.\\ Per
+interfacciarsi al database utilizza \co{ODF}.\\ 
+Al suo interno vengono definite le classi \co{Playlist} per la gestione delle
+playlist e \co{SongWithRating} per la gestione dei voti assegnati alle canzoni.
+\subsubsection*{Interfacce con e
+relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
 \emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
 un catalogo multimediale. Chiaramente anche \co{UserAccount} ne fa utilizzo.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -2578,6 +2578,15 @@ NetMus.
  questa libreria. \\\hline
  - songList: List\textless String\textgreater \emph{@Index} & Lista ordinata
  delle canzoni che fanno parte del catalogo.\\\hline
+ - classe Playlist \emph{static} & Classe interna che rappresenta una sequenza
+ di canzoni ordinate e fornisce i metodi per le operazioni basilari come
+ la crezione, l'aggiornamento e la cancellazione di una playlist. Ogni oggetto
+ di questa classe ha un nome che fa da chiave univoca ed una lista di canzoni
+ non necessariamente diverse tra loro. \\\hline
+ - classe SongWithRating \emph{static} & Classe interna che rappresenta l'id di
+ un brano associato ad un voto che l'utente ha assegnato a quel brano. La
+ libreria musicale di ogni utente \`e composta da una lista di queste entit\`a.
+ \\\hline
 \caption{Campi dati di MusicLibrary}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -2614,8 +2623,42 @@ NetMus.
  la rimozione ha avuto successo, \emph{false} altriementi.\\\hline 
  + allSongs(): List\textless Song\textgreater & Ritorna la lista ordinata di
  canzoni presenti nel catalogo.\\\hline
- + getters() & Tutti gli attributi
- privati di questa classe hanno i relativi metodi \emph{get}.\\\hline 
+ + rateSong(in Song,in int) & Assegna il voto alla canzone dati in
+ input. Il voto \`e personale dell'utente che possiede la libreria ed
+ \`e unico, quindi sovrascrive la votazione precendete. Oltre ad aggiornare il
+ voto del'utente in \co{MusicLibrary} questo metodo aggiorna anche la media
+ totale dei voti in \co{Song}. \\\hline 
+ - updatePreferredGenre() & Calcola e salva il nome del genere musicale pi\`u
+ ricorrente nella libreria. Ha visibilit\`a privata poich\`e deve essere
+ utilizzato solo quando necessario all'interno del metodo
+ \emph{addSong()}.\\\hline 
+ - updatePreferredArtist() & Calcola e salva il nome del artista pi\`u
+ ricorrente nella libreria. Ha visibilit\`a privata poich\`e deve essere
+ utilizzato solo quando necessario all'interno del metodo
+ \emph{addSong()}.\\\hline  
+ + addPlaylist(in String): boolean & Aggiunge una nuova playlist vuota
+ alla libreria con il nome dato in input.\\\hline 
+ + removePlaylist(in String): boolean & Rimuove dalla libreria e
+ cancella irreversibilmente la playlist il cui nome \`e dato in input.\\\hline
+ - getPlaylist(in String): Playlist & Restituisce la playlist
+ appartenete alla libreria richiesta.\\\hline 
+ + getPlaylists(): List\textless String\textgreater & Ritorna la lista
+ dei nomi di tutte le playlist appartenenti alla libreria.\\\hline 
+ + getPlaylistSongs(in String): List\textless Song\textgreater & Ritorna
+ la lista di tutte le canzoni appartenenti alla playlist il cui nome \`e
+ dato in input.\\\hline 
+ + getPlaylistSongNames(in String): List\textless Song\textgreater &
+ Ritorna la dei codici delle canzoni apparteneti alla playlist il cui
+ nome \`e dato in input.\\\hline 
+ + addSongToPlaylist(in String, in String): boolean & Inserisce la
+ canzone alla playlist date in input.\\\hline 
+ + moveSongInPlaylist(in String,in int,in int) & Sposta nella playlist la
+ canzone che si trova nella posizione indicata nel primo parametro int nella
+ posizione specificata dal secondo. \\\hline 
+ + removeSongFromPlaylist(in String,in String):boolean & Rimuove la
+ canzone dalla playlist dati in input.\\\hline 
+ + getters() & Tutti gli attributi privati di questa classe hanno i relativi
+ metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
  metodi \emph{set}. Tutti questi metodi si occupano anche di chiamare
  \co{update()} per aggiornare i dati del Datastore.\\\hline
@@ -2647,13 +2690,16 @@ NetMus.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} Contiene le
 informazioni relative ad un brano musicale, in particolare ogni canzone \`e
-identificata da una chiave univoca composta dal titolo, un separatore di default
-e l'artista. Dei brani condivisi da pi\`u utenti viene salvata una sola istanza
-per ottimizzare la quantit\`a di spazio utilizzato.
-\subsubsection*{Relazioni d'uso di altre componenti} Questa classe fa uso degli
+identificata da una chiave univoca composta dal titolo, un separatore di
+default, l'artista e l'album disposte nell'ordine titolo-sep-artista-sep-album.
+Dei brani condivisi da pi\`u utenti viene salvata una sola copia per ottimizzare
+la quantit\`a di spazio utilizzato.\\
+La logica di salvataggio delle canzoni implmentata prevede che nei tag estratti
+sia presente almeno il titolo altrimenti il brano non verrà mantenuto nel
+Datastore. Al primo inserimento di una canzone qesta classe si occupa anche di
+reperire informazioni aggiuntive dai servizi esterni Youtube e Last.fm quali link per copertine e video in streaming. \subsubsection*{Relazioni d'uso di altre componenti} Questa classe fa uso degli
 oggetti \co{SongDTO} e \co{SongSummaryDTO} del package \emph{shared}. 
-\subsubsection*{Interfacce con e
-relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
 \emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
 un brano musicale. Largo uso ne fa la classe \co{MusicLibrary} che gestisce al
 suo interno una lista di brani. 
@@ -2677,16 +2723,21 @@ sistema NetMus.
  della canzone.\\\hline 
  - genre: String \emph{@Index} & Genere musicale associato alla
  canzone.\\\hline 
- - numOwners: int \emph{@Index} & Numero di utenti che possiedono la
+ - num\_owners: int \emph{@Index} & Numero di utenti che possiedono la
  canzone nel proprio catalogo.\\\hline 
  - album:String & Album a cui appartiene il brano..\\\hline 
- - alcumCover: FitImage \emph{@Type(Blob.class)} &
- Immagine della copertina dell'album a cui appartiene il brano.\\\hline 
+ - album\_cover: String &
+ Link all' immagine della copertina dell'album a cui appartiene il
+ brano.\\\hline 
  - year: String & Anno di pubblicazione del brano.\\\hline 
  - composer: String & Nome del compositore della canzone.\\\hline
- - trackNumber: String & Numero della canzone all'interno dell'album.\\\hline
+ - track\_number: String & Numero della canzone all'interno dell'album.\\\hline
  - file: String & Nome del file da cui sono state estratte le
  informazioni del brano.\\\hline 
+ - rating: double & Media di tutti i voti assegnati dagli utenti a questa
+ canzone.\\\hline
+ - num\_ratings: int & Numero di voti effettuati su questa canzone. \\\hline
+ - youtube\_code: String & Codice del rispettivo video su Youtube.\\\hline
  - SEPARATOR: String \emph{static final default = '-vt.g-'} & Stringa
  di separazione necessaria nella creazione dell'\co{id} del brano.\\\hline
 \caption{Campi dati di Song}
@@ -2724,11 +2775,20 @@ sistema NetMus.
  inserendo, se valido, la stringa in input. Se la modifica trasforma la
  canzone in un brano gi\`a presente nel Datastore viene ritornato il
  brano gi\`a salvato.\\\hline
- \# newOwner() & Incrementa il contatore dei possessori di questo brano,
- ha visibilit\`a package poich\'e la sua modifica deve avvenire solo
- all'interno della logica di persistenza nei DAO.\\\hline 
- \# deleteOwner() & Decrementa il contatore dei possessori di questo brano,
- ha visibilit\`a package poich\'e la sua modifica deve avvenire solo
+ + changeAlbum(in String): Song & Modifica l'attributo \co{album}
+ inserendo, se valido, la stringa in input. Se la modifica trasforma la
+ canzone in un brano gi\`a presente nel Datastore viene ritornato il
+ brano gi\`a salvato.\\\hline
+ + addRate(in int): double & Aggiunge la votazione data in input
+ alla canzone aggiornando nel modo appropriato gli attributi
+ \emph{rating} e \emph{num\_ratings}. Questo metodo, poich\'e gli stessi dati
+ possono essere acceduti concorrentemente, viene eseguito all'interno di una
+ tranzazione. \\\hline
+ + changeRate(in int,in int): double & Permette ad ogni utente di modificare
+ la propria votazione su questo brano dando in input il voto precendete e
+ quello nuovo. Questo metodo, poich\'e gli stessi dati possono essere acceduti
+ concorrentemente, viene eseguito all'interno di una tranzazione. \\\hline 
+ \# newOwner() & Incrementa il contatore dei possessori di questo brano, ha visibilit\`a package poich\'e la sua modifica deve avvenire solo all'interno della logica di persistenza nei DAO.\\\hline \# deleteOwner() & Decrementa il contatore dei possessori di questo brano, ha visibilit\`a package poich\'e la sua modifica deve avvenire solo
  all'interno della logica di persistenza nei DAO.\\\hline 
  + getters() & Tutti gli attributi privati di questa classe hanno i relativi metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
