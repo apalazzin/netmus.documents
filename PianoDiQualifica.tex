@@ -913,125 +913,164 @@ I Test di Unit\`a previsti sono:
 \textbf{metodo}: XMLToDTO\\
 \textbf{Obbiettivo del Test}: questo metodo riceve in input una stringa XML che
 contiene le informazioni di ogni brano estratto da un dispositivo. Estrae i
-dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO\\ 
-\textbf{Aspettative}: Il metodo dovr\`a ritornare una lista di DTO di tutti i
-brani rilevati senza saltarne alcuno e con tutte le informazioni memorizzate nel
+dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO\\
+\textbf{Strategia}: verr\`a passata una stringa xml con una quantit\`a
+notevole di brani\\
+\textbf{Aspettative}: Il metodo dovr\`a ritornare una lista
+di DTO di tutti i brani rilevati senza saltarne alcuno e con tutte le informazioni memorizzate nel
 rispettivo campo.\\
 
 \item TU-Cclac2:  ProfileActivity\\
 \textbf{metodo}: setPlaylistList/getPlaylistList\\
 \textbf{Obbiettivo del Test}: Verificare che avvenga con successo l'estrazione dal DB
 delle playlist e che vengano correttamente inserite nella view\\
-\textbf{Aspettative}:  anche con una notevole quantit\`a di playlist,
-l'estrazione e la visualizzazione non devono dare problemi\\
+\textbf{Strategia}: al getter passare uno stub con una notevole quantit\`a di di stringhe di playlist,
+ e vedere se poi il setter le riceve correttamente e le passa tutte alla view\\
+\textbf{Aspettative}: anche con una notevole quantit\`a di playlist,
+l'estrazione e il passaggio dei dati alla view non dovrebbe dare errori\\
 
 \textbf{metodo}: setFirendList/getFriendList\\
 \textbf{Obbiettivo del Test}: verificare la lettura dal DB della lista di amici di un
-utente, e verificare la corretta importazione e visualizzazione sulla view\\ 
-\textbf{Aspettative}: il getter deve restituire una lista di stringhe con i
-nomi degli amici e il setter deve inviarla correttamente alla view per la
-visualizzazione\\
+utente, e verificare la corretta importazione e visualizzazione sulla view\\
+\textbf{Strategia}: nel DB locale viene inserita una lista di amici
+fittizia, il metodo getter deve estrarla correttamente e il setter deve inviarla
+correttamente alla view\\
+\textbf{Aspettative}: il getter deve restituire una lista di stringhe con i nomi degli amici e il setter deve inviarla correttamente alla view per la visualizzazione\\
 
 
 \textbf{metodo}: rateSong\\
 \textbf{Obbiettivo del Test}: verificare la registrazione di un voto per il
 brano corretto e la sua visualizzazione sulla view\\
-\textbf{Aspettative}: il metodo deve permettere di registrare il voto di una
-canzone memorizzandolo sul DB della relativa canzone e di passarlo alla view per
-visualizzarlo\\
+\textbf{Strategia}: verranno passati degli stub con artista, titolo e album di
+un brano insieme ad un voto indicativo, e la ricerca del brano sar\`a
+effettuata su un DB locale in cui il brano sar\`a presente\\
+\textbf{Aspettative}: il metodo dovr\`a trovare tale canzone, quindi inviare i
+dati per la registrazione del voto sia al DB che alla view
 
 \textbf{metodo}: playYouTube\\
-\textbf{Obbiettivo del Test}: verificare che il programma sia in grado di ottenere e
-successivamente di impostare e visualizzare una canzone in streaming tramite
+\textbf{Obbiettivo del Test}: verificare che il
+programma sia in grado di ottenere e successivamente di impostare e visualizzare una canzone in streaming tramite
 player di youtube\\
-\textbf{Output Attesi}: la ricerca deve ottenere il brano corretto da youtube in
-base alla canzone selezionata e deve aggiornare la view con la visualizzazione di
-tale canzone in ascolto \\
+\textbf{Strategia}: verranno passati artista titolo e album al metodo, sul DB
+locale sar\`a presente tale brano con l'indirizzo di youtube, il metodo
+dovr\`a trovare tale brano e ritornare l'indirizzo da passare successivamente
+alla view\\
+\textbf{Output Attesi}: la ricerca deve ottenere il brano corretto
+da youtube in base alla canzone selezionata e deve aggiornare la view con la visualizzazione di tale canzone in ascolto \\
 
 \textbf{metodo}: setSongs/getSongs\\
 \textbf{Obbiettivo del Test}: verificare la corretta estrazione e visualizzazione del
 catalogo brani, qualora un utente sia loggato\\ 
-\textbf{Aspettative}: deve restituire una lista di stringhe contenenti
-autore,titolo ed album corretti di ogni canzone della libreria dell'utente, e
-deve permettere il corretto invio per la visualizzazione di tali informazioni
-sulla view\\
+\textbf{Strategia}: verra passato al metodo getter un DTO con le informazioni
+riguardanti la libreria di un utente, il metodo si occupa semplicemente di
+smistare e riorganizzare le canzoni in una lista di strighe che verr\`a
+restituita con le info artista, titolo e album. Il setter invece utilizzer\`a
+il getter per passare le info alla view\\
+\textbf{Aspettative}: deve
+restituire una lista di stringhe contenenti artista, titolo ed album corretti di
+ogni canzone della libreria dell'utente, e deve permettere il corretto invio per la visualizzazione di tali informazioni sulla view\\
 
 
 \textbf{metodo}: removeFromPlaylist\\
 \textbf{Obbiettivo del Test}: verificare la rimozione di un brano da una playlist\\
-\textbf{Aspettative}: il metodo richiama la rimozione del brano dalla playlist
-dell'utente sia dalla parte del DB che dalla parte della view\\
+\textbf{Strategia}: verranno passate al metodo le stringhe con nome playlist,
+e poi titolo artista e album del brano da rimuovere, la ricerca e rimozione
+del brano dal DB locale dovrebbe avere successo e quindi richiamare la
+rimozione anche dalla view\\
+\textbf{Aspettative}: il metodo richiama la
+rimozione del brano dalla playlist dell'utente e una volta che la rimozione ha
+avuto successo dalla parte del DB la rimuove anche dalla parte della dalla parte
+della view\\
 
 \item TU-Cclap1: LoginActivity\\
 \textbf{metodo}: sendLogin\\
 \textbf{Obbiettivo del Test}: verificare che il metodo per l'invio delle
 informazioni del login funzioni correttamente in tutte le sue condizioni\\
-\textbf{Aspettative}: il metodo deve creare un loginDTO con le informazioni
-inserite dall'utente, inviarlo al server per verificare la validit\`a e in caso
-di successo aprire la pagina di profileView, in caso di insuccesso lanciare un
-messaggio di errore a seconda della causa (login incorretto o errore di
-sistema)\\
+\textbf{Strategia}: verr\`a passato user e password in stringhe al metodo, la
+presenza di tale utente nel DB locale dovr\`a dare esito positivo di login. In
+caso di errore verr\`a ritornato un messaggio di errore di utente non
+registrato, oppure di errore di connessione al DB\\ 
+\textbf{Aspettative}: il
+metodo deve creare un loginDTO con le informazioni inserite dall'utente, 
+inviarlo al DB locale per verificare la validit\`a e in caso di successo aprire la pagina di profileView\\
 
 \item TU-Cse5:  UserServiceImpl\\
-\textbf{metodo}: loadProfile\\
-\textbf{Obbiettivo del Test}: verificare la corretta selezione dell'utente da
-caricare e la restituzione dell'esatto UserCompleteDTO con tutti i campi
-corretti\\
-\textbf{Aspettative}: la restituzione di un UserCompleteDTO corretto
-dell'utente selezionato\\
+\textbf{metodo}: editProfile\\
+\textbf{Obbiettivo del Test}: verificare che l'operazione di editing e
+salvataggio delle informazioni di un profilo vada a buon fine\\
+\textbf{Strategia}: verr\`a passato al metodo un nome utente presente nel DB
+locale e un DTO con le informazioni riguardanti l'account utente\\
+\textbf{Aspettative}: il metodo registrer\`a tutti i nuovi campi editati e
+ritorner\`a true qualora l'operazione vada a buon fine\\
 
 \item TU-Cse6: LibraryServiceImpl\\
 \textbf{metodo}: sendUserNewMusic\\
 \textbf{Obbiettivo del Test}: Verificare l'invio e la memorizzazione di una lista di
 brani nuovi rilevati dal dispositivo dell'utente\\ 
-\textbf{Aspettative}: corretta memorizzazione all'interno del db dell'utente di
-tutti i nuovi brani rilevati\\
+\textbf{Strategia}: verr\`a passato al metodo il nome dell'utente e una lista
+di SongDTO che dovranno essere registrate sulla libreria virtuale\\
+\textbf{Aspettative}: corretta memorizzazione all'interno del DB
+locale dell'utente selezionato di tutti i nuovi brani rilevati\\
 
 \item TU-Cse3: SongServiceImpl\\
-\textbf{metodo}: rateSong\\
-\textbf{Obbiettivo del Test}: verificare che la valutazione di un brano venga registrata nel DB per la canzone corretta\\
-\textbf{Aspettative}: il brano viene correttamente votato e registrato nel DB
-inoltre che venga passato alla view il voto, e che il metodo restituisca la
-media dei voti per quel brano\\
-
+\textbf{metodo}: deleteSong\\
+\textbf{Obbiettivo del Test}: verificare la rimozione della canzone
+selezionata dalla libreria dell'utente\\
+\textbf{Strategia}: verr\`a passato al metodo le chiavi di un brano, ossia
+artista, titolo e album, oltre al nome dell'utente da cui rimuovere il brano.
+L'utente e il brano sono entrambi presenti nel DB locale, perci\`o il metodo
+non dovrebbe avere errori\\
+\textbf{Aspettative}: deve rimuovere con successo dal DB locale il brano, e
+ritornare true che indica che l'operazione \`e andata a buon fine
 
 \item TU-Cse4: LoginServiceImpl\\
 \textbf{metodo}: restartSession\\
 \textbf{Obbiettivo del Test}: verificare il corretto funzionamento durante il
 recupero di una sessione per un utente\\
-\textbf{Aspettative}: il metodo deve recuperare e confrontare se la sessione di
-lavoro \`e attiva per un utente, in caso non lo fosse verificare se i cookie
-sono settati per il recupero, in caso positivo recupera la sessione mentre in
-caso negativo lancia una loginException\\
+\textbf{Strategia}: verr\`a passato al metodo stringhe con nome utente e id
+di sessione estratti da un cookie presente. Il recupero della sessione
+dovrebbe andare a buon fine.\\
+\textbf{Aspettative}: il metodo deve controllare l'effettiva esistenza
+dell'utente loggato nella sessione attuale, successivamente caricher\`a
+l'userAccount di tale utente e confronter\`a l'id della sessione con quello
+dell'ultima sessione attiva dell'utente, infine aggiorner\`a i dati della
+sessione con quelli dell'utente che l'ha appena recuperata\\
 
 \item TU-Csepe5: UserAccount\\
 \textbf{metodo}: findSessionUser\\
-\textbf{Obbiettivo del Test}: verificare il funzionamento delle sezioni attraverso il
-ritorno dell'user account corretto a partire dall'ID della sessione\\
-\textbf{Aspettative}: l'utente viene caricato correttamente se loggato e la
-sua sessione ripristinata restituendo un oggetto UserAccount\\
+\textbf{Obbiettivo del Test}: verificare il successo nella ricerca dell'id
+dell'ultima sessione dell'utente\\
+\textbf{Strategia}: verr\`a passato al metodo
+l'id della sessione\\
+\textbf{Aspettative}: il metodo compone una query per il DB locale in cui
+ricerca l'id dell'ultima sessione di lavoro dell'utente\\
 
 
 \textbf{metodo}: deleteUser\\
 \textbf{Obbiettivo del Test}: verificare l'effettiva e corretta cancellazione di un
 account dal DB e quindi dal sistema NetMus\\
-\textbf{Aspettative}: l'account dell'utente deve venire eliminato dal DB cos\`i
-come tutti i suoi dati e la sua libreria\\
+\textbf{Strategia}: verr\`a passato al metodo un oggetto UserAccount, che
+fornir\`a le chiavi per la ricerca e la cancellazione dell'account utente\\
+\textbf{Aspettative}: l'account dell'utente deve venire eliminato dal DB cos\`i come tutti i suoi dati e la sua libreria\\
 
 \item TU-Csepe2: MusicLibrary\\
 \textbf{metodo}: removeSong\\
 \textbf{Obbiettivo del Test}: verificare la corretta rimozione del riferimento ad una
 canzone dalla libreria nel DB di un utente\\
-\textbf{Aspettative}: viene ritornato true qualora la cancellazione sia andata
-a buon fine, e che nella libreria dell'utente il brano sia stato
-effettivamente rimosso\\
+\textbf{Strategia}: al metodo verranno passati un oggetto di tipo Song e un
+booleano che indica l'aggiornamento delle statistiche utente una volta
+completata la rimozione\\
+\textbf{Aspettative}: viene ritornato true qualora la
+cancellazione sia andata a buon fine, e che nella libreria dell'utente il brano sia stato effettivamente rimosso\\
 
 \textbf{metodo}: addSong\\
 \textbf{Obbiettivo del Test}: verificare la corretta registrazione di una nuova
 canzone sul DB\\
-\textbf{Aspettative}: il metodo deve ricercare nel DB la presenza della canzone
-che si sta cercando di aggiungere. In caso di match positivo, la canzone non
-viene aggiunta perch\`e gi\`a presente, in caso negativo viene registrata e i
+\textbf{Strategia}: viene passato un oggetto Song al metodo che si occupa di
+registrarne i campi, e una variabile booleana update per l'aggiornamento delle
+statistiche dell'utente\\
+\textbf{Aspettative}: il metodo deve ricercare nel DB
+la presenza della canzone che si sta cercando di aggiungere. In caso di match positivo, la canzone non viene aggiunta perch\`e gi\`a presente, in caso negativo viene registrata e i
 campi corretti relativi alle informazioni della libreria vengono aggiornati\\
 
 \end{itemize}
@@ -2144,97 +2183,93 @@ requisiti su tutti i moduli \`e equilibrata.
 \begin{itemize}
   \item TU-Cclap3: TranslateDTOXML\\
   \textbf{metodo}: XMLToDTO\\
-  \textbf{esito del test}: La lista di SongDTO \`e stata restituita
-  correttamente compilata in tutti i suoi campi per qualunque brano\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \item TU-Cclac2: ProfileActivity\\
   \textbf{metodo}: setPlaylistList/getPlaylistList\\
-  \textbf{esito del test}: i due metodi comunicano correttamente, la view riceve
-  i dati da visualizzare\\
+  \textbf{esito del test}: i metodi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \textbf{metodo}: setFriendList/getFriendList\\
-  \textbf{esito del test}: i due metodi funzionano correttamente, la view riceve
-  la lista con le stringhe di amici da memorizzare\\
+  \textbf{esito del test}: i metodi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \textbf{metodo}: rateSong\\
-  \textbf{esito del test}: il voto viene passato alla view correttamente come
-  pure viene passato al DB per la registrazione \\ 
-  \textbf{malfunzionamenti rilevati}:nessuno\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\ 
+  \textbf{malfunzionamenti
+  rilevati}:nessuno\\
   
   \textbf{metodo}: playYouTube\\
-  \textbf{esito del test}: il metodo funziona correttamente, viene richiesto
-  il codice di youtube della canzone e correttamente passato alla view\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \textbf{metodo}: setSongs/getSongs\\
-  \textbf{esito del test}: la comunicazione tra i due metodi funziona
-  correttamente, i brani vengono richiesti al DB e passati alla view\\
+  \textbf{esito del test}: i metodi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \textbf{metodo}: removeFromPlaylist\\
-  \textbf{esito del test}: il metodo comunica correttamente con la view,
-  richiedendo la rimozione del brano indicato\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e rispecchia le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \item TU-Cclac1: LoginActivity\\
   \textbf{metodo}: sendLogin\\
-  \textbf{esito del test}: la chiamata al DB viene effettuata correttamente, e
-  i diversi casi di esito positivo o negativo del login vengono gestiti senza
-  errori\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   
   \item TU-Cse5: UserServiceImpl\\
-  \textbf{metodo}: loadProfile\\
-  \textbf{esito del test}: viene richiesto e
-  restituito UserCompleteDTO corretto\\ 
+  \textbf{metodo}: editProfile\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\ 
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \item TU-Cse3: SongServiceImpl\\
-  \textbf{metodo}: rateSong\\
-  \textbf{esito del test}: la valutazione del brano ricevuta in input viene
-  correttamente inviata al DB per essere memorizzata, e viene ritornata la
-  media dei voti\\ 
+  \textbf{metodo}: deleteSong\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\ 
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \item TU-Cse4: LoginServiceImpl\\
   \textbf{metodo}: restartSession\\
-  \textbf{esito del test}: le sessioni, qualora fossero valide per l'utente
-  passato al metodo, vengono ripristinate correttamente e le informazioni
-  recuperate\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \item TU-Cse6: LibraryServiceImpl\\
   \textbf{metodo}: sendUserNewMusic\\
-  \textbf{esito del test}: i brani ricevuti in input vengono correttamente
-  inviati al DB dell'utente corretto\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \item TU-Csepe5: UserAccount\\
   \textbf{metodo}: findSessionUser\\
-  \textbf{esito del test}: viene caricato e restituito l'utente corretto
-  tramite tipo di ritorno userAccount\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \textbf{metodo}: deleteUser\\
-  \textbf{esito del test}: l'utente da cancellare passato come stringa viene
-  cancellato correttamente dal DB\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \item TU-Csepe2: MusicLibrary\\
   \textbf{metodo}: removeSong\\
-  \textbf{esito del test}: viene rimosso correttamente il riferimento ad una
-  canzone dalla libreria musicale dell'utente. La canzone resta tuttavia
-  memorizzata nel DB centrale\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
   \textbf{metodo}: addSong\\
-  \textbf{esito del test}: il metodo registra correttamente canzone e
-  informazioni relative nel DB e conseguentemente nella libreria musicale
-  dell'utente\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
 \end{itemize}
