@@ -362,9 +362,6 @@ documenti con estensione .tex, necessita di importare un dizionario italiano
 programmazione \underline{Java} (per informazioni
 \url{http://www.junit.org/});
 
-\item Emma: per il calcolo della copertura del codice (per informazioni
-\url{http://emma.sourceforge.net/});
-
 \item Eclipse + \underline{GWT}: per le funzionalit\`a di individuazione e
 correzione degli errori di Eclipse su codice Java mentre l'applicazione da
 testare verr\`a eseguita in hosted mode tramite GWT (per informazioni \url{http://www.eclipse.org/} e
@@ -383,17 +380,10 @@ sorgente Java al fine di trovare errori comuni (per informazioni
 espressioni inutili e codice duplicato (per informazioni
 \url{http://pmd.sourceforge.net/});
 
-\item Metrics: per calcolare la misura di varie metriche del
+\item CodePro Analytix: per calcolare la misura di varie metriche del
 codice sorgente durante la fase di compilazione in modo da tenere continuamente
 sotto controllo lo stato del codice stesso (per informazioni
-\url{http://metrics2.sourceforge.net/});
-
-\item Cobertura: per misurare la carenza di test di unit\`a
-all'interno di un progetto (misurare la percentuale di linee di codice che
-vengono controllate dai test di unit\`a, la percentuale di diramazioni del
-codice che vengono controllate dai test di unit\`a, la complessit\`a ciclomatica
-di ogni classe e il numero di volte che una linea di codice \`e stata eseguita
-dai testi di unit\`a) (per informazioni \url{http://cobertura.sourceforge.net/});
+\url{http://code.google.com/intl/it-IT/javadevtools/codepro/doc/index.html});
 
 \item CheckStyle: come aiuto per garantire che il codice Java
 aderisca alle pi\`u diffuse norme di codifica (per informazioni
@@ -889,7 +879,7 @@ eventuali errori o elementi inutili trovati.\\\\
 Tecniche: quelle usate da FindBugs e da PMD \& CPD.
 
 \subsubsection*{Controllo delle metriche e degli indicatori sul codice}
-Utilizzare lo strumento Metrics per misurare:
+Utilizzare lo strumento CodePro Analytix per misurare:
 \begin{itemize}
   \item nei package: il numero di classi presenti, il valore di fan-in e
   fan-out; 
@@ -901,7 +891,7 @@ potrebbero essere particolarmente complicati, o scritti in modo confuso.
 Ulteriori informazioni sullo strumento sono riportate nella sezione 2.3.\\\\ 
 Esito atteso: i valori misurati sia nei package sia nei metodi delle
 classi, dovrebbero essere nella norma.\\\\ 
-Tecniche: quelle usate da Metrics.
+Tecniche: quelle usate da CodePro Analytix.
 
 \subsubsection{Verifica Dinamica}
 
