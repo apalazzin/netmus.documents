@@ -945,6 +945,31 @@ playlist.\\\hline
 \caption{Metodi di ProfileView}
 \end{longtable}
 
+\subsubsection*{Dettaglio del caricamento profilo}
+L'insieme delle operazioni che costituiscono il caricamento della pagina profilo
+di un utente registrato (successivamente all'avvenuta autenticazione) sono
+particolarmente rappresentative dei meccanismi generali del sistema Netmus. Esse
+infatti includono le seguenti fondamentali dinamiche:
+\begin{itemize}
+  \item Creazione ed esecuzione di un nuovo Place tramite il metodo \co{goTo()};
+  \item Creazione ed esecuzione di una nuova Activity tramite
+  l'\co{ActivityMapper};
+  \item Inizializzazione di una View;
+  \item Creazione ed inizializzazione della componente d'estrazione brani.
+\end{itemize}
+Dal seguente diagramma UML di sequenza traspare la centralit\`a del
+ruolo delle classi Activity che, una volta istanziate dal
+\co{NetmusActivityMapper}, si occuperanno di inizializzare opportunamente la
+relativa View ( in questo caso specifico anche di provvedere
+all'inizializzazione dell'applet di estrazione dati).
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/loadProfileView.png}
+\caption{Diagramma UML di sequenza che descrive la procedura di caricamento
+della pagina di profilo, in seguito all'autenticazione di un utente registrato.}
+\end{figure}
+
 \subsection{Interfaccia MyConstants}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -1099,7 +1124,7 @@ tipo \co{LoginException}.\\\hline
 + sendRegistration(in LoginDTO) & Invia al
 server i dati di registrazione inseriti dall'utente dopo averne controllato la
 correttezza (e-mail valida, password sufficientemente lunga). Se la
-risposta del server è affermativa ed i dati sono stati inseriti con
+risposta del server \`e affermativa ed i dati sono stati inseriti con
 successo l'utente viene indirizzato alla pagina di \co{ProfileView},
 altrimenti il metodo apre un'altra finestra di login con il messaggio di
 errore adeguato. Gli errori lato server vengono gestiti con eccezioni di
@@ -2055,9 +2080,9 @@ andr\`a a catturare questo tipo di eventi.\\\hline
 \hline
 \endfoot
 \endlastfoot
-+ getAssociatedType() & Restituisce il Type associato all'evento.\\\hline
-\# dispatch(in DeviceScannedEventHandler) & Metodo interno per gestire
-l'evento.\\\hline
++ getAssociatedType(): Type \textless
+DeviceScannedEventHandler\textgreater & Restituisce il Type associato
+all'evento.\\\hline \# dispatch(in DeviceScannedEventHandler) & Metodo interno per gestire l'evento.\\\hline
 \caption{Metodi di DeviceScannedEvent}
 \end{longtable}
 
@@ -3459,7 +3484,8 @@ relativi ad una ricerca.\\\hline
 \endlastfoot
 + getters() & Restituiscono i campi dati privati della classe.\\\hline
 + setters() & Modificano i campi dati privati della classe.\\\hline
-+ retrieveHttpLocation() & Restituisce l'URL di un certo YouTubeMedia.\\\hline
++ retrieveHttpLocation() : String & Restituisce l'URL di un certo
+YouTubeMedia.\\\hline
 \caption{Metodi di YouTubeVideo}
 \end{longtable}
 
@@ -3511,15 +3537,15 @@ per comunicare con le API \emph{gdata} di YouTube.\\\hline
 \hline
 \endfoot
 \endlastfoot
-- retrieveVideo(in String, in String, in int) \emph{static} & Metodo
-interno che effettua la ricerca video dati in ingresso un clientID, una
+- retrieveVideo(in String, in String, in int) : YouTubeVideo \emph{static} &
+Metodo interno che effettua la ricerca video dati in ingresso un clientID, una
 String contenente le keywords ed il tempo di timeout.\\\hline
-- convertVideos(in List\textless VideoEntry\textgreater) \emph{static} &
-Converte la lista di video trovati nel nostro formato interno
+- convertVideos(in List\textless VideoEntry\textgreater) : YouTubeVideo
+\emph{static} & Converte la lista di video trovati nel nostro formato interno
 \co{YouTubeVideo} e restituisce solo il risultato in cima alla lista,
 che \`e il pi\`u rilevante della ricerca, cio\`e quello che interessa a
 noi.\\\hline
-+ getSearchResult(in String) \emph{static} & Metodo statico usabile
++ getSearchResult(in String) : String \emph{static} & Metodo statico usabile
 dalle altre classi. Esegue una nuova ricerca e restituisce il codice
 del video pi\`u rilevante.\\\hline
 
@@ -3588,7 +3614,7 @@ Vedere la descrizione del package \co{shared}.
 Funge da contenitore per i dati richiesti di un utente.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
 \hline
 \endhead
 \hline
@@ -3653,7 +3679,7 @@ componenti} Vedere la descrizione del package \co{shared}.
 Funge da contenitore per tutti dati dell'utente.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
 \hline
 \endhead
 \hline
@@ -4216,12 +4242,12 @@ l'applet.\\\hline
 \hline
 \endfoot
 \endlastfoot
-+ start(): void & Metodo ereditato da \co{JApplet} invocato in automatico quando
++ start() & Metodo ereditato da \co{JApplet} invocato in automatico quando
 viene caricata la classe nel browser.\\\hline
-+ letsGO(in String, in boolean): void & Metodo invocato da GWT tramite
++ letsGO(in String, in boolean) & Metodo invocato da GWT tramite
 JSNI che va a settare il nome utente e fa partire il monitoraggio
 del File System da parte di \co{scanner}.\\\hline
-+ setState(in boolean): void & Metodo per cambiare lo stato del
++ setState(in boolean) & Metodo per cambiare lo stato del
 monitoraggio dello \co{scanner}.\\\hline
 \caption{Metodi di NetmusApplet}
 \end{longtable}
@@ -4318,7 +4344,7 @@ l'applet.\\\hline
 \hline
 \endfoot
 \endlastfoot
-- initialize(): void & Metodo per memorizzare lo stato iniziale
+- initialize() & Metodo per memorizzare lo stato iniziale
 dell'applet.\\\hline
 - relativePath(in String, in String): String & Restituisce il path
 relativo, dato un path assouluto e il path della root del device.\\\hline
@@ -4339,11 +4365,11 @@ con tutti i path degli Mp3 gi\`a scansionati presenti nel file di log.\\\hline
 - getTag(in File): AbstractMP3Tag & Metodo per gestire l'estrazione dei
 Tag Mp3 in maniera corretta, cercando di dare compatibilit\`a con tutti
 i formati di Tag Mp3 presenti in commercio.\\\hline
-- listenFileSystem(): void & Metodo che esegue il monitoraggio continuo
+- listenFileSystem() & Metodo che esegue il monitoraggio continuo
 del punto di mount del Sistema Operativo in uso, e che gestisce la
 scansione, la scrittura del file di log e l'invio dei dati
 all'applicazione principale.\\\hline
-+ run(): void & Metodo ereditato da \co{Thread} che, gestendo i permessi per
++ run() & Metodo ereditato da \co{Thread} che, gestendo i permessi per
 poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initialize()} e
 \co{listenFileSystem()}.\\\hline
 \caption{Metodi di DeviceScanner}
@@ -4435,8 +4461,8 @@ generati dalle diverse codifiche.\\\hline
 - getGenreCode(in String): String & Se la stringa contiene un codice numerico,
 ignora tutto il resto e restituisce il genere corrispondente, altrimenti
 restituisce la stessa stringa di ingresso.\\\hline
-+ newMP3List(): void & Crea un nuovo documento vuoto.\\\hline 
-+ addMP3(in AbstractMP3Tag, in String): void & Crea un nuovo
++ newMP3List() & Crea un nuovo documento vuoto.\\\hline 
++ addMP3(in AbstractMP3Tag, in String) & Crea un nuovo
 nodo contenente le informazioni del brano (usando anche \co{getGenreCode} per
 tradurre l'eventuale codice), e se questo non viene scartato dal metodo
 \co{isValid}, lo inserisce all'interno del documento.\\\hline 
