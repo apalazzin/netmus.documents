@@ -1681,6 +1681,7 @@ effettuando nello stato corrente, di default \`e NETMUSLOGIN.\\\hline
 \hline
 \multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
 \hline
+\endfoot
 \endlastfoot
 + getUser() : String & Getter dell'attributo \co{user}\\\hline
 + getPassword() : String & Getter dell'attributo \co{password}\\\hline
@@ -1714,6 +1715,8 @@ della history e dei bookmark dei browser.
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{ProfileActivity} in modo da rendere accessibili le funzionalit\`a di history
 e bookmarking del browser.
+
+\newpage
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -1729,6 +1732,7 @@ profilo. Questo nome viene utilizzato per determinare l'URL che
 rappresenta lo stato attuale della pagina.\\\hline
 \caption{Campi dati di ProfilePlace}
 \end{longtable}
+
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
@@ -2473,14 +2477,6 @@ qualche procedimento.
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item 
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe rappresenta l'evento GWT che andremo a lanciare sull'Event Bus
 quando termina un processo di scansione di un dipositivo ed \`e terminata
 anche la memorizzazione nel DataStore e l'associazione dei brani all'utente che
@@ -3214,7 +3210,7 @@ come lista di codici identificativi (strighe) per una questione di efficenza con
 \subsubsection*{Relazioni d'uso di altre componenti}
 Alla luce della relazione di tipo molti-a-molti che la lega a \co{Song} e quella
 uno-a-uno con \co{UserAccount} queste due classi DAO sono necessarie. Vengono
-utilizzate le classi \co{MusicLibrarySummaryDTO}, \co{MusicLibraryDTO},
+utilizzate le classi \co{MusicLibrary SummaryDTO}, \co{MusicLibraryDTO},
 \co{SongSummaryDTO} e \co{SongDTO} come input ed output in alcuni metodi.\\ Per
 interfacciarsi al database utilizza \co{ODF}.\\ 
 Al suo interno vengono definite le classi \co{Playlist} per la gestione delle
