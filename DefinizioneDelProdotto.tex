@@ -48,14 +48,15 @@ codifica, delle quali verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
-26/02/2011 & 0.17 & Caputo Cosimo & Aggiunti diagrammi delle classi per applet
+22/02/2011 & 0.18 & Mandolo Andrea & Aggiunto package server.utils.\\
+\hline
+21/02/2011 & 0.17 & Caputo Cosimo & Aggiunti diagrammi delle classi per applet
 e client.applet e riformattati diagrammi nel documento.\\
 \hline
-
-23/02/2011 & 0.16 & Caputo Cosimo & Agginti diagrammi delle classi per il
+21/02/2011 & 0.16 & Caputo Cosimo & Agginti diagrammi delle classi per il
 package server e i relativi sotto-package.\\
 \hline
-23/02/2011 & 0.15 & Palazzin Alberto & Aggiunti i capitoli ralitivi al package
+21/02/2011 & 0.15 & Palazzin Alberto & Aggiunti i capitoli ralitivi al package
 \emph{client.mvp}.\\
 \hline
 19/02/2011 & 0.14 & Baron Federico & Assegnazione nuovi codici per le componenti
@@ -2898,7 +2899,6 @@ fondamentali presenti all'interno del package
 \emph{it.unipd.netmus.server.utils}.}
 \end{figure}
 
-
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item C1QN-2.6 Manutenibilit\`a
@@ -2927,9 +2927,26 @@ Varie.
     \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe ci permette di utillizare le API \emph{lastfm-java} all'interno la
+piattaforma Google App Engine. Tali librerie ci servono per poter fare
+interrogazioni alle API di Last.fm in maniera semplice, pi\`u ad alto livello
+del doversi implementare una servlet. Queste librerie per\`o necessitano di una
+cache che di default \`e la home del client. In GAE, poich\'e non \`e possibile
+accedere al file system del client, \`e necessario modificare con questa classe
+\co{AppEngineCache} la destinazione di caching delle librerie, andando ad
+utilizzare invece una tabella nel DataStore.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa classe viene utilizzata prima di fare operazioni con le API di Last.fm
+per andare a modificare la gestione della cache.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Utilizza come cache per Last.fm il Google DataStore invece che il file system
+del client.
+\\\\
+Questa classe non andr\`a a dettagliare i singoli campi dati o metodi, poich\'e
+viene presa come strumento gi\`a esistente. \`E stata creata e proposta agli
+sviluppatori GAE dal creatore delle API per Java di Last.fm, Janni Kovacs.
 
 \subsection{Classe BCrypt}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2942,9 +2959,22 @@ Varie.
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe \`e stata importata nel progetto con lo scopo di fornirci uno
+strumento semplice ma efficace per cifrare le password dei nostri utenti, prima
+di essere memorizzate nel DataStore. \`E un'implementazione Java dell'algoritmo
+di hashing Blowfish, sviluppata da Damien Miller nel anno 2006.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+Questa viene utilizzata da \co{LoginServiceImpl} al momento della creazione di
+un nuovo utente nel DataStore per cifrare la password, e al momento del login
+per controllare che sia corretta la password inserita dall'utente, grazie ad un
+comodo metodo di confronto.
+ \subsubsection*{Attivit\`a svolte e dati trattati}
+Svolge l'attivit\`a di cifratura delle password del sistema Netmus.
+\\\\
+Non verranno elencati nel dettaglio i metodi ed i campi dati poich\`e questa
+classe \`e importata nel progetto e ci offre un servizio black-box.
 
 \subsection{Classe Utils}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2959,9 +2989,49 @@ Varie.
     \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe deve offrire dei metodi statici semplici per avere accesso ai
+servizi esterni YouTube e Last.fm. Si occuper\`a di prelevare il codice
+del video riproducibile su YouTube, mettendo in ingresso come keywords l'artista
+ed il titolo del brano. Dovr\`a in ugual modo andare ad interrogare il database
+di Last.fm per poter prelevare la copertina relativa al brano, oppure
+informazioni riguardanti artista e album se mancanti nel tag del brano e nel
+nostro database interno.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Questa classe utilizza la classe \co{YouTubeManager} del package
+\emph{server.youtube} per utilizzare le API di YouTube, ed utilizza la classe
+\co{AppEngineCache} per poi usare le API Java di Last.fm.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vengono utilizzati i suoi metodi nella classe \co{Song} per cercare di
+completare le informazioni di un nuovo brano da inserire nel DataStore.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Classe di servizio per interrogare servizi esterni, con lo scopo di completare
+le informazioni su un brano il pi\`u possibile, in maniera da offrire il
+maggior numero di funzionalit\`a per quel brano.
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + getYouTubeCode(in String) static & Grazie a YouTubeManager restituisce la
+ prima occorrenza di una ricerca su YouTube per pertinenza alla keyword in ingresso
+ (autore titolo). Se la ricerca non produce risultati restutuisce stringa vuota.
+ \\\hline
+  + getCoverImage(in String) static & Questo metodo attiva la cache di Last.fm
+  per AppEngine ed esegue una ricerca esterna, con keywords artista e album,
+  per recuperare l'url della copertina dell'album relativo ad un brano, in
+  formato JPG. \\\hline
+  + getSongFromFileName(in String) static & Con questo metodo andremo a provare
+  a recuperare informazioni ulteriori di un brano che non ha info nel tag,
+  usando come keyword il nome del file stesso. Se verr\`a trovato qualcosa si
+  prover\`a a proporlo all'utente. In uscita restituir\`a un SongDTO. \\\hline
+\caption{Metodi di Utils}
+\end{longtable}
 
 \subsection{Classe ServletUtils}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2973,15 +3043,30 @@ Varie.
     \item C1FO-1.2.1 Pagina login indipendente
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Funzioni utili per l'utilizzo dei servizi esterni.
+Questa classe conterr\`a metodi utili alle servlet per la gestione degli
+indirizzzi della applicazione.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Usata dal package \emph{Servlet}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Funzioni utili e comuni per la gestione e l'interfacciamento con i servizi
-esterni.
+Funzioni utili alle servlet per la gestione degli URL.
 
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + getBaseUrl(in HttpServletRequest) static & Questo metodo deve tornare
+ l'indirizzo di base dell'applicazione, a seconda di dove \`e hostato il
+ progetto e da che porta viene acceduto. \\\hline
+\caption{Metodi di ServletUtils}
+\end{longtable}
 
 \newpage
 \section{Package server.youtube} % LASCIARE WARNING
