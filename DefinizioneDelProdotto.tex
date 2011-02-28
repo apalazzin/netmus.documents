@@ -2132,21 +2132,30 @@ viceversa.
 \hline
 \endfoot
 \endlastfoot
-- ROOT\_NAME: String \emph{final static default = ``Library''} & \\\hline
-- SONG\_NAME: String \emph{final static default = ``Song''} & \\\hline
-- ALBUMTITLE\_NAME: String \emph{final static default = ``AlbumTitle''} &
-\\\hline - AUTHORCOMPOSER\_NAME: String \emph{final static default =
-``AuthorComposer''} & \\\hline 
-- LEADARTIST\_NAME: String \emph{final static default = ``LeadArtist''} &
-\\\hline 
-- SONGGENRE\_NAME: String \emph{final static default = ``SongGenre''} &
-\\\hline 
-- SONGTITLE\_NAME: String \emph{final static default = ``SongTitle''} & \\\hline
-- TRACKNUMBER\_NAME: String \emph{final static default = ``Year''} & \\\hline
-- YEAR\_NAME: String \emph{final static default = ``Year''} & \\\hline
-- FILE\_NAME: String \emph{final static default = ``File''} & \\\hline
-- document: Document & \\\hline
-- root: Element & \\\hline
+- ROOT\_NAME: String \emph{static final} & Nome del nodo principale nel
+documento XML.\\\hline
+- SONG\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante una singola canzone.\\\hline
+- ALBUMTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il titolo dell'album.\\\hline
+- AUTHORCOMPOSER\_NAME: String \emph{static final} & Nome del nodo nel documento
+XML riguardante il compositore.\\\hline
+- LEADARTIST\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante l'artista.\\\hline
+- SONGGENRE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il genere musicale del brano.\\\hline
+- SONGTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il titolo del brano.\\\hline
+- TRACKNUMBER\_NAME: String \emph{static final} & Nome del nodo nel documento
+XML riguardante il numero della traccia all'interno dell'album.\\\hline
+- YEAR\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante l'anno di uscita del brano.\\\hline
+- FILE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il file MP3.\\\hline
+- document: Document & Documento corrente dal quale si stanno ricavando
+i SongDTO.\\\hline 
+- root: Element & Elemento (nodo) principale del documento,
+che contiene tutti gli altri.\\\hline
 \caption{Campi dati di TranslateDTOXML}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -2159,11 +2168,12 @@ viceversa.
 \hline
 \endfoot
 \endlastfoot
-+ reset() & \\\hline
-+ DTOtoXML(in SongDTO) & \\\hline
-+ generateXML(): String & \\\hline
-+ generateDTO(in Element): SongDTO & \\\hline
-+ XMLToDTO(in String): List\textless SongDTO\textgreater & \\\hline
+- generateDTO(in Element): SongDTO & Crea un nuovo SongDTO, e seguendo
+le propriet\`a indicate nel nodo di tipo Song, imposta opportunamente i suoi
+attributi.\\\hline
++ XMLToDTO(in String): List\textless SongDTO\textgreater & Fa il parsing del
+documento XML, e per ogni nodo di tipo Song, utilizza \co{generateDTO} per
+creare il relativo SongDTO, e se lo salva su una lista.\\\hline
 \caption{Metodi di TranslateDTOXML}
 \end{longtable}
 
