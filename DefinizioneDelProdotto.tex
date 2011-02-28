@@ -1,5 +1,5 @@
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.19}
+\newcommand{\versione}{0.23}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -48,6 +48,18 @@ codifica, delle quali verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
+25/02/2011 & 0.23 & Palazzin Alberto & Agginta la descrizione e le tabelle
+del package client.mvp.\\
+\hline
+24/02/2011 & 0.22 & Baron Federico & Agginta la descrizione e le tabelle
+delle classi ProfilePlace e FieldVerifier.\\
+\hline
+24/02/2011 & 0.21 & Baron Federico & Agginta la descrizione e le tabelle
+delle classi SongDTO e SongSummaryDTO.\\
+\hline
+23/02/2011 & 0.20 & Caputo Cosimo & Agginti i diagrammi UML di sequenza
+che descrivono il salvataggio delle nuove canzoni nel Datastore e il caricamento della ProfileView.\\
+\hline
 22/02/2011 & 0.19 & Mandolo Andrea & Aggiunto package server.youtube.\\
 \hline
 22/02/2011 & 0.18 & Mandolo Andrea & Aggiunto package server.utils.\\
@@ -1253,7 +1265,6 @@ effettuando nello stato corrente, di default \`e NETMUSLOGIN.\\\hline
 \hline
 \multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
 \hline
-\endfoot
 \endlastfoot
 + getUser() : String & Getter dell'attributo \co{user}\\\hline
 + getPassword() : String & Getter dell'attributo \co{password}\\\hline
@@ -1277,15 +1288,44 @@ effettuando nello stato corrente, di default \`e NETMUSLOGIN.\\\hline
 \co{ProfilePlace} estende la classe \co{Place} messa a disposizione da GWT. La
 classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-La classe \`e creata da \co{ProfileView} utilizzata da \co{ProfileActivity}.
+Questa classe contiene un solo attributo di tipo \emph{String} che serve
+solamente per generare l'URL della pagina e quindi garantire il funzionamento
+della history e dei bookmark dei browser. 
+\subsubsection*{Relazioni d'uso di altre componenti} Nessuna.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} La classe
+\`e creata da \co{ProfileView} utilizzata da \co{ProfileActivity}. 
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{ProfileActivity} in modo da rendere accessibili le funzionalit\`a di history
 e bookmarking del browser.
-
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- profile\_name: String & Username dell'utente a cui appartiene il
+profilo. Questo nome viene utilizzato per determinare l'URL che
+rappresenta lo stato attuale della pagina.\\\hline
+\caption{Campi dati di ProfilePlace}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ getProfileName() : String & Getter dell'attributo \co{profile\_name}.\\\hline
+\caption{Metodi di ProfilePlace}
+\end{longtable}
 
 
 \newpage
@@ -1299,9 +1339,19 @@ e bookmarking del browser.
     \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
+Questo package racchiude le classi di gestione di Activity e Place implementate
+dal framework di GWT2.1 ``MVP with Activities and Places''. Questo package \`e
+fondamentale per le funzionalit\`a di gestione della history e del bookmarking
+da parte dei browser. 
 \subsection*{Relazioni d'uso di altre componenti}
+Fa riferimento a classi dei package \emph{client.place} e
+\emph{client.activity}. 
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Le classi di questo package vengono accedute automaticamente da componenti
+interne alle librerie di GWT. 
 \subsection*{Attivit\`a svolte e dati trattati}
+Gestisce il collegamento tra Place e Activity per abilitare le funzioni di
+history, bookmarking e mantenimento dello stato del client.
 
 \subsection{Classe NetmusActivityMapper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1370,7 +1420,7 @@ in base al tipo del place dato in input.\\
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Dichiara e riferisce tutti i places che saranno utilizzati da Netmus.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza i PlaceTokenizer.
+Utilizza i \co{PlaceTokenizer}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Il PlaceHistoryHandler utilizza la classe per la sincronizzazione del URL.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -3698,6 +3748,37 @@ Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per i dati pi\`u comunemente utilizzati di un brano, come
 per esempio titolo ed autore.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ - title: String & Titolo del brano.\\\hline 
+ - artist: String & Nome della band o del cantante autore. \\\hline
+ - album: String & Nome dell'album. \\\hline
+\caption{Campi dati di SongDTO}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + getters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{get}.\\\hline
+ + setters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{set}.\\\hline
+\caption{Metodi di SongDTO}
+\end{longtable}
 
 \subsection{Classe SongDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3722,6 +3803,52 @@ Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per tutti dati del brano, dal titolo al numero
 identificativo del brano. 
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- year: String & Anno di pubblicazione del brano.\\\hline
+- composer: String & Nome del compositore della canzone.\\\hline
+- track\_number: String & Numero della canzone all'interno dell'album.\\\hline
+- genre: String & Genere musicale associato alla
+ canzone.\\\hline
+- file: String & Nome del file da cui sono state estratte le
+ informazioni del brano.\\\hline
+- album\_cover: String & Link all' immagine della copertina dell'album a cui appartiene il
+ brano.\\\hline
+- num\_owners: String & Numero di utenti che possiedono la
+ canzone nel proprio catalogo.\\\hline
+- youtube\_code: String & Codice del rispettivo video su Youtube.\\\hline
+- rating: String & Media di tutti i voti assegnati dagli utenti a questa
+ canzone.\\\hline
+- num\_ratings: String & Numero di voti effettuati su questa canzone.\\\hline
+- rating\_for\_this\_user: String & Rating assegnato a questa canzone
+dall'utente la cui libreria ha generato il DTO.\\\hline
+\caption{Campi dati di SongDTO}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + getters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{get}.\\\hline
+ + setters() & Tutti gli attributi privati di questa classe hanno i
+relativi metodi \emph{set}.\\\hline
+\caption{Metodi di SongDTO}
+\end{longtable}
+
 
 \subsection{Classe LoginDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3894,10 +4021,36 @@ relativi metodi \emph{set}.\\\hline
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
+Questa semplice classe contiene i metodi statici necessari a validare con
+livello di sicurezza accetabile i dati inseriti dall'utente, si rende
+fondamentale nelle operazioni di autenticazione e registrazione.
+\subsubsection*{Relazioni d'uso di altre componenti} Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
-
+\co{LoginActivity} e \co{ProfileActivity} ne fanno uso ogni qualvolta ricevano
+in input una stringa da un utente di Netmus. 
+\subsubsection*{Attivit\`a svolte e dati trattati} Le stringhe che vengono
+trattate in questa classe sono rappresentate da password, username e indirizzi
+email. Per le prime due tipologie di informazione il controllo eseguito si
+limita alla lunghezza della stringa, per quanto riguarda gli indirizzi emial,
+invece, viene verificata l'aderenza agli standard.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + isValidNickname(in String): boolean \emph{static} & Verifica che la stringa
+ in input si linga almeno 4 caratteri.\\\hline 
+ + isValidPassword(in String): boolean \emph{static} & Verifica che la
+ password (non ancora criptata) in input sia lunga almeno 4 caratteri.\\\hline
+ + isValidEmail(in String): boolean \emph{static} & Verifica che l'email in
+ input sia conforme agli standard.\\\hline
+\caption{Metodi di MusicLibraryDTO}
+\end{longtable}
 
 
 \newpage
