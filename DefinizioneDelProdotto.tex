@@ -933,6 +933,31 @@ playlist.\\\hline
 \caption{Metodi di ProfileView}
 \end{longtable}
 
+\subsubsection*{Dettaglio del caricamento profilo}
+L'insieme delle operazioni che costituiscono il caricamento della pagina profilo
+di un utente registrato (successivamente all'avvenuta autenticazione) sono
+particolarmente rappresentative dei meccanismi generali del sistema Netmus. Esse
+infatti includono le seguenti fondamentali dinamiche:
+\begin{itemize}
+  \item Creazione ed esecuzione di un nuovo Place tramite il metodo \co{goTo()};
+  \item Creazione ed esecuzione di una nuova Activity tramite
+  l'\co{ActivityMapper};
+  \item Inizializzazione di una View;
+  \item Creazione ed inizializzazione della componente d'estrazione brani.
+\end{itemize}
+Dal seguente diagramma UML di sequenza traspare la centralit\`a del
+ruolo delle classi Activity che, una volta istanziate dal
+\co{NetmusActivityMapper}, si occuperanno di inizializzare opportunamente la
+relativa View ( in questo caso specifico anche di provvedere
+all'inizializzazione dell'applet di estrazione dati).
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/loadProfileView.png}
+\caption{Diagramma UML di sequenza che descrive la procedura di caricamento
+della pagina di profilo, in seguito all'autenticazione di un utente registrato.}
+\end{figure}
+
 \subsection{Interfaccia MyConstants}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -1087,7 +1112,7 @@ tipo \co{LoginException}.\\\hline
 + sendRegistration(in LoginDTO) & Invia al
 server i dati di registrazione inseriti dall'utente dopo averne controllato la
 correttezza (e-mail valida, password sufficientemente lunga). Se la
-risposta del server è affermativa ed i dati sono stati inseriti con
+risposta del server \`e affermativa ed i dati sono stati inseriti con
 successo l'utente viene indirizzato alla pagina di \co{ProfileView},
 altrimenti il metodo apre un'altra finestra di login con il messaggio di
 errore adeguato. Gli errori lato server vengono gestiti con eccezioni di
@@ -1997,9 +2022,9 @@ andr\`a a catturare questo tipo di eventi.\\\hline
 \hline
 \endfoot
 \endlastfoot
-+ getAssociatedType() & Restituisce il Type associato all'evento.\\\hline
-\# dispatch(in DeviceScannedEventHandler) & Metodo interno per gestire
-l'evento.\\\hline
++ getAssociatedType(): Type \textless
+DeviceScannedEventHandler\textgreater & Restituisce il Type associato
+all'evento.\\\hline \# dispatch(in DeviceScannedEventHandler) & Metodo interno per gestire l'evento.\\\hline
 \caption{Metodi di DeviceScannedEvent}
 \end{longtable}
 
