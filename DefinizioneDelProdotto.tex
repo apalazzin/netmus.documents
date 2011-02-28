@@ -1124,7 +1124,7 @@ tipo \co{RegistrationException}.\\\hline
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
 interno alla \co{ProfileView} e richiede al \co{clientFactory} di
-implementarela.
+implementarla.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
 \co{UsersService} e utilizza le relative classi \co{ProfilePlace} e
@@ -1137,6 +1137,137 @@ Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
 creazione ed interazione con l'utente della pagina principale come la
 richiesta dei dati utente dettagliati, della lista dei brani, del dettaglio di
 un brano, ecc.
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- client\_factory: ClientFactory & Questo campo serve per aver accesso
+al \co{PlaceController}, all'\co{EventBus} e alle verie View.\\\hline
+- name: String & .\\\hline - is\_owner: boolean & Rappresenta il nome
+con il quale il \co{ProfilePlace} viene creato.\\\hline
+- login\_service\_svc: LoginServiceAsync & Rappresenta la classe Service che ci
+permette l'invocazione di metodi remoti (RPC) riguardanti l'attivit\`a
+di login.\\\hline
+- library\_service\_svc: LibraryServiceAsync & Rappresenta la classe Service che ci
+permette l'invocazione di metodi remoti (RPC) riguardanti la libreria
+utente.\\\hline
+- user\_service\_svc: UserServiceAsync & Rappresenta la classe Service che ci
+permette l'invocazione di metodi remoti (RPC) riguardanti l'account
+dell'utente.\\\hline
+- song\_service\_svc: SongServiceAsync & Rappresenta la classe Service che ci
+permette l'invocazione di metodi remoti (RPC) riguardanti i singoli
+brani.\\\hline
+- current\_user: UserCompleteDTO & Rappresenta il DTO contenente
+tutte le informazioni utili al client riguardanti l'account utente e la
+sua libreria.\\\hline
+\# my\_constants: MyConstants & Questo oggetto ci permetter\`a di
+internazionalizzare il programma chiamando metodi appositi al posto
+dell'inserimento di parole String.\\\hline
+\caption{Campi dati di ProfileActivity}
+\end{longtable}
+
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ start(AcceptsOneWidget, EventBus) & Invocato da \co{ActivityManager}
+per avviare effettivamente una nuova \co{ProfileActivity}\\\hline 
++ goTo(in Place) & Permette di
+spostarsi in un place differente anche relativo ad un'altra view. Ad esempio per
+tornare alla pagina di \co{LoginView} se l'utente non \`e autenticato. Verr\`a
+quindi chiamato nel metodo \emph{start} se un utente tenta di accedere al
+ProfileView senza essere autenticato.\\\hline
++ logout() & Effettua il logout dell'utente, facendo scadere la
+sessione ed eliminando i cookies relativi ad essa, comunicando con il
+\co{LoginService} implementato nel server.\\\hline
++ setPlaylistList() & Deve andare ad invocare il metodo \emph{paintPlaylist} di
+\co{ProfileView} per andare a graficare la lista delle playlist
+generata da \emph{getPlaylistList}.\\\hline
++ getPlaylistList() : String[ ] & Crea e restituisce un'array
+contenente la lista di playlist dell'utente loggato.\\\hline
++ setFriendList() & Deve andare ad invocare il metodo \emph{paintFriendList} di
+\co{ProfileView} per andare a graficare la lista di utenti affini generata da
+\emph{getFriendList}.\\\hline
++ getFriendList() : String[ ] & Crea e restituisce un'array
+contenente la lista di utenti affini all'utente loggato.\\\hline
++ setSongInfo() & Deve andare ad invocare il metodo \emph{setInfo} di
+\co{ProfileView} per andare a graficare le informazioni del brano in
+riproduzione accanto al player, fornite da \emph{getSongInfo}.\\\hline
++ getSongInfo() : String & Crea e restituisce le informazioni testuali relative
+al brano in riproduzione.\\\hline
++ setPlaylistSongs(in String) & Metodo che riferisce \emph{getPlaylistSongs} per
+far disegnare alla \co{ProfileView} la lista dei brani per una certa playlist.\\\hline
++ getPlaylistSongs(in String) : List\textless String\textgreater & Fa
+disegnare alla \co{ProfileView} la lista brani di una playlist tramite
+il metodo \emph{paintPlaylistSongs}.\\\hline
++ playYouTube(in String, in String, in String) & Preleva il codice
+YouTube relativo ad un brano e invoca \emph{playYouTube} della View per
+aprire il player e riprodurlo.\\\hline
++ setSongs() & Utilizzando \emph{getSongs} va a disegnare il catalogo
+dell'utente nella View, invocando \emph{paintCatalogo}, inserendo anche la sua
+dimensione nell'apposito campo.\\\hline
++ getSongs(in MusicLibraryDTO) : List\textless String\textgreater & Genera e
+restituisce la lista di brani del catalogo relativo all'utente loggato.\\\hline
++ addToPLaylist(in String, in String, in String, in String) & Aggiunge
+un brano ad una playlist dell'utente, prima localmente sulla view, poi
+aggiornando il dato nel DataStore tramite \co{library\_service\_svc}.\\\hline
++ removeFromPLaylist(in String, in String, in String, in String) &
+Rimuove un brano da una playlist, prima localmente, poi aggiornando il
+DataStore tramite \co{library\_service\_svc}.\\\hline
++ moveUpInPLaylist(in String, in String, in String, in String) & Muove
+un brano di una posizione verso l'alto nella playlist, e aggiorna anche
+nel DataStore.\\\hline
++ moveDownInPLaylist(in String, in String, in String, in String) & Muove
+un brano di una posizione verso il basso nella playlist, e aggiorna anche
+nel DataStore.\\\hline
++ addPlaylist(in String) & Aggiunge una nuova playlist nella libreria
+dell'utente, se non ne esiste una di ugual nome.\\\hline
++ deletePlaylist(in String) & Elimina una playlist dalla libreria
+utente.\\\hline
++ rateSong(in String, in String, in String, in int) & Assegna un voto
+da parte dell'utente ad una canzone.\\\hline
++ setRating(in String, in String, in String) : double & Restituisce il
+voto complessivo relativo ad una canzone, ed aggiorna inoltre la grafica
+con il voto che l'utente ha assegnato per tale brano.\\\hline
++ setSongFields(in String, in String, in String) & Recupera e permette
+alla View di disegnare la lista dettagliata di informazioni relative ad una
+canzone.\\\hline
++ viewOtherLibrary(in String) & Metodo che permetter\`a di andare a
+visualizzare il catalogo di un altro utente NetMus.\\\hline
++ deleteSong(in String, in String, in String) & Elimina una canzone dal
+catalogo dell'utente loggato.\\\hline
++ exportPDF(in String) & Esporta in PDF il catalogo visualizzato.\\\hline
++ editProfileView(in String) &  Passa alla View le informazioni personali
+relative all'utente loggato.\\\hline
++ editProfile(in String, in String, in String, in String, in String, in String,
+in String, in String) & Permette la modifica delle informazioni
+dell'utente loggato, inviando i nuovi dati alla View e modificandoli
+anche nel DataStore.\\\hline
++ editSongTitle(in String, in String, in String, in String) & Permette
+la modifica di un eventuale titolo assente nelle informazioni di un
+brano.\\\hline + editSongAlbum(in String, in String, in String, in String) &
+Permette la modifica di un eventuale album assente nelle informazioni di un
+brano.\\\hline
++ editSongArtist(in String, in String, in String, in String) & Permette
+la modifica di un eventuale album assente nelle informazioni di un
+brano.\\\hline
+\caption{Metodi di ProfileActivity}
+\end{longtable}
+
 
 \newpage
 \section{Package client.place} % LASCIARE WARNING
