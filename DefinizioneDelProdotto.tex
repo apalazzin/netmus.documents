@@ -856,7 +856,7 @@ per navigare tra i cataloghi musicali.
 \hline
 \endfoot
 \endlastfoot
-+ myConstants: MyConstants & Gestore dell'internazionalizzazione associato a
++ my\_constants: MyConstants & Gestore dell'internazionalizzazione associato a
 questa pagina.\\\hline 
 - listener: Presenter & \\\hline
 - name: String & \\\hline
@@ -1069,8 +1069,11 @@ all'interno dell'interfaccia \co{Presenter}.
 \hline
 \endfoot
 \endlastfoot
-- user: String & Username inserito dall'utente nello stato corrente, sar\`a
-inizializzato con il valore ricevuto dal \co{LoginPlace} nel
+- client\_factory: ClientFactory & Riferimento alla classe di tipo
+\co{ClientFactory}, rende possibili il riferirimento e la modifica delle
+View.\\\hline
+- user: String & Username inserito dall'utente nello
+stato corrente, sar\`a inizializzato con il valore ricevuto dal \co{LoginPlace} nel
 costruttore.\\\hline 
 - password: String & Password inserita dall'utente nello stato corrente, sar\`a
 inizializzata con il valore ricevuto dal \co{LoginPlace} nel
@@ -1078,7 +1081,7 @@ costruttore.\\\hline
 - error: String & Errore pi\`u rilevante occorso nello stato
 corrente, sar\`a inizializzato con il valore ricevuto dal \co{LoginPlace} nel
 costruttore.\\\hline
-- loginType: LoginType & Tipologia di login o registrazione che si sta
+- login\_type: LoginType & Tipologia di login o registrazione che si sta
 effettuando nello stato corrente, sar\`a
 inizializzato con il valore ricevuto dal \co{LoginPlace} nel
 costruttore.\\\hline
@@ -1097,12 +1100,13 @@ da \co{LoginView.Presenter}\\\hline
 \endfoot
 \endlastfoot
 + start(AcceptsOneWidget, EventBus) & Invocato da \co{ActivityManager}
-per avviare una nuova \co{LoginActivity}\\\hline 
-+ goTo(in Place) & Permette di
-spostarsi in un place differente anche relativo ad un'altra view. Ad esempio per aprire la pagina di
-\co{ProfileView} una volta verificato il login. Verr\`a quindi
-richiamato sempre al termine dei metodi \co{sendLogin} e
-\co{sendRegistration}\\\hline 
+per avviare una nuova \co{LoginActivity}.\\\hline 
++ sendGoogleLogin(String, String) & Permette di effettuare un reindirizzamento
+al servlet dedicato all'autenticazione Google.\\\hline 
++ goTo(in Place) & Permette di spostarsi in un place differente anche relativo
+ad un'altra view.Ad esempio per aprire la pagina di \co{ProfileView} una volta
+verificato il login. Verr\`a quindi richiamato sempre al termine dei metodi
+\co{sendLogin} e \co{sendRegistration}.\\\hline
 + sendLogin(in LoginDTO) & Invia al
 server il login inserito dall'utente dopo averne controllato la validit\`a
 (e-mail valida, password sufficientemente lunga). Se la richiesta di
@@ -1237,7 +1241,7 @@ dalla history.\\\hline
 - error: String & Errore pi\`u rilevante occorso nello stato
 corrente, sar\`a diverso da \emph{null} solo nel caso sia avvenuto un
 errore nel tentativo di login/registrazione precedente.\\\hline
-- loginType: LoginType & Tipologia di login o registrazione che si sta
+- login\_type: LoginType & Tipologia di login o registrazione che si sta
 effettuando nello stato corrente, di default \`e NETMUSLOGIN.\\\hline
 \caption{Campi dati di LoginPlace}
 \end{longtable}
@@ -1329,7 +1333,7 @@ Tramite un riferimento ad un Place crea e restituisce un oggetto activity.
 \hline
 \endfoot
 \endlastfoot
-- clientFactory: ClientFactory & Factory che deve essere passata a tutte
+- client\_factory: ClientFactory & Factory che deve essere passata a tutte
 le attivit\`a instanziate in questa classe. \\\hline
 \caption{Campi dati di NetmusActivityMapper}
 \end{longtable}
@@ -1786,7 +1790,7 @@ controlli necessari ad influenzarne il comportamento.
 - state: boolean & Indica se la scansione automatica \`e attiva o no.\\\hline
 - client\_factory: ClientFactory & Istanza di ClientFactory usata per accedere
 all'EventBus.\\\hline
-- libraryService: LibraryServiceAsync & Servizio del server utilizzato per
+- library\_service: LibraryServiceAsync & Servizio del server utilizzato per
 caricare i nuovi brani.\\\hline 
 - constants: AppletConstants \emph{static} & Utilizzato per la
 traduzione in pi\`u lingue.\\\hline
@@ -2574,7 +2578,7 @@ di usare il database.
 \hline
 \endfoot
 \endlastfoot
-- datastoreIstance: DatastoreObject \emph{static, final} & Unica istanza dell'
+- datastore\_istance: DatastoreObject \emph{static, final} & Unica istanza dell'
 \co{ObjectDatastore} che viene inizializzata alla creazione della classe
 con un \co{AnnotationObjectDatastore}.\\\hline
 \caption{Campi dati di ODF}
@@ -2603,9 +2607,9 @@ dell' \co{ObjectDatastore}.\\\hline
     \item C1FN-1.4.1 Modifica informazioni personali
     \item C1FN-1.4.2 Cambio password
     \item C1FN-1.4.3 Cancellazione del proprio account
-    \item C1QN-1.6 Scalabilia\`a
+    \item C1QN-1.6 Scalabilit\`a
     \item C1QN-1.6.2 Scalabilit\`a massa di utenza
-    \item C1FN-1.9.1 Controllo di validit`a dei dati
+    \item C1FN-1.9.1 Controllo di validit\`a dei dati
     \item C1FN-1.13 Gestione Database
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
@@ -3585,17 +3589,17 @@ Funge da contenitore per i dati richiesti di un utente.
 \hline
 \endfoot
 \endlastfoot
- - firstName: String & Nome proprio dell'utente.\\\hline
- - lastName: String & Cognome dell'utente.\\\hline
+ - first\_name: String & Nome proprio dell'utente.\\\hline
+ - last\_name: String & Cognome dell'utente.\\\hline
  - gender: char & Sesso, sono validi i valori 'F' (femmina) e 'M'
  (maschio).\\\hline
  - nationality: String & Nazione di provenienza dell'utente.\\\hline
- - aboutMe: String & Informazioni aggiuntive su
+ - about\_me: String & Informazioni aggiuntive su
  di se inserite dall'utente.\\\hline
- - birthDate: Date & Data di nascita dell'utente. \\\hline
- - registrationDate: Date & Data di registrazione dell'utente.\\\hline
- - lastLogin: Date & Data dell'ultimo accesso a Netmus.\\\hline
- - lastImport: Date & Data dell'ultimo inserimento di brani da parte
+ - birth\_date: Date & Data di nascita dell'utente. \\\hline
+ - registration\_date: Date & Data di registrazione dell'utente.\\\hline
+ - last\_login: Date & Data dell'ultimo accesso a Netmus.\\\hline
+ - last\_import: Date & Data dell'ultimo inserimento di brani da parte
  dell'utente.\\\hline
 \caption{Campi dati di UserDTO}
 \end{longtable}
@@ -3650,7 +3654,7 @@ Funge da contenitore per tutti dati dell'utente.
 \hline
 \endfoot
 \endlastfoot
- - musicLibrary: MusicLibraryDTO & Oggetto DTO che rappresenta il
+ - music\_library: MusicLibraryDTO & Oggetto DTO che rappresenta il
  catalogo multimediale dell'utente.\\\hline
 \caption{Campi dati di UserCompleteDTO}
 \end{longtable}
@@ -4130,7 +4134,7 @@ monitoraggio dello \co{scanner}.\\\hline
    \item C2VD-4.5 Meno disturbo possibile
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} La classe
-\co{DeviceScanner} sa\`a di tipo \co{Thread} e si occuper\`a di monitorare il
+\co{DeviceScanner} sar\`a di tipo \co{Thread} e si occuper\`a di monitorare il
 File System nei tipici punti di mount dei dipositivi di archiviazione di massa.
 Quando verr\`a creato un oggetto di questo tipo, si dovr\`a individuare il tipo
 di sistema operativo della macchina client e quindi sar\`a nota la posizione di
@@ -4297,7 +4301,7 @@ XML riguardante il numero della traccia all'interno dell'album.\\\hline
 riguardante l'anno di uscita del brano.\\\hline
 - FILE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
 riguardante il file MP3.\\\hline
-- documentBuilder: javax.xml.parsers.DocumentBuilder & Utilizzato per
+- document\_builder: javax.xml.parsers.DocumentBuilder & Utilizzato per
 la creazione di un nuovo documento XML.\\\hline
 - document: org.w3c.dom.Document & Documento corrente sul quale si sta
 generando l'XML.\\\hline
