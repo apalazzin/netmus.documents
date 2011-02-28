@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Piano Di Qualifica}
-\newcommand{\versione}{3.0}
+\newcommand{\versione}{2.10}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versioneAR}{3.0}
@@ -48,15 +48,30 @@ le attivit\`a di verifica e validazione.
 \endhead
 \hline
 \endfoot
-27/02/2011 & 2.6 & Lovato Daniele & Inseriti esiti test di unit\`a.\\
+27/02/2011 & 3.4 & Caputo Cosimo & Inserita specifica delle proposte per il
+proponente in fase di collaudo.\\
 \hline
-20/02/2011 & 2.5 & Lovato Daniele & Inseriti altri test di unit\`a.\\
+26/02/2011 & 3.3 & Trezzi Giovanni & Inserito resoconto attivit\`a di verifica
+nella codifica.\\
 \hline
-17/02/2011 & 2.4 & Palazzin Alberto & Inserita la sezione riguardanti i
+26/02/2011 & 3.2 & Baron Federico & Inseriti esiti test di integrazione.\\
+\hline
+25/02/2011 & 3.1 & Daminato Simone & Inseriti test di integrazione.\\
+\hline
+24/02/2011 & 3.0 & Trezzi Giovanni & Inseriti esiti test di unit\`a.\\
+\hline
+22/02/2011 & 2.7 & Lovato Daniele & Inseriti nuovi test di unti\`a.\\
+\hline
+20/02/2011 & 2.6 & Baron Federico & Inserito resoconto attivit\`a di verifica
+nella progettazione in dettaglio.\\
+\hline
+20/02/2011 & 2.5 & Caputo Cosimo & Inseriti altri test di unit\`a.\\
+\hline
+17/02/2011 & 2.4 & Daminato Simone & Inserita la sezione riguardanti i
 metodi per la verifica della ``Progettazione nel dettaglio'' e
 della ``Codifica''.\\
 \hline
-11/02/2011 & 2.3 & Lovato Daniele & Inseriti alcuni test di unit\`a.\\
+11/02/2011 & 2.3 & Lovato Daniele & Inseriti test di unit\`a.\\
 \hline
 09/02/2011 & 2.2 & Palazzin Alberto & Correzioni apportate a seguito della RP.\\
 \hline
@@ -906,22 +921,12 @@ solamente con casi base per le funzionalit\`a da essi svolte. Inoltre molti test
 sono stati effettuati su metodi set/get per verificare la corretta comunicazione
 tra di loro. Per questi test \`e stato adottato il framework JUnit, che abbiamo
 ritenuto essere il pi\`u attendibile tra i framework messi a disposizione nella
-rete, oltre ad essere integrato in eclipse e a permettere una netta separazione
-tra codice e test.
+rete, oltre ad essere integrato in Eclipse e a permettere una netta separazione
+tra codice e test.\\
 
 I Test di Unit\`a previsti sono:
 
 \begin{itemize}
-\item TU-Cclap3:  TranslateDTOXML\\
-\textbf{metodo}: XMLToDTO\\
-\textbf{Obbiettivo del Test}: questo metodo riceve in input una stringa XML che
-contiene le informazioni di ogni brano estratto da un dispositivo. Estrae i
-dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO\\
-\textbf{Strategia}: verr\`a passata una stringa xml con una quantit\`a
-notevole di brani\\
-\textbf{Aspettative}: Il metodo dovr\`a ritornare una lista
-di DTO di tutti i brani rilevati senza saltarne alcuno e con tutte le informazioni memorizzate nel
-rispettivo campo.\\
 
 \item TU-Cclac2:  ProfileActivity\\
 \textbf{metodo}: setPlaylistList/getPlaylistList\\
@@ -996,6 +1001,18 @@ registrato, oppure di errore di connessione al DB\\
 \textbf{Aspettative}: il
 metodo deve creare un loginDTO con le informazioni inserite dall'utente, 
 inviarlo al DB locale per verificare la validit\`a e in caso di successo aprire la pagina di profileView\\
+
+\item TU-Cclap3:  TranslateDTOXML\\
+\textbf{metodo}: XMLToDTO\\
+\textbf{Obbiettivo del Test}: questo metodo riceve in input una stringa XML che
+contiene le informazioni di ogni brano estratto da un dispositivo. Estrae i
+dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO\\
+\textbf{Strategia}: verr\`a passata una stringa xml con una quantit\`a
+notevole di brani e con caratteri diversi anche dalla codifica ISO-8859-1\\
+\textbf{Aspettative}: Il metodo dovr\`a ritornare una lista
+di DTO di tutti i brani rilevati senza saltarne alcuno e con tutte le informazioni memorizzate nel
+rispettivo campo.\\
+
 
 \item TU-Cse5:  UserServiceImpl\\
 \textbf{metodo}: editProfile\\
@@ -1322,6 +1339,95 @@ nell'apparizione di un pop-up di avviso che l'operazione \`e andata a buon fine.
 \caption{Requisiti e rispettivi metodi di verifica in fase di collaudo}
 \end{center}
 \end{table}
+
+Presentiamo ora una descrizione delle prove che intendiamo proporre al
+committente per il collaudo del prodotto. \\
+La validazione delle funzionalit\`a soddisfatte dai requisiti seguir\`a le
+metodologie qui proposte col prodotto ultimato.
+
+\begin{itemize}
+  \item Requisito C1FN-1.2.1 : Pagina di Login\\
+  \\Per validare tale requisito basta solamente accedere alla pagina
+  iniziale di NetMus. Qui verr\`a presentata da subito l'interfaccia per il
+  login del sistema NetMus. I Sistemi di Login offerti sono 2: NetMus Login e
+  Google Login, oltre all'interfaccia di registrazione a NetMus.
+  
+  \item Requisito C1FN-1.2 : Registrazione\\
+  \\Il Sistema Netmus offre la possibilit\`a di registrarsi qualora non si sia
+  iscritti. Basta cliccare sulla pagina di login la voce ``Sign up to
+  NetMus''. Qui \`e necessario inserire un'email valida e la password.
+  
+  \item Requisiti C1FN-1.1, C1FN-1.1.1, C1FN-1.1.2, C1FD-1.1.4, C1FO-1.3.4,
+  C1FD-1.5 :\\
+  Grafica simile ad iTunes, Elenco brani, Menu laterali, Player
+  YouTube, Ranking brani, Riproduzione tracce in streaming\\
+  \\Effettuare  l'accesso a NetMus per validare questo requisito. La ProfileView
+  ci mostra da subito la grafica del sistema, con menu laterali e l'elenco dei brani della libreria dell'utente. Inoltre il player di youtube
+  \`e gi\`a presente nella pagina, basta selezionare con un click la canzone che
+  si vuole ascoltare e successivamente premere sul tasto ``Play'' per la
+  riproduzione e la visualizzazione del video. A fianco della finestra in cui
+  compare la riproduzione della canzone in streaming \`e presente la voce ``dai
+  il tuo voto'' e cliccando sul numero di stelline che si desidera
+  assegnare alla canzone  \`e possibile esprimere un giudizio.
+  
+  \item Requisito C1FN-1.1.3 : Informazioni dettagliate brano\\
+  \\Dalla pagina di visualizzazione brani \`e possibile accedere alle
+  informazioni dettagliate su un brano semplicemente con un doppio click sul brano
+  desiderato, si aprir\`a una nuova finestrella con le informazioni del brano e
+  la relativa copertina e voto.
+  
+  \item Requisito C1FN-1.3.1, C1FN-1.3.2 : Modifica informazioni brano,
+  Cancellazione brano\\
+  \\Dalla view del Profilo, selezionando una canzone e successivamente cliccando
+  sul tasto ``Edit Songs'' sar\`a possibile modificare le informazioni di un
+  brano, oppure cancellare il brano stesso.
+  
+  \item Requisito C1FO-1.3.3 : Creazione playlist\\
+  \\Nel menu laterale a sinistra, alla voce playlist saranno elencate le
+  playlist dell'utente. Cliccando il tasto ``+'' \`e possibile creare una nuova playlist
+  in cui inserire i brani che si desidera avere nella suddetta playlist.
+  
+  \item Requisiti C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2 : Gestione profilo personale,
+  Modifica informazioni personali, Cambio password\\ 
+  \\Cliccando il tasto ``account" sulla
+  view del profilo \`e possibile inserire informazioni aggiuntive riguardanti il proprio profilo, oppure modificare i
+  propri dati, compreso l'inserimento di una nuova password.
+  
+  \item Requisiti C1FO-1.8.1 : Esportazione pdf\\
+  \\Per esportare la propria libreria musicale in pdf basta cliccare
+  semplicemente sul tasto ``esporta pdf'' presente in basso a destra e il pdf verr\`a creato
+  automaticamente, permettendo il salvataggio nella directory che si preferisce.
+  
+  \item C1FD-1.8 : Elaborazione dati utente\\
+  \\Per visualizzare statistiche e altre svariate informazioni sulla propria
+  libreria basta cliccare sul tasto in basso a sinistra ``statistiche'', si aprir\`a una
+  nuova finestra con elencate tutte le informazioni statistiche.
+  
+  \item C2FN1, C2FN-1.1, C2FN-1.2, C2FN-1.4, C2FN-1.5, C2FD-2, C2FN-3,
+  C2FN-3.1 :\\
+  Recupero delle informazioni, Recupero automatico, Recupero
+  manuale, Informazioni dall'hard disk, File ignorati, C2FD-2 Aggiornamento e
+  completamento informazioni, Comunicazione con C1, Invio delle informazioni\\
+  \\A fianco della libreria personale \`e presenta una barra ``Device Scanner
+  BAR'' a scomparsa. Basta passarci sopra con il cursore per visualizzarla. Tale
+  barra implementa la componente di recupero delle informazioni. 
+  Inserendo un qualunque dispositivo di archiviazione in una porta
+  USB del PC, la componente di recupero lo individua e ne analizza il
+  contenuto, estraendo tutte le informazioni dei file mp3 e monitorando il
+  progresso dell'operazione che diventa visibile all'utente. La
+  scannerizzazione pu\`o essere fatta anche manualmente cliccando sul tasto ``Scan Folder'' 
+  e selezionando una directory qualunque del PC. Le informazioni vengono automaticamente inviate alla 
+  componente di persistenza che li inserisce nel catalogo. Se le canzoni sono
+  gi\`a presenti nel database queste vengono inserite solamente nel catalogo
+  dell'utente e, qualora le informazioni fossero incomplete, vengono completate
+  con quelle della medesima canzone gi\`a presente nel catalogo. La funzione di
+  completamento delle info oltre a controllare nel proprio database, fa
+  riferimento anche a servizi esterni, anche per la ricerca delle copertine
+  degli album. \`E possibile anche disabilitare la lettura automatica dei
+  dispositivi di massa inseriti cliccando la voce ``disable'' sempre nella Device Scanner BAR.
+  
+\end{itemize}
+
 
 \section{Dettaglio dell'esito della campagna di validazione}
 La campagna di validazione non \`e stata ancora eseguita.
@@ -1953,7 +2059,7 @@ manutenibilit\`a del sistema NetMus.
 \subsection{Verifica sulla Progettazione nel Dettaglio}
 Per motivi implementativi sono state apportate delle modifiche all'insieme dei
 moduli scelti in precedenza e presenti nel documento
-\emph{AnalisiDeiRequisiti-2.0.pdf}. In dettaglio per motivi di
+\emph{SpecificaTecnica-2.0.pdf}. In dettaglio per motivi di
 inutilizzo sono stati tolti i seguenti moduli: Cclac3, Cclac4, Cclpl3, Cclpl4,
 Cclui3, Cclui4, Csh1, Csh6, Cshex3, Cshex5, Cshex6, Cse1, Cseut1, Csese4;
 per motivi invece di utilizzo sono stati aggiunti i seguenti moduli: Cclev0,
@@ -2173,12 +2279,7 @@ requisiti su tutti i moduli \`e equilibrata.
 
 \section{Dettaglio delle verifiche tramite prove (test)}
 \begin{itemize}
-  \item TU-Cclap3: TranslateDTOXML\\
-  \textbf{metodo}: XMLToDTO\\
-  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  
+    
   \item TU-Cclac2: ProfileActivity\\
   \textbf{metodo}: setPlaylistList/getPlaylistList\\
   \textbf{esito del test}: i metodi funzionano correttamente secondo la
@@ -2217,6 +2318,14 @@ requisiti su tutti i moduli \`e equilibrata.
   adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
+  \item TU-Cclap3: TranslateDTOXML\\
+  \textbf{metodo}: XMLToDTO\\
+  \textbf{esito del test}: il metodo funziona correttamente, ma all'immissione
+  di caratteri speciali diversi dalla codifica ISO-8859-1 il brano non viene
+  impostato in un DTO ma viene direttamente saltato, passando alla creazione
+  del DTO successivo\\
+  \textbf{malfunzionamenti rilevati}: non traduce in DTO i
+  dati di una canzone che hanno una codifica diversa dalla ISO-8859-1, come ad esempio i caratteri giapponesi\\
   
   \item TU-Cse5: UserServiceImpl\\
   \textbf{metodo}: editProfile\\
@@ -2263,6 +2372,12 @@ requisiti su tutti i moduli \`e equilibrata.
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
   adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  Come si pu\` chiaramente notare dagli esiti dei test sopra elencati, le prove
+  finora programmate ed verificate hanno avuto per la maggir paerte dei
+  casi esito positivo, ad esclusione di un unico metodo che presenta evidenti
+  problemi di codifica. Ricordiamo che le funzionalit\`a testate dei metodi finora 
+  sono state solamente quelle basilari.
   
 \end{itemize}
 
