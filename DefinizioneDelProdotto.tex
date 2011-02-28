@@ -790,21 +790,6 @@ aggiorna l'attributo \co{type}.\\\hline
     \item C1QN-2.3 Portabilit\`a
     \item C1VN-2.5 Semplicit\`a di utilizzo
 \end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item C1FD-1.1.4 Visualizza player YouTube
-    \item C1FD-1.3 Personalizzazione del catalogo 
-    \item C1FD-1.3.1 Cancellazione brano
-    \item C1FD-1.3.2 Modifica informazioni brano
-    \item C1FO-1.3.3 Creazione playlist  
-    \item C1FO-1.3.4 Ranking brani  
-    \item C1FD-1.4.4 Pubblicazione
-    \item C1QD-1.6.1 Scalabilit\`a interfaccia grafica
-    \item C1FD-1.7 Interazione con altri utenti
-    \item C1FD-1.7.1 Visualizzazione altri profili
-    \item C1FO-1.8.1 Esportazione PDF
-    \item C1QO-2.1 Accessibilit\`a
-\end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Il sistema mette a disposizione una vista per la visualizzazione del profilo e
 dei brani di un generico utente registrato e per la riproduzione dalla musica
@@ -823,12 +808,10 @@ I metodi in questione sono:
     \item void goTo(Place place) : permette di spostarsi in un place differente
     anche relativo ad un'altra view. Ad esempio per aprire la pagina di
     \co{LoginView} dopo aver effettuato il logout.
-    \item void setUser(): ricerca ed imposta l'username dell'utente del quale
-    si vuole visualizzare il profilo, lo stato di default prevede la
-    visualizzazione del profilo dell'utente che ha richiesto la
-    pagina.
+    \item void editProfileView(String user): ricerca ed imposta i dati 
+    dell'utente per poterli visionare ed eventualmente identificare.
     \item void setPlaylistList(): imposta la lista dei
-    titoli delle singole playlist dell'utente impostato precedentemente.
+    titoli delle singole playlist dell'utente create precedentemente.
     \item void setFriendList(): imposta la lista degli
     utenti affini su Netmus all'utente impostato precedentemente.
     \item void setSongInfo(): imposta il titolo della canzone in
@@ -836,18 +819,47 @@ I metodi in questione sono:
     \item void setPlaylistSongs(String titoloPlaylist): imposta le canzoni
     con i relativi album dato il nome di una playlist in input.
     \item void setSongs(): fornisce tutte le canzoni legate alla libraria
-    musicale dell'utente sotto forma di \co{SongDTO}.
+    musicale dell'utente attraverso una lista contenente gruppi di stringhe
+    ordinate.
     \item void playYouTube(): dopo aver effettuato una ricerca su YouTube grazie
     alle classi del package \emph{server.youtube} fornisce il link youtube della
     canzone selezionata.
     \item void addPlaylist(String title): crea una nuova playlist a
     disposizione dell'utente che sta visualizzando la propria pagina.
     \item void addToPLaylist(String playlist, String autore, String titolo,
-    String album): aggiunge la canzone in input alla playlist desiderata e
-    restituisce \emph{true} in caso di successo.
+    String album): aggiunge la canzone in input alla playlist desiderata.
     \item void removeFromPLaylist(String playlist, String autore, String titolo,
-    String album): rimuove la canzone in input dalla playlist desiderata e
-    restituisce \emph{true} in caso di successo.
+    String album): rimuove la canzone in input dalla playlist desiderata.
+    \item double setRating(String artist, String title, String album): fornisce
+    il rating personale relativo ad una canzone e restituisce un valore double
+    che rappresenta il rating globale di tutti gli utenti su quella canzone.
+    \item void setSongFields(String autore, String titolo, String album):
+    Imposta i campi che mostrano le informazioni relative al brano selezionato.
+    \item void rateSong(String artist, String title, String album, int rate):
+    attribuisce un punteggio compreso tra uno e cinque alla canzone selezionata.
+    \item void deletePlaylist(String playlist): elimina la playlist
+    indicata.
+    \item void moveDownInPlaylist(String playlist, String autore, String
+    titolo, String album): sposta in basso di una posizione la canzone della
+    playlist selezionata.
+    \item void moveUpInPLaylist(String playlist, String autore, String titolo,
+    String album): sposta in alto di una posizione la canzone della playlist.
+    \item
+    void viewOtherLibrary(String user): controlla i permessi ed avvia la
+    visualizzazione del profilo utente in input.
+    \item void deleteSong(String autore, String titolo, String album): elimina
+    dalla libreria dell'utente la canzone indicata.
+    \item void exportPDF(String user): esporta la lista delle canzoni
+    dell'utente in PDF.
+    \item void editProfile(String user, String nickname, String firstname,
+    String gender, String nationality, String aboutme, String Password):
+    salva e aggiorna i dati dell'utente.
+    \item editSongTitle(String newtitle, String oldtitle, String artist, String
+    album): salva il titolo modificato della canzone.
+    \item editSongAlbum(String newalbum, String oldalbum, String artist, String
+    title): salva il nome dell'album modificato della canzone.
+    \item void editSongArtist(String newartist, String oldartist, String title,
+    String album): salva il nome dell'artista modificato.
 \end{itemize}
 \subsubsection*{Relazioni d'uso di altre componenti}
 La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
@@ -858,8 +870,29 @@ per la gestione del multi-lingua.
  La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
  \co{ProfileActivity}.
  \subsubsection*{Attivit\`a svolte e dati trattati}
-Contiene la lista dei profili che l'utente pu\`o visualizzare e gli strumenti
-per navigare tra i cataloghi musicali.
+Contiene il catalogo dei brani dell'utente attraverso il quale è possibile
+visualizzare tutte le informazioni rielative ad un brano e ordinare gli stessi
+all'interno di comode playlist. Consente la creazione, la gestione e la
+rimozione delle playlist in cui possono essere contenuti i brani. Attraverso una semplice
+interfaccia permette di visualizzare lo streaming tramite il servizio di YouTube
+dei brani o delle playlist selezionate. Contiene la lista dei profili che
+l'utente pu\`o visualizzare e gli strumenti per navigare tra i cataloghi
+musicali degli altri utenti. Permette inoltre di esportare la propria libreria
+in formato PDF e di visualizzare molteplici statistiche riguardanti il catalogo
+musicale. Consente infine di gestire, aggiornare od eliminare i dati del proprio
+account.
+\subsubsection*{Classi Interne} Viene implementata la classe interna \co{Song} la quale estende la classe astratta \co{Song} derivata da, e definita in, ProfileView. Lo scopo di questa classe è quello di rappresentare un oggetto che contenga al suo interno \emph{titolo}, \emph{autore} e \emph{album} di ciascun brano del catalogo. Questo risulta molto utile anche nella gestione di molte Widget GWT predisposte per elaborare in input liste di oggetti \emph{List\textless Type\textgreater}. Viene inoltre ridefinito il metodo \emph{equals(Song)} il quale consente di confrontare l'uguaglianza di due brani in base ai loro attributi.
+\subsubsection*{Interfacce Interne}
+All'interno di \co{ProfileViewImpl} vengono definite due interfacce,
+rispettivamente \emph{MyCellTableResources} e
+\emph{MyCellTableResourcesPlaylist }, le quali estendono intrambe
+\emph{CellTable.Resources}. Al loro interno vengono ridefinite le
+caratteristiche del layout a loro associate e in particolar modo i file di stile
+CSS a cui devono far riferimento. Una volta istanziate come classe
+tramite il metodo \emph{GWT.create()} vengono assegnate come modello di stile
+alle istanze di widget \emph{CellTable} per poterne definirne le caratteristiche
+estetiche tramite i fogli di stile precedentemente impostati.
+\\
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -870,35 +903,194 @@ per navigare tra i cataloghi musicali.
 \hline
 \endfoot
 \endlastfoot
-+ my\_constants: MyConstants & Gestore dell'internazionalizzazione associato a
++ myConstants: MyConstants & Gestore dell'internazionalizzazione associato a
 questa pagina.\\\hline 
-- listener: Presenter & \\\hline
-- name: String & \\\hline
-- vertical\_offset: int \emph{degault = 65} & \\\hline
-- vertical\_semioffset: int \emph{default = 275} & \\\hline
-- lista\_canzoni: CellTable\textless Song\textgreater & \\\hline;
-@UiField logout: Anchor & \\\hline
-@UiField utente, numero\_brani, titolo\_playlist, info\_youtube\_link,
-brano\_aggiungere, brano\_rimuovere: Label & \\\hline
-@UiField(provided=true) catalogo: CellTable\textless Song\textgreater & \\\hline 
-@UiField container, catalogo\_container,
-playlist\_container, playlist\_contenuto, playlist\_songs, song\_container,
-song\_contenuto, main\_panel, left\_panel, playlists, friends,
-friends\_titolo, info, search, youtube, classifica,
-info\_youtube, youtube\_appendice: HTMLPanel & \\\hline
-@UiField play, play\_youtube, forward, rewind, cover,
-edit\_button, account\_button, social\_button, star1, star2, star3, star4,
-star5, chiudi\_playlist, chiudi\_song, logo\_youtube,
-chiudi\_youtube, aggiungi\_branoplaylist, rimuovi\_branoplaylist,
-aggiungi\_playlist: Image & \\\hline 
-- playlist\_opened: boolean & \\\hline 
-- song\_opened: Image & \\\hline 
-- selected\_song: Song & \\\hline 
-- selected\_song\_playlist: Song & \\\hline
-- canzoni\_catalogo: List\textless Song\textgreater & \\\hline 
-- canzoni\_playlist: List\textless Song\textgreater & \\\hline
-- dataProvider\_playlist: ListDataProvider\textless Song\textgreater & \\\hline 
-- dataProvider\_catalogo: ListDataProvider\textless Song\textgreater & \\\hline
+- listener: Presenter & Riferimento all'istanza di ProfileActivity che
+implementa l'interfaccia Presenter definita in ProfileView.\\\hline
+- name: String & Il nome dell'account dell'utente.\\\hline
+- vertical\_offset: int \emph{default = 65} & Spazio in pixel tra
+l'interfaccia principale e il margine inferiore della finestra del
+browser.\\\hline
+- vertical\_semioffset: int \emph{default = 275} & Spazio in pixel tra
+il margine inferiore della sezione centrale dell'interfaccia grafica e
+il margine inferiore della finestra del browser.\\\hline
+- rating: int & Il rating personale dell'utente rispetto ad un brano.\\\hline
+- global\_rating: double & Il rating globale su netmus rispetto ad un
+brano.\\\hline
+- password: String & la nuova password inserita dall'utente.\\\hline
+- cpassword: String & la conferma della nuova password inserita
+dall'utente.\\\hline
+- lista\_canzoni: CellTable\textless Song\textgreater & la widget a tabella che
+rappresenta il catalogo dei brani dell'utente.\\\hline;
+- rm\_link: HandlerRegistration & Registratore dell'handler su
+l'indirizzo link del player youtube.\\\hline
+- rm\_fw: HandlerRegistration & Registratore dell'handler sul bottone di forward
+dei comandi di streaming.\\\hline
+- rm\_rw: HandlerRegistration & Registratore dell'handler sul bottone di rewind
+dei comandi di streaming.\\\hline
+@UiField logout: Anchor & Link per il logout.\\\hline
+@UiField utente: Label & Etichetta che visualizza il nome dell'utente.\\\hline
+@UiField numero\_brani: Label & Eticehtta che rappresenta il numero di
+brani a catalogo.\\\hline
+@UiField titolo\_playlist: Label & Etichetta che rappresenta il titolo
+dell'elenco delle playlist.\\\hline
+@UiField titolo\_song: Label & Etichetta che rappresenta il titolo della
+canzone visualizzata nelle informazioni dettagliate.\\\hline
+@UiField info\_youtube\_link: Label & Etichetta che mostra l'indirizzo
+d'origine del video youtube in riproduzione.\\\hline
+@UiField brano\_aggiungere: Label & Etichetta che visualizza in verde il
+titolo selezionato a catalogo e che risulta possibile inserire nella
+playlist aperta.\\\hline
+@UiField brano\_rimuovere: Label & Etichetta che visualizza in rosso il
+titolo selezionato nella playlist e che può essere rimosso.\\\hline
+@UiField song\_titolo: Label & Etichetta che mostra il titolo della
+canzone nelle informazioni dettagliate.\\\hline
+@UiField song\_autore: Label & Etichetta che mostra l'autore della
+canzone nelle informazioni dettagliate.\\\hline
+@UiField song\_album: Label & Etichetta che mostra il titolo dell'album
+della canzone nelle informazioni dettagliate.\\\hline
+@UiField song\_genere: Label & Etichetta che mostra il genere della
+canzone nelle informazioni dettagliate.\\\hline
+@UiField song\_anno: Label & Etichetta che mostra l'anno della canzone
+nelle informazioni dettagliate.\\\hline
+@UiField song\_compositore: Label & Etichetta che mostra il genere della
+canzone nelle informazioni dettagliate.\\\hline
+@UiField song\_traccia: Label & Etichetta che mostra il numero di
+traccia della canzone nelle informazioni dettagliate.\\\hline
+@UiField edit\_profile\_password: Label & Etichetta 
+password nella finestra dell'account.\\\hline
+@UiField edit\_profile\_cpassword: Label & Etichetta 
+conferma password nella finestra dell'account.\\\hline
+@UiField edit\_profile\_nickname: Label & Etichetta nickname
+dell'utente nella finestra dell'account.\\\hline
+@UiField edit\_profile\_name: Label & Eticehtta  nome
+dell'utente nella finestra dell'account.\\\hline
+@UiField edit\_profile\_surname: Label & Eticehtta cognome
+dell'utente nella finestra account.\\\hline
+@UiField edit\_profile\_nationality: Label & Etichetta 
+nazione dell'utente nella finestra dell'account.\\\hline
+@UiField edit\_profile\_gender: Label & Etichetta il sesso
+dell'utente nella finestra dell'account.\\\hline
+@UiField edit\_profile\_labelCpassword: Label & Etichetta conferma
+password nella finestra dell'account.\\\hline
+@UiField catalogo: CellTable\textless Song\textgreater & Tabella che
+mostra l'intero catalogo dell'utente.\\\hline
+@UiField catalogo\_container: HTMLPanel & Elemento che definisce l'area
+dove viene inserito evisualizzato il catalogo delle canzoni.\\\hline
+@UiField playlist\_container: HTMLPanel & Elemento che definisce l'area
+dove viene inserita la lista di canzoni di una playlist.\\\hline
+@UiField playlist\_contenuto: HTMLPanel & Inserita all'interno di
+playlist\_container contiene la tabella che visualizza il contenuto di
+una playlist.\\\hline
+@UiField playlist\_songs: HTMLPanel & Elemento all'interno di
+playlist\_container dove viene inserita la CellTable con i dati delle
+canzoni della playlist.\\\hline
+@UiField song\_container: HTMLPanel & Elemento che definisce l'area dove
+vine inerito il dettaglio di una canzone.\\\hline
+@UiField song\_contenuto: HTMLPanel & Elemento inserito all'interno di
+song\_container che contiene i campi dati sui dettagli della canzone.\\\hline
+@UiField main\_panel: HTMLPanel & Elemento principale dell'interfaccia
+grafica, situato a destra rappresenta la parte principale dell'intero
+UI.\\\hline @UiField left\_panel: HTMLPanel & Secondo elemento principale
+della UI, rappresenta l'intera zona che contiene i menu sulla sinistra.\\\hline
+@UiField playlists: HTMLPanel & Elemento inserito all'interno di
+left\_panel che contine l'elenco delle playlist dell'utente.\\\hline
+@UiField friends: HTMLPanel & Elemento inserito all'interno di
+left\_panel che contiene l'elenco degli amici su netmus.\\\hline
+@UiField firends\_titolo: HTMLPanel & Elemento che contiene il titolo
+dell'area in cui compare la lista degli amici su netmus.\\\hline
+@UiField info: HTMLPanel & Elemento che contiene le informazioni
+relative al brano riprodotto.\\\hline
+@UiField search: HTMLPanel & elemento che contiene l'input di ricerca
+nel catalogo.\\\hline
+@UiField youtube: HTMLPanel & Elemento che contiene il tasto player di
+youtube e il player stesso all'occorrenza.\\\hline
+@UiField classifica: HTMLPanel & Elemento che contiene le stelle per la
+votazione ed il rating personale.\\\hline
+@UiField info\_youtube: HTMLPanel & Elemento che contiene le informazioni
+riguardanti il brano che sta venendo riprodotto nel player youtube.\\\hline
+@UiField youtube\_appendice: HTMLPanel & Elemento che contiene il tasto
+x chiudere il player youtube.\\\hline
+@UiField edit\_profile: HTMLPanel & Elemento che rappresenta la finestra
+a scomparsa che contiene le informazioni sull'accont.\\\hline
+@UiField edit\_profile\_aboutme: HTMLPanel & Elemento che contiene i
+dati personali scritti dall'utente all'interno della finestra
+dell'account.\\\hline
+@UiField play: Image & Rappresenta il bottone play/pause
+dell'interfaccia principale.\\\hline
+@UiField play\_youtube: Image & Rappresenta il bottne play nell'area del
+youtube player.\\\hline
+@UiField forward: Image & Rappresenta il tasto forward dell'interfaccia
+principale.\\\hline
+@UiField rewind: Image & Rappresenta il tasto rewind dell'interfaccia
+principale.\\\hline
+@UiField cover: Image & Inserito in panel\_left; rappresenta la cover della
+canzone in play sul player youtube.\\\hline
+@UiField edit\_button: Image & Rappresenta il bottone d'accesso alle
+informazioni della canzone selezionata.\\\hline
+@UiField account\_button: Image & Rappresenta il bottone d'accesso ai
+dati dell'utente.\\\hline
+@UiField social\_button: Image & Rappresenta il bottone d'accesso alle
+funzionalità social di netmus\\\hline
+@UiField star1/star2/star3/star4/star5: Image & Rappresentano le stelle
+per il voto personale sulla canzone.\\\hline
+@UiField starG1/starG2/starG3/starG4/starG5: Image & Rappresentano le
+stelle del voto globale su di una canzone.\\\hline
+@UiField chiudi\_playlist: Image & Rappresenta il bottone per chiudere la
+playlist.\\\hline @UiField chiudi\_song: Image & Rappresenta il bottone
+per chiudere il dettaglio di una canzone.\\\hline
+@UiField logo\_youtube: Image & Rappresenta l'immagine del logo di
+YouTube.\\\hline
+@UiField chiudi\_youtube: Image & Rappresenta il bottone per chiudere il
+player di YouTube.\\\hline
+@UiField aggiungi\_branoplaylist: Image & Rappresenta il bottone per
+aggiungere un brano selezionato nella playlist aperta\\\hline
+@UiField rimuovi\_branoplaylist: Image & Rappresenta il bottone per
+rimuovere dalla playlist il brano selezionato.\\\hline
+@UiField song\_cover: Image & Rappresenta l'immagine della copertina
+dell'album del brano selezionato nelle informazioni dettagliate di un
+brano.\\\hline
+@UiField elimina\_playlist: Image & Rappresenta il bottone per eliminare
+definitivamente una playlist.\\\hline
+@UiField elimina\_song: Image & Rappresenta il bottone per eliminare
+definitivamente una canzone dal proprio catalogo. \\\hline
+@UiField edit\_profile\_chiudi: Image & Rappresenta il bottone per
+chiudere la finestra delle informazioni sull'account.\\\hline
+@UiField edit\_profile\_checkImg: Image & Rappresente l'immagine di
+conferma per il salvataggio dei dati all'interno della finestra per
+gestire le informazioni sull'account.\\\hline
+@UiField edit\_profile\_check: Button & Rappresenta il botton per il
+salvataggio dei dati personali all'interno della finestra informazioni
+dell'account.\\\hline
+@UiField edit\_profile\_vc: VerticalPanle & Rappresenta una componente di layout
+spaziale per la finestra informazioni dell'account.\\\hline
+@UiField : TextBox & Rappresenta il campo di input in cui inserire i
+termini per la ricerca nel catalogo.\\\hline
+- playlist\_opened: boolean & Rappresenta se il pannello con il contenuto di una
+playlist risulta aperto o meno. \\\hline
+- song\_opened: boolean & Rappresenta se il pannello con il contenuto dei
+dettagli di una canzone risulta aperto o meno. \\\hline
+- youtube\_status: int & Rappresenta lo stato del player youtube. 0: fermo, 1:
+in play, -1: in pausa, 2/3: in play con una canzone differente selezionata nel
+catalogo. \\\hline
+- last\_selected: int & Rappresenta la selezione dell'utente relativamente al
+catalogo o ad una playlist. 0: viene selezionato un brano sul catalogo, 1: viene
+selezionato un brano nella playlist. \\\hline
+- playn: intn & Rappresenta se è in riproduzione un brano contenuto in una
+playlist o nel catalogo. 0: catalogo, 1: playlist. \\\hline
+- selected\_song: Song & Rappresenta la canzone selezionata dall'utente sul
+catalogo. \\\hline
+- selected\_song\_playlist: Song & Rappresenta la canzone selezionata
+dall'utente nella playlist.\\\hline
+- played\_song: Song & Rappresenta la canzone in riproduzione\\\hline
+- canzoni\_catalogo: List\textless Song\textgreater & Rappresenta le
+canzoni caricate a catalogo.\\\hline
+- canzoni\_playlist : List\textless Song\textgreater & Rappresenta le
+canzoni caricate nella playlist aperta.\\\hline - dataProvider\_playlist:
+ListDataProvider\textless Song\textgreater & Rappresenta le canzoni
+visualizzate nella CellTable del catalogo\\\hline - dataProvider\_catalogo:
+ListDataProvider\textless Song\textgreater & Rappresenta le canzoni visualizzate
+dalla CellTable nella playlist.\\\hline
 \caption{Campi dati di ProfileView}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -946,7 +1138,23 @@ playlist.\\\hline
 + addToPlaylists(in String) & Aggiunge una nuova playlist.\\\hline 
 + viewSong(in Song) & Visulaizza la scheda della canzone.\\\hline
 + closeSong() & Chiude la scheda della canzone.\\\hline
-@UiHandlers handler(in Event) & \\\hline
++ setRating(int rating) & Imposta il rating personale dell'utente.\\\hline
++ showStar(int index) & Disegna le stelle che corrispondono al rating.\\\hline
++ youTubeChange(int s) & Imposta lo stato del lettore youtube collegato
+ad un handler delle api javascript youtube gestito tramite JSNI.\\\hline
++ youTubeListener() & JSNI: collega la chiamata al metodo
+\emph{youTubeChange} all'interno di GWT con le api javascript di
+youtube fornendo un riferimento javascript esterno tramite una funzione.\\\hline
++ playNext() & Fa passare il player youtube al brano successivo se
+disponibile.\\\hline
++ playPrev(int rating) & Fa passare il player youtube al brano
+precedente se disponibile.\\\hline
++ setRating(int rating) & Imposta il rating personale dell'utente.\\\hline
+@UiHandlers handler(Event e) & Gli handler legati al meccanismo del framework
+UiBinder aggiungono funzionalità specifiche ai singoli elementi
+semplicemente utilizzanod l'annotazione ``@UiHandler'' per riferirsi alle varie
+componenti grafiche definite tramite il relativo template grafico
+\emph{ProfileViewImpl.ui.xml}\\\hline
 \caption{Metodi di ProfileView}
 \end{longtable}
 
