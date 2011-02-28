@@ -1098,14 +1098,11 @@ MusicLibraryDTO, SongDTO, UserCompleteDTO.\\
 \textbf{Obbiettivo del Test}: verificare l'integrazione tra le classi che
 forniscono un servizio al client e quelle che si interfacciano al database,
 controllando che i servizi vengano forniti correttamente.\\ 
-\textbf{Dati in input}: le informazioni di un nuovo utente, alcuni brani
-casuali, ed un paio di playlist. 
-\textbf{Output Attesi}: dalle chiamate ai servizi dovranno essere restituiti
+\textbf{Strategia}: verranno dati in input le informazioni di un nuovo utente,
+alcuni brani casuali, ed un paio di playlist. \\
+\textbf{Aspettative}: dalle chiamate ai servizi dovranno essere restituiti
 tutti i dati corretti dell'utente, le informazioni dei brani e delle playlist,
-equivalenti ai dati inseriti. 
-\textbf{Output Ottenuti}:\\
-\textbf{Malfunzionamento Rilevati}:\\ 
-\textbf{Costi e Rischi}:\\
+equivalenti ai dati inseriti.\\
 
 \item TI-se2: server, server.persistent, server.youtube, server.utils, shared.\\
 \textbf{Classi coinvolte}: UserServiceImpl, SongsServiceImpl,
@@ -1114,14 +1111,11 @@ YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
 ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
 \textbf{Obbiettivo del Test}: verificare il funzionamento e
 l'interfacciamento coi servizi esterni.\\
-\textbf{Dati in input}: le informazioni di un nuovo utente, alcuni brani
-predefiniti con informazioni incomplete.
-\textbf{Output Attesi}: dalle chiamate ai servizi dovranno essere
-restituiti i brani con i dati completi, come immagine dell'album e link al
-video youtube.
-\textbf{Output Ottenuti}:\\
-\textbf{Malfunzionamento Rilevati}:\\ 
-\textbf{Costi e Rischi}:\\
+\textbf{Strategia}: verranno dati in input ai servizi le informazioni di un
+nuovo utente e alcuni brani predefiniti con informazioni incomplete.\\
+\textbf{Aspettative}: dalle chiamate ai servizi dovranno essere
+restituiti quei brani con i dati completati, come immagine dell'album e link al
+video youtube.\\
 
 \item TI-cl1: client, client.activity, client.mvp, client.service, shared.\\ 
 \textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
@@ -1130,14 +1124,13 @@ MusicLibraryDTO, SongDTO, UserCompleteDTO.\\
 \textbf{Obbiettivo del Test}: verificare il corretto funzionamento della
 parte logica del client: vengono simulate alcune operazioni effettuate
 dall'utente, e osservate le reazioni.\\
-
-
-\textbf{Dati in input}: MusicLibrary, vari eventi. 
-\textbf{Output Attesi}: Richieste dei dettagli dei brani, inserimento dei brani
-nello stub della view.
-\textbf{Output Ottenuti}:\\
-\textbf{Malfunzionamento Rilevati}:\\ 
-\textbf{Costi e Rischi}:\\
+\textbf{Strategia}: seguendo l'inizializzazione normale, come dato
+in ingresso iniziale avremo una MusicLibrary, e si controller\`a il corretto
+inserimento dei dati nello stub della view. In seguito saranno simulate varie
+azioni dell'utente e si controller\`a se le reazioni seguiranno quanto
+previsto.\\
+\textbf{Aspettative}: ci dovranno essere richieste dei dettagli dei brani ai
+servizi, e l'inserimento degli stessi nello stub della view.\\
 
 \item TI-cl2: client, client.activity, client.mvp, client.service,
 client.applet, shared.\\ 
@@ -1145,11 +1138,10 @@ client.applet, shared.\\
 NetmusActivityMapper, LibraryService, SongsService, UsersService, AppletBar,
 TranslateDTOXML, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
 \textbf{Obbiettivo del Test}: verificare l'integrazione dell'applet.\\
-\textbf{Dati in input}: documento XML contenente dei brani. 
-\textbf{Output Attesi}: lista dei nuovi brani e loro visualizzazione.
-\textbf{Output Ottenuti}:\\
-\textbf{Malfunzionamento Rilevati}:\\ 
-\textbf{Costi e Rischi}:\\
+\textbf{Strategia}: verr\`a dato in input un documento XML contenente dei brani
+dallo stub dell'applet.\\ 
+\textbf{Aspettative}: ci si aspettano delle chiamate ai servizi per aggiungere
+i brani al database.\\
 
 \item TI-gl1: client, client.activity, client.mvp, client.service,
 client.applet, server, server.persistent, server.youtube, server.utils, shared.\\ 
@@ -1161,13 +1153,10 @@ YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
 ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
 \textbf{Obbiettivo del Test}: verificare l'integrazione della componente
 server e quella client.\\
-\textbf{Dati in input}: documento XML contenente dei
-brani. 
-\textbf{Output Attesi}: lista dei nuovi brani con le informazioni complete e
-loro visualizzazione. 
-\textbf{Output Ottenuti}:\\
-\textbf{Malfunzionamento Rilevati}:\\ 
-\textbf{Costi e Rischi}:\\
+\textbf{Strategia}: verr\`a dato in input un documento XML contenente dei brani
+dallo stub dell'applet.\\ 
+\textbf{Aspettative}: nello stub della view dovr\`a essere inserita una nuova
+lista di brani, comprendente quelli nuovi indicati nell'XML.\\ 
 
 \end{itemize}
 
