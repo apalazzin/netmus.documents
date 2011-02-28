@@ -1,5 +1,5 @@
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.16}
+\newcommand{\versione}{0.19}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -48,14 +48,17 @@ codifica, delle quali verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
-26/02/2011 & 0.17 & Caputo Cosimo & Aggiunti diagrammi delle classi per applet
+22/02/2011 & 0.19 & Mandolo Andrea & Aggiunto package server.youtube.\\
+\hline
+22/02/2011 & 0.18 & Mandolo Andrea & Aggiunto package server.utils.\\
+\hline
+21/02/2011 & 0.17 & Caputo Cosimo & Aggiunti diagrammi delle classi per applet
 e client.applet e riformattati diagrammi nel documento.\\
 \hline
-
-23/02/2011 & 0.16 & Caputo Cosimo & Agginti diagrammi delle classi per il
+21/02/2011 & 0.16 & Caputo Cosimo & Agginti diagrammi delle classi per il
 package server e i relativi sotto-package.\\
 \hline
-23/02/2011 & 0.15 & Palazzin Alberto & Aggiunti i capitoli ralitivi al package
+21/02/2011 & 0.15 & Palazzin Alberto & Aggiunti i capitoli ralitivi al package
 \emph{client.mvp}.\\
 \hline
 19/02/2011 & 0.14 & Baron Federico & Assegnazione nuovi codici per le componenti
@@ -1385,7 +1388,7 @@ ProfilePlace.Tokenizer.class,
 EditUserPlace.Tokenizer.class,
 EditSongsPlace.Tokenizer.class)\end{verbatim} & Questa annotazione che precede
 la definizione dell'interfaccia permette di associare ogni place al \co{PlaceHistoryHandler} e quindi risparmia
-la dichiarazione esplicita di attributi e metodi per l'implmentazione
+la dichiarazione esplicita di attributi e metodi per l'implementazione
 di un \co{TokenizerFactory} separato.\\\hline
 \caption{Metodi di NetmusPlaceHistoryMapper}
 \end{longtable}
@@ -1412,8 +1415,8 @@ le interfacce dei servizi remoti offerti dal server. Le funzionalit\`a delle
 classi in esso contenute saranno divise in base al tipo di servizio offerto. Per
 ognuno di questi sar\`a presente un'interfaccia normale (che estende
 \co{RemoteService}) e un'interfaccia \bo{asincrona}.
-\subsection*{Relazioni d'uso di altre componenti}
-Queste interfacce vengono implementate su \emph{server}, perci\`o non
+\subsection*{Relazioni d'uso
+di altre componenti} Queste interfacce vengono implementate su \emph{server}, perci\`o non
 hanno relazioni d'uso definite. Verranno sempre usati oggetti DTO (definiti in
 \emph{shared}) come pacchetti di scambio nei servizi tra \emph{client} e
 \emph{server}.
@@ -1421,11 +1424,15 @@ hanno relazioni d'uso definite. Verranno sempre usati oggetti DTO (definiti in
 Verranno istanziati degli oggetti di \emph{service} col metodo del
 \emph{deferred binding} dalla classe di Entry Point \co{Netmus}, pur avendo
 visibilit\`a solamente delle interfacce. Verranno poi usati dalle varie Activity.
+\co{LibraryService} viene utilizzara anche dalla classe di collegamento con la
+componente 2 \co{client.AppletBar}. 
 \subsection*{Attivit\`a svolte e dati trattati}
 Vengono forniti tutti i servizi che il server sar\`a in grado di dare, i dati
-trattati saranno i DTO definiti nel package \emph{shared}.
+trattati saranno i DTO definiti nel package \emph{shared}.\\\\
+\underline{I metodi sono presentati nelle rispettive classi implementazione
+descritte nel paragrafo 4.9.}
 
-\subsection{Interfaccia SongsService (e SongServiceAsync)}
+\subsection{Interfaccia SongService (e SongServiceAsync)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1QN-1.6 Scalabilia\`a
@@ -1442,22 +1449,25 @@ trattati saranno i DTO definiti nel package \emph{shared}.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe dovr\`a consentire alle componenti Activity di \emph{client} di
 inviare richieste di vario tipo a \emph{server} riguardanti informazioni sui
-brani musicali. Sar\`a presente anche \co{SongServiceAsync}, che gestir\`a il ritorno
-dai metodi in maniera asincrona.
-\subsubsection*{Relazioni d'uso di altre componenti}
+brani musicali. Le richieste in questione dovranno tenere in considerazione il
+fatto che ogni brano pu\`o essere condiviso da molti utenti e la modifica di
+qest'ultimo \`e molto delicata da gestire, per questo motivo si far\`a ricorso a
+questi servizi solo se strettamente necessario. Sar\`a presente anche
+\co{SongServiceAsync}, che gestir\`a il ritorno dai metodi in maniera asincrona. \subsubsection*{Relazioni d'uso di altre componenti}
 Queste interfacce verranno implementate su \emph{server}, perci\`o non
 avranno relazioni d'uso definite, se non con gli oggetti DTO
-(\co{UserDTO, SongDTO}, \co{SongSummaryDTO}, \co{MusicLibraryDTO}) che verranno
-utilizzati per il trasferimento client-server.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+(\co{UserDTO, SongDTO}, \co{SongSummaryDTO}, \co{MusicLibraryDTO} e
+\co{MusicLibrarySummaryDTO}) che verranno utilizzati per il trasferimento
+client-server. \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
-binding e verr\`a utilizzata da \co{ProfileActivity} ed \co{EditSongsActivity}.
+binding e verr\`a utilizzata da \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
-di informazione riguardante i brani musicali e utilizzer\`a dati di tipo SongDTO
-e SongSummaryDTO.
+Questa interfaccia fornir\`a l'accesso a servizi per interagire con i brani
+salvati nel Datastore e condivisi da pi\`u utenti. Utilizzer\`a dati di tipo
+SongDTO e SongSummaryDTO.\\\\ \underline{I metodi sono presentati nella
+rispettiva classe implementazione descritta nel paragrafo 4.9.1.}
 
-\subsection{Interfaccia UsersService (e UsersServiceAsync)}
+\subsection{Interfaccia UserService (e UsersServiceAsync)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1.4 Gestione profilo personale
@@ -1475,21 +1485,25 @@ e SongSummaryDTO.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
 richieste di vario tipo a \emph{server} riguardanti le informazioni personali
-dell'utente da mostrare  nell'interfaccia grafica. Sar\`a presente anche
-\co{UsersServiceAsync}, che gestir\`a il ritorno dai metodi in maniera asincrona.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Queste interfacce verranno implementate su \emph{server}, perci\`o non
-avranno relazioni d'uso definite, se non con gli oggetti DTO (\co{UserDTO},
-\co{UserSummaryDTO}, \co{UserCompleteDTO}) che verranno utilizzati per il
-trasferimento client-server.
+dell'utente da mostrare nell'interfaccia grafica. Le funzionalit\`a comprese in
+questi servizi saranno solamente quelle basilari ovvero l'inserimento, la
+modifica e la cancellazione di un utente. Sar\`a presente
+anche \co{UsersServiceAsync}, che gestir\`a il ritorno dai metodi in maniera
+asincrona. 
+\subsubsection*{Relazioni d'uso di altre componenti} Queste interfacce verranno
+implementate su \emph{server}, perci\`o non avranno relazioni d'uso definite, se
+non con gli oggetti DTO (\co{UserDTO} e \co{UserCompleteDTO}) che verranno
+utilizzati per il trasferimento client-server. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
 binding e verr\`a utilizzata da \co{EditUserActivity} e \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere o
 modificare (quando possibile) qualsiasi tipo di informazione riguardante gli
-utenti del sistema e utilizzer\`a dati di tipo \co{UserDTO}, \co{UserSummaryDTO}
-e \co{UserCompleteDTO}.
+utenti del sistema e utilizzer\`a dati di tipo \co{UserDTO}
+e \co{UserCompleteDTO}.\\\\
+\underline{I metodi sono presentati nella rispettiva classe implementazione
+descritta nel paragrafo 4.9.2.}
 
 \subsection{Interfaccia LibraryService (e LibraryServiceAsync)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -1510,21 +1524,26 @@ e \co{UserCompleteDTO}.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
 richieste di vario tipo a \emph{server} riguardanti il catalogo musicale utente
-da mostrare nell'interfaccia grafica. Sar\`a presente anche
-\co{LibraryServiceAsync}, che gestir\`a il ritorno dai metodi in maniera
-asincrona.
+da mostrare nell'interfaccia grafica. Qui vengono definiti molti dei servizi
+principali offerti da Netmus, in particolare l'inserimento di nuove canzoni nel
+Datastore con la chiamata asincrona \emph{sendUserNewMusic}. Le
+funzionalit\`a di gestione delle playlist e delle statistiche del
+catalogo sono interamente racchiuse in qeusta classe. Sar\`a presente anche
+\co{LibraryServiceAsync}, che gestir\`a il ritorno dai metodi in maniera asincrona. 
 \subsubsection*{Relazioni d'uso di altre componenti}
 Queste interfacce verranno implementate su \emph{server}, perci\`o non
 avranno relazioni d'uso definite, se non con gli oggetti DTO
-(\co{MusicLibraryDTO}) che verranno utilizzati per il trasferimento
-client-server.
+(\co{MusicLibraryDTO} e \co{MusicLibrarySummaryDTO}) che verranno utilizzati per
+il trasferimento client-server.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
 binding e verr\`a utilizzata da \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante la libreria musicale utente e utilizzer\`a dati di
-tipo \co{MusicLibraryDTO}.
+tipo \co{MusicLibraryDTO}.\\\\
+\underline{I metodi sono presentati nella rispettiva classe implementazione
+descritta nel paragrafo 4.9.3.}
 
 
 \subsection{Interfaccia LoginService (e LoginServiceAsync)}
@@ -1556,7 +1575,9 @@ Questa interfaccia fornisce l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante l'autenticazione dell'utente al sistema
 e utilizza dati di tipo \co{LoginDTO}.
 Gli attributi e i metodi di questa interfaccia verranno descritti nel
-dettaglio nella classe \co{LoginServiceImpl} che li implementa. 
+dettaglio nella classe \co{LoginServiceImpl} che li implementa. \\\\
+\underline{I metodi sono presentati nella rispettiva classe implementazione
+descritta nel paragrafo 4.9.4.}
 
 
 \newpage
@@ -2094,16 +2115,17 @@ fondamentali presenti all'interno del package
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
 Questo package racchiude tutte le classi che collaborano al fine di gestire la
 business logic del sistema, ovvero tutte quelle operazioni che potranno essere
-compiute sui dati raccolti.
+compiute sui dati raccolti e che quindi interagiscono pesantemente con il
+Datastore. 
 \subsection*{Relazioni d'uso di altre componenti}
 Per quanto riguarda l'interfacciamento con il database vengono utilizzati i
 servizi offerti dalle classi DAO presenti in \emph{persistent}. Si fa utilizzo
 inoltre delle classi presenti nel package \emph{shared} in cui vengono
 incapsulati tutti i dati in uscita del server.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Il package \emph{server} si interfaccia direttamente con \emph{shared} e tramite
-questo e con la presenza del package \emph{service} si interfaccia anche con
-\emph{client}.
+Il package \emph{server} tramite il deferred binding viene utilizzato
+indirettamente nelle classi del package \emph{client.activity} e
+\emph{client.applet}. 
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
@@ -2123,19 +2145,50 @@ Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{SongsService} (di
-\emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
-immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-Potranno essere usati opportuni servizi \emph{servlet} per andare a prelevare
-informazioni sui brani da servizi esterni oppure per cercare il corrispettivo
-link di streaming audio-video (tipo YouTube).
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
-utilizzando l'interfaccia \co{SongsService}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Descritte nell'interfaccia lato \emph{client}.
-
+\emph{client}) ed estende la classe \co{RemoteServiceServlet}. I metodi statici
+qui definiti permettono le operazioni basilari sulle canzoni presenti nel
+datastore. Le uniche eccezioni che possono causare il fallimento di queste
+operazioni sono gli errori di stato del Datastore \co{IllegalStateException} che
+verranno gestire tramite il callback nei metodi di \co{ProfileActivity}.
+\subsubsection*{Relazioni d'uso di altre componenti} Oltre ad utilizzare i DTO
+\co{SongDTO} e \co{SongSummaryDTO}, verranno creati, immagazzinati oppure usati
+gli oggetti \emph{persistent}: \co{Song}, \co{MusicLibrary} e \co{UserAccount}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Viene
+usata da \co{ProfileActivity} che ne ottiene un'istanza tramite deferred
+binding utilizzando l'interfaccia \co{SongsService}. 
+\subsubsection*{Attivit\`a svolte e
+dati trattati} Implementa le funzionalit\`a di modifica e
+cancellazione di un brano presente nel Datastore. Queste
+operazioni agiscono su canzoni condivise da molti utenti e saranno
+quindi utilizzate solo dove strettamente necessario. Ogni metodo ha tra gli
+input l'username dell'utente che richiede l'operazione.
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ rateSong(in String,in SongSummaryDTO,in int): double & Assegna la
+votazione compresa tra 1 e 5 alla canzone spedicicata dal
+\co{SongSummaryDTO}. Dopo aver aggiornato i campi raltivi di \co{Song} nel
+Datastore ritorna il valore \emph{double} che rappresenta la nuova media
+tra tutte le votazione effettuate su quella canzone.\\\hline 
++ editSong(in String,in String,in String,in String): boolean & Questo
+metodo permette di assegnare una nuova chiave primaria ad una canzone
+variando almeno uno tra gli attributi \emph{title}, \emph{artist} e
+\emph{album} trasformandola di fatto in un altro brano nel Datastore.
+Sar\`a possibile invocare questo metodo solamente su canzone le cui
+infromazioni che formano la chiave primaria sono incomplete.\\\hline 
++ deleteSong(in String,in String,in String,in String): boolean & Rimuove
+la canzone dalla libreria dell'utente. Le canzoni rimosse rimangono nel
+Datastore poich\'e potrebbero contenere informazioni utili per
+inserimenti futuri.\\\hline
+\caption{Metodi di SongServiceImpl}
+\end{longtable}
 
 \subsection{Classe UsersServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2154,16 +2207,47 @@ Descritte nell'interfaccia lato \emph{client}.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{UsersService} (di
-\emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
-immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
-utilizzando l'interfaccia \co{UsersService}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Descritte nell'interfaccia lato \emph{client}.
-
+\emph{client}) ed estende la classe \co{RemoteServiceServlet}. Fornisce i metodi
+statici che implmentano le funzionalit\`a relative alla gestione del proprio
+profilo utente.  
+\subsubsection*{Relazioni d'uso di altre componenti} Oltre ad
+utilizzare i DTO \co{UserDTO} e \co{UserCompleteDTO}, verranno creati,
+immagazzinati oppure usati i relativi oggetti \emph{UserAccount}. Per gestire la
+funzionalit\`a di cambio password si fa uso della classe \co{BCrypt}.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Viene
+usata da \co{ProfileActivity} che ne ottiene un'istanza tramite deferred
+binding utilizzando l'interfaccia \co{SongsService}.
+\subsubsection*{Attivit\`a svolte e dati trattati} I metodi qui implementati
+forniscono le funzionalit\`a di base quali la ricerca, la modifica e la
+cancellazione di un utente di Netmus ma anche la ricerca di utenti affini.
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ loadProfile(in String): UserCompleteDTO  & Trova nel Datastore
+l'utente a cui corrisponde l'username dato in input e ne ritorna le
+informazioni incapsulate in un DTO. Gli utenti di cui viene richiesto il
+caricamento devono essere presenti nel Datastore.\\\hline 
++ editProfile(in String,in UserCompleteDTO): boolean & Salva nell'
+\co{UserAccount} del Datastore i dati presenti nell' \co{UserCompleteDTO} dato
+in input sovrascrivendo le informazioni precedenti. \`E previsto qui anche il
+cambio della password. \\\hline
++ deleteProfile(in String): boolean & Cancella irreversibilmente l'utente e
+tutte le sue informazioni dal Datastore e conseguentemente lo reindirizza alla
+pagina iniziale di login. Le canzoni che facevano parte del catalogo non
+vengono cancellate. \\\hline
++ findSimilarUser(in String): List\textless UserDTO\textgreater & Cerca
+nel Datastore i nomi degli utenti il cui catalogo ha propriet\`a simili
+a quello dato in input. I criteri di somiglianza sono dati dall'artista
+pi\`u ricorrente ed il genere pi\`u ascoltato. \\\hline
+\caption{Metodi di UserServiceImpl}
+\end{longtable}
 
 \subsection{Classe LoginServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2177,20 +2261,25 @@ Descritte nell'interfaccia lato \emph{client}.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{LoginService} (di
-\emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Utilizzer\`a i DTO in \emph{shared} e utilizzer\`a le \co{HttpSession} per
-gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
+\emph{client}) ed estende la classe \co{RemoteServiceServlet}. Comprende i
+servizi di autenticazione del sistema quali l'inserimento di una nuova
+registrazione e la verifica dei dati di login. Una parte cospiqua e molto
+importante di questa classe \`e rappresentata dalla gestione delle sessioni e
+dei cookie. 
+\subsubsection*{Relazioni d'uso di altre componenti} Utilizzer\`a \co{LoginDTO}
+per l'incapsulazione dei dati in entrata ed in uscita. Le
+\co{HttpSession} verranno
+usate per gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
 Verranno utilizzate funzionalit\`a interne di gestione login definite in
-\co{LoginHelper}. \\
-La comunicazione con il Datastore avviene tramite \co{UserAccount}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
-utilizzando l'interfaccia \co{LoginService}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Implementa la parte server delle procedure di login come la verifica della
-correttezza della password e l'adeguata
-impostazione delle sessioni HTTP.
+\co{LoginHelper}. \\ La comunicazione con il Datastore avviene tramite
+\co{UserAccount}. Per la gestione degli hash delle password utilizza la classe
+\co{BCrypt}. 
+\subsubsection*{Interfacce con e relazioni d'uso da altre
+componenti} Viene usata da \co{LoginActivity} e \co{ProfileActivity} che ne ottiene un'istanza
+tramite deferred binding utilizzando l'interfaccia \co{SongsService}.
+\subsubsection*{Attivit\`a svolte e dati trattati} Implementa la parte server
+delle procedure di login come la verifica della correttezza della password e
+l'adeguata impostazione delle sessioni HTTP.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
@@ -2219,6 +2308,10 @@ UserSummaryDTO & Esegue una ricerca della sessione corrente utilizzando i metodi
 di \co{LoginHelper} e ritorna, se presenti, le informazioni di base
 (\co{UserSummaryDTO}) dell'utente loggato\\\hline 
 + logout() & Invalida l'autenticazione dell'utente che viene rimandato alla pagina di login.\\\hline
++ restartSession(in String,in String): String & Recupera un eventuale
+sessione salvata nei cookie controllandone la validit\`a per l'utente
+dato in input. Questa funzionalit\`a non \`e valida per gli utenti
+Google dei quali non viene gestito un cookie.\\\hline
 \caption{Metodi di LoginServiceImpl}
 \end{longtable}
 
@@ -2241,16 +2334,67 @@ di \co{LoginHelper} e ritorna, se presenti, le informazioni di base
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe corrisponde all'implementazione del \co{LibraryService} (di
-\emph{client}) ed estende la classe \co{RemoteServiceServlet}.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Oltre ad utilizzare ovviamente i DTO in \emph{shared}, verranno creati,
-immagazzinati oppure usati i relativi oggetti \emph{persistent}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene usata dal \emph{client} che ne genera un istanza tramite deferred binding,
-utilizzando l'interfaccia \co{LibraryService}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Descritte nell'interfaccia lato \emph{client}.
-
+\emph{client}) ed estende la classe \co{RemoteServiceServlet}. Si occupa di
+fornire tutti i metodi necessari all'inserimento, lettura e modifica dei dati
+nel Datastore realivi ad un catalogo musicale. Un
+metodo di fondamentale importanza \`e
+\emph{sendUserNewMusic} che gestisce l'inserimento di
+una lista di canzoni singolarmente nel Datastore e nella
+libreria.
+\subsubsection*{Relazioni d'uso di altre componenti} Oltre ad utilizzare
+\co{SongDTO} e \co{SongSummaryDTO}, verranno creati, immagazzinati oppure usati
+i relativi oggetti \emph{persistent}. 
+\subsubsection*{Interfacce con e relazioni d'uso da altre
+componenti} Viene usata da \co{ProfileActivity} che ne ottiene un'istanza
+tramite deferred binding utilizzando l'interfaccia \co{SongsService}.
+\subsubsection*{Attivit\`a svolte e dati trattati} Implementa tutte le
+attivit\`a necessarie alla gestione del catalogo musicale. Vengono qui definiti
+i metodi di interazione con le Playlist e con il sistema di rating dei brani.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ sendUserNewMusic(in String,in List\textless SongDTO\textgreater) &
+Salva o aggiorna nel Datastore tutte le canzoni passate in input e se
+possiedono sufficenti informazioni le inserisce nella libreria
+dell'utente.\\\hline 
++ addPlaylist(in String,in String): boolean & Aggiunge una nuova
+playlist vuota al catalogo dell'utente con il nome dato in input.
+Ritorna \emph{true} se l'operazione ha successo.\\\hline 
++ removePlaylist(in String,in String): boolean & Cancella la playlist il
+cui nome \`e dato in input dal catalogo. Ritorna \emph{true} se l'operazione ha
+successo.\\\hline
++ getPlaylist(in String,in String): List\textless SongSummaryDTO\textgreater &
+Ritorna la lista ordinate delle canzoni in forma di \co{SongSummaryDTO} che
+appartengono alla playlist.Ritorna \emph{true} se l'operazione ha
+successo.\\\hline
++ addSongToPlaylist(in String,in String,in String): boolean & Aggiunge
+la canzone con l'id dato in input in coda alla playlist specificata.Ritorna \emph{true} se l'operazione ha
+successo.\\\hline
++ moveSongInPlaylist(in String,in String,in int, in int): boolean &
+Sposta la canzone all'indice dato in input nel prima attributo interger
+all'indice specificato nel secondo, se questi indici sono validi
+relativamente alla dimensione della playlist. Ritorna \emph{true} se l'operazione ha
+successo.\\\hline 
++ removeSongFromPlaylist(in String,in String,in String): boolean & Rimuove
+la canzone con l'id dato in input dalla playlist specificata.Ritorna \emph{true}
+se l'operazione ha successo.\\\hline
++ loadPreferredArtists(in String): List\textless String\textgreater &
+Calcola e ritorna l'artista pi\`u ricorrente all'interno delle canzoni
+del catalogo dell'utente specificato. \\\hline
++ loadPreferredGenres(in String): List\textless String\textgreater & Calcola e
+ritorna il genere pi\`u ricorrente all'interno delle canzoni del catalogo
+dell'utente specificato. \\\hline
++ loadMostPopularSong(in String): String & Ritorna l'id della canzone condivisa
+dal maggior numero di utenti che fa parte del catalogo.\\\hline
+\caption{Metodi di LibraryServiceImpl}
+\end{longtable}
 
 \subsection{Classe LoginHelper}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2288,14 +2432,17 @@ l'utente che accede ad una pagina \`e gi\`a loggato oppure no.
 \hline
 \endfoot
 \endlastfoot
-+ getLoggedInUser(HttpSession session): UserAccount & Legge dal database le informazioni
-relative all'utente specificato nella \co{HttpSession} e restituisce il
-DAO \co{UserAccount}.\\\hline 
-+ isLoggedIn(HttpServletRequest req): boolean & Verifica se l'utente che
-ha effettuato una certa richiesta \`e loggato oppure no.\\\hline 
-+ loginStarts(HttpSession session, UserAccount user): UserAccount &
-Imposta una nuova sessione per l'utente in input e ne aggiorna i dati
-nel database (per esempio l'attributo \co{lastLogin}).\\\hline
++ getLoggedInUser(HttpSession session): String \emph{static} & Legge dal
+database le informazioni relative all'utente specificato nella \co{HttpSession}
+e ne restituisce l'username.\\\hline
++ getApplicationURL(in HttpServletRequest): String \emph{static} &
+Restituisce l'URL attuale dell'applicazione, anche nel caso sia
+eseguendo in development mode.\\\hline
++ setSession(in HttpSession,in String)
+\emph{static} & Imposta una nuova sessione per l'utente in input.\\\hline
++ isDevelopment(in HttpServletRequest): boolean \emph{static} & Ritorna
+\emph{true} solamente se l'applicazione sta eseguendo in development
+mode altrimenti ritorna \emph{false}.\\\hline
 \caption{Metodi di LoginHelper}
 \end{longtable}
 
@@ -2331,6 +2478,13 @@ fondamentali presenti all'interno del package
     \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/sequences.png}
+\caption{Diagramma UML di sequenza che descrive il dettaglio delle chiamate
+che concorrono nel caricamento di nuove conzoni nel Datastore da parte di un
+utente.}
+\end{figure}
 Il package \emph{server.persistent} contiene le classi di persistenza che
 implementano il design pattern \emph{Data Access Object (DAO)} che hanno lo
 scopo di interfacciare il sistema con il database nascondendo cos\`i ogni
@@ -2359,14 +2513,18 @@ introdotti dal framework per gestirne la configurazione:
   nel tipo effettivo nel Datastore.
 \end{itemize}
 Per avere l'istanza del Datastore su cui lavorare si
-utilizza la classe con visibilit\`a \emph{package} \co{ODF}. \subsection*{Relazioni d'uso di altre componenti} Vengono utilizzate le classi
+utilizza la classe con visibilit\`a \emph{package} \co{ODF}. \\\\
+Il diagramma UML di sequenza sopra presentato evidenzia l'insieme delle chiamate
+che concorrono in un'attivit\`a che coinvolge tutte le classi del package
+persistent. L'inserimento di una nuova canzone nel database, che ha inizio
+dall'applet di estrazione dei brani dal file system, avviene all'interno di una
+chiamata asincrona al metodo statico \emph{sendUserNewMusic} implmentato in
+\co{LibraryServiceImpl}.
+\subsection*{Relazioni d'uso di altre componenti} Vengono utilizzate le classi
 DTO presenti nel package \emph{shared} per impacchettare i dati in uscita dal
 database o per gestire i dati in entrata. 
-\subsection*{Interfacce con e
-relazioni d'uso da altre componenti} Questo package \`e di fondamentale importanza per il resto del sistema poich\'e
-rappresenta l'unica via di accesso ai dati persistenti, le classi contenute
-vengono quindi utilizzate in modo massiccio dalle classi logiche Service nel
-package \emph{server}.
+\subsection*{Interfacce con e relazioni d'uso da altre
+componenti} Questo package \`e di fondamentale importanza per il resto del sistema poich\'e rappresenta l'unica via di accesso ai dati persistenti, le classi contenute vengono quindi utilizzate in modo massiccio dalle classi logiche Service nel package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Le classi DAO gestiscono i dati del sistema garantendone la persistenza e si
 occupano anche di implementare la parte logica di salvataggio, recupero e
@@ -2465,7 +2623,7 @@ le annotazioni \emph{@Key} e \emph{@Index} per gestire l'indicizzazione
 deigli oggetti nel datastore.\\
 \subsubsection*{Relazioni d'uso di altre componenti} La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione
 uno-a-uno che la lega a questa entit\`a. Vengono inoltre utilizzate le classi
-\co{LoginDTO}, \co{UserSummaryDTO}, \co{UserDTO} e \co{UserCompleteDTO} come
+\co{LoginDTO}, \co{UserDTO} e \co{UserCompleteDTO} come
 input ed output in gran parte dei metodi.\\
 Per interfacciarsi al database utilizza \co{ODF}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -2488,28 +2646,28 @@ utente del sistema NetMus.
  - user: String \emph{@Key} & Rappresenta il nome di login unico
  dell'utente e nello stesso tempo la sua e-mail (valida). Viene
  impiegato come chiave dell'entit\`a nel Datastore.\\\hline
- - passwordHash: String & Contiene l'hash della password dell'utente ottenuto
+ - password\_hash: String & Contiene l'hash della password dell'utente ottenuto
   utilizzando l'algoritmo BCrypt.\\\hline
- - nickName: String & Nickname di un utente visibile anche agli altri.\\\hline
- - firstName: String & Nome proprio dell'utente.\\\hline
- - lastName: String & Cognome dell'utente.\\\hline
+ - nick\_name: String & Nickname di un utente visibile anche agli
+ altri.\\\hline - first\_name: String & Nome proprio dell'utente.\\\hline
+ - last\_name: String & Cognome dell'utente.\\\hline
  - gender: char & Sesso, sono validi i valori 'F' (femmina) e 'M'
  (maschio).\\\hline
  - nationality: String & Nazione di provenienza dell'utente.\\\hline
- - avatar: Image \emph{@Type(Blob.class)} & Immagine a scelta caricata
- dall'utente visibile anche agli altri.\\\hline
- - aboutMe: String \emph{@Type(Text.class)} & Informazioni aggiuntive su
+ - about\_me: String \emph{@Type(Text.class)} & Informazioni aggiuntive su
  di se inserite dall'utente.\\\hline
- - birthDate: Date & Data di nascita dell'utente. \\\hline
- - registrationDate: Date & Data di registrazione dell'utente.\\\hline
- - lastLogin: Date & Data dell'ultimo accesso a Netmus.\\\hline
- - lastImport: Date & Data dell'ultimo inserimento di brani da parte
- dell'utente.\\\hline
- - lastSessionId: String \emph{@Index} & Codice identificativo dell'ultima
+ - birth\_date: Date & Data di nascita dell'utente. \\\hline
+ - last\_session\_id: String \emph{@Index} & Codice identificativo dell'ultima
  sessione di autenticazione dell'utente. Campo necessario per l'utilizzo dei
  cookies per mantenere la sessione anche quando viene chiuso il browser.\\\hline
- - musicLibrary: MusicLibrary \emph{@Child} & Intera libreria musicale
- dell'utente, non sempre verr\`a caricata dal Datastore insieme alle informazioni dell'utente.\\\hline
+ - is\_google\_user: boolean & Flag che indica se l'utente accede al sistema
+ tramite l'autenticazione di Google. \\\hline
+ - is\_public\_profile: boolean & Flag che
+ indica se il profilo dell'utente \`e visibile ad altri utenti oppure no.\\\hline 
+ - allowed\_users: List\textless String\textgreater & Lista deggli username
+ degli utenti che possono visualizzare questo profilo ed il relativo catalogo.\\\hline
+ - music\_library:
+ MusicLibrary \emph{@Child} & Intera libreria musicale dell'utente, non sempre verr\`a caricata dal Datastore insieme alle informazioni dell'utente.\\\hline
 \caption{Campi dati di UserAccount}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -2532,8 +2690,7 @@ utente del sistema NetMus.
  l'utente dato in input. Le cazoni realtive a quell'utente vengono per\`o
  mantenute per non perdere infromazioni importanti. \\\hline
  + toLoginDTO(): LoginDTO &
- Genera un oggetto LoginDTO contenente le informazioni di autenticazione dell'utente.\\\hline + toUserSummaryDTO(): UserSummaryDTO & Genera un oggetto UserSummaryDTO
-contenente le informazioni basilari riguardanti l'utente.\\\hline
+ Genera un oggetto LoginDTO contenente le informazioni di autenticazione dell'utente.\\\hline
  + toUserDTO(): UserDTO & Genera un oggetto UserSummaryDTO
 contenente buona parte delle informazioni riguardanti l'utente.\\\hline
  + toUserCompleteDTO(): UserCompleteDTO & Genera un oggetto UserSummaryDTO
@@ -2571,18 +2728,19 @@ contenente tutte le informazioni riguardanti l'utente.\\\hline
 contiene tutte le informazioni relative ad un catalogo multimediale, ovvero
 il proprietario e la lista delle canzoni. La funzione principale per\`o \`e
 quella di fornire dei servizi comodi ed efficenti per la gestione del catalogo
-stesso.\\
-La lista di canzoni \`e mantenuta come lista di codici identificativi (strighe)
-per una questione di efficenza con twig-persist, questo comporta per\`o uno
-svantaggio nelle operazioni di ricerca degli utenti che possiedo una certa
-canzone a partire da quest'ultima. 
+stesso e le entit\`a interne ad esso associate.\\
+La lista di brani \`e mantenuta
+come lista di codici identificativi (strighe) per una questione di efficenza con twig-persist. 
 \subsubsection*{Relazioni d'uso di altre componenti}
 Alla luce della relazione di tipo molti-a-molti che la lega a \co{Song} e quella
 uno-a-uno con \co{UserAccount} queste due classi DAO sono necessarie. Vengono
 utilizzate le classi \co{MusicLibrarySummaryDTO}, \co{MusicLibraryDTO},
-\co{SongSummaryDTO} e \co{SongDTO} come input ed output in alcuni metodi.\\ Per interfacciarsi al database utilizza \co{ODF}.
-\subsubsection*{Interfacce con e relazioni d'uso da
-altre componenti} Tutte le classi logiche Service presenti nel package
+\co{SongSummaryDTO} e \co{SongDTO} come input ed output in alcuni metodi.\\ Per
+interfacciarsi al database utilizza \co{ODF}.\\ 
+Al suo interno vengono definite le classi \co{Playlist} per la gestione delle
+playlist e \co{SongWithRating} per la gestione dei voti assegnati alle canzoni.
+\subsubsection*{Interfacce con e
+relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
 \emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
 un catalogo multimediale. Chiaramente anche \co{UserAccount} ne fa utilizzo.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -2601,8 +2759,27 @@ NetMus.
 \endlastfoot
  - owner: UserAccount \emph{@Id @Parent} & L'utente a cui \`e associata
  questa libreria. \\\hline
- - songList: List\textless String\textgreater \emph{@Index} & Lista ordinata
- delle canzoni che fanno parte del catalogo.\\\hline
+ - song\_list: List\textless SongWithRating\textgreater \emph{@Index} & Lista
+ ordinata delle canzoni con punteggio che fanno parte del catalogo.\\\hline
+ - num\_songs: int & Numero delle canzoni presenti nel catalogo, viene
+ incrementato e decrementato nei metodi di inserimento e rimozione delle
+ canzoni.\\\hline 
+ - preferred\_artist: String & Nome dell'artista pi\`u ricorrente nelle
+ canzoni del catalogo.\\\hline 
+ - preferred\_genre: String & Genere pi\`u ricorrente nelle
+ canzoni del catalogo.\\\hline
+ - playlists: List\textless Playlist\textgreater  \emph{@Index} & Lista
+ contenente tutte le playlist create per questo catalogo musicale.\\\hline
+ - classe Playlist \emph{static} & Classe interna che rappresenta una sequenza
+ di canzoni ordinate e fornisce i metodi per le operazioni basilari come
+ la crezione, l'aggiornamento e la cancellazione di una playlist. Ogni oggetto
+ di questa classe ha un nome che fa da chiave univoca ed una lista di canzoni
+ non necessariamente diverse tra loro. \\\hline
+ - classe SongWithRating \emph{static} & Classe interna che rappresenta l'id di
+ un brano associato ad un voto che l'utente ha assegnato a quel brano. La
+ libreria musicale di ogni utente \`e composta da una lista di queste entit\`a.
+ 
+ \\\hline
 \caption{Campi dati di MusicLibrary}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -2639,14 +2816,47 @@ NetMus.
  la rimozione ha avuto successo, \emph{false} altriementi.\\\hline 
  + allSongs(): List\textless Song\textgreater & Ritorna la lista ordinata di
  canzoni presenti nel catalogo.\\\hline
- + getters() & Tutti gli attributi
- privati di questa classe hanno i relativi metodi \emph{get}.\\\hline 
+ + rateSong(in Song,in int) & Assegna il voto alla canzone dati in
+ input. Il voto \`e personale dell'utente che possiede la libreria ed
+ \`e unico, quindi sovrascrive la votazione precendete. Oltre ad aggiornare il
+ voto del'utente in \co{MusicLibrary} questo metodo aggiorna anche la media
+ totale dei voti in \co{Song}. \\\hline 
+ - updatePreferredGenre() & Calcola e salva il nome del genere musicale pi\`u
+ ricorrente nella libreria. Ha visibilit\`a privata poich\`e deve essere
+ utilizzato solo quando necessario all'interno del metodo
+ \emph{addSong()}.\\\hline 
+ - updatePreferredArtist() & Calcola e salva il nome del artista pi\`u
+ ricorrente nella libreria. Ha visibilit\`a privata poich\`e deve essere
+ utilizzato solo quando necessario all'interno del metodo
+ \emph{addSong()}.\\\hline  
+ + addPlaylist(in String): boolean & Aggiunge una nuova playlist vuota
+ alla libreria con il nome dato in input.\\\hline 
+ + removePlaylist(in String): boolean & Rimuove dalla libreria e
+ cancella irreversibilmente la playlist il cui nome \`e dato in input.\\\hline
+ - getPlaylist(in String): Playlist & Restituisce la playlist
+ appartenete alla libreria richiesta.\\\hline 
+ + getPlaylists(): List\textless String\textgreater & Ritorna la lista
+ dei nomi di tutte le playlist appartenenti alla libreria.\\\hline 
+ + getPlaylistSongs(in String): List\textless Song\textgreater & Ritorna
+ la lista di tutte le canzoni appartenenti alla playlist il cui nome \`e
+ dato in input.\\\hline 
+ + getPlaylistSongNames(in String): List\textless Song\textgreater &
+ Ritorna la dei codici delle canzoni apparteneti alla playlist il cui
+ nome \`e dato in input.\\\hline 
+ + addSongToPlaylist(in String, in String): boolean & Inserisce la
+ canzone alla playlist date in input.\\\hline 
+ + moveSongInPlaylist(in String,in int,in int) & Sposta nella playlist la
+ canzone che si trova nella posizione indicata nel primo parametro int nella
+ posizione specificata dal secondo. \\\hline 
+ + removeSongFromPlaylist(in String,in String):boolean & Rimuove la
+ canzone dalla playlist dati in input.\\\hline 
+ + getters() & Tutti gli attributi privati di questa classe hanno i relativi
+ metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
  metodi \emph{set}. Tutti questi metodi si occupano anche di chiamare
  \co{update()} per aggiornare i dati del Datastore.\\\hline
 \caption{Metodi di MusicLibrary}
 \end{longtable}
-
 
 \subsection{Classe Song}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2672,13 +2882,16 @@ NetMus.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} Contiene le
 informazioni relative ad un brano musicale, in particolare ogni canzone \`e
-identificata da una chiave univoca composta dal titolo, un separatore di default
-e l'artista. Dei brani condivisi da pi\`u utenti viene salvata una sola istanza
-per ottimizzare la quantit\`a di spazio utilizzato.
-\subsubsection*{Relazioni d'uso di altre componenti} Questa classe fa uso degli
+identificata da una chiave univoca composta dal titolo, un separatore di
+default, l'artista e l'album disposte nell'ordine titolo-sep-artista-sep-album.
+Dei brani condivisi da pi\`u utenti viene salvata una sola copia per ottimizzare
+la quantit\`a di spazio utilizzato.\\
+La logica di salvataggio delle canzoni implmentata prevede che nei tag estratti
+sia presente almeno il titolo altrimenti il brano non verrà mantenuto nel
+Datastore. Al primo inserimento di una canzone qesta classe si occupa anche di
+reperire informazioni aggiuntive dai servizi esterni Youtube e Last.fm quali link per copertine e video in streaming. \subsubsection*{Relazioni d'uso di altre componenti} Questa classe fa uso degli
 oggetti \co{SongDTO} e \co{SongSummaryDTO} del package \emph{shared}. 
-\subsubsection*{Interfacce con e
-relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
 \emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
 un brano musicale. Largo uso ne fa la classe \co{MusicLibrary} che gestisce al
 suo interno una lista di brani. 
@@ -2702,16 +2915,21 @@ sistema NetMus.
  della canzone.\\\hline 
  - genre: String \emph{@Index} & Genere musicale associato alla
  canzone.\\\hline 
- - numOwners: int \emph{@Index} & Numero di utenti che possiedono la
+ - num\_owners: int \emph{@Index} & Numero di utenti che possiedono la
  canzone nel proprio catalogo.\\\hline 
  - album:String & Album a cui appartiene il brano..\\\hline 
- - alcumCover: FitImage \emph{@Type(Blob.class)} &
- Immagine della copertina dell'album a cui appartiene il brano.\\\hline 
+ - album\_cover: String &
+ Link all' immagine della copertina dell'album a cui appartiene il
+ brano.\\\hline 
  - year: String & Anno di pubblicazione del brano.\\\hline 
  - composer: String & Nome del compositore della canzone.\\\hline
- - trackNumber: String & Numero della canzone all'interno dell'album.\\\hline
+ - track\_number: String & Numero della canzone all'interno dell'album.\\\hline
  - file: String & Nome del file da cui sono state estratte le
  informazioni del brano.\\\hline 
+ - rating: double & Media di tutti i voti assegnati dagli utenti a questa
+ canzone.\\\hline
+ - num\_ratings: int & Numero di voti effettuati su questa canzone. \\\hline
+ - youtube\_code: String & Codice del rispettivo video su Youtube.\\\hline
  - SEPARATOR: String \emph{static final default = '-vt.g-'} & Stringa
  di separazione necessaria nella creazione dell'\co{id} del brano.\\\hline
 \caption{Campi dati di Song}
@@ -2749,11 +2967,20 @@ sistema NetMus.
  inserendo, se valido, la stringa in input. Se la modifica trasforma la
  canzone in un brano gi\`a presente nel Datastore viene ritornato il
  brano gi\`a salvato.\\\hline
- \# newOwner() & Incrementa il contatore dei possessori di questo brano,
- ha visibilit\`a package poich\'e la sua modifica deve avvenire solo
- all'interno della logica di persistenza nei DAO.\\\hline 
- \# deleteOwner() & Decrementa il contatore dei possessori di questo brano,
- ha visibilit\`a package poich\'e la sua modifica deve avvenire solo
+ + changeAlbum(in String): Song & Modifica l'attributo \co{album}
+ inserendo, se valido, la stringa in input. Se la modifica trasforma la
+ canzone in un brano gi\`a presente nel Datastore viene ritornato il
+ brano gi\`a salvato.\\\hline
+ + addRate(in int): double & Aggiunge la votazione data in input
+ alla canzone aggiornando nel modo appropriato gli attributi
+ \emph{rating} e \emph{num\_ratings}. Questo metodo, poich\'e gli stessi dati
+ possono essere acceduti concorrentemente, viene eseguito all'interno di una
+ tranzazione. \\\hline
+ + changeRate(in int,in int): double & Permette ad ogni utente di modificare
+ la propria votazione su questo brano dando in input il voto precendete e
+ quello nuovo. Questo metodo, poich\'e gli stessi dati possono essere acceduti
+ concorrentemente, viene eseguito all'interno di una tranzazione. \\\hline 
+ \# newOwner() & Incrementa il contatore dei possessori di questo brano, ha visibilit\`a package poich\'e la sua modifica deve avvenire solo all'interno della logica di persistenza nei DAO.\\\hline \# deleteOwner() & Decrementa il contatore dei possessori di questo brano, ha visibilit\`a package poich\'e la sua modifica deve avvenire solo
  all'interno della logica di persistenza nei DAO.\\\hline 
  + getters() & Tutti gli attributi privati di questa classe hanno i relativi metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
@@ -2923,7 +3150,6 @@ fondamentali presenti all'interno del package
 \emph{it.unipd.netmus.server.utils}.}
 \end{figure}
 
-
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
     \item C1QN-2.6 Manutenibilit\`a
@@ -2952,9 +3178,26 @@ Varie.
     \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe ci permette di utillizare le API \emph{lastfm-java} all'interno la
+piattaforma Google App Engine. Tali librerie ci servono per poter fare
+interrogazioni alle API di Last.fm in maniera semplice, pi\`u ad alto livello
+del doversi implementare una servlet. Queste librerie per\`o necessitano di una
+cache che di default \`e la home del client. In GAE, poich\'e non \`e possibile
+accedere al file system del client, \`e necessario modificare con questa classe
+\co{AppEngineCache} la destinazione di caching delle librerie, andando ad
+utilizzare invece una tabella nel DataStore.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Questa classe viene utilizzata prima di fare operazioni con le API di Last.fm
+per andare a modificare la gestione della cache.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Utilizza come cache per Last.fm il Google DataStore invece che il file system
+del client.
+\\\\
+Di questa classe non andremo a dettagliare i singoli campi dati o metodi,
+poich\'e viene presa come strumento gi\`a esistente. \`E stata creata e proposta agli
+sviluppatori GAE dal creatore delle API per Java di Last.fm, Janni Kovacs.
 
 \subsection{Classe BCrypt}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2967,9 +3210,22 @@ Varie.
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe \`e stata importata nel progetto con lo scopo di fornirci uno
+strumento semplice ma efficace per cifrare le password dei nostri utenti, prima
+di essere memorizzate nel DataStore. \`E un'implementazione Java dell'algoritmo
+di hashing Blowfish, sviluppata da Damien Miller nel anno 2006.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+Questa viene utilizzata da \co{LoginServiceImpl} al momento della creazione di
+un nuovo utente nel DataStore per cifrare la password, e al momento del login
+per controllare che sia corretta la password inserita dall'utente, grazie ad un
+comodo metodo di confronto.
+ \subsubsection*{Attivit\`a svolte e dati trattati}
+Svolge l'attivit\`a di cifratura delle password del sistema Netmus.
+\\\\
+Non verranno elencati nel dettaglio i metodi ed i campi dati poich\`e questa
+classe \`e importata nel progetto e ci offre un servizio black-box.
 
 \subsection{Classe Utils}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2984,9 +3240,49 @@ Varie.
     \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe deve offrire dei metodi statici semplici per avere accesso ai
+servizi esterni YouTube e Last.fm. Si occuper\`a di prelevare il codice
+del video riproducibile su YouTube, mettendo in ingresso come keywords l'artista
+ed il titolo del brano. Dovr\`a in ugual modo andare ad interrogare il database
+di Last.fm per poter prelevare la copertina relativa al brano, oppure
+informazioni riguardanti artista e album se mancanti nel tag del brano e nel
+nostro database interno.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Questa classe utilizza la classe \co{YouTubeManager} del package
+\emph{server.youtube} per utilizzare le API di YouTube, ed utilizza la classe
+\co{AppEngineCache} per poi usare le API Java di Last.fm.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Vengono utilizzati i suoi metodi nella classe \co{Song} per cercare di
+completare le informazioni di un nuovo brano da inserire nel DataStore.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Classe di servizio per interrogare servizi esterni, con lo scopo di completare
+le informazioni su un brano il pi\`u possibile, in maniera da offrire il
+maggior numero di funzionalit\`a per quel brano.
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + getYouTubeCode(in String) static & Grazie a YouTubeManager restituisce la
+ prima occorrenza di una ricerca su YouTube per pertinenza alla keyword in ingresso
+ (autore titolo). Se la ricerca non produce risultati restutuisce stringa vuota.
+ \\\hline
+  + getCoverImage(in String) static & Questo metodo attiva la cache di Last.fm
+  per AppEngine ed esegue una ricerca esterna, con keywords artista e album,
+  per recuperare l'url della copertina dell'album relativo ad un brano, in
+  formato JPG. \\\hline
+  + getSongFromFileName(in String) static & Con questo metodo andremo a provare
+  a recuperare informazioni ulteriori di un brano che non ha info nel tag,
+  usando come keyword il nome del file stesso. Se verr\`a trovato qualcosa si
+  prover\`a a proporlo all'utente. In uscita restituir\`a un SongDTO. \\\hline
+\caption{Metodi di Utils}
+\end{longtable}
 
 \subsection{Classe ServletUtils}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2998,15 +3294,30 @@ Varie.
     \item C1FO-1.2.1 Pagina login indipendente
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Funzioni utili per l'utilizzo dei servizi esterni.
+Questa classe conterr\`a metodi utili alle servlet per la gestione degli
+indirizzzi della applicazione.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Usata dal package \emph{Servlet}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Funzioni utili e comuni per la gestione e l'interfacciamento con i servizi
-esterni.
+Funzioni utili alle servlet per la gestione degli URL.
 
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + getBaseUrl(in HttpServletRequest) static & Questo metodo deve tornare
+ l'indirizzo di base dell'applicazione, a seconda di dove \`e hostato il
+ progetto e da che porta viene acceduto. \\\hline
+\caption{Metodi di ServletUtils}
+\end{longtable}
 
 \newpage
 \section{Package server.youtube} % LASCIARE WARNING
@@ -3021,25 +3332,18 @@ esterni.
     \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
+In questo package verranno inserite le classi necessarie all'interazione con le
+API di YouTube, tramite le quali andremo ad eseguire le ricerche relative ai
+nuovi brani insertiti nel DataStore, per associare ad essi il codice utile alla
+riproduzione video.
 \subsection*{Relazioni d'uso di altre componenti}
+Vengono utilizzate le librerie \emph{gdata} di Google, create appositamente per
+utilizzare pi\`u ad alto livello le sue API.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Nella classe \co{Utils} verr\`a utilizzato il metodo di ricerca offerto da
+\co{YouTubeManager}.
 \subsection*{Attivit\`a svolte e dati trattati}
-
-\subsection{Classe YouTubeManager}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item C1FN-1.9 Ricezione ed elaborazione dei brani
-\end{itemize}
-\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item C1FD-1.1.4 Visualizza player YouTube
-    \item C1VD-1.5.2 Quote YouTube
-    \item C1VD-1.5.3 YouTube Terms of Services
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+Ci permettono di fare ricerche video nel database di YouTube.
 
 \subsection{Classe YouTubeMedia}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3053,9 +3357,45 @@ esterni.
     \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe ha la funzionalit\`a di contenitore per gestire i principali
+dati di un media YouTube, cio\`e il tipo e l'URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene utilizzata in \co{YouTubeVideo}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Mantiene l'informazione del URL e del tipo di media.
+
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- type: String & Rappresenta il tipo di dato YouTube relativo ad un
+video.\\\hline
+- location: String & Rappresenta l'indirizzo di tale dato YouTube.\\\hline
+\caption{Campi dati di YouTubeMedia}
+\end{longtable}
+
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ getters() & Restituiscono i campi dati privati della classe.\\\hline
++ setters() & Modificano i campi dati privati della classe.\\\hline
+\caption{Metodi di YouTubeMedia}
+\end{longtable}
 
 \subsection{Classe YouTubeVideo}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3069,12 +3409,110 @@ esterni.
     \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe \`e un ulteriore classe contenitore che si occupa di contenere una
+lista di \co{YouTubeMedia} ed il relativo URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Utilizza la classe \co{YouTubeMedia}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene utilizzato per gestire i risultati di una ricerca in \co{YouTubeManager}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Contiene tutte le informazioni dei media trovati, dopo una ricerca nei database
+di YouTube.
 
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- medias: List\textless YouTubeMedia\textgreater & Rappresenta la lista di media
+relativi ad una ricerca.\\\hline
+- video\_code: String & Rappresenta l'indirizzo di tale ricerca.\\\hline
+\caption{Campi dati di YouTubeVideo}
+\end{longtable}
 
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ getters() & Restituiscono i campi dati privati della classe.\\\hline
++ setters() & Modificano i campi dati privati della classe.\\\hline
++ retrieveHttpLocation() & Restituisce l'URL di un certo YouTubeMedia.\\\hline
+\caption{Metodi di YouTubeVideo}
+\end{longtable}
 
+\subsection{Classe YouTubeManager}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1VD-1.5.2 Quote YouTube
+    \item C1VD-1.5.3 YouTube Terms of Services
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe gestisce effettivamente l'interazione con le API di YouTube per
+permetterci di effettuare una ricerca video.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Utilizza la classe \co{YouTubeVideo} e le librerie \emph{gdata} di Google.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene utilizzata da \co{Utils} per effettuare una ricerca video su YouTube.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Gestisce una richiesta di ricerca video e deve principalmente restituire con
+il codice del video pi\`u attinente alle keywords in ingresso nel metodo
+\emph{getSearchResult(String keywords)}.
+
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- YOUTUBE\_URL: String \emph{static final} & Rappresenta l'indirizzo
+per comunicare con le API \emph{gdata} di YouTube.\\\hline
+\caption{Campi dati di YouTubeManager}
+\end{longtable}
+
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- retrieveVideo(in String, in String, in int) \emph{static} & Metodo
+interno che effettua la ricerca video dati in ingresso un clientID, una
+String contenente le keywords ed il tempo di timeout.\\\hline
+- convertVideos(in List\textless VideoEntry\textgreater) \emph{static} &
+Converte la lista di video trovati nel nostro formato interno
+\co{YouTubeVideo} e restituisce solo il risultato in cima alla lista,
+che \`e il pi\`u rilevante della ricerca, cio\`e quello che interessa a
+noi.\\\hline
++ getSearchResult(in String) \emph{static} & Metodo statico usabile
+dalle altre classi. Esegue una nuova ricerca e restituisce il codice
+del video pi\`u rilevante.\\\hline
+
+\caption{Metodi di YouTubeManager}
+\end{longtable}
 
 \newpage
 \section{Package shared}
@@ -3811,9 +4249,85 @@ poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initial
    \item C2QD-1.7 Ottimizzazione memoria cache
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Rappresentare le informazioni disponibili dei brani utilizzando XML.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Utilizzata da \co{DeviceScanner}.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Riceve i tag dei file mp3 e genera una stringa XML che ne rappresenta le
+informazioni, da inviare a GWT.
+Si occupa anche di rimuovere eventuali simboli non validi derivanti dalla
+diverse codifiche utilizzate nei meta-dati, e di tradurre il genere (di solito
+rappresentato tramite un codice numerico) se necessario.
+\\
+\\
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- ROOT\_NAME: String \emph{static final} & Nome del nodo principale nel
+documento XML.\\\hline
+- SONG\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante una singola canzone.\\\hline
+- ALBUMTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il titolo dell'album.\\\hline
+- AUTHORCOMPOSER\_NAME: String \emph{static final} & Nome del nodo nel documento
+XML riguardante il compositore.\\\hline
+- LEADARTIST\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante l'artista.\\\hline
+- SONGGENRE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il genere musicale del brano.\\\hline
+- SONGTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il titolo del brano.\\\hline
+- TRACKNUMBER\_NAME: String \emph{static final} & Nome del nodo nel documento
+XML riguardante il numero della traccia all'interno dell'album.\\\hline
+- YEAR\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante l'anno di uscita del brano.\\\hline
+- FILE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il file MP3.\\\hline
+- documentBuilder: javax.xml.parsers.DocumentBuilder & Utilizzato per
+la creazione di un nuovo documento XML.\\\hline
+- document: org.w3c.dom.Document & Documento corrente sul quale si sta
+generando l'XML.\\\hline
+- root: org.w3c.dom.Element & Elemento (nodo) principale del documento,
+che contiene tutti gli altri.\\\hline
+\caption{Campi dati di TranslateXML}
+\end{longtable}
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- clean(in String): String & Pulisce una stringa dai caratteri non voluti,
+generati dalle diverse codifiche.\\\hline
+- getGenreCode(in String): String & Se la stringa contiene un codice numerico,
+ignora tutto il resto e restituisce il genere corrispondente, altrimenti
+restituisce la stessa stringa di ingresso.\\\hline
++ newMP3List(): void & Crea un nuovo documento vuoto.\\\hline 
++ addMP3(in AbstractMP3Tag, in String): void & Crea un nuovo
+nodo contenente le informazioni del brano (usando anche \co{getGenreCode} per
+tradurre l'eventuale codice), e se questo non viene scartato dal metodo
+\co{isValid}, lo inserisce all'interno del documento.\\\hline 
++ toString(): String & Dal documento attuale, genera la stringa XML.\\\hline
+\caption{Metodi di TranslateXML}
+\end{longtable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4332,7 +4846,7 @@ C1VD-1.5.3 YouTube Terms of Services & Cseut2\\
 & Cseyo1\\
 & Cseyo2\\
 & Cseyo3\\\hline  
-C1QN-1.6 Scalabilia\`a & Csepe0\\
+C1QN-1.6 Scalabilit\`a & Csepe0\\
 & Csepe1\\
 & Csepe2\\
 & Csepe3\\
@@ -4427,7 +4941,7 @@ C1FN-1.13 Gestione Database & Csepe0\\
 C1VN-1.13.1 Deve utilizzare Google Data Store & Csepe0\\
 & Csepe4\\\hline      
 C1QN-2 Utilizzo & Cclui0 \\
-Cclui1\\
+& Cclui1\\
 & Cclui2\\
 & Cclpl0\\
 & Cclpl1\\
@@ -4526,10 +5040,10 @@ componente di persistenza e visualizzazione sia quella di recupero delle
 informazioni sono open source fin dall'inizio della scrittura del codice.\\
 I requisiti C1FD-1.5 e C1FO-1.7.2 richiedono uno studio aggiuntivo rispetto alla
 progettazione fatta finora e rappresentano funzionalit\`a ritenute secondo noi
-non fondamentali, ne \`e prevista la progettazione e l'implmentazione in futuro
+non fondamentali, ne \`e prevista la progettazione e l'implementazione in futuro
 durante la fase di manutenzione nel ciclo di vita del software.\\
 I requisiti C1FD-1.10, C2FD-2 e C2FO-1.3 sono stati valutati attentamente ed
-\`e stata individuata in'incongruenza con l'effettivo funzionamento scelto per
+\`e stata individuata un'incongruenza con l'effettivo funzionamento scelto per
 la componente di recupero delle infromazionni. Questi requisiti non saranno
 quindi soddisfatti entro un periodo certo, ma rimangono validi per uno sviluppo
 futuro.
