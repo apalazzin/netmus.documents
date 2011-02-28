@@ -2164,6 +2164,8 @@ alto potenziale di riuso.
 \subsection{Verifica sulla Codifica}
 
 \section{Dettaglio delle verifiche tramite prove (test)}
+Qui di seguito illustriamo i risultati dei test precedentemente trattati.
+\subsection{Test di unit\`a}
 \begin{itemize}
     
   \item TU-Cclac2: ProfileActivity\\
@@ -2259,14 +2261,53 @@ alto potenziale di riuso.
   adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
   
-  Come si pu\`o chiaramente notare dagli esiti dei test sopra elencati, le prove
-  finora programmate e verificate hanno avuto per la maggir paerte dei
-  casi esito positivo, ad esclusione di un unico metodo che presenta evidenti
-  problemi di codifica. Ricordiamo che le funzionalit\`a testate dei metodi finora 
-  sono state solamente quelle basilari.
-  
-\end{itemize}
+\end{itemize}  
 
+Come si pu\`o chiaramente notare dagli esiti dei test sopra elencati, le prove
+finora programmate e verificate hanno avuto per la maggior parte dei
+casi esito positivo, ad esclusione di un unico metodo che presenta evidenti
+problemi di codifica. Ricordiamo che le funzionalit\`a testate dei metodi finora 
+sono state solamente quelle basilari.
+  
+\subsection{Test di integrazione}
+
+\begin{itemize}
+  \item TI-se1\\
+  \textbf{esito del test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TI-se2\\
+  \textbf{esito del test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TI-cl1\\
+  \textbf{esito del primo test}: fallito: i dettagli del brano spesso non sono
+  corretti\\ 
+  \textbf{malfunzionamenti rilevati}: c'\`e un'incongruenza tra l'ordine dei
+  SongSummaryDTO e l'ordine con cui vengono messi nella view, che porta a
+  richieste di dettagli di altri brani invece che di quelli realmente voluti\\
+  \textbf{esito del secondo test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TI-cl2\\
+  \textbf{esito del test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TI-gl1\\
+  \textbf{esito del test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+\end{itemize}
+Come si pu\`o notare, solo uno di questi ha inizialmente evidenziato un
+problema, che \`e stato risolto (come si pu\`o vedere con la prova successiva).
+Tutti i test in cui \`e coinvolta la classe \co{TranslateDTOXML} evitano di
+utilizzare caratteri che esulano dalla codifica ISO-8859-1: questo problema \`e
+gi\`a stato evidenziato dai test di unit\`a e la sua evidenziazione esula dallo
+scopo di queste prove.
 
 
 \section{Dettaglio dell'esito delle revisioni}
