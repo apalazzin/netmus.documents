@@ -1,5 +1,5 @@
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{0.16}
+\newcommand{\versione}{0.19}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\versionespecifica}{2.0}
@@ -48,6 +48,8 @@ codifica, delle quali verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
+22/02/2011 & 0.19 & Mandolo Andrea & Aggiunto package server.youtube.\\
+\hline
 22/02/2011 & 0.18 & Mandolo Andrea & Aggiunto package server.utils.\\
 \hline
 21/02/2011 & 0.17 & Caputo Cosimo & Aggiunti diagrammi delle classi per applet
@@ -3004,8 +3006,8 @@ per andare a modificare la gestione della cache.
 Utilizza come cache per Last.fm il Google DataStore invece che il file system
 del client.
 \\\\
-Questa classe non andr\`a a dettagliare i singoli campi dati o metodi, poich\'e
-viene presa come strumento gi\`a esistente. \`E stata creata e proposta agli
+Di questa classe non andremo a dettagliare i singoli campi dati o metodi,
+poich\'e viene presa come strumento gi\`a esistente. \`E stata creata e proposta agli
 sviluppatori GAE dal creatore delle API per Java di Last.fm, Janni Kovacs.
 
 \subsection{Classe BCrypt}
@@ -3141,25 +3143,18 @@ Funzioni utili alle servlet per la gestione degli URL.
     \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
+In questo package verranno inserite le classi necessarie all'interazione con le
+API di YouTube, tramite le quali andremo ad eseguire le ricerche relative ai
+nuovi brani insertiti nel DataStore, per associare ad essi il codice utile alla
+riproduzione video.
 \subsection*{Relazioni d'uso di altre componenti}
+Vengono utilizzate le librerie \emph{gdata} di Google, create appositamente per
+utilizzare pi\`u ad alto livello le sue API.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
+Nella classe \co{Utils} verr\`a utilizzato il metodo di ricerca offerto da
+\co{YouTubeManager}.
 \subsection*{Attivit\`a svolte e dati trattati}
-
-\subsection{Classe YouTubeManager}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item C1FN-1.9 Ricezione ed elaborazione dei brani
-\end{itemize}
-\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item C1FD-1.1.4 Visualizza player YouTube
-    \item C1VD-1.5.2 Quote YouTube
-    \item C1VD-1.5.3 YouTube Terms of Services
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Relazioni d'uso di altre componenti}
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\subsubsection*{Attivit\`a svolte e dati trattati}
+Ci permettono di fare ricerche video nel database di YouTube.
 
 \subsection{Classe YouTubeMedia}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3173,9 +3168,45 @@ Funzioni utili alle servlet per la gestione degli URL.
     \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe ha la funzionalit\`a di contenitore per gestire i principali
+dati di un media YouTube, cio\`e il tipo e l'URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene utilizzata in \co{YouTubeVideo}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Mantiene l'informazione del URL e del tipo di media.
+
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- type: String & Rappresenta il tipo di dato YouTube relativo ad un
+video.\\\hline
+- location: String & Rappresenta l'indirizzo di tale dato YouTube.\\\hline
+\caption{Campi dati di YouTubeMedia}
+\end{longtable}
+
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ getters() & Restituiscono i campi dati privati della classe.\\\hline
++ setters() & Modificano i campi dati privati della classe.\\\hline
+\caption{Metodi di YouTubeMedia}
+\end{longtable}
 
 \subsection{Classe YouTubeVideo}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3189,12 +3220,110 @@ Funzioni utili alle servlet per la gestione degli URL.
     \item C1VD-1.5.3 YouTube Terms of Services
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe \`e un ulteriore classe contenitore che si occupa di contenere una
+lista di \co{YouTubeMedia} ed il relativo URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
+Utilizza la classe \co{YouTubeMedia}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene utilizzato per gestire i risultati di una ricerca in \co{YouTubeManager}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Contiene tutte le informazioni dei media trovati, dopo una ricerca nei database
+di YouTube.
 
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- medias: List\textless YouTubeMedia\textgreater & Rappresenta la lista di media
+relativi ad una ricerca.\\\hline
+- video\_code: String & Rappresenta l'indirizzo di tale ricerca.\\\hline
+\caption{Campi dati di YouTubeVideo}
+\end{longtable}
 
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ getters() & Restituiscono i campi dati privati della classe.\\\hline
++ setters() & Modificano i campi dati privati della classe.\\\hline
++ retrieveHttpLocation() & Restituisce l'URL di un certo YouTubeMedia.\\\hline
+\caption{Metodi di YouTubeVideo}
+\end{longtable}
 
+\subsection{Classe YouTubeManager}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FD-1.1.4 Visualizza player YouTube
+    \item C1VD-1.5.2 Quote YouTube
+    \item C1VD-1.5.3 YouTube Terms of Services
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+Questa classe gestisce effettivamente l'interazione con le API di YouTube per
+permetterci di effettuare una ricerca video.
+\subsubsection*{Relazioni d'uso di altre componenti}
+Utilizza la classe \co{YouTubeVideo} e le librerie \emph{gdata} di Google.
+\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Viene utilizzata da \co{Utils} per effettuare una ricerca video su YouTube.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Gestisce una richiesta di ricerca video e deve principalmente restituire con
+il codice del video pi\`u attinente alle keywords in ingresso nel metodo
+\emph{getSearchResult(String keywords)}.
+
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- YOUTUBE\_URL: String \emph{static final} & Rappresenta l'indirizzo
+per comunicare con le API \emph{gdata} di YouTube.\\\hline
+\caption{Campi dati di YouTubeManager}
+\end{longtable}
+
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- retrieveVideo(in String, in String, in int) \emph{static} & Metodo
+interno che effettua la ricerca video dati in ingresso un clientID, una
+String contenente le keywords ed il tempo di timeout.\\\hline
+- convertVideos(in List\textless VideoEntry\textgreater) \emph{static} &
+Converte la lista di video trovati nel nostro formato interno
+\co{YouTubeVideo} e restituisce solo il risultato in cima alla lista,
+che \`e il pi\`u rilevante della ricerca, cio\`e quello che interessa a
+noi.\\\hline
++ getSearchResult(in String) \emph{static} & Metodo statico usabile
+dalle altre classi. Esegue una nuova ricerca e restituisce il codice
+del video pi\`u rilevante.\\\hline
+
+\caption{Metodi di YouTubeManager}
+\end{longtable}
 
 \newpage
 \section{Package shared}
@@ -3931,9 +4060,85 @@ poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initial
    \item C2QD-1.7 Ottimizzazione memoria cache
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
+Rappresentare le informazioni disponibili dei brani utilizzando XML.
+
 \subsubsection*{Relazioni d'uso di altre componenti}
+Nessuna.
+
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
+Utilizzata da \co{DeviceScanner}.
+
 \subsubsection*{Attivit\`a svolte e dati trattati}
+Riceve i tag dei file mp3 e genera una stringa XML che ne rappresenta le
+informazioni, da inviare a GWT.
+Si occupa anche di rimuovere eventuali simboli non validi derivanti dalla
+diverse codifiche utilizzate nei meta-dati, e di tradurre il genere (di solito
+rappresentato tramite un codice numerico) se necessario.
+\\
+\\
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- ROOT\_NAME: String \emph{static final} & Nome del nodo principale nel
+documento XML.\\\hline
+- SONG\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante una singola canzone.\\\hline
+- ALBUMTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il titolo dell'album.\\\hline
+- AUTHORCOMPOSER\_NAME: String \emph{static final} & Nome del nodo nel documento
+XML riguardante il compositore.\\\hline
+- LEADARTIST\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante l'artista.\\\hline
+- SONGGENRE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il genere musicale del brano.\\\hline
+- SONGTITLE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il titolo del brano.\\\hline
+- TRACKNUMBER\_NAME: String \emph{static final} & Nome del nodo nel documento
+XML riguardante il numero della traccia all'interno dell'album.\\\hline
+- YEAR\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante l'anno di uscita del brano.\\\hline
+- FILE\_NAME: String \emph{static final} & Nome del nodo nel documento XML
+riguardante il file MP3.\\\hline
+- documentBuilder: javax.xml.parsers.DocumentBuilder & Utilizzato per
+la creazione di un nuovo documento XML.\\\hline
+- document: org.w3c.dom.Document & Documento corrente sul quale si sta
+generando l'XML.\\\hline
+- root: org.w3c.dom.Element & Elemento (nodo) principale del documento,
+che contiene tutti gli altri.\\\hline
+\caption{Campi dati di TranslateXML}
+\end{longtable}
+
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- clean(in String): String & Pulisce una stringa dai caratteri non voluti,
+generati dalle diverse codifiche.\\\hline
+- getGenreCode(in String): String & Se la stringa contiene un codice numerico,
+ignora tutto il resto e restituisce il genere corrispondente, altrimenti
+restituisce la stessa stringa di ingresso.\\\hline
++ newMP3List(): void & Crea un nuovo documento vuoto.\\\hline 
++ addMP3(in AbstractMP3Tag, in String): void & Crea un nuovo
+nodo contenente le informazioni del brano (usando anche \co{getGenreCode} per
+tradurre l'eventuale codice), e se questo non viene scartato dal metodo
+\co{isValid}, lo inserisce all'interno del documento.\\\hline 
++ toString(): String & Dal documento attuale, genera la stringa XML.\\\hline
+\caption{Metodi di TranslateXML}
+\end{longtable}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
