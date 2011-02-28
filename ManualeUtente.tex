@@ -1,0 +1,83 @@
+
+\newcommand{\nomedoc}{Manuale Utente}
+\newcommand{\versione}{1.0}
+\newcommand{\versioneglossario}{3.0}
+\newcommand{\versionenormeprogetto}{3.0}
+\newcommand{\nomefile}{ManualeUtente-\versione.pdf}
+\newcommand{\datacreazione}{24 Febbraio 2011}
+\newcommand{\datamodifica}{27 Febbraio 2011}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{esterno}
+\newcommand{\redazione}{---}
+\newcommand{\verifica}{---}
+\newcommand{\approvazione}{---}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+\chapter*{Sommario}
+\thispagestyle{fancy}
+(da scrivere)
+
+\newpage
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+
+\begin{longtable}{|p{0.13\textwidth}|c|p{0.2\textwidth}|p{0.46\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Data} & \bo{Versione} & \bo{Autore} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\endfoot
+
+24/02/2011 & 0.1 & Mandolo Andrea & Stesura prima versione del Manuale Utente.\\
+
+\end{longtable}
+
+% INDICE
+\tableofcontents
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+
+\section{Definizione dell'utente del prodotto}
+
+\section{Come leggere il manuale}
+
+\section{Documenti utili}
+
+\section{Come riportare problemi e malfunzionamenti}
+
+
+\chapter{Descrizione generale}
+\thispagestyle{fancy}
+ (a struttura libera)
+ 
+\chapter{Istruzioni per l'uso}
+\thispagestyle{fancy}
+
+\section{Descrizione funzionale}
+
+\section{Azioni richieste/permesse}
+
+\section{Errori probabili e cause possibili}
+
+
+\appendix % inizio appendice
+\chapter{Messaggi di errore e loro significato}
+\thispagestyle{fancy}
+
+\chapter{Glossario}
+\thispagestyle{fancy}
+
+\end{document}
