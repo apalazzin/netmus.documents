@@ -9,7 +9,7 @@
 \newcommand{\versioneDP}{1.0}
 \newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
 \newcommand{\datacreazione}{7 Dicembre 2010}
-\newcommand{\datamodifica}{22 Febbraio 2011}
+\newcommand{\datamodifica}{25 Febbraio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{interno}
 \newcommand{\redazione}{Baron Federico\\&Palazzin Alberto}
@@ -46,17 +46,22 @@ comuni.
 \endhead
 \hline
 \endfoot
-22/02/2011 & 2.2 & Palazzin Alberto & Aggiunto paragrafo ``Norme per i Test
-software''.
-\\
-\hline
-19/02/2011 & 2.2 & Palazzin Alberto & Correzione errori grammaticali. \\
-\hline
-18/02/2011 & 2.2 & Palazzin Alberto & Sistemazione cap. 6 dopo la RP. \\
-\hline
-14/02/2011 & 2.1 & Palazzin Alberto & Sistemazione cap. 7 e inserimento sezione
-7.1. \\
-\hline
+25/02/2011 & 3.0 & Mandolo Andrea & Validazione documento per consegna RQ.\\
+\hline 
+25/02/2011 & 2.7 & Baron Federico & Rimozione di JavaFX dalle tecnologie
+utilizzate (capitolo 4).\\ \hline
+25/02/2011 & 2.6 & Baron Federico & Verifica dell'intero documento
+con particolare attenzione a capitoli 6 e 7.\\ \hline
+23/02/2011 & 2.5 & Palazzin Alberto &
+Inserimento di nuove norme stabilite per la codifica nel capitolo 7.\\\hline
+15/02/2011 & 2.4 & Lovato Daniele & Redazione del paragrafo 6.3: ``Tracciamento
+dei requisiti - componenti di progettazione di dettaglio``.\\\hline
+15/02/2011 & 2.3 & Lovato Daniele & Divisione in
+paragrafi del capitolo 7 ``Nrome di codifica''.\\\hline
+14/02/2011 & 2.2 & Palazzin Alberto & Aggiornamento del
+paragrafo 6.2.\\ \hline
+13/02/2011 & 2.1 & Palazzin Alberto & Aggiornamento del
+capitolo 6 paragrafi 1 e 2 per carenze evidenziate in correzione RR.\\\hline
 31/01/2011 & 2.0 & Baron Federico & Validazione per consegna RP.\\
 \hline
 30/01/2011 & 1.7 & Mandolo Andrea & Verificate modifiche e nuove sezioni.\\
@@ -263,26 +268,6 @@ App Engine Java SDK 1.4.2 e Google Web Toolkit SDK 2.2.0) dalla lista comparsa;}
 \item {installare.}
 \end{itemize} 
 
-\section{JavaFX}
-JavaFX SDK (versione 1.2.1).
-\\
-Scarica e installa la versione 1.2.1 dal link \\
-\url{http://www.oracle.com/technetwork/java/javafx/downloads/previous-jsp-137062.html}.
-
-\section{Plugin JavaFX per Eclipse}
-JavaFX Feature (versione 1.2.1).
-\\
-Per installare seguire queste
-operazioni: 
-\begin{itemize}
-\item {aprire il programma Eclipse;} 
-\item {nel men\`u in alto selezionare ``Help'';}
-\item {selezionare ``Install new Software'';}
-\item {in ``Work with'' inserire \url{http://javafx.com/downloads/eclipse-plugin};}
-\item {selezionare l'unico file dalla lista comparsa;}
-\item {installare.}
-\end{itemize} 
-
 \section{LateX}
 \begin{itemize}
 \item {Per \underline{Linux}: TeX Live (versione 2010). 
@@ -357,13 +342,17 @@ maggiori dettagli vedi documento \emph{PianoDiQualifica-\versionePQ.pdf}).
 
 \chapter{Analisi e Progettazione}
 \thispagestyle{fancy} 
-Per l'analisi dei
-requisiti e per la progettazione si utilizzer\`a il linguaggio UML 2.0 perch\'e
-adottato come standard nella modellazione e scrittura dei diagrammi: Use case,
-di flusso, dei package, delle classi, degli oggetti, di attivit\`a e di sequenza.
-\\
-La tecnologia e gli strumenti utilizzati per la scrittura in UML
-sono specificati chiaramente nella sezione 4.10.
+
+Per l'analisi dei requisiti e per la progettazione si utilizzer\`a il linguaggio
+UML 2.0 perch\'e adottato come standard nella modellazione e
+scrittura dei diagrammi: Use case, di flusso, dei package, delle classi, degli
+oggetti, di attivit\`a e di sequenza. \\
+In particolare si associano i diagrammi dei casi d'uso all'attivit\`a di
+analisi, i diagrammi di attivit\`a e delle classi alla progettazione ad alto
+livello e i diagrammi di sequenza e delle classi per la progettazione di
+dettaglio. \\
+La tecnologia e gli strumenti utilizzati per la scrittura in UML sono
+specificati chiaramente nella sezione 4.10.
 
 \section{Analisi}
 L'analisi dei requisiti \`e un'attivit\`a che ha come obiettivi la comprensione
@@ -430,6 +419,9 @@ musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
 \bo{nx} = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di
 un requisito avranno una cifra in pi\`u del genitore.
 
+\section{Tracciamento dei requisiti - componenti di progettazione ad alto
+livello} Per identificare in modo univoco e significativo ognuno dei componenti
+software estratti dalla progettazione, gli viene assegnato un codice.
 \newpage
 \section{Progettazione}
 Dopo la definizione dei requisiti in cui vengono descritte le funzionalit\`a del
@@ -471,16 +463,33 @@ riferiti tramite il codice suddetto.
 \\
 \\
 \bo{C(pc)(sc)n}\\
-\bo{C} = componente\\
-\bo{pc} = due lettere per identificare il package\\
-\bo{sc} = due lettere per identificare il sottopackage\\
+\bo{C} = (C = componente di persistenza e visualizzazione, C2 = componente di
+recupero delle informazioni)\\ \bo{pc} = due lettere per identificare il
+package\\ \bo{sc} = due lettere per identificare il sotto-package\\
 \bo{n} = numero incrementale che indica il package stesso se uguale a 0, la
 classe contenuta nel package se maggiore di 0\\ \\
 Esempi:
 \begin{itemize}
-  \item \bo{Cclmv0} = il package stesso client.mvp;
-  \item \bo{Cclmv1} = la classe NetmusActivityMapper del package client.mvp.
+  \item \bo{Cclmv0} = il package stesso client.mvp
+  \item \bo{Cclmv1} = la classe NetmusActivityMapper del package client.mvp
+  \item \bo{C2ap1} = la classe DeviceScanner del package applet
 \end{itemize}
+
+Il tracciamento effettuato deve collegare ogni componente con i requisiti che si
+propone di soddisfare ma anche vice-versa. Sar\`a dovere dei progettisti di alto
+livello descrivere le motivazioni precise riguardanti eventuali componenti o
+requisiti non tracciati.
+
+\section{Tracciamento dei requisiti - componenti di progettazione di dettaglio}
+I codici delle componenti saranno mantenuti dalla progettazione precedente, ed
+aggiunti con il dovuto incremento in caso dell'individuazione di nuove
+componenti.\\\\
+Il verificatore che si prender\`a carico del tracciamento dovr\`a separare il
+tracciamento relativo ai requisiti obbligatori da quelli desiderabili e
+opzionali poich\'e anche la progettazione e la codifica seguiranno questa
+divisione temporale in due incrementi.\\
+Sar\`a dovere dei progettisti di dettaglio descrivere le motivazioni precise
+riguardanti eventuali componenti o requisiti non tracciati.
 
 \subsection{Norme per la Definizione del Prodotto}
 Nella stesura del documento \emph{DefinizioneDelProdotto-\versioneDP.pdf}, in
@@ -499,6 +508,147 @@ la seguente notazione per descrivere i metodi e gli attributi delle classi:
 
 \chapter{Norme di Codifica}
 \thispagestyle{fancy} 
+\section{Ambiente di sviluppo}
+
+\subsection{Sistema operativo}
+Non sono stati posti vincoli ai membri di VT.G per quanto riguarda l'utilizzo di
+uno specifico sistema operativo poich\'e gli strumenti che utilizzeremo nella
+codifica sono disponibili e stabili per tutti i sistemi maggiormente utilizzati.
+Riteniamo inoltre che svolgere le attivit\`a di codifica e debugging su
+piattaforme differenti possa recare vantaggio in termini di portabilit\`a
+dell'applicazione sviluppata e un abbassamento generale dei rischi in fase di
+validazione.
+
+\subsection{IDE}
+Per la fase di codifica del progetto \`e stato scelto l'ambiente
+integrato di sviluppo Eclipse perch\'e supporta sia la programmazione Java
+sia la possibilit\`a  di installare eventuali plugin per interfacciarsi con
+altre tecnologie (per maggiori dettagli vedi sezione 4.1).\\
+Per la componente di visualizzazione del Catalogo
+Multimediale sono stati scelti i plugin di GAE e di GWT oltre i relativi SDKs
+(per maggiori dettagli vedi sezione 4.5).\\ 
+Anche per la codifica della componente di estrazione delle informazioni,
+identificata in una Java Applet, la piattaforma di sviluppo sar\`a Eclipse. Il
+formato utilizzato poi per l'inserimento nella componente di visualizzazione
+sar\`a un archivio auto-firmato con certificato generico .jar.sign.
+
+\section{Norme per la stesura dei file sorgente}
+Per cercare di semplificare la verificabilit\`a,
+migliorare la manutenibilit\`a e massimizzare la portabilit\`a si deve rendere il codice scritto pi\`u leggibile possibile.\\
+Per fare questo nel codice si dovranno strutturare nella maniera pi\`u semplice e coerente i moduli, i
+file, le directory, e prestare particolare attenzione alle norme di seguito
+descritte.
+
+\subsection{Convenzioni sui nomi}
+Le classi, i metodi e le variabili Java dovranno avere la seguente nomenclatura:
+\begin{itemize}
+  \item {tutti i nomi indicare in maniera univoca il loro contenuto ed essere
+  scritti in lingua inglese;}
+  \item {le classi iniziare con la lettera maiuscola\\ 
+  (es. ``class Example'');}
+  \item {i metodi iniziare con la lettera minuscola e senza spazi\\ 
+  (es. ``void exampleOfMethod()'');}
+  \item {le variabili non costanti con tutte le lettere minuscole e gli
+  underscore \\
+  (es. ``example\_of\_variable'');}
+  \item {le variabili costanti con tutte le lettere maiuscole e gli underscore\\
+  (es. ``EXAMPLE\_OF\_CONSTANT\_VARIABLE'');}
+  \item {le variabili usate temporaneamente devono avere nomi corti, variabili
+  usate pi\`u a lungo devono avere nomi pi\`u descrittivi;}
+  \item {quando si accede ad un attributo, si devono usare i prefissi ``get'' e
+  ``set'' per i metodi;}
+  \item {il prefisso ``is'' deve essere utilizzato per le variabili ed i metodi
+  booleani;}
+  \item {quando un metodo effettua una ricerca, si deve usare il termine
+  ``find'' all'interno del metodo;}
+  \item {usare il plurale quando una variabile rappresenta una collezione di
+  oggetti;}
+  \item {le eccezioni devono avere suffisso ``Exception'';}
+  \item {i metodi che ritornano un valore devono essere nominati a seconda di
+  cosa ritornano; i metodo che non ritornano un valore, devono essere nominati
+  in base a cosa fanno.}
+\end{itemize} 
+
+\subsection{Convenzioni per i files}
+All'interno di una file e quindi di una classe java dovranno essere sempre
+seguite le seguenti norme: 
+\begin{itemize}
+  \item ogni classe Java dovr\`a avere la sua intestazione contenente:
+    \begin{itemize}
+        \item {Nome del file}
+        \item {Autore}
+        \item {Licenza}
+        \item {Data creazione}
+    \end{itemize}
+  \item non usare ``TAB'' (carattere di tabulazione) per l'indentazione;
+  \item l'indentazione sar\`a eseguita con 4 spazi;
+  \item usare il seguente ordine all'interno delle classi per i modificatori
+  d'accesso:
+    \begin{itemize}
+        \item {Public}
+        \item {Protected}
+        \item {Package}
+        \item {Private}
+    \end{itemize}
+  \item si dovr\`a cercare di scrivere meno linee di codice possibile;
+\end{itemize}
+
+\subsection{Convenzioni sui commenti}
+Per favorire la comprensione del codice sorgente prodotto ogni programmatore \`e
+tenuto ad inserire sufficienti commenti al codice in linea con le seguenti
+norme:
+\begin{itemize}
+  \item parti di codice di difficile comprensione devono essere riscritte
+  piuttosto che commentate;
+  \item all'interno del corpo di un metodo usare sempre ``//'' per i commenti,
+  anche per quelli multi-riga;
+  \item indentare i commenti in base alla porzione di codice a cui si
+  riferiscono;
+  \item intestazioni di metodi e classi devono utilizzare il formalismo
+  ``javadoc'' con: ``/**'' ``*/'';
+\end{itemize}
+
+\subsection{Convenzioni generali per i programmatori}
+Ogni programmatore dovr\`a:
+\begin{itemize}
+  \item{consegnare codice che compila senza errori fatali o
+potenziali (warning);} 
+  \item{aver utilizzato con chiarezza e coerenza i costrutti del
+linguaggio;}
+  \item{aver utilizzato un sottoinsieme appropriato del linguaggio
+(preferire i costrutti di maggiore robustezza, verificabilit\`a e leggibilit\`a
+rispetto quelli di maggiore potenza espressa e velocit\`a).}
+\end{itemize}
+
+\subsection{Suggerimenti sull'utilizzo degli strumenti di Eclipse}
+Quelli riportati di seguito non sono regolamenti da rispettare necessariamente
+ma suggerimenti il cui utilizzo pu\`o portare beneficio alla chiarezza del
+codice ed al tempo impiegato dai programmatori per la stesura dello stesso.
+Tutte queste operazioni sono accessibili dal menu ``Source'' e configurabili da
+``Window->Prefernces'':
+\begin{itemize}
+  \item utilizzare ``Generate Element/Block Comment'' per impostare inizialmente
+  i commenti a classi e metodi;
+  \item utilizzare ``Organize Imports'' per ordinare le istruzioni di import in
+  testa al file;
+  \item utilizzare ``Sort Members'' per ordinare la dichiarazione di attributi e
+  metodi secondo la visibilit\`a come previsto dalle norme.
+  \item utilizzare ``Generate Getters and Setters'' una volta che si sono
+  definiti gli attributi privati in modo da generare automaticamente i metodi
+  ``get'', ``set'' e ``is'' relativi.
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
 Per la fase di codifica del progetto \`e stato scelto innanzitutto l'ambiente
 integrato di sviluppo Eclipse perch\'e supporta sia la programmazione Java
 sia la possibilit\`a  di installare eventuali plugin per interfacciarsi con
@@ -785,6 +935,18 @@ Esempio:
   \item \bo{TU-Cclap3} = test d'unit\`a per la classe TranslateDTOXML del
   package client.applet.
 \end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \chapter{Repository e Versionamento}
