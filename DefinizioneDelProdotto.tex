@@ -197,18 +197,19 @@ architetturali con una breve descrizione.
   (indirettamente) all'utente con una piccola interfaccia grafica di GWT
   presente quando l'utente e' loggato, da cui \`e possibile
   attivarla e disattivarla, e dare altri comandi relativi la scansione.\\ Le
-  informazioni reperite nel filesystem sono trasferite a GWT tramite file XML.
+  informazioni reperite nel filesystem sono trasferite a GWT tramite file
+  \underline{XML}.
   
-  \item \bo{Twig-Persist} : Per la gestione della persistenza e quindi del
-  DataStore abbiamo deciso di utilizzate il framework Twig-Persist poich\'e
+  \item \bo{\underline{Twig-Persist}} : Per la gestione della persistenza e
+  quindi del Datastore abbiamo deciso di utilizzate il framework Twig-Persist poich\'e
   fornisce una libreria molto efficace e facilmente configurabile
-  rispetto a JDO. Un altro vantaggio acquisito dall'utilizzo di questa
-  tecnologia \`e quello di poter gestire in modo asincrono (parallelo) le
+  rispetto a \underline{JDO}. Un altro vantaggio acquisito dall'utilizzo di
+  questa tecnologia \`e quello di poter gestire in modo asincrono (parallelo) le
   operazioni sul DataStore. Questo framework si interfaccia al sistema NetMus
   nelle componenti di persistenza DAO \co{UserAccount}, \co{Song} e
   \co{MusicLibrary} e nella classe singleton \co{ODF} (Object DataStore
   Factory). Quest'ultima \`e stata inserita nel package \emph{server.persistent}
-  per garantire un migliore information hiding. \\
+  per garantire un migliore \underline{information hiding}. \\
   La versione utilizzata del framework \`e l'ultima rilasciata: Twig-Persist 2.0
   Beta 4.
   
@@ -216,8 +217,8 @@ architetturali con una breve descrizione.
   strumenti molto flessibili per la gestione dell'internazionalizzazione di
   un'applicazione.\\ Per soddisfare il requisito di avere un sistema
   multi-lingua utilizziamo lo strumento \emph{Static String
-  Internationalization} che grazie al deferred binding ci permette di avere la
-  massima efficienza a runtime poich\'e le lingue sono mappate durante la
+  Internationalization} che grazie al \underline{deferred binding} ci permette
+  di avere la massima efficienza a runtime poich\'e le lingue sono mappate durante la
   compilazione. Questa componente con le impostazioni relative alle
   diverse lingue risiede nella classe \co{MyConstants} e nei file
   \emph{MyConstants.properties} e \emph{MyConstants\_it.properties}. Per
@@ -431,7 +432,7 @@ dettaglio 1}
 \hline
 \endfoot
 \endlastfoot
-C1FD-1.1.4 Visualizza player YouTube\\\hline
+C1FD-1.1.4 Visualizza player \underline{YouTube}\\\hline
 C1FO-1.2.1 Pagina login indipendente\\\hline
 C1FD-1.3 Personalizzazione del catalogo\\\hline
 C1FD-1.3.1 Cancellazione brano\\\hline
@@ -568,7 +569,7 @@ pagina iniziale di Login o, se gi\`a autenticato, alla sua pagina Profilo.
 costituisce il corpo della pagina di login\\\hline
  - login\_service\_svc: LoginService Async & Inizializza l'interfaccia
  asincrona tramite Dynamic loading utilizzando il metodo \co{create()}
- per permettere la comunicazione RPC con il server.\\\hline
+ per permettere la comunicazione \underline{RPC} con il server.\\\hline
 \caption{Campi dati di Netmus}
 \end{longtable}
 
@@ -637,11 +638,10 @@ l'utente prima del passaggio ad uno stato differente.
 - event\_bus: EventBus \emph{static final} & Gestore del flusso degli
 eventi.\\\hline
 - place\_controller: PlaceController \emph{static final} & Classe del
-framework GWT Activity and Place che gestisce automaticamente i Place.\\\hline
-- login\_view: LoginView \emph{static final} & Interfaccia
-pubblica di Login.\\\hline
-- profile\_view: ProfileView \emph{static final} &  Interfaccia pubblica di
-Profile.\\\hline 
+\underline{framework} GWT Activity and Place che gestisce automaticamente i
+Place.\\\hline - login\_view: LoginView \emph{static final} & Interfaccia
+pubblica di Login.\\\hline - profile\_view: ProfileView \emph{static final} &  Interfaccia pubblica di
+Login.\\\hline 
 \caption{Campi dati di ClientFactoryImpl}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -666,7 +666,7 @@ classe hanno i relativi metodi \emph{get}.\\\hline
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item C1FN-1 Web Application NetMus
-	\item C1FN-1.1 Grafica simile ad iTunes
+	\item C1FN-1.1 Grafica simile ad \underline{iTunes}
 	\item C1QN-2.3 Portabilit\`a
 	\item C1QN-2 Utilizzo
 \end{itemize}
@@ -689,9 +689,9 @@ xml previsti da UiBinder saranno:
 \begin{itemize}
   \item \bo{@UiField}: gli attributi marcati in questo modo hanno lo stesso nome
   di un elemento del file .xml a cui possono accedere successivamente alla
-  chiamata \emph{uiBinder.createAndBindUi (this)} che associa all'attributo Java
-  l'istanza appropriata di \co{SpanElement}. Questi attributi avranno
-  visibilit\`a \emph{package}.
+  chiamata \emph{uiBinder.createAndBindUi (this)} che associa all'attributo
+  \underline{Java} l'istanza appropriata di \co{SpanElement}. Questi attributi
+  avranno visibilit\`a \emph{package}.
   \item \bo{@UiHandler(``name\_of\_uifield'')}: permette di scrivere dei metodi
   che gestiscono gli eventi scatenati dal parametro UiField senza
   dover dichiarare le classi handler previste da Java.
@@ -744,8 +744,8 @@ implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
   \item public void sendLogin(in String, in String) throws  LoginException
   : invia al server i dati di login inseriti
   dall'utente. Viene inviata la richiesta di verifica del login con i dati
-  presenti nel DataStore tramite una chiamata asincrona ad un metodo di
-  \co{LoginService}. La chiamata RPC pu\`o lanciare eventi di tipo
+  presenti nel Datastore tramite una \underline{chiamata asincrona} ad un metodo
+  di \co{LoginService}. La chiamata RPC pu\`o lanciare eventi di tipo
   \co{LoginException}.
   \item public void sendGoogleLogin(in String, in String)
   throws LoginException : apre una pagina del sistema che richiama la servlet
@@ -882,7 +882,7 @@ aggiorna l'attributo \co{type}.\\\hline
     \item C1QD-1.6.1 Scalabilit\`a interfaccia grafica
     \item C1FD-1.7 Interazione con altri utenti
     \item C1FD-1.7.1 Visualizzazione altri profili
-    \item C1FO-1.8.1 Esportazione PDF
+    \item C1FO-1.8.1 Esportazione \underline{PDF}
     \item C1QO-2.1 Accessibilit\`a
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
@@ -1086,8 +1086,8 @@ vine inerito il dettaglio di una canzone.\\\hline
 song\_container che contiene i campi dati sui dettagli della canzone.\\\hline
 @UiField main\_panel: HTMLPanel & Elemento principale dell'interfaccia
 grafica, situato a destra rappresenta la parte principale dell'intero
-UI.\\\hline @UiField left\_panel: HTMLPanel & Secondo elemento principale
-della UI, rappresenta l'intera zona che contiene i menu sulla sinistra.\\\hline
+\underline{UI}.\\\hline @UiField left\_panel: HTMLPanel & Secondo elemento
+principale della UI, rappresenta l'intera zona che contiene i menu sulla sinistra.\\\hline
 @UiField playlists: HTMLPanel & Elemento inserito all'interno di
 left\_panel che contiene l'elenco delle playlist dell'utente.\\\hline
 @UiField friends: HTMLPanel & Elemento inserito all'interno di
@@ -1208,8 +1208,8 @@ del presenter di \co{ProfileView}.\\\hline
 \co{ProfileActivity} per fornire il numero di brani alla creazione della
 \co{ProfileView}.\\\hline 
 + setUser(in String) & Questo metodo viene usato da
-\co{ProfileActivity} per fornire l'username dell'utente alla creazione della
-\co{ProfileView}.\\\hline
+\co{ProfileActivity} per fornire l'\underline{username} dell'utente alla
+creazione della \co{ProfileView}.\\\hline
 + paintCatalogo(in List\textless String\textgreater) & Riempie il
 catalogo\\\hline 
 + paintPlaylist(in String[]) & Riempie la lista delle playlist.\\\hline
@@ -1236,9 +1236,9 @@ playlist.\\\hline
 + setRating(int rating) & Imposta il rating personale dell'utente.\\\hline
 + showStar(int index) & Disegna le stelle che corrispondono al rating.\\\hline
 + youTubeChange(int s) & Imposta lo stato del lettore youtube collegato
-ad un handler delle api javascript youtube gestito tramite JSNI.\\\hline
-+ youTubeListener() & JSNI: collega la chiamata al metodo
-\emph{youTubeChange} all'interno di GWT con le api javascript di
+ad un handler delle api \underline{javascript} youtube gestito tramite
+\underline{JSNI}.\\\hline + youTubeListener() & JSNI: collega la chiamata al
+metodo \emph{youTubeChange} all'interno di GWT con le api javascript di
 youtube fornendo un riferimento javascript esterno tramite una funzione.\\\hline
 + playNext() & Fa passare il player youtube al brano successivo se
 disponibile.\\\hline
@@ -2610,8 +2610,8 @@ fondamentali presenti all'interno del package
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente} % LASCIARE WARNING
 Questo package racchiude tutte le classi che collaborano al fine di gestire la
-business logic del sistema, ovvero tutte quelle operazioni che potranno essere
-compiute sui dati raccolti e che quindi interagiscono pesantemente con il
+\underline{business logic} del sistema, ovvero tutte quelle operazioni che
+potranno essere compiute sui dati raccolti e che quindi interagiscono pesantemente con il
 DataStore. 
 \subsection*{Relazioni d'uso di altre componenti}
 Per quanto riguarda l'interfacciamento con il database vengono utilizzati i
@@ -2983,8 +2983,8 @@ che concorrono nel caricamento di nuove canzoni nel DataStore da parte di un
 utente.}
 \end{figure}
 Il package \emph{server.persistent} contiene le classi di persistenza che
-implementano il design pattern \emph{Data Access Object (DAO)} che hanno lo
-scopo di interfacciare il sistema con il database nascondendo cos\`i ogni
+implementano il \underline{design pattern} \emph{Data Access Object (DAO)} che
+hanno lo scopo di interfacciare il sistema con il database nascondendo cos\`i ogni
 dettaglio sulla struttura del database all'esterno.\
 I DAO sono implementati con l'utilizzo del framework \emph{Twig-persist}
 introdotto nel capitolo 3, la notazione utilizzata contiene alcuni elementi
@@ -3015,8 +3015,8 @@ Il diagramma UML di sequenza sopra presentato evidenzia l'insieme delle chiamate
 che concorrono in un'attivit\`a che coinvolge tutte le classi del package
 persistent. L'inserimento di una nuova canzone nel database, che ha inizio
 dall'applet di estrazione dei brani dal file system, avviene all'interno di una
-chiamata asincrona al metodo statico \emph{sendUserNewMusic} implementato in
-\co{LibraryServiceImpl}.
+\underline{chiamata asincrona} al metodo statico \emph{sendUserNewMusic}
+implementato in \co{LibraryServiceImpl}.
 \subsection*{Relazioni d'uso di altre componenti} Vengono utilizzate le classi
 DTO presenti nel package \emph{shared} per impacchettare i dati in uscita dal
 database o per gestire i dati in entrata. 
@@ -3045,14 +3045,14 @@ relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e
 \co{ODF} (Object DataStore Factory) \`e una classe \emph{final} che segue il
 pattern Singleton illustrato in \emph{SpecificaTecnica v3.0}. Ha la funzione di creare un'unica istanza del
 \co{ObjectDataStore} fornito dal framework twig-persist e di restituirla a
-qualunque oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il DataStore, inviando query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
-tramite semplici metodi. L'oggetto datastore restituito \`e di tipo
-\co{AnnotationObjectDataStore} che di default salva gli attributi degli oggetti
-persistenti in modo non indicizzato rendendo il datastore pi\`u rapido.\\
-Questa classe \`e visibile solamente all'interno del package \emph{persistent}.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Vengono usate le classi della libreria twig-persist2.0 per la creazione di\\
-\co{AnnotationObjectDataStore}.
+qualunque oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire
+con il DataStore, inviando \underline{query}, memorizzando oggetti
+\emph{persistent} o richiedendo liste di oggetti tramite semplici metodi.
+L'oggetto datastore restituito \`e di tipo \co{AnnotationObjectDatastore} che di
+default salva gli attributi degli oggetti persistenti in modo non indicizzato
+rendendo il datastore pi\`u rapido.\\ Questa classe \`e visibile solamente
+all'interno del package \emph{persistent}.
+\subsubsection*{Relazioni d'uso di altre componenti} Vengono usate le classi della libreria twig-persist2.0 per la creazione di \co{AnnotationObjectDatastore}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa classe pu\`o essere utilizzata da qualunque classe di \emph{persistent},
 ogni qualvolta ci sia bisogno di avere l' \co{ObjectDataStore} per interagire col
@@ -3114,8 +3114,8 @@ dell' \co{ObjectDataStore}.\\\hline
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{UserAccount} utilizza il design pattern DAO poich\'e contiene tutte le
 informazioni relative ad un utente cos\`i come viene salvato all'interno del
-DataStore. La classe \`e implementata come POJO poich\'e twig-persist lo
-supporta senza bisogno di configurazioni aggiuntive. Vengono usate solamente
+Datastore. La classe \`e implementata come \underline{POJO} poich\'e
+twig-persist lo supporta senza bisogno di configurazioni aggiuntive. Vengono usate solamente
 le annotazioni \emph{@Key} e \emph{@Index} per gestire l'indicizzazione
 degli oggetti nel datastore.\\
 \subsubsection*{Relazioni d'uso di altre componenti} La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione
@@ -3144,7 +3144,7 @@ utente del sistema NetMus.
  dell'utente e nello stesso tempo la sua e-mail (valida). Viene
  impiegato come chiave dell'entit\`a nel DataStore.\\\hline
  - password\_hash: String & Contiene l'hash della password dell'utente ottenuto
-  utilizzando l'algoritmo BCrypt.\\\hline
+  utilizzando l'algoritmo \underline{BCrypt}.\\\hline
  - nick\_name: String & Nickname di un utente visibile anche agli
  altri.\\\hline - first\_name: String & Nome proprio dell'utente.\\\hline
  - last\_name: String & Cognome dell'utente.\\\hline
@@ -3493,7 +3493,7 @@ sistema NetMus.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=11cm]{img/DP/classes_servlet.png}
-\caption{Diagramma UML delle classi che descrive le dipendenze
+\caption{Diagramma \underline{UML} delle classi che descrive le dipendenze
 fondamentali presenti all'interno del package
 \emph{it.unipd.netmus.server.servlet}.}
 \end{figure}
@@ -3676,9 +3676,9 @@ Varie.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe ci permette di utilizzare le API \emph{lastfm-java} all'interno la
-piattaforma Google App Engine. Tali librerie ci servono per poter fare
-interrogazioni alle API di Last.fm in maniera semplice, pi\`u ad alto livello
-del doversi implementare una servlet. Queste librerie per\`o necessitano di una
+piattaforma \underline{Google App Engine}. Tali librerie ci servono per poter
+fare interrogazioni alle API di \underline{Last.fm} in maniera semplice, pi\`u ad
+alto livello del doversi implementare una servlet. Queste librerie per\`o necessitano di una
 cache che di default \`e la home del client. In GAE, poich\'e non \`e possibile
 accedere al file system del client, \`e necessario modificare con questa classe
 \co{AppEngineCache} la destinazione di caching delle librerie, andando ad
@@ -3689,8 +3689,8 @@ Nessuna.
 Questa classe viene utilizzata prima di fare operazioni con le API di Last.fm
 per andare a modificare la gestione della cache.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Utilizza come cache per Last.fm il Google DataStore invece che il file system
-del client.
+Utilizza come cache per Last.fm il \underline{Google DataStore} invece che il
+file system del client.
 \\\\
 Di questa classe non andremo a dettagliare i singoli campi dati o metodi,
 poich\'e viene presa come strumento gi\`a esistente. \`E stata creata e proposta agli
@@ -4592,7 +4592,7 @@ Nessuna.
   \centering
   \includegraphics[width=9cm]{img/DP/applet.png}
 \caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del applet di estrazione dati.}
+fondamentali presenti all'interno del \underline{applet} di estrazione dati.}
 \end{figure}
 
 \subsection*{Requisiti obbligatori soddisfatti}
@@ -4650,8 +4650,8 @@ spedito alla classe \co{AppletBar.java} sotto forma di stringa.\\
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe sar\`a di tipo \co{JApplet} e si occuper\`a di avviare l'applet
 quando caricata in una pagina Web. Quando viene creata invier\`a una notifica a
-GWT, il quale andr\`a ad avviare effettivamente il thread di scansionamento nell'applet,
-passandogli il nome utente e lo stato di attivazione scelto in precedenza
+GWT, il quale andr\`a ad avviare effettivamente il thread di
+scansionamento nell'applet, passandogli il nome utente e lo stato di attivazione scelto in precedenza
 dall'utente. Di default sar\`a attiva ma pu\`o essere disattivata manualmente.
 Quando sar\`a disattivata il thread \co{scanner} viene messo a dormire e verr\`a
 svegliato in seguito ad una richiesta dell'utente, tramite il metodo
@@ -4665,8 +4665,8 @@ invocazione di metodi nativi in \co{AppletBar}.
 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 La classe verr\`a avviata in automatico, tramite creazione e invocazione del
-metodo \co{start()}, da parte della JVM quando caricata nella pagina Web.
-I suoi metodi pubblici \co{letsGo} e \co{setState} possono essere invocati
+metodo \co{start()}, da parte della \underline{JVM} quando caricata nella pagina
+Web. I suoi metodi pubblici \co{letsGo} e \co{setState} possono essere invocati
 tramite JSNI da GWT.
 
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -4784,8 +4784,8 @@ XML che \co{scanner} dovr\`a infine spedire all'applicazione principale.\\
 - is\_active: bool & Stato del thread, settato da \co{NetmusApplet}.\\\hline
 - user: String & Nome dell'utente loggato attuale.\\\hline
 - fs: FileSystemView & Oggetto per l'accesso al File System.\\\hline
-- linux\_path: String & Punto di mount per Linux.\\\hline
-- mac\_path: String & Punto di mount per MacOSX.\\\hline
+- linux\_path: String & Punto di mount per \underline{Linux}.\\\hline
+- mac\_path: String & Punto di mount per \underline{MacOSX}.\\\hline
 - default\_path: String & Punto di mount del OS rilevato.\\\hline
 - devices: List\textless File\textgreater & Device rilevati in punto di
 mount.\\\hline
@@ -5531,10 +5531,10 @@ C1FN-1.9.5 Inserimento nel Database & Cclap2\\
 & Csepe2\\\hline  
 C1QN-1.9.6 Gestione concorrenza & Csepe0\\
 & Csepe4\\\hline    
-C1VN-1.11 Deve utilizzare il cloud computing & Cclse0\\
+C1VN-1.11 Deve utilizzare il \underline{cloud computing} & Cclse0\\
 & Cse0\\
 & Csepe0\\\hline    
-C1VN-1.12 Deve utilizzare tecnologie GAE e GWT & Ccl1\\
+C1VN-1.12 Deve utilizzare tecnologie \underline{GAE} e \underline{GWT} & Ccl1\\
 & Cclse0\\
 & Cse0\\
 & Csepe0\\\hline                                 
@@ -5643,8 +5643,8 @@ I requisiti C1VN-2.2, C2VN-4.7, C1QN-3.1, C1QD-3.1.1 non sono presenti nel
 tracciamento poich\'e soddisfatti al di fuori del software: il manuale utente
 bilingue sar\`a in versione PDF stampabile su carta ed il software, sia la
 componente di persistenza e visualizzazione sia quella di recupero delle
-informazioni sono open source fin dall'inizio della scrittura del codice.\\
-I requisiti C1FD-1.5 e C1FO-1.7.2 richiedono uno studio aggiuntivo rispetto alla
+informazioni sono \underline{open source} fin dall'inizio della scrittura del
+codice.\\ I requisiti C1FD-1.5 e C1FO-1.7.2 richiedono uno studio aggiuntivo rispetto alla
 progettazione fatta finora e rappresentano funzionalit\`a ritenute secondo noi
 non fondamentali, ne \`e prevista la progettazione e l'implementazione in futuro
 durante la fase di manutenzione nel ciclo di vita del software.\\
@@ -5683,8 +5683,8 @@ durante la progettazione di dettaglio}
 \chapter{Codice Sorgente}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 
-Verr\`a allegato a tale documento il codice sorgente dell'intero sistema NetMus.
-Si trover\`a all'interno di una cartella ``Sorgenti'', la quale conterr\`a anche
+Verr\`a allegato a tale documento il \underline{codice sorgente} dell'intero
+sistema NetMus. Si trover\`a all'interno di una cartella ``Sorgenti'', la quale conterr\`a anche
 le librerie esterne utilizzate dal sistema.\\
 \\
 L'applet verr\`a inclusa nel progetto precompilata e firmata ma verr\`a incluso
@@ -5693,7 +5693,7 @@ esterna utilizzata ed il certificato che abbiamo usato per firmarla.\\
 \\
 Per una visione pi\`u completa del sistema NetMus allo stato attuale, rendiamo
 disponibile online una versione Beta, all'indirizzo:
-\url{http://netmusbeta.appspot.com/}.\\
+\url{http://netmueta.appspot.com/}.\\
 \\
 Abbiamo cercato di rendere compatibile il sistema con i principali
 browser sui differenti sistemi operativi, ad eccezione dell'ultima versione
