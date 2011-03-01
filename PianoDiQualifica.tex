@@ -2178,7 +2178,7 @@ alto potenziale di riuso.
 Dopo aver utilizzato il tool CheckStyle configurato con le norme descritte in
 \emph{NormeDiProgetto-\versionenormeprogetto.pdf}, sono state rilevate delle non
 conformit\`a allo stile come nomenclature di variabili e costanti non
-rispettate, spazi sbagliati e commenti per i JavaDoc non presenti.
+rispettate, righe vuote, spazi sbagliati e commenti per i JavaDoc non presenti.
 Sono stati comunicati ai programmatori e risolti. Successivamente i verificatori
 hanno fatto una seconda verifica riutilizzando gli stessi strumenti e l'esito
 \`e stato che il codice \`e conforme alle norme decise. Quindi sono state
@@ -2233,31 +2233,26 @@ misurati sono:
   \end{itemize}
 \end{itemize}  
 
+Dal risultato dei valori sopra riportati si evince che la complessit\`a
+ciclomatica per il sistema generale ha come valore medio 1.55 su 703
+metodi e questo \`e un buon risultato, mentre per l'applet ha come valore medio
+12.16 su 16 metodi e questo gi\`a viola il valore massimo impostato uguale a 10.
+\\\\
+Il livello di annidamento medio per il sistema generale \`e 0.77, mentre per
+l'applet \`e 1.11. Questo significa che si \`e cercato di mantenere un
+architettura non troppo complessa.
+\\\\
+Il numero medio di metodi per classe e interfaccia per il sistema generale \`e
+4.33, mentre per l'applet \`e 4.00. Entrambi i risultati son buoni perch\'e
+essendo dei valori contenuti, significa che le responsabilit\`a e i compiti per
+ogni classe/interfaccia son stati divisi il pi\`u possibile per cercare un alto
+livello di coesione, e si possono vedere nelle figure sottostanti A.1 e A.2.
+\\\\
+In media il numero di parametri per metodo nel sistema generale \`e 1.01, mentre
+per l'applet \`e 1.06. Entrambi questi risultati sono buoni e si possono vedere
+nelle figure sottostanti A.3 e A.4. 
 
-Le violazioni rispetto ai valori di soglia impostati sono:
-
-\begin{itemize}
-     \item \bo{Sistema generale:}
-  \begin{itemize}
-  \item Number of Types: it.unipd.netmus.client.ui con valore=\bo{76};
-  \item Number of Methods Per Type: MyConstants.java con valore=\bo{17.00};
-  \item Number of Methods Per Type: Song.java con valore=\bo{40.00};
-  \item Number of Methods Per Type: UserAccount.java con valore=\bo{32.00};
-  \item Number of Methods Per Type: SongDTO.java con valore=\bo{22.00};
-  \item Number of Methods Per Type: UserDTO.java con valore=\bo{20.00};
-  \item Lines of Code: ProfileViewImpl.java con valore=\bo{1,707};
-  \item Block Depth: LoginGoogleCallbackServlet.java con valore=\bo{5.00};
-  \item Cyclomatic Complexity: Song.java con valore=\bo{1.80}; 
-  \item Cyclomatic Complexity: BCrypt.java con valore=\bo{4.14}.
-  \end{itemize}
-    \item \bo{Applet}:
-  \begin{itemize}
-  \item Lines Of Code Per Method: TranslateXML.java con valore=\bo{47.33};
-  \item Cyclomatic Complexity: DeviceScanner.java con valore=\bo{4.12};
-  \item Cyclomatic Complexity: TranslateXML.java con valore=\bo{30.00}.
-  \end{itemize}
-\end{itemize}
-
+\vspace{2cm}
 \begin{figure}[htbp]
   \centering
   \includegraphics[height=10cm]{img/PQ/NumberOfMethodsPerType.png}
@@ -2283,6 +2278,33 @@ Le violazioni rispetto ai valori di soglia impostati sono:
 \end{figure}
 
 \newpage
+
+Le violazioni rispetto ai valori di soglia impostati sono:
+
+\begin{itemize}
+     \item \bo{Sistema generale:}
+  \begin{itemize}
+  \item Number of Types: it.unipd.netmus.client.ui con valore=\bo{76};
+  \item Number of Methods Per Type: MyConstants.java con valore=\bo{17.00};
+  \item Number of Methods Per Type: Song.java con valore=\bo{40.00};
+  \item Number of Methods Per Type: UserAccount.java con valore=\bo{32.00};
+  \item Number of Methods Per Type: SongDTO.java con valore=\bo{22.00};
+  \item Number of Methods Per Type: UserDTO.java con valore=\bo{20.00};
+  \item Lines of Code: ProfileViewImpl.java con valore=\bo{1,707};
+  \item Block Depth: LoginGoogleCallbackServlet.java con valore=\bo{5.00};
+  \item Cyclomatic Complexity: Song.java con valore=\bo{1.80}; 
+  \item Cyclomatic Complexity: BCrypt.java con valore=\bo{4.14}.
+  \end{itemize}
+    \item \bo{Applet}:
+  \begin{itemize}
+  \item Lines Of Code Per Method: TranslateXML.java con valore=\bo{47.33};
+  \item Cyclomatic Complexity: DeviceScanner.java con valore=\bo{4.12};
+  \item Cyclomatic Complexity: TranslateXML.java con valore=\bo{30.00}.
+  \end{itemize}
+\end{itemize}
+Tutte queste violazioni sono state controllate e il sovraccarico rispetto ai
+valori di soglia \`e dovuto al fatto che per motivi funzionali e
+implementativi sono state progettate in questa maniera, e quindi sono corrette.
 
 \section{Dettaglio delle verifiche tramite prove (test)}
 Qui di seguito illustriamo i risultati dei test precedentemente trattati.
