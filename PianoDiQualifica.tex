@@ -441,7 +441,7 @@ codice);
   
 \item Numero di moduli in uno schema di progettazione;
 \item livello di coesione tra i moduli;
-\item livello di accoppiamento (copuling) tra moduli.
+\item livello di accoppiamento tra moduli.
 
 \end{itemize}
 
@@ -467,7 +467,6 @@ codice);
 \item livello di copertura dei rami;
 \item livello di copertura dei percorsi di base.
 \end{itemize}
-
 
 
   
@@ -897,10 +896,21 @@ Tecniche: quelle usate da FindBugs e da PMD \& CPD.
 \subsubsection*{Controllo delle metriche e degli indicatori sul codice}
 Utilizzare lo strumento CodePro Analytix per misurare:
 \begin{itemize}
-  \item nei package: il numero di classi presenti, il valore di fan-in e
-  fan-out; 
-  \item nei metodi: il numero di parametri presenti, il numero di linee di
-  codice, il grado di annidamento, la complessit\`a ciclomatica. 
+  \item Lines of Code (numero di linee di codice senza contare spazi e
+  commenti): con valore max=\bo{1600} per unit\`a di compilazione;
+  \item Number of Types (numero di classi e di interfacce in un package): con
+  valore max=\bo{30} per package;
+  \item Afferent Couplings (valore di fan-in);
+  \item Efferent Couplings (valore di fan-out): con valore max=\bo{20};
+  \item Number of Methods (numero di metodi): con valore max=\bo{60} per Type;
+  \item Number of Methods Per Type (numero di metodi per ogni
+  classe/interfaccia): con valore max=\bo{15};
+  \item Number of Parameters (numero di parametri per
+  metodo): con valore max=\bo{6};
+  \item Lines Of Code Per Method (numero di linee di codice
+  per metodo): con valore max=\bo{40};
+  \item Block Depth (grado di annidamento per metodo): con valore max=\bo{4};
+  \item Cyclomatic Complexity (complessit\`a ciclomatica): con valore max=\bo{10}.
 \end{itemize}
 Questo tool permette di evidenziare eventuali package o classi che
 potrebbero essere particolarmente complicati, o scritti in modo confuso.
@@ -2162,6 +2172,93 @@ raggiungere gli obiettivi di alta leggibilit\`a e manutenibilit\`a, oltre ad un
 alto potenziale di riuso.
 
 \subsection{Verifica sulla Codifica}
+
+\subsubsection*{Correttezza delle convenzioni e dello stile}
+Dopo aver utilizzato il tool CheckStyle configurato con le norme descritte in
+\emph{NormeDiProgetto-\versionenormeprogetto.pdf}, sono state rilevate delle non
+conformit\`a allo stile come nomenclature di variabili e costanti non
+rispettate, spazi sbagliati e commenti per i JavaDoc non presenti.
+Sono stati comunicati ai programmatori e risolti. Successivamente i verificatori
+hanno fatto una seconda verifica riutilizzando gli stessi strumenti e l'esito
+\`e stato che il codice \`e conforme alle norme decise. Quindi sono state
+rispettate tutte le convenzioni adottate.
+
+\subsubsection*{Stabilit\`a}
+Dopo aver utilizzato sia lo strumento FindBugs sia lo strumento PMD \& CPD, gli
+errori pi\`u comuni riscontrati, anche se non in quantit\`a allarmante, sono
+stati: cast inutili, utilizzo di stringhe al posto di char quando possibile
+e confronti di uguaglianza booleani inutili. Sono stati
+comunicati ai programmatori e risolti. Successivamente i verificatori hanno
+fatto una seconda verifica riutilizzando gli stessi strumenti e l'esito \`e
+stato che non sono pi\`u presenti errori o elementi inutili nel codice. 
+Dall'analisi della duplicazione del
+codice invece \`e emerso che non \`e presente molta duplicazione di codice e se
+presente, i livelli si aggirano intorno alle 20 righe, tranne per un pezzo di
+codice di 57 righe in ProfileViewImpl dentro i metodi @UiHandler(``play\_youtube'') e
+@UiHandler(``play''), implementati nello stesso modo poich\'e il
+secondo ha una funzionalit\`a differente ma non ancora codificata. Quindi
+il codice \`e stabile.
+
+\subsubsection*{Controllo delle metriche e degli indicatori sul codice}
+Dopo aver utilizzato il tool CodePro Analytix, i report generali dei valori
+misurati sono:
+
+\begin{itemize}
+    \item \bo{Sistema generale:}
+  \begin{itemize}
+  \item Lines of Code: \bo{5.898};
+  \item Number of Types: \bo{162} (23 interfacce, 139 classi);
+  \item Afferent Couplings: \bo{0};
+  \item Efferent Couplings: \bo{77};
+  \item Number of Methods: \bo{703};
+  \item Number of Methods Per Type: media=\bo{4.33}, max=\bo{91};
+  \item Number of Parameters: media=\bo{1.01}, max=\bo{8};
+  \item Lines Of Code Per Method: media=\bo{7.41}, max=\bo{204};
+  \item Block Depth: media=\bo{0.77}, max=\bo{5};
+  \item Cyclomatic Complexity: media=\bo{1.55}, max=\bo{19}.
+  \end{itemize}
+    \item \bo{Applet:}
+  \begin{itemize}
+  \item Lines of Code: \bo{564};
+  \item Number of Types: \bo{4} (4 classi);
+  \item Afferent Couplings: \bo{0};
+  \item Efferent Couplings: \bo{3};
+  \item Number of Methods: \bo{16};
+  \item Number of Methods Per Type: media=\bo{4.00}, max=\bo{7};
+  \item Number of Parameters: media=\bo{1.06}, max=\bo{5};
+  \item Lines Of Code Per Method: media=\bo{27.77}, max=\bo{162};
+  \item Block Depth: media=\bo{1.11}, max=\bo{6};
+  \item Cyclomatic Complexity: media=\bo{12.16}, max=\bo{151}.
+  \end{itemize}
+\end{itemize}  
+
+
+Le violazioni rispetto ai valori di soglia impostati sono:
+
+\begin{itemize}
+     \item \bo{Sistema generale:}
+  \begin{itemize}
+  \item Number of Types: it.unipd.netmus.client.ui con valore=\bo{76};
+  \item Number of Methods Per Type: MyConstants.java con valore=\bo{17.00};
+  \item Number of Methods Per Type: Song.java con valore=\bo{40.00};
+  \item Number of Methods Per Type: UserAccount.java con valore=\bo{32.00};
+  \item Number of Methods Per Type: SongDTO.java con valore=\bo{22.00};
+  \item Number of Methods Per Type: UserDTO.java con valore=\bo{20.00};
+  \item Lines of Code: ProfileViewImpl.java con valore=\bo{1,707};
+  \item Block Depth: LoginGoogleCallbackServlet.java con valore=\bo{5.00};
+  \item Cyclomatic Complexity: Song.java con valore=\bo{1.80}; 
+  \item Cyclomatic Complexity: BCrypt.java con valore=\bo{4.14}.
+  \end{itemize}
+    \item \bo{Applet}:
+  \begin{itemize}
+  \item Lines Of Code Per Method: TranslateXML.java con valore=\bo{47.33};
+  \item Cyclomatic Complexity: DeviceScanner.java con valore=\bo{4.12};
+  \item Cyclomatic Complexity: TranslateXML.java con valore=\bo{30.00}.
+  \end{itemize}
+\end{itemize}
+
+
+
 
 \section{Dettaglio delle verifiche tramite prove (test)}
 Qui di seguito illustriamo i risultati dei test precedentemente trattati.
