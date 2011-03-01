@@ -2237,13 +2237,16 @@ Dal risultato dei valori sopra riportati si evince che la complessit\`a
 ciclomatica per il sistema generale ha come valore medio 1.55 su 703
 metodi e questo \`e un buon risultato, mentre per l'applet ha come valore medio
 12.16 su 16 metodi e questo gi\`a viola il valore massimo impostato uguale a 10.
-\\\\
-Il livello di annidamento medio per il sistema generale \`e 0.77, mentre per
-l'applet \`e 1.11. Questo significa che si \`e cercato di mantenere un
-architettura non troppo complessa.
-\\\\
-Il numero medio di metodi per classe e interfaccia per il sistema generale \`e
-4.33, mentre per l'applet \`e 4.00. Entrambi i risultati son buoni perch\'e
+L'ultimo risultato \`e dovuto al fatto che per mantenere un'alta velocit\`a di
+esecuzione dell'applet che \`e la componente di estrazione delle informazioni,
+\`e stato deciso di suddividerla in pochi sotto-metodi. 
+\\\\ 
+Il livello di
+annidamento medio per il sistema generale \`e 0.77, mentre per l'applet \`e
+1.11. Questo significa che si \`e cercato di mantenere un'architettura pi\`u
+semplice possibile evitando troppi annidamenti. 
+\\\\ Il numero medio di metodi
+per classe e interfaccia per il sistema generale \`e 4.33, mentre per l'applet \`e 4.00. Entrambi i risultati son buoni perch\'e
 essendo dei valori contenuti, significa che le responsabilit\`a e i compiti per
 ogni classe/interfaccia son stati divisi il pi\`u possibile per cercare un alto
 livello di coesione, e si possono vedere nelle figure sottostanti A.1 e A.2.
