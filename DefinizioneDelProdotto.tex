@@ -193,10 +193,11 @@ architetturali con una breve descrizione.
   (indirettamente) all'utente con una piccola interfaccia grafica di GWT
   presente quando l'utente e' loggato, da cui \`e possibile
   attivarla e disattivarla, e dare altri comandi relativi la scansione.\\ Le
-  informazioni reperite nel filesystem sono trasferite a GWT tramite file XML.
+  informazioni reperite nel filesystem sono trasferite a GWT tramite file
+  \underline{XML}.
   
-  \item \bo{Twig-Persist} : Per la gestione della persistenza e quindi del
-  Datastore abbiamo deciso di utilizzate il framework Twig-Persist poich\'e
+  \item \bo{\underline{Twig-Persist}} : Per la gestione della persistenza e
+  quindi del Datastore abbiamo deciso di utilizzate il framework Twig-Persist poich\'e
   fornisce una libreria molto efficace e facilmente configurabile
   rispetto a JDO. Un altro vantaggio acquisito dall'utilizzo di questa
   tecnologia \`e quello di poter gestire in modo asincrono (parallelo) le
@@ -204,7 +205,7 @@ architetturali con una breve descrizione.
   nelle componenti di persistenza DAO \co{UserAccount}, \co{Song} e
   \co{MusicLibrary} e nella classe singleton \co{ODF} (Object Datastore
   Factory). Quest'ultima \`e stata inserita nel package \emph{server.persistent}
-  per garantire un migliore information hiding. \\
+  per garantire un migliore \underline{information hiding}. \\
   La versione utilizzata del framework \`e l'ultima rilasciata: Twig-Persist 2.0
   Beta 4.
   
@@ -737,8 +738,8 @@ implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
   \item public void sendLogin(in String, in String) throws  LoginException
   : invia al server i dati di login inseriti
   dall'utente. Viene inviata la richiesta di verifica del login con i dati
-  presenti nel Datastore tramite una chiamata asincrona ad un metodo di
-  \co{LoginService}. La chiamata RPC pu\`o lanciare eventi di tipo
+  presenti nel Datastore tramite una \underline{chiamata asincrona} ad un metodo
+  di \co{LoginService}. La chiamata RPC pu\`o lanciare eventi di tipo
   \co{LoginException}.
   \item public void sendGoogleLogin(in String, in String)
   throws LoginException : apre una pagina del sistema che richiama la servlet
@@ -3107,8 +3108,8 @@ dell' \co{ObjectDatastore}.\\\hline
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{UserAccount} utilizza il design pattern DAO poich\'e contiene tutte le
 informazioni relative ad un utente cos\`i come viene salvato all'interno del
-Datastore. La classe \`e implementata come POJO poich\'e twig-persist lo
-supporta senza bisogno di configurazioni aggiuntive. Vengono usate solamente
+Datastore. La classe \`e implementata come \underline{POJO} poich\'e
+twig-persist lo supporta senza bisogno di configurazioni aggiuntive. Vengono usate solamente
 le annotazioni \emph{@Key} e \emph{@Index} per gestire l'indicizzazione
 degli oggetti nel datastore.\\
 \subsubsection*{Relazioni d'uso di altre componenti} La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione
@@ -3137,7 +3138,7 @@ utente del sistema NetMus.
  dell'utente e nello stesso tempo la sua e-mail (valida). Viene
  impiegato come chiave dell'entit\`a nel Datastore.\\\hline
  - password\_hash: String & Contiene l'hash della password dell'utente ottenuto
-  utilizzando l'algoritmo BCrypt.\\\hline
+  utilizzando l'algoritmo \underline{BCrypt}.\\\hline
  - nick\_name: String & Nickname di un utente visibile anche agli
  altri.\\\hline - first\_name: String & Nome proprio dell'utente.\\\hline
  - last\_name: String & Cognome dell'utente.\\\hline
@@ -3670,8 +3671,8 @@ Varie.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe ci permette di utilizzare le API \emph{lastfm-java} all'interno la
 piattaforma Google App Engine. Tali librerie ci servono per poter fare
-interrogazioni alle API di Last.fm in maniera semplice, pi\`u ad alto livello
-del doversi implementare una servlet. Queste librerie per\`o necessitano di una
+interrogazioni alle API di \underline{Last.fm} in maniera semplice, pi\`u ad
+alto livello del doversi implementare una servlet. Queste librerie per\`o necessitano di una
 cache che di default \`e la home del client. In GAE, poich\'e non \`e possibile
 accedere al file system del client, \`e necessario modificare con questa classe
 \co{AppEngineCache} la destinazione di caching delle librerie, andando ad
