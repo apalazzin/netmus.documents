@@ -74,7 +74,7 @@ e client.applet e riformattati diagrammi nel documento.\\
 21/02/2011 & 0.16 & Caputo Cosimo & Aggiunti diagrammi delle classi per il
 package server e i relativi sotto-package.\\
 \hline
-21/02/2011 & 0.15 & Palazzin Alberto & Aggiunti i capitoli relitivi al package
+21/02/2011 & 0.15 & Palazzin Alberto & Aggiunti i capitoli relativi al package
 \emph{client.mvp}.\\
 \hline
 19/02/2011 & 0.14 & Baron Federico & Assegnazione nuovi codici per le componenti
@@ -188,12 +188,12 @@ specifica delle componenti, elenchiamo di seguito queste importanti decisioni
 architetturali con una breve descrizione.
 \begin{itemize}
   \item \bo{Applet} : la componente di recupero delle informazioni (C2) risiede
-  in una applet \\Java precompilata indipendente da GWT ed \`e integrata con
+  in una applet\\Java precompilata indipendente da GWT ed \`e integrata con
   quest'ultimo grazie ai metodi nativi JSNI. L'applet \`e inoltre visibile
   (indirettamente) all'utente con una piccola interfaccia grafica di GWT
   presente quando l'utente e' loggato, da cui \`e possibile
   attivarla e disattivarla, e dare altri comandi relativi la scansione.\\ Le
-  informazioni reperite nel file system sono trasferite a GWT tramite file XML.
+  informazioni reperite nel filesystem sono trasferite a GWT tramite file XML.
   
   \item \bo{Twig-Persist} : Per la gestione della persistenza e quindi del
   Datastore abbiamo deciso di utilizzate il framework Twig-Persist poich\'e
@@ -547,7 +547,7 @@ La classe \co{Netmus} utilizza le classi \co{ClientFactory},
 Nessuna.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 \co{Netmus} praticamente si occupa di avviare il sistema e portare l'utente alla
-pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
+pagina iniziale di Login o, se gi\`a autenticato, alla sua pagina Profilo.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -1136,7 +1136,7 @@ chiudere la finestra delle informazioni sull'account.\\\hline
 @UiField edit\_profile\_checkImg: Image & Rappresenta l'immagine di
 conferma per il salvataggio dei dati all'interno della finestra per
 gestire le informazioni sull'account.\\\hline
-@UiField edit\_profile\_check: Button & Rappresenta il botton per il
+@UiField edit\_profile\_check: Button & Rappresenta il bottone per il
 salvataggio dei dati personali all'interno della finestra informazioni
 dell'account.\\\hline
 @UiField edit\_profile\_vc: VerticalPanel & Rappresenta una componente di layout
@@ -1349,7 +1349,7 @@ interno alla \co{LoginView} rappresentando quindi il collegamento tra la parte
 grafica presente nel client ed il modello che risiede nel server.
 \subsubsection*{Relazioni d'uso di altre componenti} Invoca i servizi
 asincroni di autenticazione forniti da \co{LoginService}.\\ Si occupa di
-recuperare i dati da \co{LoginPLace} e trasferirli alla \co{LoginView}. 
+recuperare i dati da \co{LoginPlace} e trasferirli alla \co{LoginView}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti} 
 Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
 un Place di tipo \co{LoginPlace}.
@@ -2083,7 +2083,7 @@ fondamentali presenti all'interno del package
 Questo package conterr\`a le classi necessarie a gestire richieste e segnali
 provenienti dalla applet precompilata, che andremo ad inserire nel programma.
 Tale applet avr\`a la funzione di effettuare la scansione e l'estrazione
-automatica dei tag dei file musicali Mp3, presenti nei dispositivi di
+automatica dei tag dei file musicali mp3, presenti nei dispositivi di
 archiviazione di massa che vengono collegati alla macchina dell'utente.\\
 Per comunicare con tale applet sono state valutate due possibili metodologie
 d'implementazione: l'uso di una libreria che crea un sistema proxy tra la applet
