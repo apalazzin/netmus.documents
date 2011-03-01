@@ -99,22 +99,129 @@ computing.\\
 libreria virtuale online con tutte le canzoni che si ascoltano abitualmente, in modo da
 poterle ascoltare ovunque ci si trovi, e condividerle con altri utenti.\\
 
-\`E molto facile da utilizzare, basta collegare il proprio lettore mp3 e
-lasciarlo lavorare in automatico, oppure indicargli in che cartella si tengono
-le canzoni: tutte le infomazioni verranno estratte, analizzate, completate e
+Oltre alla comodit\`a di poter accedere alla propria libreria musicale, il
+sistema \co{NetMus} svolge il ruolo anche da semplice ``social network'' che
+permette di interagire con gli altri utenti iscritti. \`E quindi possibile
+visualizzare e riprodurre i cataloghi multimediali degli altri utenti, oltre che
+creare una lista di amici con qualunque utente si voglia.\\
+
+Il prodotto \`e molto facile da utilizzare, una volta effettuato l'accesso
+a \co{NetMus} basta collegare il proprio lettore mp3 e lasciarlo lavorare in
+automatico, oppure indicargli in che cartella si tengono le canzoni: tutte le 
+infomazioni verranno estratte, analizzate, completate e
 inserite nel nostro profilo, pronte per essere utilizzate.\\
 
 Tra le possibilit\`a offerte, troviamo sia lo streaming audio che quello
 video, il completamento automatico delle informazioni dei brani, le playlist, e
-molto altro.
+molto altro.\\
+
+Il tutto \`e implementato con un'interfaccia grafica molto semplice che fornisce
+tutte le funzionalit\`a necessarie, ma nonostante la sua semplicit\`a ha
+un'impatto visivo notevole.
 \chapter{Istruzioni per l'uso}
 \thispagestyle{fancy}
 
 \section{Descrizione funzionale}
 
+\subsection{Registrazione a NetMus}
+
+Per iniziare ad utilizzare NetMus collegarsi all'indirizzo
+http://netmus2.appspot.com . \\
+Qui vi verr\`a presentata la pagina di login per
+accedere al sistema. Se possedete gi\`a un account Google, potete loggarvi
+direttamente con i dati dell'account di Google, dato che il sistema permette
+l'accesso anche con questo account. Se invece non siete utenti Google e questo
+\`e il primo accesso, \`e necessario che vi registriate al sistema. La
+registrazione cos\`i come l'utlizzo del sistema \co{NetMus} sono completamente
+gratuiti.\\ 
+La registrazione richiede un' email valida e una password di lunghezza maggiore
+di 5 caratteri. Vi verr\`a inviata una mail all'indirizzo indicato che richiede
+conferma per l'attivazione dell'account.\\
+Una volta attivato il vostro account, avrete libero accesso al sistema
+\co{NetMus}.
+
+\subsection{Primo accesso a NetMus}
+
+Al vostro primo accesso al sistema, l'interfaccia che vi verr\`a presentata
+sar\`a strutturata in questo modo.\\
+Un men\`u a sinistra presenta il logo del sistema, la mail con cui siete
+registrati che viene utilizzato come vostro nickname, e il numero di brani
+presente nel vostro catalogo, che sar\`a impostato a zero. Questo \`e il men\`u
+delle playlist, infatti qui verranno visualizzate tutte le vostre playlist
+create e permette di crearne di nuove cliccando il tasto ``+'' presente.\\
+\\
+La sezione centrale dell'interfaccia \`e la pi\`u importante, \`e infatti il
+nostro catalogo multimediale con player annesso e tasti per svariate azioni.\\
+\\
+All'estrema sinistra della pagina \`e presenta la barra per la scannerizzazione
+dei dispositivi di archiviazione di massa, chiamata pi\`u semplicemente ``DEVICE
+SCANNER BAR''. Tale barra \`e visibile nella sua completezza solo al passaggio
+sopra di essa del mouse. La barra permette la scansione manuale e la
+visualizzare l'avanzamento dell'analisi ed estrazione automatica o manuale dei
+file mp3 da un dispositivo o una diretory selezionata.
+
+\subsection{Iniziare ad utilizzare NetMus}
+
+Per poter inziare da subito a sfruttare la capacit\`a principale di \co{NetMus},
+ossia quella di libreria musicale, \`e necessario inserire un dispositivo di
+archiviazione di massa nella porta USB del proprio PC.\\
+In alternativa \`e possibile scannerizzare qualunque directory del proprio PC
+selezionandola cliccando il tasto ``Scan Folder'' per la scannerizzazione
+manuale.\\
+Quando parte l'analisi, nella DEVICE SCANNER BAR viene visualizzato
+l'avanzamento del processo, che mostra il numero di file analizzati fino al
+messaggio ``Sending Done'' che indica che i file sono stati inviati alla
+libreria musicale.\\
+A questo punto una volta inviati, i file dovrebbero comparire sul catalogo
+multimediale.\\
+A questo punto \`e possibile inziare a sbizzarrirsi con le funzionalit\`a di
+netmus. Le funzionalit\`a per comodit\`a di impostazione visiva e sopratutto di
+ricerca, vengono elencate in sottoparagrafi.
+
+\subparagraph{Ascoltare una canzone in streaming}
+Come prima funzionalit\`a inseriamo la descrizione di quella pi\`u interessante
+del nostro prodotto, ossia la riproduzione delle tracce in streaming.\\
+Per riprodurre una qualsiasi canzone del proprio catalogo, basta selezionarla
+nel catalogo, quindi cliccare sul tasto play del player in alto, o del player
+YouTube in basso.\\ 
+Di fatto l'operazione svolta dai due player \`e la stessa, ma
+si differenziano per il fatto che il player superiore permette riproduzione,
+pausa, passaggio al brano precedente e successivo del catalogo, mentre il player
+inferiore si trasforma in un riproduttore di video in streaming, in cui viene
+riprodotto il video musicale della canzone trovato da youtube.
+
+\subparagraph{Creare Playlist}
+La creazione di una playlist \`e un'operazione molto semplice e molto comoda per
+poter avere una sequenza delle canzoni preferite.\\
+Per creare una playlist basta cliccare sul tasto ``+'' nel men\`u a sinistra di
+fianco alla voce ``PLAYLIST''. Subito sotto comparir\`a una line edit in cui
+inserire il titolo della playlist. Una volta inserito il titolo e premuto invio,
+la playlist sar\`a stat creata.\\
+Ora non resta che inserire i brani all'interno della propria playlist per
+ottenere la sequenza di canzoni desiderata. Per fare ci\`o basta cliccare sul
+nome della playlist, si aprir\`a una finestrella (vuota per il momento) in cui
+saranno presenti tutti i brani della playlst. Per inserire un brano basta
+selezionarlo e successivamente cliccare nella finestrella della playlist il
+simbolo ``+" verde.\\
+La rimozione di un brano avviene in modo analogo; basta selezionare
+nell'elenco dei brani della playlist il brano da rimuovere e successivamente
+cliccare il simbolo ``-'' rosso.\\
+Da notare che all'interno della finestrella con l'elenco dei brani della
+playlist, una volta selezionato un brano dal catalogo multimediale o dalla
+playlist le azioni di aggiunta di un brano sono scritte in verde, le azioni di
+rimozione di un brano in rosso.
+
+
 \section{Azioni richieste/permesse}
 
 \section{Errori probabili e cause possibili}
+
+\subparagraph{Il dispositivo USB non viene analizzato}
+\begin{itemize}
+  \item controllare che la DEVICE SCANNER BAR non sia disabilitata. La DEVICE
+  SCANNER BAR \`e disabilitata quando nell'angolo in basso vi \`e la scritta
+  verde ``Enable''.
+\end{itemize}
 
 
 \appendix % inizio appendice
