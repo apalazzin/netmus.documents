@@ -558,9 +558,13 @@ pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
 \hline
 \endfoot
 \endlastfoot
-- default\_place: Place & ---.\\\hline
-- app\_widget: SimplePanel & ---.\\\hline
-- login\_service\_svc: LoginService Async & ---.\\\hline 
+- default\_place: Place &  Primo Place istanziato, avvia la
+\co{LoginActivity}.\\\hline
+- app\_widget: SimplePanel & Primo widget aggiunto al \co{RootPanel}
+costituisce il corpo della pagina di login\\\hline
+ - login\_service\_svc: LoginService Async & Inizializza l'interfaccia
+ asincrona tramite Dynamic loading utilizzando il metodo \co{create()
+ per permettere la comunicazione RPC con il server}.\\\hline
 \caption{Campi dati di Netmus}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -573,8 +577,12 @@ pagina iniziale di Login o, se gi\`a loggato, alla sua pagina Profilo.
 \hline
 \endfoot
 \endlastfoot
-+ onModuleLoad() & ---.\\\hline 
-+ startNetmus() &  ---.\\\hline
++ onModuleLoad() & \`E il metodo d'ingresso dell'applicazione, chiamato
+automaticamente caricando un modulo che istanzia l'implementazione
+dell'interfaccia EntryPoint .\\\hline
+ + startNetmus() & Istanzia e inizializza i principali moduli
+ dell'applicazione, quali \co{ClientFactory}, \co{ActivityMapper},
+ \co{PlaceHistoryMapper} e \co{RootPanel}.\\\hline
 \caption{Metodi di Netmus}
 \end{longtable}
 
@@ -620,10 +628,13 @@ l'utente prima del passaggio ad uno stato differente.
 \hline
 \endfoot
 \endlastfoot
-- event\_bus: EventBus \emph{static final} & ---.\\\hline
-- place\_controller: PlaceController \emph{static final} & ---.\\\hline
-- login\_view: LoginView \emph{static final} & ---.\\\hline 
-- profile\_view: ProfileView \emph{static final} & ---.\\\hline 
+- event\_bus: EventBus \emph{static final} & Gestore del flusso degli
+eventi.
+\\\hline - place\_controller: PlaceController \emph{static final} & Classe del
+framework GWT Activity and Place che gestisce automaticamente i Place.\\\hline
+ - login\_view: LoginView \emph{static final} & Interfaccia
+pubblica di Login.\\\hline - profile\_view: ProfileView \emph{static final} &  Interfaccia pubblica di
+Login.\\\hline 
 \caption{Campi dati di ClientFactoryImpl}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
