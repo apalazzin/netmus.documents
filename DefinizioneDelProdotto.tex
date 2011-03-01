@@ -563,10 +563,12 @@ pagina iniziale di Login o, se gi\`a autenticato, alla sua pagina Profilo.
 - app\_widget: SimplePanel & Primo widget aggiunto al \co{RootPanel}
 costituisce il corpo della pagina di login\\\hline
  - login\_service\_svc: LoginService Async & Inizializza l'interfaccia
- asincrona tramite Dynamic loading utilizzando il metodo \co{create()
- per permettere la comunicazione RPC con il server}.\\\hline
+ asincrona tramite Dynamic loading utilizzando il metodo \co{create()}
+ per permettere la comunicazione RPC con il server.\\\hline
 \caption{Campi dati di Netmus}
 \end{longtable}
+
+\newpage
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
@@ -629,12 +631,13 @@ l'utente prima del passaggio ad uno stato differente.
 \endfoot
 \endlastfoot
 - event\_bus: EventBus \emph{static final} & Gestore del flusso degli
-eventi.
-\\\hline - place\_controller: PlaceController \emph{static final} & Classe del
+eventi.\\\hline
+- place\_controller: PlaceController \emph{static final} & Classe del
 framework GWT Activity and Place che gestisce automaticamente i Place.\\\hline
- - login\_view: LoginView \emph{static final} & Interfaccia
-pubblica di Login.\\\hline - profile\_view: ProfileView \emph{static final} &  Interfaccia pubblica di
-Login.\\\hline 
+- login\_view: LoginView \emph{static final} & Interfaccia
+pubblica di Login.\\\hline
+- profile\_view: ProfileView \emph{static final} &  Interfaccia pubblica di
+Profile.\\\hline 
 \caption{Campi dati di ClientFactoryImpl}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
