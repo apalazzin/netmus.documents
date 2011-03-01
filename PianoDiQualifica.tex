@@ -937,7 +937,7 @@ delle playlist e che vengano correttamente inserite nella view\\
 \textbf{Aspettative}: anche con una notevole quantit\`a di playlist,
 l'estrazione e il passaggio dei dati alla view non dovrebbe dare errori\\
 
-\textbf{metodo}: setFirendList/getFriendList\\
+\textbf{metodo}: setFriendList/getFriendList\\
 \textbf{Obbiettivo del Test}: verificare la lettura dal DB della lista di amici di un
 utente, e verificare la corretta importazione e visualizzazione sulla view\\
 \textbf{Strategia}: nel DB locale viene inserita una lista di amici
@@ -2165,6 +2165,8 @@ alto potenziale di riuso.
 \subsection{Verifica sulla Codifica}
 
 \section{Dettaglio delle verifiche tramite prove (test)}
+Qui di seguito illustriamo i risultati dei test precedentemente trattati.
+\subsection{Test di unit\`a}
 \begin{itemize}
     
   \item TU-Cclac2: ProfileActivity\\
@@ -2265,9 +2267,53 @@ alto potenziale di riuso.
   casi esito positivo, ad esclusione di un unico metodo che presenta evidenti
   problemi di codifica. Ricordiamo che le funzionalit\`a testate dei metodi finora 
   sono state solamente quelle basilari.
-  
-\end{itemize}
+\end{itemize}  
 
+Come si pu\`o chiaramente notare dagli esiti dei test sopra elencati, le prove
+finora programmate e verificate hanno avuto per la maggior parte dei
+casi esito positivo, ad esclusione di un unico metodo che presenta evidenti
+problemi di codifica. Ricordiamo che le funzionalit\`a testate dei metodi finora 
+sono state solamente quelle basilari.
+  
+\subsection{Test di integrazione}
+
+\begin{itemize}
+  \item TI-se1\\
+  \textbf{esito del test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TI-se2\\
+  \textbf{esito del test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TI-cl1\\
+  \textbf{esito del primo test}: fallito: i dettagli del brano non sono
+  corretti\\ 
+  \textbf{malfunzionamenti rilevati}: c'\`e un errore nella gestione degli
+  eventi riguardanti le celle dei brani, che porta a richieste di dettagli di
+  altri brani invece che di quelli realmente voluti\\
+  \textbf{esito del secondo test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TI-cl2\\
+  \textbf{esito del test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TI-gl1\\
+  \textbf{esito del test}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+\end{itemize}
+Come si pu\`o notare, solo uno di questi ha inizialmente evidenziato un
+problema, che \`e stato risolto (come si pu\`o vedere con la prova successiva).
+Tutti i test in cui \`e coinvolta la classe \co{TranslateDTOXML} evitano di
+utilizzare caratteri che esulano dalla codifica ISO-8859-1: questo problema \`e
+gi\`a stato evidenziato dai test di unit\`a e la sua evidenziazione esula dallo
+scopo di queste prove.
 
 
 \section{Dettaglio dell'esito delle revisioni}
@@ -2370,22 +2416,42 @@ informazioni dettagliate sul ticket corrispondente riferirsi al link
 \end{figure}
 
 \newpage
-I test di valutazione compilati in questa fase sono stati 22 e mostrano che
+I test di valutazione compilati in questa fase sono stati 28 e mostrano che
 per:
 \begin{itemize}
   \item il lavoro svolto, i membri del gruppo sono abbastanza
-  soddisfatti (media voto 7.4);
+  soddisfatti (media voto 7.2);
   \item l'iterazione con gli altri, i membri del gruppo sono soddisfatti
-  (media voto 8);
+  (media voto 7.4);
   \item gli strumenti utilizzati, i membri del gruppo
-  sono molto soddisfatti (media voto 8.4);
+  sono abbastanza soddisfatti (media voto 7.2);
   \item il tempo impiegato, i membri del gruppo
-  sono abbastanza soddisfatti (media voto 8).\\
+  sono sufficientemente soddisfatti (media voto 6.9).\\
 \end{itemize}
 
 Questi risultati verranno confrontati con le valutazioni che si riceveranno
-nella revisione RP e potranno fornire interessanti spunti su come correggere o
+nella revisione RQ e potranno fornire interessanti spunti su come correggere o
 rafforzare il metodo di lavoro.
+
+\subsubsection*{Conclusioni in relazione alle varie revisioni}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=5cm]{img/PQ/RiassuntoFeedback.png}
+\caption{Medie dei feedback processo di lavoro per ogni revisione}
+\end{figure}
+
+Considerando l'esito della revisione RP e le
+valutazioni espresse nelle soddisfazioni dei processi di lavoro in quella
+fase, si pu\`o dedurre che il gruppo ha lavorato bene, che \`e stato soddisfatto
+del materiale prodotto e che la qualit\`a dei propri metodi di lavoro \`e stata
+buona. \\ \\ 
+Dalla figura A.5 si nota che il grado di soddisfazione generale tra la revisione
+RP e la revisione RQ \`e calato di qualche punto e lo si pu\`o ricondurre al
+fatto che in questa fase il gruppo si \`e fatto carico di un'ulteriore
+revisione interna (``Progettazione nel dettaglio'') e il proprio livello di
+stress \`e aumentato ulteriormente.
+
 
 \chapter{Tabella per la verifica dei documenti}
 
