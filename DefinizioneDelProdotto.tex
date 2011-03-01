@@ -5,7 +5,7 @@
 \newcommand{\versionespecifica}{2.0}
 \newcommand{\nomefile}{DefinizioneDelProdotto-\versione.pdf}
 \newcommand{\datacreazione}{3 Febbraio 2011}
-\newcommand{\datamodifica}{23 Febbraio 2011}
+\newcommand{\datamodifica}{25 Febbraio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{---}
@@ -48,11 +48,11 @@ relativa codifica, delle quali verr\`a allegato il codice sorgente.
 \hline
 \endfoot
 
-27/02/2011 & 0.25 & Palazzin Alberto & Correzione errori grammaticali.\\
+25/02/2011 & 0.25 & Palazzin Alberto & Correzione errori grammaticali.\\
 \hline
 25/02/2011 & 0.24 & Mandolo Andrea & Inserite le tabelle di ProfileActivity.\\
 \hline
-25/02/2011 & 0.23 & Palazzin Alberto & Aggiunta la descrizione e le tabelle
+24/02/2011 & 0.23 & Palazzin Alberto & Aggiunta la descrizione e le tabelle
 del package client.mvp.\\
 \hline
 24/02/2011 & 0.22 & Baron Federico & Aggiunta la descrizione e le tabelle
@@ -62,7 +62,7 @@ delle classi ProfilePlace e FieldVerifier.\\
 delle classi SongDTO e SongSummaryDTO.\\
 \hline
 23/02/2011 & 0.20 & Caputo Cosimo & Aggiunti i diagrammi UML di sequenza
-che descrivono il salvataggio delle nuove canzoni nel Datastore e il caricamento della ProfileView.\\
+che descrivono il salvataggio delle nuove canzoni nel DataStore e il caricamento della ProfileView.\\
 \hline
 22/02/2011 & 0.19 & Mandolo Andrea & Aggiunto package server.youtube.\\
 \hline
@@ -162,7 +162,7 @@ progettazione architetturale del sistema si basa sui seguenti principi:
 
 \section{Standard di documentazione del codice}
 Per le regole di documentazione del codice si faccia riferimento al documento
-interno \emph{NormeDiProgetto-\versionenormeprogetto.pdf} in allegato.
+interno\\ \emph{NormeDiProgetto-\versionenormeprogetto.pdf} in allegato.
 
 \section{Standard di denominazione di entit\`a e relazioni}
 Per quanto riguarda le norme per la nomenclatura delle varie entit\`a e delle
@@ -196,13 +196,13 @@ architetturali con una breve descrizione.
   informazioni reperite nel filesystem sono trasferite a GWT tramite file XML.
   
   \item \bo{Twig-Persist} : Per la gestione della persistenza e quindi del
-  Datastore abbiamo deciso di utilizzate il framework Twig-Persist poich\'e
+  DataStore abbiamo deciso di utilizzate il framework Twig-Persist poich\'e
   fornisce una libreria molto efficace e facilmente configurabile
   rispetto a JDO. Un altro vantaggio acquisito dall'utilizzo di questa
   tecnologia \`e quello di poter gestire in modo asincrono (parallelo) le
-  operazioni sul Datastore. Questo framework si interfaccia al sistema NetMus
+  operazioni sul DataStore. Questo framework si interfaccia al sistema NetMus
   nelle componenti di persistenza DAO \co{UserAccount}, \co{Song} e
-  \co{MusicLibrary} e nella classe singleton \co{ODF} (Object Datastore
+  \co{MusicLibrary} e nella classe singleton \co{ODF} (Object DataStore
   Factory). Quest'ultima \`e stata inserita nel package \emph{server.persistent}
   per garantire un migliore information hiding. \\
   La versione utilizzata del framework \`e l'ultima rilasciata: Twig-Persist 2.0
@@ -474,7 +474,7 @@ fondamentali presenti all'interno del package client.}
 
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1 Web Application Netmus
+	\item C1FN-1 Web Application NetMus
 	\item C1QN-2.6 Manutenibilit\`a
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
@@ -515,7 +515,7 @@ Il package \emph{client} rappresenta la parte del sistema con la quale l'utente
 pu\`o interagire. Tutte le sue classi ed i suoi sottopackage saranno compilati in
 JavaScript da GWT, prima che il sistema venga depositato nel dominio
 \emph{appspot.com} di Google. Contiene la classe \underline{Entry Point}
-\co{Netmus}.
+\co{NetMus}.
 \subsection*{Relazioni d'uso di altre componenti}
 Il package \emph{client} utilizza i DTO nel package \emph{shared}.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -523,10 +523,10 @@ Nessuna.
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
-\subsection{Classe Netmus}
+\subsection{Classe NetMus}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1 Web Application Netmus
+	\item C1FN-1 Web Application NetMus
 	\item C1VN-1.12 Deve utilizzare tecnologie GAE e GWT
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
@@ -582,7 +582,7 @@ pagina iniziale di Login o, se gi\`a autenticato, alla sua pagina Profilo.
 \subsection{Classe ClientFactoryImpl (\emph{Abstract Factory})}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1 Web Application Netmus
+    \item C1FN-1 Web Application NetMus
     \item C1QO-2.1 Accessibilit\`a
     \item C1QN-2.3 Portabilit\`a
     \item C1QN-2.6 Manutenibilit\`a
@@ -592,7 +592,7 @@ pagina iniziale di Login o, se gi\`a autenticato, alla sua pagina Profilo.
 	\item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-In Netmus \`e disponibile un'unica implementazione dell'interfaccia
+In NetMus \`e disponibile un'unica implementazione dell'interfaccia
 \co{ClientFactory}, poich\'e per il momento la portabilit\`a richiesta per i
 principali browser in circolazione \`e gi\`a soddisfatta e non verranno
 implementate interfacce alternative. Nella classe si definiscono
@@ -647,7 +647,7 @@ classe hanno i relativi metodi \emph{get}.\\\hline
 \section{Package client.ui} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-	\item C1FN-1 Web Application Netmus
+	\item C1FN-1 Web Application NetMus
 	\item C1FN-1.1 Grafica simile ad iTunes
 	\item C1QN-2.3 Portabilit\`a
 	\item C1QN-2 Utilizzo
@@ -726,7 +726,7 @@ implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
   \item public void sendLogin(in String, in String) throws  LoginException
   : invia al server i dati di login inseriti
   dall'utente. Viene inviata la richiesta di verifica del login con i dati
-  presenti nel Datastore tramite una chiamata asincrona ad un metodo di
+  presenti nel DataStore tramite una chiamata asincrona ad un metodo di
   \co{LoginService}. La chiamata RPC pu\`o lanciare eventi di tipo
   \co{LoginException}.
   \item public void sendGoogleLogin(in String, in String)
@@ -752,7 +752,7 @@ per la gestione del multi-lingua.
 viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
 \co{LoginActivity}. 
 \subsubsection*{Attivit\`a svolte e dati trattati} La classe permette all'utente
-di scegliere se effettuare il login tramite Netmus o Google oppure la
+di scegliere se effettuare il login tramite NetMus o Google oppure la
 registrazione attraverso un'interfaccia grafica accattivante e di semplice utilizzo, contiene una form
 per l'inserimento password e nome utente e pu\`o visualizzare warning se i dati
 inseriti non sono corretti. \\
@@ -832,7 +832,7 @@ login.\\\hline
 avviato quando l'utente seleziona Google come tipologia di login e
 aggiorna l'attributo \co{type}. \\\hline @UiHandler(``check\_netmus'')
 handleClickNetmus(in ClickEvent) & Viene
-avviato quando l'utente seleziona Netmus come tipologia di login e
+avviato quando l'utente seleziona NetMus come tipologia di login e
 aggiorna l'attributo \co{type}.\\\hline
 \caption{Metodi di LoginView}
 \end{longtable}
@@ -890,7 +890,7 @@ I metodi in questione sono:
     \item void setPlaylistList(): imposta la lista dei
     titoli delle singole playlist dell'utente create precedentemente.
     \item void setFriendList(): imposta la lista degli
-    utenti affini su Netmus all'utente impostato precedentemente.
+    utenti affini su NetMus all'utente impostato precedentemente.
     \item void setSongInfo(): imposta il titolo della canzone in
     ascolto.
     \item void setPlaylistSongs(String titoloPlaylist): imposta le canzoni
@@ -1238,7 +1238,7 @@ componenti grafiche definite tramite il relativo template grafico
 \subsubsection*{Dettaglio del caricamento profilo}
 L'insieme delle operazioni che costituiscono il caricamento della pagina profilo
 di un utente registrato (successivamente all'avvenuta autenticazione) sono
-particolarmente rappresentative dei meccanismi generali del sistema Netmus. Esse
+particolarmente rappresentative dei meccanismi generali del sistema NetMus. Esse
 infatti includono le seguenti fondamentali dinamiche:
 \begin{itemize}
   \item Creazione ed esecuzione di un nuovo Place tramite il metodo \co{goTo()};
@@ -1840,7 +1840,7 @@ in base al tipo del place dato in input.\\
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Dichiara e riferisce tutti i places che saranno utilizzati da Netmus.
+Dichiara e riferisce tutti i places che saranno utilizzati da NetMus.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Utilizza i \co{PlaceTokenizer}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -1874,7 +1874,7 @@ di un \co{TokenizerFactory} separato.\\\hline
 \section{Package client.service} % LASCIARE WARNING
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1 Web Application Netmus
+    \item C1FN-1 Web Application NetMus
     \item C1VN-1.11 Deve utilizzare il cloud computing
     \item C1VN-1.12 Deve utilizzare tecnologie GAE e GWT
     \item C1QN-2.6 Manutenibilit\`a
@@ -1939,7 +1939,7 @@ Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
 binding e verr\`a utilizzata da \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per interagire con i brani
-salvati nel Datastore e condivisi da pi\`u utenti. Utilizzer\`a dati di tipo
+salvati nel DataStore e condivisi da pi\`u utenti. Utilizzer\`a dati di tipo
 SongDTO e SongSummaryDTO.\\\\ \underline{I metodi sono presentati nella
 rispettiva classe implementazione descritta nel paragrafo 4.9.1.}
 
@@ -2001,8 +2001,8 @@ descritta nel paragrafo 4.9.2.}
 Questa classe consentir\`a alle componenti Activity di \emph{client} di inviare
 richieste di vario tipo a \emph{server} riguardanti il catalogo musicale utente
 da mostrare nell'interfaccia grafica. Qui vengono definiti molti dei servizi
-principali offerti da Netmus, in particolare l'inserimento di nuove canzoni nel
-Datastore con la chiamata asincrona \emph{sendUserNewMusic}. Le
+principali offerti da NetMus, in particolare l'inserimento di nuove canzoni nel
+DataStore con la chiamata asincrona \emph{sendUserNewMusic}. Le
 funzionalit\`a di gestione delle playlist e delle statistiche del
 catalogo sono interamente racchiuse in questa classe. Sar\`a presente anche
 \co{LibraryServiceAsync}, che gestir\`a il ritorno dai metodi in maniera asincrona. 
@@ -2392,7 +2392,7 @@ della scansione: scansionati m su n.\\\hline
   \centering
   \includegraphics[width=11cm]{img/DP/applet_gwt.png}
 \caption{Diagramma UML che descrive le dipendenze e i meccanismi di
-connessione tra l'applet e le classi Netmus.}
+connessione tra l'applet e le classi NetMus.}
 \end{figure}
 
 
@@ -2445,7 +2445,7 @@ relativi di AppletBar.\\\hline
 \section{Package client.event}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1.1 Web Application Netmus
+    \item C1FN-1.1 Web Application NetMus
     \item C1FN-1.1.1 Brani elencati opportunamente
     \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
@@ -2470,7 +2470,7 @@ qualche procedimento.
 \subsection{Classe DeviceScannedEvent}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1.1 Web Application Netmus
+    \item C1FN-1.1 Web Application NetMus
     \item C1FN-1.1.1 Brani elencati opportunamente
     \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
@@ -2530,7 +2530,7 @@ all'evento.\\\hline \# dispatch(in DeviceScannedEventHandler) & Metodo interno p
 \subsection{Interfaccia DeviceScannedEventHandler}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1.1 Web Application Netmus
+    \item C1FN-1.1 Web Application NetMus
     \item C1FN-1.1.1 Brani elencati opportunamente
     \item C1FN-1.9 Ricezione ed elaborazione dei brani
 \end{itemize}
@@ -2549,8 +2549,8 @@ Nessuna.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Serve per dichiarare i metodi da implementare quando si costruisce un
 \co{EventHandler} per eventi di tipo \co{DeviceScannedEvent}.
-Il questo caso ci sar\`a solamente il metodo \co{onScanDevice(DeviceScannedEvent
-event)}.
+Il questo caso ci sar\`a solamente il metodo\\
+\co{onScanDevice(DeviceScannedEvent event)}.
 
 \begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
 \hline
@@ -2594,7 +2594,7 @@ fondamentali presenti all'interno del package
 Questo package racchiude tutte le classi che collaborano al fine di gestire la
 business logic del sistema, ovvero tutte quelle operazioni che potranno essere
 compiute sui dati raccolti e che quindi interagiscono pesantemente con il
-Datastore. 
+DataStore. 
 \subsection*{Relazioni d'uso di altre componenti}
 Per quanto riguarda l'interfacciamento con il database vengono utilizzati i
 servizi offerti dalle classi DAO presenti in \emph{persistent}. Si fa utilizzo
@@ -2626,7 +2626,7 @@ Questa classe corrisponde all'implementazione del \co{SongsService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}. I metodi statici
 qui definiti permettono le operazioni basilari sulle canzoni presenti nel
 datastore. Le uniche eccezioni che possono causare il fallimento di queste
-operazioni sono gli errori di stato del Datastore \co{IllegalStateException} che
+operazioni sono gli errori di stato del DataStore \co{IllegalStateException} che
 verranno gestire tramite il callback nei metodi di \co{ProfileActivity}.
 \subsubsection*{Relazioni d'uso di altre componenti} Oltre ad utilizzare i DTO
 \co{SongDTO} e \co{SongSummaryDTO}, verranno creati, immagazzinati oppure usati
@@ -2636,7 +2636,7 @@ usata da \co{ProfileActivity} che ne ottiene un'istanza tramite deferred
 binding utilizzando l'interfaccia \co{SongsService}. 
 \subsubsection*{Attivit\`a svolte e
 dati trattati} Implementa le funzionalit\`a di modifica e
-cancellazione di un brano presente nel Datastore. Queste
+cancellazione di un brano presente nel DataStore. Queste
 operazioni agiscono su canzoni condivise da molti utenti e saranno
 quindi utilizzate solo dove strettamente necessario. Ogni metodo ha tra gli
 input l'username dell'utente che richiede l'operazione.
@@ -2653,17 +2653,17 @@ input l'username dell'utente che richiede l'operazione.
 + rateSong(in String,in SongSummaryDTO,in int): double & Assegna la
 votazione compresa tra 1 e 5 alla canzone specificata dal
 \co{SongSummaryDTO}. Dopo aver aggiornato i campi relativi di \co{Song} nel
-Datastore ritorna il valore \emph{double} che rappresenta la nuova media
+DataStore ritorna il valore \emph{double} che rappresenta la nuova media
 tra tutte le votazione effettuate su quella canzone.\\\hline 
 + editSong(in String,in String,in String,in String): boolean & Questo
 metodo permette di assegnare una nuova chiave primaria ad una canzone
 variando almeno uno tra gli attributi \emph{title}, \emph{artist} e
-\emph{album} trasformandola di fatto in un altro brano nel Datastore.
+\emph{album} trasformandola di fatto in un altro brano nel DataStore.
 Sar\`a possibile invocare questo metodo solamente su canzone le cui
 informazioni che formano la chiave primaria sono incomplete.\\\hline 
 + deleteSong(in String,in String,in String,in String): boolean & Rimuove
 la canzone dalla libreria dell'utente. Le canzoni rimosse rimangono nel
-Datastore poich\'e potrebbero contenere informazioni utili per
+DataStore poich\'e potrebbero contenere informazioni utili per
 inserimenti futuri.\\\hline
 \caption{Metodi di SongServiceImpl}
 \end{longtable}
@@ -2698,7 +2698,7 @@ usata da \co{ProfileActivity} che ne ottiene un'istanza tramite deferred
 binding utilizzando l'interfaccia \co{SongsService}.
 \subsubsection*{Attivit\`a svolte e dati trattati} I metodi qui implementati
 forniscono le funzionalit\`a di base quali la ricerca, la modifica e la
-cancellazione di un utente di Netmus ma anche la ricerca di utenti affini.
+cancellazione di un utente di NetMus ma anche la ricerca di utenti affini.
 \begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
@@ -2709,20 +2709,20 @@ cancellazione di un utente di Netmus ma anche la ricerca di utenti affini.
 \hline
 \endfoot
 \endlastfoot
-+ loadProfile(in String): UserCompleteDTO  & Trova nel Datastore
++ loadProfile(in String): UserCompleteDTO  & Trova nel DataStore
 l'utente a cui corrisponde l'username dato in input e ne ritorna le
 informazioni incapsulate in un DTO. Gli utenti di cui viene richiesto il
-caricamento devono essere presenti nel Datastore.\\\hline 
+caricamento devono essere presenti nel DataStore.\\\hline 
 + editProfile(in String,in UserCompleteDTO): boolean & Salva nell'
-\co{UserAccount} del Datastore i dati presenti nell' \co{UserCompleteDTO} dato
+\co{UserAccount} del DataStore i dati presenti nell' \co{UserCompleteDTO} dato
 in input sovrascrivendo le informazioni precedenti. \`E previsto qui anche il
 cambio della password. \\\hline
 + deleteProfile(in String): boolean & Cancella irreversibilmente l'utente e
-tutte le sue informazioni dal Datastore e conseguentemente lo reindirizza alla
+tutte le sue informazioni dal DataStore e conseguentemente lo reindirizza alla
 pagina iniziale di login. Le canzoni che facevano parte del catalogo non
 vengono cancellate. \\\hline
 + findSimilarUser(in String): List\textless UserDTO\textgreater & Cerca
-nel Datastore i nomi degli utenti il cui catalogo ha propriet\`a simili
+nel DataStore i nomi degli utenti il cui catalogo ha propriet\`a simili
 a quello dato in input. I criteri di somiglianza sono dati dall'artista
 pi\`u ricorrente ed il genere pi\`u ascoltato. \\\hline
 \caption{Metodi di UserServiceImpl}
@@ -2750,7 +2750,7 @@ per l'incapsulamento dei dati in entrata ed in uscita. Le
 \co{HttpSession} verranno
 usate per gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
 Verranno utilizzate funzionalit\`a interne di gestione login definite in
-\co{LoginHelper}. \\ La comunicazione con il Datastore avviene tramite
+\co{LoginHelper}. \\ La comunicazione con il DataStore avviene tramite
 \co{UserAccount}. Per la gestione degli hash delle password utilizza la classe
 \co{BCrypt}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre
@@ -2840,7 +2840,7 @@ i metodi di interazione con le Playlist e con il sistema di rating dei brani.
 \endfoot
 \endlastfoot
 + sendUserNewMusic(in String,in List\textless SongDTO\textgreater) &
-Salva o aggiorna nel Datastore tutte le canzoni passate in input e se
+Salva o aggiorna nel DataStore tutte le canzoni passate in input e se
 possiedono sufficienti informazioni le inserisce nella libreria
 dell'utente.\\\hline 
 + addPlaylist(in String,in String): boolean & Aggiunge una nuova
@@ -2886,7 +2886,7 @@ dal maggior numero di utenti che fa parte del catalogo.\\\hline
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 La classe \co{LoginHelper} offre funzionalit\`a statiche
-per gestire le sessioni HTML, utili a \co{LoginServiceImpl} ed a
+per gestire le sessioni HTML, utili a\\ \co{LoginServiceImpl} ed a
 \emph{servlet}.
 \subsubsection*{Relazioni d'uso di altre componenti}
 User\`a al suo interno le classi di utilit\`a per i servlet definite in
@@ -2940,7 +2940,7 @@ fondamentali presenti all'interno del package
 
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1 Web Application Netmus
+    \item C1FN-1 Web Application NetMus
     \item C1QN-1.6 Scalabilit\`a
     \item C1QN-1.6.2 Scalabilit\`a massa di utenza
     \item C1FN-1.9.1 Controllo di validit\`a dei dati
@@ -2961,7 +2961,7 @@ fondamentali presenti all'interno del package
   \centering
   \includegraphics[width=17cm]{img/DP/sequences.png}
 \caption{Diagramma UML di sequenza che descrive il dettaglio delle chiamate
-che concorrono nel caricamento di nuove canzoni nel Datastore da parte di un
+che concorrono nel caricamento di nuove canzoni nel DataStore da parte di un
 utente.}
 \end{figure}
 Il package \emph{server.persistent} contiene le classi di persistenza che
@@ -2974,14 +2974,14 @@ introdotti dal framework per gestirne la configurazione:
 \begin{itemize}
   \item \bo{@Id}: L'attributo definito con questa annotazione rappresenta la
   chiave identificativa dell'entit\`a che deve essere unica all'interno del
-  Datastore. Definirla nel DAO ci permette di gestire questa chiave a nostro
+  DataStore. Definirla nel DAO ci permette di gestire questa chiave a nostro
   piacimento.
   \item \bo{@Index}: Serve ad indicizzare un particolare attributo poich\'e di
   default il datastore che viene utilizzato indicizza solo la chiave. Questa
   annotazione deve essere utilizzata su tutti gli attributi che sono soggetti a
   ricerca o ordinamento.
   \item \bo{@Child}: Assegna la relazione di ``figlio'' ad un attributo
-  che ha come tipo un'altra entit\`a del Datastore, in particolare nella chiave
+  che ha come tipo un'altra entit\`a del DataStore, in particolare nella chiave
   dell'entit\`a figlia sar\`a presente anche quella del padre in modo che sia
   associata a nessun'altro oggetto.
   \item \bo{@Parent}: Come descritto sopra viene utilizzata per convenienza
@@ -2989,9 +2989,9 @@ introdotti dal framework per gestirne la configurazione:
   nell'entit\`a figlia.
   \item \bo{@Type(Type.class)}: Questa annotazione dice esplicitamente alla
   classe di twig-persist \co{ObjectFieldTraslator} come tradurre il tipo dell'attributo
-  nel tipo effettivo nel Datastore.
+  nel tipo effettivo nel DataStore.
 \end{itemize}
-Per avere l'istanza del Datastore su cui lavorare si
+Per avere l'istanza del DataStore su cui lavorare si
 utilizza la classe con visibilit\`a \emph{package} \co{ODF}. \\\\
 Il diagramma UML di sequenza sopra presentato evidenzia l'insieme delle chiamate
 che concorrono in un'attivit\`a che coinvolge tutte le classi del package
@@ -3024,23 +3024,23 @@ relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\co{ODF} (Object Datastore Factory) \`e una classe \emph{final} che segue il
+\co{ODF} (Object DataStore Factory) \`e una classe \emph{final} che segue il
 pattern Singleton illustrato in \emph{SpecificaTecnica v3.0}. Ha la funzione di creare un'unica istanza del
-\co{ObjectDatastore} fornito dal framework twig-persist e di restituirla a
+\co{ObjectDataStore} fornito dal framework twig-persist e di restituirla a
 qualunque oggetto la richieda. Quest'ultimo da la possibilit\`a di interagire con il DataStore, inviando query, memorizzando oggetti \emph{persistent} o richiedendo liste di oggetti
 tramite semplici metodi. L'oggetto datastore restituito \`e di tipo
-\co{AnnotationObjectDatastore} che di default salva gli attributi degli oggetti
+\co{AnnotationObjectDataStore} che di default salva gli attributi degli oggetti
 persistenti in modo non indicizzato rendendo il datastore pi\`u rapido.\\
 Questa classe \`e visibile solamente all'interno del package \emph{persistent}.
 \subsubsection*{Relazioni d'uso di altre componenti}
-Vengono usate le classi della libreria twig-persist2.0 per la creazione di
-\co{AnnotationObjectDatastore}.
+Vengono usate le classi della libreria twig-persist2.0 per la creazione di\\
+\co{AnnotationObjectDataStore}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questa classe pu\`o essere utilizzata da qualunque classe di \emph{persistent},
-ogni qualvolta ci sia bisogno di avere l' \co{ObjectDatastore} per interagire col
-Datastore.
+ogni qualvolta ci sia bisogno di avere l' \co{ObjectDataStore} per interagire col
+DataStore.
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Crea un'unica istanza di \co{ObjectDatastore} e tramite un metodo
+Crea un'unica istanza di \co{ObjectDataStore} e tramite un metodo
 statico \emph{get()} la passa alle classi, in maniera di dargli la possibilit\`a
 di usare il database.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -3053,9 +3053,9 @@ di usare il database.
 \hline
 \endfoot
 \endlastfoot
-- datastore\_istance: DatastoreObject \emph{static, final} & Unica istanza dell'
-\co{ObjectDatastore} che viene inizializzata alla creazione della classe
-con un \co{AnnotationObjectDatastore}.\\\hline
+- datastore\_istance: DataStoreObject \emph{static, final} & Unica istanza dell'
+\co{ObjectDataStore} che viene inizializzata alla creazione della classe
+con un \co{AnnotationObjectDataStore}.\\\hline
 \caption{Campi dati di ODF}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -3068,8 +3068,8 @@ con un \co{AnnotationObjectDatastore}.\\\hline
 \hline
 \endfoot
 \endlastfoot
-+ get(): ObjectDatastore \emph{static} & Ritorna l'istanza
-dell' \co{ObjectDatastore}.\\\hline
++ get(): ObjectDataStore \emph{static} & Ritorna l'istanza
+dell' \co{ObjectDataStore}.\\\hline
 \caption{Metodi dati di ODF}
 \end{longtable}
 
@@ -3096,7 +3096,7 @@ dell' \co{ObjectDatastore}.\\\hline
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \co{UserAccount} utilizza il design pattern DAO poich\'e contiene tutte le
 informazioni relative ad un utente cos\`i come viene salvato all'interno del
-Datastore. La classe \`e implementata come POJO poich\'e twig-persist lo
+DataStore. La classe \`e implementata come POJO poich\'e twig-persist lo
 supporta senza bisogno di configurazioni aggiuntive. Vengono usate solamente
 le annotazioni \emph{@Key} e \emph{@Index} per gestire l'indicizzazione
 degli oggetti nel datastore.\\
@@ -3124,7 +3124,7 @@ utente del sistema NetMus.
 \endlastfoot
  - user: String \emph{@Key} & Rappresenta il nome di login unico
  dell'utente e nello stesso tempo la sua e-mail (valida). Viene
- impiegato come chiave dell'entit\`a nel Datastore.\\\hline
+ impiegato come chiave dell'entit\`a nel DataStore.\\\hline
  - password\_hash: String & Contiene l'hash della password dell'utente ottenuto
   utilizzando l'algoritmo BCrypt.\\\hline
  - nick\_name: String & Nickname di un utente visibile anche agli
@@ -3146,7 +3146,7 @@ utente del sistema NetMus.
  - allowed\_users: List\textless String\textgreater & Lista degli username
  degli utenti che possono visualizzare questo profilo ed il relativo catalogo.\\\hline
  - music\_library:
- MusicLibrary \emph{@Child} & Intera libreria musicale dell'utente, non sempre verr\`a caricata dal Datastore insieme alle informazioni dell'utente.\\\hline
+ MusicLibrary \emph{@Child} & Intera libreria musicale dell'utente, non sempre verr\`a caricata dal DataStore insieme alle informazioni dell'utente.\\\hline
 \caption{Campi dati di UserAccount}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -3426,7 +3426,7 @@ sistema NetMus.
  + store() & Inserisce nel database per la prima volta la canzone. Se
  esiste gi\`a un brano con lo stesso \co{id} lancia
  un'eccezione di tipo \co{IllegalStateException} \\\hline
- + update() & Aggiorna o inserisce i dati della canzone nel Datastore.\\\hline
+ + update() & Aggiorna o inserisce i dati della canzone nel DataStore.\\\hline
  \# deleteSong(in Song) \emph{static} & Rimuove completamente dal
  database la canzone. \\\hline
  + toSongSummaryDTO(): SongSummaryDTO &
@@ -3437,14 +3437,14 @@ sistema NetMus.
  riguardanti la canzone.\\\hline 
  + storeOrUpdateFromDTO(in SongDTO): Song \emph{static} & Recupera le
  informazioni da un oggetto \co{SongDTO} e le salva nel modo pi\`u
- opportuno nel Datastore.\\\hline 
+ opportuno nel DataStore.\\\hline 
  + changeArtist(in String): Song & Modifica l'attributo \co{artist}
  inserendo, se valido, la stringa in input. Se la modifica trasforma la
  canzone in un brano gi\`a presente nel DataStore viene ritornato il
  brano gi\`a salvato.\\\hline
  + changeTitle(in String): Song & Modifica l'attributo \co{title}
  inserendo, se valido, la stringa in input. Se la modifica trasforma la
- canzone in un brano gi\`a presente nel Datastore viene ritornato il
+ canzone in un brano gi\`a presente nel DataStore viene ritornato il
  brano gi\`a salvato.\\\hline
  + changeAlbum(in String): Song & Modifica l'attributo \co{album}
  inserendo, se valido, la stringa in input. Se la modifica trasforma la
@@ -3550,7 +3550,7 @@ client in seguito ad una sua richiesta di login.
 Utilizzata per il login tramite l'account Google.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Concretizza il \co{LoginSuperServlet} ed implementa il metodo \emph{doGet} il
-quale utilizza \co{HttpSerletRequest} e \co{HttpSerletResponse}.
+quale utilizza\\ \co{HttpSerletRequest} e \co{HttpSerletResponse}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
@@ -3681,7 +3681,7 @@ sviluppatori GAE dal creatore delle API per Java di Last.fm, Janni Kovacs.
 \subsection{Classe BCrypt}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1.2 Registrazione a Netmus
+    \item C1FN-1.2 Registrazione a NetMus
     \item C1FN-1.4.2 Cambio password
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
@@ -3701,7 +3701,7 @@ un nuovo utente nel DataStore per cifrare la password, e al momento del login
 per controllare che sia corretta la password inserita dall'utente, grazie ad un
 comodo metodo di confronto.
  \subsubsection*{Attivit\`a svolte e dati trattati}
-Svolge l'attivit\`a di cifratura delle password del sistema Netmus.
+Svolge l'attivit\`a di cifratura delle password del sistema NetMus.
 \\\\
 Non verranno elencati nel dettaglio i metodi ed i campi dati poich\'e questa
 classe \`e importata nel progetto e ci offre un servizio black-box.
@@ -3889,7 +3889,7 @@ video.\\\hline
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe \`e un ulteriore classe contenitore che si occupa di contenere una
-lista di \co{YouTubeMedia} ed il relativo URL.
+lista di\\ \co{YouTubeMedia} ed il relativo URL.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Utilizza la classe \co{YouTubeMedia}.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -4923,7 +4923,7 @@ tradurre l'eventuale codice), e se questo non viene scartato dal metodo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Tracciamento componenti progettazione di dettaglio 1 - requisiti
+\section{Tracciamento componenti progettazione \\di dettaglio 1 - requisiti
 obbligatori}
 
 \begin{footnotesize}
@@ -5128,7 +5128,7 @@ progettazione di dettaglio 1 ed i requisiti obbligatori}
 \end{longtable}
 \end{footnotesize}
 
-\section{Tracciamento componenti progettazione di dettaglio 2 - requisiti
+\section{Tracciamento componenti progettazione\\ di dettaglio 2 - requisiti
 desiderabili e opzionali}
 \begin{footnotesize}
 \begin{longtable}[!h]{|l|l|}
@@ -5269,7 +5269,7 @@ progettazione di dettaglio 2 ed i requisiti desiderabili o opzionali}
 \end{footnotesize}
 
 
-\section{Tracciamento requisiti - componenti progettazione di dettaglio}
+\section{Tracciamento requisiti - componenti\\ progettazione di dettaglio}
 \begin{footnotesize}
 \begin{longtable}[!h]{|l|l|}
 \hline
