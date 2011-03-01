@@ -2815,17 +2815,17 @@ Google dei quali non viene gestito un cookie.\\\hline
 Questa classe corrisponde all'implementazione del \co{LibraryService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}. Si occupa di
 fornire tutti i metodi necessari all'inserimento, lettura e modifica dei dati
-nel Datastore relativi ad un catalogo musicale. Un
+nel DataStore relativi ad un catalogo musicale. Un
 metodo di fondamentale importanza \`e
 \emph{sendUserNewMusic} che gestisce l'inserimento di
-una lista di canzoni singolarmente nel Datastore e nella
+una lista di canzoni singolarmente nel DataStore e nella
 libreria.
 \subsubsection*{Relazioni d'uso di altre componenti} Oltre ad utilizzare
 \co{SongDTO} e \co{SongSummaryDTO}, verranno creati, immagazzinati oppure usati
 i relativi oggetti \emph{persistent}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre
 componenti} Viene usata da \co{ProfileActivity} che ne ottiene un'istanza
-tramite deferred binding utilizzando l'interfaccia \co{SongsService}.
+tramite deferred binding utilizzando l'interfaccia \co{SongService}.
 \subsubsection*{Attivit\`a svolte e dati trattati} Implementa tutte le
 attivit\`a necessarie alla gestione del catalogo musicale. Vengono qui definiti
 i metodi di interazione con le Playlist e con il sistema di rating dei brani.
@@ -2854,10 +2854,10 @@ Ritorna la lista ordinate delle canzoni in forma di \co{SongSummaryDTO} che
 appartengono alla playlist.Ritorna \emph{true} se l'operazione ha
 successo.\\\hline
 + addSongToPlaylist(in String,in String,in String): boolean & Aggiunge
-la canzone con l'id dato in input in coda alla playlist specificata.Ritorna \emph{true} se l'operazione ha
+la canzone con l'id dato in input in coda alla playlist specificata. Ritorna \emph{true} se l'operazione ha
 successo.\\\hline
 + moveSongInPlaylist(in String,in String,in int, in int): boolean &
-Sposta la canzone all'indice dato in input nel primo attributo integer
+Sposta la canzone all'indice dato in input nel primo attributo INT
 all'indice specificato nel secondo, se questi indici sono validi
 relativamente alla dimensione della playlist. Ritorna \emph{true} se l'operazione ha
 successo.\\\hline 
@@ -2949,7 +2949,7 @@ fondamentali presenti all'interno del package
 	\item C1VN-1.11 Deve utilizzare il cloud computing
 	\item C1VN-1.12 Deve utilizzare tecnologie GAE e GWT
 	\item C1FN-1.13 Gestione Database
-	\item C1VN-1.13.1 Deve utilizzare Google Data Store
+	\item C1VN-1.13.1 Deve utilizzare Google DataStore
 	\item C1QN-2.6 Manutenibilit\`a
 \end{itemize}
 \subsection*{Requisiti desiderabili e opzionali soddisfatti}
@@ -3017,7 +3017,7 @@ relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e
     \item C1QN-1.6.2 Scalabilit\`a massa di utenza
     \item C1QN-1.9.6 Gestione concorrenza
     \item C1FN-1.13 Gestione Database
-    \item C1VN-1.13.1 Deve utilizzare Google Data Store
+    \item C1VN-1.13.1 Deve utilizzare Google DataStore
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -3077,7 +3077,7 @@ dell' \co{ObjectDatastore}.\\\hline
 \subsection{Classe UserAccount}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1.2 Registrazione a Netmus
+    \item C1FN-1.2 Registrazione a NetMus
     \item C1FN-1.4 Gestione profilo personale
     \item C1FN-1.4.1 Modifica informazioni personali
     \item C1FN-1.4.2 Cambio password
@@ -3162,7 +3162,7 @@ utente del sistema NetMus.
  + store() & Inserisce nel database per la prima volta l'utente. Se
  esiste gi\`a un utente con lo stesso id lancia un'eccezione di tipo
  \co{IllegalStateException} \\\hline
- + update() & Aggiorna o inserisce i dati dell'utente nel datastore.\\\hline
+ + update() & Aggiorna o inserisce i dati dell'utente nel DataStore.\\\hline
  + load(in String): UserAccount
  \emph{static}& Cerca nel database e restituisce tutti i dati relativi ad un username/e-mail dato come input. \\\hline
  + deleteUser(in UserAccount) \emph{static} & Rimuove completamente dal database
@@ -3181,7 +3181,7 @@ contenente tutte le informazioni riguardanti l'utente.\\\hline
  classe hanno i relativi metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
  metodi \emph{set}. Tutti questi metodi si occupano anche di chiamare
- \co{update()} per aggiornare i dati del Datastore.\\\hline
+ \co{update()} per aggiornare i dati del DataStore.\\\hline
  \caption{Metodi di UserAccount}
 \end{longtable}
 
@@ -3333,7 +3333,7 @@ NetMus.
  metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
  metodi \emph{set}. Tutti questi metodi si occupano anche di chiamare
- \co{update()} per aggiornare i dati del Datastore.\\\hline
+ \co{update()} per aggiornare i dati del DataStore.\\\hline
 \caption{Metodi di MusicLibrary}
 \end{longtable}
 
@@ -3367,8 +3367,8 @@ Dei brani condivisi da pi\`u utenti viene salvata una sola copia per ottimizzare
 la quantit\`a di spazio utilizzato.\\
 La logica di salvataggio delle canzoni implementata prevede che nei tag estratti
 sia presente almeno il titolo altrimenti il brano non verrà mantenuto nel
-Datastore. Al primo inserimento di una canzone questa classe si occupa anche di
-reperire informazioni aggiuntive dai servizi esterni Youtube e Last.fm quali link per copertine e video in streaming. \subsubsection*{Relazioni d'uso di altre componenti} Questa classe fa uso degli
+DataStore. Al primo inserimento di una canzone questa classe si occupa anche di
+reperire informazioni aggiuntive dai servizi esterni YouTube e Last.fm quali link per copertine e video in streaming. \subsubsection*{Relazioni d'uso di altre componenti} Questa classe fa uso degli
 oggetti \co{SongDTO} e \co{SongSummaryDTO} del package \emph{shared}. 
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
 \emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
@@ -3408,7 +3408,7 @@ sistema NetMus.
  - rating: double & Media di tutti i voti assegnati dagli utenti a questa
  canzone.\\\hline
  - num\_ratings: int & Numero di voti effettuati su questa canzone. \\\hline
- - youtube\_code: String & Codice del rispettivo video su Youtube.\\\hline
+ - youtube\_code: String & Codice del rispettivo video su YouTube.\\\hline
  - SEPARATOR: String \emph{static final default = '-vt.g-'} & Stringa
  di separazione necessaria nella creazione dell'\co{id} del brano.\\\hline
 \caption{Campi dati di Song}
@@ -3440,7 +3440,7 @@ sistema NetMus.
  opportuno nel Datastore.\\\hline 
  + changeArtist(in String): Song & Modifica l'attributo \co{artist}
  inserendo, se valido, la stringa in input. Se la modifica trasforma la
- canzone in un brano gi\`a presente nel Datastore viene ritornato il
+ canzone in un brano gi\`a presente nel DataStore viene ritornato il
  brano gi\`a salvato.\\\hline
  + changeTitle(in String): Song & Modifica l'attributo \co{title}
  inserendo, se valido, la stringa in input. Se la modifica trasforma la
@@ -3448,7 +3448,7 @@ sistema NetMus.
  brano gi\`a salvato.\\\hline
  + changeAlbum(in String): Song & Modifica l'attributo \co{album}
  inserendo, se valido, la stringa in input. Se la modifica trasforma la
- canzone in un brano gi\`a presente nel Datastore viene ritornato il
+ canzone in un brano gi\`a presente nel DataStore viene ritornato il
  brano gi\`a salvato.\\\hline
  + addRate(in int): double & Aggiunge la votazione data in input
  alla canzone aggiornando nel modo appropriato gli attributi
@@ -3464,7 +3464,7 @@ sistema NetMus.
  + getters() & Tutti gli attributi privati di questa classe hanno i relativi metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
  metodi. Tutti questi metodi si occupano anche di chiamare
- \co{update()} per aggiornare i dati del Datastore. \emph{set}.\\\hline
+ \co{update()} per aggiornare i dati del DataStore. \emph{set}.\\\hline
 \caption{Metodi di Song}
 \end{longtable}
 
@@ -3612,7 +3612,7 @@ Login.
 \endlastfoot
 + doGet(in HttpServletRequest, in HttpServletResponse) & Gestisce l'arrivo di
 una risposta da Google, che porta l'utente loggato con Google Account. Se
-questo \`e null, allora non \`e andata a buon fine l'autenticazione google. Se
+questo \`e null, allora non \`e andata a buon fine l'autenticazione Google. Se
 invece \`e andata a buon fine viene associata all'utente la sessione corrente.
 \\\hline
 \caption{Metodi di LoginGoogleCallbackServlet}
@@ -3657,7 +3657,7 @@ Varie.
     \item C1FO-1.9.3 Completamento info da servizio esterno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe ci permette di utillizzare le API \emph{lastfm-java} all'interno la
+Questa classe ci permette di utilizzare le API \emph{lastfm-java} all'interno la
 piattaforma Google App Engine. Tali librerie ci servono per poter fare
 interrogazioni alle API di Last.fm in maniera semplice, pi\`u ad alto livello
 del doversi implementare una servlet. Queste librerie per\`o necessitano di una
@@ -4017,9 +4017,9 @@ fondamentali presenti all'interno del package
 Il package \emph{shared} contiene le classi degli oggetti che vengono
 scambiati tra client e server; in particolare sono presenti le classi che
 aderiscono al pattern DTO. L'insieme di queste classi rappresenta tutti i
-dati contenuti nelle entit\`a del Datastore opportunamente organizzati in modo
-da essere raggruppabili in componenti minori e prive di parte logica.
-\`E qui contenuta anche la gerarchia delle eccezioni del sistema Netmus
+dati contenuti nelle entit\`a del DataStore opportunamente organizzati in modo
+da essere raggruppate in componenti minori e prive di parte logica.
+\`E qui contenuta anche la gerarchia delle eccezioni del sistema NetMus
 fondamentale nelle comunicazioni asincrone tra client e server.
 \subsection*{Relazioni d'uso di altre componenti} Tutte le classi di questo
 package implementano l'interfaccia \co{java.io.Serializable} per poter essere
@@ -4030,7 +4030,7 @@ per lo scambio di dati e/o informazioni.
 \subsection*{Attivit\`a svolte e dati trattati}
 Le classi di questo package si occupano di inglobare e trasportare
 le informazioni attraverso la rete, per le comunicazioni tra server e client,
-in particolare i dati relativi alle entit\`a del Datastore ed alle eccezioni.
+in particolare i dati relativi alle entit\`a del DataStore ed alle eccezioni.
 Vengono qui di seguito descritte pi\`u in dettaglio.
 
 \subsection{Classe UserDTO}
@@ -4073,7 +4073,7 @@ Funge da contenitore per i dati richiesti di un utente.
  di se inserite dall'utente.\\\hline
  - birth\_date: Date & Data di nascita dell'utente. \\\hline
  - registration\_date: Date & Data di registrazione dell'utente.\\\hline
- - last\_login: Date & Data dell'ultimo accesso a Netmus.\\\hline
+ - last\_login: Date & Data dell'ultimo accesso a NetMus.\\\hline
  - last\_import: Date & Data dell'ultimo inserimento di brani da parte
  dell'utente.\\\hline
 \caption{Campi dati di UserDTO}
@@ -4439,7 +4439,7 @@ relativi metodi \emph{set}.\\\hline
 \subsection{Classe FieldVerifier}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
-    \item C1FN-1.2 Registrazione a Netmus
+    \item C1FN-1.2 Registrazione a NetMus
 \end{itemize}
 \subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
@@ -4452,7 +4452,7 @@ fondamentale nelle operazioni di autenticazione e registrazione.
 \subsubsection*{Relazioni d'uso di altre componenti} Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
 \co{LoginActivity} e \co{ProfileActivity} ne fanno uso ogni qualvolta ricevano
-in input una stringa da un utente di Netmus. 
+in input una stringa da un utente di NetMus. 
 \subsubsection*{Attivit\`a svolte e dati trattati} Le stringhe che vengono
 trattate in questa classe sono rappresentate da password, username e indirizzi
 email. Per le prime due tipologie di informazione il controllo eseguito si
@@ -4632,7 +4632,7 @@ spedito alla classe \co{AppletBar.java} sotto forma di stringa.\\
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe sar\`a di tipo \co{JApplet} e si occuper\`a di avviare l'applet
 quando caricata in una pagina Web. Quando viene creata invier\`a una notifica a
-GWT, il quale andr\`a ad avviare effettivamente lo scansionamento dell'applet,
+GWT, il quale andr\`a ad avviare effettivamente il thread di scansionamento nell'applet,
 passandogli il nome utente e lo stato di attivazione scelto in precedenza
 dall'utente. Di default sar\`a attiva ma pu\`o essere disattivata manualmente.
 Quando sar\`a disattivata il thread \co{scanner} viene messo a dormire e verr\`a
@@ -5282,7 +5282,7 @@ progettazione di dettaglio 2 ed i requisiti desiderabili o opzionali}
 \hline
 \endfoot
 \endlastfoot
-C1FN-1 Web Application Netmus & Ccl0 \\   
+C1FN-1 Web Application NetMus & Ccl0 \\   
 & Ccl1\\
 & Ccl2\\
 & Cclse0\\
@@ -5319,7 +5319,7 @@ C1FD-1.1.4 Visualizza player YouTube & Cclui2 \\
 & Cseyo1\\
 & Cseyo2\\
 & Cseyo3\\\hline
-C1FN-1.2 Registrazione a Netmus & Cclui1\\
+C1FN-1.2 Registrazione a NetMus & Cclui1\\
 & Cclac1\\
 & Cclse1\\
 & Cse4\\
@@ -5623,7 +5623,7 @@ I seguenti requisiti non sono associati ad alcuna componente all'interno del
 sistema.\\ 
 I requisiti C1VN-2.2, C2VN-4.7, C1QN-3.1, C1QD-3.1.1 non sono presenti nel
 tracciamento poich\'e soddisfatti al di fuori del software: il manuale utente
-bilingue sar\`a in versione pdf stampabile su carta ed il software, sia la
+bilingue sar\`a in versione PDF stampabile su carta ed il software, sia la
 componente di persistenza e visualizzazione sia quella di recupero delle
 informazioni sono open source fin dall'inizio della scrittura del codice.\\
 I requisiti C1FD-1.5 e C1FO-1.7.2 richiedono uno studio aggiuntivo rispetto alla
