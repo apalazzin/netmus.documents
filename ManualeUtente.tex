@@ -191,7 +191,9 @@ Di fatto l'operazione svolta dai due player \`e la stessa, ma
 si differenziano per il fatto che il player superiore permette riproduzione,
 pausa, passaggio al brano precedente e successivo del catalogo, mentre il player
 inferiore si trasforma in un riproduttore di video in streaming, in cui viene
-riprodotto il video musicale della canzone trovato da youtube.
+riprodotto il video musicale della canzone trovato da youtube.\\
+Inoltre tale player evidenzia il link di YouTube a cui \`e stato trovato il
+brano, e con un click il browser ci reindirizza a tale link.
 
 \subparagraph{Creare Playlist}
 La creazione di una \underline{playlist} \`e un'operazione molto semplice e
@@ -212,7 +214,78 @@ cliccare il simbolo ``-'' rosso.\\
 Da notare che all'interno della finestrella con l'elenco dei brani della
 playlist, una volta selezionato un brano dal catalogo multimediale o dalla
 playlist le azioni di aggiunta di un brano sono scritte in verde, le azioni di
-rimozione di un brano in rosso.
+rimozione di un brano in rosso.\\
+\\
+Infine per elimare una playlist basta selezionarla e cliccare la ``X'' rossa che
+si trova nella finestrella della playlist in alto a destra.
+
+\subparagraph{Visualizzare le informazioni riguardanti un brano}
+Per visualizzare ulteriori informazioni riguardanti un brano basta fare un
+doppio click sopra lo stesso. Si aprir\`a una finestrella con l'elenco delle
+informazioni riguardanti un brano.\\
+Tra queste informazioni elenchiamo titolo, autore, album, genere, anno,
+compositore, traccia, valutazione e copertina.\\
+Per quanto riguarda la valutazione verr\`a spiegata pi\`u a fondo in seguito.\\
+Le copertine invece vengono recuperate durante la memorizzazione del brano sul
+catalogo.
+
+\subparagraph{Eliminare un brano dal catalogo}
+Per eliminare un brano dal proprio catalogo multimediale basta cliccarci sopra
+due volte e fare apparire la finestrella con le informazioni dettagliate. A
+questo punto cliccare la ``X'' rossa come per le playlist, e il brano verr\`a
+immediatamente eliminato dall'elenco.
+
+\subparagraph{Ricercare un brano sul catalogo}
+
+Per la ricerca di un brano all'interno del catalogo \`e stata implementata una
+form apposta. La form, visualizzata nella pagina in alto a destra, ci permette
+di ricercare titolo, album o artista di qualunque brano del catalogo.\\
+La ricerca \`e immediata durante la digitazione, e i risultati vengono mostrati
+direttamente sull'interfaccia principale del catalogo multimediale.
+
+\subparagraph{Modificare le informazioni riguardanti un brano}
+
+\subparagraph{Modificare le informazioni de profilo (anche cambio password)}
+
+Nel sistema \co{NetMus} \`e possibile compilare ulteriori campi riguardanti il
+proprio profilo utente.\\
+Tale operazione \`e possbile cliccando sul tasto verde ``Account''. Si aprir\`a
+un pop-up con l'elenco dei campi che \`e possibile compilare. Le informazioni
+dovranno essere inserite in tali form.
+Le informazioni che \`e possibile aggiungere sono nickname, nome, cognome,
+nazionalit\`a, sesso e una breve descrizione di s\`e. Da questa interfaccia \`e
+anche possibile cambiare la propria password.\\
+Una volta inserite le nuove informazioni, cliccare su salva modifiche per
+salvare quanto editato, mentre cliccare sulla ``X'' rossa per annullare.
+
+\subparagraph{Dare un voto ad un brano}
+
+Il sistema \co{NetMus} offre anche la possibilit\`a di valutare un brano su una
+scala da 0 a 5 stelline.\\
+Da notare che il voto espresso per il brano, verr\`a poi visualizzato nelle
+informazioni del brano ma sottoforma di media di tutti i voti ricevuti dai
+possessori all'interno del sistema \co{NetMus} di quella stessa canzone.\\
+Per valutare un brano basta selezionarlo dal catalogo con un click, e
+successivamente cliccare sul numero di stelline desiderato in basso. Il voto
+verr\`a automaticamente registrato tra le informazioni del brano in questione.
+
+\subparagraph{Esportare il proprio catalogo multimediale in PDF}
+
+Questa funzione originale \`e stata inserita per permettere l'esportazione del
+catalogo multimediale in un documento PDF, pi\`u adeguato alla stampa.\\
+Per procedere con l'esportazione a PDF \`e necessario cliccare sul tasto in
+basso a destra ``Esporta Lista''. A pressione avvenuta, il sistema
+auto-generer\`a un PDF con l'elenco dei brani del catalogo, e aprir\`a una
+finestra per far selezionare all'utente la directory su cui salvare il file PDF
+creato.
+
+\subparagraph{Visualizzare le statistiche del sistema e del proprio account}
+
+Per visualizzare le statistiche del proprio sistema basta cliccare sul tasto
+``Statistiche'' in basso a destra. Verranno dunque visualizzate su un pop-up le
+statistiche riguardanti il sistema netmus(canzone pi\`u gettonata, numero di
+utenti, ecc..) e le statistiche riguardanti il proprio account (canzone pi\`u
+ascoltata, genere preferito, autore preferito, numero di amici ecc..)
 
 
 \section{Azioni richieste/permesse}
@@ -224,6 +297,36 @@ rimozione di un brano in rosso.
   \item controllare che la DEVICE SCANNER BAR non sia disabilitata. La DEVICE
   SCANNER BAR \`e disabilitata quando nell'angolo in basso vi \`e la scritta
   verde ``Enable''.
+\end{itemize}
+
+\subparagraph{Alcuni brani analizzati non sono stati caricati nel catalogo}
+\begin{itemize}
+  \item controllare che non fossero gi\`a stati analizzati e inseriti nel
+  catalogo in una analisi precedente. Per essere sicuri, controllare il log
+  presente all'interno del dispositivo in cui \co{NetMus} ha fatto la scansione.
+  \item i brani non hanno i tag necessari completi. Se un brano non ha i
+  tag artista titolo e album completi il brano non viene catalogato perch\`e non
+  c'\`e modo di riconoscere quale brano sia.
+  \item i brani contengono tag con codifica diversa dalla ISO-8859-1. Con i tag
+  artista, titolo e album con caratteri diversi dalla codifica ISO-8859-1 i file
+  vengono ignorati poich\`e \`e impossibile catalogarli dato che \`e come se
+  avessero i tag principali vuoti.
+\end{itemize}
+
+\subparagraph{La canzone in streaming da youtube non \`e quella corretta}
+\begin{itemize}
+  \item purtroppo la ricerca su youtube non va sempre a buon fine. E possibile
+  cliccare sul tasto ``Wrong Song'' per passare al vide successivo dato dai
+  risultati della ricerca su youtube di tale canzone.
+  \item i tag di tale canzone sono sbagliati e quindi la ricerca di tale canzone
+  produce risulati errati. Modificare le informazioni di tale canzone per
+  risolvere il problema
+\end{itemize}
+
+
+\subparagraph{Password dimenticata}
+\begin{itemize}
+  \item Cazzi tui, ebete.
 \end{itemize}
 
 
