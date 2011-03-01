@@ -296,6 +296,36 @@ ascoltata, genere preferito, autore preferito, numero di amici ecc..)
   verde ``Enable''.
 \end{itemize}
 
+\subparagraph{Alcuni brani analizzati non sono stati caricati nel catalogo}
+\begin{itemize}
+  \item controllare che non fossero gi\`a stati analizzati e inseriti nel
+  catalogo in una analisi precedente. Per essere sicuri, controllare il log
+  presente all'interno del dispositivo in cui \co{NetMus} ha fatto la scansione.
+  \item i brani non hanno i tag necessari completi. Se un brano non ha i
+  tag artista titolo e album completi il brano non viene catalogato perch\`e non
+  c'\`e modo di riconoscere quale brano sia.
+  \item i brani contengono tag con codifica diversa dalla ISO-8859-1. Con i tag
+  artista, titolo e album con caratteri diversi dalla codifica ISO-8859-1 i file
+  vengono ignorati poich\`e \`e impossibile catalogarli dato che \`e come se
+  avessero i tag principali vuoti.
+\end{itemize}
+
+\subparagraph{La canzone in streaming da youtube non \`e quella corretta}
+\begin{itemize}
+  \item purtroppo la ricerca su youtube non va sempre a buon fine. E possibile
+  cliccare sul tasto ``Wrong Song'' per passare al vide successivo dato dai
+  risultati della ricerca su youtube di tale canzone.
+  \item i tag di tale canzone sono sbagliati e quindi la ricerca di tale canzone
+  produce risulati errati. Modificare le informazioni di tale canzone per
+  risolvere il problema
+\end{itemize}
+
+
+\subparagraph{Password dimenticata}
+\begin{itemize}
+  \item Cazzi tui, ebete.
+\end{itemize}
+
 
 \appendix % inizio appendice
 \chapter{Messaggi di errore e loro significato}
