@@ -2668,6 +2668,7 @@ inserimenti futuri.\\\hline
 \caption{Metodi di SongServiceImpl}
 \end{longtable}
 
+\newpage
 \subsection{Classe UsersServiceImpl}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -4566,6 +4567,7 @@ Vedere la descrizione del package.
 Nessuna.
 
 
+\newpage
 \section{Applet di estrazione brani}
 
 \begin{figure}[!h]
@@ -4911,6 +4913,10 @@ tradurre l'eventuale codice), e se questo non viene scartato dal metodo
 \caption{Metodi di TranslateXML}
 \end{longtable}
 
+
+\appendix
+\chapter{Tracciamento componenti - requisiti}
+\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
                                  %INIZIO TRACCIAMENTI%
@@ -4919,8 +4925,8 @@ tradurre l'eventuale codice), e se questo non viene scartato dal metodo
 
 \section{Tracciamento componenti progettazione di dettaglio 1 - requisiti
 obbligatori}
+
 \begin{footnotesize}
-\centering
 \begin{longtable}[!h]{|l|l|}
 \hline
 \rowcolor{orange}                         
@@ -5125,7 +5131,6 @@ progettazione di dettaglio 1 ed i requisiti obbligatori}
 \section{Tracciamento componenti progettazione di dettaglio 2 - requisiti
 desiderabili e opzionali}
 \begin{footnotesize}
-\centering
 \begin{longtable}[!h]{|l|l|}
 \hline
 \rowcolor{orange}                         
@@ -5256,7 +5261,8 @@ applet.DeviceScanner  &  C2FD-1.4\\
 & C2VD-4.5\\\hline
 applet.NetmusApplet  &  C2FD-1.4 \\
 & C2FD-1.4\\\hline
-applet.TranslateXML  &  C2QD-1.7\\\hline
+applet.TranslateXML  &  C2QD-1.7\\
+& \\\hline
 \caption{Tabella di tracciamento tra le componenti individuate durante la
 progettazione di dettaglio 2 ed i requisiti desiderabili o opzionali}
 \end{longtable}
@@ -5265,7 +5271,6 @@ progettazione di dettaglio 2 ed i requisiti desiderabili o opzionali}
 
 \section{Tracciamento requisiti - componenti progettazione di dettaglio}
 \begin{footnotesize}
-\centering
 \begin{longtable}[!h]{|l|l|}
 \hline
 \rowcolor{orange}                         
@@ -5612,6 +5617,7 @@ durante progettazione di dettaglio}
 \end{longtable}
 \end{footnotesize}
 
+\newpage
 \section{Requisiti non tracciati}
 I seguenti requisiti non sono associati ad alcuna componente all'interno del
 sistema.\\ 
@@ -5652,17 +5658,29 @@ C2FD-2 Aggiornamento e completamento informazioni \\\hline
 C2VN-4.7 Open source\\\hline
 \caption{Tabella dei requisiti che non sono stati tracciati con componenti
 durante la progettazione di dettaglio}
-\centering
 \end{longtable}
 \end{footnotesize}
 
-\appendix\chapter{Codice Sorgente}
+
+\chapter{Codice Sorgente}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 
-\chapter{Tracciamento componenti - requisiti}
-\thispagestyle{fancy} %  header e footer in CHAPTER PAGE
-
-
+Verr\`a allegato a tale documento il codice sorgente dell'intero sistema NetMus.
+Si trover\`a sotto forma di archivio ZIP, il quale conterr\`a anche le librerie
+esterne utilizzate dal sistema.\\
+\\
+L'applet verr\`a inclusa nel progetto precompilata e firmata ma verr\`a incluso
+inoltre, in una cartella a parte, il suo codice sorgente con la libreria
+esterna utilizzata ed il certificato che abbiamo usato per firmarla.\\
+\\
+Per una visione pi\`u completa del sistema NetMus allo stato attuale, rendiamo
+disponibile online una versione Beta, all'indirizzo:
+\url{http://netmusbeta.appspot.com/}.\\
+\\
+Tale versione risulta ancora carente di qualche funzionalit\`a, richiesta da
+alcuni dei requisiti opzionali e desiderabili, le quali verranno possibilmente
+integrate dopo aver superato con successo appropriati test di integrit\`a e di
+sistema.
 
 \listoftables
 \addcontentsline{toc}{chapter}{Indice Tabelle}
