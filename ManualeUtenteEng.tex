@@ -1,0 +1,153 @@
+\newcommand{\nomedoc}{User's Guide}
+\newcommand{\versione}{1.0}
+\newcommand{\versioneglossario}{3.0}
+\newcommand{\versionenormeprogetto}{3.0}
+\newcommand{\nomefile}{User's Guide-\versione.pdf}
+\newcommand{\datacreazione}{24 Febbraio 2011}
+\newcommand{\datamodifica}{27 Febbraio 2011}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{esterno}
+\newcommand{\redazione}{}
+\newcommand{\verifica}{}
+\newcommand{\approvazione}{}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\pagenumbering{Roman} % INIZIO NUMERAZIONE ARABA
+
+\vspace*{1cm}
+\begin{center}
+
+\includegraphics[width=9cm]{img/logo.png}\\
+\vspace{0.5cm}
+\begin{LARGE} \sca{VT.G - Valter Texas Group} \end{LARGE}\\
+\vspace{0.5cm}
+\begin{Large}
+\emph{valtertexasgroup@googlegroups.com} \end{Large}\\
+\vspace*{1cm} \includegraphics[width=5cm]{img/netmus.png}\\
+\vspace{0.5cm}
+\begin{Large} \sca{\nomedoc} \end{Large}\\
+\vspace{1cm}
+\begin{Large} \emph{Ingegneria del Software A.A. 2010-2011} \end{Large}\\
+\end{center}
+\vspace{1cm}
+
+% INFORMAZIONI DOCUMENTO
+\begin{center}
+\begin{tabular}{r|l}
+\hline & \\
+\bo{Name} & \nomefile \\
+\bo{Current Version} & \versione \\
+\bo{Creation} & \datacreazione \\
+\bo{Last Modify} & \datamodifica \\
+\bo{State} & \stato \\
+\bo{Use} & \uso \\
+\bo{Editing} & \redazione \\
+\bo{Control} & \verifica \\
+\bo{Approbation} & \approvazione \\
+\bo{Distribuition} & \distribuzione \\
+& \\\hline
+\end{tabular}
+\end{center}
+\newpage
+
+\chapter*{Summary}
+\thispagestyle{fancy}
+This document is a simply and intuitive guide for beginners using NetMus
+system.\\
+It includes a glossary where you can find more-difficult terms that are used
+here and an appendix whith the most common promblems that you can encounter,
+possible reasons that caused the problem and possible solutions. 
+
+\newpage
+% REGISTRO MODIFICHE
+\section*{Change History Log}
+
+\begin{longtable}{|p{0.13\textwidth}|c|p{0.2\textwidth}|p{0.46\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Data} & \bo{Version} & \bo{Author} & \bo{Description} \\
+\endhead
+\hline 
+08/02/2011 & 0.1 & Lovato Daniele & Creation of the document.\\
+\hline
+
+\end{longtable}
+
+% INDEX
+\tableofcontents
+
+\chapter{Introduction}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+This guide was created for beginners that want start using \co{NetMus}, and it
+includes a description of the product and the instrutions for use it. There are
+also two appendix in where you can find most common error messages and a
+glossary.\\
+
+All the terms in the glossary are underlined in the document in their first
+occurence \underline{like this}.
+
+\section{Description of the Product's User}
+\co{NetMus} can be used by everyone: you need to know only the basics like using
+a \underline{web browser} and navigating through internet. 
+
+
+\section{How to Read this Guide}
+This Guide presents the product \co{NetMus} and describes its functionality and
+also the user's approach using the system. In particular it will show the 
+actions that you can perform with the software and how to resolve, if it is
+possible, problems that you can encounter using it.
+
+\section{Helpful Documents}
+Here we present the documents that we have used for writing this guide, and that
+you can use to understand more clearly this words:
+\begin{itemize}
+  \item Analisi dei requisiti v3.0
+  \item Norme di progetto v3.0
+  \item Piano di progetto v3.0
+  \item Specifica tecnica v2.0
+  \item Definizione del prodotto v1.0
+  \item Piano di qualifica v3.0
+  \item Verbale 1 v1.0
+  \item Capitolato C2 - NetMus del corso di Ingegneria del Software, A.A.
+2010/11 (you can read it at the link 
+\url{http://www.math.unipd.it/~tullio/IS-1/2010/Progetto/NetMus.pdf})
+\end{itemize}
+
+\section{How to report problems and not-working situations}
+If you found any problems you can report it with the online service provided by
+Google at this link:  \url{http://code.google.com/p/netmus/issues/list}.\\
+You just have to click on top-left button \emph{New issue} and fill the
+fields with a name for the problem and a short description of it.
+If you want an help in descripting the problem, you can use the template
+\emph{Defect report from user} that contains a track that help you writing all
+the necessary informations. 
+
+\chapter{General Description}
+\thispagestyle{fancy}
+Here is a general description of the product.
+
+\chapter{Using Instructions}
+\thispagestyle{fancy}
+
+\section{Functional Description}
+
+\section{Permitted Actions}
+
+\section{Errors and their Possible Reasons}
+
+\appendix % inizio appendice
+\chapter{Most Common Error Messages}
+\thispagestyle{fancy}
+
+\chapter{Glossary}
+\thispagestyle{fancy}
+
+\end{document}
