@@ -5,7 +5,7 @@
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\nomefile}{ManualeUtente-\versione.pdf}
 \newcommand{\datacreazione}{24 Febbraio 2011}
-\newcommand{\datamodifica}{28 Febbraio 2011}
+\newcommand{\datamodifica}{27 Febbraio 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Baron Federico}
@@ -151,6 +151,42 @@ un'impatto visivo notevole.
 
 \section{Descrizione funzionale}
 
+Di seguito riportiamo una guida completa all'utilizzo di \co{NetMus}.\\
+Verranno elencati dapprima i requisiti obbligatori per utilizzare il sistema,
+successivamente verr\`a presentata una panoramica di \co{NetMus} dettagliata con
+tutte le azioni che un utente pu\`o compiere per sfruttare le funzionalit\`a di
+\co{NetMus}.
+
+\subsection{Requisiti di Sistema per utilizzare NetMus}
+\co{NetMus} \`e una web application che viene visualizzata attraverso il browser
+web. Non \`e sufficiente avere un browser web ed una connessione ad internet per
+utilizzare \co{NetMus} . 
+\\
+Qui di seguito presentiamo una chiara lista di
+requisiti richiesti da \co{NetMus}.
+
+\begin{itemize}
+  \item Connessione ad Internet (superiore a 56k)
+  \item Browser web (Google Chrome, Safari, Opera, Firefox*, IE**)
+  \item La JVM (Java Virtual Machine) installata sul proprio PC
+  \item Il plugin di Adobe Flash Player per la visualizzazione di video da
+  Browser
+  \item I JavaScript attivati sul proprio Browser
+\end{itemize}
+
+Anche solo senza uno di questi requisiti obbligatori,
+non sar\`a possibile utilizzare alcune funzionalit\`a di \co{NetMus} o
+addirittura non si riuscir\`a ad utilizzarlo per nulla.\\
+\\
+\\
+
+\emph{* Su Firefox le animazioni non vengono riprodotte, le funzionalit\`a del
+sistema restano comunque completamente funzionanti}\\
+\emph{** Per utilizzare NetMus su Microsoft Internet Explorer \`e
+necessario scaricare il plugin Google Chrome Frame, poich\`e IE non supporta le
+funzionalit\`a avanzate di NetMus}.
+
+\newpage
 \subsection{Registrazione a NetMus}
 Per iniziare ad utilizzare NetMus collegarsi all'indirizzo
 \url{http://netmusbeta.appspot.com} . \\
@@ -159,10 +195,17 @@ Per iniziare ad utilizzare NetMus collegarsi all'indirizzo
   \includegraphics[width=15cm]{img/MU/login.png}
 \caption{Interfaccia di NetMus Login}
 \end{figure}
+\\
 Qui vi verr\`a presentata la pagina di login per
 accedere al sistema. Se possedete gi\`a un account Google, potete effettuare
 l'accesso direttamente con i dati dell'account di Google, dato che il sistema
-lo permette.\\
+lo permette.
+
+\newpage
+Basta selezionare la scritta Google e cliccare sul tasto che ci appare ``Log in
+NetMus using your Google Account''. Verrete reindirizzati alla pagina di Login
+di Google, ed una volta effettuato l'accesso verrete nuovamente reindirizzati al
+sistema \co{NetMus}, questa volta con l'accesso effettuato.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=15cm]{img/MU/loginGoogle.png}\\
@@ -172,7 +215,8 @@ lo permette.\\
 Se invece non siete utenti Google e questo
 \`e il primo accesso, \`e necessario che vi registriate al sistema. La
 registrazione cos\`i come l'utilizzo del sistema \co{NetMus} sono completamente
-gratuiti.\\
+gratuiti.
+
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=15cm]{img/MU/registration.png}\\
@@ -183,8 +227,9 @@ La registrazione richiede un' email valida e una password di lunghezza maggiore
 di 5 caratteri. Vi verr\`a inviata una mail all'indirizzo indicato che richiede
 conferma per l'attivazione dell'account.\\
 Una volta attivato il vostro account, avrete libero accesso al sistema
-\co{NetMus}.
+\co{NetMus}.\\
 
+\newpage
 \subsection{Primo accesso a NetMus}
 
 Al vostro primo accesso al sistema, l'interfaccia che vi verr\`a presentata
@@ -249,9 +294,33 @@ A questo punto \`e possibile iniziare a sbizzarrirsi con le funzionalit\`a di
 \co{NetMus}. Le funzionalit\`a per comodit\`a di impostazione visiva e
 sopratutto di ricerca, vengono elencate in sottoparagrafi.
 
+\newpage
 \section{Azioni richieste/permesse}
+Di seguito presentiamo le azioni che \`e possibile eseguire sul sistema per
+sfruttare le sue funzionalit\`a.
 
-\subsection*{Ascoltare una canzone in streaming}
+\subsection*{Modalit\`a di visualizzazione del catalogo}
+Il catalogo multimediale \`e la parte centrale del sistema \co{NetMus}. Qui
+vengono elencati i brani raccolti dalla scansione dei vari dispositivi. E
+possibile visualizzare il catalogo in due modalit\`a principali.\\
+\\
+La prima \`e la modalit\`a elenco. In questa modalit\`a i brani vengono
+visualizzati come un elenco in cui sono visualizzati artista, titolo del brano e
+album. In tale modalit\`a \`e possibile ordinare l'elenco dei brani per titolo,
+artista o per album, semplicemente cliccando sulla barra superiore alle voci
+``artista'', ``titolo'', ``album''.\\
+
+---------------------screenshot modalit\`a elenco-----------------------------
+\\
+La seconda modalit\`a di visualizzazione \`e quella in ``cover mode'', ossia la
+visualizzazione dei brani con la copertina del proprio album. Questa \`e una
+visualizzazione pi\`u carina da un punto di vista grafico ed estetico, ed \`e
+pi\`u semplice riconoscere i brani che appartengono allo stesso album.\\
+
+---------------------screenshot cover mode-----------------------------------
+
+ \subsection*{Ascoltare una canzone in
+streaming}
 
 Come prima funzionalit\`a inseriamo la descrizione della pi\`u interessante
 del nostro prodotto, ossia la riproduzione delle tracce in streaming.\\ Per
@@ -364,6 +433,7 @@ anche possibile cambiare la propria password.\\
 Una volta inserite le nuove informazioni, cliccare su salva modifiche per
 salvare quanto editato, o cliccare sulla ``X'' rossa per annullare.
 
+
 \subsection*{Dare un voto ad un brano}
 
 Il sistema \co{NetMus} offre anche la possibilit\`a di valutare un brano su una
@@ -392,6 +462,12 @@ Per visualizzare le statistiche del proprio sistema basta cliccare sul tasto
 statistiche riguardanti il sistema netmus(canzone pi\`u gettonata, numero di
 utenti, ecc..) e le statistiche riguardanti il proprio account (canzone pi\`u
 ascoltata, genere preferito, autore preferito, numero di amici ecc..).
+
+\subsection*{Il bottone giallo che sa di limone}
+tale funzionalit\`a \`e la parte pi\`u innovativa di \co{NetMus}. \`E possibile
+infatti, leccando lo schermo del proprio PC nel punto in cui si trova il tasto
+giallo, sentire un leggero gusto di limone, mescolato al gusto che si prova
+leccando una batteria da 9 volt.
 
 
 
@@ -439,10 +515,6 @@ corretta}
 \appendix % inizio appendice
 \chapter{Messaggi di errore e loro significato}
 \thispagestyle{fancy}
-Per ora nel front-end \`e prevista una segnalazione degli errori provvisoria,
-funzionale per il debugging, per quanto riguarda le procedure di login.
-Verr\`a in seguito implementato un sistema di segnalazione errori visibile,
-oltre che nella console del back-end, anche nell'interfaccia utente.
 
 \chapter{Glossario}
 \thispagestyle{fancy}
