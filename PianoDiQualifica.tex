@@ -1288,6 +1288,8 @@ rafforzare il metodo di lavoro.
 \thispagestyle{fancy} % per lo stile di header e footer
 
 \section{Specifica della campagna di validazione \\(collaudo incluso)}
+
+
 Si effettueranno tre tipi di test:
 
 \begin{itemize}
@@ -1326,34 +1328,42 @@ la verifica nel prodotto finale.
 
 \begin{table}
 \begin{center}
-\begin{tabular}{|p{0.32\textwidth}|p{0.30\textwidth}|}
+\begin{tabular}{|p{0.32\textwidth}|p{0.32\textwidth}|p{0.30\textwidth}|}
 \hline
-\bo{Requisito}\cellcolor{orange}& \bo{Metodo di Verifica}\cellcolor{orange} 
+\bo{Gruppo}\cellcolor{orange}& \bo{Requisito}\cellcolor{orange}& \bo{Metodo
+di Verifica}\cellcolor{orange}
 \\
 \hline
 
-
+\bo{A} &
 \bo{C1FN-1.1, C1FN-1.1.2, C1FN-1.1.3, C1FD-1.1.4,
 C1FN-1.3, C1FO-1.3.3, C1FO-1.3.4, C1FD-1.4.4, C1FD-1.5,
 C1FD-1.7, C1FD-1.7.1, C1FO-1.7.2 } & Questi
 requisiti potranno essere verificati tramite l'utilizzo della GUI messa a
 disposizione dell'utente. \\ \hline
+\bo{B} &
 \bo{C1FN-1.2, C1FN-1.2.1, C1FN-1.3.1,
 C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2}   & Tali requisiti saranno verificati tramite
 l'utilizzo della GUI con rispettivi controlli sul Database per
 verificare che le modifiche effettuate siano state registrate correttamente.
-\\\hline \bo{C1FD-1.3.2, C1FN-1.4.3} & Questi requisiti
+\\\hline 
+\bo{C} &
+\bo{C1FD-1.3.2, C1FN-1.4.3} & Questi requisiti
 potranno essere verificati tramite il solo controllo del Database. \\ \hline
+\bo{D} &
 \bo{C1FO-1.8.1} & Il requisito potr\`a essere verificato qualora l'esportazione e
-la creazione del PDF abbiano successo. \\\hline 
+la creazione del PDF abbiano successo. \\\hline
+\bo{E} & 
 \bo{C1FD-1.10, C2FD-2} & Tali requisiti potranno essere verificati nel momento
 in cui la periferica USB risulter\`a aggiornata. \\\hline
+\bo{F} &
 \bo{C2FN-1, C2FN-1.1, C2FN-1.2, C2FD-1.4, C2FN-1.5, C2FN-3, C2FN-3.1}& Questi
 requisiti riguardano la componente C2. La loro verifica consister\`a
 nell'apparizione di messaggio di avviso sulla DEVICE SCANNER BAR
 all'interno della view.\\\hline
 \end{tabular}
-\caption{Requisiti e rispettivi metodi di verifica in fase di collaudo}
+\caption{Gruppi di requisiti e rispettivi metodi di verifica in fase di
+collaudo}
 \end{center}
 \end{table}
 
@@ -1447,7 +1457,104 @@ metodologie qui proposte col prodotto ultimato.
 
 
 \section{Dettaglio dell'esito della campagna di validazione}
-La campagna di validazione non \`e stata ancora eseguita.
+------TEST UNITA e TEST INTEGRAZIONE ??????------////
+
+\subsection{Test di Sistema}
+
+\subsubsection{Test alpha}
+L'esito sul test alpha v.0.1, collaudo interno fatto sul software non appena
+tutto il sistema era pronto e verificato tramite i vari test di unit\`a e di
+integrazione, ha avuto un esito positivo in quanto ha dimostrato che tutti i
+requisiti obbligatori patuiti nell'analisi dei requisiti sono stati rispettati.
+\begin{footnotesize}
+\begin{longtable}{|p{2,4cm}|p{2,4cm}|}
+\hline
+\rowcolor{orange} \bo{Requisito}  & \bo{Presenza} \\
+\hline
+\endhead
+\endfoot
+ C1FN-1 &X \\ \hline
+ C1FN-1.1 &X  \\ \hline
+ C1FN-1.1.1 &X  \\ \hline
+ C1FN-1.1.2  &X  \\ \hline
+ C1FN-1.1.3 &X  \\ \hline
+ C1FN-1.2 &X  \\ \hline
+ C1FN-1.2.1 &X  \\ \hline
+ C1FN-1.3 &X  \\ \hline
+ C1FN-1.3.1  &X  \\ \hline
+ C1FN-1.4 &X  \\ \hline
+ C1FN-1.4.1 &X  \\ \hline
+ C1FN-1.4.2 &X  \\ \hline
+ C1FN-1.4.3 &X  \\ \hline
+ C1FN-1.9 &X  \\ \hline
+ C1FN-1.9.1  &X  \\ \hline
+ C1FN-1.9.2 &X  \\ \hline
+ C1FN-1.9.5 &X  \\ \hline
+ C1FN-1.13 &X  \\ \hline
+ C1QN-1.9.4 &X  \\ \hline
+ C1QN-1.9.6 &X  \\ \hline
+ C1QN-1.6 &X \\ \hline
+ C1QN-1.6.2&X   \\ \hline
+ C1QN-2&X \\ \hline
+ C1QN-2.3&X  \\ \hline
+ C1QN-2.6&X  \\ \hline
+ C1QN-2.7&X    \\ \hline
+ C1QN-3.1&-   \\ \hline
+ C1VN-1.12&X \\ \hline
+ C1VN-1.13.1&X  \\ \hline
+ C1VN-1.11&X  \\ \hline
+ C1VN-2.2&- \\ \hline
+ C1VN-2.5&X  \\ \hline
+ C2FN-1&X    \\ \hline
+ C2FN-1.1&X    \\ \hline
+ C2FN-1.2&X   \\ \hline
+ C2FN-1.5&X   \\ \hline
+ C2FN-3&X   \\ \hline
+ C2FN-3.1&X   \\ \hline
+ C2QN-3.2&X   \\ \hline
+ C2QN-4 &X  \\ \hline
+ C2QN-4.4&X  \\ \hline
+ C2VN-4.6&X    \\ \hline
+ C2VN-4.7&-  \\ \hline
+\caption{Check sulla presenza dei requisiti obbligatori nel test alpha v.0.1}
+\end{longtable}
+\end{footnotesize}
+I tre requisiti non presenti all'interno del prodotto nel test alpha, sono i
+requisiti sulla licenza open-source del prodotto e sulla presenza del manuale utente.
+Questi requisiti sono comunque stati rispettati. Pertanto non si procede a
+rilasciare una nuova versione del prodotto per il test alpha.
+
+\subsubsection{Test beta}
+Dopo aver superato il test alpha, si \`e proseguito rilasciando il prodotto ad
+un campione di 8/10 persone, di cui una \`e il prof. Riccardo Cardin, in una
+versione beta 0.1. Dopo aver aspettato alcuni giorni e un numero consistente di
+feedback, il resoconto dei problemi \`e:
+\begin{itemize}
+  \item mancanza di una pagina di Credits, dove reperire le varie informazioni
+  del sistema (esempio: versione rilasciata del prodotto); 
+  \item mancanza di una pagina di Help, dove poter consultare eventuali
+  problematiche che si presentano;
+  \item alcuni bottoni non collegati a link;
+  \item nelle playlist manca la possibilit\`a di ordinare a proprio piacimento
+  le canzoni;
+  \item problemi se inserisco delle canzoni che hanno dei carattare cinesi o
+  giapponesi nei titoli;
+  \item a volte dopo aver inserito delle nuove canzoni serve un refresh manuale
+  della pagina per far s\`i che compaiano nella lista;
+  \item ambiguit\`a nell'uso dei pulsanti a forma di X rossa, alcune volte serve
+  per chiudere un pop-up altre per togliere una canzone dalla playlist;
+  \item mancanza delle funzionalit\`a Social Network del sistema, non c'\`e la
+  possibilit\`a di visualizzare il profilo di altri utenti.
+\end{itemize}
+Alcuni di questi problemi son stati risolti dato che ero requisiti obbligatori,
+mentre quelli desiderabili/opzionali come ----------- si \`e deciso di non
+implementarli.
+La beta \`e passata alla versione 0.2 e distribuita alla stessa utenza.
+
+\subsection{Test Prestazionale}
+Dopo aver utilizzato lo strumento AppStat di mandolino, il risultato \`e \ldots
+
+
 
 \listoftables
 \addcontentsline{toc}{chapter}{Indice Tabelle}
