@@ -673,6 +673,162 @@ Qui di seguito riportiamo la ripartizione oraria per risorsa dei ruoli.
 \vspace{0.5cm}
 
 
+
+\chapter{Analisi e gestione dei rischi}
+\thispagestyle{fancy}
+
+Questo capitolo ha lo scopo di classificare eventuali problematiche per grado
+di pericolosit\`a, di analizzarle e di determinare le azioni da intraprendere per
+ridurne i danni. L'attenzione ai rischi sar\`a continua nel corso del
+progetto.\\ 
+Nonostante il nostro gruppo non abbia ancora una visione completa e dettagliata del 
+progetto, i rischi che abbiamo individuato sono riportati nelle seguenti sezioni.
+
+\section{Elenco dei rischi maggiori}
+
+\subsection{Indisposizione dei membri del gruppo}
+\bo{Grado di pericolosit\`a}: alto\\
+Per i componenti del VT.G questo progetto \`e una delle prime esperienze nel campo della progettazione software in dettaglio. 
+La disponibilit\`a dei membri \`e perci\`o uno dei rischi maggiori. 
+Assenze causate da problematiche fisiche (malattie, incidenti e imprevisti vari) comporterebbero gravi perdite 
+di tempo per tutti gli altri membri e conseguenti ritardi nell'avanzamento del
+lavoro.\\
+La probabilit\`a di occorrenza di questo rischio direttamente proporzionale alla
+frequenza con cui questi incontri si svolgono. 
+Si pu\`o affermare che la minor frequenza di riunioni  una conseguenza dell'indisposizione di alcuni membri.
+Ad ogni modo la probabilit\`a stimata \`e del 30\%.\\
+\\
+Ogni componente \`e tenuto a confermare in modo tempestivo la propria presenza
+prima di ogni nuovo incontro. I componenti di VT.G risiedono in differenti zone
+della regione, i ritrovi devono quindi essere organizzati per tempo e comunicati
+a tutti tempestivamente. Ritardi e/o assenza causa trasporti sono difficilmente
+gestibili, ma \`e possibile svolgere delle conferenze da casa tramite il
+software di videoconferenza Skype.
+
+\subsection{Conoscenza delle Tecnologie Utilizzate}
+\bo{Grado di pericolosit\`a}: medio\\
+Per la maggior parte dei membri del gruppo questo progetto \`e il primo approccio con tecnologie come GAE, 
+perci\`o, almeno inizialmente, questo sistema potrebbe risultare problematico e
+creare ritardi nello sviluppo.\\
+La probabilit\`a di occorrenza \`e stata stimata del 20\%.\\
+\\ 
+\`E stato concordato che ogni membro potr\`a seguire un corso proposto
+  dall'azienda di un altro capitolato, quindi le basi per l'utilizzo di questo
+  sistema saranno assicurate per tutti. Il fattore di rischio perci\`o \`e
+  dettato principalmente dalla difficolt\`a del sistema in s\'e. Il linguaggio
+  di programmazione adottato (\underline{Java}) non viene considerato come un
+  rischio notevole, in quanto studiato durante il corso di laurea in modo
+  esauriente. L'unico inconveniente pu\`o essere l'interazione col
+  database non relazionale \underline{Google Datastore} che utilizza \underline{GQL}, linguaggio simile a
+  \underline{SQL} (trattato sufficientemente nel nostro corso di studio).
+
+\subsection{Usabilit\`a del Prodotto}
+\bo{Grado di pericolosit\`a}: basso\\
+Il sistema NetMus \`e un buon prodotto di catalogazione e visualizzazione delle
+proprie preferenze musicali, ma spesso i lettori Mp3 che di per s\'e sono gi\`a
+dispositivi ad alta portabilit\`a mettono a disposizione la visualizzazione del
+catalogo multimediale, aggiornato e ordinato. Inoltre sono presenti altri
+software simili a NetMus distribuiti sul web come ad esempio LastFM, molto
+famoso e utilizzato nella rete. Questo potrebbe ridurre il numero di utenti disposti
+ad utilizzare il sistema NetMus.\\
+La probabilit\`a di occorrenza del rischio \`e molto variabile, dipendente
+sopratutto da come viene svolto il lavoro nelle varie fasi. Ad ogni modo si
+stima una probabilit\`a di occorrenza pari al 33\%.\\
+\\
+Una possibile soluzione \`e quella di decorare il progetto con delle
+funzionalit\`a innovative, cos\`\i\ da riuscire ad attirare un maggior numero di clienti.
+
+\subsection{Strumenti d'Utilizzo}
+\bo{Grado di pericolosit\`a}: medio\\
+Altro fattore di rischio identificato \`e l'utilizzo delle strumentazioni adatte. 
+Tutti i membri devono utilizzare le stesse strumentazioni e avere le stesse possibilit\`a nel lavoro. 
+Guasti hardware, impossibilit\`a di connettersi alla rete \underline{Internet},
+mancanza di strumentazioni software adatte comportano ritardi, incompatibilit\`a e sopratutto confusione. \\
+La probabilit\`a di occorrenza \`e del 40\%.\\
+\\
+Ogni membro del gruppo, 
+rispettando quanto scritto nel documento
+\emph{NormeDiProgetto-\versionenormeprogetto.pdf}, si \`e procurato la
+strumentazione software adatta prima dell'inizio del lavoro. In caso di problemi
+pi\`u complessi ogni membro \`e invitato a comunicare il fatto
+all'amministratore che cercher\`a una soluzione idonea.
+
+\subsection{Informazioni Aggiuntive sui Brani Musicali}
+\bo{Grado di pericolosit\`a}: medio\\
+I file Mp3 da cui si reperiscono i brani spesso non possiedono informazioni
+complete, anzi una buona parte di questi file non contiene affatto informazioni, perci\`o la libreria virtuale 
+di un utente risulterebbe composta da molti brani senza titolo, autore e altre
+informazioni essenziali.\\
+La probabilit\`a di occorrenza \`e del 60\%.\\
+\\
+Per rendere la libreria virtuale completa di tutte le informazioni si \`e ben pensato di implementare una 
+funzione di ricerca automatica nel server dai record di tutti i brani registrati, cos\`\i\ da completare 
+quelli incompleti. Nei casi estremi inoltre sar\`a resa possibile una funzione
+di inserimento delle informazioni manualmente.
+
+\section{Strategie di gestione dei rischi}
+
+Di seguito riportiamo un elenco delle strategie per la gestione dei rischi sopra
+elencati.\\
+
+Le strategie adoperate sono:
+\begin{itemize}
+	\item Evitare il rischio, ossia cercare di adeguarlo in modo da eliminare la
+	condizione rischiosa. 
+	\item Mitigare il rischio, riducendone le probabilit\`a o le conseguenze.
+	\item Accettare il rischio, in maniera attiva (attuando comunque un piano
+	contingente) o passiva (intervenendo solo nel momento in cui il rischio si
+	manifester\`a).
+\end{itemize}
+
+Ognuna di queste strategie  stata adottata per trovare una soluzione
+ad ogni specifico rischio in modo che arrecasse meno danno possibile allo
+sviluppo del progetto.\\
+
+\section{Rischi incontrati nelle fasi di sviluppo}
+
+\subsection{Rischi nella fase RR - RP}
+Il rischio maggiore che il gruppo ha dovuto affrontare in questa fase \`e stato il
+dover correggere e rivedere alcuni documenti per intero. Ci\`o non ha gravato
+sul monte ore totali, infatti come si pu\`o vedere da questo Piano Di Progetto era gi\`a
+stato previsto un ritorno sui documenti dopo l'ingresso in Revisione dei
+Requisiti. Perci\`o il rischio non \`e stato rilevato.\\
+\\
+Il grado di pericolosit\`a del rischio esposto al paragrafo 6.1.2 si \`e
+ridotto. Ci\`o \`e dettato dal fatto che i membri hanno potuto avere una prima
+esperienza personale con i tutorial di GoogleAppEngine e con un corso tenuto su quest'ultimo dal 
+personale della Miriade SPA. La probabilit\`a di occorrenza del rischio \`e comunque alta.\\
+\\
+Il gruppo \`e riuscito a mitigare in questa fase la probabilit\`a di occorrenza del
+rischio esposto al paragrafo 6.1.1. Si \`e
+infatti deciso di svolgere la maggior parte del lavoro da casa, con comunicazioni effettuate via Skype ogni qualvolta fosse
+stato necessario. Gli incontri ufficiali sono stati quindi ridotti al minimo,
+con la conseguenza di aver ottenuto una partecipazione attiva e completa di
+tutti i membri.\\
+\\
+
+\subsection{Rischi nella fase RP - RQ}
+In questa fase, uno dei rischi maggiori che ha dovuto affrontare il gruppo \`e
+stato il dover riorganizzare il preventivo di questa stessa fase. \`E stato
+necessario rivisitare il preventivo poich\'e nella fase precedente erano state
+utilizzate pi\`u ore di quelle previste, ed era necessario rientrare nei
+limiti proposti nel preventivo iniziale. Questo rischio \`e stato affrontato attivamente, 
+il gruppo infatti ha investito nelle ore di progettazione svolgendo un lavoro
+pi\`u dettagliato che ha conseguentemente portato ad un lavoro di codifica meno
+complesso del previsto, permettendo quindi di guadagnare alcune ore di lavoro e
+di rientrare nel preventivo.\\
+\\
+Un altro rischio incontrato in questa fase \`e stata la difficolt\`a di
+interfacciamente con il Database fornito da Google. La difficolt\`a principale
+risiede nella gestione dei dati del DataStore per i quali \`e stato necessario
+implementare un apposito algoritmo per la memorizzazione e l'aggiornamento dei
+tali in modo intelligente e pulito.\\
+\\
+La condizione rischiosa del fattore alla sezione 6.1.2 \`e stata quasi
+completamente annullata, grazie allo studio continuo e
+all'esperienza ottenuta lavorando su GAE e GWT.
+
+
 \chapter{Consuntivo}
 
 All'interno di questo capitolo sar\`a presentato un confronto con le ore di lavoro
@@ -978,159 +1134,6 @@ parte dei liquidi sono stati consumati dall'attivit\`a svolta dal progettista,
 seguiti da verificatori e programmatori.
 
 
-\chapter{Analisi e gestione dei rischi}
-\thispagestyle{fancy}
-
-Questo capitolo ha lo scopo di classificare eventuali problematiche per grado
-di pericolosit\`a, di analizzarle e di determinare le azioni da intraprendere per
-ridurne i danni. L'attenzione ai rischi sar\`a continua nel corso del
-progetto.\\ 
-Nonostante il nostro gruppo non abbia ancora una visione completa e dettagliata del 
-progetto, i rischi che abbiamo individuato sono riportati nelle seguenti sezioni.
-
-\section{Elenco dei rischi maggiori}
-
-\subsection{Indisposizione dei membri del gruppo}
-\bo{Grado di pericolosit\`a}: alto\\
-Per i componenti del VT.G questo progetto \`e una delle prime esperienze nel campo della progettazione software in dettaglio. 
-La disponibilit\`a dei membri \`e perci\`o uno dei rischi maggiori. 
-Assenze causate da problematiche fisiche (malattie, incidenti e imprevisti vari) comporterebbero gravi perdite 
-di tempo per tutti gli altri membri e conseguenti ritardi nell'avanzamento del
-lavoro.\\
-La probabilit\`a di occorrenza di questo rischio direttamente proporzionale alla
-frequenza con cui questi incontri si svolgono. 
-Si pu\`o affermare che la minor frequenza di riunioni  una conseguenza dell'indisposizione di alcuni membri.
-Ad ogni modo la probabilit\`a stimata \`e del 30\%.\\
-\\
-Ogni componente \`e tenuto a confermare in modo tempestivo la propria presenza
-prima di ogni nuovo incontro. I componenti di VT.G risiedono in differenti zone
-della regione, i ritrovi devono quindi essere organizzati per tempo e comunicati
-a tutti tempestivamente. Ritardi e/o assenza causa trasporti sono difficilmente
-gestibili, ma \`e possibile svolgere delle conferenze da casa tramite il
-software di videoconferenza Skype.
-
-\subsection{Conoscenza delle Tecnologie Utilizzate}
-\bo{Grado di pericolosit\`a}: medio\\
-Per la maggior parte dei membri del gruppo questo progetto \`e il primo approccio con tecnologie come GAE, 
-perci\`o, almeno inizialmente, questo sistema potrebbe risultare problematico e
-creare ritardi nello sviluppo.\\
-La probabilit\`a di occorrenza \`e stata stimata del 20\%.\\
-\\ 
-\`E stato concordato che ogni membro potr\`a seguire un corso proposto
-  dall'azienda di un altro capitolato, quindi le basi per l'utilizzo di questo
-  sistema saranno assicurate per tutti. Il fattore di rischio perci\`o \`e
-  dettato principalmente dalla difficolt\`a del sistema in s\'e. Il linguaggio
-  di programmazione adottato (\underline{Java}) non viene considerato come un
-  rischio notevole, in quanto studiato durante il corso di laurea in modo
-  esauriente. L'unico inconveniente pu\`o essere l'interazione col
-  database non relazionale \underline{Google Datastore} che utilizza \underline{GQL}, linguaggio simile a
-  \underline{SQL} (trattato sufficientemente nel nostro corso di studio).
-
-\subsection{Usabilit\`a del Prodotto}
-\bo{Grado di pericolosit\`a}: basso\\
-Il sistema NetMus \`e un buon prodotto di catalogazione e visualizzazione delle
-proprie preferenze musicali, ma spesso i lettori Mp3 che di per s\'e sono gi\`a
-dispositivi ad alta portabilit\`a mettono a disposizione la visualizzazione del
-catalogo multimediale, aggiornato e ordinato. Inoltre sono presenti altri
-software simili a NetMus distribuiti sul web come ad esempio LastFM, molto
-famoso e utilizzato nella rete. Questo potrebbe ridurre il numero di utenti disposti
-ad utilizzare il sistema NetMus.\\
-La probabilit\`a di occorrenza del rischio \`e molto variabile, dipendente
-sopratutto da come viene svolto il lavoro nelle varie fasi. Ad ogni modo si
-stima una probabilit\`a di occorrenza pari al 33\%.\\
-\\
-Una possibile soluzione \`e quella di decorare il progetto con delle
-funzionalit\`a innovative, cos\`\i\ da riuscire ad attirare un maggior numero di clienti.
-
-\subsection{Strumenti d'Utilizzo}
-\bo{Grado di pericolosit\`a}: medio\\
-Altro fattore di rischio identificato \`e l'utilizzo delle strumentazioni adatte. 
-Tutti i membri devono utilizzare le stesse strumentazioni e avere le stesse possibilit\`a nel lavoro. 
-Guasti hardware, impossibilit\`a di connettersi alla rete \underline{Internet},
-mancanza di strumentazioni software adatte comportano ritardi, incompatibilit\`a e sopratutto confusione. \\
-La probabilit\`a di occorrenza \`e del 40\%.\\
-\\
-Ogni membro del gruppo, 
-rispettando quanto scritto nel documento
-\emph{NormeDiProgetto-\versionenormeprogetto.pdf}, si \`e procurato la
-strumentazione software adatta prima dell'inizio del lavoro. In caso di problemi
-pi\`u complessi ogni membro \`e invitato a comunicare il fatto
-all'amministratore che cercher\`a una soluzione idonea.
-
-\subsection{Informazioni Aggiuntive sui Brani Musicali}
-\bo{Grado di pericolosit\`a}: medio\\
-I file Mp3 da cui si reperiscono i brani spesso non possiedono informazioni
-complete, anzi una buona parte di questi file non contiene affatto informazioni, perci\`o la libreria virtuale 
-di un utente risulterebbe composta da molti brani senza titolo, autore e altre
-informazioni essenziali.\\
-La probabilit\`a di occorrenza \`e del 60\%.\\
-\\
-Per rendere la libreria virtuale completa di tutte le informazioni si \`e ben pensato di implementare una 
-funzione di ricerca automatica nel server dai record di tutti i brani registrati, cos\`\i\ da completare 
-quelli incompleti. Nei casi estremi inoltre sar\`a resa possibile una funzione
-di inserimento delle informazioni manualmente.
-
-\section{Strategie di gestione dei rischi}
-
-Di seguito riportiamo un elenco delle strategie per la gestione dei rischi sopra
-elencati.\\
-
-Le strategie adoperate sono:
-\begin{itemize}
-	\item Evitare il rischio, ossia cercare di adeguarlo in modo da eliminare la
-	condizione rischiosa. 
-	\item Mitigare il rischio, riducendone le probabilit\`a o le conseguenze.
-	\item Accettare il rischio, in maniera attiva (attuando comunque un piano
-	contingente) o passiva (intervenendo solo nel momento in cui il rischio si
-	manifester\`a).
-\end{itemize}
-
-Ognuna di queste strategie  stata adottata per trovare una soluzione
-ad ogni specifico rischio in modo che arrecasse meno danno possibile allo
-sviluppo del progetto.\\
-
-\section{Rischi incontrati nelle fasi di sviluppo}
-
-\subsection{Rischi nella fase RR - RP}
-Il rischio maggiore che il gruppo ha dovuto affrontare in questa fase \`e stato il
-dover correggere e rivedere alcuni documenti per intero. Ci\`o non ha gravato
-sul monte ore totali, infatti come si pu\`o vedere da questo Piano Di Progetto era gi\`a
-stato previsto un ritorno sui documenti dopo l'ingresso in Revisione dei
-Requisiti. Perci\`o il rischio non \`e stato rilevato.\\
-\\
-Il grado di pericolosit\`a del rischio esposto al paragrafo 6.1.2 si \`e
-ridotto. Ci\`o \`e dettato dal fatto che i membri hanno potuto avere una prima
-esperienza personale con i tutorial di GoogleAppEngine e con un corso tenuto su quest'ultimo dal 
-personale della Miriade SPA. La probabilit\`a di occorrenza del rischio \`e comunque alta.\\
-\\
-Il gruppo \`e riuscito a mitigare in questa fase la probabilit\`a di occorrenza del
-rischio esposto al paragrafo 6.1.1. Si \`e
-infatti deciso di svolgere la maggior parte del lavoro da casa, con comunicazioni effettuate via Skype ogni qualvolta fosse
-stato necessario. Gli incontri ufficiali sono stati quindi ridotti al minimo,
-con la conseguenza di aver ottenuto una partecipazione attiva e completa di
-tutti i membri.\\
-\\
-
-\subsection{Rischi nella fase RP - RQ}
-In questa fase, uno dei rischi maggiori che ha dovuto affrontare il gruppo \`e
-stato il dover riorganizzare il preventivo di questa stessa fase. \`E stato
-necessario rivisitare il preventivo poich\'e nella fase precedente erano state
-utilizzate pi\`u ore di quelle previste, ed era necessario rientrare nei
-limiti proposti nel preventivo iniziale. Questo rischio \`e stato affrontato attivamente, 
-il gruppo infatti ha investito nelle ore di progettazione svolgendo un lavoro
-pi\`u dettagliato che ha conseguentemente portato ad un lavoro di codifica meno
-complesso del previsto, permettendo quindi di guadagnare alcune ore di lavoro e
-di rientrare nel preventivo.\\
-\\
-Un altro rischio incontrato in questa fase \`e stata la difficolt\`a di
-interfacciamente con il Database fornito da Google. La difficolt\`a principale
-risiede nella gestione dei dati del DataStore per i quali \`e stato necessario
-implementare un apposito algoritmo per la memorizzazione e l'aggiornamento dei
-tali in modo intelligente e pulito.\\
-\\
-La condizione rischiosa del fattore alla sezione 6.1.2 \`e stata quasi
-completamente annullata, grazie allo studio continuo e
-all'esperienza ottenuta lavorando su GAE e GWT.
 
 \listoftables
 \addcontentsline{toc}{chapter}{Indice Tabelle}
