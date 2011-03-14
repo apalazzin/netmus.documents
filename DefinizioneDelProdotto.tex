@@ -1,11 +1,12 @@
 \newcommand{\nomedoc}{Definizione Del Prodotto}
-\newcommand{\versione}{1.0}
-\newcommand{\versioneglossario}{3.0}
-\newcommand{\versionenormeprogetto}{3.0}
-\newcommand{\versionespecifica}{2.0}
+\newcommand{\versione}{2.0}
+\newcommand{\versioneglossario}{4.0}
+\newcommand{\versioneAR}{3.0}
+\newcommand{\versionenormeprogetto}{4.0}
+\newcommand{\versionespecifica}{3.0}
 \newcommand{\nomefile}{DefinizioneDelProdotto-\versione.pdf}
 \newcommand{\datacreazione}{3 Febbraio 2011}
-\newcommand{\datamodifica}{27 Febbraio 2011}
+\newcommand{\datamodifica}{14 Marzo 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Lovato Daniele, Daminato Simone}
@@ -27,7 +28,10 @@ VT.G \\
 \thispagestyle{fancy}
 In questo documento verr\`a definito l'intero prodotto nel dettaglio, andando a
 descrivere i metodi e i campi dati di ogni classe che verr\`a implementata nel
-sistema. Le componenti definite durante la progettazione di dettaglio 1 e quelle
+sistema.\\\\
+La progettazione di dettaglio si svolger\`a in due attivit\`a distinte:\\
+progettazione di dettaglio 1 e progettazione di dettaglio 2.\\\\
+Le componenti definite durante la progettazione di dettaglio 1 e quelle
 da integrare durante la progettazione di dettaglio 2 saranno unite all'interno
 del documento per rendere pi\`u comprensibile l'architettura completa del sistema
 NetMus. Il tracciamento con i requisiti invece sar\`a separato in progettazione
@@ -205,8 +209,8 @@ architetturali con una breve descrizione.
   fornisce una libreria molto efficace e facilmente configurabile
   rispetto a \underline{JDO}. Un altro vantaggio acquisito dall'utilizzo di
   questa tecnologia \`e quello di poter gestire in modo asincrono (parallelo) le
-  operazioni sul DataStore. Questo framework si interfaccia al sistema NetMus
-  nelle componenti di persistenza DAO \co{UserAccount}, \co{Song} e
+  operazioni sul DataStore. Questo framework si interfaccia con il sistema
+  NetMus nelle componenti di persistenza DAO \co{UserAccount}, \co{Song} e
   \co{MusicLibrary} e nella classe singleton \co{ODF} (Object DataStore
   Factory). Quest'ultima \`e stata inserita nel package \emph{server.persistent}
   per garantire un migliore \underline{information hiding}. \\
@@ -2236,9 +2240,10 @@ automaticamente il file contenente le definizioni di quella lingua.
 \hline
 \endfoot
 \endlastfoot
-\# testi\_vari: String & Tutti i metodi presenti in questa classe sono di
-questo tipo e vengono invocati al posto dell'inserimento di un normale
-testo statico nelle classi di \emph{applet}.\\\hline
+\# testi\_vari(): String & Questa classe contiene tutti i metodi che
+vengono invocati al posto dell'inserimento di un normale testo statico nelle
+classi di \emph{applet}, per poter restituire una parola nella giusta
+lingua (definita dal parametro ?locale= presente nell'URL).\\\hline
 \caption{Metodi di AppletConstants}
 \end{longtable}
 
@@ -3384,7 +3389,7 @@ default, l'artista e l'album disposte nell'ordine titolo-sep-artista-sep-album.
 Dei brani condivisi da pi\`u utenti viene salvata una sola copia per ottimizzare
 la quantit\`a di spazio utilizzato.\\
 La logica di salvataggio delle canzoni implementata prevede che nei tag estratti
-sia presente almeno il titolo altrimenti il brano non verr√† mantenuto nel
+sia presente almeno il titolo altrimenti il brano non verr\`a† mantenuto nel
 DataStore. Al primo inserimento di una canzone questa classe si occupa anche di
 reperire informazioni aggiuntive dai servizi esterni YouTube e Last.fm quali link per copertine e video in streaming. \subsubsection*{Relazioni d'uso di altre componenti} Questa classe fa uso degli
 oggetti \co{SongDTO} e \co{SongSummaryDTO} del package \emph{shared}. 
@@ -3710,7 +3715,7 @@ sviluppatori GAE dal creatore delle API per Java di Last.fm, Janni Kovacs.
 Questa classe \`e stata importata nel progetto con lo scopo di fornirci uno
 strumento semplice ma efficace per cifrare le password dei nostri utenti, prima
 di essere memorizzate nel DataStore. \`E un'implementazione Java dell'algoritmo
-di hashing Blowfish, sviluppata da Damien Miller nel anno 2006.
+di hashing Blowfish, sviluppata da Damien Miller nell'anno 2006.
 \subsubsection*{Relazioni d'uso di altre componenti}
 Nessuna.
 \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
@@ -4521,7 +4526,8 @@ Il package \emph{shared.exception} raccoglie le classi che trattano
 le eccezioni che posso essere lanciate dal sistema NetMus. Le classi eccezione
 sono opportunamente gerarchizzate. 
 \subsection*{Relazioni d'uso di altre componenti}
-Tutte le classi qui contenute estendono la classe \co{Exception}.
+Tutte le classi in \emph{shared.exception} sono sottotipi della classe
+\co{Exception} del package \emph{java.lang}.
 \subsection*{Interfacce con e relazioni d'uso da altre componenti}
 Questo package \`e visibile all'intero sistema e all'occorrenza le classi al suo
 interno posso essere utilizzate da qualsiasi altro componente.
