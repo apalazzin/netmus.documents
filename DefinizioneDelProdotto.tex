@@ -418,10 +418,6 @@ pu\`o interagire. Tutte le sue classi ed i suoi sottopackage saranno compilati i
 JavaScript da GWT, prima che il sistema venga depositato nel dominio
 \emph{appspot.com} di Google. Contiene la classe \underline{Entry Point}
 \co{NetMus}.
-\subsection*{Relazioni d'uso di altre componenti}
-Il package \emph{client} utilizza i DTO nel package \emph{shared}.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Nessuna.
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
@@ -442,11 +438,6 @@ In particolare andr\`a a creare dinamicamente il \co{ClientFactoryImpl} adatto,
 nel caso ce ne fossero diversi, e lo aggancia insieme all'EventBus al nostro
 \co{NetmusPlaceHistoryMapper} ed al \co{NetmusActivityMapper}.
 Inoltre allaccia al body Html il widget principale dell'applicazione.
-\subsubsection*{Relazioni d'uso di altre componenti}
-La classe \co{Netmus} utilizza le classi \co{ClientFactory},
-\co{NetmusActivityMapper} e \\\co{NetmusPlaceHistoryMapper}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Nessuna.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 \co{Netmus} praticamente si occupa di avviare il sistema e portare l'utente alla
 pagina iniziale di Login o, se gi\`a autenticato, alla sua pagina Profilo.
@@ -509,14 +500,6 @@ In NetMus \`e disponibile un'unica implementazione dell'interfaccia
 principali browser in circolazione \`e gi\`a soddisfatta e non verranno
 implementate interfacce alternative. Nella classe si definiscono
 le propriet\`a di un vista (desktop) del sistema.
-\subsubsection*{Relazioni d'uso di altre componenti}
-La classe utilizza \co{EventBus}, \co{PlaceController}, \co{LoginView},
-\co{ProfileView}, \co{EditUserView} e
-\co{EditSongView}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\co{Netmus} crea l'istanza della classe. L'interfaccia \co{ClientFactory} \`e
-utilizzata da \co{ActivityMapper} e successivamente dalle \co{Activity} per
-l'utilizzo dell'EventBus.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 La classe si occupa di istanziare l'event bus, il place controller e le varie
 view. L'event bus gestisce le comunicazioni tra componenti, il place
@@ -592,13 +575,7 @@ xml previsti da UiBinder saranno:
   \item \bo{@UiHandler(``name\_of\_uifield'')}: permette di scrivere dei metodi
   che gestiscono gli eventi scatenati dal parametro UiField senza
   dover dichiarare le classi handler previste da Java.
-\end{itemize}  
-\subsection*{Relazioni
-d'uso di altre componenti} Questo package utilizza \emph{place} per creare istanze dei vari Place quando richiesto.
-Tutte le classi qui contenute inoltre fanno uso della classe \co{MyConstants}
-per la gestione del multi-lingua. 
-\subsection*{Interfacce con e relazioni d'uso
-da altre componenti} Viene utilizzato dal package \emph{activity}.
+\end{itemize}
 \subsection*{Attivit\`a svolte e dati trattati}
 In sostanza svolge il compito di organizzare le informazioni del model in un
 interfaccia accessibile dall'utente.
@@ -656,16 +633,6 @@ implementati in \co{LoginActivity}) e l'\emph{enum} in questione sono:
   \item public enum LoginType \{NETMUSLOGIN, NETMUSREGISTRATION,
   GOOGLELOGIN\} : Definisce le tipologie di login e registrazione possibili.
 \end{itemize}
-\subsubsection*{Relazioni d'uso di altre componenti}
-Per permettere all'utente di cambiare pagina o stato della finestra la classe
-pu\`o istanziare oggetti di tipo \co{LoginPlace}. Il form di login e quello di
-registrazione appartengono ad uno stesso stato quindi i \co{LoginPlace}
-istanziati saranno relativi a situazioni di errore o di login effettuato con successo. 
-Tutte le classi qui contenute inoltre fanno uso della classe \co{MyConstants}
-per la gestione del multi-lingua. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} La vista
-viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
-\co{LoginActivity}. 
 \subsubsection*{Attivit\`a svolte e dati trattati} La classe permette all'utente
 di scegliere se effettuare il login tramite NetMus o Google oppure la
 registrazione attraverso un'interfaccia grafica accattivante e di semplice utilizzo, contiene una form
@@ -853,14 +820,6 @@ I metodi in questione sono:
     \item void editSongArtist(String newartist, String oldartist, String title,
     String album): salva il nome dell'artista modificato.
 \end{itemize}
-\subsubsection*{Relazioni d'uso di altre componenti}
-La classe istanzia oggetti di tipo \co{ProfilePlace} che definiscono gli stati
-attuali della vista.
-Tutte le classi qui contenute inoltre fanno uso della classe \co{MyConstants}
-per la gestione del multi-lingua. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
- La vista viene creata da \co{ClientFactory} ed \`e settata ed utilizzata dalla
- \co{ProfileActivity}.
  \subsubsection*{Attivit\`a svolte e dati trattati}
 Contiene il catalogo dei brani dell'utente attraverso il quale \`e possibile
 visualizzare tutte le informazioni relative ad un brano e ordinare gli stessi
@@ -1150,31 +1109,6 @@ componenti grafiche definite tramite il relativo template grafico
 \caption{Metodi di ProfileView}
 \end{longtable}
 
-\subsubsection*{Dettaglio del caricamento profilo}
-L'insieme delle operazioni che costituiscono il caricamento della pagina profilo
-di un utente registrato (successivamente all'avvenuta autenticazione) sono
-particolarmente rappresentative dei meccanismi generali del sistema NetMus. Esse
-infatti includono le seguenti fondamentali dinamiche:
-\begin{itemize}
-  \item Creazione ed esecuzione di un nuovo Place tramite il metodo \co{goTo()};
-  \item Creazione ed esecuzione di una nuova Activity tramite
-  l'\co{ActivityMapper};
-  \item Inizializzazione di una View;
-  \item Creazione ed inizializzazione della componente d'estrazione brani.
-\end{itemize}
-Dal seguente diagramma UML di sequenza traspare la centralit\`a del
-ruolo delle classi Activity che, una volta istanziate dal
-\co{NetmusActivityMapper}, si occuperanno di inizializzare opportunamente la
-relativa View ( in questo caso specifico anche di provvedere
-all'inizializzazione dell'applet di estrazione dati).
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=17cm]{img/DP/loadProfileView.png}
-\caption{Diagramma UML di sequenza che descrive la procedura di caricamento
-della pagina di profilo, in seguito all'autenticazione di un utente registrato.}
-\end{figure}
-
 \subsection{Interfaccia MyConstants}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -1192,13 +1126,7 @@ testo presente nelle interfacce grafiche e che deve essere presentato in italian
 preferenze dell'utente. \\
 Le implementazioni delle due lingue vengono predisposte durante la compilazione
 e caricate tramite deferred binding rendendo il cambio di lingua molto efficiente
-a run-time. 
-\subsubsection*{Relazioni d'uso di altre componenti}
-I testi sono prelevati dai file \emph{MyConstants.properties} e
-\emph{MyConstants\_it.properties}. 
-\subsubsection*{Interfacce con e relazioni
-d'uso da altre componenti}
-Tutte le classi del package \emph{ui} ne fanno uso.
+a run-time.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Permette il caricamento dei testi in diverse lingue tramite deferred binding
 configurabile nel file di progetto \emph{Netmus.gwt.xml}.
@@ -1236,14 +1164,6 @@ terminate da un ActivityManager associato con un contenitore Widget. Un activity
 pu\`o inoltre visualizzare automaticamente un avviso quando sta per essere
 terminata (in pi\`u l'ActivityManager ci avvisa quando la finestra sta per
 essere chiusa).
-\subsection*{Relazioni d'uso di altre componenti} Il package usa gli oggetti
-View di \emph{ui} e Place di \emph{place} per gestire informazioni di stato o
-modificatori della vista, ma quando serve pu\`o utilizzare servizi forniti da
-\emph{service} (per passare i dati alla view).
-\subsection*{Interfacce con e relazioni d'uso da altre componenti} Le istanze
-delle classi Activity vengono create dal \co{NetmusActivityMapper} che quando,
-riceve una richiesta di una Activity, ritorna una corretta istanza di tale
-classe, in base al Place corrente.
 \subsection*{Attivit\`a svolte e dati trattati} Il package \emph{activity} si
 pu\`o considerare il boss, poich\'e gestisce l'intera logica di business del
 client.
@@ -1262,12 +1182,6 @@ client.
 Questa classe \`e di tipo \co{AbstractActivity}, implementa il \co{Presenter}
 interno alla \co{LoginView} rappresentando quindi il collegamento tra la parte
 grafica presente nel client ed il modello che risiede nel server.
-\subsubsection*{Relazioni d'uso di altre componenti} Invoca i servizi
-asincroni di autenticazione forniti da \co{LoginService}.\\ Si occupa di
-recuperare i dati da \co{LoginPlace} e trasferirli alla \co{LoginView}. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} 
-Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
-un Place di tipo \co{LoginPlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa classe ha il compito di settare gli attributi della pagina di login
 adeguatamente allo stato rappresentato dal \co{LoginPlace} che l'ha originata e
@@ -1368,13 +1282,6 @@ tipo \co{RegistrationException}.\\\hline
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
 interno alla \co{ProfileView} e richiede al \co{clientFactory} di
 implementarla.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Invoca i servizi di interrogazione e modifica dei dati profilo forniti da
-\co{UsersService} e utilizza le relative classi \co{ProfilePlace} e
-\co{ProfileView}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene creata da \co{NetmusActivityMapper} quando viene richiesta la Activity da
-un Place di tipo \co{ProfilePlace}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
 creazione ed interazione con l'utente della pagina principale come la
@@ -1529,18 +1436,8 @@ brano.\\\hline
 Il package contiene le classi di tipo Place. I Place sono indispensabili
 per far s\`i che la corrispondente Activity sia accessibile via URL e per
 memorizzare i dati relativi allo stato corrente del sistema in modo che siano
-rapidamente recuperabili. 
-\subsection*{Relazioni d'uso di altre componenti} A
-questo package appartengono le classi \co{LoginPlace}, \co{ProfilePlace},
-\co{EditUserPlace}, \\\co{EditSongsPlace}.\\
-In ognuna di queste classi \`e presente una sottoclasse \co{Tokenizer} che
-permette di serializzare lo stato del Place in un simbolo (token) URL e che non
-\`e implementata da noi ma dal framework che utilizziamo, per questo non sar\`a
-specificata nelle liste di attributi delle classi di questo package.
-\subsection*{Interfacce con
-e relazioni d'uso da altre componenti} I suoi elementi vengono utilizzati dal package \emph{mvp}. 
+rapidamente recuperabili.
 \subsection*{Attivit\`a svolte e dati trattati} Organizza i Places.
-
 \subsection{Classe LoginPlace}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
@@ -1557,12 +1454,6 @@ e relazioni d'uso da altre componenti} I suoi elementi vengono utilizzati dal pa
 classe \`e associata alla classe interna \co{Tokenizer} che permette di
 serializzare lo stato del Place in un simbolo (token) URL.
 Ha la funzione di contenere i dati dello stato corrente della pagina di login.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-La classe \`e creata da \co{LoginView} quando viene effettuato un qualsiasi
-tentativo di login o registrazione ed \`e utilizzata nella creazione della
-conseguente \co{LoginActivity}. 
 \subsubsection*{Attivit\`a svolte e dati trattati} Il compito della classe \`e
 quello di indicizzare gli stati della pagina di login e mantenerne i dati
 finch\'e l'applicazione \`e attiva. Questo permette inoltre di rendere
@@ -1625,9 +1516,6 @@ serializzare lo stato del Place in un simbolo (token) URL.
 Questa classe contiene un solo attributo di tipo \emph{String} che serve
 solamente per generare l'URL della pagina e quindi garantire il funzionamento
 della history e dei bookmark dei browser. 
-\subsubsection*{Relazioni d'uso di altre componenti} Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} La classe
-\`e creata da \co{ProfileView} utilizzata da \co{ProfileActivity}. 
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Il compito della classe \`e quello di indicizzare gli stati di
 \co{ProfileActivity} in modo da rendere accessibili le funzionalit\`a di history
@@ -1679,13 +1567,7 @@ rappresenta lo stato attuale della pagina.\\\hline
 Questo package racchiude le classi di gestione di Activity e Place implementate
 dal framework di GWT2.1 ``MVP with Activities and Places''. Questo package \`e
 fondamentale per le funzionalit\`a di gestione della history e del bookmarking
-da parte dei browser. 
-\subsection*{Relazioni d'uso di altre componenti}
-Fa riferimento a classi dei package \emph{client.place} e
-\emph{client.activity}. 
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Le classi di questo package vengono accedute automaticamente da componenti
-interne alle librerie di GWT. 
+da parte dei browser.
 \subsection*{Attivit\`a svolte e dati trattati}
 Gestisce il collegamento tra Place e Activity per abilitare le funzioni di
 history, bookmarking e mantenimento dello stato del client.
@@ -1702,12 +1584,6 @@ history, bookmarking e mantenimento dello stato del client.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe si occupa di mappare ogni attivit\`a con il corrispondente Place.
-\subsubsection*{Relazioni d'uso di altre componenti}
-La classe utilizza istanze di classi appartenenti al package
-\emph{client.place} e crea istanze di classi appartenenti al package
-\emph{client.activity}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre
-componenti} Nessuna.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Tramite un riferimento ad un Place crea e restituisce un oggetto activity.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -1756,10 +1632,6 @@ in base al tipo del place dato in input.\\
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Dichiara e riferisce tutti i places che saranno utilizzati da NetMus.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza i \co{PlaceTokenizer}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Il PlaceHistoryHandler utilizza la classe per la sincronizzazione del URL.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da connessione tra i PlaceTokenizer (classe interna ad ogni Place) e il
 PlaceHistoryHandler (messo a disposizione da GWT) che sincronizza l'URL del
@@ -1806,17 +1678,6 @@ le interfacce dei servizi remoti offerti dal server. Le funzionalit\`a delle
 classi in esso contenute saranno divise in base al tipo di servizio offerto. Per
 ognuno di questi sar\`a presente un'interfaccia normale (che estende
 \co{RemoteService}) e un'interfaccia \bo{asincrona}.
-\subsection*{Relazioni d'uso
-di altre componenti} Queste interfacce vengono implementate su \emph{server}, perci\`o non
-hanno relazioni d'uso definite. Verranno sempre usati oggetti DTO (definiti in
-\emph{shared}) come pacchetti di scambio nei servizi tra \emph{client} e
-\emph{server}.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Verranno istanziati degli oggetti di \emph{service} col metodo del
-\emph{deferred binding} dalla classe di Entry Point \co{Netmus}, pur avendo
-visibilit\`a solamente delle interfacce. Verranno poi usati dalle varie Activity.
-\co{LibraryService} viene utilizzata anche dalla classe di collegamento con la
-componente 2 \co{client.AppletBar}. 
 \subsection*{Attivit\`a svolte e dati trattati}
 Vengono forniti tutti i servizi che il server sar\`a in grado di dare, i dati
 trattati saranno i DTO definiti nel package \emph{shared}.\\\\
@@ -1844,14 +1705,7 @@ brani musicali. Le richieste in questione dovranno tenere in considerazione il
 fatto che ogni brano pu\`o essere condiviso da molti utenti e la modifica di
 quest'ultimo \`e molto delicata da gestire, per questo motivo si far\`a ricorso a
 questi servizi solo se strettamente necessario. Sar\`a presente anche
-\co{SongServiceAsync}, che gestir\`a il ritorno dai metodi in maniera asincrona. \subsubsection*{Relazioni d'uso di altre componenti}
-Queste interfacce verranno implementate su \emph{server}, perci\`o non
-avranno relazioni d'uso definite, se non con gli oggetti DTO
-(\co{UserDTO, SongDTO}, \co{SongSummaryDTO}, \co{MusicLibraryDTO} e
-\co{MusicLibrarySummaryDTO}) che verranno utilizzati per il trasferimento
-client-server. \subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
-binding e verr\`a utilizzata da \co{ProfileActivity}.
+\co{SongServiceAsync}, che gestir\`a il ritorno dai metodi in maniera asincrona.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per interagire con i brani
 salvati nel DataStore e condivisi da pi\`u utenti. Utilizzer\`a dati di tipo
@@ -1881,13 +1735,6 @@ questi servizi saranno solamente quelle basilari ovvero l'inserimento, la
 modifica e la cancellazione di un utente. Sar\`a presente
 anche \co{UsersServiceAsync}, che gestir\`a il ritorno dai metodi in maniera
 asincrona. 
-\subsubsection*{Relazioni d'uso di altre componenti} Queste interfacce verranno
-implementate su \emph{server}, perci\`o non avranno relazioni d'uso definite, se
-non con gli oggetti DTO (\co{UserDTO} e \co{UserCompleteDTO}) che verranno
-utilizzati per il trasferimento client-server. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
-binding e verr\`a utilizzata da \co{EditUserActivity} e \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere o
 modificare (quando possibile) qualsiasi tipo di informazione riguardante gli
@@ -1921,14 +1768,6 @@ DataStore con la chiamata asincrona \emph{sendUserNewMusic}. Le
 funzionalit\`a di gestione delle playlist e delle statistiche del
 catalogo sono interamente racchiuse in questa classe. Sar\`a presente anche
 \co{LibraryServiceAsync}, che gestir\`a il ritorno dai metodi in maniera asincrona. 
-\subsubsection*{Relazioni d'uso di altre componenti}
-Queste interfacce verranno implementate su \emph{server}, perci\`o non
-avranno relazioni d'uso definite, se non con gli oggetti DTO
-(\co{MusicLibraryDTO} e \co{MusicLibrarySummaryDTO}) che verranno utilizzati per
-il trasferimento client-server.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
-binding e verr\`a utilizzata da \co{ProfileActivity}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornir\`a l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante la libreria musicale utente e utilizzer\`a dati di
@@ -1953,14 +1792,6 @@ che soddisfano le possibili richieste verso la parte model riguardanti l'autenti
 Questi metodi si occupano inoltre di gestire la parte relativa alle sessioni HTTP. 
 \`E presente anche \co{LoginServiceAsync}, che gestisce il ritorno dai
 metodi in maniera asincrona.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Queste interfacce vengono implementate su \emph{server}, perci\`o non
-hanno relazioni d'uso definite, se non con oggetti \co{LoginDTO} che
-vengono utilizzati per il trasferimento client-server.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa interfaccia verr\`a istanziata da \co{Netmus} tramite deferred
-binding e viene utilizzata \\\co{LoginActivity} e dalle altre Activity che
-permetteranno il login ed il logout dell'utente.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa interfaccia fornisce l'accesso a servizi per richiedere qualsiasi tipo
 di informazione riguardante l'autenticazione dell'utente al sistema
@@ -2015,9 +1846,6 @@ In particolare, lo scambio delle informazioni dei brani tra applet e questo
 package avviene utilizzando \underline{XML}, permettendo quindi di contenere
 tutte le informazioni necessarie all'interno di un'unica stringa, in maniera da
 aggirare molte difficolt\`a e limiti derivanti dall'utilizzo di JSNI.
-\subsection*{Relazioni d'uso di altre componenti}
-Si fa utilizzo dei servizi offerti dalle classi presenti nel package
-\emph{server}.
 
 \subsection{Classe TranslateDTOXML}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2035,11 +1863,6 @@ Si occupa di interpretare le informazioni in formato XML ricevute dall'applet,
 generando i relativi DTO contenenti le informazioni. Pu\`o effettuare anche
 l'operazione inversa, ovvero generare una stringa in formato XML che rappresenta
 le informazioni contenute nei DTO.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza \co{SongDTO} contenuta in \emph{shared}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene usata da \co{AppletBar} per interpretare le informazioni provenienti
-dall'applet.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Interpretazione e traduzione delle informazioni dei brani da XML a DTO e
 viceversa.
@@ -2112,11 +1935,6 @@ creare il relativo SongDTO, e se lo salva su una lista.\\\hline
 Gestisce la traduzione delle frasi e/o avvisi da mostrare all'utente, a seconda
 della lingua correntemente selezionata, utilizzando un meccanismo proprio di
 GWT.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene usata da \co{AppletBar} e da \co{AppletBarView} per visualizzare in
-maniera corretta lo stato dell'applet all'utente.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Utilizza i file \co{.properties} presenti in questo package, ognuno dei quali
 definisce la traduzione corretta di ogni termine e/o frase in una determinata
@@ -2159,13 +1977,6 @@ comunica visivamente all'utente lo stato dell'applet tramite \co{AppletBarView},
 e utilizza i servizi del server per salvare le informazioni estratte da quest'ultima.
 Definisce i metodi JSNI per la comunicazione con l'applet utilizzando
 \co{AppletConnector}. Utilizza il pattern Singleton.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza \co{AppletConstrants} per la traduzione di alcuni messaggi,
-\co{TranslateDTOXML} per la ricezione dei brani dall'applet, e \emph{server} per
-salvare le informazioni.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene utilizzata da \co{ProfileActivity} per l'inserimento e la rimozione
-dell'applet dalla pagina web.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Si occupa di gestire l'applet all'interno del programma: questo prevede il
 caricamento del suo codice e la sua inizializzazione, la ricezione delle
@@ -2241,10 +2052,6 @@ canzoni e le invia al server.\\\hline
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Interfaccia grafica: si occupa dell'interazione con l'utente.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza \co{AppletBar} e \co{AppletConstants}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Utilizzata da \co{AppletBar}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Mostra all'utente lo stato dell'applet, e gli fornisce gli elementi per
 interagire con essa.
@@ -2323,10 +2130,6 @@ connessione tra l'applet e le classi NetMus.}
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Effettua l'interfacciamento tra l'applet e AppletBar, utilizzando JSNI.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Utilizzata da \co{AppletBar}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Dichiara dei metodi globali in JavaScript che hanno il compito di reindirizzare
 le chiamate dell'applet all'istanza di \co{AppletBar}.
@@ -2374,11 +2177,6 @@ Questo package conterr\`a le classi che rappresenteranno i nostri eventi
 personalizzati, utilizzabili potenzialmente in tutto il \co{client}.
 Questi eventi potranno essere lanciati sull'EventBus ed essere catturati e
 gestiti in ogni classe avente accesso all'EventBus tramite \co{ClientFactory}.
-\subsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Potranno essere usati questi eventi da ogni classe del client che ne ha la
-necessit\`a.
 \subsection*{Attivit\`a svolte e dati trattati}
 Glie eventi svolgono la funzione di segnale, per dare l'input d'inizio ad un
 qualche procedimento.
@@ -2399,14 +2197,6 @@ Questa classe rappresenta l'evento GWT che andremo a lanciare sull'Event Bus
 quando termina un processo di scansione di un dispositivo ed \`e terminata
 anche la memorizzazione nel DataStore e l'associazione dei brani all'utente che
 li ha caricati. 
-\subsubsection*{Relazioni d'uso di altre componenti}
-\`E associato alla classe \co{DeviceScannedEventHandler} che permetter\`a di
-controllare e gestire l'evento nelle altre classi.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Verr\`a lanciato in specifico da \co{AppletBar} quando avr\`a conferma dal
-server dell'avvenuto processo di memorizzazione dei nuovi Mp3 scansionati. Questo
-evento verr\`a poi catturato nella \co{ProfileActivity} che andr\`a ad
-aggiornare la lista canzoni presenti nel catalogo utente.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Nessuna. La classe \`e costruita basandosi su convenzioni GWT comuni a tutti gli
 eventi grafici.
@@ -2457,11 +2247,6 @@ all'evento.\\\hline \# dispatch(in DeviceScannedEventHandler) & Metodo interno p
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Rappresenta l'interfaccia dell'handler che andr\`a a gestire gli eventi di tipo
 \co{DeviceScannedEvent}.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende l'interfaccia EventHandler di GWT per automatizzare il meccanismo di
-gestione degli eventi personali.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Nessuna.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Serve per dichiarare i metodi da implementare quando si costruisce un
 \co{EventHandler} per eventi di tipo \co{DeviceScannedEvent}.
@@ -2510,16 +2295,7 @@ fondamentali presenti all'interno del package
 Questo package racchiude tutte le classi che collaborano al fine di gestire la
 \underline{business logic} del sistema, ovvero tutte quelle operazioni che
 potranno essere compiute sui dati raccolti e che quindi interagiscono pesantemente con il
-DataStore. 
-\subsection*{Relazioni d'uso di altre componenti}
-Per quanto riguarda l'interfacciamento con il database vengono utilizzati i
-servizi offerti dalle classi DAO presenti in \emph{persistent}. Si fa utilizzo
-inoltre delle classi presenti nel package \emph{shared} in cui vengono
-incapsulati tutti i dati in uscita del server.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Il package \emph{server} tramite il deferred binding viene utilizzato
-indirettamente nelle classi del package \emph{client.activity} e
-\emph{client.applet}. 
+DataStore.  
 \subsection*{Attivit\`a svolte e dati trattati}
 Le attivit\`a svolte dalle sue classi verranno qui di seguito descritte.
 
@@ -2544,12 +2320,6 @@ qui definiti permettono le operazioni basilari sulle canzoni presenti nel
 datastore. Le uniche eccezioni che possono causare il fallimento di queste
 operazioni sono gli errori di stato del DataStore \co{IllegalStateException} che
 verranno gestire tramite il callback nei metodi di \co{ProfileActivity}.
-\subsubsection*{Relazioni d'uso di altre componenti} Oltre ad utilizzare i DTO
-\co{SongDTO} e \co{SongSummaryDTO}, verranno creati, immagazzinati oppure usati
-gli oggetti \emph{persistent}: \co{Song}, \co{MusicLibrary} e \co{UserAccount}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Viene
-usata da \co{ProfileActivity} che ne ottiene un'istanza tramite deferred
-binding utilizzando l'interfaccia \co{SongsService}. 
 \subsubsection*{Attivit\`a svolte e
 dati trattati} Implementa le funzionalit\`a di modifica e
 cancellazione di un brano presente nel DataStore. Queste
@@ -2604,14 +2374,7 @@ inserimenti futuri.\\\hline
 Questa classe corrisponde all'implementazione del \co{UsersService} (di
 \emph{client}) ed estende la classe \co{RemoteServiceServlet}. Fornisce i metodi
 statici che implementano le funzionalit\`a relative alla gestione del proprio
-profilo utente.  
-\subsubsection*{Relazioni d'uso di altre componenti} Oltre ad
-utilizzare i DTO \co{UserDTO} e \co{UserCompleteDTO}, verranno creati,
-immagazzinati oppure usati i relativi oggetti \emph{UserAccount}. Per gestire la
-funzionalit\`a di cambio password si fa uso della classe \co{BCrypt}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Viene
-usata da \co{ProfileActivity} che ne ottiene un'istanza tramite deferred
-binding utilizzando l'interfaccia \co{SongsService}.
+profilo utente.
 \subsubsection*{Attivit\`a svolte e dati trattati} I metodi qui implementati
 forniscono le funzionalit\`a di base quali la ricerca, la modifica e la
 cancellazione di un utente di NetMus ma anche la ricerca di utenti affini.
@@ -2660,18 +2423,7 @@ Questa classe corrisponde all'implementazione del \co{LoginService} (di
 servizi di autenticazione del sistema quali l'inserimento di una nuova
 registrazione e la verifica dei dati di login. Una parte cospicua e molto
 importante di questa classe \`e rappresentata dalla gestione delle sessioni e
-dei cookie. 
-\subsubsection*{Relazioni d'uso di altre componenti} Utilizzer\`a \co{LoginDTO}
-per l'incapsulamento dei dati in entrata ed in uscita. Le
-\co{HttpSession} verranno
-usate per gestire le sessioni dell'utente e dargli o meno i diritti d'accesso.
-Verranno utilizzate funzionalit\`a interne di gestione login definite in
-\co{LoginHelper}. \\ La comunicazione con il DataStore avviene tramite
-\co{UserAccount}. Per la gestione degli hash delle password utilizza la classe
-\co{BCrypt}. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre
-componenti} Viene usata da \co{LoginActivity} e \co{ProfileActivity} che ne ottiene un'istanza
-tramite deferred binding utilizzando l'interfaccia \co{SongsService}.
+dei cookie.
 \subsubsection*{Attivit\`a svolte e dati trattati} Implementa la parte server
 delle procedure di login come la verifica della correttezza della password e
 l'adeguata impostazione delle sessioni HTTP.
@@ -2736,12 +2488,6 @@ metodo di fondamentale importanza \`e
 \emph{sendUserNewMusic} che gestisce l'inserimento di
 una lista di canzoni singolarmente nel DataStore e nella
 libreria.
-\subsubsection*{Relazioni d'uso di altre componenti} Oltre ad utilizzare
-\co{SongDTO} e \co{SongSummaryDTO}, verranno creati, immagazzinati oppure usati
-i relativi oggetti \emph{persistent}. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre
-componenti} Viene usata da \co{ProfileActivity} che ne ottiene un'istanza
-tramite deferred binding utilizzando l'interfaccia \co{SongService}.
 \subsubsection*{Attivit\`a svolte e dati trattati} Implementa tutte le
 attivit\`a necessarie alla gestione del catalogo musicale. Vengono qui definiti
 i metodi di interazione con le Playlist e con il sistema di rating dei brani.
@@ -2804,13 +2550,6 @@ dal maggior numero di utenti che fa parte del catalogo.\\\hline
 La classe \co{LoginHelper} offre funzionalit\`a statiche
 per gestire le sessioni HTML, utili a\\ \co{LoginServiceImpl} ed a
 \emph{servlet}.
-\subsubsection*{Relazioni d'uso di altre componenti}
-User\`a al suo interno le classi di utilit\`a per i servlet definite in
-\emph{utils} e l'oggetto di persistenza \co{UserAccount}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa classe viene utilizzata da \co{LoginServiceImpl} nei metodi \co{logout},
-\co{getLoggedInUserDTO} e \co{startLogin} poich\'e agiscono sulle sessioni HTML.
-Viene utilizzata anche da \co{LoginFilter}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Questa classe ha il compito esclusivo di interagire con le
 sessioni HTML, deve quindi occuparsi di reperire i dati utili
@@ -2873,13 +2612,6 @@ fondamentali presenti all'interno del package
     \item Nessuno
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
-\begin{figure}[!h]
-  \centering
-  \includegraphics[width=17cm]{img/DP/sequences.png}
-\caption{Diagramma UML di sequenza che descrive il dettaglio delle chiamate
-che concorrono nel caricamento di nuove canzoni nel DataStore da parte di un
-utente.}
-\end{figure}
 Il package \emph{server.persistent} contiene le classi di persistenza che
 implementano il \underline{design pattern} \emph{Data Access Object (DAO)} che
 hanno lo scopo di interfacciare il sistema con il database nascondendo cos\`i ogni
@@ -2909,17 +2641,6 @@ introdotti dal framework per gestirne la configurazione:
 \end{itemize}
 Per avere l'istanza del DataStore su cui lavorare si
 utilizza la classe con visibilit\`a \emph{package} \co{ODF}. \\\\
-Il diagramma UML di sequenza sopra presentato evidenzia l'insieme delle chiamate
-che concorrono in un'attivit\`a che coinvolge tutte le classi del package
-persistent. L'inserimento di una nuova canzone nel database, che ha inizio
-dall'applet di estrazione dei brani dal file system, avviene all'interno di una
-\underline{chiamata asincrona} al metodo statico \emph{sendUserNewMusic}
-implementato in \co{LibraryServiceImpl}.
-\subsection*{Relazioni d'uso di altre componenti} Vengono utilizzate le classi
-DTO presenti nel package \emph{shared} per impacchettare i dati in uscita dal
-database o per gestire i dati in entrata. 
-\subsection*{Interfacce con e relazioni d'uso da altre
-componenti} Questo package \`e di fondamentale importanza per il resto del sistema poich\'e rappresenta l'unica via di accesso ai dati persistenti, le classi contenute vengono quindi utilizzate in modo massiccio dalle classi logiche Service nel package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Le classi DAO gestiscono i dati del sistema garantendone la persistenza e si
 occupano anche di implementare la parte logica di salvataggio, recupero e
@@ -2950,11 +2671,6 @@ L'oggetto datastore restituito \`e di tipo \co{AnnotationObjectDatastore} che di
 default salva gli attributi degli oggetti persistenti in modo non indicizzato
 rendendo il datastore pi\`u rapido.\\ Questa classe \`e visibile solamente
 all'interno del package \emph{persistent}.
-\subsubsection*{Relazioni d'uso di altre componenti} Vengono usate le classi della libreria twig-persist2.0 per la creazione di \co{AnnotationObjectDatastore}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa classe pu\`o essere utilizzata da qualunque classe di \emph{persistent},
-ogni qualvolta ci sia bisogno di avere l' \co{ObjectDataStore} per interagire col
-DataStore.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Crea un'unica istanza di \co{ObjectDataStore} e tramite un metodo
 statico \emph{get()} la passa alle classi, in maniera di dargli la possibilit\`a
@@ -3015,16 +2731,7 @@ informazioni relative ad un utente cos\`i come viene salvato all'interno del
 Datastore. La classe \`e implementata come \underline{POJO} poich\'e
 twig-persist lo supporta senza bisogno di configurazioni aggiuntive. Vengono usate solamente
 le annotazioni \emph{@Key} e \emph{@Index} per gestire l'indicizzazione
-degli oggetti nel datastore.\\
-\subsubsection*{Relazioni d'uso di altre componenti} La classe DAO \co{MusicLibrary} \`e necessaria per gestire la relazione
-uno-a-uno che la lega a questa entit\`a. Vengono inoltre utilizzate le classi
-\co{LoginDTO}, \co{UserDTO} e \co{UserCompleteDTO} come
-input ed output in gran parte dei metodi.\\
-Per interfacciarsi al database utilizza \co{ODF}. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\co{UserAccount} \`e una classe molto utilizzata nel sistema, tutte le classi
-Service presenti nel package \emph{server} ne fanno uso qual'ora abbiano bisogno
-di informazioni riguardanti un utente. 
+degli oggetti nel datastore.
 \subsubsection*{Attivit\`a svolte e dati
 trattati} Gestisce la logica di persistenza di tutti i dati relativi ad un
 utente del sistema NetMus.
@@ -3126,18 +2833,7 @@ quella di fornire dei servizi comodi ed efficienti per la gestione del catalogo
 stesso e le entit\`a interne ad esso associate.\\
 La lista di brani \`e mantenuta
 come lista di codici identificativi (strighe) per una questione di efficienza
-con twig-persist. \subsubsection*{Relazioni d'uso di altre componenti}
-Alla luce della relazione di tipo molti-a-molti che la lega a \co{Song} e quella
-uno-a-uno con \co{UserAccount} queste due classi DAO sono necessarie. Vengono
-utilizzate le classi \co{MusicLibrary SummaryDTO}, \co{MusicLibraryDTO},
-\co{SongSummaryDTO} e \co{SongDTO} come input ed output in alcuni metodi.\\ Per
-interfacciarsi al database utilizza \co{ODF}.\\ 
-Al suo interno vengono definite le classi \co{Playlist} per la gestione delle
-playlist e \co{SongWithRating} per la gestione dei voti assegnati alle canzoni.
-\subsubsection*{Interfacce con e
-relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
-\emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
-un catalogo multimediale. Chiaramente anche \co{UserAccount} ne fa utilizzo.
+con twig-persist.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Gestisce la logica di persistenza e le procedure di reperimento delle
 informazioni di tutti i dati relativi ad un catalogo multimediale del sistema
@@ -3282,14 +2978,9 @@ default, l'artista e l'album disposte nell'ordine titolo-sep-artista-sep-album.
 Dei brani condivisi da pi\`u utenti viene salvata una sola copia per ottimizzare
 la quantit\`a di spazio utilizzato.\\
 La logica di salvataggio delle canzoni implementata prevede che nei tag estratti
-sia presente almeno il titolo altrimenti il brano non verr\`a� mantenuto nel
+sia presente almeno il titolo altrimenti il brano non verr\`a mantenuto nel
 DataStore. Al primo inserimento di una canzone questa classe si occupa anche di
-reperire informazioni aggiuntive dai servizi esterni YouTube e Last.fm quali link per copertine e video in streaming. \subsubsection*{Relazioni d'uso di altre componenti} Questa classe fa uso degli
-oggetti \co{SongDTO} e \co{SongSummaryDTO} del package \emph{shared}. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti} Tutte le classi logiche Service presenti nel package
-\emph{server} ne fanno uso qual'ora abbiano bisogno di informazioni riguardanti
-un brano musicale. Largo uso ne fa la classe \co{MusicLibrary} che gestisce al
-suo interno una lista di brani. 
+reperire informazioni aggiuntive dai servizi esterni YouTube e Last.fm quali link per copertine e video in streaming.
 \subsubsection*{Attivit\`a svolte e dati
 trattati} Gestisce la logica di persistenza di tutti i dati relativi ad un brano musicale del
 sistema NetMus.
@@ -3407,11 +3098,6 @@ fondamentali presenti all'interno del package
 \subsection*{Tipo, obiettivo e funzione del componente}
 Package del server che contiene le classi utilizzate per interfacciarsi a
 servizi esterni, come il login utilizzando l'account Google.
-\subsection*{Relazioni d'uso di altre componenti}
-Verranno utilizzati i \emph{persistent} appropriati e classi di \emph{utils}.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Queste classi vengono usati da \emph{server} per integrare al suo interno
-altri servizi esterni.
 \subsection*{Attivit\`a svolte e dati trattati}
 Gestisce lo scambio di dati con servizi esterni.
 
@@ -3429,10 +3115,6 @@ Gestisce lo scambio di dati con servizi esterni.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 \`E una classe astratta che estende \co{HttpServlet} ed ha lo scopo di
 implementare il metodo di creazione dell'indirizzo di ritorno del richiedente.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Verr\`a concretizzata da \co{LoginGoogleServlet}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Crea semplicemente l'URL di Callback per far tornare una risposta HTTP al
 client in seguito ad una sua richiesta di login.
@@ -3464,11 +3146,6 @@ client in seguito ad una sua richiesta di login.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Utilizzata per il login tramite l'account Google.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Concretizza il \co{LoginSuperServlet} ed implementa il metodo \emph{doGet} il
-quale utilizza\\ \co{HttpSerletRequest} e \co{HttpSerletResponse}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Predispone il servizio e reindirizza l'utente al servizio di login di Google.
 Google, dopo che l'utente avr\`a effettuato l'accesso, lo reindizzer\`a nuovamente
@@ -3503,10 +3180,6 @@ predefinita per i Google Account. \\\hline
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Utilizzata per il login tramite l'account Google.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Riceve i dati dell'account dell'utente dopo che quest'ultimo ha effettuato
 l'accesso tramite il Google account. Se \`e la prima volta che l'utente entra in
@@ -3556,10 +3229,6 @@ fondamentali presenti all'interno del package
 \subsection*{Tipo, obiettivo e funzione del componente}
 Contiene le classi che forniscono funzioni di utilit\`a comunemente utilizzate
 dalle altre classi del package \emph{server}.
-\subsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene utilizzato dalle classi del package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Varie.
 
@@ -3581,11 +3250,6 @@ cache che di default \`e la home del client. In GAE, poich\'e non \`e possibile
 accedere al file system del client, \`e necessario modificare con questa classe
 \co{AppEngineCache} la destinazione di caching delle librerie, andando ad
 utilizzare invece una tabella nel DataStore.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa classe viene utilizzata prima di fare operazioni con le API di Last.fm
-per andare a modificare la gestione della cache.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Utilizza come cache per Last.fm il \underline{Google DataStore} invece che il
 file system del client.
@@ -3609,13 +3273,6 @@ Questa classe \`e stata importata nel progetto con lo scopo di fornirci uno
 strumento semplice ma efficace per cifrare le password dei nostri utenti, prima
 di essere memorizzate nel DataStore. \`E un'implementazione Java dell'algoritmo
 di hashing Blowfish, sviluppata da Damien Miller nell'anno 2006.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questa viene utilizzata da \co{LoginServiceImpl} al momento della creazione di
-un nuovo utente nel DataStore per cifrare la password, e al momento del login
-per controllare che sia corretta la password inserita dall'utente, grazie ad un
-comodo metodo di confronto.
  \subsubsection*{Attivit\`a svolte e dati trattati}
 Svolge l'attivit\`a di cifratura delle password del sistema NetMus.
 \\\\
@@ -3642,13 +3299,6 @@ ed il titolo del brano. Dovr\`a in ugual modo andare ad interrogare il database
 di Last.fm per poter prelevare la copertina relativa al brano, oppure
 informazioni riguardanti artista e album se mancanti nel tag del brano e nel
 nostro database interno.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Questa classe utilizza la classe \co{YouTubeManager} del package
-\emph{server.youtube} per utilizzare le API di YouTube, ed utilizza la classe
-\co{AppEngineCache} per poi usare le API Java di Last.fm.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vengono utilizzati i suoi metodi nella classe \co{Song} per cercare di
-completare le informazioni di un nuovo brano da inserire nel DataStore.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Classe di servizio per interrogare servizi esterni, con lo scopo di completare
 le informazioni su un brano il pi\`u possibile, in maniera da offrire il
@@ -3691,10 +3341,6 @@ maggior numero di funzionalit\`a per quel brano.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe conterr\`a metodi utili alle servlet per la gestione degli
 indirizzi della applicazione.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Usata dal package \emph{Servlet}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funzioni utili alle servlet per la gestione degli URL.
 
@@ -3731,12 +3377,6 @@ In questo package verranno inserite le classi necessarie all'interazione con le
 API di YouTube, tramite le quali andremo ad eseguire le ricerche relative ai
 nuovi brani inseriti nel DataStore, per associare ad essi il codice utile alla
 riproduzione video.
-\subsection*{Relazioni d'uso di altre componenti}
-Vengono utilizzate le librerie \emph{gdata} di Google, create appositamente per
-utilizzare pi\`u ad alto livello le sue API.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Nella classe \co{Utils} verr\`a utilizzato il metodo di ricerca offerto da
-\co{YouTubeManager}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Ci permettono di fare ricerche video nel database di YouTube.
 
@@ -3754,10 +3394,6 @@ Ci permettono di fare ricerche video nel database di YouTube.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe ha la funzionalit\`a di contenitore per gestire i principali
 dati di un media YouTube, cio\`e il tipo e l'URL.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene utilizzata in \co{YouTubeVideo}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Mantiene l'informazione del URL e del tipo di media.
 
@@ -3806,10 +3442,6 @@ video.\\\hline
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe \`e un ulteriore classe contenitore che si occupa di contenere una
 lista di\\ \co{YouTubeMedia} ed il relativo URL.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza la classe \co{YouTubeMedia}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene utilizzato per gestire i risultati di una ricerca in \co{YouTubeManager}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Contiene tutte le informazioni dei media trovati, dopo una ricerca nei database
 di YouTube.
@@ -3861,10 +3493,6 @@ YouTubeMedia.\\\hline
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe gestisce effettivamente l'interazione con le API di YouTube per
 permetterci di effettuare una ricerca video.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Utilizza la classe \co{YouTubeVideo} e le librerie \emph{gdata} di Google.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene utilizzata da \co{Utils} per effettuare una ricerca video su YouTube.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Gestisce una richiesta di ricerca video e deve principalmente restituire con
 il codice del video pi\`u attinente alle keyword in ingresso nel metodo
@@ -3935,14 +3563,7 @@ scambiati tra client e server; in particolare sono presenti le classi che
 aderiscono al pattern DTO. L'insieme di queste classi rappresenta tutti i
 dati contenuti nelle entit\`a del DataStore opportunamente organizzati in modo
 da essere raggruppate in componenti minori e prive di parte logica.
-\`E qui contenuta anche la gerarchia delle eccezioni del sistema NetMus
-fondamentale nelle comunicazioni asincrone tra client e server.
-\subsection*{Relazioni d'uso di altre componenti} Tutte le classi di questo
-package implementano l'interfaccia \co{java.io.Serializable} per poter essere
-serializzate e quindi inviate attraverso la rete. 
-\subsection*{Interfacce con e relazioni d'uso da altre componenti} Viene
-utilizzata da gran parte delle classi dei package \emph{client} e \emph{server}
-per lo scambio di dati e/o informazioni. 
+\`E qui contenuta anche la gerarchia delle eccezioni del sistema NetMus.
 \subsection*{Attivit\`a svolte e dati trattati}
 Le classi di questo package si occupano di inglobare e trasportare
 le informazioni attraverso la rete, per le comunicazioni tra server e client,
@@ -3964,10 +3585,6 @@ Vengono qui di seguito descritte pi\`u in dettaglio.
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta la maggior parte dei dati di un utente, pi\`u
 precisamente quelli che ci si aspetta che ogni utente abbia inserito.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{UserSummaryDTO}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package \co{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per i dati richiesti di un utente.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -4028,11 +3645,6 @@ relativi metodi \emph{set}.\\\hline
 Contiene e rappresenta tutti i dati di un utente, a partire da quelli
 visualizzati sul profilo fino a quelli interni del sistema. In particolare
 contiene la libreria musicale dell'utente. 
-\subsubsection*{Relazioni d'uso di
-altre componenti} Estende la classe \co{UserDTO} e mantiene al suo interno un campo di tipo
-\co{MusicLibraryDTO}. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre
-componenti} Vedere la descrizione del package \co{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per tutti dati dell'utente.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -4082,10 +3694,6 @@ relativi metodi \emph{set}.\\\hline
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta i dati pi\`u comunemente utilizzati di un brano, ovvero
 quelli che vengono visualizzati in una playlist all'interno di un profilo.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Implementa l'interfaccia \co{GenericDTO}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per i dati pi\`u comunemente utilizzati di un brano, come
 per esempio titolo ed autore.
@@ -4136,11 +3744,7 @@ relativi metodi \emph{set}.\\\hline
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta tutti i dati di un brano, compresi quelli interni del
-sistema. 
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{SongSummaryDTO}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
+sistema.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Funge da contenitore per tutti dati del brano, dal titolo al numero
 identificativo del brano. 
@@ -4202,10 +3806,6 @@ relativi metodi \emph{set}.\\\hline
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Contiene e rappresenta i dati di login di un utente.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Vedere la descrizione del package \co{shared}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package \co{shared}.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Trasporta nome utente e password dal client al server per
 tutte le procedure legate all'autenticazione.
@@ -4257,11 +3857,7 @@ relativi metodi \emph{set}.\\\hline
 Contiene le informazioni relative ad un catalogo multimediali compresa la lista
 di canzoni di cui \`e composto. Le canzoni presenti nella lista sono incapsulate
 in oggetti di tipo \co{SongSummaryDTO} e contengono solamente le informazioni
-basilari quali artista e titolo. 
-\subsubsection*{Relazioni d'uso di altre
-componenti} \co{SongSummaryDTO}. 
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
+basilari quali artista e titolo.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Fa da contenitore per tutti dati di un catalogo multimediale fornendo solo le
 informazioni essenziali per le canzoni.
@@ -4313,10 +3909,6 @@ relativi metodi \emph{set}.\\\hline
 Contiene le informazioni relative ad un catalogo multimediali compresa la lista
 di canzoni di cui \`e composto. Le canzoni presenti nella lista sono incapsulate
 in oggetti di tipo \co{SongDTO}.
-\subsubsection*{Relazioni d'uso di altre componenti} 
-\co{SongDTO}.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Fa da contenitore per tutti dati di un catalogo multimediale.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -4365,10 +3957,6 @@ relativi metodi \emph{set}.\\\hline
 Questa semplice classe contiene i metodi statici necessari a validare con
 livello di sicurezza accettabile i dati inseriti dall'utente, si rende
 fondamentale nelle operazioni di autenticazione e registrazione.
-\subsubsection*{Relazioni d'uso di altre componenti} Nessuna.
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-\co{LoginActivity} e \co{ProfileActivity} ne fanno uso ogni qualvolta ricevano
-in input una stringa da un utente di NetMus. 
 \subsubsection*{Attivit\`a svolte e dati trattati} Le stringhe che vengono
 trattate in questa classe sono rappresentate da password, username e indirizzi
 email. Per le prime due tipologie di informazione il controllo eseguito si
@@ -4417,13 +4005,7 @@ fondamentali presenti all'interno del package
 \subsection*{Tipo, obiettivo e funzione del componente}
 Il package \emph{shared.exception} raccoglie le classi che trattano
 le eccezioni che posso essere lanciate dal sistema NetMus. Le classi eccezione
-sono opportunamente gerarchizzate. 
-\subsection*{Relazioni d'uso di altre componenti}
-Tutte le classi in \emph{shared.exception} sono sottotipi della classe
-\co{Exception} del package \emph{java.lang}.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Questo package \`e visibile all'intero sistema e all'occorrenza le classi al suo
-interno posso essere utilizzate da qualsiasi altro componente.
+sono opportunamente gerarchizzate.
 \subsection*{Attivit\`a svolte e dati trattati}
 Fornisce tutte le possibili eccezioni che possono essere lanciate dal sistema
 NetMus.
@@ -4439,10 +4021,6 @@ NetMus.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Generica eccezione del nostro programma.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{Exception}.
-\subsubsection*{Interfacce con altre componenti}
-Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Rappresenta una generica eccezione usata all'interno del sistema NetMus. Tutte
 le altre eccezioni estendono questa.
@@ -4458,10 +4036,6 @@ le altre eccezioni estendono questa.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica un generico errore rilevato durante il tentativo di login.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{NetMusException}.
-\subsubsection*{Interfacce con altre componenti}
-Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Nessuna.
 
@@ -4476,10 +4050,6 @@ Nessuna.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Indica un generico errore rilevato durante la registrazione di un nuovo utente.
-\subsubsection*{Relazioni d'uso di altre componenti}
-Estende la classe \co{NetMusException}.
-\subsubsection*{Interfacce con altre componenti}
-Vedere la descrizione del package.
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Nessuna.
 
@@ -4513,15 +4083,6 @@ l'accettazione di una firma digitale, per avere l'accesso in lettura/scrittura
 sul File System del client. In tal modo potr\`a cominciare a monitorare le
 periferiche di archiviazione di massa che verranno collegate da quel momento in
 poi.
-\subsection*{Relazioni d'uso di altre componenti}
-Per entrare in funzione \`e necessario che nel client sia installata una JRE e
-che questa sia utilizzabile dal browser, attraverso un plugin adatto.\\
-Grazie a delle chiamate JavaScript appropriate, potr\`a chiamare i metodi nativi
-(JSNI) appositamente creati e pubblicati nella classe \co{AppletBar.java}.
-\subsection*{Interfacce con e relazioni d'uso da altre componenti}
-Verr\`a utilizzata dal package \emph{client.applet} tramite dei metodi nativi
-JavaScript (JSNI) che andranno ad invocare direttamente dei metodi pubblici
-interni  all'applet.
 \subsection*{Attivit\`a svolte e dati trattati}
 L'applet deve monitorare le periferiche presenti nella macchina client e,
 all'inserimento di un nuovo device visibile come periferica di archiviazione di
@@ -4556,18 +4117,6 @@ Quando sar\`a disattivata il thread \co{scanner} viene messo a dormire e verr\`a
 svegliato in seguito ad una richiesta dell'utente, tramite il metodo
 \co{setState} che andr\`a ad invocare un \co{notify()} sull'oggetto di lock su
 cui \co{scanner} si \`e addormentato.
-
-\subsubsection*{Relazioni d'uso di altre componenti}
-Questa componente utilizzer\`a la classe \co{DeviceScanner} per
-avviare, attivare e disattivare la scansione. Comunicher\`a con GWT tramite
-invocazione di metodi nativi in \co{AppletBar}.
-
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-La classe verr\`a avviata in automatico, tramite creazione e invocazione del
-metodo \co{start()}, da parte della \underline{JVM} quando caricata nella pagina
-Web. I suoi metodi pubblici \co{letsGo} e \co{setState} possono essere invocati
-tramite JSNI da GWT.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Svolge la funzione di avviare l'applet associandola all'utente e con lo
 stato da lui impostato. Non ha un'interfaccia grafica sua, ma verr\`a disegnata
@@ -4654,15 +4203,6 @@ un bottone presente dopo la scansione d'inserimento. Dovranno essere previste
 possibili scansioni avviate manualmente dall'utente in varie parti del File
 System. Alla fine di una scansione verr\`a spedito il file XML prodotto tramite
 un'istruzione JavaScript verso GWT.
-
-\subsubsection*{Relazioni d'uso di altre componenti}
-Questa classe utilizza \co{TranslateXML} per creare il file XML e, per
-comunicare con l'applicazione principale, invoca metodi nativi pubblicati da
-AppletBar nello stesso contesto della pagina Web.
-
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Viene creata, avviata e fermata in \co{NetmusApplet}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Svolge la funzione di estrarre i Tag dagli Mp3 presenti nei dispositivi che
 vengono collegati alla macchina durante la sua esecuzione. Tali Tag vengono
@@ -4751,13 +4291,6 @@ poter compiere operazioni nel FileSystem del client, invoca i metodi \co{initial
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Rappresentare le informazioni disponibili dei brani utilizzando XML.
-
-\subsubsection*{Relazioni d'uso di altre componenti}
-Nessuna.
-
-\subsubsection*{Interfacce con e relazioni d'uso da altre componenti}
-Utilizzata da \co{DeviceScanner}.
-
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Riceve i tag dei file mp3 e genera una stringa XML che ne rappresenta le
 informazioni, da inviare a GWT.
