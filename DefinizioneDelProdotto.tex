@@ -51,6 +51,36 @@ relativa codifica, delle quali verr\`a allegato il codice sorgente.
 \endhead
 \hline
 \endfoot
+15/03/2011 & 1.10 & Baron Federico & Inserimento della classe Album nel
+capitolo 4.\\
+\hline
+14/03/2011 & 1.9 & Baron Federico & Rimozione di tutti i paragrafi
+riguardanti le relazioni con altre componenti poich\'e gi\`a presente in ST.\\
+\hline
+14/03/2011 & 1.8 & Baron Federico & Rimozione delle tabelle 4.1 e 4.2 come
+suggerito nella correzione di RQ.\\
+\hline
+13/03/2011 & 1.7 & Caputo Cosimo & Inserimento della specifica riguardante la
+classe PDFLoaderServlet.\\
+\hline
+12/03/2011 & 1.6 & Caputo Cosimo & Inserimento della specifica riguardante il
+package velocity e le relative classi.\\
+\hline
+12/03/2011 & 1.5 & Caputo Cosimo & Inserimento della specifica riguardante la
+classe GdataManager.\\
+\hline
+12/03/2011 & 1.4 & Caputo Cosimo & Aggiornamento di tabella 3.1 a fronte di
+modifiche in progettazione.\\
+\hline
+10/03/2011 & 1.3 & Baron Federico & Aggiornamento del tracciamento a fronte
+di modifiche in progettazione.\\
+\hline
+10/03/2011 & 1.2 & Lovato Daniele & Inserimento nel capitolo 3 del paragrafo
+riguardante l'utilizzo della cache.\\
+\hline
+03/03/2011 & 1.1 & Caputo Cosimo & Inserimento nel capitolo 3 del paragrafo
+riguardante l'esportazione in PDF.\\
+\hline
 27/02/2011 & 1.0 & Mandolo Andrea & Validazione per consegna RQ.\\
 \hline
 27/02/2011 & 0.26 & Palazzin Alberto & Verificato l'intero documento.\\
@@ -229,6 +259,32 @@ architetturali con una breve descrizione.
   permettere anche lo sviluppo multilingua dell'applet, ci sar\`a la classe
   \co{AppletConstants} ed i relativi file \emph{AppletConstants.properties} e
   \emph{AppletConstants\_it.properties}.
+  
+  \item \bo{Esportazione PDF} :
+  
+  \item \bo{\co{Album} come entit\`a autonoma} : la scelta di mantenere nel
+  Datastore un link alla copertina per ogni album memorizzato ha reso necessaria, per
+  ottimizzare le operazioni di lettura e scrittura, la gestione degli album in
+  una tabella separata rispetto alle canzoni (\co{Song}). Questa classe non \`e
+  direttamente legata alle entit\`a in \co{Song} ma opera come un contenitore
+  per la lista degli album disponibili da cui gli altri ogtgetti possono
+  attingere. La businness logic associata \`e gestita all'interno della classe.
+  
+  \item \bo{Utilizzo della Memcache di Google App Engine} : grazie al framework
+  JCache fornito dalle librerie di Google App Engine \`e stato implementato
+  l'utilizzo della Memcache lato server. Questo potente strumento permette di
+  leggere, scrivere, cancellare, configurare la cache sotto la forma di mappa
+  con tempi medi 10 volte inferiori a quelli richiesti dal Datastore. Queste
+  operazioni vengono gestite all'interno della classe \co{CacheSupport} che si
+  occupa anche di fornire l'istanza corrente della Memcache e dagli oggetti DAO
+  che implementeranno l'interfaccia \co{Cacheable}. \\
+  La politica implementata all'interno del sistema prevede, per sicurezza, la
+  doppia scrittura sia su Memcache che su Datastore mentre la lettura avviene
+  preferenzialmente su cache e su Datastore solo in caso di miss. Questa
+  gestione, anche se non rappresenta la pi\`u efficente in assoltuo, migliora in
+  modo sensibile i tempi di esecuzione delle operazioni di load/store nel
+  complesso. Questa modifica, infatti, \`e volta a favorire la scalabilit\`a
+  rispetto alle quote giornaliere di ore CPU imposte da Google App Engine.
 \end{itemize}
 
 \newpage
@@ -239,9 +295,9 @@ delle rimozioni alle componenti individuate in Specifica Tecnica. In seguito
 sono elencate le componenti con l'assegnamento dei nuovi codici
 identificativi.\\
 Le modifiche apportate sono dovute principalmente al maggior dettaglio
-dell'attivit\`a di progettazione, per quanto riguarda i package
-\emph{client.applet} e \emph{server.persistent} invece si \`e reso necessario
-l'adattamento alle nuove scelte architetturali introdotte nel paragrafo
+dell'attivit\`a di progettazione, questa \`e la causa ad esempio dell'espansione
+funzionale del package \emph{server.utils}. Per quanto riguarda i package
+\emph{client.applet} e \emph{server.persistent} invece si \`e reso necessario l'adattamento alle nuove scelte architetturali introdotte nel paragrafo
 precedente. Infine la struttura dell'applet di estrazione dei brani \`e definita
 in questo documento per la prima volta.\\
 Per ulteriori chiarimenti sulle scelte progettuali operate si rimanda
@@ -304,7 +360,6 @@ alla descrizione specifica delle componenti presentata in questo capitolo.
 \bo{--} & shared.UserSummaryDTO  &  ex Csh6 \\\hline 
 & shared.UserDTO  &  Csh7 \\\hline 
 & shared.UserCompleteDTO  &  Csh8 \\\hline 
-\bo{+} & shared.MusicLibrarySummaryDTO  &  Csh9 \\\hline 
 \bo{+} & shared.FieldVerifier  &  Csh10 \\\hline 
 & shared.exception  &  Cshex0 \\\hline 
 & shared.exception.NetMusException  &  Cshex1 \\\hline 
@@ -323,9 +378,15 @@ alla descrizione specifica delle componenti presentata in questo capitolo.
 & server.utils  &  Cseut0 \\\hline 
 \bo{--} & server.utils.AuthenticationProvider  &  ex Cseut1 \\\hline 
 & server.utils.Utils  &  Cseut2 \\\hline 
-& server.utils.ServletUtils  &  Cseut3 \\\hline  
-\bo{+} & server.utils.AppEngineCache  &  Cseut4 \\\hline
+& server.utils.ServletUtils  &  Cseut3 \\\hline
 \bo{+} & server.utils.BCrypt  &  Cseut5 \\\hline
+\bo{+} & server.utils.GdataManager & Cseut6 \\\hline
+\bo{+} & server.utils.cache & Cseutca0 \\\hline
+\bo{+} & server.utils.cache.Cacheable & Cseutca1 \\\hline
+\bo{+} & server.utils.cache.CacheSupport & Cseutca2 \\\hline
+\bo{+} & server.utils.velocity & Cseutve0 \\\hline
+\bo{+} & server.utils.velocity.VelocityEngineManager & Cseutve1 \\\hline
+\bo{+} & server.utils.velocity.VelocityResourceLoader & Cseutve2 \\\hline
 \bo{+} & server.youtube  &  Cseyo0 \\\hline
 \bo{+} & server.youtube.YouTubeManager  &  Cseyo1 \\\hline
 \bo{+} & server.youtube.YouTubeMedia  &  Cseyo2 \\\hline
@@ -333,12 +394,14 @@ alla descrizione specifica delle componenti presentata in questo capitolo.
 & server.servlet  &  Csese0 \\\hline 
 & server.servlet.LoginSuperServlet  &  Csese1 \\\hline 
 & server.servlet.LoginGoogleServlet  &  Csese2 \\\hline 
-& server.servlet.LoginGoogleCallbackServlet  &  Csese3 \\\hline 
-\bo{--} & server.servlet.YouTubeServlet  &  ex Csese4 \\\hline 
+& server.servlet.LoginGoogleCallbackServlet  &  Csese3 \\\hline
+\bo{--} & server.servlet.YouTubeServlet  &  ex Csese4 \\\hline
+\bo{+} & server.servlet.PDFLoaderServlet & Csese5 \\\hline 
 & server.persistent  &  Csepe0 \\\hline 
 & server.persistent.UserAccount  &  Csepe1 \\\hline 
 & server.persistent.MusicLibrary  &  Csepe2 \\\hline 
 & server.persistent.Song  &  Csepe3 \\\hline 
+\bo{+} & server.persistent.Album  &  Csepe5 \\\hline 
 \bo{+} & server.persistent.ODF  &  Csepe4 \\\hline 
 &&\\\hline
 \bo{+} & applet  &  C2ap0 \\\hline
@@ -2800,6 +2863,8 @@ contenente tutte le informazioni riguardanti l'utente.\\\hline
  + findSessionUser(in String): UserAccount \emph{static} & Cerca nel database e
  ritorna i dati relativi ad un utente che come lastSessionId ha l'id si sessione
  HTTP dato in input.\\\hline
+ + cacheableMethods() & Implementazione adeguata dei metodi ereditati
+ dall'interfaccia \co{Cacheable}.\\\hline
  + getters() & Tutti gli attributi privati di questa
  classe hanno i relativi metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
@@ -2941,6 +3006,8 @@ NetMus.
  posizione specificata dal secondo. \\\hline 
  + removeSongFromPlaylist(in String,in String):boolean & Rimuove la
  canzone dalla playlist dati in input.\\\hline 
+ + cacheableMethods() & Implementazione adeguata dei metodi ereditati
+ dall'interfaccia \co{Cacheable}.\\\hline
  + getters() & Tutti gli attributi privati di questa classe hanno i relativi
  metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
@@ -3068,11 +3135,93 @@ sistema NetMus.
  concorrentemente, viene eseguito all'interno di una transazione. \\\hline 
  \# newOwner() & Incrementa il contatore dei possessori di questo brano, ha visibilit\`a package poich\'e la sua modifica deve avvenire solo all'interno della logica di persistenza nei DAO.\\\hline \# deleteOwner() & Decrementa il contatore dei possessori di questo brano, ha visibilit\`a package poich\'e la sua modifica deve avvenire solo
  all'interno della logica di persistenza nei DAO.\\\hline 
+ + cacheableMethods() & Implementazione adeguata dei metodi ereditati
+ dall'interfaccia \co{Cacheable}.\\\hline
  + getters() & Tutti gli attributi privati di questa classe hanno i relativi metodi \emph{get}.\\\hline 
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
  metodi. Tutti questi metodi si occupano anche di chiamare
  \co{update()} per aggiornare i dati del DataStore. \emph{set}.\\\hline
 \caption{Metodi di Song}
+\end{longtable}
+
+
+\subsection{Classe Album}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item C1QN-1.6 Scalabilit\`a
+    \item C1QN-1.6.2 Scalabilit\`a massa di utenza
+    \item C1FN-1.9 Ricezione ed elaborazione dei brani
+    \item C1FN-1.9.2 Completamento info da database interno
+    \item C1FN-1.9.5 Inserimento nel Database
+    \item C1FN-1.13 Gestione Database
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.9.3 Completamento info da servizio esterno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente} Questa classe opera
+come un contenitore per la lista degli album disponibili da cui gli altri
+oggetti possono attingere. Fornisce inoltre la businness logic necessaria alla
+ricerca esterna di copertine tramite le API di Last.fm ed alla ricerca interna
+al Datastore.\\
+Implementa le interfacce \co{Serializable} e \co{Cacheable} poich\'e viene gli
+album vengono gestiti anche nella Memcache. 
+\subsubsection*{Attivit\`a svolte e dati trattati} Ogni album \`e rappresentato
+da una chiave univoca (\co{id}) e dal link alla copertina ad esso associata.
+Questa classe ha lo scopo di mantenere nel Datastore tutte le copertine
+ricercate su Last.fm in modo ordinato, minimizzando cos\`i le richieste esterne.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ - id: String \emph{@Id} & Chiave univoca assegnata ad un album, \`e generata a
+ partire dal nome dell'album e dall'artista. \\\hline 
+ - cover: String & Link all' immagine della copertina dell'album,
+ l'immagine si trova su Last.fm.\\\hline
+\caption{Campi dati di Album}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ + load(in String) \emph{static} & Legge dalla cache e, se non presente, dal
+ Datastore l'album la cui chiave univoca \`e data in input. \\\hline
+ + getAlbumCover(in String, in String): String \emph{static} & Ritorna
+ il link alla copertina dell'album associato al nome e all'artista dati
+ in input. Se l'album non \`e presente nel Datastore o se la copertina non
+ \`e ancora stata ricercata su Last.fm viene ritornata la stringa vuota.\\\hline
+ + storeNewAlbum(in String, in String): boolean \emph{static} & Salva
+ nel Datastore l'album con il nome e l'artista dati in input. Ritorna
+ \emph{false} nel caso in cui l'album specificato sia gi\`a presente.\\\hline
+ + getAlbumCoverLastFm(in String, in String): String \emph{static} & Ritorna
+ il link alla copertina dell'album associato al nome e all'artista dati
+ in input. Se l'album non \`e presente nel Datastore viene effettuata
+ la ricerca esterna su Last.fm e ne viene salvato e ritornato il
+ risultato.\\\hline
+ - store() & Inserisce nel database per la prima volta l'album. Se
+ esiste gi\`a un album con lo stesso \co{id} lancia
+ un'eccezione di tipo \co{IllegalStateException} \\\hline
+ + update() & Aggiorna o inserisce i dati dell'album nel DataStore.\\\hline
+ + cacheableMethods() & Implementazione adeguata dei metodi ereditati
+ dall'interfaccia \co{Cacheable}.\\\hline
+ + getters() & Tutti gli attributi privati di questa classe hanno i relativi
+ metodi \emph{get}.\\\hline 
+ + setters() & Tutti gli attributi privati di questa classe hanno i relativi
+ metodi. Tutti questi metodi si occupano anche di chiamare \co{update()} per
+ aggiornare i dati del DataStore. \emph{set}.\\\hline
+\caption{Metodi di Album}
 \end{longtable}
 
 
@@ -3207,6 +3356,45 @@ invece \`e andata a buon fine viene associata all'utente la sessione corrente.
 \caption{Metodi di LoginGoogleCallbackServlet}
 \end{longtable}
 
+
+\subsection{Classe PDFLoaderServlet}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+  \item 
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+  \item
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Attivit\`a svolte e dati
+trattati}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\caption{Campi dati di PDFLoaderServlet}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\caption{Metodi di PDFLoaderServlet}
+\end{longtable}
+
+
 \newpage
 \section{Package server.utils} % LASCIARE WARNING
 
@@ -3231,32 +3419,6 @@ Contiene le classi che forniscono funzioni di utilit\`a comunemente utilizzate
 dalle altre classi del package \emph{server}.
 \subsection*{Attivit\`a svolte e dati trattati}
 Varie.
-
-\subsection{Classe AppEngineCache}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item C1FN-1.9 Ricezione ed elaborazione dei brani
-\end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item C1FO-1.9.3 Completamento info da servizio esterno
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa classe ci permette di utilizzare le API \emph{lastfm-java} all'interno la
-piattaforma \underline{Google App Engine}. Tali librerie ci servono per poter
-fare interrogazioni alle API di \underline{Last.fm} in maniera semplice, pi\`u ad
-alto livello del doversi implementare una servlet. Queste librerie per\`o necessitano di una
-cache che di default \`e la home del client. In GAE, poich\'e non \`e possibile
-accedere al file system del client, \`e necessario modificare con questa classe
-\co{AppEngineCache} la destinazione di caching delle librerie, andando ad
-utilizzare invece una tabella nel DataStore.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Utilizza come cache per Last.fm il \underline{Google DataStore} invece che il
-file system del client.
-\\\\
-Di questa classe non andremo a dettagliare i singoli campi dati o metodi,
-poich\'e viene presa come strumento gi\`a esistente. \`E stata creata e proposta agli
-sviluppatori GAE dal creatore delle API per Java di Last.fm, Janni Kovacs.
 
 \subsection{Classe BCrypt}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3359,6 +3521,230 @@ Funzioni utili alle servlet per la gestione degli URL.
  progetto e da che porta viene acceduto. \\\hline
 \caption{Metodi di ServletUtils}
 \end{longtable}
+
+\subsection{Classe GdataManager}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+  \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+  \item C1FO-1.8.1 Esportazione PDF
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Attivit\`a svolte e dati
+trattati}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\caption{Campi dati di GdataManager}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\caption{Metodi di GdataManager}
+\end{longtable}
+
+
+\newpage
+\section{Package server.utils.cache} % LASCIARE WARNING
+\subsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item C1QN-1.6 Scalabilit\`a
+    \item C1QN-1.6.2 Scalabilit\`a massa di utenza
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsection*{Tipo, obiettivo e funzione del componente}
+Il package \emph{cache} racchiude al suo interno le classi necessarie alla
+gestione della Memcache e che utilizzano il framework JCache. Come per il resto
+delle componenti presenti in \emph{utils} fornisce all'esterno alcune utilit\`a
+disponibili a tutto il lato server. 
+\subsection*{Attivit\`a svolte e dati trattati} L'unica classe contenuta,
+\co{CacheSupport}, fornisce un insieme di metodi pubblici necessari per
+utilizzare la cache. Contiene inoltre un'interfaccia utilizzata per marcare le
+entit\`a ``persistenti'' della Memcache.
+
+
+\subsection{Interfaccia Cacheable}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item C1QN-1.6 Scalabilit\`a
+    \item C1QN-1.6.2 Scalabilit\`a massa di utenza
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente} Una semplice
+interfaccia che contiene la definizione dei metodi necessari e sufficenti per
+rendere una sottoclasse memorizzabile ed estraibile dalla Memcache.
+\subsubsection*{Attivit\`a svolte e dati trattati} Viene utilizzata come
+marcatore per distinguere quelle classi che sono utilizzate come entit\`a
+nella memoria cache.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ addToCache() & Salva l'oggetto all'interno della Memcache.\\\hline
++ removeFromCache() & Rimuove l'oggetto dalla Memcache.\\\hline
+\caption{Metodi di Cacheable}
+\end{longtable}
+
+\subsection{Classe CacheSupport}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item C1QN-1.6 Scalabilit\`a
+    \item C1QN-1.6.2 Scalabilit\`a massa di utenza
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente} \co{CacheSupport} \`e
+composta da soli metodi statici che forniscono le principali funzioni
+disponibili sulla Memcache. Questi servizi sono disponibili a tutte le
+componenti del lato server.
+\subsubsection*{Attivit\`a svolte e dati trattati} Rende disponibili all'esterno
+le funzioni basilari di lettura e scrittura sulla memoria cache in modo
+completamente trasparente rispetto all'implmentazione tramite JCache e
+soprattutto all'utilizzo della \co{CacheFactory}.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ cacheInit(): Cache \emph{static} & Restituisce l'istanza della Memcache
+utilizzata. Questo metodo \`e privato poich\'e la configurazione della Memcache
+\`e interamente gestita in questa classe.\\\hline
++ cacheGet(in String): Object \emph{static} & Carica dalla mappa della Memcache
+l'oggetto la cui chiave \`e data in input.\\\hline 
++ cacheClear() \emph{static} & Ripulisce l'intera Memcache. \\\hline
++ cacheRemove(in String) \emph{static} & Rimuove dalla Memcache l'oggetto
+relativo alla chiave data in input.\\\hline
++ cachePut(in String, in Serializable) \emph{static} & Salva nella Memcache
+l'oggetto e la relativa chiave dati in input.\\\hline
+\caption{Metodi di CacheSupport}
+\end{longtable}
+
+
+
+\newpage
+\section{Package server.utils.velocity} % LASCIARE WARNING
+\subsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+    \item Nessuno
+\end{itemize}
+\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+    \item C1FO-1.8.1 Esportazione PDF
+\end{itemize}
+\subsection*{Tipo, obiettivo e funzione del componente}
+\subsection*{Attivit\`a svolte e dati trattati}
+
+
+\subsection{Classe VelocityEngineManager}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+  \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+  \item C1FO-1.8.1 Esportazione PDF
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Attivit\`a svolte e dati
+trattati}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\caption{Campi dati di VelocityEngineManager}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\caption{Metodi di VelocityEngineManager}
+\end{longtable}
+
+\subsection{Classe VelocityResourceLoader}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+  \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+  \item C1FO-1.8.1 Esportazione PDF
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+\subsubsection*{Attivit\`a svolte e dati
+trattati}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\caption{Campi dati di VelocityResourceLoader}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+\caption{Metodi di VelocityResourceLoader}
+\end{longtable}
+
+
 
 \newpage
 \section{Package server.youtube} % LASCIARE WARNING
@@ -3842,7 +4228,7 @@ relativi metodi \emph{set}.\\\hline
 \caption{Metodi di LoginDTO}
 \end{longtable}
 
-\subsection{Classe MusicLibrarySummaryDTO}
+\subsection{Classe MusicLibraryDTO}
 \subsubsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
 	\item Nessuno
@@ -3892,56 +4278,6 @@ relativi metodi \emph{get}.\\\hline
  + setters() & Tutti gli attributi privati di questa classe hanno i
 relativi metodi \emph{set}.\\\hline
 \caption{Metodi di MusicLibrarySummaryDTO}
-\end{longtable}
-
-\subsection{Classe MusicLibraryDTO}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-    \item Nessuno
-\end{itemize}
-\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-    \item C1FD-1.3 Personalizzazione del catalogo
-    \item C1FO-1.3.3 Creazione playlist
-    \item C1FO-1.3.4 Ranking brani
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-Contiene le informazioni relative ad un catalogo multimediali compresa la lista
-di canzoni di cui \`e composto. Le canzoni presenti nella lista sono incapsulate
-in oggetti di tipo \co{SongDTO}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Fa da contenitore per tutti dati di un catalogo multimediale.
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
- - owner: UserSummaryDTO & Dati essenziali relativi all'utente
- associato a questo catalogo.\\\hline 
- - songs: List\textless SongDTO\textgreater & Lista delle
- canzoni presenti nel catalogo.\\\hline
-\caption{Campi dati di MusicLibraryDTO}
-\end{longtable}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
- + getters() & Tutti gli attributi privati di questa classe hanno i
-relativi metodi \emph{get}.\\\hline
- + setters() & Tutti gli attributi privati di questa classe hanno i
-relativi metodi \emph{set}.\\\hline
-\caption{Metodi di MusicLibraryDTO}
 \end{longtable}
 
 \subsection{Classe FieldVerifier}
@@ -4511,10 +4847,15 @@ server.LibraryServiceImpl  &  C1QN-1.6 \\
 & C1FN-1.9\\
 & C1FN-1.9.1\\\hline 
 server.utils  &  C1QN-2.6 \\\hline  
-server.utils.Utils  & C1FN-1.9\\\hline  
-server.utils.AppEngineCache  &  C1FN-1.9\\\hline
+server.utils.Utils  & C1FN-1.9\\\hline
 server.utils.BCrypt  &  C1FN-1.2 \\
 & C1FN-1.4.2\\\hline
+server.utils.cache & C1QN-1.6\\
+& C1QN-1.6.2\\\hline
+server.utils.cache.Cacheable & C1QN-1.6\\
+& C1QN-1.6.2\\\hline
+server.utils.cache.CacheSupport & C1QN-1.6\\
+& C1QN-1.6.2\\\hline
 server.youtube  &  C1FN-1.9\\\hline
 server.youtube.YouTubeManager  &  C1FN-1.9 \\\hline
 server.youtube.YouTubeMedia  &  C1FN-1.9 \\\hline
@@ -4549,6 +4890,11 @@ server.persistent.Song  & C1QN-1.6\\
 & C1FN-1.9.1\\
 & C1FN-1.9.2\\
 & C1QN-1.9.4\\
+& C1FN-1.9.5\\
+& C1FN-1.13\\\hline 
+server.persistent.Album  & C1QN-1.6\\
+& C1QN-1.6.2\\
+& C1FN-1.9.2\\
 & C1FN-1.9.5\\
 & C1FN-1.13\\\hline 
 server.persistent.ODF  &  C1QN-1.6\\
@@ -4644,13 +4990,10 @@ shared.SongDTO  &  C1FD-1.1.4\\
 & C1FD-1.3\\
 & C1FD-1.3.1\\
 & C1FD-1.3.2\\
-& C1FO-1.3.4\\\hline 
-shared.MusicLibraryDTO  &  C1FD-1.3\\
-& C1FO-1.3.3\\
-& C1FO-1.3.4\\\hline 
+& C1FO-1.3.4\\\hline
 shared.UserDTO  &  C1FD-1.3 \\\hline  
 shared.UserCompleteDTO  &  C1FD-1.3 \\\hline 
-shared.MusicLibrarySummaryDTO  &  C1FD-1.3\\
+shared.MusicLibraryDTO  &  C1FD-1.3\\
 & C1FO-1.3.3\\
 & C1FO-1.3.4\\\hline  
 server.LoginHelper  &  C1FO-1.2.1 \\\hline 
@@ -4674,8 +5017,11 @@ server.utils.Utils  & C1QD-1.5.1\\
 & C1VD-1.5.2\\
 & C1VD-1.5.3\\
 & C1FO-1.9.3\\\hline 
-server.utils.ServletUtils  &  C1FO-1.2.1 \\\hline  
-server.utils.AppEngineCache  &  C1FO-1.9.3\\\hline
+server.utils.ServletUtils  &  C1FO-1.2.1 \\\hline
+server.utils.GdataManager & C1FO-1.8.1 \\\hline
+server.utils.velocity & C1FO-1.8.1 \\\hline
+server.utils.velocity.VelocityEngineManager & C1FO-1.8.1 \\\hline
+server.utils.velocity.VelocityResourceLoader & C1FO-1.8.1 \\\hline
 server.youtube  &  C1FD-1.1.4 \\\hline
 server.youtube.YouTubeManager  &  C1FD-1.1.4 \\
 & C1VD-1.5.2\\
@@ -4689,7 +5035,8 @@ server.youtube.YouTubeVideo  &  C1FD-1.1.4 \\
 server.servlet  &  C1FO-1.2.1 \\\hline 
 server.servlet.LoginSuperServlet  &  C1FO-1.2.1 \\\hline 
 server.servlet.LoginGoogleServlet  &  C1FO-1.2.1 \\\hline 
-server.servlet.LoginGoogleCallbackServlet  &  C1FO-1.2.1 \\\hline  
+server.servlet.LoginGoogleCallbackServlet  &  C1FO-1.2.1 \\\hline
+server.servlet.PDFLoaderServlet & C1FO-1.8.1 \\\hline  
 server.persistent.UserAccount  &  C1FD-1.3\\
 & C1FD-1.7\\
 & C1FD-1.7.1\\\hline 
@@ -4698,13 +5045,14 @@ server.persistent.MusicLibrary  &  C1FD-1.3 \\
 & C1FO-1.3.4\\
 & C1FD-1.8\\
 & C1FO-1.8.1\\\hline 
-server.persistent.Song  & C1FD-1.1.4 \\
+server.persistent.Song  &  C1FD-1.1.4 \\
 & C1FD-1.3\\
 & C1FD-1.3.1\\
 & C1FD-1.3.2\\
 & C1FO-1.3.4\\
 & C1FD-1.8\\
 & C1FO-1.9.3\\\hline 
+server.persistent.Album  &  C1FO-1.9.3\\\hline 
 applet.DeviceScanner  &  C2FD-1.4\\
 & C2FO-1.6\\
 & C2QD-1.7\\
@@ -4801,7 +5149,6 @@ C1FD-1.3 Personalizzazione del catalogo & Cclui2\\
 & Csh8\\
 & Cse6\\
 & Csh5\\
-& Csh9\\
 & Csepe1\\
 & Csepe2\\
 & Csepe3\\\hline 
@@ -4824,7 +5171,6 @@ C1FO-1.3.3 Creazione playlist & Cclui2\\
 & Cclse4\\
 & Cse6\\
 & Csh5\\
-& Csh9\\
 & Csepe2\\\hline  
 C1FO-1.3.4 Ranking brani & Cclui2\\
 & Cclac2\\
@@ -4836,7 +5182,6 @@ C1FO-1.3.4 Ranking brani & Cclui2\\
 & Cclse4\\
 & Cse6\\
 & Csh5\\
-& Csh9\\
 & Csepe2  \\\hline             
 C1FN-1.4 Gestione profilo personale & Cclui2\\
 & Cclac2\\
@@ -4888,10 +5233,14 @@ C1QN-1.6 Scalabilit\`a & Csepe0\\
 & Csepe2\\
 & Csepe3\\
 & Csepe4\\
+& Csepe5\\
 & Cse3\\
 & Cse4\\
 & Cse5\\
-& Cse6\\\hline   
+& Cse6\\
+& Cseutca0\\
+& Cseutca1\\
+& Cseutca2\\\hline  
 C1QD-1.6.1 Scalabilit\`a interfaccia grafica  & Cclui0\\ 
 & Cclui1\\
 & Cclui2\\
@@ -4907,7 +5256,11 @@ C1QN-1.6.2 Scalabilit\`a massa di utenza & Cclac0\\
 & Csepe1\\
 & Csepe2\\
 & Csepe3\\
-& Csepe4\\\hline  
+& Csepe4\\
+& Csepe5\\
+& Cseutca0\\
+& Cseutca1\\
+& Cseutca2\\\hline  
 C1FD-1.7 Interazione con altri utenti & Cclui2\\
 & Cclac2\\
 & Cclse2\\
@@ -4927,13 +5280,18 @@ C1FO-1.8.1 Esportazione PDF & Cclui2\\
 & Cclac2\\
 & Cclse4\\
 & Cse6\\
-& Csepe2  \\\hline  
+& Csepe2\\
+& Csese5\\
+& Cseutve0\\
+& Cseutve1\\
+& Cseutve2\\
+& Cseut6\\\hline  
 C1FN-1.9 Ricezione ed elaborazione dei brani & Cse6\\
 & Csh5\\
 & Csh9\\
 & Csepe3\\
+& Csepe5\\
 & Cseut2\\
-& Cseut4\\
 & Cseyo0\\
 & Cseyo1\\
 & Cseyo2\\
@@ -4952,15 +5310,17 @@ C1FN-1.9.1 Controllo di validit\`a dei dati & Cse6\\
 & Csepe2\\
 & Csepe3\\
 & Cclap3\\\hline 
-C1FN-1.9.2 Completamento info da database interno & Csepe3 \\\hline   
+C1FN-1.9.2 Completamento info da database interno & Csepe3 \\
+& Csepe5 \\\hline   
 C1FO-1.9.3 Completamento info da servizio esterno & Cse6\\
 & Cseut2\\
-& Cseut4\\
-& Csepe3\\\hline  
+& Csepe3\\
+& Csepe5\\\hline  
 C1QN-1.9.4 Identificazione dati ridondanti & Csepe3\\\hline                                                                                       
 C1FN-1.9.5 Inserimento nel Database & Cclap2\\
 & Csepe3\\
-& Csepe2\\\hline  
+& Csepe2\\
+& Csepe5\\\hline  
 C1QN-1.9.6 Gestione concorrenza & Csepe0\\
 & Csepe4\\\hline    
 C1VN-1.11 Deve utilizzare il \underline{cloud computing} & Cclse0\\
@@ -4974,7 +5334,8 @@ C1FN-1.13 Gestione Database & Csepe0\\
 & Csepe1\\
 & Csepe2\\
 & Csepe3\\
-& Csepe4\\\hline   
+& Csepe4\\
+& Csepe5\\\hline   
 C1VN-1.13.1 Deve utilizzare Google Data Store & Csepe0\\
 & Csepe4\\\hline      
 C1QN-2 Utilizzo & Cclui0 \\
