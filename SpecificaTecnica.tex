@@ -44,6 +44,10 @@ componenti sui requisiti, descritti in dettaglio nel documento
 \endhead
 \hline
 \endfoot 
+
+27/02/2011 & 2.1 & Caputo Cosimo & Apportate modifiche in base alla correzione in sede
+di RQ.\\
+\hline
 27/02/2011 & 2.0 & Lovato Daniele & Validazione per consegna RQ.\\
 \hline
 26/02/2011 & 1.5 & Mandolo Andrea & Verificato l'intero documento.\\ 
@@ -318,7 +322,10 @@ presentato, sono il model, che riguarda le parti di \underline{business logic} e
 \underline{business data}, la view, che contiene l'intera parte grafica del
 sistema (UI) con i relativi stati (Places) e il presenter che costituisce il collegamento tra view
 e model attraverso le Activity, le interfacce Service e i DTO del package
-\emph{shared}. \\\\
+\emph{shared}. La rappresentazione della dipendenza tra il server e il package
+\emph{Service} \`e dovuta a meccanismi interni a GWT RPC che costituiscono la
+base della comunicazione tra client e server.\\\\
+
 La struttura sar\`a quindi formata dai seguenti packages:
 \begin{figure}[h]
   \centering
@@ -483,8 +490,19 @@ Con il seguente diagramma di sequenza possiamo vedere in dettaglio come le
 classi che fanno parte dell'architettura di NetMus si relazionano fra di loro
 durante l'attivit\`a di login, focalizzando sulla classe \co{LoginActivity}, che
 svolge le centrali funzioni di richiedere e ricevere informazioni e servizi dal
-server, e di creare e comunicare con i \co{ProfilePlace} :
-\begin{figure}[h]
+server, e di creare e comunicare con i \co{ProfilePlace}. Di seguito gli step
+fondamentali dell'operazione:
+\begin{itemize}
+  \item \co{LoginView} invia i dati della richiesta di accesso alla
+  \co{LoginActivity};
+  \item Tramite l'interfaccia \co{LoginService} i dati verranno inviati e
+  controllati dal server e l'esito dell'autenticazione restituito;
+  \item Una volta confermati i dati l'activity procede all'istanziazione del
+  \co{ProfilePlace} che provveder\`a ad avviare la nuova activity tramite
+  l'\co{ActivityMapper} e quindi a visualizzare la View del profilo autenticato.
+\end{itemize}
+
+ \begin{figure}[h]
   \centering
   \includegraphics[width=16.5cm]{img/ST/seq-login.png}
 \caption{Diagramma di sequenza che descrive in dettaglio l'attivit\`a di login}
