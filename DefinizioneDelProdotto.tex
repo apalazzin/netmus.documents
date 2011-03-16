@@ -2224,6 +2224,32 @@ relativi di AppletBar.\\\hline
 \end{longtable}
 
 \newpage
+\subsection{Dettaglio elaborazione brani ricevuti dall'applet}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/activity_elab_brani.png}
+\caption{Diagramma delle attivit\`a che descrive l'elaborazione dei brani una
+volta estratti dall'applet.}
+\end{figure}
+
+In questo diagramma viene spiegato il procedimento logico per andare ad
+elaborare i brani una volta estratti dall'applet di estrazione e passati ad
+\co{AppletBar}.\\\\
+Quando arriva la stringa dall'applet contenente il codice XML di tutti i brani
+estratti, viene elaborata 30 brani alla volta creando liste di SongDTO.
+Queste vengono inviate al server, che si occuper\`a di controllare per ogni
+SongDTO se esiste un Song che gi\`a lo rappresenta nel DataStore. Se non esiste
+lo crea. Una volta confermata l'esistenza di tale Song nel DataStore viene
+inserito (associato) tale brano nella libreria dell'utente e quindi ritorna al
+client conferma di tale operazione.\\\\
+Dopodich\`e il client aggiorna la libreria grafica con i nuovi brani inseriti e
+continua a ripetere questo procedimento fino ad aver `svuotato` il file
+XML.\\
+Al termine di tale procedura, vengono aggiornati i dati statistici
+dell'utente, e vengono sincronizzati nel client.
+
+\newpage
 \section{Package client.event}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
