@@ -64,7 +64,7 @@ nella codifica.\\
 \hline
 24/02/2011 & 3.3 & Trezzi Giovanni & Inseriti altri esiti test di unit\`a.\\
 \hline
-22/02/2011 & 3.2 & Lovato Daniele & Inseriti primi risultati test di unti\`a.\\
+22/02/2011 & 3.2 & Lovato Daniele & Inseriti primi risultati test di unit\`a.\\
 \hline
 20/02/2011 & 3.1 & Baron Federico & Inserito resoconto attivit\`a di verifica
 nella progettazione in dettaglio.\\
@@ -985,9 +985,9 @@ da youtube in base alla canzone selezionata e deve aggiornare la view con la vis
 \textbf{metodo}: setSongs/getSongs\\
 \textbf{Obbiettivo del Test}: verificare la corretta estrazione e visualizzazione del
 catalogo brani, qualora un utente sia loggato\\ 
-\textbf{Strategia}: verra passato al metodo getter un DTO con le informazioni
+\textbf{Strategia}: verr\`a passato al metodo getter un DTO con le informazioni
 riguardanti la libreria di un utente, il metodo si occupa semplicemente di
-smistare e riorganizzare le canzoni in una lista di strighe che verr\`a
+smistare e riorganizzare le canzoni in una lista di stringhe che verr\`a
 restituita con le info artista, titolo e album. Il setter invece utilizzer\`a
 il getter per passare le info alla view\\
 \textbf{Aspettative}: deve
@@ -1442,8 +1442,8 @@ metodologie qui proposte col prodotto ultimato.
   USB del PC, la componente di recupero lo individua e ne analizza il
   contenuto, estraendo tutte le informazioni dei file mp3 e monitorando il
   progresso dell'operazione che diventa visibile all'utente. La
-  scannerizzazione pu\`o essere fatta anche manualmente cliccando sul tasto ``Scan Folder'' 
-  e selezionando una directory qualunque del PC. Le informazioni vengono automaticamente inviate alla 
+  scansione pu\`o essere fatta anche manualmente cliccando sul tasto ``Scan
+  Folder'' e selezionando una directory qualunque del PC. Le informazioni vengono automaticamente inviate alla 
   componente di persistenza che li inserisce nel catalogo. Se le canzoni sono
   gi\`a presenti nel database queste vengono inserite solamente nel catalogo
   dell'utente e, qualora le informazioni fossero incomplete, vengono completate
@@ -1465,7 +1465,7 @@ metodologie qui proposte col prodotto ultimato.
 L'esito sul test alpha v.0.1, collaudo interno fatto sul software non appena
 tutto il sistema era pronto e verificato tramite i vari test di unit\`a e di
 integrazione, ha avuto un esito positivo in quanto ha dimostrato che tutti i
-requisiti obbligatori patuiti nell'analisi dei requisiti sono stati rispettati.
+requisiti obbligatori pattuiti nell'analisi dei requisiti sono stati rispettati.
 \begin{footnotesize}
 \begin{longtable}{|p{2,4cm}|p{2,4cm}|}
 \hline
@@ -1534,10 +1534,12 @@ feedback, il resoconto dei problemi \`e:
   del sistema (esempio: versione rilasciata del prodotto); 
   \item mancanza di una pagina di Help, dove poter consultare eventuali
   problematiche che si presentano;
+  \item mancanza di un Contact, per poter comunicare eventuali problemi o
+  per contattare l'amministratore del sistema;
   \item alcuni bottoni non collegati a link;
   \item nelle playlist manca la possibilit\`a di ordinare a proprio piacimento
   le canzoni;
-  \item problemi se inserisco delle canzoni che hanno dei carattare cinesi o
+  \item problemi se inserisco delle canzoni che hanno dei caratteri cinesi o
   giapponesi nei titoli;
   \item a volte dopo aver inserito delle nuove canzoni serve un refresh manuale
   della pagina per far s\`i che compaiano nella lista;
@@ -2254,8 +2256,9 @@ Tutti i componenti trovano corrispondenza nei requisiti derivanti dall'analisi.
 
 \subsubsection*{Corretta corrispondenza e tracciabilit\`a tra i requisiti e i
 moduli software} 
-Le funzioni dei singoli componenti descritte in DefinizioneDelProdotto-0.16.pdf
-soddisfano le richieste dei requisiti ad essi tracciati.
+Le funzioni dei singoli componenti descritte in
+\emph{DefinizioneDelProdotto-0.16.pdf} soddisfano le richieste dei requisiti ad
+essi tracciati.
 
 \subsubsection*{Flessibilit\`a e manutenibilit\`a}
 Le componenti individuate nella progettazione nel dettaglio sono 72 ed
@@ -2320,16 +2323,16 @@ misurati sono:
 \begin{itemize}
     \item \bo{Sistema generale:}
   \begin{itemize}
-  \item Lines of Code: \bo{5.898};
-  \item Number of Types: \bo{162} (23 interfacce, 139 classi);
+  \item Lines of Code: \bo{6.895};
+  \item Number of Types: \bo{193} (24 interfacce, 169 classi);
   \item Afferent Couplings: \bo{0};
-  \item Efferent Couplings: \bo{77};
-  \item Number of Methods: \bo{703};
-  \item Number of Methods Per Type: media=\bo{4.33}, max=\bo{91};
-  \item Number of Parameters: media=\bo{1.01}, max=\bo{8};
-  \item Lines Of Code Per Method: media=\bo{7.41}, max=\bo{204};
-  \item Block Depth: media=\bo{0.77}, max=\bo{5};
-  \item Cyclomatic Complexity: media=\bo{1.55}, max=\bo{19}.
+  \item Efferent Couplings: \bo{76};
+  \item Number of Methods: \bo{787};
+  \item Number of Methods Per Type: media=\bo{4.07}, max=\bo{108};
+  \item Number of Parameters: media=\bo{1.03}, max=\bo{8};
+  \item Lines Of Code Per Method: media=\bo{8.32}, max=\bo{214};
+  \item Block Depth: media=\bo{0.80}, max=\bo{5};
+  \item Cyclomatic Complexity: media=\bo{1.58}, max=\bo{15}.
   \end{itemize}
     \item \bo{Applet:}
   \begin{itemize}
@@ -2347,7 +2350,7 @@ misurati sono:
 \end{itemize}  
 
 Dal risultato dei valori sopra riportati si evince che la complessit\`a
-ciclomatica per il sistema generale ha come valore medio 1.55 su 703
+ciclomatica per il sistema generale ha come valore medio 1.58 su 787
 metodi e questo \`e un buon risultato, mentre per l'applet ha come valore medio
 12.16 su 16 metodi e questo gi\`a viola il valore massimo impostato uguale a 10.
 L'ultimo risultato \`e dovuto al fatto che per mantenere un'alta velocit\`a di
@@ -2355,16 +2358,16 @@ esecuzione dell'applet che \`e la componente di estrazione delle informazioni,
 \`e stato deciso di suddividerla in pochi sotto-metodi. 
 \\\\ 
 Il livello di
-annidamento medio per il sistema generale \`e 0.77, mentre per l'applet \`e
+annidamento medio per il sistema generale \`e 0.80, mentre per l'applet \`e
 1.11. Questo significa che si \`e cercato di mantenere un'architettura pi\`u
 semplice possibile evitando troppi annidamenti. 
 \\\\ Il numero medio di metodi
-per classe e interfaccia per il sistema generale \`e 4.33, mentre per l'applet \`e 4.00. Entrambi i risultati son buoni perch\'e
-essendo dei valori contenuti, significa che le responsabilit\`a e i compiti per
+per classe e interfaccia per il sistema generale \`e 4.07, mentre per l'applet
+\`e 4.00. Entrambi i risultati son buoni perch\'e essendo dei valori contenuti, significa che le responsabilit\`a e i compiti per
 ogni classe/interfaccia son stati divisi il pi\`u possibile per cercare un alto
 livello di coesione, e si possono vedere nelle figure sottostanti A.1 e A.2.
 \\\\
-In media il numero di parametri per metodo nel sistema generale \`e 1.01, mentre
+In media il numero di parametri per metodo nel sistema generale \`e 1.03, mentre
 per l'applet \`e 1.06. Entrambi questi risultati sono buoni e si possono vedere
 nelle figure sottostanti A.3 e A.4. 
 
@@ -2400,27 +2403,50 @@ Le violazioni rispetto ai valori di soglia impostati sono:
 \begin{itemize}
      \item \bo{Sistema generale:}
   \begin{itemize}
-  \item Number of Types: it.unipd.netmus.client.ui con valore=\bo{76};
-  \item Number of Methods Per Type: MyConstants.java con valore=\bo{17.00};
-  \item Number of Methods Per Type: Song.java con valore=\bo{40.00};
-  \item Number of Methods Per Type: UserAccount.java con valore=\bo{32.00};
-  \item Number of Methods Per Type: SongDTO.java con valore=\bo{22.00};
+  \item Number of Types: it.unipd.netmus.client.ui con valore=\bo{99};
+  \item Number of Methods Per Type: AppletConstants.java con valore=\bo{16.00};
+  \item Number of Methods Per Type: MyConstants.java con valore=\bo{22.00};
+  \item Number of Methods Per Type: Song.java con valore=\bo{37.00};
+  \item Number of Methods Per Type: UserAccount.java con valore=\bo{34.00};
+  \item Number of Methods Per Type: SongDTO.java con valore=\bo{18.00};
   \item Number of Methods Per Type: UserDTO.java con valore=\bo{20.00};
-  \item Lines of Code: ProfileViewImpl.java con valore=\bo{1,707};
+  \item Lines of Code: ProfileViewImpl.java con valore=\bo{2.169};
   \item Block Depth: LoginGoogleCallbackServlet.java con valore=\bo{5.00};
-  \item Cyclomatic Complexity: Song.java con valore=\bo{1.80}; 
   \item Cyclomatic Complexity: BCrypt.java con valore=\bo{4.14}.
   \end{itemize}
     \item \bo{Applet}:
   \begin{itemize}
-  \item Lines Of Code Per Method: TranslateXML.java con valore=\bo{47.33};
   \item Cyclomatic Complexity: DeviceScanner.java con valore=\bo{4.12};
   \item Cyclomatic Complexity: TranslateXML.java con valore=\bo{30.00}.
   \end{itemize}
 \end{itemize}
 Tutte queste violazioni sono state controllate e il sovraccarico rispetto ai
 valori di soglia \`e dovuto al fatto che per motivi funzionali e
-implementativi sono state progettate in questa maniera, e quindi sono corrette.
+implementativi sono state progettate in questa maniera. 
+\\\\
+Il package
+\emph{client.ui} \`e il package che contiene l'implementazione della GUI ed
+essendo la grafica la parte pi\`u pesante del sistema, \`e normale che ci
+sia questa abbondanza di classi ed \`e giustificata la violazione. \emph{AppletConstants.java} e \emph{MyConstants.java} hanno dei metodi che
+restituiscono varie stringhe in lingue diverse e le violazioni rispetto l'alto numero di
+metodi sono giustificate. \emph{Song.java} \`e una classe molto complessa e
+dovendo mantenere molti campi dati e metodi per ogni canzone, \`e giustificata
+la sua violazione. \emph{UserAccount.java} contiene tutte le
+informazioni dell'account di ogni utente ed \`e corretto che contenga un numero
+di metodi che supera la soglia prestabilita. \emph{SongDTO.java} e
+\emph{UserDTO.java} contengono tutti i setter e getter delle classi
+\emph{Song.java} e \emph{UserAccount.java} che hanno molti campi dati, e sono
+giustificate le loro violazioni. \emph{ProfileViewImpl.java} \`e la classe che
+gestisce tutta la view principale del sistema ed \`e corretto che sia cos\`i
+complessa. \emph{LoginGoogleCallbackServlet.java} deve autenticare un utente con
+account Google ed \`e corretto che abbia questo livello di annidamento.
+\emph{BCrypt.java} serve per fare la cifratura della password, il suo livello di
+complessit\`a ciclomatica \`e appena sopra la soglia ed \`e giustificata.
+\emph{DeviceScanner.java} utilizza un algoritmo ricorsivo per fare ricerca di
+file mp3 all'interno della cartella scelta ed \`e normale che abbia un
+alto livello di complessit\`a ciclomatica. \emph{TranslateXML.java}
+recupera le informazioni dai tag di un file mp3 e le inserisce in un file XML,
+\`e corretto che abbia un alto livello di complessit\`a ciclomatica.
 
 \section{Dettaglio delle verifiche tramite prove (test)}
 Qui di seguito illustriamo i risultati dei test precedentemente trattati.
@@ -2630,10 +2656,33 @@ soddisfare le richieste del committente sono state apportate le seguenti modific
 \end{itemize}
 
 \subsubsection*{RQ}
-Per questa revisione non ci sar\`a esito prima del 07/03/2011.
+Il giudizio complessivo sui documenti consegnati e la presentazione \`e stato
+buono. Tutti i documenti sono in generale sufficienti.  \\ \\ In dettaglio, per
+soddisfare le richieste del committente sono state apportate le seguenti modifiche:
+\begin{itemize}
+  \item Norme di Progetto: correzione di alcuni errori ortografici e
+  sistemazione dello stile nelle titolazioni delle sezioni;
+  \item Specifica Tecnica: argomentata la dipendenza tra \emph{server} e
+  \emph{client.service}, ampliato le descrizioni dei diagrammi di sequenza e
+  corretta la fig. 3.3;
+  \item Definizione del Prodotto: correzione di alcuni errori
+  ortografici e semantici, sistemato il sommario, aggiunti i documenti ST e AR
+  come riferimenti informativi, aggiunte informazioni riportate in fig. 4.1 e
+  4.2, tolte le relazioni con le altre componenti perch\'e gi\`a presenti nel
+  documento ST, aggiunta la descrizione della fig. 4.2, sistemato
+  ``testi\_vari'' in pag. 56, controllato la fig. 4.7 e deciso di
+  lasciare invariata la componente \emph{server} perch\`e considerata gi\`a
+  abbastanza riusabile, indicato il package della classe Exception
+  in pag. 113, -------(VIEW GIOVI)-------;
+  \item Manuale Utente: -------;
+  \item Piano di Progetto: spostato l'intero cap. 5 in fondo al documento;
+  \item Piano di Qualifica: correzione di alcuni errori ortografici, -------(per
+  ogni non conformit\`a rilevata fornire una giustificazione analitica
+  - ALBE)-------.
+\end{itemize}
 
 \subsubsection*{RA}
-Non si conosce ancora la data precisa dell'esito di questa revisione.
+Per questa revisione non ci sar\`a esito prima del 21/03/2011.
 
 \section{Dettaglio dell'esito nel test di valutazione sul\\ processo di lavoro}
 I dati raccolti in questa fase di progetto rispetto agli ambiti ricoperti
