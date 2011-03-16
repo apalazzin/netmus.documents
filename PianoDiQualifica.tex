@@ -1109,6 +1109,91 @@ statistiche dell'utente\\
 la presenza della canzone che si sta cercando di aggiungere. In caso di match positivo, la canzone non viene aggiunta perch\`e gi\`a presente, in caso negativo viene registrata e i
 campi corretti relativi alle informazioni della libreria vengono aggiornati\\
 
+---------nuovi TU\\
+
+\item TU-Cclac2:  ProfileActivity\\
+\textbf{metodo}: deletePlaylist\\
+\textbf{Obbiettivo del Test}: Verificare la rimozione completa di una playlist\\
+\textbf{Strategia}: verr\`a passata al metodo una stringa contentente il nome
+di una playlist creata\\ 
+\textbf{Aspettative}: la playlist deve essere correttamente rimossa e non
+pi\`u visualizzabile sulla view\\
+
+\emph{Test 2}\\
+\textbf{metodo}: deletePlaylist\\
+\textbf{Obbiettivo del Test}: verificare che il metodo qualora venga passata
+una stringa con il nome di una playlist inesistente, non ne rimuova alcuna\\
+\textbf{Strategia}: verr\`a passata al metodo una stringa contentente il nome di
+una playlist che non \`e mai stata creata\\ 
+\textbf{Aspettative}: il metodo non deve fare nulla, le playlist presenti
+devono rimanere tali\\
+
+\textbf{metodo}: editProfile\\
+\textbf{Obbiettivo del Test}: verificare il corretto invio dei dati inseriti
+nella modifica del profilo di un utente\\
+\textbf{Strategia}: verranno passate le stringhe contenenti i dati del profilo.
+\\
+\textbf{Aspettative}:Ogni informazione dovr\`a essere registrata con successo in ogni campo
+dell'oggetto UserDTO
+\\
+
+\emph{Test 2}\\
+\textbf{metodo}: playYouTube\\
+\textbf{Obbiettivo del Test}: verificare che un video gi\`a caricato venga
+riprodotto senza dover nuovamente ricercare il suo codice su youtube\\
+\textbf{Strategia}: verr\`a passato al metodo le stringhe del titolo, album e
+artista di una canzone gi\`a presente nella Map delle canzoni gi\`a caricate\\
+\textbf{Output Attesi}: il metodo deve saltare la ricerca del codice per il
+video di youtube e analizzare le informazioni che il client possiede gi\`a nella
+Map e di conseguenza caricare il video\\
+
+\textbf{metodo}: setSongCover\\
+\textbf{Obbiettivo del Test}: verificare che venga caricata la stringa con
+l'indirizzo esatto della cover dell'album della canzone\\
+\textbf{Strategia}: verranno passate le stringhe artista, titolo e album della
+canzone, pi\`u un riferimento all'HTMLPanel su cui verr\`a visualizzata la
+cover\\
+\textbf{Output Attesi}: il metodo deve caricare l'indirizzo della cover
+corretta, e memorizzarlo con successo per la canzone desiderata, oltre a
+comunicare alla view il caricamento della cover a tale indirizzo\\
+
+\textbf{metodo}: calculatePreferredArtist\\
+\textbf{Obbiettivo del Test}: verificare che il calcolo dell'artista preferito
+venga eseguito in modo corretto e con successo\\
+\textbf{Strategia}: verr\`a passata al metodo una MAP con tutte le canzoni
+ascoltate, cos\`i da poter avere una traccia da cui partire per il calcolo
+dell'artista preferito\\
+\textbf{Output Attesi}: il metodo deve ritornare la stringa contentente il
+nome dell'artista prediletto dall'utente\\
+
+\textbf{metodo}: calculateSongStatistics\\
+\textbf{Obbiettivo del Test}: verificare che il calcolo della canzone pi\`u
+popolare su netmus e della canzone pi\`u popolare per l'utente in questione
+vada a buon fine\\
+\textbf{Strategia}: verr\`a passata al metodo una MAP con
+tutte le canzoni ascoltate, cos\`i da poter avere una traccia da cui partire per
+il calcolo delle statistiche\\
+\textbf{Output Attesi}: il metodo
+deve ritornare una lista con le stringhe delle informazioni delle canzoni
+pi\`u gettonate\\
+
+\item TU-Cse6: LibraryServiceImpl\\
+\textbf{metodo}: generatePdf\\
+\textbf{Obbiettivo del Test}: \\
+\textbf{Strategia}:\\
+\textbf{Output Attesi}: \\
+
+\item TU-Csepe2: MusicLibrary::Playlist\\
+\textbf{metodo}: moveSong\\
+\textbf{Obbiettivo del Test}: verificare lo spostamento di una canzone nella
+lista della playlist venga eseguito in modo corretto\\
+\textbf{Strategia}: verr\`a passato un intero che indica la posizione, e per
+l'occasione superer\`a il range della lista\\
+\textbf{Output Attesi}: il metodo deve ritornare false, poich\`e non \`e
+possibile spostare una canzone in una posizione fuori dal limite della lista\\
+
+
+
 \end{itemize}
 
 \subparagraph{Test di integrazione previsti}
@@ -2519,6 +2604,64 @@ Qui di seguito illustriamo i risultati dei test precedentemente trattati.
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
   adottata e soddisfa le aspettative programmate\\
   \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  -------nuovi TU\\
+  \item TU-Cclac2: ProfleActivity\\
+  \textbf{metodo}: deletePlaylist\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \emph{Test 2}\\
+  \textbf{metodo}: deletePlaylist\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \textbf{metodo}: editProfile\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \emph{Test 2}\\
+  \textbf{metodo}: playYouTube\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \textbf{metodo}: setSongCover\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \textbf{metodo}: calculatePreferredArtist\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \textbf{metodo}: calculateSongStatistics\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+  \item TU-Cse6: LibraryServiceImpl\\
+  \textbf{metodo}: generatePdf\\
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+  \textbf{malfunzionamenti rilevati}: nessuno\\
+  
+ 
+ \item TU-Csepe2: MusicLibrary::Playlist\\
+ \textbf{metodo}: moveSong\\
+ \textbf{esito del test}: il metodo non funziona\\
+ \textbf{malfunzionamenti rilevati}: viene rilevato uno stack Overflow\\
+ 
+ \emph{Test 2}\\
+ \textbf{metodo}: moveSong\\
+ \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+ \textbf{malfunzionamenti rilevati}: nessuno\\
+  
   
 \end{itemize}  
 
