@@ -1192,6 +1192,39 @@ l'occasione superer\`a il range della lista\\
 \textbf{Output Attesi}: il metodo deve ritornare false, poich\`e non \`e
 possibile spostare una canzone in una posizione fuori dal limite della lista\\
 
+\item TU-Csepe1: Album\\
+\textbf{metodo}: loadAlbum\\
+\textbf{Obbiettivo del Test}: verificare la lettura dal DB locale di un Album
+non presente nella cache e di una sua successiva registrazione nella cache\\
+\textbf{Strategia}: verr\`a passato al metodo la stringa contenente l'id di un
+album non presente nella cache ma presente nel DB\\
+\textbf{Output Attesi}: il metodo deve ritornare l'album estratto dal DB
+locale e allo stesso tempo deve aver registrato nella cache il caricamento di
+tale album\\
+
+
+\textbf{metodo}: getAlbumCoverLastFM\\
+\textbf{Obbiettivo del Test}: verificare la ricerca di una copertina nel DB o
+tramite servizio esterno di LastFM vada a buon fine\\
+\textbf{Strategia}:
+Al metodo vengono passate le stringhe del nome dell'album e dell'artista \\
+\textbf{Output Attesi}: tali stringhe non troveranno alcun match sul DB
+locale, perci\`o verr\`a richiamato il servizio esterno di LastFM per la
+ricerca delle copertine\\
+
+
+
+\item TU-Csepe4: Song\\
+\textbf{metodo}: incompleteSong\\
+\textbf{Obbiettivo del Test}: verificare che il reperimento delle informazioni
+per una canzone incompleta vada a buon fine\\
+\textbf{Strategia}:
+viene passato al metodo un SongDTO con le informazioni del brano che risultano
+incomplete\\
+\textbf{Output Attesi}: il metodo deve ricercare nel DB se tale brano \`e
+gi\`a presente, in modo da completarne le informazioni, oppure cerca di
+estrapolare le informazioni dal nome del file\\
+
 
 
 \end{itemize}
@@ -2687,6 +2720,24 @@ Qui di seguito illustriamo i risultati dei test precedentemente trattati.
  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
   adottata e soddisfa le aspettative programmate\\
  \textbf{malfunzionamenti rilevati}: nessuno\\
+ 
+ \item TU-Csepe1: Album\\
+ \textbf{metodo}: loadAlbum\\
+ \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+ \textbf{malfunzionamenti rilevati}: nessuno\\
+ 
+ \textbf{metodo}: getAlbumCoverLastFM\\
+ \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+ \textbf{malfunzionamenti rilevati}: nessuno\\
+ 
+ \item TU-Csepe4: Song\\
+ \textbf{metodo}: incompleteSong\\
+ \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\
+ \textbf{malfunzionamenti rilevati}: nessuno\\
+ 
   
   
 \end{itemize}  
