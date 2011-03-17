@@ -51,6 +51,9 @@ relativa codifica, delle quali verr\`a allegato il codice sorgente.
 \endhead
 \hline
 \endfoot
+17/03/2011 & 1.10 & Caputo Cosimo & Inserimento delle classi legate
+all'esportazione pdf.\\
+\hline
 15/03/2011 & 1.10 & Baron Federico & Inserimento della classe Album nel
 capitolo 4.\\
 \hline
@@ -260,7 +263,12 @@ architetturali con una breve descrizione.
   \co{AppletConstants} ed i relativi file \emph{AppletConstants.properties} e
   \emph{AppletConstants\_it.properties}.
   
-  \item \bo{Esportazione PDF} :
+  \item \bo{Esportazione PDF} : Questa funzione \`e implementata usando il
+  framework di Apache \emph{Velocity} e le API messe a disposizione da
+  \emph{Google Docs} utili rispettivamente alla stesura di un template html in
+  cui inserire le informazioni del catalogo e alla creazione e il download del
+  documento PDF vero e proprio sulla base del template.
+  
   
   \item \bo{\co{Album} come entit\`a autonoma} : la scelta di mantenere nel
   Datastore un link alla copertina per ogni album memorizzato ha reso necessaria, per
@@ -3558,7 +3566,11 @@ Funzioni utili alle servlet per la gestione degli URL.
   \item C1FO-1.8.1 Esportazione PDF
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Attivit\`a svolte e dati
+  La classe \`e un singleton che ha lo scopo di fornire i metodi per la gestione 
+  (creazione, modifica, inserimento e rimozione) di documenti e di
+  account Google Docs.
+  
+   \subsubsection*{Attivit\`a svolte e dati
 trattati}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
@@ -3570,6 +3582,14 @@ trattati}
 \hline
 \endfoot
 \endlastfoot
+- USERNAME: String \emph{static} & Email dell'account di Google Docs in
+uso.\\\hline
+ - PASSWORD: String \emph{static} & Password dell'account di Google
+Docs in uso.\\\hline
+ - manager: GdataManager \emph{static} & Unica istanza della
+classe \co{GdataManager}.\\\hline
+ - client: DocsService \emph{static} & Istanza dell'account di
+ autenticazione in Google Docs.\\\hline
 \caption{Campi dati di GdataManager}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -3582,6 +3602,20 @@ trattati}
 \hline
 \endfoot
 \endlastfoot
++ manager(): GdataManager \emph{static} & Crea l'istanza di
+\co{GdataManager}\\\hline
++ client(): DocsService & Inizializza \co{client} e verifica i
+dati di accesso.\\\hline 
++ getDocument(String): Documen tListEntry & Restituisce il documento
+associato al parametro \co{id}.\\\hline
++ getPdfInputStream(DocumentList Entry): DocsService & Esporta in PDF il
+documento da Google Docs.\\\hline
++ getPdfInputStream(String):  Inpu tStream & Utilizza il metodo
+\co{getPdfInputStream} per l'esportazione in pdf dato l'id del
+documento.\\\hline 
++ createNewDocument(String, String): DocumentListEntry & Crea un nuovo
+documento in base hai parametri titolo e contenuto.\\\hline
++ deleteDocument(String) & Rimuove il documento corrispondente al parametro id da Google Docs.\\\hline
 \caption{Metodi di GdataManager}
 \end{longtable}
 
@@ -3693,8 +3727,12 @@ l'oggetto e la relativa chiave dati in input.\\\hline
     \item C1FO-1.8.1 Esportazione PDF
 \end{itemize}
 \subsection*{Tipo, obiettivo e funzione del componente}
+Le classi contenute nel package hanno lo scopo di applicare un template html
+alle informazioni sul catalogo utente, dando modo di agire sulla formattazione
+della pagina generata tramite Google Docs.
 \subsection*{Attivit\`a svolte e dati trattati}
-
+ Attivit\`a e dati saranno approfonditi nella descrizione specifica delle
+ classi.
 
 \subsection{Classe VelocityEngineManager}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -3706,9 +3744,10 @@ l'oggetto e la relativa chiave dati in input.\\\hline
   \item C1FO-1.8.1 Esportazione PDF
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Attivit\`a svolte e dati
-trattati}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+La classe crea e inizializza l'oggetto``engine'' di tipo \co{VelocityEngine}
+\subsubsection*{Attivit\`a svolte e dati trattati}
+Vengono settate le propriet\`a dell'engine che poi viene avviato.
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
 \hline
@@ -3718,43 +3757,9 @@ trattati}
 \hline
 \endfoot
 \endlastfoot
-\caption{Campi dati di VelocityEngineManager}
-\end{longtable}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
-\caption{Metodi di VelocityEngineManager}
-\end{longtable}
-
-\subsection{Classe VelocityResourceLoader}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-  \item Nessuno
-\end{itemize}
-\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-  \item C1FO-1.8.1 Esportazione PDF
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Attivit\`a svolte e dati
-trattati}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
+\# engine: VelocityEngine \emph{static} & Velocity template engine.\\\hline
+\# init: boolean emph{static} & Traccia lo stato di inizializzazione di
+\co{engine}\\\hline
 \caption{Campi dati di VelocityResourceLoader}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -3767,6 +3772,59 @@ trattati}
 \hline
 \endfoot
 \endlastfoot
++ init() \emph{static} & avvia \co{engine} e ne setta le propriet\`a.\\\hline
+\caption{Metodi di VelocityResourceLoader}
+\end{longtable}
+
+\subsection{Classe VelocityResourceLoader}
+\subsubsection*{Requisiti obbligatori soddisfatti}
+\begin{itemize}
+  \item Nessuno
+\end{itemize}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
+\begin{itemize}
+  \item C1FO-1.8.1 Esportazione PDF
+\end{itemize}
+\subsubsection*{Tipo, obiettivo e funzione del componente}
+La classe estende il supertipo astratto \co{ResourceLoader} e fornisce i metodi
+che permettono di caricare il template (``mio\_template''.mv) dal file system.
+La classe appartiene al framework \emph{Velocity}.
+\subsubsection*{Attivit\`a svolte e dati trattati}
+I metodi di \co{VelocityResourceLoader} svolgono le funzioni di caricare una
+determinata risorsa e di tracciarne le eventuali modifiche apportate.
+
+\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+- paths: Vector\textless String\textgreater & Vettore che memorizza il percorso
+file delle risorse da utilizzare.\\\hline
+\caption{Campi dati di VelocityResourceLoader}
+\end{longtable}
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
++ getLastModified(Resource): Long & Ritorna l'ultima modifica
+della sorgente InputStream usata per creare il template.\\\hline
++ getResourceStream(String): InputStream & Ritorna un InputStream in modo da
+permettere con esso la creazione del template a Runtime.\\\hline
++ init(ExtendedProperties) & Inizializza il template loader con una classe
+risorsa.\\\hline
++ isSourceModified(Resource): boolean & Permette di tracciare le
+modifiche.\\\hline
 \caption{Metodi di VelocityResourceLoader}
 \end{longtable}
 
