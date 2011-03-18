@@ -375,8 +375,7 @@ riprodotto il video musicale della canzone trovato da YouTube.
 Inoltre tale player evidenzia il link di YouTube a cui \`e stato trovato il
 brano, e con un click il browser ci reindirizza a tale link.\\
 \`E possibile dare un voto alla canzone (2) da 1 a 5, cliccando sul numero di
-stelle corrispondenti. Il vostro voto far\`a media con quello degli altri
-utenti, e verr\`a visualizzato tra le informazioni dettagliate del brano.\\
+stelle corrispondenti (vedere \ref{cap:voto}).\\
 
 Per fermare la riproduzione di una canzone, potete mettere in pausa usando
 l'apposito pulsante sula player in alto (1), oppure chiudere totalmente la
@@ -476,14 +475,18 @@ nazionalit\`a, sesso e una breve descrizione di s\`e. Da questa interfaccia \`e
 anche possibile cambiare la propria password.\\
 
 In particolare, per cambiare la password, bisogna inserire due volte la nuova
-password che si intende utilizzare negli appositi campi.\\
+password che si intende utilizzare negli appositi campi (1).\\
 
-Una volta inserite le nuove informazioni, cliccare su salva modifiche per
-salvare quanto editato, o cliccare sulla ``X'' rossa per annullare.
+Una volta inserite le nuove informazioni, cliccare su salva modifiche (2) per
+salvare quanto editato, e cliccare sulla ``X'' grigia per chiudere la finestra
+(3): se si chiude la finestra senza aver prima salvato le nuove informazioni,
+queste verranno perse.\\
 
+Per eliminare il proprio account invece, cliccare sulla ``X'' rossa (4): verr\`a
+richiesta una conferma.
 
-\subsection*{Dare un voto ad un brano}
-
+\subsection{Dare un voto ad un brano}
+\label{cap:voto}
 Il sistema \co{NetMus} offre anche la possibilit\`a di valutare un brano su una
 scala da 0 a 5 stelline.\\
 Da notare che il voto espresso per il brano, verr\`a poi visualizzato nelle
@@ -493,32 +496,22 @@ Per valutare un brano basta selezionarlo dal catalogo con un click, e
 successivamente cliccare sul numero di stelline desiderato in basso. Il voto
 verr\`a automaticamente registrato tra le informazioni del brano in questione.
 
-\subsection*{Esportare il proprio catalogo multimediale in PDF}
+\subsection{Esportare il proprio catalogo multimediale in PDF}
 
 Questa funzione originale \`e stata inserita per permettere l'esportazione del
 catalogo multimediale in un documento PDF, pi\`u adeguato alla stampa.\\
 Per procedere con l'esportazione in PDF \`e necessario cliccare sul tasto in
 basso a destra ``Esporta Lista''. A pressione avvenuta, il sistema
-auto-generer\`a un PDF con l'elenco dei brani del catalogo, e aprir\`a una
-finestra per far selezionare all'utente la directory in cui salvare il file PDF
-creato.
+auto-generer\`a un PDF con l'elenco dei brani del catalogo, e visualizzer\`a il
+documento generato, dove l'utente potr\`a guardarlo, stamparlo e/o salvarlo.
 
-\subsection*{Visualizzare le statistiche del sistema e del proprio account}
+\subsection{Visualizzare le statistiche del sistema e del proprio account}
 
 Per visualizzare le statistiche del proprio sistema basta cliccare sul tasto
 ``Statistiche'' in basso a destra. Verranno dunque visualizzate su un pop-up le
-statistiche riguardanti il sistema netmus(canzone pi\`u gettonata, numero di
-utenti, ecc..) e le statistiche riguardanti il proprio account (canzone pi\`u
-ascoltata, genere preferito, autore preferito, numero di amici ecc..).
-
-\subsection*{Il bottone giallo che sa di limone}
-tale funzionalit\`a \`e la parte pi\`u innovativa di \co{NetMus}. \`E possibile
-infatti, leccando lo schermo del proprio PC nel punto in cui si trova il tasto
-giallo, sentire un leggero gusto di limone, mescolato al gusto che si prova
-leccando una batteria da 9 volt.
-
-
-
+statistiche riguardanti il sistema \co{NetMus} (canzone pi\`u gettonata, numero
+di utenti, ecc..) e le statistiche riguardanti il proprio account (canzone pi\`u
+ascoltata, genere preferito, autore preferito, ecc..).
 
 \section{Errori probabili e cause possibili}
 
@@ -527,6 +520,10 @@ leccando una batteria da 9 volt.
   \item controllare che la DEVICE SCANNER BAR non sia disabilitata. La DEVICE
   SCANNER BAR \`e disabilitata quando nell'angolo in basso vi \`e la scritta
   verde ``Enable''.
+  \item se non era stato dato il permesso all'applet di essere eseguita, \`e
+  normale che non funzioni. In questo caso, chiudete il browser web e
+  riapritelo, tornando su \co{NetMus} vi verr\`a chiesto nuovamente il
+  permesso.
 \end{itemize}
 
 \subsection*{Alcuni brani analizzati non sono stati caricati nel catalogo}
@@ -545,10 +542,8 @@ leccando una batteria da 9 volt.
 \subsection*{La canzone riprodotta dal player di YouTube non \`e quella
 corretta}
 \begin{itemize}
-  \item purtroppo la ricerca su YouTube non va sempre a buon fine. E possibile
-  cliccare sul tasto ``Wrong Song'' per passare al video successivo dato dai
-  risultati della ricerca su YouTube di tale canzone. Con tale funzionalit\`a la
-  probabilit\`a di riprodurre il brano desiderato \`e maggiore.
+  \item purtroppo la ricerca su YouTube non va sempre a buon fine: questa cosa
+  non dipende dal nostro software.
   \item i tag delle canzone desiderata sono sbagliati e quindi la
   ricerca di tale canzone produce risultati errati. Modificare le informazioni
   della suddetta canzone per risolvere il problema.
@@ -561,10 +556,6 @@ corretta}
   l'album non \`e un album molto diffuso, oppure se il tag album nelle
   informazioni delle canzoni \`e errato o mal scritto.
 \end{itemize}
-
-
-\subsection*{Password dimenticata}
-
 
 \appendix % inizio appendice
 \chapter{Messaggi di errore e loro significato}
