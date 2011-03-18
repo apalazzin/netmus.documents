@@ -600,7 +600,7 @@ difetti non sollevati dai test di unit\`a. Si riferisce all'intero sistema integ
 \subsection{Analisi dinamica}
 
 \subsubsection*{Test di Unit\`a}
-Il seguente paragrafo intende illustrare i procedimenti seguiti durante i test
+Il seguente paragrafo intende illustrare le tecniche utilizzate durante i test
 di ogni singola unit\`a.\\ \\
 La verifica del codice adotter\`a 2 modelli:
 
@@ -619,28 +619,6 @@ ogni cammino di esecuzione all'interno del modulo, quindi i casi di prova devono
 tutti adeguatamente progettati. 
 \end{itemize}
 
-
-Il piano dei test di unit\`a (che dovr\`a essere chiaramente esposto al termine
-della progettazione in dettaglio) prevede che per ogni test siano elencati:
-
-\begin{itemize}
-  \item unit\`a o modulo su cui sar\`a effettuato il test;
-  \item obbiettivo del test;
-  \item strategia adottata;
-  \item tipologia (whitebox o blackbox);
-  \item aspettative;
-\end{itemize}
-
-I risultati dei test saranno elencati invece in questo modo:
-\begin{itemize}
-  \item unit\`a o modulo su cui \`e stato effettuato il test;
-  \item esito del test;
-  \item malfunzionamenti rilevati;
-\end{itemize}
-
-L'obiettivo \`e quello di rintracciare tutti gli errori presenti all'interno del
-codice ed una volta identificati, risolverli. Da sottolineare che come afferma la tesi di Dijkstra 
-i test non possono dimostrare la totale assenza di errori.
 
 \subsubsection*{Test di Integrazione}
 I test d'integrazione rappresentano la logica dei test di unit\`a.
@@ -930,16 +908,37 @@ Tecniche: quelle usate da CodePro Analytix.
 
 \subsubsection*{Test di Unit\`a}
 
-Per quanto riguarda i test di unit\`a presentati in questa sezione, la maggior
-parte di essi hanno il compito di testare le funzionalit\`a base del metodo
-indicato della rispettiva classe. Ci\`o significa che per questa fase i test non
-hanno lo scopo di verificare la correttezza di un metodo con casi limite, ma
-solamente con casi base per le funzionalit\`a da essi svolte. Inoltre molti test
-sono stati effettuati su metodi set/get per verificare la corretta comunicazione
-tra di loro. Per questi test \`e stato adottato il framework JUnit, che abbiamo
-ritenuto essere il pi\`u attendibile tra i framework messi a disposizione nella
-rete, oltre ad essere integrato in Eclipse e a permettere una netta separazione
-tra codice e test.\\
+I test di unit\`a che verranno creati e poi eseguiti, dovranno in maggioranza
+avere il compito di testare le funzionalit\`a base del metodo indicato della
+rispettiva classe, mentre in minoranza verificare la
+correttezza di un metodo con casi limite. Inoltre molti test dovranno essere
+effettuati su metodi set/get per verificare la corretta comunicazione tra di
+loro. Per tutti i test si dovr\`a adottare il framework JUnit, ritenuto il pi\`u
+attendibile tra i framework messi a disposizione nella rete, oltre ad essere
+integrato in Eclipse e a permettere una netta separazione tra codice e test.
+\\\\
+Il piano dei test di unit\`a (che dovr\`a essere chiaramente esposto al termine
+della progettazione in dettaglio) sar\`a presente in
+appendice E e preveder\`a che per ogni test siano elencati:
+\begin{itemize}
+  \item unit\`a o modulo su cui sar\`a effettuato il test;
+  \item obbiettivo del test;
+  \item strategia adottata;
+  \item tipologia (whitebox o blackbox);
+  \item aspettative.
+\end{itemize}
+
+I risultati dei test saranno presenti in appendice A.2 ed elencati in
+questo modo:
+\begin{itemize}
+  \item unit\`a o modulo su cui \`e stato effettuato il test;
+  \item esito del test;
+  \item malfunzionamenti rilevati.
+\end{itemize}
+
+L'obiettivo \`e quello di rintracciare tutti gli errori presenti all'interno del
+codice ed una volta identificati, risolverli. Da sottolineare che come afferma la tesi di Dijkstra 
+i test non possono dimostrare la totale assenza di errori.
 
 
 \subparagraph{Test di Integrazione}
@@ -1233,7 +1232,11 @@ requisiti obbligatori pattuiti nell'analisi dei requisiti sono stati rispettati.
 \rowcolor{orange} \bo{Requisito}  & \bo{Presenza} \\
 \hline
 \endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
 \endfoot
+\endlastfoot
  C1FN-1 &X \\ \hline
  C1FN-1.1 &X  \\ \hline
  C1FN-1.1.1 &X  \\ \hline
@@ -1342,14 +1345,18 @@ Verifica dei requisiti proposti nel documento
 \emph{AnalisiDeiRequisiti-1.6.pdf}.
 
 \begin{footnotesize}
-\begin{longtable}{|p{2,4cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|}
+\begin{longtable}{|p{2,4cm}|p{1,8cm}|p{1,8cm}|p{1,8cm}|p{1,8cm}|p{1,8cm}|p{1,8cm}|}
 \hline
-\rowcolor{orange} \bo{Requisito}  & \bo{Correttezza}  & \bo{Completezza}  &
-\bo{Ambiguit\`a} & \bo{Verificabilit\`a}  & \bo{Consistenza}  & \bo{Tracciabilit\`a}
+\rowcolor{orange} \bo{Requisito}  & \bo{Corr.}  & \bo{Comp.}  &
+\bo{Ambi.} & \bo{Veri.}  & \bo{Cons.}  & \bo{Trac.}
 \\
 \hline
 \endhead
+\hline
+\multicolumn{7}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
 \endfoot
+\endlastfoot
  
  C1FN-1& OK&  OK&  OK&  OK&  OK& -\\ \hline
  C1FN-1.1&  OK&  OK&  debole&  OK&  OK& OK\\ \hline
@@ -1437,15 +1444,14 @@ sembrano coprire, se pur con una diversa sfumatura, la stessa esigenza.
 \\\\
 Requisiti sistemati nel documento \emph{AnalisiDeiRequisiti-1.8.pdf} a fronte
 della verifica della versione 1.7.
-
-\newpage
+\\\\
 Verifica dei requisiti proposti nel documento \emph{AnalisiDeiRequisiti-1.8.pdf}
 
 \begin{footnotesize}
-\begin{longtable}{|p{2,4cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|p{2,1cm}|}
+\begin{longtable}{|p{2,4cm}|p{1,8cm}|p{1,8cm}|p{1,8cm}|p{1,8cm}|p{1,8cm}|p{1,8cm}|}
 \hline
-\rowcolor{orange} \bo{Requisito}  & \bo{Correttezza}  & \bo{Completezza}  &
-\bo{Ambiguit\`a} & \bo{Verificabilit\`a}  & \bo{Consistenza}  & \bo{Tracciabilit\`a}
+\rowcolor{orange} \bo{Requisito}  & \bo{Corr.}  & \bo{Comp.}  &
+\bo{Ambi.} & \bo{Veri.}  & \bo{Cons.}  & \bo{Trac.}
 \\
 \hline
 \endhead
@@ -1473,7 +1479,11 @@ Verifica dei requisiti proposti nel documento
 \bo{S.}  \\
 \hline
 \endhead
+\hline
+\multicolumn{6}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
 \endfoot
+\endlastfoot
  
  C1FN-1& X&  X&  &  &  \\ \hline
  C1FN-1.1& X&  X&  &  &  \\ \hline
@@ -1594,7 +1604,11 @@ con almeno un modulo software previsto nel documento
 \rowcolor{orange} \bo{Requisito}  & \bo{Componente} \\
 \hline
 \endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
 \endfoot
+\endlastfoot
  
  C1FN-1 &X \\ \hline
  C1FN-1.1 &X  \\ \hline
@@ -1689,7 +1703,11 @@ individuati in fase di analisi.
 \rowcolor{orange} \bo{Componente}  & \bo{Requisito} \\
 \hline
 \endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
 \endfoot
+\endlastfoot
  
  Ccl0 &X \\ \hline
  Ccl1 &X  \\ \hline
@@ -1837,7 +1855,11 @@ con almeno un modulo software previsto nel documento
 \rowcolor{orange} \bo{Requisito}  & \bo{Componente} \\
 \hline
 \endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
 \endfoot
+\endlastfoot
  
  C1FN-1 &X \\ \hline
  C1FN-1.1 &X  \\ \hline
@@ -1933,7 +1955,11 @@ requisiti individuati in fase di analisi.
 \rowcolor{orange} \bo{Componente}  & \bo{Requisito} \\
 \hline
 \endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
 \endfoot
+\endlastfoot
  
 Ccl0 &X\\\hline 
 Ccl1 &X\\\hline 
@@ -2211,200 +2237,245 @@ recupera le informazioni dai tag di un file mp3 e le inserisce in un file XML,
 
 \section{Dettaglio delle verifiche tramite prove (test)}
 Qui di seguito illustriamo i risultati dei test precedentemente trattati.
-\subsection{Test di unit\`a}
-\begin{itemize}
+\subsection{Test di Unit\`a}
+
+\begin{footnotesize}
+\centering
+\begin{longtable}{|p{5.7cm}|p{10.3cm}|}
+\hline
+\rowcolor{orange} \bo{Test di Unit\`a}  & \bo{Esiti} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
     
-  \item TU-Cclac2: ProfileActivity\\
-  \textbf{metodo}: setPlaylistList/getPlaylistList\\
+  \bo{TU-Cclac2}: ProfileActivity &
+  \textbf{metodo}: setPlaylistList/getPlaylistList\\&
   \textbf{esito del test}: i metodi funzionano correttamente secondo la
-  strategia adottata e soddisfano le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \textbf{metodo}: setFriendList/getFriendList\\
+  strategia adottata e soddisfano le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \textbf{metodo}: setFriendList/getFriendList\\&
   \textbf{esito del test}: i metodi funzionano correttamente secondo la
-  strategia adottata e soddisfano le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \textbf{metodo}: rateSong\\
+  strategia adottata e soddisfano le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \textbf{metodo}: rateSong\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\ 
+  adottata e soddisfa le aspettative programmate\\& 
   \textbf{malfunzionamenti
-  rilevati}:nessuno\\
-  \\
-  \textbf{metodo}: playYouTube\\
+  rilevati}:nessuno\\&
+  \\&
+  \textbf{metodo}: playYouTube\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \textbf{metodo}: setSongs/getSongs\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \textbf{metodo}: setSongs/getSongs\\&
   \textbf{esito del test}: i metodi funzionano correttamente secondo la
-  strategia adottata e soddisfano le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \textbf{metodo}: removeFromPlaylist\\
+  strategia adottata e soddisfano le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \textbf{metodo}: removeFromPlaylist\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e rispecchia le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e rispecchia le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
   \\
-  \item TU-Cclac1: LoginActivity\\
-  \textbf{metodo}: sendLogin\\
+  
+  \hline
+  \bo{TU-Cclac1}: LoginActivity &
+  \textbf{metodo}: sendLogin\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
   \\
-  \item TU-Cclap3: TranslateDTOXML\\
-  \textbf{metodo}: XMLToDTO\\
+  
+  \hline
+  \bo{TU-Cclap3}: TranslateDTOXML &
+  \textbf{metodo}: XMLToDTO\\&
   \textbf{esito del test}: il metodo funziona correttamente, ma all'immissione
   di caratteri speciali diversi dalla codifica ISO-8859-1 il brano non viene
   impostato in un DTO ma viene direttamente saltato, passando alla creazione
-  del DTO successivo\\
+  del DTO successivo\\&
   \textbf{malfunzionamenti rilevati}: non traduce in DTO i
-  dati di una canzone che hanno una codifica diversa dalla ISO-8859-1, come ad esempio i caratteri giapponesi\\
+  dati di una canzone che hanno una codifica diversa dalla ISO-8859-1, come ad
+  esempio i caratteri giapponesi\\& 
   \\
-  \item TU-Cse5: UserServiceImpl\\
-  \textbf{metodo}: editProfile\\
+
+  \hline 
+  \bo{TU-Cse5}: UserServiceImpl &
+  \textbf{metodo}: editProfile\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\ 
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e soddisfa le aspettative programmate\\& 
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
   \\
-  \item TU-Cse3: SongServiceImpl\\
-  \textbf{metodo}: deleteSong\\
-  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\ 
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \item TU-Cse4: LoginServiceImpl\\
-  \textbf{metodo}: restartSession\\
-  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \item TU-Cse6: LibraryServiceImpl\\
-  \textbf{metodo}: sendUserNewMusic\\
-  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \item TU-Csepe5: UserAccount\\
-  \textbf{metodo}: findSessionUser\\
-  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \textbf{metodo}: deleteUser\\
-  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \item TU-Csepe2: MusicLibrary\\
-  \textbf{metodo}: removeSong\\
-  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \textbf{metodo}: addSong\\
-  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
   
-  -------nuovi TU\\
-  \item TU-Cclac2: ProfleActivity\\
-  \textbf{metodo}: deletePlaylist\\
+  \hline
+  \bo{TU-Cse3}: SongServiceImpl &
+  \textbf{metodo}: deleteSong\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e soddisfa le aspettative programmate\\& 
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
   \\
-  \emph{Test 2}\\
-  \textbf{metodo}: deletePlaylist\\
+  
+  \hline
+  \bo{TU-Cse4}: LoginServiceImpl &
+  \textbf{metodo}: restartSession\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
   \\
-  \textbf{metodo}: editProfile\\
+  
+  \hline
+  \bo{TU-Cse6}: LibraryServiceImpl &
+  \textbf{metodo}: sendUserNewMusic\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
   \\
-  \emph{Test 2}\\
-  \textbf{metodo}: playYouTube\\
+  
+  \hline
+  \bo{TU-Csepe5}: UserAccount &
+  \textbf{metodo}: findSessionUser\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \textbf{metodo}: deleteUser\\&
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
   \\
-  \emph{Test 2}\\
-  \textbf{metodo}: removeFromPlaylist\\
+  
+  \hline
+  \bo{TU-Csepe2}: MusicLibrary &
+  \textbf{metodo}: removeSong\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \textbf{metodo}: addSong\\&
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\
+  
+  \hline
+  -------nuovi TU & --------- \\&
+  \\
+
+  \hline
+  \bo{TU-Cclac2}: ProfleActivity &
+  \textbf{metodo}: deletePlaylist\\&
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \emph{Test 2}\\&
+  \textbf{metodo}: deletePlaylist\\&
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \textbf{metodo}: editProfile\\&
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \emph{Test 2}\\&
+  \textbf{metodo}: playYouTube\\&
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \emph{Test 2}\\&
+  \textbf{metodo}: removeFromPlaylist\\&
+  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
   \textbf{malfunzionamenti rilevati}: non viene gestito l'errore di rimozione,
-  ma semplicemente il metodo chiama ``onFailure" che non fa nulla\\
-  \\
-  \textbf{metodo}: setSongCover\\
+  ma semplicemente il metodo chiama ``onFailure" che non fa nulla\\&
+  \\&
+  \textbf{metodo}: setSongCover\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \textbf{metodo}: calculatePreferredArtist\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \textbf{metodo}: calculatePreferredArtist\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \textbf{metodo}: calculateSongStatistics\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \textbf{metodo}: calculateSongStatistics\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
   \\
-  \item TU-Cclap1: LoginActivity\\
+  
+  \hline
+  \bo{TU-Cclap1}: LoginActivity &
   \emph{Test 2}
-  \textbf{metodo}: sendLogin\\
+  \textbf{metodo}: sendLogin\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
   \\
-  \item TU-Cse6: LibraryServiceImpl\\
-  \textbf{metodo}: generatePdf\\
+  
+  \hline
+  \bo{TU-Cse6}: LibraryServiceImpl &
+  \textbf{metodo}: generatePdf\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-  \\
-  \emph{Test 2}\\
-  \textbf{metodo}: sedNewUserMusic\\
+  adottata e soddisfa le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\&
+  \emph{Test 2}\\&
+  \textbf{metodo}: sedNewUserMusic\\&
   \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
+  adottata e soddisfa le aspettative programmate\\&
   \textbf{malfunzionamenti rilevati}: il metodo non fa nulla in caso di errore,
-  non resituisce alcun dato\\
+  non resituisce alcun dato\\&
   \\
  
- \item TU-Csepe2: MusicLibrary::Playlist\\
- \textbf{metodo}: moveSong\\
- \textbf{esito del test}: il metodo non funziona\\
- \textbf{malfunzionamenti rilevati}: viene rilevato uno stack Overflow\\
- \\
- \emph{Test 2}\\
- \textbf{metodo}: moveSong\\
+ \hline
+ \bo{TU-Csepe2}: MusicLibrary::Playlist &
+ \textbf{metodo}: moveSong\\&
+ \textbf{esito del test}: il metodo non funziona\\&
+ \textbf{malfunzionamenti rilevati}: viene rilevato uno stack Overflow\\&
+ \\&
+ \emph{Test 2}\\&
+ \textbf{metodo}: moveSong\\&
  \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
- \textbf{malfunzionamenti rilevati}: nessuno\\
+  adottata e soddisfa le aspettative programmate\\&
+ \textbf{malfunzionamenti rilevati}: nessuno\\&
  \\
- \item TU-Csepe1: Album\\
- \textbf{metodo}: loadAlbum\\
- \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
- \textbf{malfunzionamenti rilevati}: nessuno\\
- \\
- \textbf{metodo}: getAlbumCoverLastFM\\
- \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
- \textbf{malfunzionamenti rilevati}: nessuno\\
- \\
- \item TU-Csepe4: Song\\
- \textbf{metodo}: incompleteSong\\
- \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate\\
- \textbf{malfunzionamenti rilevati}: nessuno\\
  
-  
-  
-\end{itemize}  
+ \hline
+ \bo{TU-Csepe1}: Album &
+ \textbf{metodo}: loadAlbum\\&
+ \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
+ \textbf{malfunzionamenti rilevati}: nessuno\\&
+ \\&
+ \textbf{metodo}: getAlbumCoverLastFM\\&
+ \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
+ \textbf{malfunzionamenti rilevati}: nessuno\\&
+ \\
+ 
+ \hline
+ \bo{TU-Csepe4}: Song &
+ \textbf{metodo}: incompleteSong\\&
+ \textbf{esito del test}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate\\&
+ \textbf{malfunzionamenti rilevati}: nessuno\\&
+ \\
+ 
+\hline
+\caption{Esiti dei Test di Unit\`a}
+\end{longtable}
+\end{footnotesize} 
 
 Come si pu\`o chiaramente notare dagli esiti dei test sopra elencati, le prove
 finora programmate e verificate hanno avuto per la maggior parte dei
@@ -2412,39 +2483,65 @@ casi esito positivo, ad esclusione di un unico metodo che presenta evidenti
 problemi di codifica. Ricordiamo che le funzionalit\`a testate dei metodi finora 
 sono state solamente quelle basilari.
   
-\subsection{Test di integrazione}
+\subsection{Test di Integrazione}
 
-\begin{itemize}
-  \item TI-se1\\
+\begin{footnotesize}
+\centering
+\begin{longtable}{|p{5.2cm}|p{10.8cm}|}
+\hline
+\rowcolor{orange} \bo{Test di Integrazione}  & \bo{Esiti} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+
+  \bo{TI-se1} &
   \textbf{esito del test}: le classi funzionano correttamente secondo la
-  strategia adottata e soddisfano le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  strategia adottata e soddisfano le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\
   
-  \item TI-se2\\
+  \hline
+  \bo{TI-se2} &
   \textbf{esito del test}: le classi funzionano correttamente secondo la
-  strategia adottata e soddisfano le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  strategia adottata e soddisfano le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\
   
-  \item TI-cl1\\
+  \hline
+  \bo{TI-cl1} &
   \textbf{esito del primo test}: fallito: i dettagli del brano non sono
-  corretti\\ 
+  corretti\\& 
   \textbf{malfunzionamenti rilevati}: c'\`e un errore nella gestione degli
   eventi riguardanti le celle dei brani, che porta a richieste di dettagli di
-  altri brani invece che di quelli realmente voluti\\
+  altri brani invece che di quelli realmente voluti\\&
   \textbf{esito del secondo test}: le classi funzionano correttamente secondo la
-  strategia adottata e soddisfano le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  strategia adottata e soddisfano le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\
   
-  \item TI-cl2\\
+  \hline
+  \bo{TI-cl2} &
   \textbf{esito del test}: le classi funzionano correttamente secondo la
-  strategia adottata e soddisfano le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
+  strategia adottata e soddisfano le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\
   
-  \item TI-gl1\\
+  \hline
+  \bo{TI-gl1} &
   \textbf{esito del test}: le classi funzionano correttamente secondo la
-  strategia adottata e soddisfano le aspettative programmate\\
-  \textbf{malfunzionamenti rilevati}: nessuno\\
-\end{itemize}
+  strategia adottata e soddisfano le aspettative programmate\\&
+  \textbf{malfunzionamenti rilevati}: nessuno\\&
+  \\
+
+\hline
+\caption{Esiti dei Test di Integrazione}
+\end{longtable}
+\end{footnotesize}
+
 Come si pu\`o notare, solo uno di questi ha inizialmente evidenziato un
 problema, che \`e stato risolto (come si pu\`o vedere con la prova successiva).
 Tutti i test in cui \`e coinvolta la classe \co{TranslateDTOXML} evitano di
@@ -2544,9 +2641,11 @@ soddisfare le richieste del committente sono state apportate le seguenti modific
   rimozione di un brano, perch\'e troppo simile al processo di chiusura della
   finestra di dettaglio e quindi fonte di rischio.. ------------;
   \item Piano di Progetto: spostato l'intero cap. 5 in fondo al documento;
-  \item Piano di Qualifica: correzione di alcuni errori ortografici, -------(per
-  ogni non conformit\`a rilevata fornire una giustificazione analitica e mettere
-  i TU in appendice - ALBE)-------.
+  \item Piano di Qualifica: correzione di alcuni errori ortografici, esiti delle
+  verifiche tramite test messi in forma tabulare,
+   -------(per ogni non
+  conformit\`a rilevata fornire una giustificazione analitica e mettere i TU in
+  appendice - ALBE)-------.
 \end{itemize}
 
 \subsubsection*{RA}
@@ -2771,353 +2870,467 @@ punto.
 
 I Test di Unit\`a previsti sono:\\
 
-\begin{itemize}
+\begin{footnotesize}
+\centering
+\begin{longtable}{|p{5.7cm}|p{10.3cm}|}
+\hline
+\rowcolor{orange} \bo{Test}  & \bo{Specifiche} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
 
-\item TU-Cclac2:  ProfileActivity\\
-\textbf{metodo}: setPlaylistList/getPlaylistList\\
+\bo{TU-Cclac2}: ProfileActivity & 
+\textbf{metodo}: setPlaylistList/getPlaylistList\\&
 \textbf{Obbiettivo del Test}: Verificare che avvenga con successo l'estrazione dal DB
-delle playlist e che vengano correttamente inserite nella view\\
+delle playlist e che vengano correttamente inserite nella view\\&
 \textbf{Strategia}: al getter passare uno stub con una notevole quantit\`a di di stringhe di playlist,
- e vedere se poi il setter le riceve correttamente e le passa tutte alla view\\
-\textbf{Tipologia}: whitebox\\
+ e vedere se poi il setter le riceve correttamente e le passa tutte alla view\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: anche con una notevole quantit\`a di playlist,
-l'estrazione e il passaggio dei dati alla view non dovrebbe dare errori\\
-\\
-\textbf{metodo}: setFriendList/getFriendList\\
+l'estrazione e il passaggio dei dati alla view non dovrebbe dare errori\\&
+\\&
+\textbf{metodo}: setFriendList/getFriendList\\&
 \textbf{Obbiettivo del Test}: verificare la lettura dal DB della lista di amici di un
-utente, e verificare la corretta importazione e visualizzazione sulla view\\
+utente, e verificare la corretta importazione e visualizzazione sulla view\\&
 \textbf{Strategia}: nel DB locale viene inserita una lista di amici
 fittizia, il metodo getter deve estrarla correttamente e il setter deve inviarla
-correttamente alla view\\
-\textbf{Tipologia}: blackbox\\
-\textbf{Aspettative}: il getter deve restituire una lista di stringhe con i nomi degli amici e il setter deve inviarla correttamente alla view per la visualizzazione\\
-
-
-\textbf{metodo}: rateSong\\
+correttamente alla view\\&
+\textbf{Tipologia}: blackbox\\&
+\textbf{Aspettative}: il getter deve restituire una lista di stringhe con i nomi
+degli amici e il setter deve inviarla correttamente alla view per la visualizzazione\\&
+\\&
+\textbf{metodo}: rateSong\\&
 \textbf{Obbiettivo del Test}: verificare la registrazione di un voto per il
-brano corretto e la sua visualizzazione sulla view\\
+brano corretto e la sua visualizzazione sulla view\\&
 \textbf{Strategia}: verranno passati degli stub con artista, titolo e album di
 un brano insieme ad un voto indicativo, e la ricerca del brano sar\`a
-effettuata su un DB locale in cui il brano sar\`a presente\\
-\textbf{Tipologia}: whitebox\\
+effettuata su un DB locale in cui il brano sar\`a presente\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: il metodo dovr\`a trovare tale canzone, quindi inviare i
-dati per la registrazione del voto sia al DB che alla view\\
-\\
-\textbf{metodo}: playYouTube\\
+dati per la registrazione del voto sia al DB che alla view\\&
+\\&
+\textbf{metodo}: playYouTube\\&
 \textbf{Obbiettivo del Test}: verificare che il
 programma sia in grado di ottenere e successivamente di impostare e visualizzare una canzone in streaming tramite
-player di youtube\\
+player di youtube\\&
 \textbf{Strategia}: verranno passati artista titolo e album al metodo, sul DB
 locale sar\`a presente tale brano con l'indirizzo di youtube, il metodo
 dovr\`a trovare tale brano e ritornare l'indirizzo da passare successivamente
-alla view\\
-\textbf{Tipologia}: whitebox\\
+alla view\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Output Attesi}: la ricerca deve ottenere il brano corretto
-da youtube in base alla canzone selezionata e deve aggiornare la view con la visualizzazione di tale canzone in ascolto \\
-\\
-\textbf{metodo}: setSongs/getSongs\\
+da youtube in base alla canzone selezionata e deve aggiornare la view con la
+visualizzazione di tale canzone in ascolto \\& 
+\\&
+\textbf{metodo}: setSongs/getSongs\\&
 \textbf{Obbiettivo del Test}: verificare la corretta estrazione e visualizzazione del
-catalogo brani, qualora un utente sia loggato\\ 
+catalogo brani, qualora un utente sia loggato\\& 
 \textbf{Strategia}: verr\`a passato al metodo getter un DTO con le informazioni
 riguardanti la libreria di un utente, il metodo si occupa semplicemente di
 smistare e riorganizzare le canzoni in una lista di stringhe che verr\`a
 restituita con le info artista, titolo e album. Il setter invece utilizzer\`a
-il getter per passare le info alla view\\
-\textbf{Tipologia}: blackbox\\
+il getter per passare le info alla view\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: deve
 restituire una lista di stringhe contenenti artista, titolo ed album corretti di
-ogni canzone della libreria dell'utente, e deve permettere il corretto invio per la visualizzazione di tali informazioni sulla view\\
-
-
-\textbf{metodo}: removeFromPlaylist\\
-\textbf{Obbiettivo del Test}: verificare la rimozione di un brano da una playlist\\
+ogni canzone della libreria dell'utente, e deve permettere il corretto invio per
+la visualizzazione di tali informazioni sulla view\\&
+\\&
+\textbf{metodo}: removeFromPlaylist\\&
+\textbf{Obbiettivo del Test}: verificare la rimozione di un brano da una
+playlist\\& 
 \textbf{Strategia}: verranno passate al metodo le stringhe con nome playlist,
 e poi titolo artista e album del brano da rimuovere, la ricerca e rimozione
 del brano dal DB locale dovrebbe avere successo e quindi richiamare la
-rimozione anche dalla view\\
-\textbf{Tipologia}: whitebox\\
+rimozione anche dalla view\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: il metodo richiama la
 rimozione del brano dalla playlist dell'utente e una volta che la rimozione ha
 avuto successo dalla parte del DB la rimuove anche dalla parte della dalla parte
-della view\\
-\\
-\item TU-Cclap1: LoginActivity\\
-\textbf{metodo}: sendLogin\\
-\textbf{Obbiettivo del Test}: verificare che il metodo per l'invio delle
-informazioni del login funzioni correttamente in tutte le sue condizioni\\
-\textbf{Strategia}: verr\`a passato user e password in stringhe al metodo, la
-presenza di tale utente nel DB locale dovr\`a dare esito positivo di login.\\ 
-\textbf{Tipologia}: whitebox\\
-\textbf{Aspettative}: il
-metodo deve creare un loginDTO con le informazioni inserite dall'utente, 
-inviarlo al DB locale per verificare la validit\`a e in caso di successo aprire la pagina di profileView\\
-\\
-\item TU-Cclap3:  TranslateDTOXML\\
-\textbf{metodo}: XMLToDTO\\
-\textbf{Obbiettivo del Test}: questo metodo riceve in input una stringa XML che
-contiene le informazioni di ogni brano estratto da un dispositivo. Estrae i
-dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO\\
-\textbf{Strategia}: verr\`a passata una stringa xml con una quantit\`a
-notevole di brani e con caratteri diversi anche dalla codifica ISO-8859-1\\
-\textbf{Tipologia}: blackbox\\
-\textbf{Aspettative}: Il metodo dovr\`a ritornare una lista
-di DTO di tutti i brani rilevati senza saltarne alcuno e con tutte le informazioni memorizzate nel
-rispettivo campo.\\
+della view\\&
 \\
 
-\item TU-Cse5:  UserServiceImpl\\
-\textbf{metodo}: editProfile\\
+\hline
+\bo{TU-Cclac2}:  ProfileActivity &
+\textbf{metodo}: setPlaylistList/getPlaylistList\\&
+\textbf{Obbiettivo del Test}: Verificare che avvenga con successo l'estrazione dal DB
+delle playlist e che vengano correttamente inserite nella view\\&
+\textbf{Strategia}: al getter passare uno stub con una notevole quantit\`a di di stringhe di playlist,
+ e vedere se poi il setter le riceve correttamente e le passa tutte alla view\\&
+\textbf{Tipologia}: whitebox\\&
+\textbf{Aspettative}: anche con una notevole quantit\`a di playlist,
+l'estrazione e il passaggio dei dati alla view non dovrebbe dare errori\\&
+\\&
+\textbf{metodo}: setFriendList/getFriendList\\&
+\textbf{Obbiettivo del Test}: verificare la lettura dal DB della lista di amici di un
+utente, e verificare la corretta importazione e visualizzazione sulla view\\&
+\textbf{Strategia}: nel DB locale viene inserita una lista di amici
+fittizia, il metodo getter deve estrarla correttamente e il setter deve inviarla
+correttamente alla view\\&
+\textbf{Tipologia}: blackbox\\&
+\textbf{Aspettative}: il getter deve restituire una lista di stringhe con i nomi
+degli amici e il setter deve inviarla correttamente alla view per la visualizzazione\\&
+\\&
+\textbf{metodo}: rateSong\\&
+\textbf{Obbiettivo del Test}: verificare la registrazione di un voto per il
+brano corretto e la sua visualizzazione sulla view\\&
+\textbf{Strategia}: verranno passati degli stub con artista, titolo e album di
+un brano insieme ad un voto indicativo, e la ricerca del brano sar\`a
+effettuata su un DB locale in cui il brano sar\`a presente\\&
+\textbf{Tipologia}: whitebox\\&
+\textbf{Aspettative}: il metodo dovr\`a trovare tale canzone, quindi inviare i
+dati per la registrazione del voto sia al DB che alla view\\&
+\\&
+\textbf{metodo}: playYouTube\\&
+\textbf{Obbiettivo del Test}: verificare che il
+programma sia in grado di ottenere e successivamente di impostare e visualizzare una canzone in streaming tramite
+player di youtube\\&
+\textbf{Strategia}: verranno passati artista titolo e album al metodo, sul DB
+locale sar\`a presente tale brano con l'indirizzo di youtube, il metodo
+dovr\`a trovare tale brano e ritornare l'indirizzo da passare successivamente
+alla view\\&
+\textbf{Tipologia}: whitebox\\&
+\textbf{Output Attesi}: la ricerca deve ottenere il brano corretto
+da youtube in base alla canzone selezionata e deve aggiornare la view con la
+visualizzazione di tale canzone in ascolto \\& 
+\\&
+\textbf{metodo}: setSongs/getSongs\\&
+\textbf{Obbiettivo del Test}: verificare la corretta estrazione e visualizzazione del
+catalogo brani, qualora un utente sia loggato\\& 
+\textbf{Strategia}: verr\`a passato al metodo getter un DTO con le informazioni
+riguardanti la libreria di un utente, il metodo si occupa semplicemente di
+smistare e riorganizzare le canzoni in una lista di stringhe che verr\`a
+restituita con le info artista, titolo e album. Il setter invece utilizzer\`a
+il getter per passare le info alla view\\&
+\textbf{Tipologia}: blackbox\\&
+\textbf{Aspettative}: deve
+restituire una lista di stringhe contenenti artista, titolo ed album corretti di
+ogni canzone della libreria dell'utente, e deve permettere il corretto invio per
+la visualizzazione di tali informazioni sulla view\\&
+\\&
+\textbf{metodo}: removeFromPlaylist\\&
+\textbf{Obbiettivo del Test}: verificare la rimozione di un brano da una
+playlist\\& 
+\textbf{Strategia}: verranno passate al metodo le stringhe con nome playlist,
+e poi titolo artista e album del brano da rimuovere, la ricerca e rimozione
+del brano dal DB locale dovrebbe avere successo e quindi richiamare la
+rimozione anche dalla view\\&
+\textbf{Tipologia}: whitebox\\&
+\textbf{Aspettative}: il metodo richiama la
+rimozione del brano dalla playlist dell'utente e una volta che la rimozione ha
+avuto successo dalla parte del DB la rimuove anche dalla parte della dalla parte
+della view\\&
+\\
+
+\hline
+\bo{TU-Cclap1}: LoginActivity &
+\textbf{metodo}: sendLogin\\&
+\textbf{Obbiettivo del Test}: verificare che il metodo per l'invio delle
+informazioni del login funzioni correttamente in tutte le sue condizioni\\&
+\textbf{Strategia}: verr\`a passato user e password in stringhe al metodo, la
+presenza di tale utente nel DB locale dovr\`a dare esito positivo di login.\\& 
+\textbf{Tipologia}: whitebox\\&
+\textbf{Aspettative}: il
+metodo deve creare un loginDTO con le informazioni inserite dall'utente, 
+inviarlo al DB locale per verificare la validit\`a e in caso di successo aprire
+la pagina di profileView\\&
+\\
+
+\hline
+\bo{TU-Cclap3}:  TranslateDTOXML &
+\textbf{metodo}: XMLToDTO\\&
+\textbf{Obbiettivo del Test}: questo metodo riceve in input una stringa XML che
+contiene le informazioni di ogni brano estratto da un dispositivo. Estrae i
+dati di ogni brano e restituisce una lista di oggetti SongDTO da inviare
+successivamente alla componente di persistenza. Il test Vuole verificare la corretta creazione della lista di SongDTO\\& 
+\textbf{Strategia}: verr\`a passata una stringa xml con una quantit\`a
+notevole di brani e con caratteri diversi anche dalla codifica ISO-8859-1\\&
+\textbf{Tipologia}: blackbox\\&
+\textbf{Aspettative}: Il metodo dovr\`a ritornare una lista
+di DTO di tutti i brani rilevati senza saltarne alcuno e con tutte le informazioni memorizzate nel
+rispettivo campo.\\&
+\\
+
+\hline
+\bo{TU-Cse5}:  UserServiceImpl &
+\textbf{metodo}: editProfile\\&
 \textbf{Obbiettivo del Test}: verificare che l'operazione di editing e
-salvataggio delle informazioni di un profilo vada a buon fine\\
+salvataggio delle informazioni di un profilo vada a buon fine\\&
 \textbf{Strategia}: verr\`a passato al metodo un nome utente presente nel DB
-locale e un DTO con le informazioni riguardanti l'account utente\\
-\textbf{Tipologia}: whitebox\\
+locale e un DTO con le informazioni riguardanti l'account utente\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: il metodo registrer\`a tutti i nuovi campi editati e
-ritorner\`a true qualora l'operazione vada a buon fine\\
+ritorner\`a true qualora l'operazione vada a buon fine\\&
 \\
-\item TU-Cse6: LibraryServiceImpl\\
-\textbf{metodo}: sendUserNewMusic\\
+
+\hline
+\bo{TU-Cse6}: LibraryServiceImpl &
+\textbf{metodo}: sendUserNewMusic\\&
 \textbf{Obbiettivo del Test}: Verificare l'invio e la memorizzazione di una lista di
-brani nuovi rilevati dal dispositivo dell'utente\\ 
+brani nuovi rilevati dal dispositivo dell'utente\\& 
 \textbf{Strategia}: verr\`a passato al metodo il nome dell'utente e una lista
-di SongDTO che dovranno essere registrate sulla libreria virtuale\\
-\textbf{Tipologia}: whitebox\\
+di SongDTO che dovranno essere registrate sulla libreria virtuale\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: corretta memorizzazione all'interno del DB
-locale dell'utente selezionato di tutti i nuovi brani rilevati\\
+locale dell'utente selezionato di tutti i nuovi brani rilevati\\&
 \\
-\item TU-Cse3: SongServiceImpl\\
-\textbf{metodo}: deleteSong\\
+
+\hline
+\bo{TU-Cse3}: SongServiceImpl &
+\textbf{metodo}: deleteSong\\&
 \textbf{Obbiettivo del Test}: verificare la rimozione della canzone
-selezionata dalla libreria dell'utente\\
+selezionata dalla libreria dell'utente\\&
 \textbf{Strategia}: verr\`a passato al metodo le chiavi di un brano, ossia
 artista, titolo e album, oltre al nome dell'utente da cui rimuovere il brano.
 L'utente e il brano sono entrambi presenti nel DB locale, perci\`o il metodo
-non dovrebbe avere errori\\
-\textbf{Tipologia}: whitebox\\
+non dovrebbe avere errori\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: deve rimuovere con successo dal DB locale il brano, e
-ritornare true che indica che l'operazione \`e andata a buon fine
+ritornare true che indica che l'operazione \`e andata a buon fine\\&
 \\
-\item TU-Cse4: LoginServiceImpl\\
-\textbf{metodo}: restartSession\\
+
+\hline
+\bo{TU-Cse4}: LoginServiceImpl &
+\textbf{metodo}: restartSession\\&
 \textbf{Obbiettivo del Test}: verificare il corretto funzionamento durante il
-recupero di una sessione per un utente\\
+recupero di una sessione per un utente\\&
 \textbf{Strategia}: verr\`a passato al metodo stringhe con nome utente e id
 di sessione estratti da un cookie presente. Il recupero della sessione
-dovrebbe andare a buon fine.\\
-\textbf{Tipologia}: whitebox\\
+dovrebbe andare a buon fine.\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: il metodo deve controllare l'effettiva esistenza
 dell'utente loggato nella sessione attuale, successivamente caricher\`a
 l'userAccount di tale utente e confronter\`a l'id della sessione con quello
 dell'ultima sessione attiva dell'utente, infine aggiorner\`a i dati della
-sessione con quelli dell'utente che l'ha appena recuperata\\
+sessione con quelli dell'utente che l'ha appena recuperata\\&
 \\
-\item TU-Csepe5: UserAccount\\
-\textbf{metodo}: findSessionUser\\
+
+\hline
+\bo{TU-Csepe5}: UserAccount &
+\textbf{metodo}: findSessionUser\\&
 \textbf{Obbiettivo del Test}: verificare il successo nella ricerca dell'id
-dell'ultima sessione dell'utente\\
+dell'ultima sessione dell'utente\\&
 \textbf{Strategia}: verr\`a passato al metodo
-l'id della sessione\\
-\textbf{Tipologia}: blackbox\\
+l'id della sessione\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: il metodo compone una query per il DB locale in cui
-ricerca l'id dell'ultima sessione di lavoro dell'utente\\
-
-
-\textbf{metodo}: deleteUser\\
+ricerca l'id dell'ultima sessione di lavoro dell'utente\\&
+\\&
+\textbf{metodo}: deleteUser\\&
 \textbf{Obbiettivo del Test}: verificare l'effettiva e corretta cancellazione di un
-account dal DB e quindi dal sistema NetMus\\
+account dal DB e quindi dal sistema NetMus\\&
 \textbf{Strategia}: verr\`a passato al metodo un oggetto UserAccount, che
-fornir\`a le chiavi per la ricerca e la cancellazione dell'account utente\\
-\textbf{Tipologia}: whitebox\\
-\textbf{Aspettative}: l'account dell'utente deve venire eliminato dal DB cos\`i come tutti i suoi dati e la sua libreria\\
+fornir\`a le chiavi per la ricerca e la cancellazione dell'account utente\\&
+\textbf{Tipologia}: whitebox\\&
+\textbf{Aspettative}: l'account dell'utente deve venire eliminato dal DB cos\`i
+come tutti i suoi dati e la sua libreria\\&
 \\
-\item TU-Csepe2: MusicLibrary\\
-\textbf{metodo}: removeSong\\
+
+\hline
+\bo{TU-Csepe2}: MusicLibrary &
+\textbf{metodo}: removeSong\\&
 \textbf{Obbiettivo del Test}: verificare la corretta rimozione del riferimento ad una
-canzone dalla libreria nel DB di un utente\\
+canzone dalla libreria nel DB di un utente\\&
 \textbf{Strategia}: al metodo verranno passati un oggetto di tipo Song e un
 booleano che indica l'aggiornamento delle statistiche utente una volta
-completata la rimozione\\
-\textbf{Tipologia}: blackbox\\
+completata la rimozione\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: viene ritornato true qualora la
-cancellazione sia andata a buon fine, e che nella libreria dell'utente il brano sia stato effettivamente rimosso\\
-\\
-\textbf{metodo}: addSong\\
+cancellazione sia andata a buon fine, e che nella libreria dell'utente il brano
+sia stato effettivamente rimosso\\&
+\\&
+\textbf{metodo}: addSong\\&
 \textbf{Obbiettivo del Test}: verificare la corretta registrazione di una nuova
-canzone sul DB\\
+canzone sul DB\\&
 \textbf{Strategia}: viene passato un oggetto Song al metodo che si occupa di
 registrarne i campi, e una variabile booleana update per l'aggiornamento delle
-statistiche dell'utente\\
-\textbf{Tipologia}: blackbox\\
+statistiche dell'utente\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: il metodo deve ricercare nel DB
 la presenza della canzone che si sta cercando di aggiungere. In caso di match positivo, la canzone non viene aggiunta perch\`e gi\`a presente, in caso negativo viene registrata e i
-campi corretti relativi alle informazioni della libreria vengono aggiornati\\
+campi corretti relativi alle informazioni della libreria vengono aggiornati\\&
+\\
 
----------nuovi TU\\
+\hline 
+--------------------------nuovi TU & ------------------------------- \\& \\
 
-\item TU-Cclac2:  ProfileActivity\\
-\textbf{metodo}: deletePlaylist\\
-\textbf{Obbiettivo del Test}: Verificare la rimozione completa di una playlist\\
+\hline
+\bo{TU-Cclac2}: ProfileActivity &
+\textbf{metodo}: deletePlaylist\\&
+\textbf{Obbiettivo del Test}: Verificare la rimozione completa di una
+playlist\\& 
 \textbf{Strategia}: verr\`a passata al metodo una stringa contentente il nome
-di una playlist creata\\ 
-\textbf{Tipologia}: blackbox\\
+di una playlist creata\\& 
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: la playlist deve essere correttamente rimossa e non
-pi\`u visualizzabile sulla view\\
-\\
-\emph{Test 2}\\
-\textbf{metodo}: deletePlaylist\\
+pi\`u visualizzabile sulla view\\&
+\\&
+\emph{Test 2}\\&
+\textbf{metodo}: deletePlaylist\\&
 \textbf{Obbiettivo del Test}: verificare che il metodo qualora venga passata
-una stringa con il nome di una playlist inesistente, non ne rimuova alcuna\\
+una stringa con il nome di una playlist inesistente, non ne rimuova alcuna\\&
 \textbf{Strategia}: verr\`a passata al metodo una stringa contentente il nome di
-una playlist che non \`e mai stata creata\\ 
-\textbf{Tipologia}: whitebox\\
+una playlist che non \`e mai stata creata\\& 
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: il metodo non deve fare nulla, le playlist presenti
-devono rimanere tali\\
-\\
-\textbf{metodo}: editProfile\\
+devono rimanere tali\\&
+\\&
+\textbf{metodo}: editProfile\\&
 \textbf{Obbiettivo del Test}: verificare il corretto invio dei dati inseriti
-nella modifica del profilo di un utente\\
-\textbf{Strategia}: verranno passate le stringhe contenenti i dati del profilo.
-\\
-\textbf{Tipologia}: whitebox\\
+nella modifica del profilo di un utente\\&
+\textbf{Strategia}: verranno passate le stringhe contenenti i dati del profilo.\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}:Ogni informazione dovr\`a essere registrata con successo in ogni campo
-dell'oggetto UserDTO
-\\
+dell'oggetto UserDTO\\&
+\\&
 
-\emph{Test 2}\\
-\textbf{metodo}: playYouTube\\
+\emph{Test 2}\\&
+\textbf{metodo}: playYouTube\\&
 \textbf{Obbiettivo del Test}: verificare che un video gi\`a caricato venga
-riprodotto senza dover nuovamente ricercare il suo codice su youtube\\
+riprodotto senza dover nuovamente ricercare il suo codice su youtube\\&
 \textbf{Strategia}: verr\`a passato al metodo le stringhe del titolo, album e
-artista di una canzone gi\`a presente nella Map delle canzoni gi\`a caricate\\
-\textbf{Tipologia}: whitebox\\
+artista di una canzone gi\`a presente nella Map delle canzoni gi\`a caricate\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: il metodo deve saltare la ricerca del codice per il
 video di youtube e analizzare le informazioni che il client possiede gi\`a nella
-Map e di conseguenza caricare il video\\
-\\
-\emph{Test 2}\\
-\textbf{metodo}: removeFromPlaylist\\
+Map e di conseguenza caricare il video\\&
+\\&
+\emph{Test 2}\\&
+\textbf{metodo}: removeFromPlaylist\\&
 \textbf{Obbiettivo del Test}:verificare che se un brano non sia presente nella
-playlist, non venga eliminato\\
+playlist, non venga eliminato\\&
 \textbf{Strategia}: vengono passati titolo, artista e album di una canzone non
-presente nella playlist\\
-\textbf{Tipologia}: whitebox\\
+presente nella playlist\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: la ricerca sul DB deve ovviamente avere esito
 negativo, il metodo quindi non deve avere successo ed eseguire dunque il
-metodo ``onFailure" che gestisce il fallimento dell'operazione\\
-\\
-\textbf{metodo}: setSongCover\\
+metodo ``onFailure" che gestisce il fallimento dell'operazione\\&
+\\&
+\textbf{metodo}: setSongCover\\&
 \textbf{Obbiettivo del Test}: verificare che venga caricata la stringa con
-l'indirizzo esatto della cover dell'album della canzone\\
+l'indirizzo esatto della cover dell'album della canzone\\&
 \textbf{Strategia}: verranno passate le stringhe artista, titolo e album della
 canzone, pi\`u un riferimento all'HTMLPanel su cui verr\`a visualizzata la
-cover\\
-\textbf{Tipologia}: whitebox\\
+cover\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: il metodo deve caricare l'indirizzo della cover
 corretta, e memorizzarlo con successo per la canzone desiderata, oltre a
-comunicare alla view il caricamento della cover a tale indirizzo\\
-\\
-\textbf{metodo}: calculatePreferredArtist\\
+comunicare alla view il caricamento della cover a tale indirizzo\\&
+\\&
+\textbf{metodo}: calculatePreferredArtist\\&
 \textbf{Obbiettivo del Test}: verificare che il calcolo dell'artista preferito
-venga eseguito in modo corretto e con successo\\
+venga eseguito in modo corretto e con successo\\&
 \textbf{Strategia}: verr\`a passata al metodo una MAP con tutte le canzoni
 ascoltate, cos\`i da poter avere una traccia da cui partire per il calcolo
-dell'artista preferito\\
-\textbf{Tipologia}: blackbox\\
+dell'artista preferito\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: il metodo deve ritornare la stringa contentente il
-nome dell'artista prediletto dall'utente\\
-\\
-\textbf{metodo}: calculateSongStatistics\\
+nome dell'artista prediletto dall'utente\\&
+\\&
+\textbf{metodo}: calculateSongStatistics\\&
 \textbf{Obbiettivo del Test}: verificare che il calcolo della canzone pi\`u
 popolare su netmus e della canzone pi\`u popolare per l'utente in questione
-vada a buon fine\\
+vada a buon fine\\&
 \textbf{Strategia}: verr\`a passata al metodo una MAP con
 tutte le canzoni ascoltate, cos\`i da poter avere una traccia da cui partire per
-il calcolo delle statistiche\\
-\textbf{Tipologia}: blackbox\\
+il calcolo delle statistiche\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: il metodo
 deve ritornare una lista con le stringhe delle informazioni delle canzoni
-pi\`u gettonate\\
+pi\`u gettonate\\&
 \\
-\item TU-Cclap1: LoginActivity\\
-\emph{Test 2}\\
-\textbf{metodo}: sendLogin\\
+
+\hline
+\bo{TU-Cclap1}: LoginActivity &
+\emph{Test 2}\\&
+\textbf{metodo}: sendLogin\\&
 \textbf{Obbiettivo del Test}: verificare che il metodo per l'invio delle
-informazioni del login gestisca in modo adatto i casi di errore\\
+informazioni del login gestisca in modo adatto i casi di errore\\&
 \textbf{Strategia}: verranno passate delle stringhe con nome e password
-inesistenti nel DB\\
-\textbf{Tipologia}: blackbox\\
+inesistenti nel DB\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: il metodo deve restituire un messaggio di errore di
-utente non registrato al sistema\\
+utente non registrato al sistema\\&
 \\
-\item TU-Cse6: LibraryServiceImpl\\
-\textbf{metodo}: generatePdf\\
+
+\hline
+\bo{TU-Cse6}: LibraryServiceImpl &
+\textbf{metodo}: generatePdf\\&
 \textbf{Obbiettivo del Test}: verificare la creazione del PDF della libreria
-dell'utente\\
+dell'utente\\&
 \textbf{Strategia}: viene passato all'utente il nome dell'utente di cui creare
-il PDF della propria libreria\\
-\textbf{Tipologia}: blackbox\\
+il PDF della propria libreria\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: il metodo deve ritornare l'id del doc PDF contenente
-la sua libreria musicale\\
-\\
-\emph{Test 2}\\
-\textbf{metodo}: sendUserNewMusic\\
+la sua libreria musicale\\&
+\\&
+\emph{Test 2}\\&
+\textbf{metodo}: sendUserNewMusic\\&
 \textbf{Obbiettivo del Test}: Verificare che l'invio e la memorizzazione di
-una nuova lista di canzoni non avvenga se l'utente non viene trovato\\
+una nuova lista di canzoni non avvenga se l'utente non viene trovato\\&
 \textbf{Strategia}:verranno passati al metodo un user inseistente ed una lista
-di oggetti SongDTO\\
-\textbf{Tipologia}: blackbox\\
+di oggetti SongDTO\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: il metodo non deve memorizzare tali canzoni, ma
-ritornare un errore\\
+ritornare un errore\\&
 \\
-\item TU-Csepe2: MusicLibrary::Playlist\\
-\textbf{metodo}: moveSong\\
+
+\hline
+\bo{TU-Csepe2}: MusicLibrary::Playlist &
+\textbf{metodo}: moveSong\\&
 \textbf{Obbiettivo del Test}: verificare lo spostamento di una canzone nella
-lista della playlist venga eseguito in modo corretto\\
+lista della playlist venga eseguito in modo corretto\\&
 \textbf{Strategia}: verr\`a passato un intero che indica la posizione, e per
-l'occasione superer\`a il range della lista\\
-\textbf{Tipologia}: blackbox\\
+l'occasione superer\`a il range della lista\\&
+\textbf{Tipologia}: blackbox\\&
 \textbf{Aspettative}: il metodo deve ritornare false, poich\`e non \`e
-possibile spostare una canzone in una posizione fuori dal limite della lista\\
+possibile spostare una canzone in una posizione fuori dal limite della lista\\&
 \\
-\item TU-Csepe1: Album\\
-\textbf{metodo}: loadAlbum\\
+
+\hline
+\bo{TU-Csepe1}: Album &
+\textbf{metodo}: loadAlbum\\&
 \textbf{Obbiettivo del Test}: verificare la lettura dal DB locale di un Album
-non presente nella cache e di una sua successiva registrazione nella cache\\
+non presente nella cache e di una sua successiva registrazione nella cache\\&
 \textbf{Strategia}: verr\`a passato al metodo la stringa contenente l'id di un
-album non presente nella cache ma presente nel DB\\
-\textbf{Tipologia}: whitebox\\
+album non presente nella cache ma presente nel DB\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: il metodo deve ritornare l'album estratto dal DB
 locale e allo stesso tempo deve aver registrato nella cache il caricamento di
-tale album\\
-\\
-
-\textbf{metodo}: getAlbumCoverLastFM\\
+tale album\\&
+\\&
+\textbf{metodo}: getAlbumCoverLastFM\\&
 \textbf{Obbiettivo del Test}: verificare la ricerca di una copertina nel DB o
-tramite servizio esterno di LastFM vada a buon fine\\
+tramite servizio esterno di LastFM vada a buon fine\\&
 \textbf{Strategia}:
-Al metodo vengono passate le stringhe del nome dell'album e dell'artista \\
-\textbf{Tipologia}: whitebox\\
+Al metodo vengono passate le stringhe del nome dell'album e dell'artista \\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: tali stringhe non troveranno alcun match sul DB
 locale, perci\`o verr\`a richiamato il servizio esterno di LastFM per la
-ricerca delle copertine\\
+ricerca delle copertine\\&
 \\
 
-
-\item TU-Csepe4: Song\\
-\textbf{metodo}: incompleteSong\\
+\hline
+\bo{TU-Csepe4}: Song &
+\textbf{metodo}: incompleteSong\\&
 \textbf{Obbiettivo del Test}: verificare che il reperimento delle informazioni
-per una canzone incompleta vada a buon fine\\
+per una canzone incompleta vada a buon fine\\&
 \textbf{Strategia}:
 viene passato al metodo un SongDTO con le informazioni del brano che risultano
-incomplete\\
-\textbf{Tipologia}: whitebox\\
+incomplete\\&
+\textbf{Tipologia}: whitebox\\&
 \textbf{Aspettative}: il metodo deve ricercare nel DB se tale brano \`e
 gi\`a presente, in modo da completarne le informazioni, oppure cerca di
-estrapolare le informazioni dal nome del file\\
+estrapolare le informazioni dal nome del file\\& \\
 
-
-
-\end{itemize}
+\hline
+\caption{Test di Unit\`a previsti e relative specifiche}
+\end{longtable}
+\end{footnotesize}
 
 
 
@@ -3125,77 +3338,101 @@ estrapolare le informazioni dal nome del file\\
 \thispagestyle{fancy}
 
 I Test di Integrazione previsti sono:\\
-\begin{itemize}
 
-\item TI-se1: server, server.persistent, shared\\
+\begin{footnotesize}
+\centering
+\begin{longtable}{|p{5.2cm}|p{10.8cm}|}
+\hline
+\rowcolor{orange} \bo{Test di Integrazione}  & \bo{Specifiche} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+
+\bo{TI-se1}: server, server.persistent, shared. &
 \textbf{Classi coinvolte}: UserServiceImpl, SongsServiceImpl,
 LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
-MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
+MusicLibraryDTO, SongDTO, UserCompleteDTO.\\& 
 \textbf{Obbiettivo del Test}: verificare l'integrazione tra le classi che
 forniscono un servizio al client e quelle che si interfacciano al database,
-controllando che i servizi vengano forniti correttamente.\\ 
+controllando che i servizi vengano forniti correttamente.\\& 
 \textbf{Strategia}: verranno dati in input le informazioni di un nuovo utente,
-alcuni brani casuali, ed un paio di playlist. \\
+alcuni brani casuali, ed un paio di playlist. \\&
 \textbf{Aspettative}: dalle chiamate ai servizi dovranno essere restituiti
 tutti i dati corretti dell'utente, le informazioni dei brani e delle playlist,
-equivalenti ai dati inseriti.\\
+equivalenti ai dati inseriti.\\&
+\\
 
-\item TI-se2: server, server.persistent, server.youtube, server.utils, shared.\\
+\hline
+\bo{TI-se2}: server, server.persistent, server.youtube, server.utils, shared. &
 \textbf{Classi coinvolte}: UserServiceImpl, SongsServiceImpl,
 LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
 YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
-ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
+ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\& 
 \textbf{Obbiettivo del Test}: verificare il funzionamento e
-l'interfacciamento coi servizi esterni.\\
+l'interfacciamento coi servizi esterni.\\&
 \textbf{Strategia}: verranno dati in input ai servizi le informazioni di un
-nuovo utente e alcuni brani predefiniti con informazioni incomplete.\\
+nuovo utente e alcuni brani predefiniti con informazioni incomplete.\\&
 \textbf{Aspettative}: dalle chiamate ai servizi dovranno essere
 restituiti quei brani con i dati completati, come immagine dell'album e link al
-video youtube.\\
+video youtube.\\&
+\\
 
-\item TI-cl1: client, client.activity, client.mvp, client.service, shared.\\ 
+\hline
+\bo{TI-cl1}: client, client.activity, client.mvp, client.service, shared. & 
 \textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
 NetmusActivityMapper, LibraryService, SongsService, UsersService,
-MusicLibraryDTO, SongDTO, UserCompleteDTO.\\
+MusicLibraryDTO, SongDTO, UserCompleteDTO.\\&
 \textbf{Obbiettivo del Test}: verificare il corretto funzionamento della
 parte logica del client: vengono simulate alcune operazioni effettuate
-dall'utente, e osservate le reazioni.\\
+dall'utente, e osservate le reazioni.\\&
 \textbf{Strategia}: seguendo l'inizializzazione normale, come dato
 in ingresso iniziale avremo una MusicLibrary, e si controller\`a il corretto
 inserimento dei dati nello stub della view. In seguito saranno simulate varie
 azioni dell'utente e si controller\`a se le reazioni seguiranno quanto
-previsto.\\
+previsto.\\&
 \textbf{Aspettative}: ci dovranno essere richieste dei dettagli dei brani ai
-servizi, e l'inserimento degli stessi nello stub della view.\\
+servizi, e l'inserimento degli stessi nello stub della view.\\&
+\\
 
-\item TI-cl2: client, client.activity, client.mvp, client.service,
-client.applet, shared.\\ 
+\hline
+\bo{TI-cl2}: client, client.activity, client.mvp, client.service,
+client.applet, shared. &
 \textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
 NetmusActivityMapper, LibraryService, SongsService, UsersService, AppletBar,
-TranslateDTOXML, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
-\textbf{Obbiettivo del Test}: verificare l'integrazione dell'applet.\\
+TranslateDTOXML, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\& 
+\textbf{Obbiettivo del Test}: verificare l'integrazione dell'applet.\\&
 \textbf{Strategia}: verr\`a dato in input un documento XML contenente dei brani
-dallo stub dell'applet.\\ 
+dallo stub dell'applet.\\& 
 \textbf{Aspettative}: ci si aspettano delle chiamate ai servizi per aggiungere
-i brani al database.\\
+i brani al database.\\&
+\\
 
-\item TI-gl1: client, client.activity, client.mvp, client.service,
-client.applet, server, server.persistent, server.youtube, server.utils, shared.\\ 
+\hline
+\bo{TI-gl1}: client, client.activity, client.mvp, client.service,
+client.applet, server, server.persistent, server.youtube, server.utils, shared.
+& 
 \textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity,
 NetmusActivityMapper, LibraryService, SongsService, UsersService, AppletBar,
 TranslateDTOXML, UserServiceImpl, SongsServiceImpl,
 LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
 YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
-ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\ 
+ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\& 
 \textbf{Obbiettivo del Test}: verificare l'integrazione della componente
-server e quella client.\\
+server e quella client.\\&
 \textbf{Strategia}: verr\`a dato in input un documento XML contenente dei brani
-dallo stub dell'applet.\\ 
+dallo stub dell'applet.\\&
 \textbf{Aspettative}: nello stub della view dovr\`a essere inserita una nuova
-lista di brani, comprendente quelli nuovi indicati nell'XML.\\ 
+lista di brani, comprendente quelli nuovi indicati nell'XML.\\& 
+\\
 
-\end{itemize}
-
+\hline
+\caption{Test di Integrazione previsti e relative specifiche}
+\end{longtable}
+\end{footnotesize}
 
 
 \end{document}
