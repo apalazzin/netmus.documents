@@ -91,16 +91,6 @@ e l'approccio dell'utente al suo utilizzo. In particolare, verranno illustrate
 le azioni che l'utente pu\`o effettuare con questo software e come risolvere, se
 possibile, gli eventuali problemi riscontrabili durante il suo l'utilizzo.
 
-\section{Documenti utili}
-Qui di seguito presentiamo i documenti tecnici di riferimento che il gruppo a
-creato durante lo sviluppo del software. Tali documenti torneranno utili per
-quegli utenti esperti che vogliano conoscere l'architettura di sviluppo del sistema
-\co{NetMus}:
-\begin{itemize}
-  \item Specifica tecnica v2.0
-  \item Definizione del prodotto v1.0
-\end{itemize}
-
 \section{Come riportare problemi e malfunzionamenti}
 Per segnalare problemi e malfunzionamenti \`e disponibile un servizio online a
 questo indirizzo: \url{http://code.google.com/p/netmus/issues/list}.\\
@@ -119,13 +109,7 @@ nostre canzoni preferite, che sfrutta le nuove tecnologie, come il
 
 \co{NetMus} permette agli utenti di avere una
 libreria virtuale online con tutte le canzoni che si ascoltano abitualmente, in modo da
-poterle ascoltare ovunque ci si trovi, e condividerle con altri utenti.\\
-
-Oltre alla comodit\`a di poter accedere alla propria libreria musicale, il
-sistema \co{NetMus} svolge il ruolo anche da semplice ``\underline{social
-network}'' che permette di interagire con gli altri utenti iscritti. \`E quindi
-possibile visualizzare e riprodurre i cataloghi multimediali degli altri utenti, oltre che
-creare una lista di amici con qualunque utente si voglia.\\
+poterle ascoltare ovunque ci si trovi.\\
 
 Il prodotto \`e molto facile da utilizzare, una volta effettuato l'accesso
 a \co{NetMus} basta collegare il proprio lettore mp3 e lasciarlo lavorare in
@@ -133,9 +117,8 @@ automatico, oppure indicargli in che cartella si tengono le canzoni: tutte le
 informazioni verranno estratte, analizzate, completate e
 inserite nel nostro profilo, pronte per essere utilizzate.\\
 
-Tra le possibilit\`a offerte, troviamo sia lo \underline{streaming} audio che
-quello video, il completamento automatico delle informazioni dei brani, le playlist, e
-molto altro.\\
+Tra le possibilit\`a offerte, troviamo lo \underline{streaming} audio e video,
+il completamento automatico delle informazioni dei brani, le playlist, e molto altro.\\
 
 Il tutto \`e implementato con un'interfaccia grafica molto semplice che fornisce
 tutte le funzionalit\`a necessarie, ma nonostante la sua semplicit\`a ha
@@ -153,8 +136,8 @@ tutte le azioni che un utente pu\`o compiere per sfruttare le funzionalit\`a di
 
 \subsection{Requisiti di Sistema per utilizzare NetMus}
 \co{NetMus} \`e una web application che viene visualizzata attraverso il browser
-web. Non \`e sufficiente avere un browser web ed una connessione ad internet per
-utilizzare \co{NetMus} . 
+web. Tuttavia non \`e sufficiente avere un browser web ed una connessione ad
+internet per utilizzare questo sistema. 
 \\
 Qui di seguito presentiamo una chiara lista di
 requisiti richiesti da \co{NetMus}.
@@ -170,7 +153,7 @@ requisiti richiesti da \co{NetMus}.
 
 Anche solo senza uno di questi requisiti obbligatori,
 non sar\`a possibile utilizzare alcune funzionalit\`a di \co{NetMus} o
-addirittura non si riuscir\`a ad utilizzarlo per nulla.\\
+addirittura tutto il sistema.\\
 \\
 \\
 
@@ -178,116 +161,168 @@ addirittura non si riuscir\`a ad utilizzarlo per nulla.\\
 sistema restano comunque completamente funzionanti}\\
 \emph{** Per utilizzare NetMus su Microsoft Internet Explorer \`e
 necessario scaricare il plugin Google Chrome Frame, poich\`e IE non supporta le
-funzionalit\`a avanzate di NetMus}.
+funzionalit\`a avanzate di NetMus: l'installazione verr\`a richiesta all'utente
+alla prima apertura del programma}.
 
 \newpage
-\subsection*{Registrazione a NetMus}
+\section{Utilizzare NetMus}
+Vediamo qui di seguito come utilizzare NetMus.
+
+\subsection{Registrazione}
 Per iniziare ad utilizzare NetMus collegarsi all'indirizzo
 \url{http://netmusbeta.appspot.com} . \\
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/login.png}
+  \includegraphics[width=14cm]{img/MU/login.png}
 \caption{Interfaccia di NetMus Login}
+\label{fig:login}
 \end{figure}
 \\
-Qui vi verr\`a presentata la pagina di login per
+Qui vi verr\`a presentata la pagina di login (figura \ref{fig:login}) per
 accedere al sistema. Se possedete gi\`a un account Google, potete effettuare
-l'accesso direttamente con i dati dell'account di Google, dato che il sistema
-lo permette.
+l'accesso direttamente con i dati dell'account di Google, dato che il sistema lo
+permette, oppure registrarvi al sistema con un altro account.
 
-\newpage
+\subsubsection*{Accesso tramite account Google}
 Basta selezionare la scritta Google e cliccare sul tasto che ci appare ``Log in
-NetMus using your Google Account''. Verrete reindirizzati alla pagina di Login
-di Google, ed una volta effettuato l'accesso verrete nuovamente reindirizzati al
-sistema \co{NetMus}, questa volta con l'accesso effettuato.
-\begin{figure}[htbp]
+NetMus using your Google Account'' (figura \ref{fig:loginGoogle}). Verrete
+reindirizzati alla pagina di login di Google, dove potrete accedere con il
+vostro account Google.
+
+Una volta effettuato l'accesso, da Google verrete reindirizzati al sistema
+\co{NetMus}, e potrete cominciare ad utilizzarlo.
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/loginGoogle.png}
+  \includegraphics[width=14cm]{img/MU/loginGoogle.png}
 \caption{Interfaccia per il Login Google}
+\label{fig:loginGoogle}
 \end{figure}
 
-Se invece non siete utenti Google e questo
-\`e il primo accesso, \`e necessario che vi registriate al sistema. La
-registrazione cos\`i come l'utilizzo del sistema \co{NetMus} sono completamente
-gratuiti.\\
-Per accedere alle form di registrazione basta cliccare alla voce ``Sign up in to
-Netmus'' e la view cambier\`a mostrandovi i campi per la registrazione.
+\subsubsection*{Creazione di un nuovo account NetMus}
+Se invece non siete utenti Google oppure volete comunque crearvi un account
+NetMus, al primo accesso \`e necessario che vi registriate al
+sistema. La registrazione, cos\`i come l'utilizzo del sistema \co{NetMus},
+\`e completamente gratuita.
 
-\begin{figure}[htbp]
+Per accedere al modulo di registrazione basta cliccare alla voce ``Sign up in to
+Netmus'', in basso a destra, e la view cambier\`a mostrandovi i campi per la
+registrazione (figura \ref{fig:registrazione}).
+
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/registration.png}
+  \includegraphics[width=14cm]{img/MU/registration.png}
 \caption{Interfaccia di registrazione}
+\label{fig:registrazione}
 \end{figure}
 
-La registrazione richiede un' email valida e una password di lunghezza maggiore
-di 5 caratteri. Vi verr\`a inviata una mail all'indirizzo indicato che richiede
-conferma per l'attivazione dell'account.\\
-Una volta attivato il vostro account, avrete libero accesso al sistema
-\co{NetMus}.\\
+La registrazione richiede un'email valida e una password composta da almeno 5
+caratteri. Una volta creato il vostro account, avrete libero accesso al
+sistema \co{NetMus}.\\
 
 \newpage
-\subsection*{Primo accesso a NetMus}
+\subsection{Primo accesso}
 
-Al vostro primo accesso al sistema, l'interfaccia che vi verr\`a presentata
-sar\`a strutturata in questo modo.\\
-\begin{figure}[htbp]
+Al vostro primo accesso al sistema, durante il caricamento dell'interfaccia vi
+verr\`a richiesto se eseguire l'applet firmata, dandogli il permesso di accedere
+al vostro computer (figura \ref{fig:permessiApplet}).
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/profile_blank.png}
+  \includegraphics[width=10cm]{img/MU/permessi_applet.png}
+\caption{Richiesta permesso di esecuzione dell'applet}
+\label{fig:permessiApplet}
+\end{figure}
+L'applet in questione \`e il componente di \co{NetMus} che si occupa di cercare
+gli mp3 nel vostro computer e di estrarne i dati: \emph{non raccoglie altre
+informazioni sul vostro conto, e non contiene alcun virus}.
+
+Se negate il permesso, l'applet non potr\`a accedere al contenuto del vostro
+computer ed alle periferiche, impedendo quindi la raccolta delle informazioni
+(non riuscirete quindi ad aggiungere dei brani).
+Questa finestra di richiesta dell'autorizzazione verr\`a visualizzata ad ogni
+accesso, a meno che non selezioniate ``Considera sempre attendibili i contenuti
+di questo autore'' prima di cliccare su ``Esegui''.\\
+
+L'interfaccia che vi verr\`a presentata sar\`a strutturata
+in questo modo (figura \ref{fig:paginaPrincipale}):\\
+
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=14cm]{img/MU/profile_blank.png}
 \caption{Pagina principale di NetMus al primo accesso}
+\label{fig:paginaPrincipale}
 \end{figure}
 
-Un men\`u a sinistra presenta il logo del sistema, la mail con cui siete
-registrati che viene utilizzato come vostro \underline{nickname}, e il numero di
-brani presente nel vostro catalogo, che sar\`a pari a zero. Questo \`e il men\`u
-delle playlist, infatti qui verranno visualizzate tutte le vostre playlist
-create e permette di crearne di nuove cliccando il tasto ``+'' presente.\\
-\\
-La sezione centrale dell'interfaccia \`e la pi\`u importante, \`e infatti il
-nostro catalogo multimediale con player annessi e tasti per svariate azioni.\\
-\\
-All'estrema sinistra della pagina \`e presente la barra per la scansione
-dei \underline{dispositivi di archiviazione} \underline{di massa}, chiamata
-pi\`u semplicemente ``DEVICE SCANNER BAR''. Tale barra \`e visibile nella sua
-completezza solo al passaggio del mouse sopra di essa. La barra permette la
-scansione manuale e visualizza l'avanzamento dell'analisi ed estrazione
-automatica o manuale dei file mp3 da un dispositivo o da una \underline{directory}
-selezionata.\\
-\begin{figure}[htbp]
+Ci sono tre parti principali: a sinistra troviamo la sezione delle
+playlist (1), al centro quella dei brani (2), ed infine a destra c'\`e la
+sezione dedicata all'applet(3).\\
+
+Analizziamole in dettaglio (Figura \ref{fig:appletbarAperta}):\\
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/applet_bar_open.png}
+  \includegraphics[width=14cm]{img/MU/applet_bar_open.png}
 \caption{Pagina principale di NetMus con DEVICE SCANNER BAR espansa}
+\label{fig:appletbarAperta}
 \end{figure} 
 
+Nel men\`u a sinistra, in alto (1) trovate il logo del sistema,
+l'email con cui siete registrati (che viene utilizzato come vostro
+\underline{nickname}), e il numero totale di brani presenti nel vostro catalogo,
+che al momento sar\`a ovviamente pari a zero.\\
+Subito sotto (2) si pu\`o vedere la lista delle playlist (al momento vuota
+anche questa), dove verranno visualizzate tutte le vostre playlist create.\\
+
+La sezione centrale dell'interfaccia \`e la pi\`u importante, \`e infatti il
+nostro catalogo multimediale con player annessi e tasti per svariate azioni.\\
+In particolare, in alto troviamo i pulsanti di controllo (3) e il form per la
+ricerca di un brano (4) (vedere \ref{cap:ricerca}), poco pi\`u sotto (5) la
+lista dei brani (al momento vuota), e in basso il player YouTube (6).\\
+
+All'estrema sinistra della pagina \`e presente la barra per la scansione
+dei \underline{dispositivi di archiviazione} \underline{di massa}(7), chiamata
+pi\`u semplicemente ``DEVICE SCANNER BAR''.\\ 
+Tale barra \`e visibile nella sua completezza solo al passaggio del mouse sopra
+di essa: può comunque essere bloccata cliccando sul lucchetto presente
+nell'angolo inferiore sinistro (8).\\
+La barra permette la scansione manuale e visualizza l'avanzamento dell'analisi
+ed estrazione automatica o manuale dei file mp3 da un dispositivo o da una \underline{directory} selezionata.\\
+Inoltre, \`e possibile attivare o disattivare la scansione automatica cliccando
+sulla scritta presente in basso a destra (9): quando \`e verde indica che la
+scansione automatica \`e abilitata, quando \`e rossa invece indica che \`e
+disattivata.
 
 \newpage
-\subsection*{Iniziare ad utilizzare NetMus}
+\subsection{Iniziare ad utilizzare NetMus}
 
 Per poter iniziare da subito a sfruttare la capacit\`a principale di \co{NetMus},
-ossia quella di libreria musicale, \`e necessario inserire un dispositivo di
-archiviazione di massa nella porta USB del proprio PC.\\
-In alternativa \`e possibile scansionare qualunque directory del proprio PC
-cliccando il tasto ``Scan Folder'' per la scansione manuale, e
-selezionando la directory.\\
-\begin{figure}[htbp]
+ossia quella di libreria musicale, \`e necessario caricare dei brani.
+Per fare questo, si pu\`o inserire un dispositivo di archiviazione di massa
+nella porta USB del proprio PC, o in alternativa \`e possibile scansionare
+qualunque directory del proprio PC cliccando il tasto ``Scan Folder'' per la scansione manuale,
+selezionare la cartella e premere ``OK'' (figura \ref{fig:scansioneManuale}).\\
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/scan_manual.png}
+  \includegraphics[width=14cm]{img/MU/scan_manual.png}
 \caption{Interfaccia di selezione di una directory per la scansione
 manuale}
+\label{fig:scansioneManuale}
 \end{figure}
 
 Quando parte l'analisi, nella DEVICE SCANNER BAR viene visualizzato
 l'avanzamento del processo, che mostra il numero di file analizzati fino al
 messaggio ``Sending Done'' che indica che i file sono stati inviati alla
-libreria musicale.\\
-\begin{figure}[htbp]
+libreria musicale (Figura \ref{fig:fineUpload}).
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/song_loaded.png}
+  \includegraphics[width=14cm]{img/MU/song_loaded.png}
 \caption{Interfaccia con catalogo multimediale caricato}
+\label{fig:fineUpload}
 \end{figure}
 
-Una volta inviati, i file dovrebbero comparire sul catalogo multimediale.\\
+Una volta inviati, i brani compaiono sul catalogo multimediale.
 A questo punto \`e possibile iniziare a sbizzarrirsi con le funzionalit\`a di
-\co{NetMus}. Le funzionalit\`a per comodit\`a di impostazione visiva e
+\co{NetMus}.\\
+
+Le funzionalit\`a per comodit\`a di impostazione visiva e
 sopratutto di ricerca, vengono elencate in sottoparagrafi.
 
 \newpage
@@ -295,96 +330,107 @@ sopratutto di ricerca, vengono elencate in sottoparagrafi.
 Di seguito presentiamo le azioni che \`e possibile eseguire sul sistema per
 sfruttare le sue funzionalit\`a.
 
-\subsection*{Modalit\`a di visualizzazione del catalogo}
+\subsection{Modalit\`a di visualizzazione del catalogo}
 Il catalogo multimediale \`e la parte centrale del sistema \co{NetMus}. Qui
 vengono elencati i brani raccolti dalla scansione dei vari dispositivi. E
 possibile visualizzare il catalogo in due modalit\`a principali.\\
 \\
-La prima \`e la modalit\`a elenco. In questa modalit\`a i brani vengono
-visualizzati come un elenco in cui sono visualizzati artista, titolo del brano e
+La prima \`e la modalit\`a elenco (figura \ref{fig:fineUpload}). In questa
+modalit\`a i brani vengono visualizzati come un elenco in cui sono visualizzati artista, titolo del brano e
 album. In tale modalit\`a \`e possibile ordinare l'elenco dei brani per titolo,
 artista o per album, semplicemente cliccando sulla barra superiore alle voci
 ``artista'', ``titolo'', ``album''.\\
 
----------------------screenshot modalit\`a elenco-----------------------------
-\\
-
-La seconda modalit\`a di visualizzazione \`e quella in ``cover mode'', ossia la
-visualizzazione dei brani con la copertina del proprio album. Questa \`e una
-visualizzazione pi\`u carina da un punto di vista grafico ed estetico, ed \`e
+La seconda modalit\`a di visualizzazione \`e quella in ``cover mode'' (figura
+\ref{fig:coverMode}), ossia la visualizzazione dei brani con la copertina del
+proprio album. Questa \`e una visualizzazione pi\`u carina da un punto di vista grafico ed estetico, ed \`e
 pi\`u semplice riconoscere i brani che appartengono allo stesso album.\\
 
----------------------screenshot cover mode-----------------------------------
-\\
-
- \subsection*{Ascoltare una canzone in
-streaming}
-
-Come prima funzionalit\`a inseriamo la descrizione dell'operazione pi\`u
-interessante del nostro prodotto, ossia la riproduzione delle tracce in streaming.\\ Per
-riprodurre una qualsiasi canzone del proprio catalogo, basta selezionarla nel
-catalogo, quindi cliccare sul tasto play del \underline{player} in alto, o del
-player YouTube in basso.\\
-\begin{figure}[htbp]
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/player_youtube.png}
-\caption{Interfaccia con riproduzione tramite player di YouTube}
+  \includegraphics[width=14cm]{img/MU/song_loaded.png}
+\caption{Interfaccia in ``cover mode''}
+\label{fig:coverMode}
+\end{figure}
+
+\subsection{Ascoltare una canzone in streaming}
+
+Passiamo ora alla descrizione della funzionalit\`a pi\`u
+interessante del nostro prodotto, ossia la riproduzione delle tracce in streaming.\\
+Per riprodurre una qualsiasi canzone del proprio catalogo, basta selezionarla e
+quindi cliccare sul tasto play del \underline{player} in alto, o del player
+YouTube in basso (figura \ref{fig:play}).\\ 
+\begin{figure}[!htbp]
+  \centering
+  \includegraphics[width=14cm]{img/MU/player_youtube.png}
+\caption{Interfaccia durante la riproduzione di un brano}
+\label{fig:play}
 \end{figure} 
 
 Di fatto l'operazione svolta dai due player \`e la stessa, ma
-si differenziano per il fatto che il player superiore permette riproduzione e
-pausa dello stream audio, passaggio al brano precedente e successivo del catalogo, mentre il player
+si differenziano per il fatto che il player superiore (1) permette riproduzione
+e pausa dello stream audio, passaggio al brano precedente e successivo del catalogo, mentre il player
 inferiore si trasforma in un riproduttore di video in streaming, in cui viene
-riprodotto il video musicale della canzone trovato da YouTube.\\
+riprodotto il video musicale della canzone trovato da YouTube.
 Inoltre tale player evidenzia il link di YouTube a cui \`e stato trovato il
-brano, e con un click il browser ci reindirizza a tale link.
+brano, e con un click il browser ci reindirizza a tale link.\\
+\`E possibile dare un voto alla canzone (2) da 1 a 5, cliccando sul numero di
+stelle corrispondenti. Il vostro voto far\`a media con quello degli altri
+utenti, e verr\`a visualizzato tra le informazioni dettagliate del brano.\\
 
-\subsection*{Creare Playlist}
+Per fermare la riproduzione di una canzone, potete mettere in pausa usando
+l'apposito pulsante sula player in alto (1), oppure chiudere totalmente la
+riproduzione premendo la ``x'' posta in alto a destra del video (3).\\
+
+Al termine della riproduzione di un brano, il player passer\`a automaticamente a
+riprodurre la successiva: se la lista era stata selezionata dal catalogo,
+prender\`a la successiva da l\`i, se invece la canzone inizialmente era stata
+selezionata da una playlist, verr\`a riprodotto il brano successivo di quella
+playlist.
+
+\subsection{Gestione playlist}
 
 La creazione di una \underline{playlist} \`e un'operazione molto semplice e
 comoda per poter avere una sequenza delle canzoni preferite.\\
-Per creare una playlist basta cliccare sul tasto ``+'' nel men\`u a sinistra di
-fianco alla voce ``PLAYLIST''. Subito sotto comparir\`a un campo in cui
-inserire il titolo della playlist. Una volta inserito il titolo e premuto invio,
-la playlist sar\`a stata creata.\\
-\begin{figure}[htbp]
+Per creare una playlist (figura \ref{fig:playlist}) basta cliccare sul tasto
+``+'' nel men\`u a sinistra di fianco alla voce ``PLAYLIST''(1). Subito sotto comparir\`a un campo in cui
+inserire il titolo della playlist: una volta inserito il titolo e premuto invio,
+questa verr\`a creata e comparir\`a tra le playlist(2).\\
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/new_playlist.png}
-\caption{Pagina principale di NetMus con evidenziato men\`u di selezione
-playlist}
+  \includegraphics[width=14cm]{img/MU/new_playlist.png}
+\caption{Pagina principale di NetMus durante la creazione di una playlist}
+\label{fig:playlist}
 \end{figure}
  
-Ora non resta che inserire i brani all'interno della propria playlist
+Ora non resta che inserire i brani all'interno della playlist
 per ottenere la sequenza di canzoni desiderata. Per fare ci\`o basta cliccare sul
-nome della playlist, si aprir\`a una finestrella (vuota per il momento) in cui
-saranno presenti tutti i suoi brani. Per inserire un brano basta
-selezionarlo e successivamente cliccare nella finestra della playlist il
-simbolo ``+" verde.\\
+nome della playlist, si aprir\`a una finestra (3), vuota per il momento, in cui
+andremo ad inserire i brani. Per inserire un brano basta
+selezionarlo (4) e cliccarci due volte sopra, o alternativamente cliccare nella
+finestra della playlist il simbolo ``+" verde (5).\\ 
 La rimozione di un brano avviene in modo analogo; basta selezionare
 nell'elenco dei brani della playlist il brano da rimuovere e successivamente
-cliccare il simbolo ``-'' rosso.\\
-Da notare che all'interno della finestrella con l'elenco dei brani della
-playlist, una volta selezionato un brano dal catalogo multimediale o dalla
-playlist le azioni di aggiunta di un brano sono scritte in verde, le azioni di
-rimozione di un brano in rosso.\\
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=15cm]{img/MU/playlist_song.png}
-\caption{Dettaglio di una playlist}
-\end{figure}
+cliccare il simbolo ``-'' rosso (6), oppure premere sulla tastiera il tasto
+``Del'' (in alcune tastiere chiamato anche ``Canc'').\\
 
 Infine per eliminare una playlist basta selezionarla e cliccare la ``X'' rossa che
-si trova nella finestrella in alto a destra.
+si trova nella finestrella in alto a destra (7).
 
-\subsection*{Visualizzare le informazioni riguardanti un brano}
+\subsection{Visualizzare le informazioni riguardanti un brano}
 
-Per visualizzare ulteriori informazioni riguardanti un brano basta fare un
-doppio click sopra lo stesso. Si aprir\`a una finestrella con l'elenco delle
-informazioni riguardanti il brano.\\
-\begin{figure}[htbp]
+Per visualizzare ulteriori informazioni riguardanti un brano (figura
+\ref{fig:dettagli}) basta fare un doppio click sopra lo stesso. Si aprir\`a una
+finestrella con l'elenco delle informazioni riguardanti il brano (1).\\
+Notare che questa operazione non va effettuata con una playlist aperta,
+altrimenti invece di visualizzare le informazioni del brano, quest'ultimo
+verr\`a aggiunto alla playlist.\\
+
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/info_song.png}
+  \includegraphics[width=14cm]{img/MU/info_song.png}
 \caption{Dettagli di un brano del catalogo}
+\label{fig:dettagli}
 \end{figure}
 
 Tra queste informazioni elenchiamo titolo, autore, album, genere, anno,
@@ -393,41 +439,45 @@ Per quanto riguarda la valutazione verr\`a spiegata pi\`u a fondo in seguito.\\
 Le copertine invece vengono recuperate durante la memorizzazione del brano sul
 catalogo.
 
-\subsection*{Eliminare un brano dal catalogo}
+\subsection{Eliminare un brano dal catalogo}
 
 Per eliminare un brano dal proprio catalogo multimediale basta cliccarci sopra
 due volte e fare apparire la finestrella con le informazioni dettagliate. A
 questo punto cliccare la ``X'' rossa come per le playlist, e il brano verr\`a
 immediatamente eliminato dall'elenco.
 
-\subsection*{Ricercare un brano sul catalogo}
-
+\subsection{Ricercare un brano sul catalogo}
+\label{cap:ricerca}
 Per la ricerca di un brano all'interno del catalogo \`e stata implementata una
-\underline{form} apposita. La form, visualizzata nella pagina in alto a destra,
-ci permette di ricercare titolo, album o artista di qualunque brano del catalogo.\\
+\underline{form} apposita (figura \ref{fig:appletbarAperta}, elemento 4). La
+form, visualizzata nella pagina in alto a destra, ci permette di ricercare
+titolo, album o artista di qualunque brano del catalogo.\\ 
 La ricerca \`e immediata durante la digitazione, e i risultati vengono mostrati
 direttamente sull'interfaccia principale del catalogo multimediale.
 
-\subsection*{Modificare le informazioni riguardanti un brano}
-
-\emph{(Funzionalit\`a  che verr\`a  integrata in una versione successiva.)}
-
-\subsection*{Modificare le informazioni del profilo (anche cambio password)}
+\subsection{Modificare le informazioni del profilo (anche cambio password)}
 
 Nel sistema \co{NetMus} \`e possibile compilare ulteriori campi riguardanti il
 proprio profilo utente.\\
-Tale operazione \`e possibile cliccando sul tasto verde ``Account''. Si aprir\`a
-un pop-up con l'elenco dei campi che \`e possibile compilare. Le informazioni
-dovranno essere inserite in tali form.
-\begin{figure}[htbp]
+Tale operazione \`e possibile cliccando sul tasto verde ``Account'', in alto a
+destra.
+Si aprir\`a un pop-up con l'elenco dei campi che \`e possibile
+compilare (figura \ref{fig:profilo}): le informazioni dovranno essere inserite
+in tali form.
+\begin{figure}[!htbp]
   \centering
-  \includegraphics[width=15cm]{img/MU/profile_view.png}
+  \includegraphics[width=14cm]{img/MU/profile_view.png}
 \caption{Interfaccia per la modifica delle informazioni del profilo}
+\label{fig:profilo}
 \end{figure}
 
 Le informazioni che \`e possibile aggiungere sono nickname, nome, cognome,
 nazionalit\`a, sesso e una breve descrizione di s\`e. Da questa interfaccia \`e
 anche possibile cambiare la propria password.\\
+
+In particolare, per cambiare la password, bisogna inserire due volte la nuova
+password che si intende utilizzare negli appositi campi.\\
+
 Una volta inserite le nuove informazioni, cliccare su salva modifiche per
 salvare quanto editato, o cliccare sulla ``X'' rossa per annullare.
 
@@ -537,8 +587,6 @@ dove vanno inseriti dei dati.
 \subsection*{Playlist:} \`e una lista di canzoni, utilizzata su
 personal computer e media player portatili per la gestione pi\`u rapida dei
 brani in esecuzione e la loro sequenza.
-\subsection*{Social network:} comunit\`a on-line di persone che condividono
-interessi e/o attivit\`a.
 \subsection*{Streaming:} un flusso di dati audio/video trasmessi da una sorgente
 a una o pi\`u destinazioni tramite una rete telematica. Questi dati vengono
 riprodotti man mano che arrivano a destinazione.
