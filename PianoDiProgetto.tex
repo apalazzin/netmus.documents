@@ -558,16 +558,21 @@ sottostante:
 \bo{Test Qualifica}\cellcolor{orange}&&&&& Caputo(8) \\
 \cellcolor{orange}&&&&& Palazzin(12)\\ \hline
 
-\bo{Manuale}\cellcolor{orange}&&&& Baron(15)  &\\
-\bo{Utente (v2)}\cellcolor{orange}&&&& Lovato(10) &\\
-\bo{ITA}\cellcolor{orange}&&&& Trezzi(10) & \\ \hline
+\bo{Manuale}\cellcolor{orange}&&&& Baron(10)  &\\
+\bo{Utente (v2)}\cellcolor{orange}&&&& Lovato(4) &\\
+\bo{ITA}\cellcolor{orange}&&&& Trezzi(5) & \\ \hline
 
 \bo{Manuale}\cellcolor{orange}&&&& Caputo(5)&\\
-\bo{Utente (v2)}\cellcolor{orange}&&&&  Mandolo(10)&\\
+\bo{Utente (v2)}\cellcolor{orange}&&&&  Mandolo(5)&\\
 \bo{ENG}\cellcolor{orange}&&&&&\\ \hline
 
 \bo{Agg. PQ (v5)}\cellcolor{orange}  &  &  &  & & Daminato(5) \\
 \cellcolor{orange}&&&&&Palazzin(5)\\ \hline
+
+\cellcolor{orange} & & & &  Baron(5)&\\
+\bo{Codifica v3}\cellcolor{orange} & & & &  Lovato(6)&\\
+\cellcolor{orange} & & & &  Mandolo(5)&\\
+\cellcolor{orange} & & & &   Trezzi(5)&\\\hline
 
 \bo{Correzione}\cellcolor{orange}&&&Palazzin(5)&&Baron(5)\\
 \bo{docum. RQ}\cellcolor{orange}&&&&&\\\hline
@@ -827,6 +832,15 @@ tali in modo intelligente e pulito.\\
 La condizione rischiosa del fattore alla sezione 6.1.2 \`e stata quasi
 completamente annullata, grazie allo studio continuo e
 all'esperienza ottenuta lavorando su GAE e GWT.
+
+\subsection{Rischi nella fase RQ-RA}
+In questa fase, uno dei maggiori fattori di rischio \`e stato il ritardo nella
+consegna della correzione della Revisione di Qualifica. Tale ritardo ha bloccato
+parte dei lavori, dato che continuare con la codifica avrebbe potuto essere
+dannoso se poi la correzione rivelava pesanti errori di progettazione.
+Fortunatamente non \`e stato cos\`i, la codifica \`e potuta partire subito dopo
+la correzione, e nelle ore precedenti ci sei \`e dedicati per la maggior parte
+alla documentazione.
 
 
 \chapter{Consuntivo}
@@ -1149,11 +1163,11 @@ in fase RQ-RA e le ore effettivamente utilizzate dagli sviluppatori.
 
 
 \bo{Test di Qualifica}\cellcolor{orange} & 30 & 39 \\\hline
-\bo{Manuale Utente (v2)}\cellcolor{orange}    & 35 & 12 
+\bo{Manuale Utente (v2)}\cellcolor{orange}    & 19 & 12 
 \\\hline
-\bo{Manuale Utente Eng}\cellcolor{orange}  & 15 & 8\\ \hline
+\bo{Manuale Utente Eng}\cellcolor{orange}  & 10 & 8\\ \hline
 \bo{Agg. PQ v5.0}\cellcolor{orange}  & 10 & 5\\\hline
-\bo{Codifica 3}\cellcolor{orange} & indef & 23\\\hline
+\bo{Codifica 3}\cellcolor{orange} & 21 & 23\\\hline
 \bo{Correzione docum. RQ}\cellcolor{orange}& 10 & 11\\\hline
 \bo{Verifica}\cellcolor{orange}& 20 & 16 \\\hline
 \bo{Gestione e Controllo}\cellcolor{orange}& 6 & 6\\\hline
@@ -1235,10 +1249,73 @@ qualifica.
 \newpage
 \section{Consuntivo finale e considerazioni}
 
-Presentiamo ora una tabella che riporta le ore svolte da ogni elemento del
-gruppo rapportate al preventivo personale di ognuno.
+Presentiamo ora il consuntivo complessivo per quanto riguarda le ore
+preventivate riguardanti ogni ruolo di tutti i membri del gruppo.
+
+----------tabella prev-cons personale per ruolo---------------
 
 
+La tabella mostra chiaramente le ore preventivate per ruolo, e le ore
+effettivamente utilizzate da ogni membro per ogni ruolo. Tale
+tabella si basa sui preventivi primordiali e sul preventivo rivisitato della
+fase RP-RQ, per questo motivo le ore risultano differenti rispetto al preventivo
+totale presentato nella sezione ``pianificazione''. \\
+Innanzitutto vorremmo far notare che la
+rotazione dei ruoli ha avuto successo, ogni membro ha svolto pi\`u o meno 
+ogni compito presente nell'arco dello sviluppo del software.\\ 
+In secondo luogo notiamo che le ore sono state per la maggior parte rispettate, 
+anche se la notevole attivit\`a di progettazione ha fatto sforare un p\`o il 
+consuntivo di quasi tutti.\\
+
+\newpage
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=11cm, angle=0]{img/PP/ORERUOLI-FINE.png}
+\caption{Torta in percentuale delle ore utilizzate per ruolo}
+\end{figure}
+\vspace{0.5cm}
+
+Il grafico soprastante mostra come sono state ripartita in percentuale le ore
+durante lo sviluppo di tutto il progetto.\\
+Alla fine, il verificatore \`e stato il ruolo che ha occupato la maggior parte
+delle ore, ossia il 37\%. A seguire vi sono le attivit\`a di progettista,
+programmatore e infine amministratore e responsabile. Tali ruoli nonostante
+siano i pi\`u costosi hanno un numero di ore molto inferiore in confronto alle
+altre attivit\`a. Ricordiamo che l'attivit\`a di analista \`e quasi assente
+perch\`e le ore di analisi precedenti alla RR non sono state contabilizzate, e
+quindi le ore visualizzate sono solamente quelle riguardanti l'analisi a seguito
+della correzione RR e delle revisioni successive.
+
+\newpage
+Presentiamo ora un grafico del budget utilizzato a fine progetto.
+
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=11cm, angle=0]{img/PP/BUDGET-FINE.png}
+\caption{Stato del budget utilizzato a fine progetto}
+\end{figure}
+\vspace{0.5cm}
+
+Come si pu\`o notare, non si \`e superata la soglia del budget, anzi si \`e
+arrivati ad un risparmio di 197 Euro. Per comprendere meglio le spese, esponiamo
+un grafico semplice delle spese in percentuale per ruolo.
+
+\vspace{0cm}
+\begin{figure}[htbp!]
+  \centering
+  \includegraphics[width=11cm, angle=0]{img/PP/SPESE-FINE.png}
+\caption{Torta rappresentativa in percentuale delle spese}
+\end{figure}
+\vspace{0.5cm}
+
+
+Nonostante il monte ore presentato nella pagina precedente ci mostri come
+l'attivit\`a di verifica sia stata la più dispendiosa in termini di tempo, in
+termini di costi la più dispendiosa \`e stata sicuramente quella di progettista,
+influenzata anche dall'ampio lavoro di progettazione svolto dal gruppo. Seguono
+come costi quello per il lavoro del verificatore e del programmatore.
 
 \listoftables
 \addcontentsline{toc}{chapter}{Indice Tabelle}
