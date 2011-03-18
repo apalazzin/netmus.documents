@@ -2505,6 +2505,13 @@ successivamente risolti.
   strategia adottata e soddisfano le aspettative programmate.\\&
   \textbf{Malfunzionamenti rilevati}: nessuno.\\&
   \\
+  
+  \hline
+  \bo{TI-gl2} &
+  \textbf{Esito}: le classi funzionano correttamente secondo la
+  strategia adottata e soddisfano le aspettative programmate.\\&
+  \textbf{Malfunzionamenti rilevati}: nessuno.\\&
+  \\
 
 \hline
 \caption{Esiti dei Test di Integrazione}
@@ -3327,18 +3334,21 @@ equivalenti ai dati inseriti.\\&
 \\
 
 \hline
-\bo{TI-se2}: server, server.persistent, server.youtube, server.utils, shared. &
+\bo{TI-se2}: server, server.persistent, server.youtube, server.utils,
+server.utils.cache, server.utils.velocity, shared. &
 \textbf{Classi coinvolte}: UserServiceImpl, SongsServiceImpl,
 LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
 YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
-ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\& 
+ServletUtils, Utils, Cacheable, ChacheSupport,
+VelocityEngineManager, VelocityResourceLoader, MusicLibraryDTO, SongDTO,
+UserCompleteDTO.\\&
 \textbf{Obiettivo}: verificare il funzionamento e
 l'interfacciamento coi servizi esterni.\\&
 \textbf{Strategia}: verranno dati in input ai servizi le informazioni di un
-nuovo utente e alcuni brani predefiniti con informazioni incomplete.\\&
-\textbf{Aspettative}: dalle chiamate ai servizi dovranno essere
-restituiti quei brani con i dati completati, come immagine dell'album e link al
-video youtube.\\&
+nuovo utente e alcuni brani predefiniti con informazioni incomplete, di cui
+si \`e sicuri che i servizi esterni possano aggiungere informazioni.\\&
+\textbf{Aspettative}: dalle chiamate ai servizi dovranno essere restituiti quei
+brani con i dati completati, come immagine dell'album e link al video youtube.\\&
 \\
 
 \hline
@@ -3373,18 +3383,39 @@ i brani al database.\\&
 
 \hline
 \bo{TI-gl1}: client, client.activity, client.mvp, client.service, client.applet,
-server, server.persistent, server.youtube, server.utils, shared. &
-\textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity, NetmusActivityMapper, LibraryService, SongsService, UsersService, AppletBar,
+server, server.persistent, server.youtube, server.utils, server.utils.cache,
+server.utils.velocity, shared. &
+\textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity, NetmusActivityMapper,
+LibraryService, SongsService, UsersService, AppletBar,
 TranslateDTOXML, UserServiceImpl, SongsServiceImpl,
 LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
 YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
-ServletUtils, Utils, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\& 
+ServletUtils, Utils, Cacheable, ChacheSupport,
+VelocityEngineManager, VelocityResourceLoader, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\& 
 \textbf{Obiettivo}: verificare l'integrazione della componente
 server e quella client.\\&
 \textbf{Strategia}: verr\`a dato in input un documento XML contenente dei brani
 dallo stub dell'applet.\\&
 \textbf{Aspettative}: nello stub della view dovr\`a essere inserita una nuova
 lista di brani, comprendente quelli nuovi indicati nell'XML.\\& 
+\\
+
+\hline
+\bo{TI-gl2}: client, client.activity, client.mvp, client.service, client.applet,
+server, server.persistent, server.youtube, server.utils, server.utils.cache,
+server.utils.velocity, shared. &
+\textbf{Classi coinvolte}: ClientFactoryImpl, ProfileActivity, NetmusActivityMapper,
+LibraryService, SongsService, UsersService, AppletBar,
+TranslateDTOXML, UserServiceImpl, SongsServiceImpl,
+LibraryServiceImpl, UserAccount, Song, MusicLibrary, DatastoreUtils,
+YouTubeManager, YouTubeMedia, YouTubeTester, YouTubeVideo, ExternalService,
+ServletUtils, Utils, Cacheable, ChacheSupport,
+VelocityEngineManager, VelocityResourceLoader, MusicLibraryDTO, SongDTO, UserCompleteDTO.\\& 
+\textbf{Obiettivo}: verificare la gestione dell'account utente.\\&
+\textbf{Strategia}: verr\`a creato un nuovo profilo utente, e
+successivamente modificate le informazioni di quel profilo.\\&
+\textbf{Aspettative}: le nuove informazioni inserite dovranno essere
+inserite nel database, e inserite correttamente nella view.\\&
 \\
 
 \hline
