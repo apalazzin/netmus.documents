@@ -2382,7 +2382,7 @@ Qui di seguito illustriamo i risultati dei test precedentemente trattati.
   adottata e soddisfa le aspettative programmate.\\&
   \textbf{Malfunzionamenti rilevati}: nessuno.\\&
   \\&
-  \textbf{Metodo}: sedNewUserMusic (2).\\&
+  \textbf{Metodo}: sendNewUserMusic (2).\\&
   \textbf{Esito}: il metodo funziona correttamente secondo la strategia
   adottata e soddisfa le aspettative programmate.\\&
   \textbf{Malfunzionamenti rilevati}: il metodo non fa nulla in caso di errore,
@@ -2451,11 +2451,11 @@ Qui di seguito illustriamo i risultati dei test precedentemente trattati.
 \end{longtable}
 \end{footnotesize} 
 
+
 Come si pu\`o chiaramente notare dagli esiti dei test sopra elencati, le prove
-finora programmate e verificate hanno avuto per la maggior parte dei
-casi esito positivo, ad esclusione di un unico metodo che presenta evidenti
-problemi di codifica. Ricordiamo che le funzionalit\`a testate dei metodi finora 
-sono state solamente quelle basilari.
+finora programmate e verificate hanno avuto tutti esiti positivi. Solo nei primi
+test erano stati rilevati dei problemi di codifica, che sono stati
+successivamente risolti.
   
 \subsection{Test di Integrazione}
 
@@ -2511,12 +2511,11 @@ sono state solamente quelle basilari.
 \end{longtable}
 \end{footnotesize}
 
-Come si pu\`o notare, solo uno di questi ha inizialmente evidenziato un
-problema, che \`e stato risolto (come si pu\`o vedere con la prova successiva).
-Tutti i test in cui \`e coinvolta la classe \co{TranslateDTOXML} evitano di
-utilizzare caratteri che esulano dalla codifica ISO-8859-1: questo problema \`e
-gi\`a stato evidenziato dai test di unit\`a e la sua evidenziazione esula dallo
-scopo di queste prove.
+Come si pu\`o notare, tutti i test di integrazione effettuati hanno avuto esiti
+positivi. Inizialmente due di questi, TI-cl2 e TI-gl1, avevano evidenziato un
+problema di codifica perch\'e la classe \co{TranslateDTOXML} non inseriva
+caratteri con codifica diversa da ISO-8859-1, ma successivamente \`e stato
+corretto.
 
 \subsection{Test di Sistema}
 \begin{footnotesize}
