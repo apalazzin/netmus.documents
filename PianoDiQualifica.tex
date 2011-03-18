@@ -637,15 +637,21 @@ stub, a partire dalle foglie nell'albero delle dipendenze, e man mano che si sce
 inseriscono sempre pi\`u componenti al posto degli stub.
 
 \subsubsection*{Test di Sistema} 
-Il test di sistema dovr\`a verifica il comportamento
-dinamico del sistema completo rispetto ai requisiti software. Lo scopo \`e
-quello di valutare le funzionalit\`a del
-prodotto una volta che ha raggiunto la sua completezza.
-\\\\ 
-La tecnica adottata per verificare l'intero di sistema sar\`a il Test di
-Funzionalit\`a, che mira a controllare che ogni funzionalit\`a del
-prodotto stabilita dai requisiti sia stata realizzata correttamente.
-
+I test di sistema verranno effettuati alla fine
+dello sviluppo del progetto software, non appena saranno completati i test di
+integrazione. Le tecniche adottate per i test sono
+riportate nel seguito, i cui obiettivi sono normalmente mirati a verificare il
+sistema sotto ben determinati aspetti:
+\begin{itemize}
+  \item Test di Funzionalit\`a: test che mira a controllare che ogni
+  funzionalit\`a del prodotto stabilita dai requisiti sia stata realizzata
+  correttamente;
+\item Test di Usabilit\`a: test che vuole valutare soggettivamente la facilit\`a
+d'uso del prodotto;
+\item Test di Compatibilit\`a: questo controllo ha l'obiettivo di valutare la
+compatibilit\`a del software con altri sistemi software con cui il prodotto deve
+interagire nel suo ambiente operativo finale.
+\end{itemize}
 
 \section{Metodi di Verifica}
 
@@ -945,18 +951,6 @@ questo modo:
   \item malfunzionamenti rilevati.
 \end{itemize}
 
-\subsubsection*{Test di Sistema}
-Appena tutti i test di integrazione saranno completati si potr\`a procedere con
-questo test. Il suo scopo \`e quello di verificare il comportamento
-dinamico del sistema completo rispetto ai requisiti software e valutare le funzionalit\`a del
-prodotto.
-\\\\
-La tecnica adottata sar\`a il Test di Funzionalit\`a che insieme al tracciamento
-dei requisiti presente in \emph{AnalisiDeiRequisiti-\versioneAR.pdf},
-permetter\`a di verificare che effettivamente tutti i requisiti software siano
-soddisfatti. Per ogni requisito si dovr\`a controllare che sia stato
-implementato e presente nel prodotto, e che svolga le funzionalit\`a richieste.
-
 
 % INIZIO CAPITOLO 3
 
@@ -1126,6 +1120,7 @@ collaudo}
 \end{center}
 \end{table}
 
+\newpage
 Presentiamo ora una descrizione delle prove che intendiamo proporre al
 committente per il collaudo del prodotto. \\
 La validazione delle funzionalit\`a soddisfatte dai requisiti seguir\`a le
@@ -2424,96 +2419,6 @@ problema di codifica perch\'e la classe \co{TranslateDTOXML} non inseriva
 caratteri con codifica diversa da ISO-8859-1, ma successivamente \`e stato
 corretto.
 
-\subsection{Test di Sistema}
-\begin{footnotesize}
-\begin{longtable}{|p{2,4cm}|p{2,4cm}|}
-\hline
-\rowcolor{orange} \bo{Requisito}  & \bo{Presenza} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
- 
- C1FN-1 &X \\ \hline
- C1FN-1.1 &X  \\ \hline
- C1FN-1.1.1 &X  \\ \hline
- C1FN-1.1.2  &X  \\ \hline
- C1FN-1.1.3 &X  \\ \hline
- C1FD-1.1.4  &X  \\ \hline
- C1FN-1.2 &X  \\ \hline
- C1FN-1.2.1 &X  \\ \hline
- C1FN-1.3 &X  \\ \hline
- C1FN-1.3.1  &X  \\ \hline
- C1FD-1.3.2 &X  \\ \hline
- C1FO-1.3.3 &X  \\ \hline
- C1F0-1.3.4 &X  \\ \hline
- C1FN-1.4 &X  \\ \hline
- C1FN-1.4.1 &X  \\ \hline
- C1FN-1.4.2 &X  \\ \hline
- C1FN-1.4.3 &X  \\ \hline
- C1FD-1.4.4 &X  \\ \hline
- C1FD-1.5 &X  \\ \hline
- C1FD-1.7 &X  \\ \hline
- C1FD-1.7.1  &X  \\ \hline
- C1F0-1.7.2 &X  \\ \hline
- C1FD-1.8 &X  \\ \hline
- C1F0-1.8.1 &X  \\ \hline
- C1FN-1.9 &X  \\ \hline
- C1FN-1.9.1  &X  \\ \hline
- C1FN-1.9.2 &X  \\ \hline
- C1FN-1.9.5 &X  \\ \hline
- C1FO-1.9.3 &X  \\ \hline
- C1FD-1.10 &X  \\ \hline
- C1FN-1.13 &-  \\ \hline
- C1QD-1.5.1 &X  \\ \hline
- C1QN-1.9.4 &X  \\ \hline
- C1QN-1.9.6 &-  \\ \hline
- C1QN-1.6 &- \\ \hline
- C1QD-1.6.1&- \\ \hline
- C1QN-1.6.2&-   \\ \hline
- C1QN-2&X \\ \hline
- C1QO-2.1&X \\ \hline
- C1QN-2.3&-  \\ \hline
- C1QD-2.4&X  \\ \hline
- C1QN-2.6&-  \\ \hline
- C1QN-2.7&X    \\ \hline
- C1QN-3.1&-   \\ \hline
- C1QD-3.1.1&-    \\ \hline
- C1VN-1.12&- \\ \hline
- C1VN-1.13.1&-  \\ \hline
- C1VN-1.11&-  \\ \hline
- C1VD-1.5.2&X \\ \hline
- C1VD-1.5.3&-   \\ \hline
- C1VN-2.2&- \\ \hline
- C1VN-2.5&-  \\ \hline
- C2FN-1&X    \\ \hline
- C2FN-1.1&X    \\ \hline
- C2FN-1.2&X   \\ \hline
- C2FO-1.3&X    \\ \hline
- C2FD-1.4&X   \\ \hline
- C2FN-1.5&X   \\ \hline
- C2FO-1.6&X   \\ \hline
- C2FD-2&X    \\ \hline
- C2FN-3&X   \\ \hline
- C2FN-3.1&X   \\ \hline
- C2QD-1.7&X   \\ \hline
- C2QN-3.2&X   \\ \hline
- C2QN-4 &X  \\ \hline
- C2QD-4.1&-    \\ \hline
- C2QD-4.2&-   \\ \hline
- C2QD-4.3&X   \\ \hline
- C2QN-4.4&-  \\ \hline
- C2VD-4.5&-   \\ \hline
- C2VN-4.6&-    \\ \hline
- C2VN-4.7&-  \\ \hline
-
-\caption{Check sulla presenza ed implementazione dei requisiti software nel
-sistema completo}
-\end{longtable}
-\end{footnotesize}
 
 \section{Dettaglio dell'esito delle revisioni}
 Dopo ogni revisione che il gruppo affronta consegnando la documentazione
@@ -2607,10 +2512,8 @@ soddisfare le richieste del committente sono state apportate le seguenti modific
   finestra di dettaglio e quindi fonte di rischio.. ------------;
   \item Piano di Progetto: spostato l'intero cap. 5 in fondo al documento;
   \item Piano di Qualifica: correzione di alcuni errori ortografici, esiti delle
-  verifiche tramite test messi in forma tabulare,
-   -------(per ogni non
-  conformit\`a rilevata fornire una giustificazione analitica e mettere i TU in
-  appendice - ALBE)-------.
+  verifiche tramite test messi in forma tabulare, per ogni non conformit\`a
+  rilevata \`e stata fornita una giustificazione analitica.
 \end{itemize}
 
 \subsubsection*{RA}
@@ -2695,13 +2598,12 @@ punto.
 \chapter{Dettaglio dell'esito della campagna di validazione}
 \thispagestyle{fancy}
 
-\section{Test di Sistema}
-
-\subsection{Test alpha}
+\section{Test alpha}
 L'esito sul test alpha v.0.1, collaudo interno fatto sul software non appena
 tutto il sistema era pronto e verificato tramite i vari test di unit\`a e di
 integrazione, ha avuto un esito positivo in quanto ha dimostrato che tutti i
 requisiti obbligatori pattuiti nell'analisi dei requisiti sono stati rispettati.
+
 \begin{footnotesize}
 \begin{longtable}{|p{2,4cm}|p{2,4cm}|}
 \hline
@@ -2713,50 +2615,82 @@ requisiti obbligatori pattuiti nell'analisi dei requisiti sono stati rispettati.
 \hline
 \endfoot
 \endlastfoot
+ 
  C1FN-1 &X \\ \hline
  C1FN-1.1 &X  \\ \hline
  C1FN-1.1.1 &X  \\ \hline
  C1FN-1.1.2  &X  \\ \hline
  C1FN-1.1.3 &X  \\ \hline
+ C1FD-1.1.4  &X  \\ \hline
  C1FN-1.2 &X  \\ \hline
  C1FN-1.2.1 &X  \\ \hline
  C1FN-1.3 &X  \\ \hline
  C1FN-1.3.1  &X  \\ \hline
+ C1FD-1.3.2 &X  \\ \hline
+ C1FO-1.3.3 &X  \\ \hline
+ C1F0-1.3.4 &X  \\ \hline
  C1FN-1.4 &X  \\ \hline
  C1FN-1.4.1 &X  \\ \hline
  C1FN-1.4.2 &X  \\ \hline
  C1FN-1.4.3 &X  \\ \hline
+ C1FD-1.4.4 &X  \\ \hline
+ C1FD-1.5 &X  \\ \hline
+ C1FD-1.7 &X  \\ \hline
+ C1FD-1.7.1  &X  \\ \hline
+ C1F0-1.7.2 &X  \\ \hline
+ C1FD-1.8 &X  \\ \hline
+ C1F0-1.8.1 &X  \\ \hline
  C1FN-1.9 &X  \\ \hline
  C1FN-1.9.1  &X  \\ \hline
  C1FN-1.9.2 &X  \\ \hline
  C1FN-1.9.5 &X  \\ \hline
- C1FN-1.13 &X  \\ \hline
+ C1FO-1.9.3 &X  \\ \hline
+ C1FD-1.10 &X  \\ \hline
+ C1FN-1.13 &-  \\ \hline
+ C1QD-1.5.1 &X  \\ \hline
  C1QN-1.9.4 &X  \\ \hline
- C1QN-1.9.6 &X  \\ \hline
- C1QN-1.6 &X \\ \hline
- C1QN-1.6.2&X   \\ \hline
+ C1QN-1.9.6 &-  \\ \hline
+ C1QN-1.6 &- \\ \hline
+ C1QD-1.6.1&- \\ \hline
+ C1QN-1.6.2&-   \\ \hline
  C1QN-2&X \\ \hline
- C1QN-2.3&X  \\ \hline
- C1QN-2.6&X  \\ \hline
+ C1QO-2.1&X \\ \hline
+ C1QN-2.3&-  \\ \hline
+ C1QD-2.4&X  \\ \hline
+ C1QN-2.6&-  \\ \hline
  C1QN-2.7&X    \\ \hline
  C1QN-3.1&-   \\ \hline
- C1VN-1.12&X \\ \hline
- C1VN-1.13.1&X  \\ \hline
- C1VN-1.11&X  \\ \hline
+ C1QD-3.1.1&-    \\ \hline
+ C1VN-1.12&- \\ \hline
+ C1VN-1.13.1&-  \\ \hline
+ C1VN-1.11&-  \\ \hline
+ C1VD-1.5.2&X \\ \hline
+ C1VD-1.5.3&-   \\ \hline
  C1VN-2.2&- \\ \hline
- C1VN-2.5&X  \\ \hline
+ C1VN-2.5&-  \\ \hline
  C2FN-1&X    \\ \hline
  C2FN-1.1&X    \\ \hline
  C2FN-1.2&X   \\ \hline
+ C2FO-1.3&X    \\ \hline
+ C2FD-1.4&X   \\ \hline
  C2FN-1.5&X   \\ \hline
+ C2FO-1.6&X   \\ \hline
+ C2FD-2&X    \\ \hline
  C2FN-3&X   \\ \hline
  C2FN-3.1&X   \\ \hline
+ C2QD-1.7&X   \\ \hline
  C2QN-3.2&X   \\ \hline
  C2QN-4 &X  \\ \hline
- C2QN-4.4&X  \\ \hline
- C2VN-4.6&X    \\ \hline
+ C2QD-4.1&-    \\ \hline
+ C2QD-4.2&-   \\ \hline
+ C2QD-4.3&X   \\ \hline
+ C2QN-4.4&-  \\ \hline
+ C2VD-4.5&-   \\ \hline
+ C2VN-4.6&-    \\ \hline
  C2VN-4.7&-  \\ \hline
-\caption{Check sulla presenza dei requisiti obbligatori nel test alpha v.0.1}
+
+\caption{Check sulla presenza ed implementazione dei requisiti software nel
+sistema completo}
 \end{longtable}
 \end{footnotesize}
 I tre requisiti non presenti all'interno del prodotto nel test alpha, sono i
@@ -2764,7 +2698,7 @@ requisiti sulla licenza open-source del prodotto e sulla presenza del manuale ut
 Questi requisiti sono comunque stati rispettati. Pertanto non si procede a
 rilasciare una nuova versione del prodotto per il test alpha.
 
-\subsection{Test beta}
+\section{Test beta}
 Dopo aver superato il test alpha, si \`e proseguito rilasciando il prodotto ad
 un campione di 8/10 persone, di cui una \`e il prof. Riccardo Cardin, in una
 versione beta 0.1. Dopo aver aspettato alcuni giorni e un numero consistente di
@@ -2786,7 +2720,8 @@ feedback, il resoconto dei problemi \`e:
   \item ambiguit\`a nell'uso dei pulsanti a forma di X rossa, alcune volte serve
   per chiudere un pop-up altre per togliere una canzone dalla playlist;
   \item mancanza delle funzionalit\`a Social Network del sistema, non c'\`e la
-  possibilit\`a di visualizzare il profilo di altri utenti.
+  possibilit\`a di visualizzare il profilo di altri utenti;
+  \item il lucchetto della device scan difficile da schiacciare.
 \end{itemize}
 Alcuni di questi problemi son stati risolti dato che ero requisiti obbligatori,
 mentre quelli desiderabili/opzionali come ----------- si \`e deciso di non
