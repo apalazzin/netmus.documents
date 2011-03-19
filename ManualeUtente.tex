@@ -1,6 +1,6 @@
 
 \newcommand{\nomedoc}{Manuale Utente}
-\newcommand{\versione}{1.0}
+\newcommand{\versione}{1.1}
 \newcommand{\versioneglossario}{3.0}
 \newcommand{\versionenormeprogetto}{3.0}
 \newcommand{\nomefile}{ManualeUtente-\versione.pdf}
@@ -40,6 +40,8 @@ problemi pi\`u comuni, possibili cause e soluzioni proposte.
 \endhead
 \hline
 \endfoot
+10/03/2011 & 1.1 & Daminato Simone & Inseriti i messaggi di errore.\\
+\hline
 28/02/2011 & 1.0 & Mandolo Andrea & Validazione per consegna RQ.\\
 \hline
 28/02/2011 & 0.9 & Cosimo Caputo & Verificato l'intero documento.\\
@@ -577,6 +579,95 @@ corretta}
 \appendix % inizio appendice
 \chapter{Messaggi di errore e loro significato}
 \thispagestyle{fancy}
+Presentiamo qui i messaggi di errore che \`e possibile riscontrare durante
+l'utilizzo di \co{NetMus}: per comodit\`a sono divisi in sezioni che
+rappresentano il contesto in cui si possono presentare.
+\section{Login/registrazione}
+\begin{description}
+	\item[Impossibile connettersi al database :] errore generico che
+	indica un problema interno del software. Il software potrebbe essere in manutenzione,
+	riprovare pi\`u tardi.
+	\item[Errore: la password deve avere almeno 5 caratteri :] la password
+	che si pu\`o utilizzare ha un'unica restrizione: deve essere composta di almeno 5
+	caratteri, quindi dovete sceglierne una pi\`u lunga.
+	\item [Errore: le password non coincidono :] per confermare la
+	password scelta bisogna ripeterla nell'apposito campo, e questo errore compare
+	quando le due password non coincidono, in genere indica un errore di
+	digitazione.
+	\item[Errore: e-mail non valida :] l'email inserita non \`e valida:
+	un'email valida \`e formata in questa maniera: account@provider.dominio (ad
+	esempio: andrea@yahoo.it).
+\end{description}
+
+\section{AppletBar - aggiunta nuovi brani}
+\begin{description}
+	\item [Errore XML :] errore generico che
+	indica un grave problema nell'analisi degli mp3. Provate a ri-effettuare una
+	scansione: se il problema persiste, vuol dire che ci sono uno o pi\`u brani che
+	creano problemi, provate nel caso a far analizzare solo una parte per volta
+	degli mp3.
+	\item [Errore INVIO :] c\`e un problema di comunicazione con l'applet:
+	provate a chiudere e riaprire il browser, tornando su \co{NetMus}. Se
+	riscontrate ancora lo stesso messaggio di errore, aggiornate la Java Virtual
+	Machine.
+	\item [Errore invio brani: problema durante l'invio dei brani al server :] c\`e
+	un problema di comunicazione col server, riavviate l'applicazione.
+\end{description}
+
+\section{Playlist}
+\begin{description}
+	\item [Errore: nuova playlist non creata :] indica che non \`e stato
+	possibile creare la nuova playlist. Probabilmente ne esiste gi\`a una con lo
+	stesso nome.
+	\item [Errore: playlist non rimossa :] non \`e stato possibile
+	eliminare la playlist: aggiornate la pagina.
+	\item [Errore: canzone non aggiunta alla playlist :] c'\`e stato un
+	problema nell'aggiungere la canzone alla playlist: aggiornate la pagina.
+	\item [Errore: canzone non rimossa dalla playlist :] c'\`e stato un
+	problema nella rimozione della canzone dalla playlist: aggiornate la pagina.
+	\item [Errore: playlist non caricata :] c'\`e stato un errore durante
+	il caricamento della playlist, probabilmente dovuto ad un errore di
+	comunicazione col server. Riprovate a caricarla, ed eventualmente ad aggiornare
+	la pagina: se il problema persiste, probabilmente \`e corrotta, quindi dovreste
+	eliminarla e ricrearla.
+	\item [Impossibile spostare la canzone :] c'\`e stato un errore nello
+	spostare una canzone all'interno della playlist: ricaricatela e riprovate.
+\end{description}
+
+\section{Profilo}
+\begin{description}
+	\item[Errore: profilo non modificato :] c'\`e stato un errore nel salvare le
+	ultime modifiche al profilo. Provate nuovamente.
+	\item[Errore: utenti affini non caricati :] c'\`e stato un errore nel caricare
+	gli utenti affini, tuttavia questo non compromette le funzionalit\`a del
+	sistema: si pu\`o continuare ad usarlo normalmente, oppure aggiornare la
+	pagina.
+	\item[Errore: profilo utente non caricato :] grave errore durante il
+	caricamento del profilo utente. Provate a riavviare il browser web.
+	\item[Errore: Profilo utente non eliminato :] c'\`e stato un errore durante
+	l'eliminazione dell'account. Riprovare in un secondo momento.
+\end{description}
+
+\section{Canzoni}
+\begin{description}
+	\item[Errore: canzone non eliminata :] c'\`e stato un errore durante
+	l'eliminazione della canzone, ricaricate la pagina ed eventualmente riprovate.
+	\item[Errore: informazioni canzone non caricate :] c'\`e stato un errore
+	durante il recupero delle informazioni di una canzone: aggiornate la pagina.
+	\item[Errore: voto non memorizzato :] non si \`e riusciti a salvare il voto per
+	quella canzone: provate un'altra volta, ed eventualmente aggiornate la pagina.
+	\item[Errore: statistiche non aggiornate :] le statistiche del sistema non sono
+	aggiornate: si pu\`o comunque continuare ad utilizzare tranquillamente il
+	sistema ed ignorare questo messaggio di errore.
+	\item[Errore: PDF non generato :] non \`e stato possibile generare il PDF,
+	molto probabilmente dovuto ai servizi esterni su cui si appoggia questa
+	funzione: riprovate in un secondo momento.
+	\item[Nessuna canzone votata :] indica semplicemente che l'utente non ha ancora
+	espresso un voto su nessuna canzone.
+	\item[Nessuna canzone possiede punteggio :] non \`e stato espresso alcun
+	voto sulle canzoni, quindi non esistono canzoni pi\`u popolari rispetto ad
+	altre.
+\end{description}
 
 \chapter{Glossario}
 \thispagestyle{fancy}
