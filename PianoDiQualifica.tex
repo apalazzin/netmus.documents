@@ -1062,11 +1062,14 @@ software create rispetto ai requisiti definiti durante la fase di analisi.\\ \\
 Il collaudo consister\`a in due fasi: 
 
 \begin{itemize}
-  \item collaudo interno(alpha test): viene effettuato prima del rilascio
-  del prodotto internamente al gruppo e consiste in verifica finale del tracciamento 
-  e in prove di esecuzione, anche se quest'ultime non sono da considerarsi tecniche di
-  ricerca e risoluzione di errori.
-  \item collaudo esterno(beta test): viene effettuato una volta superato il
+  \item collaudo interno (alpha test): viene effettuato prima del rilascio
+  del prodotto internamente al gruppo e consiste nella verifica finale della
+  copertura dei requisiti software utilizzando la tabella ``Gruppi di
+  requisiti software e rispettivi metodi di verifica in fase di collaudo''
+  presente in appendice, e in
+  prove di esecuzione del prodotto, anche se quest'ultime non sono da
+  considerarsi tecniche di ricerca e risoluzione di errori.
+  \item collaudo esterno (beta test): viene effettuato una volta superato il
   collaudo interno. Durante questo test il prodotto viene rilasciato a
   pochi utenti esterni i quali vengono avvertiti che il prodotto potrebbe non essere 
   di qualit\`a elevata e avere bisogno di ulteriori correzioni. 
@@ -1074,53 +1077,8 @@ Il collaudo consister\`a in due fasi:
 \end{itemize}
 
 Una volta che il prodotto sar\`a completato, tutti i requisiti dovranno essere
-stati soddisfatti.\\
-\\
-Di seguito riportiamo una tabella che riporta requisiti tracciati e metodi per
-la verifica nel prodotto finale.
-
-\begin{table}
-\begin{center}
-\begin{tabular}{|p{0.32\textwidth}|p{0.32\textwidth}|p{0.30\textwidth}|}
-\hline
-\bo{Gruppo}\cellcolor{orange}& \bo{Requisito}\cellcolor{orange}& \bo{Metodo
-di Verifica}\cellcolor{orange}
-\\
-\hline
-
-\bo{A} &
-\bo{C1FN-1.1, C1FN-1.1.2, C1FN-1.1.3, C1FD-1.1.4,
-C1FD-1.3, C1FO-1.3.3, C1FO-1.3.4, C1FD-1.4.4, C1FD-1.5,
-C1FD-1.7, C1FD-1.7.1, C1FO-1.7.2 } & Questi
-requisiti potranno essere verificati tramite l'utilizzo della GUI messa a
-disposizione dell'utente. \\ \hline
-\bo{B} &
-\bo{C1FN-1.2, C1FO-1.2.1, C1FD-1.3.1,
-C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2}   & Tali requisiti saranno verificati tramite
-l'utilizzo della GUI con rispettivi controlli sul Database per
-verificare che le modifiche effettuate siano state registrate correttamente.
-\\\hline 
-\bo{C} &
-\bo{C1FD-1.3.2, C1FN-1.4.3} & Questi requisiti
-potranno essere verificati tramite il solo controllo del Database. \\ \hline
-\bo{D} &
-\bo{C1FO-1.8.1} & Il requisito potr\`a essere verificato qualora l'esportazione e
-la creazione del PDF abbiano successo. \\\hline
-\bo{E} & 
-\bo{C1FD-1.10, C2FD-2} & Tali requisiti potranno essere verificati nel momento
-in cui la periferica USB risulter\`a aggiornata. \\\hline
-\bo{F} &
-\bo{C2FN-1, C2FN-1.1, C2FN-1.2, C2FD-1.4, C2FN-1.5, C2FN-3, C2FN-3.1}& Questi
-requisiti riguardano la componente C2. La loro verifica consister\`a
-nell'apparizione di messaggio di avviso sulla DEVICE SCANNER BAR
-all'interno della view.\\\hline
-\end{tabular}
-\caption{Gruppi di requisiti e rispettivi metodi di verifica in fase di
-collaudo}
-\end{center}
-\end{table}
-
-\newpage
+stati soddisfatti.
+\\\\
 Presentiamo ora una descrizione delle prove che intendiamo proporre al
 committente per il collaudo del prodotto. \\
 La validazione delle funzionalit\`a soddisfatte dai requisiti seguir\`a le
@@ -1768,7 +1726,7 @@ un modulo software previsto nel documento \emph{DefinizioneDelProdotto-2.3.pdf}.
  C1FN-1.4.2 &X  \\ \hline
  C1FN-1.4.3 &X  \\ \hline
  C1FD-1.4.4 &X  \\ \hline
- C1FD-1.5 &-  \\ \hline
+ C1FD-1.5 &X  \\ \hline
  C1FD-1.7 &X  \\ \hline
  C1FD-1.7.1  &X  \\ \hline
  C1F0-1.7.2 &-  \\ \hline
@@ -1944,8 +1902,8 @@ essi tracciati.
 
 \subsubsection*{Flessibilit\`a e manutenibilit\`a} Le componenti individuate
 nella progettazione nel dettaglio sono 78 ed hanno lo scopo di soddisfare le
-richieste di 63 requisiti, nello specifico 36 sono funzionali, 19 di qualit\`a e
-8 di vincolo. Inoltre 9 requisiti non sono stati tracciati e le motivazioni sono
+richieste di 64 requisiti, nello specifico 37 sono funzionali, 19 di qualit\`a e
+8 di vincolo. Inoltre 8 requisiti non sono stati tracciati e le motivazioni sono
 scritte in maniera esaustiva in appendice del
 \emph{DefinizioneDelProdotto-2.3.pdf}. Il rapporto tra componenti e requisiti
 \`e considerato soddisfacente. La distribuzione dei requisiti su tutti i moduli
@@ -2281,7 +2239,7 @@ Qui di seguito illustriamo i risultati dei test precedentemente trattati.
   \textbf{Esito}: il metodo funziona correttamente secondo la strategia
   adottata e soddisfa le aspettative programmate.\\&
   \textbf{Malfunzionamenti rilevati}: il metodo non fa nulla in caso di errore,
-  non resituisce alcun dato.\\&
+  non restituisce alcun dato.\\&
   \\&
   \textbf{Metodo}: generatePdf.\\&
   \textbf{Esito}: il metodo funziona correttamente secondo la strategia
@@ -2496,7 +2454,7 @@ soddisfare le richieste del committente sono state apportate le seguenti modific
   4.2, tolte le relazioni con le altre componenti perch\'e gi\`a presenti nel
   documento ST, aggiunta la descrizione della fig. 4.2, sistemato
   ``testi\_vari'' in pag. 56, controllato la fig. 4.7 e deciso di
-  lasciare invariata la componente \emph{server} perch\`e considerata gi\`a
+  lasciare invariata la componente \emph{server} perch\'e considerata gi\`a
   abbastanza riusabile, indicato il package della classe Exception
   in pag. 113, -------(VIEW GIOVI)-------;
   \item Manuale Utente: tolti i riferimenti a documento di
@@ -2599,108 +2557,59 @@ punto.
 \chapter{Dettaglio dell'esito della campagna di validazione}
 \thispagestyle{fancy}
 
-\section{Test alpha}
-L'esito sul test alpha v.0.1, collaudo interno fatto sul software non appena
-tutto il sistema era pronto e verificato tramite i vari test di unit\`a e di
-integrazione, ha avuto un esito positivo in quanto ha dimostrato che tutti i
-requisiti obbligatori pattuiti nell'analisi dei requisiti sono stati rispettati.
+\section{Alpha test}
+L'esito dell'alpha test v.0.1, utilizzando la tabella ``Gruppi di requisiti
+software e rispettivi metodi di verifica in fase di alpha test'' posta in
+appendice, ha evidenziato che la maggior parte dei requisiti software sono stati
+rispettati, mentre alcuni non sono completamente conformi o non sono stati
+implementati nel sistema. I requisiti non rispettati sono: C1FD-1.3.2,
+C1FD-1.4.4, C1FD-1.7, C1FD-1.7.1, C2FO-1.6, C1FO-1.8.1, C1FO-1.7.2, C1FD-1.10,
+C2FO-1.3, C2FD-2.
+\\\\
+Di seguito ne vengono riportate le motivazioni:
+\begin{itemize}
+  \item \bo{C1FD-1.3.2} (Modifica informazioni brano): questo requisito non \`e
+  stato implementato per mancanza di tempo.
+  Comunque il sistema \`e stato progettato e predisposto in maniera da
+  permettere la sua implementazione;
+  \item \bo{C1FD-1.4.4} (Pubblicazione): questo requisito non \`e stato
+  implementato per mancanza di tempo.
+  Comunque il sistema \`e stato progettato e predisposto in maniera da
+  permettere la sua implementazione;
+  \item \bo{C1FD-1.7} (Interazione con altri utenti): questo requisito non \`e
+  stato implementato per mancanza di tempo.
+  Comunque il sistema \`e stato progettato e predisposto in maniera da
+  permettere la sua implementazione;
+  \item \bo{C1FD-1.7.1} (Visualizzazione altri profili): questo requisito non
+  \`e stato implementato per mancanza di tempo.
+  Comunque il sistema \`e stato progettato e predisposto in maniera da
+  permettere la sua implementazione;
+  \item \bo{C2FO-1.6} (Indicazioni file ignorati): questo requisito non \`e
+  stato implementato per mancanza di tempo.
+  Comunque il sistema \`e stato progettato e predisposto in maniera da
+  permettere la sua implementazione;
+  \item \bo{C1FO-1.8.1} (Esportazione PDF): questo requisito non \`e stato
+  completamente rispettato perch\'e le API di Google Docs per
+  l'esportazione in PDF avevano dei problemi in quanto per
+  cataloghi troppo grandi producevano dei tempi di elaborazione enormi e
+  andava in timeout la richiesta. Quindi si \`e deciso di cambiare il
+  formato di esportazione e di utilizzare un documento condiviso prodotto
+  da Google Docs;
+  \item \bo{C1FO-1.7.2} (Lasciare commenti su profilo): questo requisito non \`e
+  stato implementato per mancanza di tempo;
+  \item \bo{C1FD-1.10} (Invio nuove informazioni a C2): questo requisito non \`e
+  stato implementato per mancanza di tempo;
+  \item \bo{C2FO-1.3} (Informazioni senza connessione): questo requisito non \`e
+  stato implementato per mancanza di tempo;
+  \item \bo{C2FD-2} (Aggiornamento e completamento informazioni): questo
+  requisito non \`e stato implementato per mancanza di tempo.
+\end{itemize}
 
-\begin{footnotesize}
-\begin{longtable}{|p{2,4cm}|p{2,4cm}|}
-\hline
-\rowcolor{orange} \bo{Requisito}  & \bo{Presenza} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
- 
- C1FN-1 &X \\ \hline
- C1FN-1.1 &X  \\ \hline
- C1FN-1.1.1 &X  \\ \hline
- C1FN-1.1.2  &X  \\ \hline
- C1FN-1.1.3 &X  \\ \hline
- C1FD-1.1.4  &X  \\ \hline
- C1FN-1.2 &X  \\ \hline
- C1FO-1.2.1 &X  \\ \hline
- C1FD-1.3 &X  \\ \hline
- C1FD-1.3.1  &X  \\ \hline
- C1FD-1.3.2 &X  \\ \hline
- C1FO-1.3.3 &X  \\ \hline
- C1F0-1.3.4 &X  \\ \hline
- C1FN-1.4 &X  \\ \hline
- C1FN-1.4.1 &X  \\ \hline
- C1FN-1.4.2 &X  \\ \hline
- C1FN-1.4.3 &X  \\ \hline
- C1FD-1.4.4 &X  \\ \hline
- C1FD-1.5 &X  \\ \hline
- C1FD-1.7 &X  \\ \hline
- C1FD-1.7.1  &X  \\ \hline
- C1F0-1.7.2 &X  \\ \hline
- C1FD-1.8 &X  \\ \hline
- C1F0-1.8.1 &X  \\ \hline
- C1FN-1.9 &X  \\ \hline
- C1FN-1.9.1  &X  \\ \hline
- C1FN-1.9.2 &X  \\ \hline
- C1FN-1.9.5 &X  \\ \hline
- C1FO-1.9.3 &X  \\ \hline
- C1FD-1.10 &X  \\ \hline
- C1FN-1.13 &-  \\ \hline
- C1QD-1.5.1 &X  \\ \hline
- C1QN-1.9.4 &X  \\ \hline
- C1QN-1.9.6 &-  \\ \hline
- C1QN-1.6 &- \\ \hline
- C1QD-1.6.1&- \\ \hline
- C1QN-1.6.2&-   \\ \hline
- C1QN-2&X \\ \hline
- C1QO-2.1&X \\ \hline
- C1QN-2.3&-  \\ \hline
- C1QD-2.4&X  \\ \hline
- C1QN-2.6&-  \\ \hline
- C1QN-2.7&X    \\ \hline
- C1QN-3.1&-   \\ \hline
- C1QD-3.1.1&-    \\ \hline
- C1VN-1.12&- \\ \hline
- C1VN-1.13.1&-  \\ \hline
- C1VN-1.11&-  \\ \hline
- C1VD-1.5.2&X \\ \hline
- C1VD-1.5.3&-   \\ \hline
- C1VN-2.2&- \\ \hline
- C1VN-2.5&-  \\ \hline
- C2FN-1&X    \\ \hline
- C2FN-1.1&X    \\ \hline
- C2FN-1.2&X   \\ \hline
- C2FO-1.3&X    \\ \hline
- C2FD-1.4&X   \\ \hline
- C2FN-1.5&X   \\ \hline
- C2FO-1.6&X   \\ \hline
- C2FD-2&X    \\ \hline
- C2FN-3&X   \\ \hline
- C2FN-3.1&X   \\ \hline
- C2QD-1.7&X   \\ \hline
- C2QN-3.2&X   \\ \hline
- C2QN-4 &X  \\ \hline
- C2QD-4.1&-    \\ \hline
- C2QD-4.2&-   \\ \hline
- C2QD-4.3&X   \\ \hline
- C2QN-4.4&-  \\ \hline
- C2VD-4.5&-   \\ \hline
- C2VN-4.6&-    \\ \hline
- C2VN-4.7&-  \\ \hline
+Questi requisiti sono comunque opzionali o desiderabili e la loro presenza nel
+prodotto non \`e obbligatoria. Pertanto l'esito dell' alpha test v.0.1 \`e stato positivo.
 
-\caption{Check sulla presenza ed implementazione dei requisiti software nel
-sistema completo}
-\end{longtable}
-\end{footnotesize}
-I tre requisiti non presenti all'interno del prodotto nel test alpha, sono i
-requisiti sulla licenza open-source del prodotto e sulla presenza del manuale utente.
-Questi requisiti sono comunque stati rispettati. Pertanto non si procede a
-rilasciare una nuova versione del prodotto per il test alpha.
-
-\section{Test beta}
-Dopo aver superato il test alpha, si \`e proseguito rilasciando il prodotto ad
+\section{Beta test}
+Dopo aver superato l'alpha test, si \`e proseguito rilasciando il prodotto ad
 un campione di 8/10 persone, di cui una \`e il prof. Riccardo Cardin, in una
 versione beta 0.1. Dopo aver aspettato alcuni giorni e un numero consistente di
 feedback, il resoconto dei problemi \`e:
@@ -2718,16 +2627,25 @@ feedback, il resoconto dei problemi \`e:
   giapponesi nei titoli;
   \item a volte dopo aver inserito delle nuove canzoni serve un refresh manuale
   della pagina per far s\`i che compaiano nella lista;
-  \item ambiguit\`a nell'uso dei pulsanti a forma di X rossa, alcune volte serve
-  per chiudere un pop-up altre per togliere una canzone dalla playlist;
+  \item ambiguit\`a nell'uso dei pulsanti a forma di X rossa, alcune volte
+  servono per chiudere un pop-up altre per togliere una canzone dalla playlist;
   \item mancanza delle funzionalit\`a Social Network del sistema, non c'\`e la
   possibilit\`a di visualizzare il profilo di altri utenti;
-  \item il lucchetto della device scan difficile da schiacciare.
+  \item il lucchetto della ``Scan Device'' difficile da schiacciare.
 \end{itemize}
-Alcuni di questi problemi son stati risolti dato che ero requisiti obbligatori,
-mentre quelli desiderabili/opzionali come ----------- si \`e deciso di non
-implementarli.
-La beta \`e passata alla versione 0.2 e distribuita alla stessa utenza.
+
+Quasi tutti questi problemi sono stati risolti, a parte:
+\begin{itemize}
+  \item mancanza delle funzionalit\`a Social Network del sistema, per
+  mancanza di tempo non sono state implementate nel sistema e non
+  essendo un requisito obbligatorio, la loro presenza \`e facoltativa.
+\end{itemize}
+
+La beta \`e passata alla versione 0.2 e distribuita alla stessa utenza. Dopo
+aver seguito lo stesso procedimento delle v.0.1, l'esito \`e che i problemi
+riscontrati nella precedente versione sono stati risolti o giustificati in
+maniera esaustiva. Non sono presenti nuovi problemi e pertanto il beta test
+v.0.2 \`e stato superato.
 
 
 
@@ -2977,7 +2895,7 @@ metodo ``onFailure'' che gestisce il fallimento dell'operazione.\\&
 \textbf{Metodo}: deletePlaylist (1).\\&
 \textbf{Obiettivo}: verificare la rimozione completa di una
 playlist.\\& 
-\textbf{Strategia}: verr\`a passata al metodo una stringa contentente il nome
+\textbf{Strategia}: verr\`a passata al metodo una stringa contenente il nome
 di una playlist creata.\\& 
 \textbf{Tipologia}: blackbox.\\&
 \textbf{Aspettative}: la playlist deve essere correttamente rimossa e non
@@ -2986,7 +2904,7 @@ pi\`u visualizzabile sulla view.\\&
 \textbf{Metodo}: deletePlaylist (2).\\&
 \textbf{Obiettivo}: verificare che il metodo qualora venga passata
 una stringa con il nome di una playlist inesistente, non ne rimuova alcuna.\\&
-\textbf{Strategia}: verr\`a passata al metodo una stringa contentente il nome di
+\textbf{Strategia}: verr\`a passata al metodo una stringa contenente il nome di
 una playlist che non \`e mai stata creata.\\& 
 \textbf{Tipologia}: whitebox.\\&
 \textbf{Aspettative}: il metodo non deve fare nulla, le playlist presenti
@@ -3018,7 +2936,7 @@ venga eseguito in modo corretto e con successo.\\&
 ascoltate, cos\`i da poter avere una traccia da cui partire per il calcolo
 dell'artista preferito.\\&
 \textbf{Tipologia}: blackbox.\\&
-\textbf{Aspettative}: il metodo deve ritornare la stringa contentente il
+\textbf{Aspettative}: il metodo deve ritornare la stringa contenente il
 nome dell'artista prediletto dall'utente.\\&
 \\&
 \textbf{Metodo}: calculateSongStatistics.\\&
@@ -3098,7 +3016,7 @@ locale dell'utente selezionato di tutti i nuovi brani rilevati.\\&
 \textbf{Metodo}: sendUserNewMusic (2).\\&
 \textbf{Obiettivo}: verificare che l'invio e la memorizzazione di
 una nuova lista di canzoni non avvenga se l'utente non viene trovato.\\&
-\textbf{Strategia}: verranno passati al metodo un user inseistente ed una lista
+\textbf{Strategia}: verranno passati al metodo un user inesistente ed una lista
 di oggetti SongDTO.\\&
 \textbf{Tipologia}: blackbox.\\&
 \textbf{Aspettative}: il metodo non deve memorizzare tali canzoni, ma
@@ -3186,7 +3104,7 @@ registrarne i campi, e una variabile booleana update per l'aggiornamento delle
 statistiche dell'utente.\\&
 \textbf{Tipologia}: blackbox.\\&
 \textbf{Aspettative}: il metodo deve ricercare nel DB
-la presenza della canzone che si sta cercando di aggiungere. In caso di match positivo, la canzone non viene aggiunta perch\`e gi\`a presente, in caso negativo viene registrata e i
+la presenza della canzone che si sta cercando di aggiungere. In caso di match positivo, la canzone non viene aggiunta perch\'e gi\`a presente, in caso negativo viene registrata e i
 campi corretti relativi alle informazioni della libreria vengono aggiornati.\\&
 \\&
 \textbf{Metodo}: moveSong.\\&
@@ -3195,7 +3113,7 @@ lista della playlist venga eseguito in modo corretto.\\&
 \textbf{Strategia}: verr\`a passato un intero che indica la posizione, e per
 l'occasione superer\`a il range della lista.\\&
 \textbf{Tipologia}: blackbox.\\&
-\textbf{Aspettative}: il metodo deve ritornare false, poich\`e non \`e
+\textbf{Aspettative}: il metodo deve ritornare false, poich\'e non \`e
 possibile spostare una canzone in una posizione fuori dal limite della lista.\\&
 \\
 
@@ -3362,6 +3280,54 @@ inserite nel database, e inserite correttamente nella view.\\&
 \end{longtable}
 \end{footnotesize}
 
+
+\chapter{Specifica del Test di Sistema}
+\thispagestyle{fancy}
+
+\begin{footnotesize}
+\centering
+\begin{longtable}{|p{1.5cm}|p{8cm}|p{6cm}|}
+\hline
+\rowcolor{orange} \bo{Gruppo}  & \bo{Requisito} & \bo{Metodo di Verifica} \\
+\hline
+\endhead
+\hline
+\multicolumn{3}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+
+\bo{A} & \bo{C1FN-1.1, C1FN-1.1.1, C1FN-1.1.2, C1FN-1.1.3, C1FD-1.1.4, C1FD-1.3,
+C1FD-1.3.1, C1FD-1.3.2, C1FO-1.3.3, C1FD-1.5, C1QD-1.5.1, C1VD-1.5.2,
+C1VD-1.5.3, C1FD-1.7, C1FD-1.7.1, C1FN-1.9.2, C1FO-1.9.3, C1QN-2, C1QO-2.1,
+C1QN-2.3, C1QD-2.4, C1VN-2.5, C1QN-2.7, C2QN-4, C2QD-4.1, C2QD-4.2, C2QD-4.3,
+C2VD-4.5, C2VN-4.6} & Questi requisiti potranno essere verificati tramite
+l'utilizzo della GUI messa a disposizione dell'utente. \\ \hline \bo{B} &
+\bo{C1FN-1.2, C1FO-1.2.1, C1FO-1.3.4, C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2,
+C1FD-1.4.4, C1FD-1.8}   & Tali requisiti saranno verificati tramite l'utilizzo
+della GUI con rispettivi controlli sul Database per verificare che le modifiche
+effettuate siano state registrate correttamente. \\\hline \bo{C} &
+\bo{C1FN-1.4.3, C1FN-1.9.1, C1QN-1.9.4, C1FN-1.9.5} & Questi requisiti potranno
+essere verificati tramite il solo controllo del Database. \\ \hline \bo{D} &
+\bo{C1FO-1.8.1} & Il requisito potr\`a essere verificato qualora l'esportazione
+e la creazione del PDF abbiano successo. \\\hline \bo{E} & \bo{C2FN-1, C2FN-1.1,
+C2FN-1.2, C2FD-1.4, C2FN-1.5, C2FO-1.6, C2FN-3, C2FN-3.1}& Questi requisiti
+riguardano la componente C2. La loro verifica consister\`a nell'apparizione di
+messaggio di avviso sulla DEVICE SCANNER BAR all'interno della view.\\\hline
+\bo{F} & \bo{C1FN-1, C1QN-1.6, C1QD-1.6.1, C1QN-1.6.2, C2QD-1.7, C1FN-1.9,
+C1QN-1.9.6, C1VN-1.11, C1VN-1.12, C1FN-1.13, C1VN-1.13.1, C1QN-2.6, C2QN-3.2,
+C2QN-4.4}& Questi requisiti saranno verificati controllando l'architettura in
+dettaglio del sistema e le tecnologie utilizzate per progettarlo.\\\hline \bo{G}
+& \bo{C1FO-1.7.2, C1FD-1.10, C1VN-2.2, C1QN-3.1, C1QD-3.1.1, C2FO-1.3, C2FD-2,
+C2VN-4.7} & Questi sono i requisiti non tracciati da componenti nel sistema e la
+loro verifica consiste nel controllare che siano presenti nei documenti messi a
+disposizione dell'utente o nel sistema intero.\\\hline
+
+\hline
+\caption{Gruppi di requisiti software e rispettivi metodi di verifica in fase
+di alpha test}
+\end{longtable}
+\end{footnotesize}
 
 \end{document}
 
