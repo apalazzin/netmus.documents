@@ -51,28 +51,34 @@ relativa codifica, delle quali verr\`a allegato il codice sorgente.
 \endhead
 \hline
 \endfoot
-17/03/2011 & 1.10 & Caputo Cosimo & Inserimento delle classi legate
+17/03/2011 & 1.13 & Caputo Cosimo & Inserimento delle classi legate
 all'esportazione pdf.\\
 \hline
-15/03/2011 & 1.10 & Baron Federico & Inserimento della classe Album nel
+15/03/2011 & 1.12 & Baron Federico & Inserimento della classe Album nel
 capitolo 4.\\
 \hline
-14/03/2011 & 1.9 & Baron Federico & Rimozione di tutti i paragrafi
+14/03/2011 & 1.11 & Mandolo Andrea & Correzione all'interno della specifica
+della classe \co{MyConstant}.\\
+\hline
+14/03/2011 & 1.10 & Baron Federico & Rimozione di tutti i paragrafi
 riguardanti le relazioni con altre componenti poich\'e gi\`a presente in ST.\\
 \hline
-14/03/2011 & 1.8 & Baron Federico & Rimozione delle tabelle 4.1 e 4.2 come
+14/03/2011 & 1.9 & Baron Federico & Rimozione delle tabelle 4.1 e 4.2 come
 suggerito nella correzione di RQ.\\
 \hline
-13/03/2011 & 1.7 & Caputo Cosimo & Inserimento della specifica riguardante la
+13/03/2011 & 1.8 & Caputo Cosimo & Inserimento della specifica riguardante la
 classe PDFLoaderServlet.\\
 \hline
-12/03/2011 & 1.6 & Caputo Cosimo & Inserimento della specifica riguardante il
+12/03/2011 & 1.7 & Caputo Cosimo & Inserimento della specifica riguardante il
 package velocity e le relative classi.\\
 \hline
-12/03/2011 & 1.5 & Caputo Cosimo & Inserimento della specifica riguardante la
+12/03/2011 & 1.6 & Baron Federico & Aggiornamento della specifica della
+classe \co{ProfileActivity} in ogni sua parte.\\
+\hline
+11/03/2011 & 1.5 & Caputo Cosimo & Inserimento della specifica riguardante la
 classe GdataManager.\\
 \hline
-12/03/2011 & 1.4 & Caputo Cosimo & Aggiornamento di tabella 3.1 a fronte di
+11/03/2011 & 1.4 & Caputo Cosimo & Aggiornamento di tabella 3.1 a fronte di
 modifiche in progettazione.\\
 \hline
 10/03/2011 & 1.3 & Baron Federico & Aggiornamento del tracciamento a fronte
@@ -1194,9 +1200,10 @@ Questa classe contiene molti metodi senza implementazione che ritornano una
 stringa. Le stringhe ritornate da questi metodi insieme comprendono l'intero
 testo presente nelle interfacce grafiche e che deve essere presentato in italiano ed in inglese secondo le
 preferenze dell'utente. \\
-Le implementazioni delle due lingue vengono predisposte durante la compilazione
-e caricate tramite deferred binding rendendo il cambio di lingua molto efficiente
-a run-time.
+Le implementazioni delle due lingue, salvate all'interno dei file
+\emph{MyConstants\_it.properties} e \emph{MyConstants\_en.properties}, vengono
+predisposte durante la compilazione e caricate tramite deferred binding rendendo
+il cambio di lingua molto efficiente a run-time. 
 \subsubsection*{Attivit\`a svolte e dati trattati}
 Permette il caricamento dei testi in diverse lingue tramite deferred binding
 configurabile nel file di progetto \emph{Netmus.gwt.xml}.
@@ -1210,9 +1217,10 @@ configurabile nel file di progetto \emph{Netmus.gwt.xml}.
 \hline
 \endfoot
 \endlastfoot
-\# testi\_vari: String & Tutti i metodi presenti in questa classe sono di
-questo tipo e vengono invocati al posto dell'inserimento di un normale
-testo statico nelle classi view.\\\hline
+\# testi\_vari: String & Tutti i metodi presenti in questa classe hanno la
+stessa visibilit\`a e tipo di ritorno dell'esempio ``testi\_vari'' e vengono
+invocati al posto dell'inserimento di un normale testo statico nelle classi
+view.\\\hline
 \caption{Metodi di MyConstants}
 \end{longtable}
 
@@ -1351,12 +1359,22 @@ tipo \co{RegistrationException}.\\\hline
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe estende \co{AbstractActivity}, implementa il \co{Presenter}
 interno alla \co{ProfileView} e richiede al \co{clientFactory} di
-implementarla.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Questa classe gestisce, assieme a \co{UsersService}, le attivit\`a utili alla
-creazione ed interazione con l'utente della pagina principale come la
-richiesta dei dati utente dettagliati, della lista dei brani, del dettaglio di
-un brano, ecc.
+implementarla.\\
+\co{ProfileActivity} Si prende carico di gran parte delle operazioni richieste
+dall'utente tramite l'interfaccia grafica. Al primo caricamento dei dati
+dell'utente dal server queste informazioni rimangono in questa classe
+all'interno di \co{current\_user} e rimangono sincronizzate con il
+server grazie all'utilizzo degli attributi \co{info\_alredy\_loaded} e
+\co{cover\_alredy\_loaded}. Questo permette di minimizzare le richieste di
+lettura alla App Engine Memcache e al Datastore. 
+\subsubsection*{Attivit\`a svolte e dati trattati} Questa classe gestisce tutte
+le operazioni che un utente pu\`o compiere all'interno di Netmus e di
+conseguenza si occupa di implementare algoritmi molto efficenti e
+di ottimizzare le chiamate al server, due attivit\`a che devono essere in
+perfetto equilibrio tra loro.\\
+Un'altra attivit\`a fondamentale di questa classe \`e quella di inviare
+all'interfaccia grafica i messaggi d'errore adeguati quando vengono rilevati
+errori nella comunicazione col server.
 
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
@@ -1370,7 +1388,7 @@ un brano, ecc.
 \endlastfoot
 - client\_factory: ClientFactory & Questo campo serve per aver accesso
 al \co{PlaceController}, all'\co{EventBus} e alle varie View.\\\hline
-- name: String & .\\\hline - is\_owner: boolean & Rappresenta il nome
+- name: String & Rappresenta il nome
 con il quale il \co{ProfilePlace} viene creato.\\\hline
 - login\_service\_svc: LoginServiceAsync & Rappresenta la classe Service che ci
 permette l'invocazione di metodi remoti (RPC) riguardanti l'attivit\`a
@@ -1386,10 +1404,18 @@ permette l'invocazione di metodi remoti (RPC) riguardanti i singoli
 brani.\\\hline
 - current\_user: UserCompleteDTO & Rappresenta il DTO contenente
 tutte le informazioni utili al client riguardanti l'account utente e la
-sua libreria.\\\hline
-\# my\_constants: MyConstants & Questo oggetto ci permetter\`a di
-internazionalizzare il programma chiamando metodi appositi al posto
-dell'inserimento di parole String.\\\hline
+sua libreria.\\\hline 
+- is\_owner: boolean & Segnala se l'utente \`e o meno il proprietario del
+profilo. \\\hline
+- info\_alredy\_loaded: Map\textless String, SongDTO\textgreater & Questa mappa,
+inizialmente vuota, contiene le informazioni dettagliate di tutte le
+canzoni di cui sono gi\`a state richieste attraverso la selezione nella
+lista da parte dell'utente.\\\hline
+- cover\_alredy\_loaded: Map\textless String, String\textgreater & Questa mappa,
+inizialmente vuota, contiene gli indirizzi alle copertine di tutti gli album che
+vengono richiesti dall'utente.\\\hline
+\# my\_constants: MyConstants &
+Questo oggetto ci permetter\`a di internazionalizzare il programma chiamando metodi appositi al posto dell'inserimento di parole String.\\\hline
 \caption{Campi dati di ProfileActivity}
 \end{longtable}
 
@@ -1419,11 +1445,9 @@ sessione ed eliminando i cookies relativi ad essa, comunicando con il
 generata da \emph{getPlaylistList}.\\\hline
 + getPlaylistList() : String[ ] & Crea e restituisce un'array
 contenente la lista di playlist dell'utente loggato.\\\hline
-+ setFriendList() & Deve andare ad invocare il metodo \emph{paintFriendList} di
-\co{ProfileView} per andare a disegnare la lista di utenti affini generata da
-\emph{getFriendList}.\\\hline
-+ getFriendList() : String[ ] & Crea e restituisce un'array
-contenente la lista di utenti affini all'utente loggato.\\\hline
++ setFriendList() & Restituisce, dopo aver richiesto le informazioni al
+server, la lista degli utenti che hanno una libreria simile a quella
+dell'utente.\\\hline 
 + setSongInfo() & Deve andare ad invocare il metodo \emph{setInfo} di
 \co{ProfileView} per andare a disegnare le informazioni del brano in
 riproduzione accanto al player, fornite da \emph{getSongInfo}.\\\hline
@@ -1431,20 +1455,22 @@ riproduzione accanto al player, fornite da \emph{getSongInfo}.\\\hline
 al brano in riproduzione.\\\hline
 + setPlaylistSongs(in String) & Metodo che riferisce \emph{getPlaylistSongs} per
 far disegnare alla \co{ProfileView} la lista dei brani per una certa playlist.\\\hline
-+ getPlaylistSongs(in String) : List\textless String\textgreater & Fa
++ getPlaylistSongs(in String) & Fa
 disegnare alla \co{ProfileView} la lista brani di una playlist tramite
-il metodo \emph{paintPlaylistSongs}.\\\hline
-+ playYouTube(in String, in String, in String) & Preleva il codice
-YouTube relativo ad un brano e invoca \emph{playYouTube} della View per
-aprire il player e riprodurlo.\\\hline
+il metodo \emph{paintPlaylistSongs}. I brani vengono recuperati
+direttamente nel client senza invocare alcuna RPC.\\\hline 
++ playYouTube(in
+String, in String, in String) & Preleva il codice YouTube relativo ad un brano,
+dal client se possibile altrimenti dal server, ed invoca \emph{playYouTube}
+della View per aprire il player e riprodurlo. Si occupa inoltre di
+recuperare la copertina dell'album a cui appartiene la canzone. \\\hline 
 + setSongs() & Utilizzando \emph{getSongs} va a disegnare il catalogo
-dell'utente nella View, invocando \emph{paintCatalogo}, inserendo anche la sua
-dimensione nell'apposito campo.\\\hline
-+ getSongs(in MusicLibraryDTO) : List\textless String\textgreater & Genera e
+dell'utente nella View, invocando \emph{paintCatalogo}, inserendo anche la sua dimensione nell'apposito campo.\\\hline + getSongs(in MusicLibraryDTO) : List\textless String\textgreater & Genera e
 restituisce la lista di brani del catalogo relativo all'utente loggato.\\\hline
 + addToPLaylist(in String, in String, in String, in String) & Aggiunge
-un brano ad una playlist dell'utente, prima localmente sulla view, poi
-aggiornando il dato nel DataStore tramite \co{library\_service\_svc}.\\\hline
+un brano ad una playlist dell'utente, prima localmente sulla view e su
+\co{current\_user}, poi aggiornando il dato nel DataStore tramite
+\co{library\_service\_svc}.\\\hline  
 + removeFromPLaylist(in String, in String, in String, in String) &
 Rimuove un brano da una playlist, prima localmente, poi aggiornando il
 DataStore tramite \co{library\_service\_svc}.\\\hline
@@ -1456,12 +1482,13 @@ un brano di una posizione verso il basso nella playlist, e aggiorna anche
 nel DataStore.\\\hline
 + addPlaylist(in String) & Aggiunge una nuova playlist nella libreria
 dell'utente, se non ne esiste una di ugual nome.\\\hline
-+ deletePlaylist(in String) & Elimina una playlist dalla libreria
-utente.\\\hline
++ deletePlaylist(in String) & Elimina irreversibilmente una playlist dalla
+libreria utente.\\\hline
 + rateSong(in String, in String, in String, in int) & Assegna un voto
-da parte dell'utente ad una canzone.\\\hline
-+ setRating(in String, in String, in String) : double & Restituisce il
-voto complessivo relativo ad una canzone, ed aggiorna inoltre la grafica
+da parte dell'utente ad una canzone aggiornando sia su client che su
+server tutti i campi interessati.\\\hline 
++ setRating(in String, in String, in
+String) : double & Restituisce il voto complessivo relativo ad una canzone, ed aggiorna inoltre la grafica
 con il voto che l'utente ha assegnato per tale brano.\\\hline
 + setSongFields(in String, in String, in String) & Recupera e permette
 alla View di disegnare la lista dettagliata di informazioni relative ad una
@@ -1470,21 +1497,45 @@ canzone.\\\hline
 visualizzare il catalogo di un altro utente NetMus.\\\hline
 + deleteSong(in String, in String, in String) & Elimina una canzone dal
 catalogo dell'utente loggato.\\\hline
-+ exportPDF(in String) & Esporta in PDF il catalogo visualizzato.\\\hline
-+ editProfileView(in String) &  Passa alla View le informazioni personali
-relative all'utente loggato.\\\hline
-+ editProfile(in String, in String, in String, in String, in String, in String,
-in String, in String) & Permette la modifica delle informazioni
++ exportDocLibrary() & Richiede al server l'esportazione in Google Doc
+del catalogo dell'utente e, una volta generato, lo mostra in una nuova
+finestra del browser.\\\hline 
++ editProfileView(in String) & Passa alla View le
+informazioni personali relative all'utente loggato.\\\hline + editProfile(in String, in String, in String, in String, in String, in String, in String, in String) & Permette la modifica delle informazioni
 dell'utente loggato, inviando i nuovi dati alla View e modificandoli
 anche nel DataStore.\\\hline
 + editSongTitle(in String, in String, in String, in String) & Permette
 la modifica di un eventuale titolo assente nelle informazioni di un
-brano.\\\hline + editSongAlbum(in String, in String, in String, in String) &
+brano.\\\hline 
++ editSongAlbum(in String, in String, in String, in String) &
 Permette la modifica di un eventuale album assente nelle informazioni di un
 brano.\\\hline
 + editSongArtist(in String, in String, in String, in String) & Permette
 la modifica di un eventuale album assente nelle informazioni di un
 brano.\\\hline
++ setSongCover(in String, in String, in String, in HTMLPanel): void & Reperisce
+ed assegna al riquadro richiesto nella ``cover mode" della view la copertina
+dell'album. \\\hline
++ deleteProfile() & Cancella l'utente definitivamente dal sistema e lo
+fa uscire dalla pagina.\\\hline 
++ setStats() & Comunica alla view, tramite il metodo della view \co{setStats}, i
+dati rigurdanti la pagina delle statistiche.\\\hline 
++ changeLanguage(in String) & Modifica l'URL del browser per cambiare lingua,
+utilizzando la gestione automatica dell'intenazionalizzazione offerta da
+GWT.\\\hline
++ mayStop(): String & Fa comparire un pop-up con
+un adeguato messaggio ogni qualvolta il browser richiede di uscire dalla pagina. Questo
+metodo \`e offerto dalla superclasse \co{Activity}. \\\hline
+- calculatePreferredArtist(in Map\textless String, SongSummaryDTO\textgreater): String & Ricerca
+all'interno della libreria data in input l'artista pi\`u ricorrente tra tutte le
+canzoni.\\\hline
+- calculateSongStatistics(in Map\textless String, SongSummaryDTO\textgreater): List\textless
+String\textgreater & Ricerca all'interno della libreria data in input la canzone
+che è stata valutata meglio da tutti gli utenti che la condividono e quella
+preferita dall'utente che possiede la libreria. Ne ritorna gli id in una lista.\\\hline
+- clearPlaylistName(in String): String & Pulisce i nomi delle playlist
+in entrata dalla view poich\'e questi contengono anche il numero di
+brani al loro interno.\\\hline
 \caption{Metodi di ProfileActivity}
 \end{longtable}
 
