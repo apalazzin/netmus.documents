@@ -255,7 +255,7 @@ in particolare della specifica delle componenti, elenchiamo di seguito queste
 importanti decisioni architetturali con una breve descrizione.
 \begin{itemize}
   \item \bo{Applet} : la componente di recupero delle informazioni (C2) risiede
-  in una applet\\Java precompilata indipendente da GWT ed \`e integrata con
+  in una \underline{applet}\\Java precompilata indipendente da GWT ed \`e integrata con
   quest'ultimo grazie ai metodi nativi JSNI. L'applet \`e inoltre visibile
   (indirettamente) all'utente con una piccola interfaccia grafica di GWT
   presente quando l'utente e' loggato, da cui \`e possibile
@@ -419,7 +419,6 @@ alla descrizione specifica delle componenti presentata in questo capitolo.
 \bo{+} & server.utils.cache.CacheSupport & Cseutca2 \\\hline
 \bo{+} & server.utils.velocity & Cseutve0 \\\hline
 \bo{+} & server.utils.velocity.VelocityEngineManager & Cseutve1 \\\hline
-\bo{+} & server.utils.velocity.VelocityResourceLoader & Cseutve2 \\\hline
 \bo{+} & server.youtube  &  Cseyo0 \\\hline
 \bo{+} & server.youtube.YouTubeManager  &  Cseyo1 \\\hline
 \bo{+} & server.youtube.YouTubeMedia  &  Cseyo2 \\\hline
@@ -465,7 +464,7 @@ progetto NetMus.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=14cm]{img/DP/package.png}
-\caption{Diagramma UML delle classi che descrive le dipendenze
+\caption{Diagramma \underline{UML}\ delle classi che descrive le dipendenze
 fondamentali presenti all'interno del package client.}
 \end{figure}
 
@@ -3508,7 +3507,7 @@ ricercate su Last.fm in modo ordinato, minimizzando cos\`i le richieste esterne.
 \begin{figure}[!h]
   \centering
   \includegraphics[width=11cm]{img/DP/classes_servlet.png}
-\caption{Diagramma \underline{UML} delle classi che descrive le dipendenze
+\caption{Diagramma UML delle classi che descrive le dipendenze
 fondamentali presenti all'interno del package
 \emph{it.unipd.netmus.server.servlet}.}
 \end{figure}
@@ -3823,6 +3822,34 @@ DocumentListEntry & Crea un nuovo documento in base hai parametri titolo e conte
 \caption{Metodi di GdataManager}
 \end{longtable}
 
+\newpage
+\subsection{Dettaglio su creazione Google Docs del catalogo}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/export_gdocs.png}
+\caption{Diagramma UML di sequenza che descrive la procedura di creazione del
+documento condiviso su Google Docs e sua visualizzazione.}
+\end{figure}
+
+Quando un utente clicca su \bo{Genera Doc} parte la richiesta a
+\co{ProfileActivity} che a sua volta manda una RPC a \co{LibraryService}, che fa
+partire su server la creazione del documento.\\\\
+Viene inizializzato il VelocityEngineManager che si occuper\`a della creazione
+del testo formatto in maniera opportuna, utile alla creazione del Docs.\\\\
+Viene estratta la libreria dell'utente che la richiede, generata una lista
+ordinata contenente tutti i brani della libreria e viene mandata in elaborazione
+come VelocityContext. Il testo generato poi sar\`a necessario per creare il vero
+e proprio documento online.\\\\
+Una volta generato questo testo viene appunto importato dentro un file di Google
+Docs, che verr\`a creato in una cartella pubblica in maniera da far accedere a
+tale documento solamente chi ne possiede il link, anche senza
+autenticazione.\\\\
+L'indirizzo a tale documento poi verr\`a utilizzato, al ritorno della RPC, per
+mostrarlo su una nuova finestra del browser del client.\\
+Alcuni browser possono limitare tale apertura per eventuali blocchi popup
+impostati, baster\`a in quel caso dare il permesso a tali popup.
+
 
 \newpage
 \section{Package server.utils.cache} % LASCIARE WARNING
@@ -3964,7 +3991,7 @@ Vengono settate le propriet\`a dell'engine che poi viene avviato.
 \# engine: VelocityEngine \emph{static} & Velocity template engine.\\\hline
 \# init: boolean emph{static} & Traccia lo stato di inizializzazione di
 \co{engine}\\\hline
-\caption{Campi dati di VelocityResourceLoader}
+\caption{Campi dati di VelocityEngineManager}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
@@ -3977,61 +4004,8 @@ Vengono settate le propriet\`a dell'engine che poi viene avviato.
 \endfoot
 \endlastfoot
 + init() \emph{static} & avvia \co{engine} e ne setta le propriet\`a.\\\hline
-\caption{Metodi di VelocityResourceLoader}
+\caption{Metodi di VelocityEngineManager}
 \end{longtable}
-
-\subsection{Classe VelocityResourceLoader}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-  \item Nessuno
-\end{itemize}
-\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-  \item C1FO-1.8.1 Esportazione PDF
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-La classe estende il supertipo astratto \co{ResourceLoader} e fornisce i metodi
-che permettono di caricare il template (``mio\_template''.mv) dal file system.
-La classe appartiene al framework \emph{Velocity}.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-I metodi di \co{VelocityResourceLoader} svolgono le funzioni di caricare una
-determinata risorsa e di tracciarne le eventuali modifiche apportate.
-
-\begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
-- paths: Vector\textless String\textgreater & Vettore che memorizza il percorso
-file delle risorse da utilizzare.\\\hline
-\caption{Campi dati di VelocityResourceLoader}
-\end{longtable}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
-+ getLastModified(Resource): Long & Ritorna l'ultima modifica
-della sorgente InputStream usata per creare il template.\\\hline
-+ getResourceStream(String): InputStream & Ritorna un InputStream in modo da
-permettere con esso la creazione del template a Runtime.\\\hline
-+ init(ExtendedProperties) & Inizializza il template loader con una classe
-risorsa.\\\hline
-+ isSourceModified(Resource): boolean & Permette di tracciare le
-modifiche.\\\hline
-\caption{Metodi di VelocityResourceLoader}
-\end{longtable}
-
 
 
 \newpage
@@ -4685,7 +4659,7 @@ Nessuna.
   \centering
   \includegraphics[width=9cm]{img/DP/applet.png}
 \caption{Diagramma UML delle classi che descrive le dipendenze
-fondamentali presenti all'interno del \underline{applet} di estrazione dati.}
+fondamentali presenti all'interno del applet di estrazione dati.}
 \end{figure}
 
 \subsection*{Requisiti obbligatori soddisfatti}
@@ -5309,7 +5283,6 @@ server.utils.ServletUtils  &  C1FO-1.2.1 \\\hline
 server.utils.GdataManager & C1FO-1.8.1 \\\hline
 server.utils.velocity & C1FO-1.8.1 \\\hline
 server.utils.velocity.VelocityEngineManager & C1FO-1.8.1 \\\hline
-server.utils.velocity.VelocityResourceLoader & C1FO-1.8.1 \\\hline
 server.youtube  &  C1FD-1.1.4 \\\hline
 server.youtube.YouTubeManager  &  C1FD-1.1.4 \\
 & C1VD-1.5.2\\
@@ -5570,7 +5543,6 @@ C1FO-1.8.1 Esportazione PDF & Cclui2\\
 & Csepe2\\
 & Cseutve0\\
 & Cseutve1\\
-& Cseutve2\\
 & Cseut6\\\hline  
 C1FN-1.9 Ricezione ed elaborazione dei brani & Cse6\\
 & Csh5\\
