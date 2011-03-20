@@ -768,7 +768,7 @@ errori avvenuti durante il login o la registrazione.\\\hline
 login.\\\hline 
 @UiField check\_netmus: RadioButton & Bottone di selezione del tipo di
 login.\\\hline
-\caption{Campi dati di LoginView}
+\caption{Campi dati di ProfileView}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
@@ -781,30 +781,93 @@ login.\\\hline
 \endfoot
 \endlastfoot
 + setPresenter(in Presenter) & Questo metodo viene usato da
-\co{LoginActivity} per impostare una sua istanza come implementazione
-del presenter di \co{LoginView}.\\\hline 
+\co{ProfileActivity} per impostare una sua istanza come implementazione
+del presenter di \co{ProfileView}.\\\hline 
++ setName(in String): & Questo metodo viene usato da
+\co{ProfileActivity} per fornire il nome del profilo alla creazione della
+\co{ProfileView}. \\\hline 
++ setNumeroBrani(in int) & Questo metodo viene usato da
+\co{ProfileActivity} per fornire il numero di brani alla creazione della
+\co{ProfileView}.\\\hline 
 + setUser(in String) & Questo metodo viene usato da
-\co{LoginActivity} per impostare l'username inserito nel precedente
-tentativo di login o registrazione.\\\hline 
-+ setPassword(in String) & Questo metodo viene usato da
-\co{LoginActivity} per impostare la password inserita nel precedente
-tentativo di login o registrazione.\\\hline 
-+ setError(in String) & Questo metodo viene usato da
-\co{LoginActivity} per impostare il testo di un errore occorso nel
-precedente tentativo di login o registrazione.\\\hline
-+ setLoginType(in LoginType) & Serve ad impostare il tipo di login o
-registrazione che si sta effettuando.\\\hline 
-+ setLayout() & Aggiunta il layout all'avvio.\\\hline
-@UiHandler(``login'') handleClickLogin(in ClickEvent) & Quando viene
-premuto il bottone di login invia all'activity associata la richiesta di login o
-registrazione.\\\hline @UiHandler(value=\{``user'', ``password'', ``c\_password''\})
-handlePressEnterPassword(in KeyPressEvent) & Quando viene premuto in tasto
-``enter'' invia all'activity associata la richiesta di login o
-registrazione.\\\hline @UiHandler(``register'') handleClickRegister(in ClickEvent) & Se la pagina si
-trova nello stato \co{LoginType.LOGINNETMUS} ridispone gli elementi in
-modo da visualizzare il form intero per la registrazione, altrimenti
-nasconde i campi per registrazione lasciando solamente quelli per il
-login.\\\hline
+\co{ProfileActivity} per fornire l'\underline{username} dell'utente alla
+creazione della \co{ProfileView}.\\\hline
++ paintCatalogo(in List\textless String\textgreater) & Riempie il
+catalogo\\\hline 
++ paintPlaylist(in String[]) & Riempie la lista delle playlist.\\\hline
++ paintPlaylistSongs(List\textless String\textgreater) &
+Riempie la singola playlist delle sue canzoni.\\\hline 
++ paintFriendlist(in String[]) & Riempie la lista dei contatti.\\\hline
++ setInfo(in String) & Imposta la finestra informativa.\\\hline
++ viewPlaylist(in String) & Visualizza la playlist scelta.\\\hline
++ closePlaylist() & Chiude il gestore della playlist.\\\hline
++ playYouTube(in String) & Apre il player youtube sulla relativa
+canzone.\\\hline 
++ closeYouTube() & Chiude il player youtube.\\\hline
++ setBranoCatalogo(in Song) & Imposta il brano selezionato sul catalogo.\\\hline
++ setBranoPlaylist(in Song) & Imposta il brano selezionato sulla
+playlist.\\\hline 
++ addToPLaylist(in String, in String, in String) & Aggiungi il brano del
+catalogo alla playlist .\\\hline 
++ removeFromPlaylist(in String, in String, in String) & Rimuovi il brano dalla
+playlist.\\\hline 
++ setLayout() & Inizializza il layout.\\\hline
++ addToPlaylists(in String) & Aggiunge una nuova playlist.\\\hline 
++ viewSong(in Song) & Visualizza la scheda della canzone.\\\hline
++ closeSong() & Chiude la scheda della canzone.\\\hline
++ setRating(int rating) & Imposta il rating personale dell'utente.\\\hline
++ showStar(int index) & Disegna le stelle che corrispondono al rating.\\\hline
++ youTubeChange(int s) & Imposta lo stato del lettore youtube collegato
+ad un handler delle api \underline{javascript} youtube gestito tramite
+\underline{JSNI}.\\\hline + youTubeListener() & JSNI: collega la chiamata al
+metodo \emph{youTubeChange} all'interno di GWT con le api javascript di
+youtube fornendo un riferimento javascript esterno tramite una funzione.\\\hline
++ playNext() & Fa passare il player youtube al brano successivo se
+disponibile.\\\hline
++ playPrev(int rating) & Fa passare il player youtube al brano
+precedente se disponibile.\\\hline
++ setRating(int rating) & Imposta il rating personale dell'utente.\\\hline
++ showHelp() & Visualizza il pannello contenente le statistiche
+dell'utente.\\\hline
++ youTubeError(int s) & Gestisce le chiamate d'errore delle librerie
+javascript del player flash youtube.\\\hline
++ youTubeErrorListener() & metodo JSNI che fornisce a livello di
+javascript il metodo youtubeError() di GWT\\\hline
++ stopPlayerSong() & Metodo JSNI che ferma il lettore flash di youtube.\\\hline
++ playPlayerSong(String t) & Metodo JSNI che carica un determinato video e fa
+partire il lettore flash yuoutbe\\\hline
++ sortCatalogo() & Utilizzato per ordinare la lista che rappresenta il
+catalogom dell'utente.\\\hline
++ showCatalgo() & Utilizzato per caricare e mostrare il catalogo
+dell'utente.\\\hline
++ paintCovers(final List\\textless Song\\textgreater list) & disegna il
+cover mode per visualizzare le copertine degli album al posto del
+catalogo.\\\hline
++ paintInsideCover(final List\\textless Song\\textgreater list) &
+Termina il disegno di ogni singolo album caricato attraverso
+paintCovers().\\\hline
++ fillAlbum()) & Riempie la lista di brani di un album con tutte le canzoni che
+gli appartengono. \\\hline
++ setBranoCatalogo() & Imposta ed evidenzia il brano selezionato sul catalogo.
+\\\hline
++ setBranoPlaylist() & Imposta ed evidenzia il brano selezionato nella
+playlist.\\\hline
++ showGlobalStar(double index) & Carica la votazione globale di una singola
+canzone. \\\hline
++ showEditProfile() & Carica il pannello per impostare i dati
+dell'utente e per eventualmente disabilitare l'account.\\\hline
++ paintMainCover(String cover) & Carica la copertina principale dell'album
+selezionato od eventualmente dell'album in esecuzione.\\\hline
++ setPlaySong(boolean flag) & Evidenzia la canzone in riproduzione.\\\hline
++ startLoading() & Visualizza la scritta di caricamento.\\\hline
++ startLoading() & Nasconde la scritta di caricamento.\\\hline
++ showError(String text\_t) & Carica un popup con richiesta di conferma
+mostrando il messaggio o l'errore specificato.\\\hline
++ showErrorFast(String text\_t) & Carica un popup che svanisce automaticamente
+mostrando il messaggio o l'errore specificato.\\\hline
++ closeEditProfile() & Chiude il pannello di configurazione account.\\\hline
++ setStats() & Carica ed imposta i valori delle statistiche dell'utente.\\\hline
++ resetView() & Svuota le varie componenti della view.\\\hline
 @UiHandler(``check\_google'') handleClickGoogle(in ClickEvent) & Viene
 avviato quando l'utente seleziona Google come tipologia di login e
 aggiorna l'attributo \co{type}. \\\hline @UiHandler(``check\_netmus'')
