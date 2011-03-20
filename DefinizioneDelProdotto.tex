@@ -1,4 +1,4 @@
-\newcommand{\nomedoc}{Definizione Del Prodotto}
+	\newcommand{\nomedoc}{Definizione Del Prodotto}
 \newcommand{\versione}{2.0}
 \newcommand{\versioneglossario}{4.0}
 \newcommand{\versioneAR}{3.0}
@@ -848,12 +848,29 @@ aggiorna l'attributo \co{type}.\\\hline
     \item C1FO-1.8.1 Esportazione \underline{PDF}
     \item C1QO-2.1 Accessibilit\`a
 \end{itemize}
+\newpage
 \subsubsection*{Dettaglio del riempimento di ProfileView all'avvio di una nuova
 ProfileActivity}
+Dal seguente diagramma UML di sequenza traspare la centralit\`a del ruolo delle
+classi Activity che, una volta istanziate dal NetmusActivityMapper, si occuperanno di
+inizializzare opportunamente la relativa View (in questo caso specifico anche
+di provvedere all'inizializzazione dell'applet di estrazione dati):
+\begin{itemize}
+  \item Tramite una chiamata del metodo del ProfileService \co{getLoggedInUser()} 
+  l'Activity ottiene il nome dell'utente autenticato e pu\`o
+  procedere a prelevare l'intero profilo;
+  \item La ProfileView fornita da ClientFactory viene inizializzata con il
+  nome dell'utente, in seguito alla chiamata del metodo \co{setName()}; 
+  \item L'Activity ottiene i dati utente (profilo, library, playlist) usando il
+  metodo \co{loadProfile()} del ProfileService e li fornisce alla ProfileView
+  (\co{setSongs()}, \co{paintPlaylist()}, \co{setInfo()},
+  \co{editProfileView()}) che provveder\`a a visualizzarli;
+  \item Viene infine avviato l'applet di estrazione dati.
+\end{itemize} 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=15cm]{img/DP/loadProfileView.png}
-\caption{Diagramma UML di sequnza che descrive nel dettaglio come viede
+  \includegraphics[width=14cm]{img/DP/loadProfileView.png}
+\caption{Diagramma UML di sequenza che descrive nel dettaglio come viede
 disegnata la ProfileView all'avvio di una nuova ProfileActivity}
 %DESCRIZIONE DEL DIAGRAMMA.. ..  .  . . . . 
 \end{figure}
