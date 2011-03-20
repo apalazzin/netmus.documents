@@ -947,7 +947,7 @@ brano.\\\hline
 - password: String & la nuova password inserita dall'utente.\\\hline
 - cpassword: String & la conferma della nuova password inserita
 dall'utente.\\\hline
-- lista\_canzoni: CellTable\textless Song\textgreater & la widget a tabella che
+- song\_list: CellTable\textless Song\textgreater & la widget a tabella che
 rappresenta il catalogo dei brani dell'utente.\\\hline;
 - rm\_link: HandlerRegistration & Registratore dell'handler su
 l'indirizzo link del player youtube.\\\hline
@@ -956,33 +956,33 @@ dei comandi di streaming.\\\hline
 - rm\_rw: HandlerRegistration & Registratore dell'handler sul bottone di rewind
 dei comandi di streaming.\\\hline
 @UiField logout: Anchor & Link per il logout.\\\hline
-@UiField utente: Label & Etichetta che visualizza il nome dell'utente.\\\hline
-@UiField numero\_brani: Label & Etichetta che rappresenta il numero di
+@UiField user: Label & Etichetta che visualizza il nome dell'utente.\\\hline
+@UiField num\_song: Label & Etichetta che rappresenta il numero di
 brani a catalogo.\\\hline
-@UiField titolo\_playlist: Label & Etichetta che rappresenta il titolo
+@UiField playlist\_title: Label & Etichetta che rappresenta il titolo
 dell'elenco delle playlist.\\\hline
-@UiField titolo\_song: Label & Etichetta che rappresenta il titolo della
+@UiField track\_title: Label & Etichetta che rappresenta il titolo della
 canzone visualizzata nelle informazioni dettagliate.\\\hline
 @UiField info\_youtube\_link: Label & Etichetta che mostra l'indirizzo
 d'origine del video youtube in riproduzione.\\\hline
-@UiField brano\_aggiungere: Label & Etichetta che visualizza in verde il
+@UiField insert\_song: Label & Etichetta che visualizza in verde il
 titolo selezionato a catalogo e che risulta possibile inserire nella
 playlist aperta.\\\hline
-@UiField brano\_rimuovere: Label & Etichetta che visualizza in rosso il
+@UiField remove\_song: Label & Etichetta che visualizza in rosso il
 titolo selezionato nella playlist e che pu\`o essere rimosso.\\\hline
-@UiField song\_titolo: Label & Etichetta che mostra il titolo della
+@UiField song\_title: Label & Etichetta che mostra il titolo della
 canzone nelle informazioni dettagliate.\\\hline
-@UiField song\_autore: Label & Etichetta che mostra l'autore della
+@UiField song\_artist: Label & Etichetta che mostra l'autore della
 canzone nelle informazioni dettagliate.\\\hline
 @UiField song\_album: Label & Etichetta che mostra il titolo dell'album
 della canzone nelle informazioni dettagliate.\\\hline
-@UiField song\_genere: Label & Etichetta che mostra il genere della
+@UiField song\_genre: Label & Etichetta che mostra il genere della
 canzone nelle informazioni dettagliate.\\\hline
-@UiField song\_anno: Label & Etichetta che mostra l'anno della canzone
+@UiField song\_year: Label & Etichetta che mostra l'anno della canzone
 nelle informazioni dettagliate.\\\hline
-@UiField song\_compositore: Label & Etichetta che mostra il genere della
+@UiField song\_composer: Label & Etichetta che mostra il genere della
 canzone nelle informazioni dettagliate.\\\hline
-@UiField song\_traccia: Label & Etichetta che mostra il numero di
+@UiField song\_track: Label & Etichetta che mostra il numero di
 traccia della canzone nelle informazioni dettagliate.\\\hline
 @UiField edit\_profile\_password: Label & Etichetta 
 password nella finestra dell'account.\\\hline
@@ -1000,6 +1000,16 @@ nazione dell'utente nella finestra dell'account.\\\hline
 dell'utente nella finestra dell'account.\\\hline
 @UiField edit\_profile\_labelCpassword: Label & Etichetta conferma
 password nella finestra dell'account.\\\hline
+@UiField stat\_tracks: Label & Etichetta che indica il numero di brani
+nella finestra delle statistiche\\\hline @UiField : Label & \\\hline
+@UiField stat\_preferred: Label & Etichetta che indica l'autore
+preferito all'interno della finestra delle statistiche\\\hline
+@UiField stat\_preferreds: Label & Etichetta che indica la canzone
+preferita all'interno della finestra delle statistiche\\\hline
+@UiField stat\_preferredn: Label & Etichetta nella finestra delle statistiche
+che rappresenta la canzone preferita dall'intera utenza di Netmus\\\hline
+@UiField info\_text: Label & Etichetta che rappresenta il brano in
+esecuzione nella finestra informativa della view\\\hline
 @UiField catalogo: CellTable\textless Song\textgreater & Tabella che
 mostra l'intero catalogo dell'utente.\\\hline
 @UiField catalogo\_container: HTMLPanel & Elemento che definisce l'area
@@ -1043,6 +1053,15 @@ a scomparsa che contiene le informazioni sull'account.\\\hline
 @UiField edit\_profile\_aboutme: HTMLPanel & Elemento che contiene i
 dati personali scritti dall'utente all'interno della finestra
 dell'account.\\\hline
+@UiField covers\_container: HTMLPanel & Elemento che rappresenta l'area in cui
+vengono caricate le copertine del cover mode. \\\hline
+@UiField popup: HTMLPanel & Rappresenta la finestra di popup con conferma che
+propone errori e messaggi. \\\hline
+@UiField popup\_fast: HTMLPanel & Rappresenta la finestra di popup senza
+conferma che propone errori e messggi. \\\hline
+@UiField statistics: HTMLPanel & Rappresenta la finestra in cui compaiono le
+statistiche. \\\hline
+
 @UiField play: Image & Rappresenta il bottone play/pause
 dell'interfaccia principale.\\\hline
 @UiField play\_youtube: Image & Rappresenta il bottone play nell'area del
@@ -1086,6 +1105,27 @@ chiudere la finestra delle informazioni sull'account.\\\hline
 @UiField edit\_profile\_checkImg: Image & Rappresenta l'immagine di
 conferma per il salvataggio dei dati all'interno della finestra per
 gestire le informazioni sull'account.\\\hline
+@UiField switch\_cover: Image & Rappresenta il bottone per entrare in cover
+mode. \\\hline
+@UiField switch\_list: Image & Rappresenta il bottone per visulaizzare il
+catalogo come una lista. \\\hline
+@UiField loading: Image & Rappresenta la scritta che compare durante i
+caricamenti. \\\hline
+@UiField pdf: Image & Rappresenta l'icona x l'esportazione del catalogo.
+\\\hline
+@UiField statistics\_open: Image & Rappresenta l'immagine per aprire la finestra
+delle statistiche. \\\hline
+@UiField edit\_profile\_clear: Image & Rappresenta il bottone all'interno dell
+popup edit profile per eliminare l'account.\\\hline
+@UiField flag\_ita: Image & Rappresenta la bandiera per impostare la lingua
+italiana. \\\hline
+@UiField flag\_eng: Image & Rappresenta la bandiera per impostare la lingua
+inglese. \\\hline
+@UiField up: Image & Rappresenta la freccia per l'ordinamento brani nella
+playlist. \\\hline
+@UiField down: Image & Rappresenta la freccia per l'ordinamento brani nella
+playlist. \\\hline
+
 @UiField edit\_profile\_check: Button & Rappresenta il bottone per il
 salvataggio dei dati personali all'interno della finestra informazioni
 dell'account.\\\hline
@@ -1103,13 +1143,15 @@ catalogo. \\\hline
 - last\_selected: int & Rappresenta la selezione dell'utente relativamente al
 catalogo o ad una playlist. 0: viene selezionato un brano sul catalogo, 1: viene
 selezionato un brano nella playlist. \\\hline
-- playn: intn & Rappresenta se \`e in riproduzione un brano contenuto in una
+- playing: intn & Rappresenta se \`e in riproduzione un brano contenuto in una
 playlist o nel catalogo. 0: catalogo, 1: playlist. \\\hline
 - selected\_song: Song & Rappresenta la canzone selezionata dall'utente sul
 catalogo. \\\hline
 - selected\_song\_playlist: Song & Rappresenta la canzone selezionata
 dall'utente nella playlist.\\\hline
 - played\_song: Song & Rappresenta la canzone in riproduzione\\\hline
+@UiField selected\_album: String &  Rappresenta l'album selezionato
+dall'utente\\\hline
 - canzoni\_catalogo: List\textless Song\textgreater & Rappresenta le
 canzoni caricate a catalogo.\\\hline
 - canzoni\_playlist : List\textless Song\textgreater & Rappresenta le
@@ -1118,6 +1160,8 @@ ListDataProvider\textless Song\textgreater & Rappresenta le canzoni
 visualizzate nella CellTable del catalogo\\\hline - dataProvider\_catalogo:
 ListDataProvider\textless Song\textgreater & Rappresenta le canzoni visualizzate
 dalla CellTable nella playlist.\\\hline
+ListDataProvider\textless Song\textgreater dataProvider\_album & Rappresenta la
+lista delle canzoni di un album quando caricato\\\hline
 \caption{Campi dati di ProfileView}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
