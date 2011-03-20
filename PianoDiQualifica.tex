@@ -2238,16 +2238,10 @@ Qui di seguito illustriamo i risultati dei test precedentemente trattati.
   strategia adottata e soddisfano le aspettative programmate.\\&
   \textbf{Malfunzionamenti rilevati}: nessuno.\\&
   \\&
-  \textbf{Metodo}: removeFromPlaylist (1).\\&
+  \textbf{Metodo}: removeFromPlaylist.\\&
   \textbf{Esito}: il metodo funziona correttamente secondo la strategia
   adottata e rispecchia le aspettative programmate.\\&
   \textbf{Malfunzionamenti rilevati}: nessuno.\\&
-  \\&
-  \textbf{Metodo}: removeFromPlaylist (2).\\&
-  \textbf{Esito}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate.\\&
-  \textbf{Malfunzionamenti rilevati}: non viene gestito l'errore di rimozione,
-  ma semplicemente il metodo chiama ``onFailure'' che non fa nulla.\\&
   \\&
   \textbf{Metodo}: deletePlaylist (1).\\&
   \textbf{Esito}: il metodo funziona correttamente secondo la strategia
@@ -2296,13 +2290,9 @@ Qui di seguito illustriamo i risultati dei test precedentemente trattati.
   \hline
   \bo{TU-Cclap3}: TranslateDTOXML. &
   \textbf{Metodo}: XMLToDTO.\\&
-  \textbf{Esito}: il metodo funziona correttamente, ma all'immissione
-  di caratteri speciali diversi dalla codifica ISO-8859-1 il brano non viene
-  impostato in un DTO ma viene direttamente saltato, passando alla creazione
-  del DTO successivo.\\&
-  \textbf{Malfunzionamenti rilevati}: non traduce in DTO i
-  dati di una canzone che hanno una codifica diversa dalla ISO-8859-1, come ad
-  esempio i caratteri giapponesi.\\& 
+\textbf{Esito}: il metodo funziona correttamente secondo la strategia
+  adottata e soddisfa le aspettative programmate.\\& 
+  \textbf{Malfunzionamenti rilevati}: nessuno.\\&
   \\
 
   \hline 
@@ -2331,16 +2321,10 @@ Qui di seguito illustriamo i risultati dei test precedentemente trattati.
   
   \hline
   \bo{TU-Cse6}: LibraryServiceImpl. &
-  \textbf{Metodo}: sendUserNewMusic (1).\\&
+  \textbf{Metodo}: sendUserNewMusic.\\&
   \textbf{Esito}: il metodo funziona correttamente secondo la strategia
   adottata e soddisfa le aspettative programmate.\\&
   \textbf{Malfunzionamenti rilevati}: nessuno.\\&
-  \\&
-  \textbf{Metodo}: sendNewUserMusic (2).\\&
-  \textbf{Esito}: il metodo funziona correttamente secondo la strategia
-  adottata e soddisfa le aspettative programmate.\\&
-  \textbf{Malfunzionamenti rilevati}: il metodo non fa nulla in caso di errore,
-  non restituisce alcun dato.\\&
   \\&
   \textbf{Metodo}: generatePdf.\\&
   \textbf{Esito}: il metodo funziona correttamente secondo la strategia
@@ -2971,7 +2955,7 @@ restituire una lista di stringhe contenenti artista, titolo ed album corretti di
 ogni canzone della libreria dell'utente, e deve permettere il corretto invio per
 la visualizzazione di tali informazioni sulla view.\\&
 \\&
-\textbf{Metodo}: removeFromPlaylist (1).\\&
+\textbf{Metodo}: removeFromPlaylist.\\&
 \textbf{Obiettivo}: verificare la rimozione di un brano da una
 playlist.\\& 
 \textbf{Strategia}: verranno passate al metodo le stringhe con nome playlist,
@@ -2983,16 +2967,6 @@ rimozione anche dalla view.\\&
 rimozione del brano dalla playlist dell'utente e una volta che la rimozione ha
 avuto successo dalla parte del DB la rimuove anche dalla parte della dalla parte
 della view.\\&
-\\&
-\textbf{Metodo}: removeFromPlaylist (2).\\&
-\textbf{Obiettivo}: verificare che se un brano non sia presente nella
-playlist, non venga eliminato.\\&
-\textbf{Strategia}: vengono passati titolo, artista e album di una canzone non
-presente nella playlist.\\&
-\textbf{Tipologia}: whitebox.\\&
-\textbf{Aspettative}: la ricerca sul DB deve ovviamente avere esito
-negativo, il metodo quindi non deve avere successo ed eseguire dunque il
-metodo ``onFailure'' che gestisce il fallimento dell'operazione.\\&
 \\&
 \textbf{Metodo}: deletePlaylist (1).\\&
 \textbf{Obiettivo}: verificare la rimozione completa di una
@@ -3089,7 +3063,7 @@ notevole di brani e con caratteri diversi anche dalla codifica ISO-8859-1.\\&
 \textbf{Tipologia}: blackbox.\\&
 \textbf{Aspettative}: il metodo dovr\`a ritornare una lista
 di DTO di tutti i brani rilevati senza saltarne alcuno e con tutte le informazioni memorizzate nel
-rispettivo campo..\\&
+rispettivo campo.\\&
 \\
 
 \hline
@@ -3106,7 +3080,7 @@ ritorner\`a true qualora l'operazione vada a buon fine.\\&
 
 \hline
 \bo{TU-Cse6}: LibraryServiceImpl. &
-\textbf{Metodo}: sendUserNewMusic (1).\\&
+\textbf{Metodo}: sendUserNewMusic.\\&
 \textbf{Obiettivo}: verificare l'invio e la memorizzazione di una lista di
 brani nuovi rilevati dal dispositivo dell'utente.\\& 
 \textbf{Strategia}: verr\`a passato al metodo il nome dell'utente e una lista
@@ -3114,15 +3088,6 @@ di SongDTO che dovranno essere registrate sulla libreria virtuale.\\&
 \textbf{Tipologia}: whitebox.\\&
 \textbf{Aspettative}: corretta memorizzazione all'interno del DB
 locale dell'utente selezionato di tutti i nuovi brani rilevati.\\&
-\\&
-\textbf{Metodo}: sendUserNewMusic (2).\\&
-\textbf{Obiettivo}: verificare che l'invio e la memorizzazione di
-una nuova lista di canzoni non avvenga se l'utente non viene trovato.\\&
-\textbf{Strategia}: verranno passati al metodo un user inesistente ed una lista
-di oggetti SongDTO.\\&
-\textbf{Tipologia}: blackbox.\\&
-\textbf{Aspettative}: il metodo non deve memorizzare tali canzoni, ma
-ritornare un errore.\\&
 \\&
 \textbf{Metodo}: generatePdf.\\&
 \textbf{Obiettivo}: verificare la creazione del PDF della libreria
