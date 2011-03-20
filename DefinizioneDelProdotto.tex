@@ -1435,7 +1435,26 @@ perfetto equilibrio tra loro.\\
 Un'altra attivit\`a fondamentale di questa classe \`e quella di inviare
 all'interfaccia grafica i messaggi d'errore adeguati quando vengono rilevati
 errori nella comunicazione col server.
-
+\newpage
+\subsubsection*{Esempio di funzionamento (metodo RateSong)}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/rate_song.jpg}
+\caption{Diagramma UML di sequenza che descrive il procedimento seguito per il
+salvataggio di un voto richiesto dall'utente.}
+\end{figure}
+Il metodo \co{rateSong(String,String,String,int)} contiene una delle funzioni di
+\co{ProfileActivity} che necessitano di intevrenire sia in scrittura che in
+lettura sul Datastore. Infatti, oltre a salvare il voto assegnato dall'utente,
+deve ricevere la nuova media dei voti della canzone alcolata dal server. La
+sequenza seguita per svolgere queste operazioni prevede come prima cosa
+l'impostazione degli elementi grafici derivanti dalla richiesta dell'utente come
+la visualizzazione delle stelline cliccabili \co{showStar()}. Successivamente
+avviene la chiamata RPC a \co{SongService} per la scrittua in memoria del voto
+assegnato ed il calcolo della nuova media dei voti. Infine l'activity deve
+preoccuparsi anche di aggiornare le statistiche, sia su \co{current\_user} sia
+nel Datastore tramite \co{storeStatistics}, e aggiornare la grafica con i dati
+ricevuti al termine della chiamata RPC.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -2987,10 +3006,27 @@ importante poich\'e carica dalla cache o dal Datastore tutte le informazioni
 rigurdanti l'utente ed il suo catalogo. Estende le interfacce \co{Serializable}
 e \co{Cacheable} per gestirne la scrittura e la
 lettura in Memcache.
-\subsubsection*{Attivit\`a svolte e dati trattati} Gestisce
-la logica di persistenza di tutti i dati relativi ad un utente del sistema
-NetMus. Gestisce inoltre alcuni elementi di businness logic strettamente legati
-a questa entit\`a come la ricerca di particolari utenti all'interno del Datastore.
+\subsubsection*{Metodo load}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/load_user.jpg}
+\caption{Diagramma UML di sequenza che descrive il procedimento di lettura
+delle informazioni riguardanti un utente lato server.}
+\end{figure}
+Il metodo \co{load()} che viene invocato tramite chimate RPC di tipo
+\co{UserSerivice} \`e molto dispendioso come tempo di calcolo poich\'e si occupa
+di caricare l'intera libreria dell'utente che, in alcuni casi, verr\`a
+anche trasformata in DTO e spedita al client. Va considerato anche che questo
+metodo viene usato moltissimo dei Service dato che i parametri in entrata sono
+sempre degli username (String) e da questi spetta al server il compito di
+ricavarne l'oggetto persistente. Per gestire nel modo pi\`u approrpiato il
+problema si \`e deciso di gestire la Memcache lato server che permette la
+lettura degli oggetti con una velocit\`a 5 volte superiore a quella del
+Datastore. Questa sequenza di operazioni, progettata seguendo il Memcache
+pattern di App Engine, viene utilizzata anche per le altre classi del package
+persitent, anche se con un vantaggio meno evidente.
+\subsubsection*{Attivit\`a svolte e dati trattati} Gestisce la
+logica di persistenza di tutti i dati relativi ad un utente del sistema NetMus. Gestisce inoltre alcuni elementi di businness logic strettamente legati a questa entit\`a come la ricerca di particolari utenti all'interno del Datastore.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
