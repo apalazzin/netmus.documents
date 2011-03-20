@@ -51,26 +51,29 @@ relativa codifica, delle quali verr\`a allegato il codice sorgente.
 \endhead
 \hline
 \endfoot
-17/03/2011 & 1.13 & Caputo Cosimo & Inserimento delle classi legate
+17/03/2011 & 1.14 & Caputo Cosimo & Inserimento delle classi legate
 all'esportazione pdf.\\
 \hline
-15/03/2011 & 1.12 & Baron Federico & Inserimento della classe Album nel
+15/03/2011 & 1.13 & Baron Federico & Inserimento della classe Album nel
 capitolo 4.\\
 \hline
-14/03/2011 & 1.11 & Mandolo Andrea & Correzione all'interno della specifica
+14/03/2011 & 1.12 & Mandolo Andrea & Correzione all'interno della specifica
 della classe \co{MyConstant}.\\
 \hline
-14/03/2011 & 1.10 & Baron Federico & Rimozione di tutti i paragrafi
+14/03/2011 & 1.11 & Baron Federico & Rimozione di tutti i paragrafi
 riguardanti le relazioni con altre componenti poich\'e gi\`a presente in ST.\\
 \hline
-14/03/2011 & 1.9 & Baron Federico & Rimozione delle tabelle 4.1 e 4.2 come
+14/03/2011 & 1.10 & Baron Federico & Rimozione delle tabelle 4.1 e 4.2 come
 suggerito nella correzione di RQ.\\
 \hline
-13/03/2011 & 1.8 & Caputo Cosimo & Inserimento della specifica riguardante la
+13/03/2011 & 1.9 & Caputo Cosimo & Inserimento della specifica riguardante la
 classe PDFLoaderServlet.\\
 \hline
-12/03/2011 & 1.7 & Caputo Cosimo & Inserimento della specifica riguardante il
+12/03/2011 & 1.8 & Caputo Cosimo & Inserimento della specifica riguardante il
 package velocity e le relative classi.\\
+\hline
+12/03/2011 & 1.7 & Baron Federico & Aggiornamento della specifica della
+classe \co{DeviceScannedEvent}.\\
 \hline
 12/03/2011 & 1.6 & Baron Federico & Aggiornamento della specifica della
 classe \co{ProfileActivity} in ogni sua parte.\\
@@ -2341,12 +2344,13 @@ qualche procedimento.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
 Questa classe rappresenta l'evento GWT che andremo a lanciare sull'Event Bus
-quando termina un processo di scansione di un dispositivo ed \`e terminata
-anche la memorizzazione nel DataStore e l'associazione dei brani all'utente che
-li ha caricati. 
+ad ogni gruppo di 30 canzoni che viene scansionato
+da un dispositivo e memorizzato nel DataStore. 
 \subsubsection*{Attivit\`a svolte e dati trattati}
-Nessuna. La classe \`e costruita basandosi su convenzioni GWT comuni a tutti gli
-eventi grafici.
+La classe \`e costruita basandosi su convenzioni GWT comuni a tutti gli
+eventi grafici. Viene trasportata anche la lista degli id delle canzoni che sono
+state inserite prima del lancio dell'evento ed un booleano che segnala se con
+questo evento l'intero caricamento finisce oppure no.
 
 \begin{longtable}{|p{0.45\textwidth}|p{0.45\textwidth}|}
 \hline
@@ -2361,6 +2365,10 @@ eventi grafici.
 + TYPE: Type \textless DeviceScanned EventHandler\textgreater  \emph{static} &
 Oggetto Type GWT tipizzato per andare a definire il tipo di handler che
 andr\`a a catturare questo tipo di eventi.\\\hline
+- new\_songs: List\textless SongDTO\textgreater & Lista delle canzoni
+prelevate dal file system dell'utente.\\\hline
+- last\_songs: boolean & \emph{true} se l'evento in questione trasporta
+l'ultima tranche di canzoni di un caricamento.\\\hline
 \caption{Campi dati di DeviceScannedEvent}
 \end{longtable}
 
@@ -2498,6 +2506,13 @@ informazioni che formano la chiave primaria sono incomplete.\\\hline
 la canzone dalla libreria dell'utente. Le canzoni rimosse rimangono nel
 DataStore poich\'e potrebbero contenere informazioni utili per
 inserimenti futuri.\\\hline
++ getSongDTO(in SongSummaryDTO): SongDTO & Carica dal Datastore le
+informazioni complete rigurdanti la canzone data in input. In questo
+metodo, se non ancora presenti in Datastore o in cache, vengono cercate
+su servizi esterni le copertine di Last.fm ed i video YouTube.\\\hline
++ getCoverImage(in SongSummaryDTO): String & Carica dal Datastore o da Last.fm
+la copertina relativa al brano in input. Per fare ci\`o utilizza la classe di
+persistenza \co{Album}. \\\hline 
 \caption{Metodi di SongServiceImpl}
 \end{longtable}
 
@@ -2681,6 +2696,21 @@ ritorna il genere pi\`u ricorrente all'interno delle canzoni del catalogo
 dell'utente specificato. \\\hline
 + loadMostPopularSong(in String): String & Ritorna l'id della canzone condivisa
 dal maggior numero di utenti che fa parte del catalogo.\\\hline
++ storeStatistics(in String, in String, in String, in String) & Salva
+nel \co{MusicLibrary} persitente le statistiche relative al catalogo
+calcolate nel client.\\\hline
++ generateDoc(in String): String & Questo metodo si occupa dell'intera
+generazione del Google Doc dell'utente dato in input. La creazione
+consiste nel creare il modello HTML del documento generandone
+al momento i contenuti tramite le libreria \emph{velocity} e inserendoli poi in
+un modello standard in \emph{template.mv}. Successivamente viene invocato il
+metodo \co{createNewDocument} di \co{GdataManager} per la generazione del Doc
+dal modello HTML. Ritorna l'indirizzo al documento. \\\hline
+- check\_list(in List\textless String\textgreater, in String): int &
+Funzione che aggiunge una stringa ad una lista verificandone
+l'unicit\`a e ritorna 1 se ha succeso, viene utilizzata all'interno di
+\co{GenerateDoc}.\\\hline
+
 \caption{Metodi di LibraryServiceImpl}
 \end{longtable}
 
@@ -2787,12 +2817,27 @@ introdotti dal framework per gestirne la configurazione:
   nel tipo effettivo nel DataStore.
 \end{itemize}
 Per avere l'istanza del DataStore su cui lavorare si
-utilizza la classe con visibilit\`a \emph{package} \co{ODF}. \\\\
-\subsection*{Attivit\`a svolte e dati trattati}
-Le classi DAO gestiscono i dati del sistema garantendone la persistenza e si
-occupano anche di implementare la parte logica di salvataggio, recupero e
-relazione dei dati. Nel caso di NetMus \`e un'attivit\`a molto delicata poich\'e il
-\underline{database} utilizzato \`e \underline{non-relazionale}.
+utilizza la classe con visibilit\`a \emph{package} \co{ODF}. \\
+Le classi di persitenza presenti in questo package, inoltre, implementano le
+interfacce \co{Serializable} e \co{Cacheable} poich\'e sono gestite anche come
+entit\`a della App Engine Memcache. 
+\subsubsection*{Businness logic interna} Nonostante il design pattern DAO non lo
+preveda vengono implementate alcune componenti di businness logic all'interno
+delle classi di persistenza. Questo va leggermente a scapito della riusabilit\`a
+ma viene giustificato dal fatto che la logica di businness qui trattata \`e
+molto semplice e strettamente legata all'implmentazione interna dei DAO. Una
+separazione delle cose genererebbe confusione all'interno del progetto
+raddoppiando i file di questo package. Vi \`e un'eccezione per quanto
+riguarda la classe \co{MusicLibrary} che \`e stata
+progettata come vero e proprio ``businnes object'' ed \`e la causa
+dell'incongruenza con il pattern DAO. Ci \`e estremamente utile per\`o per
+alleggerire il numero di campi dati e metodi da \co{UserAccount} e mantiene
+dunque questa natura ibrida tra classe di persistenza e businness object.
+
+\subsection*{Attivit\`a svolte e dati trattati} Le classi DAO
+gestiscono i dati del sistema garantendone la persistenza e si occupano anche di implementare la parte logica di salvataggio, recupero e
+relazione dei dati con utilizzo della Memcache. Nel caso di NetMus \`e
+un'attivit\`a molto delicata poich\'e il \underline{database} utilizzato \`e \underline{non-relazionale}.
 
 \subsection{Classe ODF (Singleton)}
 \subsubsection*{Requisiti obbligatori soddisfatti}
@@ -2878,10 +2923,15 @@ informazioni relative ad un utente cos\`i come viene salvato all'interno del
 Datastore. La classe \`e implementata come \underline{POJO} poich\'e
 twig-persist lo supporta senza bisogno di configurazioni aggiuntive. Vengono usate solamente
 le annotazioni \emph{@Key} e \emph{@Index} per gestire l'indicizzazione
-degli oggetti nel datastore.
-\subsubsection*{Attivit\`a svolte e dati
-trattati} Gestisce la logica di persistenza di tutti i dati relativi ad un
-utente del sistema NetMus.
+degli oggetti nel datastore. La sua funzione di \co{load} \`e particolarmente
+importante poich\'e carica dalla cache o dal Datastore tutte le informazioni
+rigurdanti l'utente ed il suo catalogo. Estende le interfacce \co{Serializable}
+e \co{Cacheable} per gestirne la scrittura e la
+lettura in Memcache.
+\subsubsection*{Attivit\`a svolte e dati trattati} Gestisce
+la logica di persistenza di tutti i dati relativi ad un utente del sistema
+NetMus. Gestisce inoltre alcuni elementi di businness logic strettamente legati
+a questa entità come la ricerca di particolari utenti all'interno del Datastore.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -2892,7 +2942,7 @@ utente del sistema NetMus.
 \hline
 \endfoot
 \endlastfoot
- - user: String \emph{@Key} & Rappresenta il nome di login unico
+ - user: String \emph{@Id} & Rappresenta il nome di login unico
  dell'utente e nello stesso tempo la sua e-mail (valida). Viene
  impiegato come chiave dell'entit\`a nel DataStore.\\\hline
  - password\_hash: String & Contiene l'hash della password dell'utente ottenuto
@@ -2905,7 +2955,6 @@ utente del sistema NetMus.
  - nationality: String & Nazione di provenienza dell'utente.\\\hline
  - about\_me: String \emph{@Type(Text.class)} & Informazioni aggiuntive su
  di se inserite dall'utente.\\\hline
- - birth\_date: Date & Data di nascita dell'utente. \\\hline
  - last\_session\_id: String \emph{@Index} & Codice identificativo dell'ultima
  sessione di autenticazione dell'utente. Campo necessario per l'utilizzo dei
  cookies per mantenere la sessione anche quando viene chiuso il browser.\\\hline
@@ -2932,9 +2981,11 @@ utente del sistema NetMus.
  + store() & Inserisce nel database per la prima volta l'utente. Se
  esiste gi\`a un utente con lo stesso id lancia un'eccezione di tipo
  \co{IllegalStateException} \\\hline
- + update() & Aggiorna o inserisce i dati dell'utente nel DataStore.\\\hline
- + load(in String): UserAccount
- \emph{static}& Cerca nel database e restituisce tutti i dati relativi ad un username/e-mail dato come input. \\\hline
+ + update() & Aggiorna o inserisce i dati dell'utente nel DataStore e
+ nella Memcache.\\\hline
+  + load(in String): UserAccount
+ \emph{static}& Cerca nella Memcache e successivamente nel database e
+ restituisce tutti i dati relativi ad un username/e-mail dato come input. \\\hline 
  + deleteUser(in UserAccount) \emph{static} & Rimuove completamente dal database
  l'utente dato in input. Le canzoni relative a quell'utente vengono per\`o
  mantenute per non perdere informazioni importanti. \\\hline
@@ -2947,6 +2998,9 @@ contenente tutte le informazioni riguardanti l'utente.\\\hline
  + findSessionUser(in String): UserAccount \emph{static} & Cerca nel database e
  ritorna i dati relativi ad un utente che come lastSessionId ha l'id si sessione
  HTTP dato in input.\\\hline
+ + findRelatedUsers(): List\textless String\textgreater & Ritorna la lista (con
+ un massimo di 20 utenti) degli utenti che hanno lo stesso artista preferito
+ dell'utente.\\\hline
  + cacheableMethods() & Implementazione adeguata dei metodi ereditati
  dall'interfaccia \co{Cacheable}.\\\hline
  + getters() & Tutti gli attributi privati di questa
@@ -2977,16 +3031,21 @@ contenente tutte le informazioni riguardanti l'utente.\\\hline
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} \co{MusicLibrary}
 contiene tutte le informazioni relative ad un catalogo multimediale, ovvero
-il proprietario e la lista delle canzoni. La funzione principale per\`o \`e
-quella di fornire dei servizi comodi ed efficienti per la gestione del catalogo
+il proprietario, la lista delle canzoni, la lista delle playlist ed alcuni dati
+statistici. La funzione principale per\`o \`e quella di fornire dei servizi comodi ed efficienti per la gestione del catalogo
 stesso e le entit\`a interne ad esso associate.\\
 La lista di brani \`e mantenuta
-come lista di codici identificativi (strighe) per una questione di efficienza
-con twig-persist.
-\subsubsection*{Attivit\`a svolte e dati trattati}
-Gestisce la logica di persistenza e le procedure di reperimento delle
-informazioni di tutti i dati relativi ad un catalogo multimediale del sistema
-NetMus.
+come mappa di codici identificativi (strighe) e punteggio associato
+dall'utente alla canzone. Questo grantisce un'ottima efficenza grazie alla
+conversione della mappa nel Datastore da parte del framework twig-persist.\\
+Estende le interfacce \co{Serializable}
+e \co{Cacheable} per gestirne la scrittura e la
+lettura in Memcache.
+\subsubsection*{Attivit\`a svolte e dati trattati} Gestisce la logica di
+persistenza e le procedure di reperimento delle informazioni di tutti i dati
+relativi ad un catalogo multimediale del sistema NetMus. Le attivit\`a svolte da
+questa classe sono quindi moltissime tanto che potrebbe essere considerata una
+classe di businness logic piuttosto che una classe di persistenza.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -2997,27 +3056,28 @@ NetMus.
 \hline
 \endfoot
 \endlastfoot
- - owner: UserAccount \emph{@Id @Parent} & L'utente a cui \`e associata
- questa libreria. \\\hline
- - song\_list: List\textless SongWithRating\textgreater \emph{@Index} & Lista
- ordinata delle canzoni con punteggio che fanno parte del catalogo.\\\hline
- - num\_songs: int & Numero delle canzoni presenti nel catalogo, viene
- incrementato e decrementato nei metodi di inserimento e rimozione delle
- canzoni.\\\hline 
- - preferred\_artist: String & Nome dell'artista pi\`u ricorrente nelle
- canzoni del catalogo.\\\hline 
- - preferred\_genre: String & Genere pi\`u ricorrente nelle
- canzoni del catalogo.\\\hline
- - playlists: List\textless Playlist\textgreater  \emph{@Index} & Lista
+ - id: String \emph{@Id} & Id univoco della libreria, \`e generato a partire
+ dall'utente che la possiede. \\\hline
+ - owner: UserAccount \emph{@Id @Parent} & L'utente
+ a cui \`e associata questa libreria. \\\hline
+ - song\_list: Map\textless Striing, String\textgreater & Mappa che 
+ contiene le canzoni con punteggio che fanno parte del catalogo. Il
+ punteggio \`e salvato come stringa poich\'e la conversione di twig non
+ supporta gli interi.\\\hline
+ - preferred\_artist: String \emph{@Index} & Nome dell'artista pi\`u ricorrente
+ nelle canzoni del catalogo.\\\hline 
+ - most\_popular\_song: String \emph{@Index} & Canzone, o la prima delle, che
+ l'utente ha valutato meglio.\\\hline 
+ - most\_popular\_song\_for\_this\_user: String \emph{@Index} & Canzone, o la
+ prima delle, che \`e stata valutata meglio tra tutti gli utenti di Netmus che la
+ condividono.\\\hline 
+ - playlists: List\textless Playlist\textgreater \emph{@Index} & Lista
  contenente tutte le playlist create per questo catalogo musicale.\\\hline
  - classe Playlist \emph{static} & Classe interna che rappresenta una sequenza
  di canzoni ordinate e fornisce i metodi per le operazioni basilari come
  la creazione, l'aggiornamento e la cancellazione di una playlist. Ogni oggetto
- di questa classe ha un nome che fa da chiave univoca ed una lista di canzoni
- non necessariamente diverse tra loro. \\\hline
- - classe SongWithRating \emph{static} & Classe interna che rappresenta l'id di
- un brano associato ad un voto che l'utente ha assegnato a quel brano. La
- libreria musicale di ogni utente \`e composta da una lista di queste entit\`a.
+ di questa classe ha un id univoco, un nome ed una
+ lista di canzoni non necessariamente diverse tra loro. \\\hline
  
  \\\hline
 \caption{Campi dati di MusicLibrary}
@@ -3035,17 +3095,15 @@ NetMus.
  + store() & Inserisce nel database per la prima volta la libreria musicale. Se
  esiste gi\`a una libreria per quel dato utente utente lancia
  un'eccezione di tipo \co{IllegalStateException} \\\hline
- + update() & Aggiorna o inserisce i dati della libreria nel datastore.\\\hline
- \# deleteMusicLibrary(in MusicLibrary) \emph{static} & Rimuove completamente
- dal database la libreria data in input. Le canzoni relative a quella libraria
- vengono per\`o mantenute per non perdere informazioni importanti. \\\hline
- + toMusicLibrarySummaryDTO(): MusicLibrarySummaryDTO &
- Genera un oggetto \co{MusicLibrarySummaryDTO} contenente le informazioni
+ + update() & Aggiorna o inserisce i dati della libreria nel datastore
+ e nella Memcache.\\\hline 
+ \# deleteMusicLibrary(in MusicLibrary) \emph{static}
+ & Rimuove completamente dal database la libreria data in input. Le canzoni
+ relative a quella libraria vengono per\`o mantenute per non perdere
+ informazioni importanti. \\\hline 
+ + toMusicLibraryDTO(): MusicLibrarySummaryDTO & Genera un oggetto
+ \co{MusicLibrarySummaryDTO} contenente le informazioni
  della libreria e quelle essenziali riguardanti le canzoni in essa
- contenute.\\\hline
- + toMusicLibraryDTO(): MusicLibraryDTO &
- Genera un oggetto \co{MusicLibraryDTO} contenente le informazioni
- della libreria e tutte quelle riguardanti le canzoni in essa
  contenute.\\\hline
  + addSong(in Song): boolean & Associa una canzone data in
  input alla libreria aggiungendola in coda. Ritorna \emph{true} se
@@ -3061,14 +3119,6 @@ NetMus.
  \`e unico, quindi sovrascrive la votazione precedente. Oltre ad aggiornare il
  voto del'utente in \co{MusicLibrary} questo metodo aggiorna anche la media
  totale dei voti in \co{Song}. \\\hline 
- - updatePreferredGenre() & Calcola e salva il nome del genere musicale pi\`u
- ricorrente nella libreria. Ha visibilit\`a privata poich\'e deve essere
- utilizzato solo quando necessario all'interno del metodo
- \emph{addSong()}.\\\hline 
- - updatePreferredArtist() & Calcola e salva il nome del artista pi\`u
- ricorrente nella libreria. Ha visibilit\`a privata poich\'e deve essere
- utilizzato solo quando necessario all'interno del metodo
- \emph{addSong()}.\\\hline  
  + addPlaylist(in String): boolean & Aggiunge una nuova playlist vuota
  alla libreria con il nome dato in input.\\\hline 
  + removePlaylist(in String): boolean & Rimuove dalla libreria e
@@ -3097,6 +3147,14 @@ NetMus.
  + setters() & Tutti gli attributi privati di questa classe hanno i relativi
  metodi \emph{set}. Tutti questi metodi si occupano anche di chiamare
  \co{update()} per aggiornare i dati del DataStore.\\\hline
+ - updatePreferredGenre() & Calcola e salva il nome del genere musicale pi\`u
+ ricorrente nella libreria. Ha visibilit\`a privata poich\'e deve essere
+ utilizzato solo quando necessario all'interno del metodo
+ \emph{addSong()}.\\\hline 
+ - updatePreferredArtist() & Calcola e salva il nome del artista pi\`u
+ ricorrente nella libreria. Ha visibilit\`a privata poich\'e deve essere
+ utilizzato solo quando necessario all'interno del metodo
+ \emph{addSong()}.\\\hline  
 \caption{Metodi di MusicLibrary}
 \end{longtable}
 
@@ -3125,16 +3183,21 @@ NetMus.
 \subsubsection*{Tipo, obiettivo e funzione del componente} Contiene le
 informazioni relative ad un brano musicale, in particolare ogni canzone \`e
 identificata da una chiave univoca composta dal titolo, un separatore di
-default, l'artista e l'album disposte nell'ordine titolo-sep-artista-sep-album.
-Dei brani condivisi da pi\`u utenti viene salvata una sola copia per ottimizzare
-la quantit\`a di spazio utilizzato.\\
+default, l'artista e l'album disposte nell'ordine titolo-sep-artista-sep-album
+e i tre campi sono puliti da ogni carattere diverso dalle lettere dell'alfabeto
+ed i numeri in modo da rendere la ricerca nel Datastore pi\`u efficace
+possibile. Dei brani condivisi da pi\`u utenti viene salvata una sola copia per ottimizzare
+la quantit\`a di spazio utilizzato.\\ 
 La logica di salvataggio delle canzoni implementata prevede che nei tag estratti
 sia presente almeno il titolo altrimenti il brano non verr\`a mantenuto nel
-DataStore. Al primo inserimento di una canzone questa classe si occupa anche di
-reperire informazioni aggiuntive dai servizi esterni YouTube e Last.fm quali link per copertine e video in streaming.
+Datastore. 
+Estende le interfacce \co{Serializable}
+e \co{Cacheable} per gestirne la scrittura e la
+lettura in Memcache.
 \subsubsection*{Attivit\`a svolte e dati
 trattati} Gestisce la logica di persistenza di tutti i dati relativi ad un brano musicale del
-sistema NetMus.
+sistema NetMus. Le attivit\`a previste in questa classe non sono molte ma sono
+fondamentali per la logica di funzionamento di Netmus.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -3147,28 +3210,20 @@ sistema NetMus.
 \endlastfoot
  - id: String \emph{@Id} & Chiave univoca della canzone, \`e composta dal
  titolo, il separatore di default e l'artista. \\\hline 
- - title: String \emph{@Index} & Titolo del brano.\\\hline 
- - artist: String \emph{@Index} & Nome della band o del cantante autore
+ - title: String & Titolo del brano.\\\hline 
+ - artist: String & Nome della band o del cantante autore
  della canzone.\\\hline 
- - genre: String \emph{@Index} & Genere musicale associato alla
+ - genre: String & Genere musicale associato alla
  canzone.\\\hline 
- - num\_owners: int \emph{@Index} & Numero di utenti che possiedono la
+ - num\_owners: int & Numero di utenti che possiedono la
  canzone nel proprio catalogo.\\\hline 
  - album:String & Album a cui appartiene il brano..\\\hline 
- - album\_cover: String &
- Link all' immagine della copertina dell'album a cui appartiene il
- brano.\\\hline 
  - year: String & Anno di pubblicazione del brano.\\\hline 
  - composer: String & Nome del compositore della canzone.\\\hline
  - track\_number: String & Numero della canzone all'interno dell'album.\\\hline
- - file: String & Nome del file da cui sono state estratte le
- informazioni del brano.\\\hline 
  - rating: double & Media di tutti i voti assegnati dagli utenti a questa
  canzone.\\\hline
  - num\_ratings: int & Numero di voti effettuati su questa canzone. \\\hline
- - youtube\_code: String & Codice del rispettivo video su YouTube.\\\hline
- - SEPARATOR: String \emph{static final default = '-vt.g-'} & Stringa
- di separazione necessaria nella creazione dell'\co{id} del brano.\\\hline
 \caption{Campi dati di Song}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -3181,12 +3236,18 @@ sistema NetMus.
 \hline
 \endfoot
 \endlastfoot
- + store() & Inserisce nel database per la prima volta la canzone. Se
- esiste gi\`a un brano con lo stesso \co{id} lancia
+ + store() & Inserisce nella Memcache e nel database per la prima volta la
+ canzone. Se esiste gi\`a un brano con lo stesso \co{id} lancia
  un'eccezione di tipo \co{IllegalStateException} \\\hline
- + update() & Aggiorna o inserisce i dati della canzone nel DataStore.\\\hline
- \# deleteSong(in Song) \emph{static} & Rimuove completamente dal
- database la canzone. \\\hline
+ + update() & Aggiorna o inserisce i dati della canzone nel DataStore e
+ nella Memcache.\\\hline 
+ \# deleteSong(in Song) \emph{static} & Rimuove
+ completamente dal database la canzone. \\\hline
+ + load(in String): Song & Carica dalla Memcache o dal Datastore
+ l'oggetto \co{Song} in cui id è dato in input.\\\hline
+ + loadFromDTO(in SongSummaryDTO): Song & Carica dalla Memcache o dal Datastore
+ l'oggetto \co{Song} le cui informazioni di base sono date in input con
+ un \co{SongSummaryDTO}.\\\hline
  + toSongSummaryDTO(): SongSummaryDTO &
  Genera un oggetto \co{SongSummaryDTO} contenente le informazioni
  essenziali del brano.\\\hline
@@ -3438,44 +3499,6 @@ questo \`e null, allora non \`e andata a buon fine l'autenticazione Google. Se
 invece \`e andata a buon fine viene associata all'utente la sessione corrente.
 \\\hline
 \caption{Metodi di LoginGoogleCallbackServlet}
-\end{longtable}
-
-
-\subsection{Classe PDFLoaderServlet}
-\subsubsection*{Requisiti obbligatori soddisfatti}
-\begin{itemize}
-  \item 
-\end{itemize}
-\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
-\begin{itemize}
-  \item
-\end{itemize}
-\subsubsection*{Tipo, obiettivo e funzione del componente}
-\subsubsection*{Attivit\`a svolte e dati
-trattati}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
-\caption{Campi dati di PDFLoaderServlet}
-\end{longtable}
-\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
-\hline
-\rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
-\hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
-\caption{Metodi di PDFLoaderServlet}
 \end{longtable}
 
 
@@ -4117,6 +4140,8 @@ Funge da contenitore per i dati richiesti di un utente.
 \hline
 \endfoot
 \endlastfoot
+ - user\_name: String & indrizzo e-mail valido e univoco dell'utente.\\\hline
+ - nick\_name: String & Nickname dell'utente.\\\hline
  - first\_name: String & Nome proprio dell'utente.\\\hline
  - last\_name: String & Cognome dell'utente.\\\hline
  - gender: char & Sesso, sono validi i valori 'F' (femmina) e 'M'
@@ -4124,11 +4149,6 @@ Funge da contenitore per i dati richiesti di un utente.
  - nationality: String & Nazione di provenienza dell'utente.\\\hline
  - about\_me: String & Informazioni aggiuntive su
  di se inserite dall'utente.\\\hline
- - birth\_date: Date & Data di nascita dell'utente. \\\hline
- - registration\_date: Date & Data di registrazione dell'utente.\\\hline
- - last\_login: Date & Data dell'ultimo accesso a NetMus.\\\hline
- - last\_import: Date & Data dell'ultimo inserimento di brani da parte
- dell'utente.\\\hline
 \caption{Campi dati di UserDTO}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -4230,6 +4250,11 @@ per esempio titolo ed autore.
  - title: String & Titolo del brano.\\\hline 
  - artist: String & Nome della band o del cantante autore. \\\hline
  - album: String & Nome dell'album. \\\hline
+ - rating: double & Rating generale della canzone rappresentato dalla media di
+ tutti i voti assegnati dagli utenti che la condividono \\\hline
+ - rating\_for\_this\_user: int & voto assegnato a questa canzone
+ dall'utente che possiede la libreria da cui \`e stato estratto questo
+ DTO.\\\hline
 \caption{Campi dati di SongDTO}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
@@ -4290,11 +4315,7 @@ identificativo del brano.
 - num\_owners: String & Numero di utenti che possiedono la
  canzone nel proprio catalogo.\\\hline
 - youtube\_code: String & Codice del rispettivo video su Youtube.\\\hline
-- rating: String & Media di tutti i voti assegnati dagli utenti a questa
- canzone.\\\hline
 - num\_ratings: String & Numero di voti effettuati su questa canzone.\\\hline
-- rating\_for\_this\_user: String & Rating assegnato a questa canzone
-dall'utente la cui libreria ha generato il DTO.\\\hline
 \caption{Campi dati di SongDTO}
 \end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
