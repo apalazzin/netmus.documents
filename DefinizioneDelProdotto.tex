@@ -15,7 +15,7 @@
 \newcommand{\distribuzione}{
 VT.G \\
 & Prof. Vardanega Tullio\\
-& Prof. Cardin Riccardo }  
+& Prof. Cardin Riccardo }
 
 \input{preambolo.tex}
 \usepackage{amsfonts}
@@ -3825,9 +3825,9 @@ Funzioni utili alle servlet per la gestione degli URL.
   \item C1FO-1.8.1 Esportazione PDF
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-  La classe \`e un singleton che ha lo scopo di fornire i metodi per la gestione 
-  (creazione, modifica, inserimento e rimozione) di documenti e di
-  account Google Docs.
+La classe \`e un singleton che ha lo scopo di fornire i metodi per la gestione 
+(creazione, modifica, inserimento e rimozione) di documenti e di
+account Google Docs.
   
    \subsubsection*{Attivit\`a svolte e dati
 trattati}
@@ -4610,14 +4610,36 @@ relativi metodi \emph{set}.\\\hline
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente}
-Questa semplice classe contiene i metodi statici necessari a validare con
-livello di sicurezza accettabile i dati inseriti dall'utente, si rende
-fondamentale nelle operazioni di autenticazione e registrazione.
-\subsubsection*{Attivit\`a svolte e dati trattati} Le stringhe che vengono
-trattate in questa classe sono rappresentate da password, username e indirizzi
-email. Per le prime due tipologie di informazione il controllo eseguito si
-limita alla lunghezza della stringa, per quanto riguarda gli indirizzi email,
-invece, viene verificata l'aderenza agli standard.
+Tutti le convenzioni riguardanti le stringhe con funzioni ben precise utilizzate
+su netmus vengono qui definite e sono quindi visibili all'intero sistema.
+Impostantissime sono i metodi di generazione degli id in cui sono
+racchiuse le regole di costruzione delle chiavi che identificano le varie
+entit\`a di Netmus. Questa classe contiene inoltre i metodi statici necessari a
+validare con livello di sicurezza accettabile i dati inseriti dall'utente, si
+rende fondamentale nelle operazioni di autenticazione e registrazione. 
+\subsubsection*{Attivit\`a svolte e dati trattati} Qui vengono gestite tutte le
+stringhe ricevute dai file caricati dagli utenti o gi\`a presenti in memoria su
+cui c'\`e bisogno di fare dei controlli o dei matching.
+Per quanto riguarda le
+funzionalit\`a legate al login, invece, Le stringhe che vengono trattate in
+questa classe sono rappresentate da password, username e indirizzi email. Per le
+prime due tipologie di informazione il controllo eseguito si limita alla
+lunghezza della stringa, per quanto riguarda gli indirizzi email, invece, viene
+verificata l'aderenza agli standard.
+\begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\hline
+\endfoot
+\endlastfoot
+ - SEPARATOR: String \emph{static final default= "-vtg-"} & Separatore
+ final che viene utilizzato nella generazione degli id.\\\hline
+\caption{Attributi di FieldVerifier}
+\end{longtable}
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
@@ -4628,13 +4650,22 @@ invece, viene verificata l'aderenza agli standard.
 \hline
 \endfoot
 \endlastfoot
+ + cleanString(in String): String \emph{static} & Converte la string in input in
+ una string pulita da ogni carattere diverso da lettere non accentate e numeri Ritrona
+ stringa vuota in caso di valore null.\\\hline
+ + generateAlbumId(in String,in String): String \emph{static} & Genera
+ l'id corrispondente ai dati dell'album dati in input.\\\hline
+ + generateSongId(in String,in String, in String): String \emph{static} & Genera
+ l'id corrispondente ai dati della canzone dati in input.\\\hline
+ + generatePlaylistId(in String,in String): String \emph{static} & Genera
+ l'id corrispondente ai dati della playlist dati in input.\\\hline
  + isValidNickname(in String): boolean \emph{static} & Verifica che la stringa
  in input sia lunga almeno 4 caratteri.\\\hline 
  + isValidPassword(in String): boolean \emph{static} & Verifica che la
  password (non ancora criptata) in input sia lunga almeno 4 caratteri.\\\hline
  + isValidEmail(in String): boolean \emph{static} & Verifica che l'email in
  input sia conforme agli standard.\\\hline
-\caption{Metodi di MusicLibraryDTO}
+\caption{Metodi di FieldVerifier}
 \end{longtable}
 
 
@@ -4662,7 +4693,7 @@ fondamentali presenti all'interno del package
 Il package \emph{shared.exception} raccoglie le classi che trattano
 le eccezioni che posso essere lanciate dal sistema NetMus. Le classi eccezione
 sono opportunamente gerarchizzate.
-\subsection*{Attivit\`a svolte e dati trattati}
+\subsection*{Attivitca svolte e dati trattati}
 Fornisce tutte le possibili eccezioni che possono essere lanciate dal sistema
 NetMus.
 
