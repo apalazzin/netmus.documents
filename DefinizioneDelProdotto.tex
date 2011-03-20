@@ -2432,6 +2432,22 @@ Al termine di tale procedura, vengono aggiornati i dati statistici
 dell'utente, e vengono sincronizzati nel client.
 
 \newpage
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/sequences.png}
+\caption{Diagramma UML di sequenza che spiega come vengono memorizzati i brani
+in entrata da applet.}
+\end{figure}
+
+Questo diagramma mostra nello specifico come vengono memorizzati nel DataStore i
+brani in arrivo da applet.\\
+Si pu\`o vedere come prima di tutto venga elaborata la singola canzone in base
+al contenuto del DataStore e poi venga associata alla libreria dell'utente.\\\\
+Il sendUserNewMusic viene chiamato ogni massimo 30 SongDTO da elaborare.
+Altrimenti potrebbero esserci problemi di Timeout delle GWT-RPC.
+
+
+\newpage
 \section{Package client.event}
 \subsection*{Requisiti obbligatori soddisfatti}
 \begin{itemize}
