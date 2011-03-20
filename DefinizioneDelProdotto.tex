@@ -1958,11 +1958,10 @@ e GWT oppure l'utilizzo di \underline{JSNI} (JavaScript Native Interface) che
 sostanzialmente ci permette di effettuare chiamate di metodi da JavaScript al
 codice \underline{Java} e viceversa: abbiamo utilizzato quest'ultima opzione.
 \subsection*{Meccanismo di lavoro del componente}
-Una volta ricevuta una richiesta da parte della applet, verr\`a gestita da un
-Service che si occuper\`a di elaborare i dati col supporto del server, per poi
-notificare all'utente l'avvenuta estrazione e fargliela valutare e accettare.
-Una volta accettata la lista brani, si richiede la memorizzazione nel DataStore
-tramite \co{SongsService}.\\
+Una volta ricevuta una richiesta da parte della applet, verr\`a creata
+una lista di \co{SongDTO} dalla stringa XML ricevuta che verr\`a poi inviata al
+server tramite \co{LibraryService} il quale elaborer\`a i dati, memorizzandoli
+nel DataStore ed associandoli all'utente.\\
 In particolare, lo scambio delle informazioni dei brani tra applet e questo
 package avviene utilizzando \underline{XML}, permettendo quindi di contenere
 tutte le informazioni necessarie all'interno di un'unica stringa, in maniera da
@@ -2152,8 +2151,11 @@ view e applet di conseguenza.\\\hline
 \# showChooser() & Indica all'applet di effettuare una scansione
 manuale.\\\hline 
 \# sendStarts() & Inizializza l'applet.\\\hline 
-\# translateXML(in String) & Dall'XML ricevuto dall'applet estrae le
-canzoni e le invia al server.\\\hline
+\# translateXML(in String) & Dall'XML ricevuto, fa partire la catena di chiamate
+a sendMusic( .\\\hline
+- sendMusic(in String) & Questo metodo si occupa di mandare al server le SongDTO
+grazie a LibraryService, una volta estratte e create dall'XML, il tutto 30
+brani alla volta per evitare problemi di timeout delle GWT-RPC.\\\hline
 \caption{Metodi di AppletBar}
 \end{longtable}
 
@@ -2295,7 +2297,7 @@ In questo diagramma viene spiegato il procedimento logico per andare ad
 elaborare i brani una volta estratti dall'applet di estrazione e passati ad
 \co{AppletBar}.\\\\
 Quando arriva la stringa dall'applet contenente il codice XML di tutti i brani
-estratti, viene elaborata 30 brani alla volta creando liste di SongDTO.
+estratti, vengono elaborati 30 brani alla volta creando liste di SongDTO.
 Queste vengono inviate al server, che si occuper\`a di controllare per ogni
 SongDTO se esiste un Song che gi\`a lo rappresenta nel DataStore. Se non esiste
 lo crea. Una volta confermata l'esistenza di tale Song nel DataStore viene
