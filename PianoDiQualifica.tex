@@ -1079,131 +1079,163 @@ Il collaudo consister\`a in due fasi:
 Una volta che il prodotto sar\`a completato, tutti i requisiti software dovranno
 essere stati soddisfatti.
 \\\\
-Viene presentato ora una descrizione delle prove che si intendono proporre al
-committente per il collaudo del prodotto. \\
-La validazione delle funzionalit\`a soddisfatte dai requisiti seguir\`a le
-metodologie qui proposte col prodotto ultimato.
+Per il collaudo formale saranno necessari:
+\begin{itemize}
+  \item un computer dove sia installato un sistema operativo scelto tra quelli
+  pi\`u diffusi (Linux, MacOSX, Windows) e aggiornato all'ultima versione, un
+  browser scelto tra quelli pi\`u diffusi (Firefox, Chrome, Safari) e aggiornato
+  all'ultima versione, la JVM aggiornata all'ultima versione;
+  \item una connessione internet.
+\end{itemize}
+Viene presentato ora una tabella contenente le descrizioni e gli esiti attesi
+delle prove sequenziali che si intendono proporre al committente per il collaudo del
+prodotto.
+\\
 
 \begin{footnotesize}
 \centering
-\begin{longtable}{|p{5.7cm}|p{10.3cm}|}
+\begin{longtable}{|p{1.5cm}|p{6cm}|p{8cm}|}
 \hline
-\rowcolor{orange} \bo{Requisito}  & \bo{Descrizione prova} \\
+\rowcolor{orange} \bo{Numero} & \bo{Requisito}  & \bo{Prova} \\
 \hline
 \endhead
 \hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
+\multicolumn{3}{|c|}{\textit{continua alla pagina successiva}}\\
 \hline
 \endfoot
-\endlastfoot
+\endlastfoot 
+  
+  \bo{1} & \bo{C1FN-1.2}: Registrazione & \bo{Descrizione}: il Sistema Netmus
+  offre la possibilit\`a di registrarsi qualora non si sia iscritti. Basta cliccare sulla pagina
+  di login la voce ``Registrati su NetMus''. Qui \`e necessario inserire
+  un'email valida e la password. \\&& \bo{Esito}: ci si aspetta che inserendo
+  dei dati corretti, l'utente venga registrato al sistema.
+  \\
 
-  \bo{C1FO-1.2.1}: Pagina di Login &
-  Per validare tale requisito basta solamente accedere alla pagina
-  iniziale di NetMus. Qui verr\`a presentata da subito l'interfaccia per il
-  login del sistema NetMus. I Sistemi di Login offerti sono 2: NetMus Login e
-  Google Login, oltre all'interfaccia di registrazione a NetMus. \\&
+  \hline \bo{2} & \bo{C1FO-1.2.1}: Pagina di Login & \bo{Descrizione}: per
+  validare tale requisito basta solamente accedere alla pagina iniziale di
+  NetMus. Qui verr\`a presentata da subito l'interfaccia per il login del
+  sistema NetMus. I Sistemi di Login offerti sono 2: NetMus Login e Google
+  Login, oltre all'interfaccia di registrazione a NetMus. \\&& \bo{Esito}: ci si
+  aspetta che inserendo dei dati corretti di un utente gi\`a registrato, si
+  possa accedere al sistema.
   \\
   
-  \hline
-  \bo{C1FN-1.2}: Registrazione &
-  Il Sistema Netmus offre la possibilit\`a di registrarsi qualora non si sia
-  iscritti. Basta cliccare sulla pagina di login la voce ``Sign up to
-  NetMus''. Qui \`e necessario inserire un'email valida e la password. \\&
-  \\
-  
-  \hline
-  \bo{C1FN-1.1, C1FN-1.1.1, C1FN-1.1.2, C1FD-1.1.4, C1FO-1.3.4,
-  C1FD-1.5}:
-  Grafica simile ad iTunes, Elenco brani, Menu laterali, Player
-  YouTube, Ranking brani, Riproduzione tracce in streaming &
-  Effettuare  l'accesso a NetMus per validare questo requisito. La ProfileView
-  ci mostra da subito la grafica del sistema, con menu laterali e l'elenco dei brani della libreria dell'utente. Inoltre il player di youtube
-  \`e gi\`a presente nella pagina, basta selezionare con un click la canzone che
-  si vuole ascoltare e successivamente premere sul tasto ``Play'' per la
-  riproduzione e la visualizzazione del video. A fianco della finestra in cui
-  compare la riproduzione della canzone in streaming \`e presente la voce ``dai
-  il tuo voto'' e cliccando sul numero di stelline che si desidera
-  assegnare alla canzone  \`e possibile esprimere un giudizio. \\&
-  \\
-  
-  \hline
-  \bo{C1FN-1.1.3}: Informazioni dettagliate brano &
-  Dalla pagina di visualizzazione brani \`e possibile accedere alle
-  informazioni dettagliate su un brano semplicemente con un doppio click sul brano
-  desiderato, si aprir\`a una nuova finestrella con le informazioni del brano e
-  la relativa copertina e voto. \\&
-  \\
-  
-  \hline
-  \bo{C1FD-1.3.1, C1FD-1.3.2}: Modifica informazioni brano,
-  Cancellazione brano &
-  Dalla view del Profilo, selezionando una canzone e successivamente cliccando
-  sul tasto ``Edit Songs'' sar\`a possibile modificare le informazioni di un
-  brano, oppure cancellare il brano stesso. \\&
-  \\
-  
-  \hline
-  \bo{C1FO-1.3.3}: Creazione playlist &
-  Nel menu laterale a sinistra, alla voce playlist saranno elencate le
-  playlist dell'utente. Cliccando il tasto ``+'' \`e possibile creare una nuova playlist
-  in cui inserire i brani che si desidera avere nella suddetta playlist. \\&
-  \\
-  
-  \hline
-  \bo{C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2}: Gestione profilo personale,
-  Modifica informazioni personali, Cambio password &
-  Cliccando il tasto ``account'' sulla
-  view del profilo \`e possibile inserire informazioni aggiuntive riguardanti il proprio profilo, oppure modificare i
-  propri dati, compreso l'inserimento di una nuova password. \\&
-  \\
-  
-  \hline
-  \bo{C1FO-1.8.1}: Esportazione pdf &
-  Per esportare la propria libreria musicale in pdf basta cliccare
-  semplicemente sul tasto ``esporta pdf'' presente in basso a destra e il pdf verr\`a creato
-  automaticamente, permettendo il salvataggio nella directory che si preferisce.
-  \\&
-  \\
-  
-  \hline
-  \bo{C1FD-1.8}: Elaborazione dati utente &
-  Per visualizzare statistiche e altre svariate informazioni sulla propria
-  libreria basta cliccare sul tasto in basso a sinistra ``statistiche'', si aprir\`a una
-  nuova finestra con elencate tutte le informazioni statistiche. \\&
-  \\
-  
-  \hline
-  \bo{C2FN1, C2FN-1.1, C2FN-1.2, C2FN-1.4, C2FN-1.5, C2FD-2, C2FN-3,
-  C2FN-3.1}:
-  Recupero delle informazioni, Recupero automatico, Recupero
-  manuale, Informazioni dall'hard disk, File ignorati, Aggiornamento e
-  completamento informazioni, Comunicazione con C1, Invio delle informazioni &
-  A fianco della libreria personale \`e presenta una barra ``Device Scanner
-  BAR'' a scomparsa. Basta passarci sopra con il cursore per visualizzarla. Tale
-  barra implementa la componente di recupero delle informazioni. 
-  Inserendo un qualunque dispositivo di archiviazione in una porta
-  USB del PC, la componente di recupero lo individua e ne analizza il
+  \hline \bo{3} & \bo{C2FN1, C2FN-1.1, C2FN-1.2, C2FN-1.4, C2FN-1.5, C2FN-3,
+  C2FN-3.1}: Recupero delle informazioni, Recupero automatico, Recupero manuale,
+  Informazioni dall'hard disk, File ignorati, Comunicazione con C1, Invio delle
+  informazioni & \bo{Descrizione}: a fianco della libreria personale \`e
+  presenta una barra ``Device Scanner BAR'' a comparsa. Basta passarci sopra con
+  il cursore per visualizzarla. Tale barra implementa la componente di recupero
+  delle informazioni. Inserendo un qualunque dispositivo di archiviazione in una
+  porta USB del PC, la componente di recupero lo individua e ne analizza il
   contenuto, estraendo tutte le informazioni dei file mp3 e monitorando il
-  progresso dell'operazione che diventa visibile all'utente. La
-  scansione pu\`o essere fatta anche manualmente cliccando sul tasto ``Scan
-  Folder'' e selezionando una directory qualunque del PC. Le informazioni vengono automaticamente inviate alla 
-  componente di persistenza che li inserisce nel catalogo. Se le canzoni sono
-  gi\`a presenti nel database queste vengono inserite solamente nel catalogo
-  dell'utente e, qualora le informazioni fossero incomplete, vengono completate
-  con quelle della medesima canzone gi\`a presente nel catalogo. La funzione di
-  completamento delle info oltre a controllare nel proprio database, fa
-  riferimento anche a servizi esterni, anche per la ricerca delle copertine
-  degli album. \`E possibile anche disabilitare la lettura automatica dei
-  dispositivi di massa inseriti cliccando la voce ``disable'' sempre nella
-  Device Scanner BAR. \\&
+  progresso dell'operazione che diventa visibile all'utente. La scansione pu\`o
+  essere fatta anche manualmente cliccando sul tasto ``Scan Folder'' e
+  selezionando una directory qualunque del PC. Le informazioni vengono
+  automaticamente inviate alla componente di persistenza che li inserisce nel
+  catalogo. Se le canzoni sono gi\`a presenti nel database queste vengono
+  inserite solamente nel catalogo dell'utente e, qualora le informazioni fossero
+  incomplete, vengono completate con quelle della medesima canzone gi\`a
+  presente nel catalogo. La funzione di completamento delle info oltre a
+  controllare nel proprio database, fa riferimento anche a servizi esterni,
+  anche per la ricerca delle copertine degli album. \`E possibile anche
+  disabilitare la lettura automatica dei dispositivi di massa inseriti cliccando
+  la voce ``disable'' sempre nella Device Scanner BAR. Tutti i file mp3 che non
+  hanno tag contenenti informazioni della canzone, verranno ignorati e non
+  inseriti nel proprio catalogo. \\&& \bo{Esito}: ci si aspetta che in maniera
+  automatica collegando una chiavetta USB al computer, oppure in maniera manuale
+  selezionando una directory, tutti i file mp3 (che hanno dei tag contenenti
+  informazioni sul brano) vengano aggiunti al catalogo utente.
+  \\
+  
+  \hline \bo{4} & \bo{C1FN-1.1, C1FN-1.1.1, C1FN-1.1.2, C1FD-1.1.4, C1FO-1.3.4,
+  C1FD-1.5}: Grafica simile ad iTunes, Elenco brani, Menu laterali, Player
+  YouTube, Ranking brani, Riproduzione tracce in streaming & \bo{Descrizione}:
+  effettuare l'accesso a NetMus per validare questo requisito. La ProfileView ci
+  mostra da subito la grafica del sistema, con menu laterali e l'elenco dei
+  brani della libreria dell'utente. Inoltre il player di youtube \`e gi\`a
+  presente nella pagina, basta selezionare con un click la canzone che si vuole
+  ascoltare e successivamente premere sul tasto ``Play'' per la riproduzione e
+  la visualizzazione del video. A fianco della finestra in cui compare la
+  riproduzione della canzone in streaming \`e presente la voce ``Il tuo voto'' e
+  cliccando sul numero di stelline che si desidera assegnare alla canzone  \`e
+  possibile esprimere un giudizio. \\&& \bo{Esito}: ci si aspetta che l'ambiente
+  sia simile ad iTunes, che siano presenti dei menu laterali e un player
+  YouTube. Successivamente selezionando una canzone e il bottone ``Play''
+  dovrebbe venire caricata in streaming da YouTube. Inoltre assegnando un voto
+  alla canzone, questo giudizio dovrebbe essere salvato nel sistema.
+  \\
+  
+  \hline \bo{5} & \bo{C1FN-1.1.3}: Informazioni dettagliate brano &
+  \bo{Descrizione}: dalla pagina di visualizzazione brani \`e possibile accedere
+  alle informazioni dettagliate su un brano semplicemente con un doppio click
+  sul brano desiderato oppure selezionando la canzone e successivamente il
+  bottone ``Edit Song'' in alto a destra, si aprir\`a una nuova finestra a
+  destra con le informazioni del brano e la relativa copertina e voto. \\&&
+  \bo{Esito}: ci si aspetta che facendo doppio click su una canzone oppure
+  selezionandola e cliccando il bottone  ``Edit Song'', compaia una finestra con
+  le informazioni dettagliate della canzone.
+  \\
+  
+  \hline \bo{6} & \bo{C1FD-1.3.1}: Cancellazione brano & \bo{Descrizione}: dalla
+  view del Profilo, selezionando una canzone e successivamente cliccando sul
+  tasto ``Edit Songs'' oppure facendo doppio click sulla canzone comparir\`a una
+  finestra con i dettagli sulla canzone. Qui \`e presente un tasto per
+  cancellare il brano dal proprio catalogo. \\&& \bo{Esito}: ci si aspetta che
+  entrando nella finestra dei dettagli di una canzone e cliccando il tasto per
+  eliminarla, la canzone venga eliminita dal proprio catalogo dopo aver dato
+  conferma alla cancellazione.
+  \\
+  
+  \hline \bo{7} & \bo{C1FD-1.3, C1FO-1.3.3}: Personalizzazione del catalogo,
+  Creazione playlist & \bo{Descrizione}: nel menu laterale a sinistra, alla voce
+  playlist saranno elencate le playlist dell'utente. Cliccando il tasto ``+''
+  \`e possibile creare una nuova playlist in cui inserire i brani che si
+  desidera avere nella suddetta playlist. \\&& \bo{Esito}: ci si aspetta che
+  cliccando il tasto ``+'' nella barra laterale a sinistra vicino alla voce
+  ``Playlist'' e inserendo un nome alla playlist, questa venga creata e sia
+  visibile.
+  \\
+  
+  \hline \bo{8} & \bo{C1FN-1.4, C1FN-1.4.1, C1FN-1.4.2, C1FN-1.4.3}: Gestione
+  profilo personale, Modifica informazioni personali, Cambio password,
+  Cancellazione del proprio account & \bo{Descrizione}: cliccando il tasto
+  ``Account'' sulla view del profilo \`e possibile inserire informazioni
+  aggiuntive riguardanti il proprio profilo, oppure modificare i propri dati,
+  compreso l'inserimento di una nuova password e la cancellazione del proprio
+  account. \\&& \bo{Esito}: ci si aspetta che cliccando il tasto ``Account''
+  compaia una finestra con le informazioni del proprio account, e qui sia
+  possibile aggiungere o modificare le proprie informazioni, cambiare password e
+  cancellare tutto il proprio profile dal sistema.
+  \\
+  
+  \hline \bo{9} & \bo{C1FO-1.8.1}: Esportazione pdf & \bo{Descrizione}: questo
+  requisito ha subito un cambiamento perch\'e le API di Google Docs per
+  l'esportazione in PDF avevano dei problemi in quanto per cataloghi troppo
+  grandi producevano dei tempi di elaborazione enormi e andava in timeout la
+  richiesta. Quindi si \`e deciso di cambiare il formato di esportazione e di
+  utilizzare un documento condiviso prodotto da Google Docs. Per esportare la
+  propria libreria musicale in un documento Google Docs basta cliccare
+  semplicemente sul tasto ``Esporta Lista'' presente in basso a destra e il
+  documento verr\`a creato automaticamente.  \\&& \bo{Esito}: ci si aspetta che
+  cliccando il tasto ``Esporta Lista'' venga creato un documento Google Docs
+  contenente la propria libreria musicale.
+  \\
+  
+  \hline \bo{10} & \bo{C1FD-1.8}: Elaborazione dati utente & \bo{Descrizione}:
+  per visualizzare statistiche e altre svariate informazioni sulla propria
+  libreria basta cliccare sul tasto in basso a sinistra ``Statistiche'', si
+  aprir\`a una nuova finestra con elencate delle informazioni statistiche
+  del proprio profilo. \\&& \bo{Esito}: ci si aspetta che cliccando il tasto
+  ``Statistiche'' compaia una finestra con elencate delle informazioni statistiche
+  del proprio profilo.
   \\
   
 \hline
-\caption{Proposta del collaudo del prodotto}
+\caption{Proposta delle prove di collaudo del prodotto}
 \end{longtable}
 \end{footnotesize}
-
-
 
 
 \listoftables
@@ -2492,7 +2524,8 @@ soddisfare le richieste del committente sono state apportate le seguenti modific
   ``testi\_vari'' in pag. 56, controllato la fig. 4.7 e deciso di
   lasciare invariata la componente \emph{server} perch\'e considerata gi\`a
   abbastanza riusabile, indicato il package della classe Exception
-  in pag. 113, -------(VIEW GIOVI)-------;
+  in pag. 113, aggiunti nuovi diagrammi di sequenza/attivit\`a, 
+  -------(VIEW GIOVI)-------;
   \item Manuale Utente: tolti i riferimenti a documento di
   progettazione/sviluppo, aggiunta descrizione per accedere al form di
   registrazione, aggiunta di un'individuazione grafica per le informazioni
