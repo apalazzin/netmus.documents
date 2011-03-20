@@ -3746,6 +3746,34 @@ DocumentListEntry & Crea un nuovo documento in base hai parametri titolo e conte
 \caption{Metodi di GdataManager}
 \end{longtable}
 
+\newpage
+\subsection{Dettaglio su creazione Google Docs del catalogo}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=17cm]{img/DP/export_gdocs.png}
+\caption{Diagramma UML di sequenza che descrive la procedura di creazione del
+documento condiviso su Google Docs e sua visualizzazione.}
+\end{figure}
+
+Quando un utente clicca su \bo{Genera Doc} parte la richiesta a
+\co{ProfileActivity} che a sua volta manda una RPC a \co{LibraryService}, che fa
+partire su server la creazione del documento.\\\\
+Viene inizializzato il VelocityEngineManager che si occuper\`a della creazione
+del testo formatto in maniera opportuna, utile alla creazione del Docs.\\\\
+Viene estratta la libreria dell'utente che la richiede, generata una lista
+ordinata contenente tutti i brani della libreria e viene mandata in elaborazione
+come VelocityContext. Il testo generato poi sar\`a necessario per creare il vero
+e proprio documento online.\\\\
+Una volta generato questo testo viene appunto importato dentro un file di Google
+Docs, che verr\`a creato in una cartella pubblica in maniera da far accedere a
+tale documento solamente chi ne possiede il link, anche senza
+autenticazione.\\\\
+L'indirizzo a tale documento poi verr\`a utilizzato, al ritorno della RPC, per
+mostrarlo su una nuova finestra del browser del client.\\
+Alcuni browser possono limitare tale apertura per eventuali blocchi popup
+impostati, baster\`a in quel caso dare il permesso a tali popup.
+
 
 \newpage
 \section{Package server.utils.cache} % LASCIARE WARNING
