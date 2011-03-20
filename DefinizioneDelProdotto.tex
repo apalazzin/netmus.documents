@@ -1,4 +1,4 @@
-	\newcommand{\nomedoc}{Definizione Del Prodotto}
+\newcommand{\nomedoc}{Definizione Del Prodotto}
 \newcommand{\versione}{2.0}
 \newcommand{\versioneglossario}{4.0}
 \newcommand{\versioneAR}{3.0}
@@ -6,7 +6,7 @@
 \newcommand{\versionespecifica}{3.0}
 \newcommand{\nomefile}{DefinizioneDelProdotto-\versione.pdf}
 \newcommand{\datacreazione}{3 Febbraio 2011}
-\newcommand{\datamodifica}{14 Marzo 2011}
+\newcommand{\datamodifica}{20 Marzo 2011}
 \newcommand{\stato}{formale}
 \newcommand{\uso}{esterno}
 \newcommand{\redazione}{Lovato Daniele, Daminato Simone}
@@ -51,19 +51,23 @@ relativa codifica, delle quali verr\`a allegato il codice sorgente.
 \endhead
 \hline
 \endfoot
-18/03/2011 & 1.22 & Palazzin Alberto & Aggiunta del requisito C1FD-1.3.2
+20/03/2011 & 2.0 & Caputo Cosimo & Validazione per consegna RA.\\
+\hline
+19/03/2011 & 1.23 & Daminato Simone & Verificato l'intero documento.\\
+\hline
+18/03/2011 & 1.22 & Mandolo Andrea & Aggiunta del requisito C1FD-1.3.2
 alla sezione ``Requisiti non tracciati'' e rimozione dalla stessa del
 requisito C1FD-1.5.\\\hline 
 18/03/2011 & 1.21 & Palazzin Alberto & Verifica e aggiornamento del
 tracciamento in appendice A.\\\hline 
-17/03/2011 & 1.20 & Caputo Cosimo & Inserimento
+17/03/2011 & 1.20 & Lovato Daniele & Inserimento
 delle classi legate all'esportazione pdf.\\
 \hline
 16/03/2011 & 1.19 & Mandolo Andrea & Inserito diagramma UML di attivit\`a
 su elaborazione dei dati in entrata dall'applet.\\
 \hline
 16/03/2011 & 1.18 & Baron Federico & Aggiornamento generale del package
-\emph{persistent} con inserimento della sottosezione ``Business login
+\emph{persistent} con inserimento della sottosezione ``Businness login
 interna''.\\\hline
 15/03/2011 & 1.17 & Trezzi Giovanni & Aggiornamento generale del package
 \emph{ui}.\\\hline
@@ -85,13 +89,13 @@ riguardanti le relazioni con altre componenti poich\'e gi\`a presente in ST.\\
 14/03/2011 & 1.11 & Baron Federico & Rimozione delle tabelle 4.1 e 4.2 come
 suggerito nella correzione di RQ.\\
 \hline
-13/03/2011 & 1.10 & Caputo Cosimo & Inserimento della specifica riguardante la
+13/03/2011 & 1.10 & Trezzi Giovanni & Inserimento della specifica riguardante la
 classe PDFLoaderServlet.\\
 \hline
-13/03/2011 & 1.9 & Caputo Cosimo & Aggiornamento di tutti i diagrammi delle
+13/03/2011 & 1.9 & Lovato Daniele & Aggiornamento di tutti i diagrammi delle
 classi.\\
 \hline
-12/03/2011 & 1.8 & Caputo Cosimo & Inserimento della specifica riguardante il
+12/03/2011 & 1.8 & Trezzi Giovanni & Inserimento della specifica riguardante il
 package velocity e le relative classi.\\
 \hline
 12/03/2011 & 1.7 & Baron Federico & Aggiornamento della specifica della
@@ -100,19 +104,19 @@ classe \co{DeviceScannedEvent}.\\
 12/03/2011 & 1.6 & Baron Federico & Aggiornamento della specifica della
 classe \co{ProfileActivity} in ogni sua parte.\\
 \hline
-11/03/2011 & 1.5 & Caputo Cosimo & Inserimento della specifica riguardante la
+11/03/2011 & 1.5 & Lovato Daniele & Inserimento della specifica riguardante la
 classe GdataManager.\\
 \hline
-11/03/2011 & 1.4 & Caputo Cosimo & Aggiornamento di tabella 3.1 a fronte di
+11/03/2011 & 1.4 & Mandolo Andrea & Aggiornamento di tabella 3.1 a fronte di
 modifiche in progettazione.\\
 \hline
 10/03/2011 & 1.3 & Baron Federico & Aggiornamento del tracciamento a fronte
 di modifiche in progettazione.\\
 \hline
-10/03/2011 & 1.2 & Lovato Daniele & Inserimento nel capitolo 3 del paragrafo
+10/03/2011 & 1.2 & Mandolo Andrea & Inserimento nel capitolo 3 del paragrafo
 riguardante l'utilizzo della cache.\\
 \hline
-03/03/2011 & 1.1 & Caputo Cosimo & Inserimento nel capitolo 3 del paragrafo
+03/03/2011 & 1.1 & Lovato Daniele & Inserimento nel capitolo 3 del paragrafo
 riguardante l'esportazione in PDF.\\
 \hline
 27/02/2011 & 1.0 & Mandolo Andrea & Validazione per consegna RQ.\\
@@ -165,7 +169,7 @@ del package \emph{server.shared}.\\
 \hline
 13/02/2011 & 0.9 & Baron Federico & Aggiunto il package \emph{client.event}
 \\\hline 
-13/02/2011 & 0.8 & Palazzin Alberto & Aggiunto il package
+13/02/2011 & 0.8 & Palazzin Alberto & Agginto il package
 \emph{server.youtube}.\\
 \hline
 08/02/2011 & 0.7 & Daminato Simone & Inseriti capitolo su client.applet.\\
@@ -305,8 +309,8 @@ importanti decisioni architetturali con una breve descrizione.
   ottimizzare le operazioni di lettura e scrittura, la gestione degli album in
   una tabella separata rispetto alle canzoni (\co{Song}). Questa classe non \`e
   direttamente legata alle entit\`a in \co{Song} ma opera come un contenitore
-  per la lista degli album disponibili da cui gli altri oggetti possono
-  attingere. La business logic associata \`e gestita all'interno della classe.
+  per la lista degli album disponibili da cui gli altri ogtgetti possono
+  attingere. La businness logic associata \`e gestita all'interno della classe.
   
   \item \bo{Utilizzo della Memcache di Google App Engine} : grazie al framework
   JCache fornito dalle librerie di Google App Engine \`e stato implementato
@@ -319,8 +323,8 @@ importanti decisioni architetturali con una breve descrizione.
   La politica implementata all'interno del sistema prevede, per sicurezza, la
   doppia scrittura sia su Memcache che su Datastore mentre la lettura avviene
   preferenzialmente su cache e su Datastore solo in caso di miss. Questa
-  gestione, anche se non rappresenta la pi\`u efficiente in assoluto, migliora
-  in modo sensibile i tempi di esecuzione delle operazioni di load/store nel
+  gestione, anche se non rappresenta la pi\`u efficente in assoltuo, migliora in
+  modo sensibile i tempi di esecuzione delle operazioni di load/store nel
   complesso. Questa modifica, infatti, \`e volta a favorire la scalabilit\`a
   rispetto alle quote giornaliere di ore CPU imposte da Google App Engine.
 \end{itemize}
@@ -870,7 +874,7 @@ di provvedere all'inizializzazione dell'applet di estrazione dati):
 \begin{figure}[h]
   \centering
   \includegraphics[width=14cm]{img/DP/loadProfileView.png}
-\caption{Diagramma UML di sequenza che descrive nel dettaglio come viene
+\caption{Diagramma UML di sequenza che descrive nel dettaglio come viede
 disegnata la ProfileView all'avvio di una nuova ProfileActivity}
 %DESCRIZIONE DEL DIAGRAMMA.. ..  .  . . . . 
 \end{figure}
@@ -1107,7 +1111,7 @@ vengono caricate le copertine del cover mode. \\\hline
 @UiField popup: HTMLPanel & Rappresenta la finestra di popup con conferma che
 propone errori e messaggi. \\\hline
 @UiField popup\_fast: HTMLPanel & Rappresenta la finestra di popup senza
-conferma che propone errori e messaggi. \\\hline
+conferma che propone errori e messggi. \\\hline
 @UiField statistics: HTMLPanel & Rappresenta la finestra in cui compaiono le
 statistiche. \\\hline
 
@@ -1156,7 +1160,7 @@ conferma per il salvataggio dei dati all'interno della finestra per
 gestire le informazioni sull'account.\\\hline
 @UiField switch\_cover: Image & Rappresenta il bottone per entrare in cover
 mode. \\\hline
-@UiField switch\_list: Image & Rappresenta il bottone per visualizzare il
+@UiField switch\_list: Image & Rappresenta il bottone per visulaizzare il
 catalogo come una lista. \\\hline
 @UiField loading: Image & Rappresenta la scritta che compare durante i
 caricamenti. \\\hline
@@ -1278,10 +1282,10 @@ javascript del player flash youtube.\\\hline
 javascript il metodo youtubeError() di GWT\\\hline
 + stopPlayerSong() & Metodo JSNI che ferma il lettore flash di youtube.\\\hline
 + playPlayerSong(String t) & Metodo JSNI che carica un determinato video e fa
-partire il lettore flash YouTube\\\hline
+partire il lettore flash yuoutbe\\\hline
 + sortCatalogo() & Utilizzato per ordinare la lista che rappresenta il
-catalogo dell'utente.\\\hline
-+ showCatalogo() & Utilizzato per caricare e mostrare il catalogo
+catalogom dell'utente.\\\hline
++ showCatalgo() & Utilizzato per caricare e mostrare il catalogo
 dell'utente.\\\hline
 + paintCovers(final List\\textless Song\\textgreater list) & disegna il
 cover mode per visualizzare le copertine degli album al posto del
@@ -1517,13 +1521,13 @@ errori nella comunicazione col server.
 salvataggio di un voto richiesto dall'utente.}
 \end{figure}
 Il metodo \co{rateSong(String,String,String,int)} contiene una delle funzioni di
-\co{ProfileActivity} che necessitano di intervenire sia in scrittura che in
+\co{ProfileActivity} che necessitano di intevrenire sia in scrittura che in
 lettura sul Datastore. Infatti, oltre a salvare il voto assegnato dall'utente,
-deve ricevere la nuova media dei voti della canzone calcolata dal server. La
+deve ricevere la nuova media dei voti della canzone alcolata dal server. La
 sequenza seguita per svolgere queste operazioni prevede come prima cosa
 l'impostazione degli elementi grafici derivanti dalla richiesta dell'utente come
 la visualizzazione delle stelline cliccabili \co{showStar()}. Successivamente
-avviene la chiamata RPC a \co{SongService} per la scrittura in memoria del voto
+avviene la chiamata RPC a \co{SongService} per la scrittua in memoria del voto
 assegnato ed il calcolo della nuova media dei voti. Infine l'activity deve
 preoccuparsi anche di aggiornare le statistiche, sia su \co{current\_user} sia
 nel Datastore tramite \co{storeStatistics}, e aggiornare la grafica con i dati
@@ -1666,14 +1670,14 @@ brano.\\\hline
 la modifica di un eventuale album assente nelle informazioni di un
 brano.\\\hline
 + setSongCover(in String, in String, in String, in HTMLPanel): void & Reperisce
-ed assegna al riquadro richiesto nella ``cover mode'' della view la copertina
+ed assegna al riquadro richiesto nella ``cover mode" della view la copertina
 dell'album. \\\hline
 + deleteProfile() & Cancella l'utente definitivamente dal sistema e lo
 fa uscire dalla pagina.\\\hline 
 + setStats() & Comunica alla view, tramite il metodo della view \co{setStats}, i
-dati riguardanti la pagina delle statistiche.\\\hline 
+dati rigurdanti la pagina delle statistiche.\\\hline 
 + changeLanguage(in String) & Modifica l'URL del browser per cambiare lingua,
-utilizzando la gestione automatica dell'internazionalizzazione offerta da
+utilizzando la gestione automatica dell'intenazionalizzazione offerta da
 GWT.\\\hline
 + mayStop(): String & Fa comparire un pop-up con
 un adeguato messaggio ogni qualvolta il browser richiede di uscire dalla pagina. Questo
@@ -2455,8 +2459,8 @@ SongDTO se esiste un Song che gi\`a lo rappresenta nel DataStore. Se non esiste
 lo crea. Una volta confermata l'esistenza di tale Song nel DataStore viene
 inserito (associato) tale brano nella libreria dell'utente e quindi ritorna al
 client conferma di tale operazione.\\\\
-Dopodich\'e il client aggiorna la libreria grafica con i nuovi brani inseriti e
-continua a ripetere questo procedimento fino ad aver ``svuotato'' il file
+Dopodich\`e il client aggiorna la libreria grafica con i nuovi brani inseriti e
+continua a ripetere questo procedimento fino ad aver `svuotato` il file
 XML.\\
 Al termine di tale procedura, vengono aggiornati i dati statistici
 dell'utente, e vengono sincronizzati nel client.
@@ -2674,7 +2678,7 @@ la canzone dalla libreria dell'utente. Le canzoni rimosse rimangono nel
 DataStore poich\'e potrebbero contenere informazioni utili per
 inserimenti futuri.\\\hline
 + getSongDTO(in SongSummaryDTO): SongDTO & Carica dal Datastore le
-informazioni complete riguardanti la canzone data in input. In questo
+informazioni complete rigurdanti la canzone data in input. In questo
 metodo, se non ancora presenti in Datastore o in cache, vengono cercate
 su servizi esterni le copertine di Last.fm ed i video YouTube.\\\hline
 + getCoverImage(in SongSummaryDTO): String & Carica dal Datastore o da Last.fm
@@ -2864,7 +2868,7 @@ dell'utente specificato. \\\hline
 + loadMostPopularSong(in String): String & Ritorna l'id della canzone condivisa
 dal maggior numero di utenti che fa parte del catalogo.\\\hline
 + storeStatistics(in String, in String, in String, in String) & Salva
-nel \co{MusicLibrary} persistente le statistiche relative al catalogo
+nel \co{MusicLibrary} persitente le statistiche relative al catalogo
 calcolate nel client.\\\hline
 + generateDoc(in String): String & Questo metodo si occupa dell'intera
 generazione del Google Doc dell'utente dato in input. La creazione
@@ -2875,7 +2879,7 @@ metodo \co{createNewDocument} di \co{GdataManager} per la generazione del Doc
 dal modello HTML. Ritorna l'indirizzo al documento. \\\hline
 - check\_list(in List\textless String\textgreater, in String): int &
 Funzione che aggiunge una stringa ad una lista verificandone
-l'unicit\`a e ritorna 1 se ha successo, viene utilizzata all'interno di
+l'unicit\`a e ritorna 1 se ha succeso, viene utilizzata all'interno di
 \co{GenerateDoc}.\\\hline
 
 \caption{Metodi di LibraryServiceImpl}
@@ -2985,21 +2989,21 @@ introdotti dal framework per gestirne la configurazione:
 \end{itemize}
 Per avere l'istanza del DataStore su cui lavorare si
 utilizza la classe con visibilit\`a \emph{package} \co{ODF}. \\
-Le classi di persistenza presenti in questo package, inoltre, implementano le
+Le classi di persitenza presenti in questo package, inoltre, implementano le
 interfacce \co{Serializable} e \co{Cacheable} poich\'e sono gestite anche come
 entit\`a della App Engine Memcache. 
-\subsubsection*{Business logic interna} Nonostante il design pattern DAO non lo
-preveda vengono implementate alcune componenti di business logic all'interno
+\subsubsection*{Businness logic interna} Nonostante il design pattern DAO non lo
+preveda vengono implementate alcune componenti di businness logic all'interno
 delle classi di persistenza. Questo va leggermente a scapito della riusabilit\`a
-ma viene giustificato dal fatto che la logica di business qui trattata \`e
-molto semplice e strettamente legata all'implementazione interna dei DAO. Una
+ma viene giustificato dal fatto che la logica di businness qui trattata \`e
+molto semplice e strettamente legata all'implmentazione interna dei DAO. Una
 separazione delle cose genererebbe confusione all'interno del progetto
 raddoppiando i file di questo package. Vi \`e un'eccezione per quanto
 riguarda la classe \co{MusicLibrary} che \`e stata
 progettata come vero e proprio ``businnes object'' ed \`e la causa
 dell'incongruenza con il pattern DAO. Ci \`e estremamente utile per\`o per
 alleggerire il numero di campi dati e metodi da \co{UserAccount} e mantiene
-dunque questa natura ibrida tra classe di persistenza e business object.
+dunque questa natura ibrida tra classe di persistenza e businness object.
 
 \subsection*{Attivit\`a svolte e dati trattati} Le classi DAO
 gestiscono i dati del sistema garantendone la persistenza e si occupano anche di implementare la parte logica di salvataggio, recupero e
@@ -3092,7 +3096,7 @@ twig-persist lo supporta senza bisogno di configurazioni aggiuntive. Vengono usa
 le annotazioni \emph{@Key} e \emph{@Index} per gestire l'indicizzazione
 degli oggetti nel datastore. La sua funzione di \co{load} \`e particolarmente
 importante poich\'e carica dalla cache o dal Datastore tutte le informazioni
-riguardanti l'utente ed il suo catalogo. Estende le interfacce \co{Serializable}
+rigurdanti l'utente ed il suo catalogo. Estende le interfacce \co{Serializable}
 e \co{Cacheable} per gestirne la scrittura e la
 lettura in Memcache.
 \subsubsection*{Metodo load}
@@ -3102,20 +3106,20 @@ lettura in Memcache.
 \caption{Diagramma UML di sequenza che descrive il procedimento di lettura
 delle informazioni riguardanti un utente lato server.}
 \end{figure}
-Il metodo \co{load()} che viene invocato tramite chiamate RPC di tipo
+Il metodo \co{load()} che viene invocato tramite chimate RPC di tipo
 \co{UserSerivice} \`e molto dispendioso come tempo di calcolo poich\'e si occupa
 di caricare l'intera libreria dell'utente che, in alcuni casi, verr\`a
 anche trasformata in DTO e spedita al client. Va considerato anche che questo
 metodo viene usato moltissimo dei Service dato che i parametri in entrata sono
 sempre degli username (String) e da questi spetta al server il compito di
-ricavarne l'oggetto persistente. Per gestire nel modo pi\`u appropriato il
+ricavarne l'oggetto persistente. Per gestire nel modo pi\`u approrpiato il
 problema si \`e deciso di gestire la Memcache lato server che permette la
 lettura degli oggetti con una velocit\`a 5 volte superiore a quella del
 Datastore. Questa sequenza di operazioni, progettata seguendo il Memcache
 pattern di App Engine, viene utilizzata anche per le altre classi del package
-persistent, anche se con un vantaggio meno evidente.
+persitent, anche se con un vantaggio meno evidente.
 \subsubsection*{Attivit\`a svolte e dati trattati} Gestisce la
-logica di persistenza di tutti i dati relativi ad un utente del sistema NetMus. Gestisce inoltre alcuni elementi di business logic strettamente legati a questa entit\`a come la ricerca di particolari utenti all'interno del Datastore.
+logica di persistenza di tutti i dati relativi ad un utente del sistema NetMus. Gestisce inoltre alcuni elementi di businness logic strettamente legati a questa entit\`a come la ricerca di particolari utenti all'interno del Datastore.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -3220,7 +3224,7 @@ statistici. La funzione principale per\`o \`e quella di fornire dei servizi como
 stesso e le entit\`a interne ad esso associate.\\
 La lista di brani \`e mantenuta
 come mappa di codici identificativi (strighe) e punteggio associato
-dall'utente alla canzone. Questo garantisce un'ottima efficienza grazie alla
+dall'utente alla canzone. Questo grantisce un'ottima efficenza grazie alla
 conversione della mappa nel Datastore da parte del framework twig-persist.\\
 Estende le interfacce \co{Serializable}
 e \co{Cacheable} per gestirne la scrittura e la
@@ -3229,7 +3233,7 @@ lettura in Memcache.
 persistenza e le procedure di reperimento delle informazioni di tutti i dati
 relativi ad un catalogo multimediale del sistema NetMus. Le attivit\`a svolte da
 questa classe sono quindi moltissime tanto che potrebbe essere considerata una
-classe di business logic piuttosto che una classe di persistenza.
+classe di businness logic piuttosto che una classe di persistenza.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -3244,7 +3248,7 @@ classe di business logic piuttosto che una classe di persistenza.
  dall'utente che la possiede. \\\hline
  - owner: UserAccount \emph{@Id @Parent} & L'utente
  a cui \`e associata questa libreria. \\\hline
- - song\_list: Map\textless String, String\textgreater & Mappa che 
+ - song\_list: Map\textless Striing, String\textgreater & Mappa che 
  contiene le canzoni con punteggio che fanno parte del catalogo. Il
  punteggio \`e salvato come stringa poich\'e la conversione di twig non
  supporta gli interi.\\\hline
@@ -3483,7 +3487,7 @@ fondamentali per la logica di funzionamento di Netmus.
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} Questa classe opera
 come un contenitore per la lista degli album disponibili da cui gli altri
-oggetti possono attingere. Fornisce inoltre la business logic necessaria alla
+oggetti possono attingere. Fornisce inoltre la businness logic necessaria alla
 ricerca esterna di copertine tramite le API di Last.fm ed alla ricerca interna
 al Datastore.\\
 Implementa le interfacce \co{Serializable} e \co{Cacheable} poich\'e viene gli
@@ -3930,7 +3934,7 @@ entit\`a ``persistenti'' della Memcache.
     \item Nessuno
 \end{itemize}
 \subsubsection*{Tipo, obiettivo e funzione del componente} Una semplice
-interfaccia che contiene la definizione dei metodi necessari e sufficienti per
+interfaccia che contiene la definizione dei metodi necessari e sufficenti per
 rendere una sottoclasse memorizzabile ed estraibile dalla Memcache.
 \subsubsection*{Attivit\`a svolte e dati trattati} Viene utilizzata come
 marcatore per distinguere quelle classi che sono utilizzate come entit\`a
@@ -3966,7 +3970,7 @@ disponibili sulla Memcache. Questi servizi sono disponibili a tutte le
 componenti del lato server.
 \subsubsection*{Attivit\`a svolte e dati trattati} Rende disponibili all'esterno
 le funzioni basilari di lettura e scrittura sulla memoria cache in modo
-completamente trasparente rispetto all'implementazione tramite JCache e
+completamente trasparente rispetto all'implmentazione tramite JCache e
 soprattutto all'utilizzo della \co{CacheFactory}.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
@@ -4297,7 +4301,7 @@ Funge da contenitore per i dati richiesti di un utente.
 \hline
 \endfoot
 \endlastfoot
- - user\_name: String & indirizzo e-mail valido e univoco dell'utente.\\\hline
+ - user\_name: String & indrizzo e-mail valido e univoco dell'utente.\\\hline
  - nick\_name: String & Nickname dell'utente.\\\hline
  - first\_name: String & Nome proprio dell'utente.\\\hline
  - last\_name: String & Cognome dell'utente.\\\hline
@@ -5784,11 +5788,11 @@ bilingue sar\`a in versione PDF stampabile su carta ed il software, sia la
 componente di persistenza e visualizzazione sia quella di recupero delle
 informazioni sono \underline{open source} fin dall'inizio della scrittura del
 codice.\\ Il requisito C1FD-1.3.2 sebbene sia stato progettato in dettaglio ed
-in buona parte gi\`a codificato non \`e tracciabile poich\'e ne manca la
-codifica della parte grafica e di conseguenza non \`e disponibile tra le funzionalit\`a
+in buona parte gi\`a codificato non \`e tracciabile poich\'e ne manca la codifca
+della parte grafica e di conseguenza non \`e disponibile tra le funzionalit\`a
 attive. Sar\`a sicuramente disponibile agli inizi delle fare di manutenzione ed
 aggiornamento.\\
-Il requisito C1FO-1.7.2 richiedono uno studio aggiuntivo
+Il requisito C1FO-1.7.2 richiedone uno studio aggiuntivo
 rispetto alla progettazione fatta finora e rappresentano funzionalit\`a ritenute secondo noi
 non fondamentali, ne \`e prevista la progettazione e l'implementazione in futuro
 durante la fase di manutenzione nel ciclo di vita del software.\\
@@ -5845,7 +5849,7 @@ Abbiamo cercato di rendere compatibile il sistema con i principali
 browser sui differenti sistemi operativi, ad eccezione dell'ultima versione
 stabile di Firefox la quale risulta incompatibile graficamente con le
 transizioni CSS, ma in ogni caso completamente funzionale. Tale lacuna viene
-per\`o colmata nell'ultima versione di Firefox 4.0 RC.
+per\`o colmata nell'utlima versione di Firefox 4.0 RC.
 
 \listoftables
 \addcontentsline{toc}{chapter}{Indice Tabelle}
