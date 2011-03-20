@@ -51,8 +51,19 @@ relativa codifica, delle quali verr\`a allegato il codice sorgente.
 \endhead
 \hline
 \endfoot
-17/03/2011 & 1.14 & Caputo Cosimo & Inserimento delle classi legate
+17/03/2011 & 1.18 & Caputo Cosimo & Inserimento delle classi legate
 all'esportazione pdf.\\
+\hline
+16/03/2011 & 1.17 & Mandolo Andrea & Inserito diagramma UML di attivit\`a
+su elaborazione dei dati in entrata dall'applet.\\
+\hline
+16/03/2011 & 1.16 & Baron Federico & Aggiornamento generale del package
+\emph{persistent} con inserimento della sottosezione ``Businness login
+interna''.\\\hline
+15/03/2011 & 1.15 & Trezzi Giovanni & Aggiornamento generale del package
+\emph{ui}.\\\hline
+15/03/2011 & 1.14 & Mandolo Andrea & Aggiornamento generale del package
+\emph{applet}.\\
 \hline
 15/03/2011 & 1.13 & Baron Federico & Inserimento della classe Album nel
 capitolo 4.\\
@@ -1578,7 +1589,7 @@ all'interno della libreria data in input l'artista pi\`u ricorrente tra tutte le
 canzoni.\\\hline
 - calculateSongStatistics(in Map\textless String, SongSummaryDTO\textgreater): List\textless
 String\textgreater & Ricerca all'interno della libreria data in input la canzone
-che è stata valutata meglio da tutti gli utenti che la condividono e quella
+che \`e stata valutata meglio da tutti gli utenti che la condividono e quella
 preferita dall'utente che possiede la libreria. Ne ritorna gli id in una lista.\\\hline
 - clearPlaylistName(in String): String & Pulisce i nomi delle playlist
 in entrata dalla view poich\'e questi contengono anche il numero di
@@ -2977,7 +2988,7 @@ lettura in Memcache.
 \subsubsection*{Attivit\`a svolte e dati trattati} Gestisce
 la logica di persistenza di tutti i dati relativi ad un utente del sistema
 NetMus. Gestisce inoltre alcuni elementi di businness logic strettamente legati
-a questa entità come la ricerca di particolari utenti all'interno del Datastore.
+a questa entit\`a come la ricerca di particolari utenti all'interno del Datastore.
 \begin{longtable}{|p{0.4\textwidth}|p{0.4\textwidth}|}
 \hline
 \rowcolor{orange} \bo{Attributo} & \bo{Descrizione} \\
@@ -3290,7 +3301,7 @@ fondamentali per la logica di funzionamento di Netmus.
  \# deleteSong(in Song) \emph{static} & Rimuove
  completamente dal database la canzone. \\\hline
  + load(in String): Song & Carica dalla Memcache o dal Datastore
- l'oggetto \co{Song} in cui id è dato in input.\\\hline
+ l'oggetto \co{Song} in cui id \`e dato in input.\\\hline
  + loadFromDTO(in SongSummaryDTO): Song & Carica dalla Memcache o dal Datastore
  l'oggetto \co{Song} le cui informazioni di base sono date in input con
  un \co{SongSummaryDTO}.\\\hline
