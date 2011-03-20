@@ -241,12 +241,12 @@ allegato.
 
 
 \chapter{Dettagli architetturali non introdotti nella Specifica tecnica}
-\thispagestyle{fancy} %  header e footer in CHAPTER PAGE Durante l'attivit\`a di
-progettazione di dettaglio sono stati definiti alcuni aspetti dell'architettura
-di NetMus che nella Specifica Tecnica non sono trattati o lo sono solo in
-parte.\\ Per una maggiore comprensione del documento, in particolare della
-specifica delle componenti, elenchiamo di seguito queste importanti decisioni
-architetturali con una breve descrizione.
+\thispagestyle{fancy} 
+Durante l'attivit\`a di progettazione di dettaglio sono stati definiti alcuni
+aspetti dell'architettura di NetMus che nella Specifica Tecnica non sono
+trattati o lo sono solo in parte.\\ Per una maggiore comprensione del documento,
+in particolare della specifica delle componenti, elenchiamo di seguito queste
+importanti decisioni architetturali con una breve descrizione.
 \begin{itemize}
   \item \bo{Applet} : la componente di recupero delle informazioni (C2) risiede
   in una applet\\Java precompilata indipendente da GWT ed \`e integrata con
@@ -283,12 +283,11 @@ architetturali con una breve descrizione.
   \co{AppletConstants} ed i relativi file \emph{AppletConstants.properties} e
   \emph{AppletConstants\_it.properties}.
   
-  \item \bo{Esportazione PDF} : Questa funzione \`e implementata usando il
-  framework di Apache \emph{Velocity} e le API messe a disposizione da
+  \item \bo{Creazione Google Docs condiviso} : Questa funzione \`e implementata
+  usando il framework di Apache \emph{Velocity} e le API messe a disposizione da
   \emph{Google Docs} utili rispettivamente alla stesura di un template html in
-  cui inserire le informazioni del catalogo e alla creazione e il download del
-  documento PDF vero e proprio sulla base del template.
-  
+  cui inserire le informazioni del catalogo e alla creazione del
+  documento online sulla base del template.
   
   \item \bo{\co{Album} come entit\`a autonoma} : la scelta di mantenere nel
   Datastore un link alla copertina per ogni album memorizzato ha reso necessaria, per
@@ -2032,7 +2031,7 @@ aggirare molte difficolt\`a e limiti derivanti dall'utilizzo di JSNI.
     \item C1FN-1.9.5 Inserimento nel Database
     \item C2FN-3 Comunicazione con C1
 \end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
     \item Nessuno
 \end{itemize}
@@ -2104,7 +2103,7 @@ creare il relativo SongDTO, e se lo salva su una lista.\\\hline
 \begin{itemize}
     \item C2QN-4 Utilizzo
 \end{itemize}
-\subsection*{Requisiti desiderabili e opzionali soddisfatti}
+\subsubsection*{Requisiti desiderabili e opzionali soddisfatti}
 \begin{itemize}
     \item C1QD-2.4 Supporto multi-lingua
     \item C2QD-4.3 Supporto multi-lingua
@@ -3640,16 +3639,22 @@ maggior numero di funzionalit\`a per quel brano.
 \hline
 \endfoot
 \endlastfoot
- + getYouTubeCode(in String) static & Grazie a YouTubeManager restituisce la
- prima occorrenza di una ricerca su YouTube per pertinenza alla keyword in ingresso
+ + getYouTubeCode(in String, in String) static & Grazie a YouTubeManager
+ restituisce la prima occorrenza di una ricerca su YouTube per pertinenza alla keyword in ingresso
  (autore titolo). Se la ricerca non produce risultati restituisce stringa vuota.
- \\\hline
+ Viene utilizzato nella ricerca anche l'indirizzo IP del client, per poter
+ raffinare la ricerca, in maniera che i contenuti dei video trovati siano
+ realmente riproducibili. \\\hline 
+ - getYouTubeCode(in String, in String, in
+ int) static & Metodo privato utilizzato per fornire il comportamento atteso da \emph{getYouTubeCode} in
+  maniera ricorsiva per ritentare la ricerca quante volte specificato, in caso
+  di fallimento. \\\hline
   + getCoverImage(in String) static & Questo metodo attiva la cache di Last.fm
   per AppEngine ed esegue una ricerca esterna, con keyword artista e album,
   per recuperare l'url della copertina dell'album relativo ad un brano, in
   formato JPG. \\\hline
-  + getSongFromFileName(in String) static & Con questo metodo andremo a provare
-  a recuperare informazioni ulteriori di un brano che non ha info nel tag,
+  + getSongFromFileName(in String) static & Con questo metodo andremo
+  a provare a recuperare informazioni ulteriori di un brano che non ha info nel tag,
   usando come keyword il nome del file stesso. Se verr\`a trovato qualcosa si
   prover\`a a proporlo all'utente. In uscita restituir\`a un SongDTO. \\\hline
 \caption{Metodi di Utils}
@@ -3674,12 +3679,7 @@ Funzioni utili alle servlet per la gestione degli URL.
 \hline
 \rowcolor{orange} \bo{Metodo} & \bo{Descrizione} \\
 \hline
-\endhead
-\hline
-\multicolumn{2}{|c|}{\textit{continua alla pagina successiva}}\\
-\hline
-\endfoot
-\endlastfoot
+
  + getBaseUrl(in HttpServletRequest) static & Questo metodo deve tornare
  l'indirizzo di base dell'applicazione, a seconda di dove \`e hostato il
  progetto e da che porta viene acceduto. \\\hline
@@ -3736,16 +3736,14 @@ classe \co{GdataManager}.\\\hline
 \co{GdataManager}\\\hline
 + client(): DocsService & Inizializza \co{client} e verifica i
 dati di accesso.\\\hline 
-+ getDocument(String): Documen tListEntry & Restituisce il documento
++ getDocument(String): DocumentListEntry & Restituisce il documento
 associato al parametro \co{id}.\\\hline
-+ getPdfInputStream(DocumentList Entry): DocsService & Esporta in PDF il
-documento da Google Docs.\\\hline
-+ getPdfInputStream(String):  Inpu tStream & Utilizza il metodo
-\co{getPdfInputStream} per l'esportazione in pdf dato l'id del
-documento.\\\hline 
-+ createNewDocument(String, String): DocumentListEntry & Crea un nuovo
-documento in base hai parametri titolo e contenuto.\\\hline
-+ deleteDocument(String) & Rimuove il documento corrispondente al parametro id da Google Docs.\\\hline
++ getFolder(): DocumentListEntry & Restituisce la cartella nella quale
+verr\`a creato il file, cos\'\i\ da applicarli permessi
+pubblici. Solo gli utenti reindirizzati a tale
+documento avranno accesso al documento.\\\hline
++ createNewDocument(String,String) :
+DocumentListEntry & Crea un nuovo documento in base hai parametri titolo e contenuto.\\\hline
 \caption{Metodi di GdataManager}
 \end{longtable}
 
@@ -4133,7 +4131,9 @@ che \`e il pi\`u rilevante della ricerca, cio\`e quello che interessa a
 noi.\\\hline
 + getSearchResult(in String) : String \emph{static} & Metodo statico usabile
 dalle altre classi. Esegue una nuova ricerca e restituisce il codice
-del video pi\`u rilevante.\\\hline
+del video pi\`u rilevante. Nella query di ricerca utilizzata viene tenuto conto
+del IP dell'utente, delle limitazioni all'embedded date dai proprietari dei
+video, ai filtri famiglia per evitare contenuti non consoni.\\\hline
 
 \caption{Metodi di YouTubeManager}
 \end{longtable}
@@ -5686,27 +5686,24 @@ durante la progettazione di dettaglio}
 \thispagestyle{fancy} %  header e footer in CHAPTER PAGE
 
 Verr\`a allegato a tale documento il \underline{codice sorgente} dell'intero
-sistema NetMus. Si trover\`a all'interno di una cartella ``Sorgenti'', la quale conterr\`a anche
-le librerie esterne utilizzate dal sistema.\\
+sistema NetMus. Si trover\`a all'interno della cartella ``Sorgenti'', la quale
+conterr\`a anche le librerie esterne utilizzate dal sistema.\\
 \\
 L'applet verr\`a inclusa nel progetto precompilata e firmata ma verr\`a incluso
 inoltre, in una cartella a parte, il suo codice sorgente con la libreria
 esterna utilizzata ed il certificato che abbiamo usato per firmarla.\\
 \\
-Per una visione pi\`u completa del sistema NetMus allo stato attuale, rendiamo
-disponibile online una versione Beta, all'indirizzo:
-\url{http://netmusbeta.appspot.com/}.\\
-\\
+Il sistema NetMus definitivo, sar\`a disponibile ed utilizzabile
+all'indirizzo:\\ 
+\begin{center}
+\url{http://netmusproject.appspot.com/}
+\end{center}
+\vspace{0.5cm}
 Abbiamo cercato di rendere compatibile il sistema con i principali
 browser sui differenti sistemi operativi, ad eccezione dell'ultima versione
 stabile di Firefox la quale risulta incompatibile graficamente con le
 transizioni CSS, ma in ogni caso completamente funzionale. Tale lacuna viene
-per\`o colmata nell'utlima versione di Firefox 4.0 beta.\\
-\\
-Tale versione risulta ancora carente di qualche funzionalit\`a richiesta da
-alcuni dei requisiti opzionali e desiderabili, le quali verranno possibilmente
-integrate dopo aver superato con successo appropriati test di integrit\`a e di
-sistema.
+per\`o colmata nell'utlima versione di Firefox 4.0 RC.
 
 \listoftables
 \addcontentsline{toc}{chapter}{Indice Tabelle}
