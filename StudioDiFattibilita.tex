@@ -1,0 +1,208 @@
+
+\newcommand{\nomedoc}{Studio Di Fattibilit\`a}
+\newcommand{\versione}{2.0}
+\newcommand{\versioneglossario}{4.0}
+\newcommand{\versionenormeprogetto}{4.0}
+\newcommand{\nomefile}{StudioDiFattibilita-\versione.pdf}
+\newcommand{\datacreazione}{7 Dicembre 2010}
+\newcommand{\datamodifica}{15 Marzo 2011}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{interno}
+\newcommand{\redazione}{Palazzin Alberto}
+\newcommand{\verifica}{Mandolo Andrea}
+\newcommand{\approvazione}{Lovato Daniele}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+\chapter*{Sommario}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca headere footer
+Dopo aver letto, discusso ed analizzato i vari capitolati d'appalto, \`e
+stato stilato il documento dello Studio Di Fattibilit\`a per riassumere e
+documentare le valutazioni effettuate dal gruppo. \`E stato infine selezionato
+il capitolato C02 NetMus come futuro progetto da sviluppare, ritenendolo
+stimolante e formativo dal punto di vista tecnologico.
+
+\newpage
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+
+\begin{longtable}{|p{0.13\textwidth}|c|p{0.2\textwidth}|p{0.46\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Data} & \bo{Versione} & \bo{Autore} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\endfoot
+15/03/2011 & 2.0 & Caputo Cosimo & Incremento versione per consegna finale.\\
+\hline
+21/01/2011 & 1.2 & Mandolo Andrea & Corretti Riferimenti.\\
+\hline
+12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
+modifiche.\\
+\hline
+19/12/2010 & 1.0 & Lovato Daniele & Validazione per consegna RR.\\
+\hline
+16/12/2010 & 0.5 & Mandolo Andrea & Verificato l'intero documento.\\
+\hline
+10/12/2010 & 0.4 & Mandolo Andrea & Correzione errori grammaticali.\\
+\hline
+09/12/2010 & 0.3 & Palazzin Alberto & Aggiunta Sezione "Componenti del Progetto
+e Dettagli Tecnologie".\\
+\hline
+09/12/2010 & 0.2 & Palazzin Alberto & Aggiunta sottolineature per il
+Glossario.\\
+\hline
+07/12/2010 & 0.1 & Palazzin Alberto & Stesura prima versione del documento.
+\end{longtable}
+
+% INDICE
+\tableofcontents
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+
+\section{Scopo del documento}
+Il presente documento ha lo scopo di valutare la fattibilit\`a di progettazione
+e sviluppo di ogni capitolato d'appalto rispetto alle tecnologie e alle
+tempistiche richieste. Nello specifico vengono descritte le motivazioni per le
+quali il gruppo ha scelto il capitolato C02 piuttosto che altri.
+
+\input{parte_comune.tex}
+
+% INIZIO CAPITOLO 2
+
+\chapter{Capitolato C01 - MindSlide}
+\thispagestyle{fancy}
+Il capitolato C01 MindSlide (Software di presentazione basato su \underline{mind
+mapping}) proposto dall'azienda Zucchetti richiede l'utilizzo del linguaggio di
+markup \underline{HTML5}.
+Il progetto risulta interessante considerando l'utilit\`a del prodotto
+risultante, ma dopo un'attenta lettura della specifica ed un confronto con gli
+altri capitolati, si ritiene che la tecnologia richiesta non sia abbastanza
+stimolante per il gruppo.
+
+\chapter{Capitolato C02 - Netmus}
+\thispagestyle{fancy}
+Il capitolato C02 NetMus (libreria musicale personale, virtuale e distribuita),
+proposto dal Prof. Cardin Riccardo, richiede lo sviluppo di una
+\underline{applizazione web} che utilizzi tecnologie all'avanguardia, come il
+sistema cloud \underline{Google App Engine} e \underline{JavaFX}, e che vada ad
+interagire con sistemi di audio/video streaming tipo \underline{YouTube}.\\
+
+Dopo un'accurata lettura e un'intensa discussione si \`e deciso di accettare
+questo progetto.
+
+\section{Studio del dominio} 
+Le conoscenze e le capacit\`a richieste per lo sviluppo del prodotto
+riguardano i seguenti ambiti:
+\begin{itemize}
+  \item conoscenze sul funzionamento della rete \underline{internet};
+  \item capacit\`a d'astrazione sull'idea di \underline{cloud computing};
+  \item buone capacit\`a di gestione della concorrenza e della distribuzione;
+  \item buone capacit\`a di programmazione in \underline{Java} per l'utilizzo di
+  GAE e \underline{JavaFX};
+  \item buone conoscenze sulle basi di dati, per usare il database
+  non relazionale \underline{Google DataStore};
+  \item conoscenze riguardo vari \underline{sistemi operativi}
+  (\underline{Windows}, \underline{Linux}, \underline{MacOsx}) per poter interagire con periferiche
+  audio e di archiviazione dati.
+\end{itemize}
+
+\section{Fattibilit\`a tecnologica e tempistica}
+Considerando la preparazione dei membri del gruppo, data dai corsi universitari
+della laurea in Informatica dell'Universit\`a di Padova, si dovrebbe avere la
+capacit\`a di utilizzare in maniera adeguata la programmazione orientata agli
+oggetti tramite linguaggio Java. Invece per il sistema Google App Engine si
+potr\`a usufruire dell'eventuale corso di formazione, forse sostenuto
+dall'azienda Miriade S.p.A. committente del capitolato C03.
+Per implementare lo strato di presentazione si \`e orientati ad utilizzare
+\underline{Google Web Toolkit}. Per interfacciarsi con i dispositivi di
+archiviazione si pensava di creare una \underline{RIA} utilizzando JavaFX, per
+rendere pi\`u gradevole l'esperienza degli utenti. Formarsi su tali tecnologie con manuali e
+documentazioni appropriate, non dovrebbe essere un grosso problema. Dopo aver
+analizzato il livello di conoscenza, abilit\`a, capacit\`a di apprendimento
+all'interno del gruppo e valutando inoltre eventuali impegni dei singoli membri,
+si prevede di riuscire a sviluppare il prodotto nei tempi prestabiliti
+rispettando le tempistiche per le varie revisioni.
+
+\section{Componenti del progetto e dettagli sulle tecnologie}
+Il problema che viene posto nel capitolato C02 presenta due principali componenti
+da considerare per lo studio della fattibilit\`a.\\
+Una componente che gestisce la memorizzazione e visualizzazione della libreria
+virtuale personale dell'utente.\\
+L'altra componente gestisce il recupero delle informazioni dei brani
+musicali dal dispositivo di riproduzione personale dell'utente.
+
+\subsection{Componente di memorizzazione e gestione della libreria}
+La prima componente dovr\`a essere accessibile all'utente come
+applicazione web. Il sistema consigliato per lo sviluppo, ossia Google App Engine, 
+\`e una tecnologia cloud computing che permette l'utilizzo di risorse hardware o
+ software distribuite in remoto.\\
+ User\`a inoltre il database distribuito
+ Google DataStore. Questo database utilizza una linguaggio simile
+ all'\underline{SQL} chiamato \underline{GQL}.
+
+\subsection{Componente di estrazione delle informazioni}
+Per sviluppare la seconda componente si \`e pensato di ricorrere alla creazione
+di una Rich Internet Application, ossia un'applicazione web che possiede le
+caratteristiche e le funzionalit\`a delle \underline{applicazioni desktop}, senza
+per\`o necessitare dell'installazione sul \underline{disco fisso}. Questa scelta
+\`e stata dettata dal fatto che le RIA si caratterizzano per la dimensione
+interattiva, la multimedialit\`a e la velocit\`a d'esecuzione. La parte
+dell'applicazione che elabora i dati \`e trasferita a livello client e fornisce
+una pronta risposta all'interfaccia utente, mentre la gran parte dei dati e
+dell'applicazione rimane sul server remoto, con notevole alleggerimento per il
+computer utente. Queste caratteristiche rendono l'applicazione il meno invasiva
+possibile per l'utente.
+
+\section{Rischi}
+L'analisi dettagliata dei capitolati, illustrata in questo Studio Di
+Fattibilit\`a dovrebbe aver diminuito le variabili di rischio. Tuttavia la
+nostra mancanza di esperienza o imprevisti inattesi come la mancanza di
+risorse umane potrebbero provocare ritardi o addirittura il non completamento
+del prodotto.\\
+
+Verranno studiati in maniera pi\`u approfondita i rischi derivanti da
+\underline{propriet\`a emergenti} del sistema e le possibili soluzioni
+nell'analisi dei rischi interna al Piano Di Progetto.
+
+\chapter{Capitolato C03 - RescueMe}
+\thispagestyle{fancy}
+Il capitolato C03 RescueMe (sistema globale per gestione catastrofi naturali)
+proposto dall'azienda Miriade S.p.A. richiede l'utilizzo delle tecnologie
+Google App Engine, Google Web Toolkit e \underline{Spring MVC}. Dopo un'attenta
+analisi si ritiene che, anche se gli strumenti da utilizzare siano di
+interesse comune al gruppo, lo sviluppo completo del progetto possa richiedere
+pi\`u tempo di quello che abbiamo a disposizione, col rischio di non rispettare
+i tempi di consegna prefissati.
+
+\chapter{Capitolato C04 - QWAD}
+\thispagestyle{fancy}
+Il capitolato C04 QWAD (Quick Web Apps Designer) proposto dalla \underline{Onlus}
+Informatici Senza Frontiere richiede l'evoluzione di un lavoro gi\`a
+svolto da altri team di sviluppo in un web app designer che
+verr\`a utilizzato per creare applicazioni di quel tipo da persone non esperte
+di programmazione.\\
+
+Scegliere questo capitolato \`e visto da noi come un rischio elevavo
+d'insuccesso, poich\'e si prevede che lo studio del database di considerevoli
+dimensioni che sta alla base del programma e l'implementazione dell'app
+designer in cloud, richieda tempistiche maggiori di quelle che il
+nostro gruppo ha a disposizione. Inoltre abbiamo discusso sul fatto
+che potrebbe non stimolare in maniera appropriata i membri del gruppo, in quanto
+i risultati diverrebbero visibili in un maggior arco di tempo, rischiando di
+compromettere cos\`\i\ la produttivit\`a ed il coinvolgimento generale. Pur
+apprezzando il contributo sociale apportato da tale progetto, si \`e comunque
+deciso di scartarlo.
+
+\end{document}

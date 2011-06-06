@@ -1,0 +1,559 @@
+\newcommand{\nomedoc}{Glossario}
+\newcommand{\versione}{4.0}
+\newcommand{\nomefile}{Glossario-\versione.pdf}
+\newcommand{\datacreazione}{7 Dicembre 2010}
+\newcommand{\datamodifica}{18 Marzo 2011}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{esterno}
+\newcommand{\redazione}{Caputo Cosimo}
+\newcommand{\verifica}{Mandolo Andrea\\&Palazzin Alberto}
+\newcommand{\approvazione}{Lovato Daniele}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo}
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+
+\begin{longtable}{|p{0.13\textwidth}|c|p{0.2\textwidth}|p{0.46\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Data} & \bo{Versione} & \bo{Autore} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\endfoot
+18/03/2011 & 4.0 & Caputo Cosimo & Validazione per consegna RA.\\
+\hline
+18/03/2011 & 3.2 & Palazzin Alberto & Verificato l'intero documento.\\
+\hline
+17/03/2011 & 3.1 & Giovanni Trezzi & Aggiunti due termini e corretta
+imprecisione.\\
+\hline 
+27/02/2011 & 3.0 & Mandolo Andrea & Validazione per consegna RQ.\\
+\hline
+27/02/2011 & 2.3 & Daminato Simone & Verificato l'intero documento.\\
+\hline
+25/02/2011 & 2.2 & Caputo Cosimo & Aggiunta definizione di tre nuovi termini.\\
+\hline
+18/02/2011 & 2.1 & Daniele Lovato & Aggiunti nuovi termini.\\
+\hline
+31/01/2011 & 2.0 & Baron Federico & Validazione per consegna RP.\\
+\hline
+31/01/2011 & 1.3 & Palazzin Alberto & Verificato l'intero documento.\\
+\hline
+31/01/2011 & 1.2 & Caputo Cosimo & Aggiunti nuovi termini.\\
+\hline
+12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
+modifiche.\\
+\hline
+19/12/2010 & 1.0 & Lovato Daniele & Validazione per consegna RR.\\
+\hline
+8/12/2010 & 0.4 & Mandolo Andrea & Correzione ortografica e sintattica.\\
+&&&Commentate lettere senza termini.\\
+&&&Aggiunto termine ``Propriet\`a emergenti''.\\
+
+&&&Ordinamento termini in ordine alfabetico.\\
+\hline
+13/12/2010 & 0.3 & Caputo Cosimo & Aggiunti nuovi termini,\\
+&&&apportate correzioni.\\
+\hline
+10/12/2010 & 0.2 & Caputo Cosimo & Aggiunti nuovi termini.\\
+\hline
+07/12/2010 & 0.1 & Caputo Cosimo & Stesura prima versione del  documento.\\
+\end{longtable}
+
+\newpage
+\pagenumbering{arabic}
+\section*{Lista termini}
+
+\subsection*{\huge{A}}
+
+\subsubsection*{Analisi dinamica:}
+Tipo di analisi basata sulla compilazione del codice, effettuata su singoli
+componenti o sull'intero codice.
+
+\subsubsection*{Analisi statica:}
+Tipo di analisi che non comporta alcuna esecuzione, si applica sui
+documenti attraverso la lettura mirata (inspection) oppure integrale
+(walkthrough), oppure sul codice sorgente analizzando riga per riga (desk-check).
+
+\subsubsection*{Applicazione desktop:}
+Applicazione software che non necessita di una connessione internet per operare.
+
+\subsubsection*{Applicazione web:}
+Applicazione software che non necessita di essere installata sul dispositivo
+hardware dell'utente (in genere \`e sita su uno o pi\`u server remoti) ed \`e accessibile tramite browser.
+
+\subsubsection*{Applet:}
+Con questo termine (combinazione di application e gadget) si indica un programma
+che viene eseguito come ``ospite'' nel contesto di un altro programma, per questo
+detto container, su un computer client.
+
+\subsection*{\huge{B}}
+
+\subsubsection*{bcrypt:}
+\`E una cross-platform (attributo conferito a sistemi o metodi creati per
+interoperare tra diverse piattaforme di calcolo) ideata per criptare file
+implementando l'algoritmo Blowfish. Oltre a criptare i dati, bcrypt
+proceder\`a a sovrascrivere per tre volte l'input file originale con dati
+spazzatura (garbage) casuali, allo scopo di prevenire tentativi di recupero dati
+da malintenzionati che potrebbero aver ottenuto accesso al terminale.
+
+\subsubsection*{Branch:} 
+Flusso logico che permette a pi\`u persone di lavorare su un unico file o
+progetto in maniera indipendente.
+
+\subsubsection*{Best practice:}
+Per migliore pratica o migliore prassi (dall'inglese best practice) si intendono
+ in genere le esperienze pi\`u significative, o comunque quelle che hanno
+ permesso di ottenere migliori risultati, relativamente a svariati contesti.
+Il termine \`e usato per esempio nella direzione aziendale, nel software
+engineering, in medicina, nelle organizzazioni aziendali o governative.
+Questo concetto, nato all'inizio del secolo, \`e un'idea manageriale che
+asserisce l'esistenza di una tecnica, un metodo, un processo o un'attivit\`a,
+che sono pi\`u efficaci nel raggiungere un particolare risultato, di qualunque
+altra tecnica, metodo, processo, o attivit\`a. Si afferma che, con i processi
+adeguati, con i giusti controlli e le corrette analisi, il risultato voluto
+pu\`o essere ottenuto evitando problemi e complicazioni impreviste.
+
+
+\subsubsection*{Business Data:}
+Informazioni e dati legati alla logica operativa di un'applicazione.
+
+\subsubsection*{Business Logic:}
+Con il termine Business Logic ci si riferisce a tutta quella logica che rende
+operativa un'applicazione. Il business logic racchiude in s\'e regole cosiddette
+di ``business'', piuttosto che regole ed elementi legati alla visualizzazione
+delle informazioni (View o UI) o alla memorizzazione dei dati
+(Database, ecc.).
+
+\subsection*{\huge{C}}
+
+\subsubsection*{Chiamata asincrona (chiamata AJAX):}Si definisce asincrona la
+chiamata ad una risorsa esterna che non interferisce con l'esecuzione della
+risorsa chiamante; i risultati della risorsa esterna saranno utilizzabili solo
+quando disponibili senza ``tempi morti'' per l'utilizzatore (il caricamento
+della risorsa esterna avviene in background).
+
+\subsubsection*{Cloud computing:} Insieme di tecnologie informatiche che
+permettono l'utilizzo di risorse hardware (storage, CPU) o software distribuite in remoto.
+
+\subsubsection*{Codice sorgente:} Testo di un programma, scritto in un
+linguaggio di programmazione ad alto livello. Il codice sorgente deve essere
+opportunamente elaborato per arrivare ad un programma eseguibile.
+
+\subsubsection*{Commit:} Comando che permette di creare un nuovo changeset in
+un repository e di identificarlo con una descrizione.
+
+\subsection*{\huge{D}}
+
+\subsubsection*{Database NON-Relazionale:} Usa file per memorizzare le
+informazioni. Si chiama cos\`i proprio perch\'e i dati non risultano collegati
+gli uni agli altri. Ogni dato memorizzato \`e costituito da un valore e una
+chiave associata. Queste coppie (chiave, valore) sono semplici stringhe, non
+sono array di caratteri, in modo da poter anche memorizzare informazioni binarie. Non ci
+sono limiti alle chiavi che si possono scegliere, perch\'e non vengono fissate
+dal database. Il loro sviluppo nasce dall'esigenza di scalabilit\`a, di performance
+e di uno schema di sviluppo e progettazione rigido (e quindi replicabile con
+facilit\`a).
+
+\subsubsection*{Design Pattern:}
+Nell'ingegneria del software, un design pattern (schema di progettazione) pu\`o
+essere definito ``una soluzione progettuale generale a un problema ricorrente''.
+Esso non \`e una libreria o un componente di software riusabile, quanto
+piuttosto una descrizione o un modello da applicare per risolvere un problema
+che pu\`o presentarsi in diverse situazioni durante la progettazione e lo
+sviluppo del software.
+
+\subsubsection*{Diagrammi di Gantt:} Strumento per la pianificazione temporale e
+gestione delle risorse di un progetto ideato nel 1917 dall'ingegnere
+statunitense Henry Laurence Gantt.
+
+\subsubsection*{Disco rigido (HDD):} Dispositivo di memoria di massa che
+utilizza uno o pi\`u dischi magnetici per l'archiviazione dei dati.
+
+\subsection*{\huge{E}}
+
+\subsubsection*{Entry Point:}
+Un modulo entry point \`e una qualsiasi classe che implementa l'interfaccia
+EntryPoint. Quando un modulo \`e caricato ogni classe entry point elencata nel
+file .gwt.xml viene istanziata e il rispettivo metodo onModuleLoad() richiamato.
+\`E possibile sia creare un modulo con pi\`u di un entry point che senza (se si
+intende ad esempio generare un codice libreria riutilizzabile che sar\`a
+utilizzato da altri moduli GWT).
+
+\subsection*{\huge{F}}
+\subsubsection*{Framework:}  Struttura di supporto su cui un software pu\`o
+essere organizzato e progettato. Alla base di un framework c'\`e sempre una
+serie di librerie di codice utilizzabili con uno o pi\`u linguaggi di
+programmazione, spesso corredate da una serie di strumenti di supporto allo
+sviluppo del software, come ad esempio un IDE, un debugger, o altri strumenti
+ideati per aumentare la velocit\`a di sviluppo del prodotto finito.
+
+\subsection*{\huge{G}}
+
+\subsubsection*{Google App Engine (GAE):} Piattaforma Google che consente di
+progettare ed eseguire applicazioni, servendosi della scalabilit\`a offerta
+dall'infrastruttura web che Google stessa utilizza per le sue applicazioni:
+migliaia di server sparsi per il mondo che distribuiscono le copie
+dell'applicazione prodotta in modo che qualunque server possa essere in grado di
+rispondere ad una richiesta, o perch\'e poco carico in quel momento o perch\'e
+si trova geograficamente vicino all'utente, secondo il paradigma del ``cloud computing''.
+
+\subsubsection*{Google Code:} Servizio di repository gratuito di
+propriet\`a Google che garantisce velocit\`a e semplicit\`a di gestione.
+
+\subsubsection*{Google DataStore:} Database non relazionale fornito con la
+piattaforma GAE, pensato con lo scopo di avere massima scalabilit\`a per
+lavorare in ambiente distribuito.
+
+\subsubsection*{Google Groups:} Servizio web che consente di gestire (e
+archiviare sotto forma di blog) una mailing list e che fornisce varie funzioni
+di comunicazione e collaborazione con i membri iscritti ed autorizzati.
+
+\subsubsection*{Google Web Toolkit (GWT):} Set di tools open source che
+permette agli sviluppatori web di creare e manutenere complesse applicazioni front-end
+Javascript scritte in Java. Il codice sorgente Java pu\`o essere compilato su
+qualsiasi piattaforma con i file Ant inclusi. \`E distribuito sotto licenza
+Apache. Punti di forza di GWT sono la riusabilit\`a del codice, la possibilit\`a di
+realizzare pagine web dinamiche mediante le chiamate asincrone di AJAX, la
+gestione delle modifiche, il bookmarking, l'internazionalizzazione e la
+portabilit\`a fra differenti browser.
+
+\subsubsection*{GWT Deferred Binding:}
+\`E una tecnica utilizzata dal compilatore GWT per creare e selezionare una
+specifica implementazione di una classe basata su una serie di parametri.
+Consente allo sviluppatore GWT di produrre diverse varianti di
+applicazioni personalizzate per ogni ambiente browser e scaricare ed eseguire
+nel browser effettivamente solo uno di essi.
+
+\subsubsection*{GWT RPC:}
+Framework che supporta le componenti client e server nello scambio di
+oggetti Java tramite HTTP. L'implementazione di un servizio RPC si basa sulla
+consolidata architettura dei servlet Java.
+
+\subsection*{\huge{H}}
+\subsubsection*{HTML5:} Linguaggio di markup per la progettazione delle pagine
+web attualmente in fase di definizione (draft) presso il World Wide Web Consortium.
+
+\subsection*{\huge{I}}
+
+\subsubsection*{Information hiding:}Concetto informatico legato al
+principio dell'encapsulation (incapsulamento). Secondo l'information hiding i
+dettagli implementativi di una classe, o di un costrutto di altro tipo (oggetto,
+modulo, ecc), devono essere nascosti all'utente per evitare operazioni o
+modifiche dannose al sistema. Pertanto una parte di un programma pu\`o
+nascondere informazioni incapsulandole in un costrutto dotato di interfaccia,
+permettendo l'information hiding. Tuttavia l'incapsulamento non \`e garanzia di
+information hiding, poiché potrebbe, se mal utilizzato o per motivi particolari,
+non svolgere in maniera corretta la sua funzione. Da qui la necessit\`a di una
+accurata pianificazione.
+
+\subsubsection*{Internet:}  ``Rete di computer mondiale (contrazione della
+locuzione inglese Interconnected Networks, ovvero Reti Interconnesse) ad accesso pubblico
+attualmente rappresentante il principale mezzo di comunicazione di massa.
+Chiunque infatti disponga di un computer e degli opportuni software,
+appoggiandosi a un Internet service provider che gli fornisce un accesso a
+Internet attraverso una linea di telecomunicazione dedicata (ADSL, HDSL, VDSL,
+GPRS, HSDPA, ecc.) o una linea telefonica della Rete Telefonica Generale (POTS,
+ISDN, GSM, UMTS, ecc.), pu\`o accedere a Internet ed utilizzare i suoi servizi.
+Ci\`o \`e reso possibile da una suite di protocolli di rete chiamata ``TCP/IP'' dal
+nome dei due principali, il TCP e l'IP, la ``lingua'' comune con cui i computer
+di Internet si interconnettono e comunicano tra loro indipendentemente dalla loro
+architettura hardware e software.'' \\ 
+\emph{Wikipedia, L'enciclopedia libera,
+\url{http://it.wikipedia.org/wiki/Internet} (controllata il 19 Dicembre, 2010).}
+
+\subsubsection*{iTunes:} Applicazione sviluppata e distribuita da Apple Inc. per
+riprodurre e organizzare file multimediali, permettendo l'acquisto online di canzoni, video e
+film attraverso il servizio iTunes Store.
+
+\subsection*{\huge{J}}
+\subsubsection*{Java:} ``Linguaggio di programmazione orientato agli oggetti,
+derivato dallo Smalltalk (anche se ha una sintassi simile al C++) e creato da
+James Gosling e altri ingegneri di Sun Microsystems. La piattaforma di
+programmazione Java \`e fondata sul linguaggio stesso, sulla Macchina virtuale
+Java (Java Virtual Machine o JVM) e sulle API Java. Java attualmente \`e un
+marchio registrato di Oracle.''\\
+\emph{Wikipedia, L'enciclopedia libera,
+\url{http://it.wikipedia.org/wiki/Java_(linguaggio)} (controllata il 19
+Dicembre, 2010).}
+
+\subsubsection*{JavaFX:} Ampliando le potenzialit\`a di Java, consente agli
+sviluppatori di utilizzare qualsiasi libreria Java all'interno delle applicazioni JavaFX.
+Caratteristiche salienti:
+\begin{itemize}
+\item consente agli utenti di visualizzare le applicazioni JavaFX in un browser
+o di uscire dagli schemi del browser trascinandole sul desktop; 
+\item offre un flusso di lavoro efficiente dalla progettazione allo sviluppo
+grazie a Project Nile: i progettisti hanno la possibilit\`a di lavorare con gli strumenti
+che prediligono pur collaborando con Web scripter che utilizzano l'ambiente
+integrato di sviluppo NetBeans con JavaFX;
+\item consente agli sviluppatori di integrare risorse Web di grafica vettoriale,
+animazione, audio e video per creare applicazioni interattive e coinvolgenti.
+\end{itemize}
+
+\subsubsection*{Javascript}
+``JavaScript \`e un linguaggio di scripting orientato agli oggetti comunemente
+usato nei siti web. Fu originariamente sviluppato da Brendan Eich della Netscape
+Communications con il nome di Mocha e successivamente di LiveScript, ma in
+seguito \`e stato rinominato ``JavaScript'' ed \`e stato formalizzato con una
+sintassi pi\`u vicina a quella del linguaggio Java di Sun Microsystems.
+JavaScript \`e stato standardizzato per la prima volta tra il 1997 e il 1999
+dalla ECMA con il nome ECMAScript. L'ultimo standard, del dicembre 1999, \`e ECMA-262 Edition 3, e
+corrisponde a JavaScript 1.5. \`E anche uno standard ISO.''\\ 
+\emph{Wikipedia, L'enciclopedia libera,
+\url{http://it.wikipedia.org/wiki/Internet} (controllata il 25 Gennaio, 2011).}
+
+
+\subsubsection*{Javascript Native Interface (JSNI)}
+Nel contesto GWT permette di usare parti dell'applicazione GWT al di fuori della
+propria applicazione e di utilizzare codice JavaScript che non fa parte
+dell'applicazione.
+
+\subsubsection*{JDO:}
+Interfaccia standard per la memorizzazione di oggetti contenenti dati in un
+database. Permette di descrivere strutture dati in termini di classi Java con il
+vantaggio del type-safety, permettendo di applicare uno schema pi\`u
+robusto di quello richiesto dalle entit\`a del Datastore e semplificandone la
+gestione.
+
+\subsubsection*{JVM:} Macchina virtuale che esegue i programmi Java in byte-code
+(.class), risultato della compilazione di file sorgenti Java (.java).
+
+%\subsection*{\huge{K}}
+
+\subsection*{\huge{L}}
+\subsubsection*{Last.fm:}
+\`E una radio su internet e anche un social network che \`e emerso dal suo sito
+gemello Audioscrobbler nell'agosto del 2005. Il sistema costruisce un
+dettagliato profilo per ogni utente, e include i suoi artisti e canzoni
+preferiti in un sito web personalizzabile. Le canzoni ascoltate compaiono nel
+sito dopo averle ascoltate sull'apposita radio oppure tramite un plugin
+installato nel proprio player. Oggi Last.fm è un sito ``progetto'' di
+Audioscrobbler, e in tutto il mondo ha avuto una diffusione notevole, per
+l'ottima gestione e per il potente software di cui \`e dotato.
+
+\subsubsection*{LaTeX:} Linguaggio di formattazione testi utilizzato
+soprattutto in ambiente scientifico, e rimane tuttora uno dei pochi programmi
+di tipocomposizione ad integrare un formattatore matematico totalmente automatizzato.
+
+\subsubsection{Linux (o GNU/Linux):} ``Sistema operativo open-source di
+tipo Unix (o unix-like) costituito dall'integrazione del kernel Linux con
+elementi del sistema GNU e di altro software sviluppato e distribuito con
+licenza GNU GPL o con altre licenze libere. Linux, in realt\`a, \`e il nome del
+kernel sviluppato da Linus Torvalds a partire dal 1991 che, integrato con i
+componenti gi\`a realizzati dal progetto GNU (compilatore gcc, libreria Glibc e
+altre utility) e da software di altri progetti, \`e stato utilizzato come base per
+la realizzazione dei sistemi operativi Open-Source e delle distribuzioni che
+vengono normalmente identificate con lo stesso nome. Secondo Richard Stallman,
+fondatore del progetto GNU, e secondo la Free Software Foundation, la dicitura
+Linux (senza prefisso ``GNU/'') per l'intero sistema operativo sarebbe erronea, in
+quanto il nome Linux \`e attribuibile al solo kernel e il sistema, strutturato a
+partire dai componenti dell'originale progetto GNU, dovrebbe pi\`u propriamente
+chiamarsi GNU/Linux. Secondo altri e secondo l'uso della maggior parte degli
+utenti e degli sviluppatori e delle societ\`a coinvolti nello sviluppo del sistema
+operativo e del software ad esso collegato, il nome Linux \`e ormai divenuto
+sinonimo di sistema ``Linux based'', cio\`e di sistema basato sul kernel
+Linux.''\\ \emph{Wikipedia, L'enciclopedia libera,
+\url{http://it.wikipedia.org/wiki/Linux} (controllata il 19 Dicembre, 2010).}
+
+% Molto conosciuto nell'uso server, Linux gode del supporto di societ\`a come
+%IBM, Sun Microsystems, Hewlett-Packard, Red Hat e Novell ed \`e usato come
+%sistema operativo su una gran variet\`a di hardware; dai computer desktop ai
+%supercomputer, fino a sistemi embedded come cellulari e palmari, e ai netbook.
+%Sebbene non sia insostituibile per questo scopo, \`e anche il sistema operativo
+%pi\`u comunemente usato per eseguire Apache, MySQL e PHP, i software alla base
+%della maggior parte dei server web di tutto il mondo. Le iniziali di questi tre
+%progetti, insieme all'iniziale della parola Linux, hanno dato origine
+%all'acronimo LAMP. Con l'evoluzione di ambienti desktop come KDE e GNOME, il
+%sistema offre una interfaccia grafica simile a quella di Microsoft Windows o di
+%Mac OS X, pi\`u vicina alle esigenze degli utenti meno esperti, rendendo il
+%passaggio da un sistema all'altro meno traumatico.
+
+\subsection*{\huge{M}}
+\subsubsection*{MacOSX:} Sistema operativo sviluppato da Apple Inc. per i
+computer Macintosh, nato nel 2001 per combinare le note caratteristiche
+dell'interfaccia utente del Mac OS originale con l'architettura di un sistema
+operativo di derivazione Unix (Debian).
+
+\subsubsection*{Mercurial:} Software per il versionamento con il quale ogni
+sviluppatore possiede una copia completa del repository ed ogni working copy
+contiene l'intero storico delle revisioni.
+
+\subsubsection*{Merge:} Operazione di sincronizzazione utile alla
+risoluzione dei conflitti tra diverse revisioni di un file in un repository.
+Pu\`o essere effettuato entro certi limiti in maniera automatica (se le
+differenze sono semplicemente nuove parti di testo) oppure manualmente.
+
+%\subsection*{\huge{N}}
+
+\subsection*{\huge{O}}
+
+\subsubsection*{Open-Source:} Dicesi di un software i cui autori ne permettono e
+ne favoriscono il libero studio e l'apporto di modifiche da parte di altri programmatori indipendenti.
+
+\subsection*{\huge{P}}
+
+\subsubsection*{Pattern Architetturale:}
+Sono la categoria di design pattern che opera a livello pi\`u elevato,
+definendo schemi di base per impostare l'organizzazione dell'intero
+sistema software.
+
+\subsubsection*{Pattern Strutturale:}
+Riguarda il modo in cui pi\`u oggetti sono collegati tra loro per formare
+strutture complesse. Usa l'ereditariet\`a e il polimorfismo per comporre
+interfacce diverse o implementazioni diverse di una stessa interfaccia.
+
+\subsubsection*{Pattern Creazionale:}
+Fornisce un'astrazione del processo di creazione delle
+istanze delle classi, favorendo l'indipendenza del sistema dalle modalit\`a di
+creazione e dai tipi concreti effettivamente generati.
+
+\subsubsection*{Pdf (Portable Document Format):} Formato di file basato su un
+linguaggio di descrizione di pagina sviluppato da Adobe Systems nel 1993 per rappresentare
+documenti in modo indipendente dall'hardware e dal software utilizzati per generarli o per visualizzarli.
+
+\subsubsection*{Propriet\`a emergenti:} Si tratta di propriet\`a del sistema
+software nel suo complesso e non relative a singole componenti. Sono molto
+delicate poich\'e conseguenza dell'interazione tra le varie componenti.\\
+Sono visibili e misurabili solo dopo l'integrazione del sistema.
+
+\subsubsection*{Pull:} Operazione di sincronizzazione che consiste
+nell'aggiornare i contenuti locali di un progetto in base alla versione del repository.
+
+\subsubsection*{POJO :}
+\`E un acronimo (Plain Old Java Object) usato nel mondo della programmazione
+software, ed è usato per enfatizzare il fatto che un dato oggetto sia un tipico
+oggetto Java (che utilizza regole e costrutti sintattici tipici), non un oggetto
+speciale che utilizza costrutti particolari.
+
+In computing software, POJO is an acronym for Plain Old Java Object. The name is
+used to emphasize that a given object is an ordinary Java Object, not a special object
+
+\subsubsection*{Push:} Operazione di sincronizzazione che consiste
+nell'aggiornare il contenuto del repository (eventualmente dopo il merge delle modifiche).
+
+
+\subsection*{\huge{Q}}
+\subsubsection*{Query:} Termine utilizzato per indicare l'interrogazione di un
+database nel compiere determinate operazioni (inserimento dati, cancellazione
+dati, ecc.) da eseguire in uno o pi\`u database.
+
+\subsubsection*{Qualit\`a:}
+Un' insieme di caratteristiche (propriet\`a) che, nel loro complesso,
+rappresentano la qualit\`a del prodotto.
+
+\subsection*{\huge{R}}
+
+\subsubsection*{Repository:} Ambiente per l'immagazzinamento, la gestione e la
+condivisione di cospicue quantit\`a di dati. Esso permette l'aggiunta, modifica
+e rimozione dei dati tramite apposite primitive (push, pull, merge) e di
+tracciarne le modifiche tramite note (commit).
+
+\subsubsection*{RIA (Rich Internet Application):} Applicazioni web che
+possiedono le caratteristiche e le funzionalit\`a delle applicazioni desktop, senza per\`o
+necessitare dell'installazione sul disco fisso.
+  
+\subsection*{\huge{S}}
+\subsubsection*{Sistema operativo:} Particolare software che, installato su un
+sistema di elaborazione, permetta l'utilizzo di software pi\`u specifici senza che
+essi debbano preoccuparsi dell'architettura hardware sottostante.
+
+\subsubsection*{Spring:} Framework Open-Source per lo sviluppo di applicazioni
+su piattaforma Java. \`E nato con l'intento di gestire la complessit\`a nello
+sviluppo di applicazioni enterprise.
+
+\subsubsection*{SQL (Structured Query Language):} Linguaggio di
+interrogazione per database progettato per leggere, modificare e gestire dati
+memorizzati in un sistema basato sul modello relazionale, per creare e
+modificare schemi di database, per creare e gestire strumenti di controllo ed
+accesso ai dati.
+
+\subsection*{\huge{T}}
+\subsubsection*{Ticketing:} Meccanismo di gestione di progetti condivisi tramite
+tickets. Un ticket corrisponde ad un'attivit\`a, come un bug o un suggerimento
+ed \`e possibile assegnargli una priorit\`a, una milestone (ovvero una ipotetica
+data per la sua risoluzione), attribuirgli dei dettagli ed un componente del
+team che si occuper\`a di gestire l'elemento. Lo status del ticket consente di
+verificare se il ticket \`e in lavorazione, in standby o completato.
+
+\subsubsection*{Twig-persist: } \`E un'interfaccia per oggetti di persistenza
+costruita sul Datastore a basso livello di Google App Engine, che supera molte
+delle limitazioni JDO-GAE, incluso il supporto completo per l'ereditarietà, il
+polimorfismo e i tipi generici. Twig \`e l'unica tra le interfacce per GAE che
+supporti comandi paralleli asincroni, modelli di dati POJO senza dipandenze dal
+datastore query multiple e OR query.
+
+\subsection*{\huge{U}}
+
+\subsubsection*{UML:} Acronimo di Unified Modeling Language, \`e un linguaggio
+di modellazione e specifica basato sul paradigma object-oriented, utilizzato per
+descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile.
+
+\subsubsection*{USB (Universal Serial Bus):} Standard di comunicazione seriale
+che consente di collegare diverse periferiche ad un computer. \`e stato progettato
+per consentire a pi\`u periferiche di essere connesse usando una sola interfaccia
+standardizzata ed un solo tipo di connettore, e per migliorare la funzionalit\`a
+plug-and-play consentendo di collegare/scollegare i dispositivi senza dover
+riavviare il computer (hot swap).
+
+\subsubsection*{User Interface (UI):}
+Ci\`o che si frappone tra la macchina e l'utente, e che ne permette il
+``dialogo''. L'interfaccia utente non \`e necessariamente legata ad un sistema
+informatico (ad un PC), l'interfaccia \`e qualsiasi cosa che permette ad un utente di poter gestire (pi\`u o meno) semplicemente le funzionalit\`a di
+un sistema.
+
+\subsubsection*{Username:} In informatica definisce il nome con il quale
+l'utente viene riconosciuto da un computer, da un programma o da un server.
+
+\subsection*{\huge{V}} 
+\subsubsection*{Validazione:}
+\`E un processo che serve ad accertare che il prodotto realizzato sia quello
+atteso e viene applicato, a lavoro finito, sia ai documenti che alle componenti
+software.
+
+\subsubsection*{Verifica:}
+\`E un processo che viene eseguito molto spesso durante lo sviluppo dell'intero
+progetto ed ha il compito di accertare che il lavoro sia stato svolto nel modo
+corretto e quindi non abbia introdotto difetti nel prodotto.
+
+\subsubsection*{Versioning (Versionamento):} Pratica di sviluppo che permette di
+tracciare l'evoluzione di un progetto e di coordinare le operazioni sul medesimo
+al fine di permettere maggior manutenibilit\`a e riutilizzabilit\`a.
+
+\subsection*{\huge{W}}
+\subsubsection*{Windows:} Famiglia di ambienti operativi e sistemi operativi
+commerciali della Microsoft Corporation dedicati ai personal computer, alle workstation e ai server.
+
+\subsubsection*{W3C:} Associazione fondata nell'ottobre del 1994 da Tim Berners
+Lee, padre del Web, al MIT (Massachusetts Institute of Technology) con lo scopo di migliorare
+gli esistenti protocolli e linguaggi per il World Wide Web e di aiutare il web a
+sviluppare tutte le sue potenzialit\`a.
+
+\subsection*{\huge{X}}
+\subsubsection*{XML (eXtensible Markup Language):}
+ \`E un metalinguaggio di markup, ovvero un linguaggio marcatore che
+definisce un meccanismo sintattico che consente di estendere o controllare il
+significato di altri linguaggi marcatori. Costituisce il tentativo di produrre
+una versione semplificata di SGML che consenta di definire in modo semplice
+nuovi linguaggi di markup da usare in ambito web. Il nome indica quindi che si
+tratta di un linguaggio marcatore (markup language) estensibile (eXtensible) in
+quanto permette di creare tag personalizzati.
+
+\subsection*{\huge{Y}}
+\subsubsection*{YouTube:} Sito web attualmente di propriet\`a di Google Inc. che
+consente la riproduzione in streaming, la pubblicazione e condivisione di video.
+
+%\subsection*{\huge{Z}}
+
+
+\end{document}
+
