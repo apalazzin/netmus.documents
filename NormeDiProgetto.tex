@@ -1,0 +1,913 @@
+\newcommand{\nomedoc}{Norme Di Progetto}
+\newcommand{\versione}{4.0}
+\newcommand{\versioneNP}{4.0}
+\newcommand{\versioneGL}{4.0}
+\newcommand{\versionePP}{4.0}
+\newcommand{\versionePQ}{5.0}
+\newcommand{\versioneAR}{3.0}
+\newcommand{\versioneST}{3.0}
+\newcommand{\versioneDP}{2.0}
+\newcommand{\nomefile}{NormeDiProgetto-\versione.pdf}
+\newcommand{\datacreazione}{7 Dicembre 2010}
+\newcommand{\datamodifica}{18 Marzo 2011}
+\newcommand{\stato}{formale}
+\newcommand{\uso}{interno}
+\newcommand{\redazione}{Baron Federico\\&Palazzin Alberto}
+\newcommand{\verifica}{Daminato Simone}
+\newcommand{\approvazione}{Lovato Daniele}
+\newcommand{\distribuzione}{
+VT.G \\
+& Prof. Vardanega Tullio\\
+& Prof. Cardin Riccardo }
+
+\input{preambolo.tex}
+
+\begin{document}
+
+\input{homepage.tex}
+
+\chapter*{Sommario}
+\thispagestyle{fancy}
+Questo documento contiene un elenco di norme, approvate da
+tutti i membri del gruppo VT.G e applicate su l'intero progetto; riguardano in
+particolare le convenzioni di comunicazione interne ed esterne, riunioni tra i componenti del team e
+documentazioni del progetto. Inoltre sono definiti alcuni aspetti
+dell'amministrazione di progetto particolarmente importanti per lavorare con strumenti e tecnologie
+comuni.
+
+\newpage
+% REGISTRO MODIFICHE
+\section*{Registro delle modifiche}
+
+\begin{longtable}{|p{0.13\textwidth}|c|p{0.2\textwidth}|p{0.46\textwidth}|}
+\hline
+\rowcolor{orange} \bo{Data} & \bo{Versione} & \bo{Autore} & \bo{Descrizione} \\
+\hline
+\endhead
+\hline
+\endfoot
+18/03/2011 & 4.0 & Caputo Cosimo & Validazione per consegna RA.\\
+\hline
+17/03/2011 & 3.2 & Mandolo Andrea & Verificato l'intero documento.\\
+\hline
+16/03/2011 & 3.1 & Trezzi Giovanni & Correzione dopo esito RQ.\\
+\hline
+25/02/2011 & 3.0 & Mandolo Andrea & Validazione documento per consegna RQ.\\
+\hline 
+25/02/2011 & 2.7 & Baron Federico & Rimozione di JavaFX dalle tecnologie
+utilizzate (capitolo 4).\\ \hline
+25/02/2011 & 2.6 & Baron Federico & Verifica dell'intero documento
+con particolare attenzione a capitoli 6 e 7.\\ \hline
+23/02/2011 & 2.5 & Palazzin Alberto &
+Inserimento di nuove norme stabilite per la codifica nel capitolo 7.\\\hline
+15/02/2011 & 2.4 & Lovato Daniele & Redazione del paragrafo 6.2.3:
+``Tracciamento dei requisiti - componenti di progettazione di dettaglio''.\\\hline
+15/02/2011 & 2.3 & Lovato Daniele & Divisione in
+paragrafi del capitolo 7 ``Norme di codifica''.\\\hline
+14/02/2011 & 2.2 & Palazzin Alberto & Aggiornamento del
+paragrafo 6.2.\\ \hline
+13/02/2011 & 2.1 & Palazzin Alberto & Aggiornamento del
+capitolo 6 paragrafi 1 e 2 per carenze evidenziate in correzione RR.\\\hline
+31/01/2011 & 2.0 & Baron Federico & Validazione per consegna RP.\\
+\hline
+30/01/2011 & 1.7 & Mandolo Andrea & Verificate modifiche e nuove sezioni.\\
+\hline
+30/01/2011 & 1.6 & Caputo Cosimo & Aggiunta sezione 6.2 ``Tracciamento dei
+requisiti - componenti''.\\
+\hline
+30/01/2011 & 1.5 & Caputo Cosimo & Correzione errori grammaticali e
+semantici in tutto il documento.\\
+\hline
+22/01/2011 & 1.4 & Caputo Cosimo & Sistemati capitoli 3, 5 e 10.\\
+\hline
+21/01/2011 & 1.3 & Mandolo Andrea & Corretti Riferimenti.\\
+\hline
+19/01/2011 & 1.2 & Palazzin Alberto & Aggiunto e redatto capitolo
+``Analisi e Progettazione'' e ``Norme di codifica''.\\
+\hline
+12/01/2011 & 1.1 & Mandolo Andrea & Modificato layout Registro delle
+modifiche.\\
+\hline
+19/12/2010 & 1.0 & Lovato Daniele & Validazione per consegna RR.\\
+\hline
+19/12/2010 & 0.6 & Daminato Simone & Verificato l'intero documento.\\
+\hline
+15/12/2010 & 0.5 & Baron Federico & Correzione ortografica e sintattica
+generale.\\
+\hline
+11/12/2010 & 0.4 & Palazzin Alberto & Sistemazione dei Capitoli 5, 6, 7 e 8.\\
+\hline
+10/12/2010 & 0.3 & Palazzin Alberto & Sistemazione dei Capitoli 2, 3, 4, 9 e
+10.\\
+\hline
+09/12/2010 & 0.2 & Baron Federico & Aggiunto il capitolo 7.\\
+\hline
+ 07/12/2010 & 0.1 & Baron Federico & Prima stesura del documento.
+\end{longtable}
+
+
+% INDICE
+\tableofcontents
+
+\chapter{Introduzione}
+\thispagestyle{fancy} % serve perche' nelle pagine di inizio Chapter esca header e footer
+\pagenumbering{arabic} % INIZIO NUMERAZIONE NORMALE
+\rfoot{\thepage\ di \pageref{TotPages}}
+
+\section{Scopo del documento}
+Il presente documento viene stilato al fine di descrivere le norme che il gruppo
+deve seguire per regolare le proprie attivit\`a di lavoro.
+
+\input{parte_comune.tex}
+
+\chapter{Comunicazioni}
+\thispagestyle{fancy}
+Le comunicazioni si dividono in interne ed esterne al gruppo, e vengono gestite
+nei modi di seguito riportati.
+
+\section{Interne}
+Le comunicazioni interne tra i membri del team si svolgono attraverso gli
+strumenti offerti da \underline{Google Groups} nel profilo Valter Texas Group e
+le e-mail personali. Nello specifico si utilizzano: un forum per le discussioni
+(sezione ``Discussioni''), dei documenti condivisi \underline{Google Docs} per
+alcune note (sezione ``Documenti'') e degli avvisi tramite e-mail. 
+Queste comunicazioni sono protette e visibili soltanto ai membri del gruppo.
+
+
+\section{Esterne}
+Le comunicazioni esterne sono gestite con un'e-mail di gruppo
+\url{valtertexasgroup@googlegroups.com}, fornita da Google Groups. I messaggi
+ricevuti a questo indirizzo di posta elettronica sono inoltrati automaticamente alle e-mail personali dei componenti del team e pubblicati nella
+sezione ``Discussioni'' del forum interno.
+
+
+\chapter{Norme per la stesura dei documenti}
+\thispagestyle{fancy}
+Per scrivere i documenti si utilizzer\`a il linguaggio di markup
+\underline{LaTeX} in quanto permette di dedicarsi meglio al contenuto da
+scrivere rispetto alla formattazione, che una volta impostata \`e automatica (per maggiori dettagli
+vedi sezione 4.8 e 4.9).
+
+\section{Nomenclatura}
+Tutti i nomi dei file devono cominciare con la lettera maiuscola e
+indicare in maniera univoca il loro contenuto. Il nome deve essere seguito da un
+trattino (-) e due cifre separate da un punto che indicano la versione del
+documento (esempio: \emph{NormeDiProgetto-2.0.pdf}).
+
+\section{Contenuto}
+Tutti i documenti devono contenere: 
+\begin{itemize}
+\item {una pagina iniziale con il logo e il nome del gruppo;}
+\item {il contatto del gruppo;}
+\item {il nome del documento;}
+\item {la versione del documento;}
+\item {la data di creazione;}
+\item {la data di ultima modifica;}
+\item {lo stato del documento (formale o informale);}
+\item {l'uso del documento (esterno o interno);}
+\item {la redazione;}
+\item {la \underline{verifica};}
+\item {l'approvazione;}
+\item {la distribuzione;}
+\item {un registro delle modifiche;}
+\item {un indice del documento;}
+\item {un sommario contenente un breve riassunto del documento;}
+\item {l'indice delle tabelle (se presenta almeno una tabella nel documento);}
+\item {l'indice delle figure (se presente almeno una figura nel documento).}
+\end{itemize} 
+
+\section{Norme tipografiche}
+Il font da utilizzare \`e Knuth's Computer Modern (di default in
+\underline{LateX}), la dimensione del capitolo e del sottocapitolo \`e quella di
+default in LateX, la dimensione del testo \`e 12pt e la codifica per i caratteri
+\`e ISO-8859-1. In ogni documento si deve utilizzare la \underline{sottolineatura} per marcare i termini presenti nel glossario (solo
+alla prima occorrenza), l'\emph{italic} per evidenziare i nomi di file che
+fanno riferimento ad altri documenti e l'\url{url} per indicare gli indirizzi
+web.
+
+\section{Norme di stile}
+Ogni capitolo deve essere identificato da un numero mentre ogni sottocapitolo
+deve essere identificato da due numeri separati da un punto (il primo indica il
+capitolo e il secondo il sottocapitolo). Tra un capitolo/sottocapitolo e
+l'altro, si deve utilizzare un'interlinea come separatore.
+
+\section{Figure e tabelle}
+Qualsiasi figura di contenuto (grafici, schemi) e tabella deve essere
+accompagnata da un numero progressivo all'interno del documento, preceduto da
+numeri che ne identificano il capitolo e il numero progressivo relativo al capitolo (esempio: immagine 1.3
+\`e l'immagine 3 all'interno del capitolo 1) e da una
+didascalia che ne dia una breve spiegazione.
+
+\section{Acronimi e abbreviazioni}
+Le diverse revisioni sono indicate con:
+\begin{itemize}
+\item {RR: Revisione dei Requisiti;}
+\item {RP: Revisione di Progettazione; }
+\item {RQ: Revisione di Qualifica;}
+\item {RA: Revisione di Accettazione.}
+\end{itemize}
+Si utilizza l'acronimo VT.G (Valter Texas Group) per qualsiasi riferimento al
+nostro gruppo di progetto.
+
+
+
+\chapter{Strumenti e tecnologie da utilizzare}
+\thispagestyle{fancy}
+Si impone a tutti i membri di VT.G di utilizzare gli stessi strumenti e
+configurazioni per qualsiasi attivit\`a di lavoro. Qui di seguito vengono
+riportati i dettagli relativi ad ogni strumento.
+
+\section{IDE}
+Eclipse for \underline{Java} Developers (versione $\geq$ Helios 3.6).
+\\
+Scarica e installa dal link\\
+\url{http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/heliossr1}.
+ 
+\section{Repository}
+\underline{Google Code} Project Hosting.
+\\
+All'interno del progetto (\url{http://code.google.com/p/netmus/}) vengono
+utilizzati due \underline{repository}: ``default'' per il progetto
+(\url{https://netmus.googlecode.com/hg/}) e ``documents'' per i documenti
+(\url{https://documents.netmus.googlecode.com/hg/}).\\
+Per facilitare il lavoro simultaneo tra i membri, nel repository documents \`e
+stato aperto un \underline{branch} per ogni documento da redarre. In prossimit\`a di una
+revisione vengono fatti convergere in un nuovo branch relativo ad essa.
+
+\section{Sistema di versionamento}
+\underline{Mercurial}  (versione $\geq$ 1.6). 
+\\
+Scarica e installa dal link
+\url{http://mercurial.selenic.com/}.
+
+\section{Plugin Mercurial per Eclipse}
+MercurialEclipse (versione $\geq$ 1.7.1). 
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://cbes.javaforge.com/update};}
+\item {selezionare ``Mercurial Eclipse'' dalla lista comparsa e deselezionare
+``\underline{Windows} Binaries for Mercurial'' se non si usa un ambiente Windows
+(se richiede una login e una password, andare al link
+\url{http://www.javaforge.com/createUser.spr}, registrarsi al sito e poi
+utilizzare queste credenziali per continuare l'istallazione del plugin);}
+\item {installare.}
+\end{itemize}
+
+\section{Plugin e SDKs di GAE e GWT per Eclipse}
+\underline{Google App Engine} (versione $\geq$ 1.4.2) e \underline{Google Web
+Toolkit} (versione $\geq$ 2.2.0).
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://dl.google.com/eclipse/plugin/3.6};}
+\item {selezionare Plugin (Google Plugin 1.4.2 for Eclipse 3.6) e SDKs (Google
+App Engine Java SDK 1.4.2 e Google Web Toolkit SDK 2.2.0) dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
+
+\section{LateX}
+\begin{itemize}
+\item {Per \underline{Linux}: TeX Live (versione 2010). 
+\\
+Scarica e installa dal link
+\url{http://www.tug.org/texlive/}.}
+\item {Per \underline{MacOSX}: MacTeX (versione 2010). 
+\\
+Scarica e installa dal link
+\url{http://www.tug.org/mactex/}.}
+\item {Per Windows: MiKTeX (versione 2.9). 
+\\
+Scarica e installa dal link
+\url{http://miktex.org/}.}
+\end{itemize}
+
+\section{Plugin LateX per Ecplise}
+TeXlipse (versione $\geq$ 1.4.0). 
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire \url{http://texlipse.sourceforge.net};}
+\item {selezionare l'unico file dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
+
+\section{Plugin UML per Eclipse}
+Papyrus (versione $\geq$ 0.7.2). 
+\\
+Per installare seguire queste
+operazioni: 
+\begin{itemize}
+\item {aprire il programma Eclipse;} 
+\item {nel men\`u in alto selezionare ``Help'';}
+\item {selezionare ``Install new Software'';}
+\item {in ``Work with'' inserire} \\
+{\url{http://download.eclipse.org/modeling/mdt/papyrus/updates/releases/helios};}
+\item {selezionare ``Papyrus \underline{UML} MDT'' dalla lista comparsa;}
+\item {installare.}
+\end{itemize} 
+
+\section{Gantt}
+GanttProject (versione $\geq$ 2.0.10). 
+\\
+Scarica e installa dal link
+\url{http://www.ganttproject.biz/download}.
+
+
+\chapter{Pianificazione, ticketing e \\time-tracking}
+\thispagestyle{fancy}
+Per fare pianificazione verranno utilizzati i \underline{diagrammi di Gantt} e
+nello specifico lo strumento GanttProject (per maggiori dettagli vedi sezione 4.11). 
+\\ \\
+Il tracciamento delle ore di lavoro per ogni componente verr\`a eseguito
+tramite un progetto di GanttProject appositamente condiviso e accessibile da ognuno (non concorrentemente). Questo permetter\`a anche un comodo confronto con la
+gestione delle risorse pianificata nel \emph{PianoDiQualifica-\versionePQ.pdf}.
+\\ \\
+Il \underline{ticketing} sar\`a utilizzato tramite gli appositi strumenti
+forniti da Google Code al link
+\\\url{http://code.google.com/p/netmus/issues/list}. \\Al link
+\url{http://code.google.com/p/support/wiki/IssueTracker} si pu\`o trovare un tutorial che spiega come usare questo strumento.\\
+Chi si \`e preso in carico il ticket, alla sua chiusura dovr\`a
+compilare un form al link
+\url{https://spreadsheets.google.com/viewform?formkey=dFpYYUdtWTB4c3BsbzdXY0JZaGFDZUE6MQ}.
+\\Questo form sar\`a utile per il miglioramento dei processi di lavoro (per
+maggiori dettagli vedi documento \emph{PianoDiQualifica-\versionePQ.pdf}).
+
+
+\chapter{Analisi e Progettazione}
+\thispagestyle{fancy} 
+
+Per l'analisi dei requisiti e per la progettazione si utilizzer\`a il linguaggio
+UML 2.0 perch\'e adottato come standard nella modellazione e
+scrittura dei diagrammi: Use case, di flusso, dei package, delle classi, degli
+oggetti, di attivit\`a e di sequenza. \\
+In particolare si associano i diagrammi dei casi d'uso all'attivit\`a di
+analisi, i diagrammi di attivit\`a e delle classi alla progettazione ad alto
+livello e i diagrammi di sequenza e delle classi per la progettazione di
+dettaglio. \\
+La tecnologia e gli strumenti utilizzati per la scrittura in UML sono
+specificati chiaramente nella sezione 4.10.
+
+\section{Analisi}
+L'analisi dei requisiti \`e un'attivit\`a che ha come obiettivi la comprensione
+del dominio all'interno del quale deve essere sviluppato un sistema software e
+la definizione dei requisiti che tale sistema deve soddisfare.\\ 
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=6cm]{img/NP/ProcessoAR.png}
+\caption{Processo di Analisi dei Requisiti}
+\end{figure}\\
+Il processo di analisi dei requisiti si divide in:
+\begin{itemize}
+  \item \bo{comprensione del dominio}, gli analisti partendo dall'enunciazione
+  del problema fino all'acquisizione delle competenze (documentazione
+  preesistente, interviste agli utenti potenziali e studio delle soluzioni
+  esistenti), devono sviluppare una proprio comprensione del dominio
+  applicativo;
+  \item \bo{raccolta dei requisiti}, interagire con i contraenti per
+  identificare i loro requisiti;
+  \item \bo{classificazione}, prendere la collezione non strutturata dei
+  requisiti ed organizzarli innanzitutto distinguendoli in base a
+  caratteristiche generali di qualit\`a a cui possono essere riferiti,
+  successivamente dividendoli tra requisiti funzionali e non funzionali, e
+  infine controllare che siano verificabili;
+  \item \bo{risoluzione dei conflitti}, nel caso in cui sorgano conflitti nei
+  requisiti, bisogna individuarli e risolverli;
+  \item \bo{attribuzione delle priorit\`a}, i requisiti vanno divisi ed
+  etichettati (obbligatorio, desiderabile, opzionale) in base alla diversa
+  importanza;
+  \item \bo{validazione dei requisiti}, controllare i requisiti per capire se
+  sono completi, consistenti e in accordo con ci\`o che i contraenti vogliono
+  dal sistema.
+\end{itemize}
+Per semplificare la determinazione dei requisiti, si pu\`o decomporre l'uso
+del sistema in casi distinti, ciascuno dei quali facile da
+descrivere oppure decomponibile a sua volta.
+Utile \`e utilizzare un modello di casi d'uso, che \`e una descrizione di
+requisiti funzionali composto di:
+\begin{itemize}
+  \item diagrammi di casi d'uso;
+  \item scenari delle interazioni tra il sistema e gli attori che vi
+  intervengono, per ciascuno Use case.
+\end{itemize}
+
+\subsection{Tracciamento dei requisiti - Use case}
+Per identificare in modo univoco e significativo ognuno dei requisiti software
+estratti dall'analisi, gli viene assegnato un codice.
+Tale lista sar\`a presente solamente nel documento
+\emph{AnalisiDeiRequisiti-\versioneAR.pdf} mentre in tutti gli altri verranno
+riferiti tramite il codice suddetto.
+\\
+\\
+\bo{(C1/C2)(F/Q/I/V)(N/D/O)-n1.n2.n3...nx}\\
+\bo{C1} = componente 1 (componente di persistenza e visualizzazione)\\
+\bo{C2} = componente 2 (componente di recupero delle informazioni dei brani
+musicali contenuti nei sistemi di riproduzione personale dell'utente)\\
+\bo{F} = funzionale\\
+\bo{Q} = qualit\`a\\
+\bo{I} = interfacciamento\\
+\bo{V} = vincolo\\
+\bo{N} = obbligatorio (necessario)\\
+\bo{D} = desiderabile\\
+\bo{O} = opzionale\\
+\bo{nx} = livello di innestamento nella gerarchia dei requisiti. I ``figli'' di
+un requisito avranno una cifra in pi\`u del genitore.
+
+
+\newpage
+\section{Progettazione}
+Dopo la definizione dei requisiti in cui vengono descritte le funzionalit\`a del
+sistema e i vincoli operativi, si procede con la specifica dei requisiti dove
+vengono descritte in maniera pi\`u precisa e dettagliata tali
+funzionalit\`a e vincoli. Quindi la specifica dei requisiti aggiunge dettagli
+alla definizione dei requisiti e serve per comunicare agli sviluppatori cosa
+deve fare il sistema. 
+Gli obiettivi della progettazione sono soddisfare tutti i requisiti di qualit\`a
+cercando una soluzione architetturale del prodotto che impieghi dei componenti
+con specifica chiara e coesa, che realizzi il sistema rispettando i tempi e i costi
+fissati, e che la struttura sia gi\`a predisposta per eventuali cambiamenti
+futuri. \\ \\
+L'attivit\`a del processo di sviluppo, procedendo dall'analisi dei requisiti,
+produce una descrizione della struttura interna e dell'organizzazione del sistema
+che \`e la base della realizzazione, e l'architettura software organizzando il
+sistema per decomposizione in componenti e interfacce, e dando una prima visione
+logica e poi di dettaglio.
+Per semplificare la determinazione dell'architettura, prima ad un
+livello logico e poi ad un livello di dettaglio, cercando una decomposizione sia
+funzionale sia ad oggetti, si possono utilizzare i diagrammi UML dei package,
+delle classi, degli oggetti, di attivit\`a, di flusso e di sequenza. \\ \\
+La Specifica Tecnica
+deve delineare, per ogni componente del sistema, la funzione che svolge, quali
+sono i dati in ingresso e in uscita a tale componente, e calcolare le risorse
+logiche e fisiche necessarie al suo funzionamento.\\ \\
+La Definizione del Prodotto procede dall'architettura logica, consentendo lo
+sviluppo parallelo e indipendente dei componenti di basso livello, consentendo
+di stimare costo e tempi di realizzazione e cercando la qualit\`a voluta tramite
+precise metriche (coesione, accoppiamento, utilit\`a, dipendenza,
+complessit\`a).
+
+\subsection{Tracciamento dei requisiti - componenti di progettazione ad alto
+livello} Per identificare in modo univoco e significativo ognuno dei componenti
+software estratti dalla progettazione, gli viene assegnato un codice.
+Tale lista sar\`a presente solamente nel documento
+\emph{SpecificaTecnica-\versioneST.pdf} mentre in tutti gli altri verranno
+riferiti tramite il codice suddetto.
+\\ 
+\\
+\bo{C(pc)(sc)n}\\
+\bo{C} = (C = componente di persistenza e visualizzazione, C2 = componente di
+recupero delle informazioni)\\ \bo{pc} = due lettere per identificare il
+package\\ \bo{sc} = due lettere per identificare il sotto-package\\
+\bo{n} = numero incrementale che indica il package stesso se uguale a 0, la
+classe contenuta nel package se maggiore di 0\\ \\
+Esempi:
+\begin{itemize}
+  \item \bo{Cclmv0} = il package stesso client.mvp
+  \item \bo{Cclmv1} = la classe NetmusActivityMapper del package client.mvp
+  \item \bo{C2ap1} = la classe DeviceScanner del package applet
+\end{itemize}
+
+Il tracciamento effettuato deve collegare ogni componente con i requisiti che si
+propone di soddisfare ma anche vice-versa. Sar\`a dovere dei progettisti di alto
+livello descrivere le motivazioni precise riguardanti eventuali componenti o
+requisiti non tracciati.
+
+\subsection{Tracciamento dei requisiti - componenti di progettazione di
+dettaglio} I codici delle componenti saranno mantenuti dalla progettazione precedente, ed
+aggiunti con il dovuto incremento in caso dell'individuazione di nuove
+componenti.\\\\
+Il verificatore che si prender\`a carico del tracciamento dovr\`a separare il
+tracciamento relativo ai requisiti obbligatori da quelli desiderabili e
+opzionali poich\'e anche la progettazione e la codifica seguiranno questa
+divisione temporale in due incrementi.\\
+Sar\`a dovere dei progettisti di dettaglio descrivere le motivazioni precise
+riguardanti eventuali componenti o requisiti non tracciati.
+
+\subsection{Norme per la Definizione del Prodotto}
+Nella stesura del documento \emph{DefinizioneDelProdotto-\versioneDP.pdf}, in
+dettaglio nella specifica delle componenti in progettazione, \`e stata adottata
+la seguente notazione per descrivere i metodi e gli attributi delle classi:
+\begin{itemize}
+  \item ``\bo{+, -, \#}'' per la visibilit\`a (rispettivamente public, private,
+  package);
+  \item ``\bo{@UiFiled, @UiHandler}'' per \underline{UiBinder};
+  \item ``\bo{nome}'' del metodo/attributo;
+  \item ``\bo{(parametri specificati)}'' ad esempio in/out;
+  \item ``\bo{: tipo di ritorno}'' se presente;
+  \item ``\bo{lista di tag}'' ad esempio \emph{final/static}, se presenti.
+\end{itemize}
+
+\newpage
+\chapter{Norme di Codifica}
+\thispagestyle{fancy}
+ 
+\section{Ambiente di sviluppo}
+\subsection{Sistema operativo}
+Non sono stati posti vincoli ai membri di VT.G per quanto riguarda l'utilizzo di
+uno specifico sistema operativo poich\'e gli strumenti che utilizzeremo nella
+codifica sono disponibili e stabili per tutti i sistemi maggiormente utilizzati.
+Riteniamo inoltre che svolgere le attivit\`a di codifica e debugging su
+piattaforme differenti possa recare vantaggio in termini di portabilit\`a
+dell'applicazione sviluppata e un abbassamento generale dei rischi in fase di
+validazione.
+
+\subsection{IDE}
+Per la fase di codifica del progetto \`e stato scelto l'ambiente
+integrato di sviluppo Eclipse perch\'e supporta sia la programmazione Java
+sia la possibilit\`a  di installare eventuali plugin per interfacciarsi con
+altre tecnologie (per maggiori dettagli vedi sezione 4.1).\\
+Per la componente di visualizzazione del Catalogo
+Multimediale sono stati scelti i plugin di GAE e di GWT oltre i relativi SDKs
+(per maggiori dettagli vedi sezione 4.5).\\ 
+Anche per la codifica della componente di estrazione delle informazioni,
+identificata in una Java Applet, la piattaforma di sviluppo sar\`a Eclipse. Il
+formato utilizzato poi per l'inserimento nella componente di visualizzazione
+sar\`a un archivio auto-firmato con certificato generico .jar.sign.
+
+
+\section{Convenzioni sul codice per il linguaggio di \\programmazione Java}
+Si \`e deciso di seguire le convenzioni standard sul codice per il linguaggio
+Java perch\'e oltre ad essere consigliate dalla stessa Sun Microsystems, sono
+ottime dato che l'80\% del costo vita di un pezzo di software va in
+manutenzione, che quasi nessun software \`e mantenuto per tutta la sua vita
+dall'autore originale e che queste convenzioni migliorano la leggibilit\`a
+del software consentendo ai progettisti di comprendere il nuovo codice pi\`u
+rapidamente e accuratamente.
+Il documento su tali convenzioni \`e stato rivisto e aggiornato il 20 aprile
+1999, e si trova al seguente link
+\url{http://www.oracle.com/technetwork/java/codeconv-138413.html}.
+
+\subsection{Nomi dei file}
+Ogni file Java avr\`a suffisso:
+\begin{itemize}
+  \item ``.java'' se il tipo \`e un sorgente Java;
+  \item ``.class'' se il tipo \`e un bytecode Java.
+\end{itemize}
+
+\subsection{Organizzazione dei file}
+Un file \`e costituito da sezioni che dovrebbero essere separate da righe vuote
+e un commento opzionale che identifica ogni sezione. I file pi\`u di 2000 linee sono
+ingombranti e dovrebbero essere evitati.
+Ogni file sorgente Java contiene una singola classe/interfaccia pubblica.
+Quando classi/interfacce private sono associate a una classe pubblica,
+\`e possibile inserirle nello stesso file della classe pubblica.
+\\ \\
+Il file sorgente Java deve seguire quest'ordine:
+\begin{itemize}
+  \item l'intestazione, esempio: \\
+  \hspace*{0.5cm} \co{/**} \\
+  \hspace*{0.5cm} \co{ * Nome della classe/interfaccia} \\
+  \hspace*{0.5cm} \co{ *} \\
+  \hspace*{0.5cm} \co{ * Autore} \\
+  \hspace*{0.5cm} \co{ *} \\
+  \hspace*{0.5cm} \co{ * Licenza copyright/copyleft} \\
+  \hspace*{0.5cm} \co{ *} \\
+  \hspace*{0.5cm} \co{ * Data di creazione} \\
+  \hspace*{0.5cm} \co{ */} \\
+  ;
+  \item le dichiarazioni del package seguite da quelle di importazione;
+  \item la dichiarazione della classe/interfaccia.
+\end{itemize}
+
+\subsection{Indentazione}
+Per l'indentazione si devono utilizzare 4 spazi e non il TAB perch\'e
+poco portabile; si pu\`o continuare ad usare il TAB andando per\`o ad
+impostare Eclipse nel seguente modo: ``Preferenze'' $\Rightarrow$ ``Java''
+$\Rightarrow$ ``Codes Style'' $\Rightarrow$ ``Formatter''$\Rightarrow$ ``Edit''
+$\Rightarrow$ inserire un nuovo nome in ``Profile name'', selezionare
+``Spaces only'' in ``Tab policy'', inserire 4 in ``Indentation'' e 4 in ``Tab
+size''. \\ Evitare le linee pi\`u lunghe di 80 caratteri, dal momento che non sono gestite bene da molti terminali e strumenti.\\ \\
+Quando un'espressione non pu\`o stare su una sola riga, bisogna
+romperla seguendo questi principi:
+\begin{itemize}
+  \item a capo riga dopo una virgola, esempio: \\
+  \hspace*{0.5cm} \co{someMethod(longExpression1, longExpression2,
+  longExpression3,\\ 
+  \hspace*{2.5cm} longExpression4, longExpression5);} \\ ;
+  \item a capo riga prima di un operatore, esempio: \\
+  \hspace*{0.5cm} \co{longName1 = longName2 * (longName3 + longName4 -
+  longName5)} \\
+  \hspace*{2.5cm} \co{+ 4 * longname6;} \\ ;
+  \item preferire le interruzioni di livello superiore a rotture di livello
+  inferiore (vedi l'esempio precedente: la rottura si verifica al
+  di fuori dell'espressione tra parentesi, che \`e ad un livello superiore);
+  \item allineare la nuova linea con l'inizio dell'espressione allo stesso
+  livello della linea precedente, esempio: \\
+  \hspace*{0.5cm} \co{if ((condition1 \&\& condition2) || (condition3 \&\&
+  condition4)} \\
+  \hspace*{2.5cm} \co{||!(condition5 \&\& condition6)) \{} \\
+  \hspace*{1.5cm} \co{doSomethingAboutIt();} \\
+  \hspace*{0.5cm} \co{\}} \\.
+\end{itemize}
+
+\subsection{Commenti}
+I programmi Java possono avere due tipi di commenti: 
+\begin{itemize}
+  \item di Implementazione, pensati per commentare il codice o
+  una particolare implementazione e delimitati da \co{/*  */} oppure
+  \co{//};
+  \item di Documentazione (Doc), solo di Java, con lo scopo di descrivere le
+  specifiche del codice, delimitati da \co{/**  */} ed estraibili in file HTML
+  utilizzando lo strumento Javadoc (per maggiori dettagli vai al seguente link
+  \url{http://www.oracle.com/technetwork/java/javase/documentation/index-137868.html}).
+\end{itemize}
+
+\subsection{Dichiarazioni}
+\`E consigliata una dichiarazione per riga, per incoraggiare la scrittura dei
+commenti. Cercare di inizializzare le variabili locali dove sono dichiarate.
+Mettere le dichiarazioni all'inizio di un blocco, ad eccezione degli indici dei
+cicli (esempio: \co{for (int i = 0; i <maxLoops; i + +) \{...\}}). Evitare
+dichiarazioni locali che posso nascondere le dichiarazioni a livelli
+superiori.\\ \\ Quando si scrivono delle classi/interfacce Java bisogna seguire
+queste regole:
+\begin{itemize}
+  \item nessun spazio tra il nome del metodo e la parentesi ``('' di inizio
+  lista dei parametri;
+  \item la parentesi ``\{'' va alla fine e nella stessa riga del blocco di
+  dichiarazione;
+  \item la parentesi ``\}'' va in una nuova riga e rientrata in
+  corrispondenza del blocco di dichiarazione (se il blocco \`e nulla ``\}''
+  segue subito ``\{``);
+  \item i metodi sono separati da una riga vuota;
+  \item esempio riassuntivo:\\
+    \hspace*{0.5cm}\co{class Sample extends Object \{} \\
+    \hspace*{1.5cm}\co{    int ivar1;} \\
+    \hspace*{1.5cm}\co{    int ivar2;} \\
+    \\
+    \hspace*{1.5cm}\co{    Sample(int i, int j) \{} \\
+    \hspace*{2.5cm}\co{        ivar1 = i;} \\
+    \hspace*{2.5cm}\co{        ivar2 = j;} \\
+    \hspace*{1.5cm}\co{    \}} \\
+    \\
+    \hspace*{1.5cm}\co{    int emptyMethod() \{\}} \\
+    \\
+    \hspace*{1.5cm}\co{    ...} \\
+    \hspace*{0.5cm}\co{\}} 
+    \\.
+\end{itemize}
+
+\subsection{Istruzioni}
+I vari tipi di istruzioni sono:
+\begin{itemize}
+  \item \bo{semplici}, ogni linea pu\`o contenere al massimo un'istruzione,
+  esempio:\\ 
+  \hspace*{0.5cm} \co{argv++;}\\
+  \hspace*{0.5cm} \co{argc--;}\\ ;
+  \item \bo{composte}, contengono elenchi di istruzioni racchiuse tra parentesi
+  graffe ``\{\ldots\}'' che devono rientrare di un livello rispetto la
+  dichiarazione del blocco, la parentesi d'apertura ``\{'' deve essere alla fine
+  della riga dove inizia il blocco e quella di chiusura ``\}'' deve essere su
+  una nuova riga con la stessa rientranza della dichiarazione del blocco;
+  \item \bo{return}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{return myDisk.size();}\\ ;
+  \item \bo{if-else}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{if (condition) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\} else \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{for}, avere la seguente forma:\\
+  \hspace*{0.5cm} \co{for (initialization; condition; update) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{while}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{while (condition) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{do-while}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{do \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\} while (condition) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{switch}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{switch (condition) \{}\\ 
+  \hspace*{0.5cm} \co{case ABC:}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{1.5cm} \co{break;}\\
+  \hspace*{0.5cm} \co{case XYZ:}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{1.5cm} \co{break;}\\
+  \hspace*{0.5cm} \co{default:}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{1.5cm} \co{break;}\\
+  \hspace*{0.5cm} \co{\}}\\ ;
+  \item \bo{try-catch-finally}, avere la seguente forma: \\
+  \hspace*{0.5cm} \co{try \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\ 
+  \hspace*{0.5cm} \co{\} catch (Exception e) \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{0.5cm} \co{\} finally \{}\\ 
+  \hspace*{1.5cm} \co{statements;}\\
+  \hspace*{0.5cm} \co{\}}\\ .
+\end{itemize}
+
+\subsection{Righe vuote}
+Due righe vuote devono essere utilizzate nelle seguenti circostanze:
+\begin{itemize}
+  \item tra le sezioni di un file sorgente; 
+  \item tra le definizioni di classe e di interfaccia.  
+\end{itemize} 
+Una riga vuota deve essere utilizzata nelle seguenti circostanze:
+\begin{itemize}
+  \item tra i metodi; 
+  \item tra le variabili locali in un metodo e la sua prima dichiarazione;
+  \item prima di un blocco o una linea singola di commento;
+  \item tra sezioni logiche all'interno di un metodo per migliorare la
+  leggibilit\`a.
+\end{itemize}
+Gli spazi vuoti devono essere utilizzati nelle seguenti circostanze:
+\begin{itemize}
+  \item una parola chiave seguita da una parentesi devono essere separati da uno
+  spazio \\(esempio: \co{while (true) \{\ldots\}});
+  \item uno spazio vuoto deve esserci dopo le virgole in liste di
+  argomenti;
+  \item tutti gli operatori binari tranne il ``\co{.}'' devono essere separati
+  dai loro operandi tramite spazi. Invece gli spazi vuoti non dovranno mai
+  separare gli operatori unari (es: \co{++}) dai loro operandi;
+  \item le espressioni in un'istruzione \emph{for} devono essere separate da
+  spazi vuoti \\(esempio: \co{for (expr1; expr2; expr3)});
+  \item i Cast devono essere seguiti da uno spazio.
+\end{itemize} 
+
+\subsection{Convenzione sui nomi}
+Le convenzioni di denominazione rendono i programmi pi\`u comprensibili,
+rendendoli pi\`u facili da leggere. Essi possono inoltre fornire informazioni
+sulla funzione dell'identificatore, ad esempio, se \`e una costante, un
+pacchetto o una classe, che pu\`o essere utile nella comprensione del codice.
+\begin{itemize}
+  \item \bo{Package}: il prefisso del nome di un package deve essere sempre
+  scritto in lettere minuscole ed essere uno dei nomi di dominio di primo
+  livello (esempio: \co{it}).
+  Poi i componenti del nome del package devono seguire delle
+  convenzioni interne del gruppo (esempio: \co{it.unipd.netmus.client});
+  \item \bo{Classi/Interfacce}: i nomi delle classi/interfacce devono essere
+  sostantivi, indicare in maniera univoca il loro contenuto, essere scritti in
+  lingua inglese e avere la prima lettera di ogni parola in maiuscolo (esempio:
+  \co{class ExampleOne};);
+  \item \bo{Metodi}: i nomi dei metodi devono essere verbi, essere scritti in
+  inglese e nel caso in cui sono composti, la prima lettera va in
+  minuscolo mentre la prima lettera di ogni parola interna in maiuscolo
+  (esempio: \co{runFast();});
+  \item \bo{Variabili}: i nomi delle variabili non costanti devono essere scritti in
+  inglese, tutti in minuscolo e nel caso in cui sono composti, le parole interne
+  devono essere separate da underscore ``\_'' (esempio: \co{String
+  example\_of\_variable;});
+  \item \bo{Costanti}: i nomi delle variabili costanti devono essere
+  scritti in inglese, con tutte le lettere in maiuscolo e l'underscore ``\_''
+  per dividere le parole interne nel caso in cui il nome \`e composto (esempio:
+  \co{static final int MIN\_WIDTH = 4;}).
+\end{itemize}
+
+\subsection{Pratiche di programmazione}
+Ogni programmatore dovr\`a:
+\begin{itemize}
+  \item{consegnare codice che compila senza errori fatali o
+potenziali (warning);} 
+  \item{aver utilizzato con chiarezza e coerenza i costrutti del
+linguaggio;}
+  \item{aver utilizzato un sottoinsieme appropriato del linguaggio
+(preferire i costrutti di maggiore robustezza, verificabilit\`a e leggibilit\`a
+rispetto quelli di maggiore potenza espressa e velocit\`a).}
+\end{itemize}
+
+\subsection{Suggerimenti sull'utilizzo degli strumenti di Eclipse}
+Quelli riportati di seguito non sono regolamenti da rispettare necessariamente
+ma suggerimenti il cui utilizzo pu\`o portare beneficio alla chiarezza del
+codice ed al tempo impiegato dai programmatori per la stesura dello stesso.
+Tutte queste operazioni sono accessibili dal menu ``Source'' e configurabili da
+``Window -\textgreater Preferences'':
+\begin{itemize}
+  \item utilizzare ``Generate Element/Block Comment'' per impostare inizialmente
+  i commenti a classi e metodi;
+  \item utilizzare ``Organize Imports'' per ordinare le istruzioni di import in
+  testa al file;
+  \item utilizzare ``Sort Members'' per ordinare la dichiarazione di attributi e
+  metodi secondo l'ordine di visibilit\`a public-protected-package-private.
+  \item utilizzare ``Generate Getters and Setters'' una volta che si sono
+  definiti gli attributi privati in modo da generare automaticamente i metodi
+  ``get'', ``set'' e ``is'' relativi.
+\end{itemize}
+
+
+\chapter{Norme per i Test software}
+\thispagestyle{fancy}
+Per identificare in modo univoco e significativo ognuno dei test software creati
+per fare verifica su codice e presenti nel documento \emph{PianoDiQualifica-\versionePQ.pdf}, gli viene assegnato un codice e in
+dettaglio:\\ \\
+\bo{TX-C(pc)(sc)n} \\
+\bo{T} = test \\
+\bo{X} = d'unit\`a \\
+\bo{C} = componente \\
+\bo{pc} = due lettere per identificare il package \\
+\bo{sc} = due lettere per identificare il sottopackage \\
+\bo{n} = numero incrementale che indica la classe contenuta nel package
+\\ \\
+Esempio:
+\begin{itemize}
+  \item \bo{TU-Cclap3} = test d'unit\`a per la classe TranslateDTOXML del
+  package client.applet
+\end{itemize}
+
+\chapter{Repository e Versionamento}
+\thispagestyle{fancy}
+Come servizio di hosting per mantenere online i repository
+viene utilizzato Google Code Project Hosting
+(\url{http://code.google.com/hosting/}). Questo offre un buon
+servizio di ticketing e una comoda e completa interfaccia web per
+la visualizzazione e gestione dei dati caricati. In tale spazio sono
+stati creati due repository: uno per i documenti e uno per il codice sorgente
+(per maggiori dettagli vedi sezione 4.2). 
+\\ \\
+Come sistema di
+\underline{versionamento} per tali repository viene utilizzato Mercurial,
+strumento che deve essere installato nel sistema di ogni componente del gruppo
+(per maggiori dettagli vedi sezione 4.3).
+\\ \\
+Poich\'e durante l'intero sviluppo verr\`a usato principalmente l'ambiente
+Eclipse, si utilizzer\`a il comodo plugin Mercurial Eclipse che consente di accedere
+graficamente a tutte le funzionalit\`a di Mercurial (per maggiori dettagli vedi
+sezione 4.4). 
+\\
+Per scaricare localmente un repository con le ultime versioni dei
+file si deve eseguire un ``\underline{Pull}'' all'interno del progetto
+selezionato. Una volta effettuate delle modifiche, aggiunte o rimozioni viene
+utilizzato il relativo ``\underline{Commit}'' per descrivere l'avanzamento di
+versione e poi viene ultimato il ``\underline{Push}'' per caricare tale versione
+nel repository. Mercurial con i ``\underline{Merge}'' riesce a gestire in maniera efficiente i vari conflitti
+che potrebbero esserci in ``Push'' simultanei nello stesso branch.\\ 
+\\
+In ogni ``Commit'' viene adottata tale convenzione: 
+``Operazione NomeDelFile Descrizione''
+\begin{itemize}
+\item {Operazione: \`e l'operazione fatta su un determinato file (ADD, NEW, FIX,
+DEL) e nello specifico}
+\begin {itemize}
+\item {ADD: \`e stato aggiunto qualcosa di nuovo ad un file gi\`a esistente;}
+\item {NEW: \`e stato creato qualcosa di nuovo, quindi un nuovo file;} 
+\item {FIX: \`e stato modificato un contenuto presente in un file gi\`a
+esistente;} 
+\item {DEL: \`e stato totalmente eliminato qualcosa;}
+\end {itemize}
+\item {NomeDelFile: \`e il nome del file in questione;}
+\item {Descrizione: \`e una breve descrizione dell'operazione eseguita.}
+\end{itemize}
+Riguardo al versionamento di un documento, ogni modifica apportata a questo
+determina un incremento dell'indice minore (esempio: da 0.1 a 0.2) mentre ogni
+rilascio pubblico determina un incremento dell'indice maggiore (esempio in
+previsione della RR: da 0.4 a 1.0), ad eccezione del Piano di Qualifica che
+nel periodo RP-RQ subir\`a un avanzamento di due versioni per dare rilievo al
+completamento della pianificazione della campagna di verifica e validazione.
+
+
+\chapter{Registro delle modifiche}
+\thispagestyle{fancy}
+Per agevolare la comprensione e tracciare uno storico delle modifiche
+effettuate, all'interno di ciascun documento dovr\`a essere sempre
+presente un registro dettagliato delle modifiche (a partire da
+pagina II prima dell'indice). Questo permetter\`a di evidenziare la data
+d'introduzione della modifica, il numero di versione raggiunto, l'autore e una
+breve descrizione di tale modifica.
+
+
+\chapter{Riunioni e incontri}
+\thispagestyle{fancy}
+Tutte le riunioni e gli incontri ufficiali vengono svolti nelle seguenti sedi:
+
+\begin{itemize}
+\item Residenza Messori, in via Manin 31 a Padova (sede principale);
+\item Laboratorio di Informatica, in via Paolotti a Padova.
+\end{itemize}
+
+Prima di ogni riunione il responsabile dovr\`a scrivere il documento
+``Ordine del giorno'', un documento interno e informale che specifica quali saranno gli
+argomenti discussi e in che sequenza affrontati. Dovr\`a essere inserito nella
+sezione ``Discussioni'' del forum dei VT.G. \\ \\
+A fine riunione il responsabile dovr\`a scrivere il ``Verbale riunione'', un
+documento interno e informale in cui si riportano le decisioni e le scelte
+discusse rispetto ai punti dell'``Ordine del giorno''. Dovr\`a essere inserito
+nella sezione ``Discussioni'' del forum dei VT.G.
+
+\chapter{Consegna}
+\thispagestyle{fancy}
+Per ciascuna revisione, il gruppo VT.G si impegna a consegnare i documenti
+tramite l'e-mail del gruppo in un unico file compresso ``.zip''. Al suo interno i
+file saranno suddivisi in base all'uso, interno o esterno.
+
+%\listoftables
+%\addcontentsline{toc}{chapter}{Indice Tabelle}
+\listoffigures
+\addcontentsline{toc}{chapter}{Indice Figure}
+\end{document}
